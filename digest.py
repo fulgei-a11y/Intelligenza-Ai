@@ -2,16 +2,25 @@
 """
 AI News Digest — riassunto quotidiano delle notizie sull'intelligenza artificiale.
 
-1. Legge i feed RSS/Atom elencati in sources.json
-2. Tiene solo gli articoli delle ultime ORE_FINESTRA ore (default 36)
-3. Chiede a Gemini un riassunto in italiano, citando solo articoli realmente letti
-4. Genera pagine HTML statiche in docs/ (pubblicate con GitHub Pages)
+1. Legge i feed RSS/Atom elencati in sources.json (ultime ORE_FINESTRA ore)
+2. Toglie gli articoli già usati nell'edizione precedente (niente doppioni)
+3. Scarica il testo completo degli articoli che hanno solo il titolo (anche da Google News)
+4. Chiede a Gemini un riassunto in italiano, citando solo articoli realmente letti,
+   poi applica regole fisse: etichette di affidabilità, "Solo titoli", niente accuse senza fonti solide
+5. La domenica crea anche "La settimana dell'AI"
+6. Genera le pagine HTML statiche in docs/ (GitHub Pages), con archivio, ricerca e glossario
 
-Nessuna dipendenza esterna: solo la libreria standard di Python 3.9+.
+Uso:  python digest.py              edizione di oggi
+      python digest.py --pagine     ricostruisce solo le pagine dai dati salvati
+      python digest.py --settimana  crea ora "La settimana dell'AI"
+
+Librerie facoltative (se mancano si usa una riserva con la sola libreria standard):
+  trafilatura (estrae il testo degli articoli), googlenewsdecoder (link originali di Google News)
 Variabili d'ambiente:
   GEMINI_API_KEY   chiave gratuita da https://aistudio.google.com/apikey
-  GEMINI_MODEL     modello da usare (default: gemini-2.5-flash)
+  GEMINI_MODEL     modello preferito (default: gemini-3.5-flash, con riserve automatiche)
   ORE_FINESTRA     ore di notizie da considerare (default: 36)
+  AVVISI_FILE      file dove annotare i problemi da segnalare
 """
 
 import html
@@ -35,10 +44,22 @@ DATA = DOCS / "data"
 GIORNI = DOCS / "giorni"
 TZ = ZoneInfo("Europe/Rome")
 
+SETTIMANE = DOCS / "settimana"
+AUDIO = DOCS / "audio"
+
 ORE_FINESTRA = int(os.environ.get("ORE_FINESTRA", "36"))
-MODELLO = os.environ.get("GEMINI_MODEL") or "gemini-2.5-flash"
-MODELLI_RISERVA = ["gemini-2.5-flash-lite"]
+# Il primo modello disponibile vince; se uno viene ritirato (errore 404) si passa al successivo.
+MODELLI = [m for m in dict.fromkeys([
+    os.environ.get("GEMINI_MODEL", "").strip(),
+    "gemini-3.5-flash", "gemini-2.5-flash", "gemini-2.5-flash-lite",
+]) if m]
 UA = "Mozilla/5.0 (compatible; AI-News-Digest/1.0; +https://github.com)"
+UA_BROWSER = ("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
+              "(KHTML, like Gecko) Chrome/128.0 Safari/537.36")
+MAX_DA_LEGGERE = int(os.environ.get("MAX_DA_LEGGERE", "70"))   # articoli di cui scaricare il testo
+MAX_TESTO = 1800                                                # caratteri di testo per articolo
+TESTO_MINIMO = 350                                              # sotto questa soglia è "solo titolo"
+AVVISI = []                                                     # problemi da segnalare al proprietario
 
 PAROLE_AI = re.compile(
     r"\b(ai|a\.i\.|ia|intelligenz[ae] artificial[ei]|artificial intelligence|"
@@ -238,6 +259,107 @@ def raccogli(fonti, limite_tempo, editori_esclusi=()):
     return tutti, stato
 
 
+# ---------------------------------------------------------------- testo completo degli articoli
+#
+# I feed spesso danno solo il titolo (Google News sempre). Senza testo il modello è costretto a
+# indovinare i dettagli: qui scarichiamo l'articolo vero e ne estraiamo il testo.
+
+def risolvi_google(url):
+    """Trasforma un link news.google.com nel link dell'articolo originale ('' se non ci riesce)."""
+    try:
+        from googlenewsdecoder import gnewsdecoder
+    except ImportError:
+        try:
+            from googlenewsdecoder import new_decoderv1 as gnewsdecoder
+        except ImportError:
+            return ""
+    try:
+        r = gnewsdecoder(url, interval=1)
+        if isinstance(r, dict) and r.get("status") and str(r.get("decoded_url", "")).startswith("http"):
+            return r["decoded_url"]
+    except Exception as ex:  # la libreria dipende da Google: qualunque errore = rinuncia
+        print(f"    (link Google non decodificato: {str(ex)[:80]})", file=sys.stderr)
+    return ""
+
+
+def scarica_pagina(url, timeout=20):
+    req = urllib.request.Request(url, headers={
+        "User-Agent": UA_BROWSER, "Accept": "text/html,application/xhtml+xml",
+        "Accept-Language": "it-IT,it;q=0.9,en;q=0.8"})
+    with urllib.request.urlopen(req, timeout=timeout) as r:
+        tipo = r.headers.get("Content-Type", "")
+        if "html" not in tipo and "xml" not in tipo:
+            return ""
+        grezzo = r.read(3_000_000)
+        cs = r.headers.get_content_charset() or "utf-8"
+    return grezzo.decode(cs, errors="replace")
+
+
+def estrai_testo(pagina_html, url=""):
+    testo = ""
+    try:
+        import trafilatura
+        testo = trafilatura.extract(pagina_html, url=url, include_comments=False,
+                                    include_tables=False, favor_precision=True) or ""
+    except ImportError:
+        pass
+    except Exception:
+        testo = ""
+    if len(testo) < TESTO_MINIMO:
+        # Riserva senza librerie: descrizione della pagina + paragrafi lunghi.
+        corpo = re.sub(r"(?is)<(script|style|nav|header|footer|aside|form)\b.*?</\1>", " ", pagina_html)
+        meta = re.search(r'(?is)<meta[^>]+(?:property|name)=["\'](?:og:)?description["\'][^>]+content=["\']([^"\']+)',
+                         corpo)
+        paragrafi = [pulisci_testo(p, 2000) for p in re.findall(r"(?is)<p\b[^>]*>(.*?)</p>", corpo)]
+        paragrafi = [p for p in paragrafi if len(p) > 80]
+        riserva = " ".join(([html.unescape(meta.group(1))] if meta else []) + paragrafi)
+        if len(riserva) > len(testo):
+            testo = riserva
+    testo = re.sub(r"\s+", " ", testo).strip()
+    return (testo[: MAX_TESTO - 1] + "…") if len(testo) > MAX_TESTO else testo
+
+
+def arricchisci(articoli):
+    """Aggiunge il testo completo agli articoli che ne hanno poco. Restituisce quanti ne ha arricchiti."""
+    from concurrent.futures import ThreadPoolExecutor
+    ordine = {"ufficiale": 0, "testata": 1, "minore": 2}
+    candidati = [a for a in articoli
+                 if a.get("tipo") in ordine and a.get("categoria") != "Ricerca"
+                 and len(a.get("testo", "")) < TESTO_MINIMO]
+    candidati.sort(key=lambda a: ordine[a["tipo"]])
+    candidati = candidati[:MAX_DA_LEGGERE]
+    if not candidati:
+        return 0
+    print(f"Leggo il testo completo di {len(candidati)} articoli…")
+
+    # 1) I link di Google News vanno decodificati uno alla volta, con calma.
+    for a in candidati:
+        if "news.google.com" in a["link"]:
+            vero = risolvi_google(a["link"])
+            if vero:
+                a["link"] = vero          # anche il lettore finirà sull'articolo vero
+
+    # 2) Scarichiamo le pagine in parallelo.
+    def leggi(a):
+        if "news.google.com" in a["link"]:
+            return a, ""
+        try:
+            return a, estrai_testo(scarica_pagina(a["link"]), a["link"])
+        except Exception:
+            return a, ""
+
+    arricchiti = 0
+    with ThreadPoolExecutor(8) as ex:
+        for a, testo in ex.map(leggi, candidati):
+            if len(testo) >= TESTO_MINIMO and len(testo) > len(a.get("testo", "")):
+                a["testo"] = testo
+                a["solo_titolo"] = False
+                a["testo_completo"] = True
+                arricchiti += 1
+    print(f"  ✓ testo completo per {arricchiti} articoli su {len(candidati)}")
+    return arricchiti
+
+
 # ---------------------------------------------------------------- Gemini
 
 ISTRUZIONI = """Sei il caporedattore di una rassegna quotidiana sull'intelligenza artificiale, in ITALIANO.
@@ -254,6 +376,9 @@ Tipi di fonte, dal più al meno autorevole:
 - community: post di Reddit o Hacker News, NON verificato
 Molti articoli arrivano SOLO CON IL TITOLO: in quel caso sai CHE COSA è successo ma non i dettagli.
 Non dedurre dettagli che il titolo non dice (come funziona, dove si trova, prezzi, paesi, date).
+Se TUTTE le fonti di una notizia sono [SOLO TITOLO], il riassunto è di 1-2 frasi e dice soltanto
+ciò che i titoli affermano: niente elenchi, cause, numeri o conseguenze che i titoli non contengono.
+Non usare le tue conoscenze per completare la notizia: conta solo ciò che è scritto negli articoli.
 
 REGOLE SUI FATTI (tassative)
 1. Usa SOLO informazioni presenti negli articoli. Non inventare fatti, cifre, nomi, date, prezzi.
@@ -266,6 +391,10 @@ REGOLE SUI FATTI (tassative)
 5. IGNORA: storie di clienti / casi studio aziendali ("Come l'azienda X usa ChatGPT"), annunci di
    partnership minori, commenti sul prezzo delle azioni, articoli puramente promozionali.
 6. Scrivi chiaro, frasi brevi, niente gergo; spiega ogni termine tecnico in poche parole.
+7. MAI riportare accuse (reati, furti di dati, frodi, illeciti, scandali) contro persone o aziende se le
+   uniche fonti sono community o editori "minore": ometti la notizia.
+8. Se ricevi l'elenco "GIÀ PUBBLICATE NELL'EDIZIONE PRECEDENTE", non ripetere quelle notizie. Riprendile
+   solo se gli articoli di oggi riportano uno sviluppo nuovo, e in quel caso racconta SOLO la novità.
 
 SELEZIONE E SEZIONI (massimo 12 notizie in tutto, meglio 8 ottime che 12 mediocri)
 - "Le notizie principali": 3-5 fatti più importanti della giornata per chiunque.
@@ -322,20 +451,29 @@ Rispondi SOLO con JSON valido:
 Ometti le sezioni vuote. Ogni elemento deve avere almeno un id valido in "fonti"."""
 
 
-def chiedi_a_gemini(articoli, chiave):
+def chiedi_a_gemini(articoli, chiave, gia_pubblicate=()):
     elenco = "\n".join(
         f"[{a['id']}] {{{a.get('tipo', 'testata')} · {a['fonte']} · {a['categoria']}}} {a['titolo']}"
-        + (f" — {a['testo']}" if a["testo"] else "  [SOLO TITOLO, nessun testo disponibile]")
+        + (f" — {a['testo']}" if not a.get("solo_titolo") and a["testo"]
+           else "  [SOLO TITOLO, nessun testo disponibile]")
         for a in articoli
     )
+    testo = "ARTICOLI DI OGGI:\n" + elenco
+    if gia_pubblicate:
+        testo = ("GIÀ PUBBLICATE NELL'EDIZIONE PRECEDENTE (non ripeterle senza sviluppi nuovi):\n"
+                 + "\n".join(f"- {t}" for t in gia_pubblicate) + "\n\n" + testo)
+    return chiama_gemini(ISTRUZIONI, testo, chiave)
+
+
+def chiama_gemini(istruzioni, testo, chiave):
     corpo = {
-        "systemInstruction": {"parts": [{"text": ISTRUZIONI}]},
-        "contents": [{"role": "user", "parts": [{"text": "ARTICOLI DI OGGI:\n" + elenco}]}],
+        "systemInstruction": {"parts": [{"text": istruzioni}]},
+        "contents": [{"role": "user", "parts": [{"text": testo}]}],
         "generationConfig": {"temperature": 0.3, "responseMimeType": "application/json"},
     }
     dati = json.dumps(corpo).encode()
     ultimo_errore = None
-    for modello in [MODELLO] + [m for m in MODELLI_RISERVA if m != MODELLO]:
+    for modello in MODELLI:
         url = f"https://generativelanguage.googleapis.com/v1beta/models/{modello}:generateContent"
         for tentativo in range(3):
             req = urllib.request.Request(url, data=dati, method="POST", headers={
@@ -343,7 +481,8 @@ def chiedi_a_gemini(articoli, chiave):
             try:
                 with urllib.request.urlopen(req, timeout=180) as r:
                     risposta = json.loads(r.read())
-                testo = risposta["candidates"][0]["content"]["parts"][0]["text"]
+                parti = risposta["candidates"][0]["content"]["parts"]
+                testo = "".join(p.get("text", "") for p in parti if not p.get("thought"))
                 testo = re.sub(r"^```(?:json)?|```$", "", testo.strip()).strip()
                 print(f"  ✓ riassunto generato con {modello}")
                 return json.loads(testo), modello
@@ -390,17 +529,32 @@ def affidabilita(ids, per_id, proposta=""):
     return "Una fonte" if proposta != "Da verificare" else "Da verificare"
 
 
+ACCUSE = re.compile(
+    r"rubat|ruba |furto|stolen|steal|truff|frod|fraud|illegal|illecit|scandal|accus|alleg|"
+    r"leak|trapelat|hack|violat|breach|lawsuit|denunc|arrest|indagat|corrott|corrupt|scam|mentit|lied",
+    re.IGNORECASE)
+
+
 def verifica(riassunto, per_id):
     """Scarta tutto ciò che non cita articoli realmente letti e applica le regole di affidabilità."""
     limiti = {"ricerca": 2, "dalla community": 3}
     sezioni = []
     for s in riassunto.get("sezioni", []):
+        community = "community" in s.get("titolo", "").lower()
         notizie = []
         for n in s.get("notizie", []):
             ids = pulisci_fonti(n.get("fonti", []), per_id)
             if not (ids and n.get("titolo")):
                 continue
+            tipi = {per_id[i].get("tipo") for i in ids}
+            deboli = tipi <= {"community", "minore"}
+            if deboli and ACCUSE.search(f"{n.get('titolo', '')} {n.get('riassunto', '')}"):
+                print(f"  ⊘ scartata (accusa senza fonti solide): {n.get('titolo')}")
+                continue
+            if tipi <= {"community"} and not community:
+                continue                   # le voci della community stanno solo nella loro sezione
             n["affidabilita"] = affidabilita(ids, per_id, n.get("affidabilita", ""))
+            n["solo_titoli"] = all(per_id[i].get("solo_titolo") for i in ids)
             n["fonti"] = ids[:MAX_LINK]
             notizie.append(n)
         notizie = notizie[: limiti.get(s.get("titolo", "").strip().lower(), 99)]
@@ -492,31 +646,221 @@ details{margin-top:40px;font:14px system-ui,sans-serif;color:var(--muted)}
 """
 
 
+CSS += """
+.when{font:13px system-ui,sans-serif;color:var(--muted);margin:-4px 0 10px}
+.rel.soft{color:var(--muted);background:transparent;border:1px dashed var(--line)}
+.listen{display:flex;align-items:center;gap:10px;flex-wrap:wrap;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:10px 14px;margin:14px 0 4px}
+.listen span{font:600 14px system-ui,sans-serif}.listen audio{width:100%;height:40px}
+.week{display:block;text-decoration:none;color:var(--ink);background:var(--card);border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:12px;padding:12px 16px;margin:18px 0 0}
+.week small{display:block;font:600 12px system-ui,sans-serif;letter-spacing:.06em;text-transform:uppercase;color:var(--accent)}
+.week b{font-size:17px}
+.glossario dl{margin:0}.glossario dt{font-weight:700;margin-top:10px}.glossario dd{margin:2px 0 0;color:var(--muted);font-size:15px}
+.cerca{width:100%;font:16px system-ui,sans-serif;padding:11px 14px;border:1px solid var(--line);border-radius:12px;background:var(--card);color:var(--ink);margin:4px 0 10px}
+.risultati{list-style:none;padding:0;margin:0 0 14px}.risultati li{padding:8px 0;border-bottom:1px solid var(--line)}
+.risultati a{color:var(--ink);text-decoration:none}.risultati small{display:block;font:12px system-ui,sans-serif;color:var(--muted)}
+.arch{padding-left:0;list-style:none}.arch small{font:12px system-ui,sans-serif;color:var(--muted);margin-right:6px}
+.etichette dt{display:inline-block;margin-top:8px}.etichette dd{margin:2px 0 0}
+article:target{outline:2px solid var(--accent)}
+@media print{.listen,.week,.cerca,.risultati,.glossario{display:none!important}}
+"""
+
+GLOSSARIO = [
+    (r"agent[ei]( ai| di intelligenza artificiale)?|\bai agents?\b", "Agente AI",
+     "Un'intelligenza artificiale che non si limita a rispondere, ma compie azioni da sola (apre siti, "
+     "usa programmi, scrive email) per portare a termine un compito."),
+    (r"\bmodell[oi]( linguistic[oi]| di intelligenza artificiale| ai)?\b", "Modello",
+     "Il \"cervello\" di un'AI come ChatGPT, Gemini o Claude: un programma addestrato su enormi quantità "
+     "di testi, immagini o suoni."),
+    (r"\bllm\b", "LLM", "Large Language Model, cioè modello linguistico di grandi dimensioni: il tipo di AI "
+     "che sta dietro i chatbot."),
+    (r"di frontiera|frontier", "Modello di frontiera", "I modelli più avanzati del momento, sviluppati dai "
+     "grandi laboratori."),
+    (r"open[ -]?source|pesi aperti|open[ -]?weights?", "Open source / pesi aperti",
+     "Un modello che chiunque può scaricare e usare liberamente, anche sul proprio computer."),
+    (r"\bai generativa|generative ai|intelligenza artificiale generativa", "AI generativa",
+     "AI che crea contenuti nuovi: testi, immagini, musica, video."),
+    (r"\bai act\b", "AI Act", "Il regolamento europeo sull'intelligenza artificiale: classifica gli usi "
+     "dell'AI in base al rischio e vieta quelli più pericolosi."),
+    (r"\bprompt\b", "Prompt", "La richiesta o l'istruzione scritta che si dà all'AI."),
+    (r"allucinazion", "Allucinazione", "Quando un'AI afferma con sicurezza cose false o inventate."),
+    (r"addestrament|addestrat|\btraining\b", "Addestramento", "La fase in cui un modello impara, analizzando "
+     "grandi quantità di dati."),
+    (r"benchmark", "Benchmark", "Un test standard usato per confrontare le capacità di AI diverse."),
+    (r"deepfake", "Deepfake", "Video, foto o audio falsi ma realistici, creati con l'AI per far sembrare che "
+     "una persona abbia detto o fatto qualcosa."),
+    (r"multimodal", "Multimodale", "Un'AI che capisce e produce più tipi di contenuto insieme: testo, immagini, "
+     "audio, video."),
+    (r"\btoken\b", "Token", "I pezzetti di testo con cui un'AI legge e scrive; spesso i prezzi per gli "
+     "sviluppatori si contano in token."),
+    (r"\bapi\b", "API", "Il \"canale\" con cui altri programmi usano un'AI; riguarda soprattutto gli sviluppatori."),
+    (r"\bgpu\b|\bchip\b", "GPU / chip", "Processori specializzati, soprattutto di Nvidia, indispensabili per "
+     "addestrare e far funzionare le AI."),
+    (r"data ?center", "Data center", "Enormi edifici pieni di computer dove le AI vengono addestrate e "
+     "fatte funzionare; consumano molta energia."),
+    (r"\bagi\b|superintelligenz", "AGI", "Un'AI capace di svolgere qualunque compito intellettuale umano: per ora "
+     "un obiettivo dichiarato dei laboratori, non una realtà."),
+    (r"filigran|watermark|synthid", "Filigrana digitale", "Un segno invisibile inserito nei contenuti creati "
+     "dall'AI, che permette di riconoscerli."),
+    (r"\barxiv\b|preprint|non revisionat", "arXiv", "Archivio online dove i ricercatori pubblicano studi "
+     "prima che vengano controllati da altri esperti."),
+    (r"fine[- ]?tuning", "Fine-tuning", "Specializzare un modello già addestrato su un compito o un tipo di "
+     "testi particolare."),
+    (r"\brag\b", "RAG", "Tecnica che fa consultare all'AI documenti specifici prima di rispondere, per "
+     "ridurre gli errori."),
+    (r"ragionament|reasoning", "Modelli che ragionano", "AI che prima di rispondere \"pensano\" in più "
+     "passaggi: più lente, ma più brave in matematica e problemi complessi."),
+    (r"chatbot", "Chatbot", "Un programma con cui si conversa per iscritto o a voce, come ChatGPT."),
+    (r"\bcopyright|diritto d'autore", "Copyright", "Il diritto d'autore: molte cause riguardano l'uso di "
+     "articoli, libri e immagini per addestrare le AI senza permesso."),
+]
+GLOSSARIO = [(re.compile(p, re.IGNORECASE), t, d) for p, t, d in GLOSSARIO]
+
+ETICHETTE = [
+    ("Fonte ufficiale", "La notizia viene dall'azienda o dall'ente interessato: affidabile sui fatti, ma è "
+     "comunque autopromozione."),
+    ("Confermata", "Riportata da almeno due testate giornalistiche affidabili."),
+    ("Una fonte", "Riportata da una sola testata affidabile."),
+    ("Da verificare", "Solo siti minori o discussioni online: prendila come una voce."),
+    ("Studio non revisionato", "Ricerca pubblicata prima del controllo di altri esperti."),
+    ("Solo titoli", "Le fonti disponibili avevano solo il titolo: il riassunto si limita a quello, "
+     "per i dettagli apri l'articolo."),
+]
+
+GIORNI_IT = ["lunedì", "martedì", "mercoledì", "giovedì", "venerdì", "sabato", "domenica"]
+MESI_IT = ["gennaio", "febbraio", "marzo", "aprile", "maggio", "giugno", "luglio", "agosto",
+           "settembre", "ottobre", "novembre", "dicembre"]
+
+
 def e(s):
     return html.escape(str(s or ""))
+
+
+def data_italiana(d):
+    return f"{GIORNI_IT[d.weekday()]} {d.day} {MESI_IT[d.month - 1]} {d.year}"
+
+
+def data_breve(g):
+    d = datetime.strptime(g, "%Y-%m-%d")
+    return f"{d.day} {MESI_IT[d.month - 1][:3]}"
 
 
 def chips(ids, per_id):
     out = []
     for i in ids:
-        a = per_id[i]
+        a = per_id.get(i)
+        if not a:
+            continue
         out.append(f'<a href="{e(a["link"])}" target="_blank" rel="noopener" title="{e(a["titolo"])}">'
                    f'{e(a["fonte"])} ↗</a>')
     return '<div class="src">' + "".join(out) + "</div>"
 
 
-def pagina(giorno, r, per_id, stato, modello, archivio, prefisso):
-    giorni = ["lunedì", "martedì", "mercoledì", "giovedì", "venerdì", "sabato", "domenica"]
-    mesi = ["gennaio", "febbraio", "marzo", "aprile", "maggio", "giugno", "luglio", "agosto",
-            "settembre", "ottobre", "novembre", "dicembre"]
-    data_it = f"{giorni[giorno.weekday()]} {giorno.day} {mesi[giorno.month - 1]} {giorno.year}"
+def badge(aff, solo_titoli=False):
+    classe = {"Fonte ufficiale": "ok", "Confermata": "ok", "Da verificare": "warn",
+              "Studio non revisionato": "warn"}.get(aff, "")
+    out = f'<span class="rel {classe}">{e(aff)}</span>' if aff else ""
+    if solo_titoli:
+        out += ('<span class="rel soft" title="Le fonti avevano solo il titolo: per i dettagli apri '
+                'l\'articolo">Solo titoli</span>')
+    return out
+
+
+def testo_della_giornata(r):
+    pezzi = [r.get("titolo_giorno", ""), r.get("in_breve", "")]
+    for d in r.get("da_provare", []):
+        pezzi += [d.get("cosa", ""), d.get("a_cosa_serve", "")]
+    for s in r.get("sezioni", []):
+        for n in s.get("notizie", []):
+            pezzi += [n.get("titolo", ""), n.get("riassunto", ""), n.get("perche_conta", "")]
+    return " ".join(str(p) for p in pezzi)
+
+
+def glossario_html(r, massimo=8):
+    testo = testo_della_giornata(r)
+    voci = [(t, d) for rx, t, d in GLOSSARIO if rx.search(testo)][:massimo]
+    if not voci:
+        return ""
+    righe = "".join(f"<dt>{e(t)}</dt><dd>{e(d)}</dd>" for t, d in voci)
+    return f'<h2>Parole da sapere</h2><section class="glossario"><dl>{righe}</dl></section>'
+
+
+def testa(titolo, descrizione, url_pagina, prefisso):
+    sito = indirizzo_sito()
+    img = (sito + "anteprima.png") if sito else f"{prefisso}anteprima.png"
+    return (f'<!doctype html><html lang="it"><head><meta charset="utf-8">'
+            f'<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">'
+            f"<title>{e(titolo)}</title>"
+            f'<meta name="description" content="{e(descrizione)}">'
+            f'<meta name="theme-color" content="#c2410c">'
+            f'<link rel="manifest" href="{prefisso}manifest.webmanifest">'
+            f'<link rel="icon" type="image/png" href="{prefisso}icona-192.png">'
+            f'<link rel="apple-touch-icon" href="{prefisso}apple-touch-icon.png">'
+            f'<meta name="apple-mobile-web-app-capable" content="yes">'
+            f'<meta name="apple-mobile-web-app-title" content="AI News">'
+            f'<meta property="og:type" content="article"><meta property="og:site_name" content="AI News Digest">'
+            f'<meta property="og:title" content="{e(titolo)}">'
+            f'<meta property="og:description" content="{e(descrizione)}">'
+            f'<meta property="og:image" content="{e(img)}">'
+            f'<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">'
+            f'<meta property="og:locale" content="it_IT">'
+            f'<meta name="twitter:card" content="summary_large_image">'
+            + (f'<meta property="og:url" content="{e(url_pagina)}">' if url_pagina else "")
+            + f"<style>{CSS}</style></head>")
+
+
+def piede(prefisso, dati_js):
+    return (f"<script>const DIGEST={dati_js};const PREFISSO={json.dumps(prefisso)};{JS}</script>"
+            "</body></html>")
+
+
+def archivio_html(archivio, prefisso):
+    if not archivio:
+        return ""
+    voci = "".join(f'<li><a href="{prefisso}giorni/{g}.html"><small>{e(data_breve(g))}</small>{e(t)}</a></li>'
+                   for g, t in archivio[:60])
+    return ('<h2>Archivio</h2>'
+            '<input class="cerca" type="search" placeholder="🔎 Cerca nelle edizioni passate…" '
+            'aria-label="Cerca nell\'archivio" oninput="cerca(this.value)" onfocus="caricaIndice()">'
+            '<ul class="risultati" id="risultati" aria-live="polite"></ul>'
+            f'<ul class="arch" id="arch">{voci}</ul>')
+
+
+def legenda_html():
+    righe = "".join(f"<dt>{badge(t) if t != 'Solo titoli' else badge('', True)}</dt><dd>{e(d)}</dd>"
+                    for t, d in ETICHETTE)
+    return f'<details><summary>Come leggere le etichette</summary><dl class="etichette">{righe}</dl></details>'
+
+
+def pagina(dati, archivio, prefisso, settimana=None):
+    r = dati["riassunto"]
+    per_id = dati.get("articoli", {})
+    stato = dati.get("fonti", [])
+    modello = dati.get("modello", "")
+    giorno = datetime.strptime(dati["giorno"], "%Y-%m-%d")
+    data_it = data_italiana(giorno)
+    quando = ""
+    if dati.get("generato"):
+        try:
+            quando = f"Aggiornato alle {datetime.fromisoformat(dati['generato']).astimezone(TZ):%H:%M}"
+        except ValueError:
+            pass
     parti = [f'<p class="top">AI News Digest · {e(data_it)}</p>',
              f"<h1>{e(r.get('titolo_giorno'))}</h1>",
-             f'<p class="lead">{e(r.get("in_breve"))}</p>',
-             '<div class="share">'
-             '<button type="button" onclick="condividi()">📤 Condividi</button>'
-             '<button type="button" onclick="copiaWhatsApp(this)">💬 Copia per WhatsApp</button>'
-             '<button type="button" onclick="window.print()">📄 Salva PDF</button></div>']
+             f'<p class="when">{e(quando)}</p>' if quando else "",
+             f'<p class="lead">{e(r.get("in_breve"))}</p>']
+    audio = dati.get("audio")
+    if audio and (DOCS / audio).exists():
+        minuti = round((dati.get("durata") or 0) / 60)
+        parti.append(f'<div class="listen"><span>🎧 Ascolta'
+                     f'{f" · {minuti} min" if minuti else ""}</span>'
+                     f'<audio controls preload="none" src="{prefisso}{e(audio)}"></audio></div>')
+    parti.append('<div class="share">'
+                 '<button type="button" onclick="condividi()">📤 Condividi</button>'
+                 '<button type="button" onclick="copiaWhatsApp(this)">💬 Copia per WhatsApp</button>'
+                 '<button type="button" onclick="window.print()">📄 Salva PDF</button></div>')
+    if settimana:
+        parti.append(f'<a class="week" href="{prefisso}settimana/{settimana[0]}.html">'
+                     f'<small>📅 La settimana dell\'AI</small><b>{e(settimana[1])}</b> →</a>')
     if not r.get("da_provare") and r.get("sezioni") and "non disponibile" not in str(r.get("in_breve")):
         parti.append('<section class="tryzone"><h2>🧪 Da provare oggi</h2><p class="sub">Oggi nessuna '
                      'novità abbastanza concreta da consigliare: meglio niente che un suggerimento debole.</p></section>')
@@ -527,10 +871,7 @@ def pagina(giorno, r, per_id, stato, modello, archivio, prefisso):
             inutili = ("non indicato", "da verificare")
             utili = [t for t in (d.get("difficolta"), d.get("costo"), d.get("disponibilita"))
                      if t and not any(x in t.lower() for x in inutili)]
-            aff = d.get("affidabilita", "")
-            classe = {"Fonte ufficiale": "ok", "Confermata": "ok", "Da verificare": "warn"}.get(aff, "")
-            badge = f'<span class="rel {classe}">{e(aff)}</span>' if aff else ""
-            tag = badge + "".join(f'<span class="tag">{e(t)}</span>' for t in utili)
+            tag = badge(d.get("affidabilita", "")) + "".join(f'<span class="tag">{e(t)}</span>' for t in utili)
             passi = d.get("come_iniziare") or d.get("come") or []
             if isinstance(passi, str):
                 passi = [passi]
@@ -545,43 +886,74 @@ def pagina(giorno, r, per_id, stato, modello, archivio, prefisso):
                          f'<h3>{e(d.get("cosa"))}</h3><p>{e(d.get("a_cosa_serve"))}</p>'
                          f"{come}{chips(d['fonti'], per_id)}</article>")
         parti.append("</section>")
+    k = 0
     for s in r["sezioni"]:
         parti.append(f"<h2>{e(s['titolo'])}</h2>")
         for n in s["notizie"]:
+            k += 1
             perche = (f'<p class="why"><b>Perché conta:</b> {e(n["perche_conta"])}</p>'
                       if n.get("perche_conta") else "")
-            aff = n.get("affidabilita", "")
-            classe = {"Fonte ufficiale": "ok", "Confermata": "ok", "Da verificare": "warn",
-                      "Studio non revisionato": "warn"}.get(aff, "")
-            badge = f'<span class="rel {classe}">{e(aff)}</span>' if aff else ""
-            parti.append(f"<article>{badge}<h3>{e(n['titolo'])}</h3><p>{e(n.get('riassunto'))}</p>"
+            parti.append(f'<article id="n{k}"><div class="tags">{badge(n.get("affidabilita", ""), n.get("solo_titoli"))}'
+                         f"</div><h3>{e(n['titolo'])}</h3><p>{e(n.get('riassunto'))}</p>"
                          f"{perche}{chips(n['fonti'], per_id)}</article>")
-    if archivio:
-        voci = "".join(f'<li><a href="{prefisso}giorni/{g}.html">{g}</a></li>' for g in archivio[:60])
-        parti.append(f'<h2>Archivio</h2><ul class="arch">{voci}</ul>')
+    parti.append(glossario_html(r))
+    parti.append(archivio_html(archivio, prefisso))
+    parti.append(legenda_html())
     ok = sum(1 for s in stato if s["ok"])
     righe = "".join(
         f"<li>{e(s['nome'])}: {s['presi']} articoli</li>" if s["ok"]
         else f"<li class='ko'>{e(s['nome'])}: non raggiungibile ({e(s.get('errore'))})</li>"
         for s in stato)
+    completi = dati.get("testi_completi")
+    extra = f" · testo completo per {completi}" if completi else ""
     parti.append(f"<details><summary>Fonti consultate: {ok}/{len(stato)} raggiungibili · "
-                 f"{len(per_id)} articoli · {e(modello)}</summary><ul>{righe}</ul></details>")
+                 f"{len(per_id)} articoli citati{extra} · {e(modello)}</summary><ul>{righe}</ul></details>")
     url_sito = indirizzo_sito()
-    url_pagina = url_sito + (f"giorni/{giorno:%Y-%m-%d}.html" if prefisso else "")
+    url_pagina = url_sito + (f"giorni/{dati['giorno']}.html" if prefisso else "")
     titolo_pag = f"AI News Digest · {giorno:%d/%m/%Y}"
-    anteprima = (f'<meta property="og:type" content="article">'
-                 f'<meta property="og:site_name" content="AI News Digest">'
-                 f'<meta property="og:title" content="{e(titolo_pag + " — " + str(r.get("titolo_giorno", "")))}">'
-                 f'<meta property="og:description" content="{e(r.get("in_breve"))}">'
-                 f'<meta name="description" content="{e(r.get("in_breve"))}">'
-                 + (f'<meta property="og:url" content="{e(url_pagina)}">' if url_sito else ""))
     dati_js = json.dumps({"titolo": titolo_pag, "testo": testo_whatsapp(data_it, r, url_pagina),
                           "url": url_pagina}, ensure_ascii=False).replace("</", "<\\/")
-    return (f'<!doctype html><html lang="it"><head><meta charset="utf-8">'
-            f'<meta name="viewport" content="width=device-width,initial-scale=1">'
-            f"<title>{e(titolo_pag)}</title>{anteprima}<style>{CSS}</style></head>"
-            f"<body><main>{''.join(parti)}</main>"
-            f"<script>const DIGEST={dati_js};{JS}</script></body></html>")
+    return (testa(f"{titolo_pag} — {r.get('titolo_giorno', '')}", r.get("in_breve", ""), url_pagina, prefisso)
+            + f"<body><main>{''.join(parti)}</main>" + piede(prefisso, dati_js))
+
+
+def pagina_settimana(w, archivio):
+    prefisso = "../"
+    fine = datetime.strptime(w["giorno"], "%Y-%m-%d")
+    inizio = fine - timedelta(days=6)
+    periodo = f"dal {inizio.day} {MESI_IT[inizio.month - 1]} al {fine.day} {MESI_IT[fine.month - 1]} {fine.year}"
+    parti = [f'<p class="top">La settimana dell\'AI · {e(periodo)}</p>',
+             f"<h1>{e(w.get('titolo'))}</h1>",
+             f'<p class="lead">{e(w.get("in_breve"))}</p>',
+             '<div class="share">'
+             '<button type="button" onclick="condividi()">📤 Condividi</button>'
+             '<button type="button" onclick="copiaWhatsApp(this)">💬 Copia per WhatsApp</button>'
+             '<button type="button" onclick="window.print()">📄 Salva PDF</button></div>',
+             "<h2>Le 5 notizie che contano</h2>"]
+    for i, n in enumerate(w.get("notizie", []), 1):
+        link = "".join(f'<a href="{prefisso}giorni/{g}.html#n{k}">{e(data_breve(g))} ↗</a>'
+                       for g, k in n.get("rif", []))
+        parti.append(f"<article><h3>{i}. {e(n.get('titolo'))}</h3><p>{e(n.get('racconto'))}</p>"
+                     f'<p class="why"><b>Perché conta:</b> {e(n.get("perche_conta"))}</p>'
+                     f'<div class="src">{link}</div></article>')
+    if w.get("da_provare"):
+        parti.append('<section class="tryzone"><h2>🧪 Il meglio da provare della settimana</h2>')
+        for d in w["da_provare"]:
+            parti.append(f'<article class="try"><h3>{e(d.get("cosa"))}</h3><p>{e(d.get("a_cosa_serve"))}</p>'
+                         f'<div class="src"><a href="{prefisso}giorni/{e(d.get("giorno"))}.html">'
+                         f'{e(data_breve(d.get("giorno")))} ↗</a></div></article>')
+        parti.append("</section>")
+    parti.append(f'<p class="meta"><a href="{prefisso}index.html">← Torna all\'edizione di oggi</a></p>')
+    parti.append(archivio_html(archivio, prefisso))
+    url_pagina = indirizzo_sito() + f"settimana/{w['giorno']}.html"
+    righe = [f"📅 *La settimana dell'AI* · {periodo}", "", f"*{w.get('titolo', '')}*", w.get("in_breve", ""), ""]
+    righe += [f"{i}. {n.get('titolo', '')}" for i, n in enumerate(w.get("notizie", []), 1)]
+    if url_pagina:
+        righe += ["", f"Leggi tutto: {url_pagina}"]
+    dati_js = json.dumps({"titolo": "La settimana dell'AI", "testo": "\n".join(righe),
+                          "url": url_pagina}, ensure_ascii=False).replace("</", "<\\/")
+    return (testa(f"La settimana dell'AI — {w.get('titolo', '')}", w.get("in_breve", ""), url_pagina, prefisso)
+            + f"<body><main>{''.join(parti)}</main>" + piede(prefisso, dati_js))
 
 
 def indirizzo_sito():
@@ -630,7 +1002,167 @@ function copia(t,b,msg){
 function vecchio(t,fatto){const a=document.createElement('textarea');a.value=t;a.style.position='fixed';a.style.opacity='0';
   document.body.appendChild(a);a.select();try{document.execCommand('copy');fatto();}catch(e){}a.remove();}
 function alertino(m){const d=document.createElement('div');d.className='toast';d.textContent=m;document.body.appendChild(d);setTimeout(()=>d.remove(),2500);}
+let INDICE=null,attesa=null;
+function caricaIndice(){
+  if(INDICE||attesa)return attesa;
+  attesa=fetch(PREFISSO+'indice.json',{cache:'no-cache'}).then(r=>r.json()).then(j=>{INDICE=j;return j;}).catch(()=>{INDICE=[];});
+  return attesa;
+}
+function norm(s){return (s||'').toLowerCase().normalize('NFD').replace(/[\\u0300-\\u036f]/g,'');}
+function cerca(q){
+  const ul=document.getElementById('risultati'),arch=document.getElementById('arch');
+  q=norm(q.trim());
+  if(q.length<2){ul.innerHTML='';arch.style.display='';return;}
+  caricaIndice().then(()=>{
+    const parole=q.split(/\\s+/),out=[];
+    for(const g of INDICE||[]){for(const n of g.n){
+      const t=norm(n[1]+' '+n[2]);
+      if(parole.every(p=>t.includes(p)))out.push([g.g,n]);
+    }}
+    arch.style.display='none';
+    ul.innerHTML=out.length?'':'<li>Nessun risultato.</li>';
+    for(const [g,n] of out.slice(0,40)){
+      const li=document.createElement('li'),a=document.createElement('a');
+      a.href=PREFISSO+'giorni/'+g+'.html'+(n[0]?'#n'+n[0]:'');
+      const s=document.createElement('small');s.textContent=g.split('-').reverse().join('/');
+      a.append(s,document.createTextNode(n[1]));li.append(a);ul.append(li);
+    }
+  });
+}
+if('serviceWorker' in navigator){addEventListener('load',()=>navigator.serviceWorker.register(PREFISSO+'sw.js').catch(()=>{}));}
 """
+
+
+# ---------------------------------------------------------------- archivio e pagine
+
+def giorni_salvati():
+    return sorted((p for p in DATA.glob("*.json") if re.fullmatch(r"\d{4}-\d\d-\d\d", p.stem)),
+                  key=lambda p: p.stem)
+
+
+def leggi_json(p):
+    try:
+        return json.loads(p.read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError) as ex:
+        print(f"  ✗ {p.name} illeggibile: {ex}", file=sys.stderr)
+        return None
+
+
+def rigenera_tutto():
+    """Ricrea tutte le pagine a partire dai dati salvati (così ogni modifica grafica vale anche per l'archivio)."""
+    for d in (DATA, GIORNI, SETTIMANE):
+        d.mkdir(parents=True, exist_ok=True)
+    edizioni = [x for x in (leggi_json(p) for p in giorni_salvati()) if x and x.get("riassunto")]
+    if not edizioni:
+        print("Nessuna edizione salvata: niente da pubblicare.", file=sys.stderr)
+        return
+    archivio = [(x["giorno"], x["riassunto"].get("titolo_giorno", "")) for x in reversed(edizioni)]
+
+    indice = []
+    for x in reversed(edizioni):
+        voci, k = [], 0
+        for s in x["riassunto"].get("sezioni", []):
+            for n in s.get("notizie", []):
+                k += 1
+                voci.append([k, n.get("titolo", ""), (n.get("riassunto") or "")[:220]])
+        for d in x["riassunto"].get("da_provare", []):
+            voci.append([0, "🧪 " + d.get("cosa", ""), (d.get("a_cosa_serve") or "")[:220]])
+        indice.append({"g": x["giorno"], "t": x["riassunto"].get("titolo_giorno", ""), "n": voci})
+    (DOCS / "indice.json").write_text(json.dumps(indice, ensure_ascii=False, separators=(",", ":")),
+                                      encoding="utf-8")
+
+    settimane = [x for x in (leggi_json(p) for p in sorted(SETTIMANE.glob("*.json"))) if x]
+    for w in settimane:
+        (SETTIMANE / f"{w['giorno']}.html").write_text(pagina_settimana(w, archivio), encoding="utf-8")
+
+    ultima = edizioni[-1]
+    banner = None
+    if settimane:
+        w = settimane[-1]
+        distanza = (datetime.strptime(ultima["giorno"], "%Y-%m-%d") - datetime.strptime(w["giorno"], "%Y-%m-%d")).days
+        if 0 <= distanza <= 6:
+            banner = (w["giorno"], w.get("titolo", ""))
+    for x in edizioni:
+        (GIORNI / f"{x['giorno']}.html").write_text(pagina(x, archivio, "../"), encoding="utf-8")
+    (DOCS / "index.html").write_text(pagina(ultima, archivio, "", banner), encoding="utf-8")
+    print(f"Pagine aggiornate: {len(edizioni)} edizioni, {len(settimane)} settimanali.")
+
+
+# ---------------------------------------------------------------- la settimana dell'AI (domenica)
+
+ISTRUZIONI_SETTIMANA = """Sei il caporedattore di una rassegna sull'intelligenza artificiale, in ITALIANO, per un
+lettore curioso e non tecnico. Ricevi le notizie già pubblicate negli ultimi 7 giorni, ognuna con un codice
+[AAAA-MM-GG#n]. Scegli le 5 notizie (o vicende) più importanti della settimana per una persona comune.
+Se una vicenda è stata raccontata in più giorni, uniscila in una sola voce citando tutti i codici.
+Usa SOLO le informazioni presenti nel testo ricevuto, senza aggiungere nulla di tuo.
+Preferisci notizie con affidabilità "Fonte ufficiale" o "Confermata"; mai voci "Da verificare".
+Scegli anche fino a 2 cose "da provare" tra quelle segnalate (codice [AAAA-MM-GG#provare-n]), solo se valide.
+
+Rispondi SOLO con JSON valido:
+{"titolo": "titolo breve della settimana",
+ "in_breve": "2-3 frasi sul senso della settimana",
+ "notizie": [{"titolo": "...", "racconto": "2-4 frasi", "perche_conta": "1 frase concreta",
+              "rif": ["2026-10-05#3", "2026-10-07#1"]}],
+ "da_provare": [{"cosa": "...", "a_cosa_serve": "1-2 frasi", "rif": "2026-10-06#provare-1"}]}"""
+
+
+def costruisci_settimana(chiave, fine):
+    """Crea docs/settimana/<fine>.json con le 5 notizie della settimana che si chiude in <fine>."""
+    inizio = (datetime.strptime(fine, "%Y-%m-%d") - timedelta(days=6)).strftime("%Y-%m-%d")
+    edizioni = [x for x in (leggi_json(p) for p in giorni_salvati() if inizio <= p.stem <= fine) if x]
+    edizioni = [x for x in edizioni if "senza AI" not in str(x.get("modello", ""))]
+    if len(edizioni) < 3:
+        print(f"Settimana: solo {len(edizioni)} edizioni utili, salto.")
+        return False
+    righe, validi, prove = [], set(), {}
+    for x in edizioni:
+        k = 0
+        for s in x["riassunto"].get("sezioni", []):
+            for n in s.get("notizie", []):
+                k += 1
+                cod = f"{x['giorno']}#{k}"
+                validi.add(cod)
+                righe.append(f"[{cod}] ({n.get('affidabilita', '')}) {n.get('titolo', '')} — "
+                             f"{n.get('riassunto', '')}")
+        for j, d in enumerate(x["riassunto"].get("da_provare", []), 1):
+            cod = f"{x['giorno']}#provare-{j}"
+            prove[cod] = x["giorno"]
+            righe.append(f"[{cod}] DA PROVARE: {d.get('cosa', '')} — {d.get('a_cosa_serve', '')}")
+    w, modello = chiama_gemini(ISTRUZIONI_SETTIMANA, "NOTIZIE DELLA SETTIMANA:\n" + "\n".join(righe), chiave)
+    notizie = []
+    for n in w.get("notizie", []):
+        rif = [c for c in dict.fromkeys(n.get("rif", [])) if c in validi]
+        if rif and n.get("titolo"):
+            n["rif"] = [(c.split("#")[0], int(c.split("#")[1])) for c in rif]
+            notizie.append(n)
+    if len(notizie) < 3:
+        raise RuntimeError("riassunto settimanale troppo povero")
+    da_provare = []
+    for d in w.get("da_provare", [])[:2]:
+        if d.get("rif") in prove and d.get("cosa"):
+            d["giorno"] = prove[d["rif"]]
+            da_provare.append(d)
+    out = {"giorno": fine, "titolo": w.get("titolo", "La settimana dell'AI"), "in_breve": w.get("in_breve", ""),
+           "notizie": notizie[:5], "da_provare": da_provare, "modello": modello,
+           "generato": datetime.now(timezone.utc).isoformat(timespec="seconds")}
+    SETTIMANE.mkdir(parents=True, exist_ok=True)
+    (SETTIMANE / f"{fine}.json").write_text(json.dumps(out, ensure_ascii=False, indent=1), encoding="utf-8")
+    print(f"  ✓ settimana {inizio} → {fine}: {len(out['notizie'])} notizie")
+    return True
+
+
+# ---------------------------------------------------------------- avvisi
+
+def avvisa(msg):
+    print("⚠️  " + msg, file=sys.stderr)
+    AVVISI.append(msg)
+
+
+def scrivi_avvisi():
+    f = os.environ.get("AVVISI_FILE")
+    if f and AVVISI:
+        with open(f, "a", encoding="utf-8") as out:
+            out.write("".join(f"- {m}\n" for m in AVVISI))
 
 
 # ---------------------------------------------------------------- main
@@ -644,49 +1176,94 @@ def main():
         except locale.Error:
             pass
 
+    chiave = os.environ.get("GEMINI_API_KEY", "").strip()
+    if "--pagine" in sys.argv:          # solo ricostruzione delle pagine (es. dopo aver creato l'audio)
+        rigenera_tutto()
+        return
+    if "--settimana" in sys.argv:       # forza l'edizione settimanale che termina oggi
+        costruisci_settimana(chiave, datetime.now(TZ).strftime("%Y-%m-%d"))
+        rigenera_tutto()
+        return
+
     config = json.loads((ROOT / "sources.json").read_text(encoding="utf-8"))
     fonti = config["fonti"]
     limite = datetime.now(timezone.utc) - timedelta(hours=ORE_FINESTRA)
     print(f"Leggo {len(fonti)} fonti (ultime {ORE_FINESTRA} ore)…")
     articoli, stato = raccogli(fonti, limite, config.get("editori_esclusi", []))
+    irraggiungibili = [s["nome"] for s in stato if not s["ok"]]
+    if len(irraggiungibili) > len(stato) / 3:
+        avvisa(f"{len(irraggiungibili)} fonti su {len(stato)} non raggiungibili: {', '.join(irraggiungibili)}.")
     if not articoli:
-        print("Nessun articolo trovato: non aggiorno il sito.", file=sys.stderr)
+        avvisa("Nessun articolo trovato: il sito non è stato aggiornato.")
+        scrivi_avvisi()
         sys.exit(1)
+
+    oggi = datetime.now(TZ)
+    giorno = oggi.strftime("%Y-%m-%d")
+
+    # Niente doppioni: togliamo gli articoli già citati nell'edizione precedente.
+    gia_pubblicate = []
+    precedenti = [p for p in giorni_salvati() if p.stem < giorno]
+    prec = leggi_json(precedenti[-1]) if precedenti else None
+    if prec:
+        chiave_t = lambda t: re.sub(r"\W+", "", (t or "").lower())[:80]
+        vecchi_link = {a.get("link") for a in prec.get("articoli", {}).values()}
+        vecchi_titoli = {chiave_t(a.get("titolo")) for a in prec.get("articoli", {}).values()}
+        prima = len(articoli)
+        articoli = [a for a in articoli
+                    if a["link"] not in vecchi_link and chiave_t(a["titolo"]) not in vecchi_titoli]
+        gia_pubblicate = [n.get("titolo", "") for s in prec["riassunto"].get("sezioni", [])
+                          for n in s.get("notizie", [])]
+        gia_pubblicate += [d.get("cosa", "") for d in prec["riassunto"].get("da_provare", [])]
+        print(f"Tolti {prima - len(articoli)} articoli già usati il {prec['giorno']}.")
+        if not articoli:
+            avvisa("Tutti gli articoli erano già stati pubblicati ieri: il sito non è stato aggiornato.")
+            scrivi_avvisi()
+            sys.exit(1)
+
+    completi = arricchisci(articoli)
+    candidati = sum(1 for a in articoli if a.get("tipo") in ("ufficiale", "testata", "minore"))
+    if candidati >= 10 and completi == 0:
+        avvisa("Non è stato possibile scaricare il testo di nessun articolo: il riassunto si basa solo sui titoli.")
+    for a in articoli:
+        a.setdefault("solo_titolo", not a.get("testo"))
     per_id = {a["id"]: a for a in articoli}
 
-    chiave = os.environ.get("GEMINI_API_KEY", "").strip()
     modello = "senza AI"
     if chiave:
         try:
-            riassunto, modello = chiedi_a_gemini(articoli, chiave)
+            riassunto, modello = chiedi_a_gemini(articoli, chiave, gia_pubblicate)
             riassunto = verifica(riassunto, per_id)
             if not riassunto["sezioni"]:
                 raise RuntimeError("riassunto vuoto")
         except Exception as ex:  # qualunque problema: si pubblica comunque la versione semplice
-            print(f"Gemini non disponibile ({ex}), uso la versione senza AI.", file=sys.stderr)
+            avvisa(f"Gemini non disponibile ({str(ex)[:200]}): pubblicata la versione senza riassunto.")
             riassunto, modello = senza_ai(articoli), "senza AI (Gemini non disponibile)"
     else:
-        print("GEMINI_API_KEY non impostata: versione senza AI.")
+        avvisa("GEMINI_API_KEY non impostata: pubblicata la versione senza riassunto.")
         riassunto = senza_ai(articoli)
 
-    oggi = datetime.now(TZ)
-    giorno = oggi.strftime("%Y-%m-%d")
     for d in (DATA, GIORNI):
         d.mkdir(parents=True, exist_ok=True)
     usati = {i for s in riassunto["sezioni"] for n in s["notizie"] for i in n["fonti"]}
     usati |= {i for d in riassunto.get("da_provare", []) for i in d["fonti"]}
     salvati = {i: {k: (v.isoformat() if isinstance(v, datetime) else v) for k, v in per_id[i].items()}
                for i in usati}
-    (DATA / f"{giorno}.json").write_text(json.dumps(
-        {"giorno": giorno, "modello": modello, "riassunto": riassunto, "articoli": salvati, "fonti": stato},
-        ensure_ascii=False, indent=1), encoding="utf-8")
+    dati = {"giorno": giorno, "generato": datetime.now(timezone.utc).isoformat(timespec="seconds"),
+            "modello": modello, "testi_completi": completi, "riassunto": riassunto,
+            "articoli": salvati, "fonti": stato}
+    (DATA / f"{giorno}.json").write_text(json.dumps(dati, ensure_ascii=False, indent=1), encoding="utf-8")
 
-    archivio = sorted((p.stem for p in DATA.glob("*.json")), reverse=True)
-    (GIORNI / f"{giorno}.html").write_text(
-        pagina(oggi, riassunto, per_id, stato, modello, archivio, "../"), encoding="utf-8")
-    (DOCS / "index.html").write_text(
-        pagina(oggi, riassunto, per_id, stato, modello, archivio, ""), encoding="utf-8")
-    print(f"Fatto: docs/index.html e docs/giorni/{giorno}.html")
+    if oggi.weekday() == 6 or os.environ.get("SETTIMANA") == "1":
+        if chiave:
+            try:
+                costruisci_settimana(chiave, giorno)
+            except Exception as ex:
+                avvisa(f"Edizione della settimana non creata: {str(ex)[:200]}")
+
+    rigenera_tutto()
+    scrivi_avvisi()
+    print(f"Fatto: edizione del {giorno}.")
 
 
 if __name__ == "__main__":
