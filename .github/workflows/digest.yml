@@ -1,0 +1,43 @@
+name: Riassunto AI quotidiano
+
+on:
+  schedule:
+    - cron: "17 5 * * *"
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+concurrency:
+  group: digest
+  cancel-in-progress: false
+
+jobs:
+  digest:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Installa la lingua italiana per le date
+        run: |
+          sudo locale-gen it_IT.UTF-8 || true
+
+      - name: Genera il riassunto
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          GEMINI_MODEL: ${{ vars.GEMINI_MODEL }}
+        run: python digest.py
+
+      - name: Pubblica
+        run: |
+          git config user.name "ai-news-bot"
+          git config user.email "ai-news-bot@users.noreply.github.com"
+          git add docs
+          git diff --cached --quiet && echo "Nessuna novità" && exit 0
+          git commit -m "Riassunto del $(TZ=Europe/Rome date +%Y-%m-%d)"
+          git push
