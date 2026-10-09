@@ -203,10 +203,28 @@ Rispondi SOLO con JSON valido in questo formato:
     {"titolo": "Dalla community", "notizie": [...]}
   ],
   "da_provare": [
-    {"cosa": "uno strumento o una possibilità nuova da provare", "come": "come iniziare in 1-2 frasi", "fonti": ["a3"]}
+    {
+      "cosa": "nome dello strumento, funzione o servizio",
+      "a_cosa_serve": "1-2 frasi: cosa permette di fare nella vita o nel lavoro di tutti i giorni, con un esempio concreto",
+      "come_iniziare": ["passo 1", "passo 2", "passo 3"],
+      "costo": "Gratis / A pagamento / Gratis con limiti / Non indicato nelle fonti",
+      "difficolta": "Facile / Media / Per esperti",
+      "fonti": ["a3"]
+    }
   ]
 }
-Ometti le sezioni vuote. "da_provare" può avere da 0 a 4 elementi."""
+Ometti le sezioni vuote.
+
+LA SEZIONE "da_provare" È LA PIÙ IMPORTANTE della rassegna: il lettore vuole scoprire cosa può
+fare di nuovo con l'AI. Cercala con cura in TUTTI gli articoli (lanci di prodotti, nuove funzioni
+di ChatGPT/Gemini/Claude/Copilot, app, strumenti open source, tutorial, casi d'uso interessanti).
+- Inserisci da 3 a 6 elementi quando le fonti lo permettono; mai inventarne per arrivare al numero.
+- Solo cose che una persona può usare davvero oggi o a breve, non risultati di ricerca teorici.
+- Preferisci ciò che è utilizzabile da chi non è programmatore; gli strumenti tecnici segnali come "Per esperti".
+- "come_iniziare" deve contenere 2-4 passi concreti basati sulle fonti (dove andare, cosa cercare);
+  se le fonti non lo dicono, scrivi un solo passo: "Leggi l'articolo per i dettagli".
+- Per costo e disponibilità in Italia/UE riporta solo ciò che è scritto nelle fonti; altrimenti "Non indicato nelle fonti".
+- Una novità può comparire sia tra le notizie sia in "da_provare"."""
 
 
 def chiedi_a_gemini(articoli, chiave):
@@ -300,7 +318,12 @@ article h3{margin:0 0 6px;font-size:19px;line-height:1.3}article p{margin:6px 0}
 .src{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
 .src a{font:12px system-ui,sans-serif;background:var(--chip);color:var(--ink);text-decoration:none;padding:4px 9px;border-radius:999px;max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .src a:hover{color:var(--accent)}
-.try{border-left:3px solid var(--accent)}
+.tryzone{background:var(--chip);border-radius:16px;padding:4px 16px 12px;margin:28px -4px 0}
+.tryzone h2{color:var(--accent);border-bottom:none;margin:18px 0 0;font-size:16px}
+.sub{font:14px system-ui,sans-serif;color:var(--muted);margin:4px 0 8px}
+.try{border-left:3px solid var(--accent)}.try ol{margin:4px 0 0;padding-left:22px}.try li{margin:3px 0}
+.tags{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:6px}
+.tag{font:600 11px system-ui,sans-serif;letter-spacing:.03em;text-transform:uppercase;color:var(--accent);border:1px solid var(--accent);border-radius:999px;padding:2px 8px}
 .arch a{color:var(--ink)}.arch li{margin:4px 0}
 details{margin-top:40px;font:14px system-ui,sans-serif;color:var(--muted)}
 .ko{color:#dc2626}
@@ -325,6 +348,21 @@ def pagina(giorno, r, per_id, stato, modello, archivio, prefisso):
     parti = [f'<p class="top">AI News Digest · {e(data_it)}</p>',
              f"<h1>{e(r.get('titolo_giorno'))}</h1>",
              f'<p class="lead">{e(r.get("in_breve"))}</p>']
+    if r.get("da_provare"):
+        parti.append('<section class="tryzone"><h2>🧪 Da provare oggi</h2>'
+                     '<p class="sub">Nuovi strumenti e possibilità emersi dalle notizie di oggi</p>')
+        for d in r["da_provare"]:
+            tag = "".join(f'<span class="tag">{e(t)}</span>'
+                          for t in (d.get("difficolta"), d.get("costo")) if t)
+            passi = d.get("come_iniziare") or d.get("come") or []
+            if isinstance(passi, str):
+                passi = [passi]
+            lista = ("<ol>" + "".join(f"<li>{e(p)}</li>" for p in passi) + "</ol>") if passi else ""
+            parti.append(f'<article class="try"><div class="tags">{tag}</div>'
+                         f'<h3>{e(d.get("cosa"))}</h3><p>{e(d.get("a_cosa_serve"))}</p>'
+                         f'{"<p class=why><b>Come iniziare</b></p>" + lista if lista else ""}'
+                         f"{chips(d['fonti'], per_id)}</article>")
+        parti.append("</section>")
     for s in r["sezioni"]:
         parti.append(f"<h2>{e(s['titolo'])}</h2>")
         for n in s["notizie"]:
@@ -332,11 +370,6 @@ def pagina(giorno, r, per_id, stato, modello, archivio, prefisso):
                       if n.get("perche_conta") else "")
             parti.append(f"<article><h3>{e(n['titolo'])}</h3><p>{e(n.get('riassunto'))}</p>"
                          f"{perche}{chips(n['fonti'], per_id)}</article>")
-    if r.get("da_provare"):
-        parti.append("<h2>Da provare</h2>")
-        for d in r["da_provare"]:
-            parti.append(f'<article class="try"><h3>{e(d.get("cosa"))}</h3><p>{e(d.get("come"))}</p>'
-                         f"{chips(d['fonti'], per_id)}</article>")
     if archivio:
         voci = "".join(f'<li><a href="{prefisso}giorni/{g}.html">{g}</a></li>' for g in archivio[:60])
         parti.append(f'<h2>Archivio</h2><ul class="arch">{voci}</ul>')
