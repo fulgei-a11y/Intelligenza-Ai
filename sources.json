@@ -22,7 +22,6 @@
     {"nome": "arXiv cs.CL", "categoria": "Ricerca", "url": "https://rss.arxiv.org/rss/cs.CL", "max": 10},
 
     {"nome": "Hacker News", "categoria": "Community", "url": "https://hnrss.org/newest?q=AI+OR+LLM+OR+GPT+OR+Claude+OR+Gemini&points=100", "max": 15},
-    {"nome": "Reddit r/LocalLLaMA", "categoria": "Community", "url": "https://www.reddit.com/r/LocalLLaMA/top/.rss?t=day", "max": 8},
-    {"nome": "Reddit r/artificial", "categoria": "Community", "url": "https://www.reddit.com/r/artificial/top/.rss?t=day", "max": 8}
+    {"nome": "Reddit (r/LocalLLaMA + r/artificial)", "categoria": "Community", "url": "https://www.reddit.com/r/LocalLLaMA+artificial/top/.rss?t=day&limit=25", "max": 12}
   ]
 }
