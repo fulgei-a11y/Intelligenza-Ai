@@ -405,6 +405,21 @@ article h3{margin:0 0 6px;font-size:19px;line-height:1.3}article p{margin:6px 0}
 .arch a{color:var(--ink)}.arch li{margin:4px 0}
 details{margin-top:40px;font:14px system-ui,sans-serif;color:var(--muted)}
 .ko{color:#dc2626}
+.share{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 4px}
+.share button{font:600 14px system-ui,sans-serif;color:var(--ink);background:var(--card);border:1px solid var(--line);border-radius:999px;padding:9px 14px;cursor:pointer}
+.share button:active{transform:scale(.97)}
+.toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%);background:var(--ink);color:var(--bg);font:14px system-ui,sans-serif;padding:10px 16px;border-radius:999px}
+@media print{
+  :root{--bg:#fff;--card:#fff;--ink:#111;--muted:#555;--line:#ccc;--accent:#b4410c;--chip:#f3f3f3}
+  body{font-size:12pt}main{max-width:none;padding:0}
+  .share,.arch,details,.toast{display:none!important}
+  h2:has(+ .arch){display:none}
+  article,.tryzone{break-inside:avoid;box-shadow:none}
+  .src a{border:1px solid #ccc}
+  .src a::after{content:" (" attr(href) ")";font-size:8pt;color:#666;white-space:normal;word-break:break-all}
+  .src a{white-space:normal;overflow:visible}
+  @page{margin:14mm}
+}
 """
 
 
@@ -428,7 +443,11 @@ def pagina(giorno, r, per_id, stato, modello, archivio, prefisso):
     data_it = f"{giorni[giorno.weekday()]} {giorno.day} {mesi[giorno.month - 1]} {giorno.year}"
     parti = [f'<p class="top">AI News Digest · {e(data_it)}</p>',
              f"<h1>{e(r.get('titolo_giorno'))}</h1>",
-             f'<p class="lead">{e(r.get("in_breve"))}</p>']
+             f'<p class="lead">{e(r.get("in_breve"))}</p>',
+             '<div class="share">'
+             '<button type="button" onclick="condividi()">📤 Condividi</button>'
+             '<button type="button" onclick="copiaWhatsApp(this)">💬 Copia per WhatsApp</button>'
+             '<button type="button" onclick="window.print()">📄 Salva PDF</button></div>']
     if not r.get("da_provare") and r.get("sezioni") and "non disponibile" not in str(r.get("in_breve")):
         parti.append('<section class="tryzone"><h2>🧪 Da provare oggi</h2><p class="sub">Oggi nessuna '
                      'novità abbastanza concreta da consigliare: meglio niente che un suggerimento debole.</p></section>')
@@ -468,10 +487,71 @@ def pagina(giorno, r, per_id, stato, modello, archivio, prefisso):
         for s in stato)
     parti.append(f"<details><summary>Fonti consultate: {ok}/{len(stato)} raggiungibili · "
                  f"{len(per_id)} articoli · {e(modello)}</summary><ul>{righe}</ul></details>")
+    url_sito = indirizzo_sito()
+    url_pagina = url_sito + (f"giorni/{giorno:%Y-%m-%d}.html" if prefisso else "")
+    titolo_pag = f"AI News Digest · {giorno:%d/%m/%Y}"
+    anteprima = (f'<meta property="og:type" content="article">'
+                 f'<meta property="og:site_name" content="AI News Digest">'
+                 f'<meta property="og:title" content="{e(titolo_pag + " — " + str(r.get("titolo_giorno", "")))}">'
+                 f'<meta property="og:description" content="{e(r.get("in_breve"))}">'
+                 f'<meta name="description" content="{e(r.get("in_breve"))}">'
+                 + (f'<meta property="og:url" content="{e(url_pagina)}">' if url_sito else ""))
+    dati_js = json.dumps({"titolo": titolo_pag, "testo": testo_whatsapp(data_it, r, url_pagina),
+                          "url": url_pagina}, ensure_ascii=False).replace("</", "<\\/")
     return (f'<!doctype html><html lang="it"><head><meta charset="utf-8">'
             f'<meta name="viewport" content="width=device-width,initial-scale=1">'
-            f"<title>AI News Digest · {giorno:%d/%m/%Y}</title><style>{CSS}</style></head>"
-            f"<body><main>{''.join(parti)}</main></body></html>")
+            f"<title>{e(titolo_pag)}</title>{anteprima}<style>{CSS}</style></head>"
+            f"<body><main>{''.join(parti)}</main>"
+            f"<script>const DIGEST={dati_js};{JS}</script></body></html>")
+
+
+def indirizzo_sito():
+    """Indirizzo GitHub Pages, ricavato dal nome del repository (disponibile dentro GitHub Actions)."""
+    repo = os.environ.get("GITHUB_REPOSITORY", "")
+    if "/" not in repo:
+        return os.environ.get("SITO_URL", "")
+    utente, nome = repo.split("/", 1)
+    if nome.lower() == f"{utente.lower()}.github.io":
+        return f"https://{utente.lower()}.github.io/"
+    return f"https://{utente.lower()}.github.io/{nome}/"
+
+
+def testo_whatsapp(data_it, r, url):
+    """Versione testuale breve, con la formattazione di WhatsApp (*grassetto*, _corsivo_)."""
+    righe = [f"🤖 *AI News Digest* · {data_it}", "", f"*{r.get('titolo_giorno', '')}*",
+             r.get("in_breve", ""), ""]
+    if r.get("da_provare"):
+        righe.append("🧪 *Da provare oggi*")
+        for d in r["da_provare"]:
+            righe.append(f"• *{d.get('cosa', '')}*: {d.get('a_cosa_serve', '')}")
+        righe.append("")
+    principali = next((s for s in r.get("sezioni", []) if "principal" in s.get("titolo", "").lower()), None)
+    if principali:
+        righe.append("📰 *Le notizie principali*")
+        for n in principali["notizie"][:5]:
+            righe.append(f"• {n.get('titolo', '')}")
+        righe.append("")
+    if url:
+        righe.append(f"Leggi tutto con le fonti: {url}")
+    return "\n".join(righe).strip()
+
+
+JS = """
+function condividi(){
+  const d={title:DIGEST.titolo,text:DIGEST.titolo,url:DIGEST.url||location.href};
+  if(navigator.share){navigator.share(d).catch(()=>{});}
+  else{copia(d.url,null,'Link copiato');}
+}
+function copiaWhatsApp(b){copia(DIGEST.testo,b,'✓ Copiato! Incollalo in WhatsApp');}
+function copia(t,b,msg){
+  const fatto=()=>{if(b){const o=b.textContent;b.textContent=msg;setTimeout(()=>b.textContent=o,2500);}else{alertino(msg);}};
+  if(navigator.clipboard&&window.isSecureContext){navigator.clipboard.writeText(t).then(fatto).catch(()=>vecchio(t,fatto));}
+  else{vecchio(t,fatto);}
+}
+function vecchio(t,fatto){const a=document.createElement('textarea');a.value=t;a.style.position='fixed';a.style.opacity='0';
+  document.body.appendChild(a);a.select();try{document.execCommand('copy');fatto();}catch(e){}a.remove();}
+function alertino(m){const d=document.createElement('div');d.className='toast';d.textContent=m;document.body.appendChild(d);setTimeout(()=>d.remove(),2500);}
+"""
 
 
 # ---------------------------------------------------------------- main
