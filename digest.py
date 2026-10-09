@@ -21,6 +21,7 @@ import re
 import sys
 import time
 import urllib.error
+import urllib.parse
 import urllib.request
 import xml.etree.ElementTree as ET
 from datetime import datetime, timedelta, timezone
@@ -56,10 +57,27 @@ NS = {
 
 # ---------------------------------------------------------------- lettura feed
 
+_ultimo_accesso = {}
+
+
 def scarica(url: str, timeout: int = 25) -> bytes:
-    req = urllib.request.Request(url, headers={"User-Agent": UA, "Accept": "*/*"})
-    with urllib.request.urlopen(req, timeout=timeout) as r:
-        return r.read()
+    """Scarica un feed. Aspetta tra due richieste allo stesso sito e riprova se il sito
+    risponde 'troppe richieste' (429) o è temporaneamente non disponibile."""
+    host = urllib.parse.urlparse(url).netloc
+    for tentativo in range(3):
+        attesa = 6 - (time.time() - _ultimo_accesso.get(host, 0))
+        if attesa > 0:
+            time.sleep(attesa)
+        _ultimo_accesso[host] = time.time()
+        req = urllib.request.Request(url, headers={"User-Agent": UA, "Accept": "*/*"})
+        try:
+            with urllib.request.urlopen(req, timeout=timeout) as r:
+                return r.read()
+        except urllib.error.HTTPError as e:
+            if e.code in (429, 502, 503) and tentativo < 2:
+                time.sleep(15 * (tentativo + 1))
+                continue
+            raise
 
 
 def pulisci_testo(s: str, limite: int = 400) -> str:
