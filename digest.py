@@ -148,6 +148,33 @@ EDITORI_UFFICIALI = {
 }
 
 
+TESTATE_AFFIDABILI = {
+    # internazionali
+    "reuters", "associated press", "ap news", "bloomberg", "financial times", "the wall street journal",
+    "wall street journal", "the new york times", "new york times", "the washington post", "the guardian",
+    "bbc", "bbc news", "cnn", "cnbc", "cbs news", "nbc news", "abc news", "npr", "axios", "politico",
+    "the economist", "the atlantic", "wired", "the verge", "techcrunch", "ars technica", "engadget",
+    "mit technology review", "ieee spectrum", "zdnet", "cnet", "pcmag", "tom's guide", "tom's hardware",
+    "9to5google", "9to5mac", "android authority", "android police", "macrumors", "the register",
+    "venturebeat", "fortune", "forbes", "business insider", "fast company", "nature", "science",
+    "new scientist", "scientific american", "platformer", "semafor", "the information", "le monde",
+    "euronews", "techrepublic", "infoworld", "computerworld", "mashable", "gizmodo", "time", "vox",
+    "the hill", "search engine land", "the decoder", "404 media", "rest of world", "nikkei asia",
+    # italiane
+    "ansa", "ansa.it", "il sole 24 ore", "corriere della sera", "corriere.it", "la repubblica",
+    "repubblica", "la stampa", "il post", "rainews", "rai news", "sky tg24", "tgcom24", "agi",
+    "adnkronos", "il fatto quotidiano", "il messaggero", "wired italia", "wired.it", "agenda digitale",
+    "agendadigitale.eu", "punto informatico", "hdblog", "hdblog.it", "hardware upgrade", "dday.it",
+    "corriere comunicazioni", "corcom", "ipsoa", "milano finanza", "startupitalia", "il foglio",
+    "avvenire", "open", "fanpage.it", "geopop", "tom's hardware italia", "money.it",
+}
+
+
+def norm_editore(nome):
+    n = nome.lower().strip()
+    return n[4:] if n.startswith("www.") else n
+
+
 def separa_editore(titolo):
     """I titoli di Google News finiscono con ' - Editore': li separiamo."""
     m = re.match(r"^(.*\S)\s+[-–—]\s+([^-–—]{2,60})$", titolo)
@@ -184,16 +211,21 @@ def raccogli(fonti, limite_tempo, editori_esclusi=()):
                     if editore.lower() in esclusi:
                         continue
                     fonte = editore
-                    if editore.lower() in EDITORI_UFFICIALI:
+                    n = norm_editore(editore)
+                    if n in EDITORI_UFFICIALI or editore.lower() in EDITORI_UFFICIALI:
                         tipo = "ufficiale"
-                if a["testo"].startswith(a["titolo"][:40]):
-                    a["testo"] = ""  # Google News ripete solo il titolo
+                    elif n in TESTATE_AFFIDABILI:
+                        tipo = "testata"
+                    else:
+                        tipo = "minore"
+                a["testo"] = ""  # Google News fornisce solo il titolo, mai il testo
             chiave = re.sub(r"\W+", "", a["titolo"].lower())[:80]
             if chiave in visti:
                 continue
             visti.add(chiave)
             a["fonte"] = fonte
             a["tipo"] = tipo
+            a["solo_titolo"] = not a["testo"]
             a["categoria"] = f["categoria"]
             tutti.append(a)
             presi += 1
@@ -216,12 +248,12 @@ Il tuo valore sta nel SELEZIONARE e nel distinguere i fatti dal rumore.
 Ricevi articoli nel formato: [id] {tipo · editore · sezione} titolo — estratto
 Tipi di fonte, dal più al meno autorevole:
 - ufficiale: comunicato o blog dell'azienda/ente interessato (affidabile sui fatti, ma è autopromozione)
-- testata: giornale o rivista (affidabilità dipende dall'editore: Reuters, MIT Technology Review, The Verge,
-  Ars Technica, TechCrunch, Guardian, NYT, Sole 24 Ore, ANSA, RaiNews sono solide; siti di gadget, blog SEO
-  e siti finanziari che commentano titoli di borsa sono deboli)
-- aggregatore: articolo trovato tramite Google News, valuta l'editore indicato
+- testata: giornale o rivista riconosciuta e affidabile
+- minore: sito non verificato (blog, siti SEO, piccoli portali): usalo solo se confermato da altre fonti
 - ricerca: paper scientifico non ancora revisionato (arXiv)
 - community: post di Reddit o Hacker News, NON verificato
+Molti articoli arrivano SOLO CON IL TITOLO: in quel caso sai CHE COSA è successo ma non i dettagli.
+Non dedurre dettagli che il titolo non dice (come funziona, dove si trova, prezzi, paesi, date).
 
 REGOLE SUI FATTI (tassative)
 1. Usa SOLO informazioni presenti negli articoli. Non inventare fatti, cifre, nomi, date, prezzi.
@@ -258,15 +290,19 @@ Criteri, tutti obbligatori:
   richiedono di essere installati su un proprio server (salvo uno solo, marcato "Per esperti", se è
   davvero notevole).
 - Meglio 2 suggerimenti ottimi che 5 deboli. Se oggi non c'è nulla di valido, lascia la lista vuota.
-- "come_iniziare": 2-4 passi concreti ricavati dalle fonti (dove andare, quale app, cosa cercare).
-  Se le fonti non lo dicono, un solo passo: "Leggi l'articolo per i dettagli".
-- "disponibilita": "Disponibile ora", "In arrivo", "Solo in alcuni paesi" o "Non indicato" secondo le fonti.
+- "come_iniziare": 2-4 passi concreti SOLO se il testo di un articolo li descrive davvero.
+  Se le fonti hanno solo il titolo o non spiegano come si usa, scrivi esattamente un passo:
+  "Apri l'articolo per sapere come attivarlo". MAI inventare menu, plugin, siti o procedure.
+- "disponibilita": "Disponibile ora", "In arrivo", "Solo in alcuni paesi" solo se scritto nelle fonti,
+  altrimenti "Disponibilità da verificare".
+- Preferisci novità riportate da fonti ufficiali o testate; se l'unica fonte è "minore", inseriscila
+  solo se davvero interessante.
 - Costo solo se scritto nelle fonti, altrimenti "Costo non indicato".
 
 Rispondi SOLO con JSON valido:
 {
   "titolo_giorno": "titolo breve e concreto della giornata",
-  "in_breve": "3 frasi: il fatto più importante, una tendenza, una cosa utile per il lettore",
+  "in_breve": "3 frasi: il fatto più importante, una tendenza, una cosa utile per il lettore. Niente frasi sulla rassegna stessa",
   "da_provare": [
     {"cosa": "nome", "a_cosa_serve": "1-2 frasi con esempio concreto",
      "come_iniziare": ["passo 1", "passo 2"], "costo": "Gratis / A pagamento / Gratis con limiti / Costo non indicato",
@@ -289,7 +325,7 @@ Ometti le sezioni vuote. Ogni elemento deve avere almeno un id valido in "fonti"
 def chiedi_a_gemini(articoli, chiave):
     elenco = "\n".join(
         f"[{a['id']}] {{{a.get('tipo', 'testata')} · {a['fonte']} · {a['categoria']}}} {a['titolo']}"
-        + (f" — {a['testo']}" if a["testo"] else "")
+        + (f" — {a['testo']}" if a["testo"] else "  [SOLO TITOLO, nessun testo disponibile]")
         for a in articoli
     )
     corpo = {
@@ -325,36 +361,69 @@ def chiedi_a_gemini(articoli, chiave):
     raise RuntimeError(ultimo_errore or "Gemini non disponibile")
 
 
+PRIORITA_TIPO = {"ufficiale": 0, "testata": 1, "minore": 2, "ricerca": 3, "community": 4}
+MAX_LINK = 4
+PASSO_ONESTO = "Apri l'articolo per sapere come attivarlo"
+
+
+def pulisci_fonti(ids, per_id):
+    """Solo id reali, senza doppioni, prima le fonti più autorevoli, al massimo MAX_LINK."""
+    ids = list(dict.fromkeys(i for i in ids if i in per_id))
+    ids.sort(key=lambda i: PRIORITA_TIPO.get(per_id[i].get("tipo"), 2))
+    return ids
+
+
+def affidabilita(ids, per_id, proposta=""):
+    """Regole fisse, che il modello non può aggirare."""
+    tipi = {per_id[i].get("tipo") for i in ids}
+    if tipi <= {"community"}:
+        return "Da verificare"
+    if tipi <= {"ricerca"}:
+        return "Studio non revisionato"
+    if "ufficiale" in tipi:
+        return "Fonte ufficiale"
+    solide = {per_id[i]["fonte"] for i in ids if per_id[i].get("tipo") == "testata"}
+    if not solide:
+        return "Da verificare"            # solo siti minori o community
+    if len(solide) >= 2:
+        return "Confermata"
+    return "Una fonte" if proposta != "Da verificare" else "Da verificare"
+
+
 def verifica(riassunto, per_id):
-    """Scarta tutto ciò che non cita articoli realmente letti (niente link inventati)."""
+    """Scarta tutto ciò che non cita articoli realmente letti e applica le regole di affidabilità."""
     limiti = {"ricerca": 2, "dalla community": 3}
     sezioni = []
     for s in riassunto.get("sezioni", []):
         notizie = []
         for n in s.get("notizie", []):
-            n["fonti"] = list(dict.fromkeys(i for i in n.get("fonti", []) if i in per_id))
-            if not (n["fonti"] and n.get("titolo")):
+            ids = pulisci_fonti(n.get("fonti", []), per_id)
+            if not (ids and n.get("titolo")):
                 continue
-            tipi = {per_id[i].get("tipo") for i in n["fonti"]}
-            # Regole fisse, indipendenti dal modello:
-            if tipi <= {"community"}:
-                n["affidabilita"] = "Da verificare"
-            elif "ufficiale" in tipi and n.get("affidabilita") != "Da verificare":
-                n["affidabilita"] = "Fonte ufficiale"
-            elif tipi <= {"ricerca"}:
-                n["affidabilita"] = "Studio non revisionato"
-            elif not n.get("affidabilita"):
-                editori = {per_id[i]["fonte"] for i in n["fonti"]}
-                n["affidabilita"] = "Confermata" if len(editori) > 1 else "Una fonte"
+            n["affidabilita"] = affidabilita(ids, per_id, n.get("affidabilita", ""))
+            n["fonti"] = ids[:MAX_LINK]
             notizie.append(n)
         notizie = notizie[: limiti.get(s.get("titolo", "").strip().lower(), 99)]
         if notizie:
             sezioni.append({"titolo": s.get("titolo", ""), "notizie": notizie})
     riassunto["sezioni"] = sezioni
-    riassunto["da_provare"] = [
-        d for d in riassunto.get("da_provare", [])
-        if (d.update(fonti=[i for i in d.get("fonti", []) if i in per_id]) or d["fonti"])
-    ]
+
+    prove = []
+    for d in riassunto.get("da_provare", []):
+        ids = pulisci_fonti(d.get("fonti", []), per_id)
+        if not (ids and d.get("cosa")):
+            continue
+        if all(per_id[i].get("tipo") == "ricerca" for i in ids):
+            continue                       # la ricerca non è "da provare"
+        d["affidabilita"] = affidabilita(ids, per_id)
+        if all(per_id[i].get("solo_titolo") for i in ids):
+            # Senza testo non sappiamo come si attiva: niente passi dedotti.
+            d["come_iniziare"] = [PASSO_ONESTO]
+            if d.get("disponibilita") not in ("In arrivo",):
+                d["disponibilita"] = "Disponibilità da verificare"
+        d["fonti"] = ids[:MAX_LINK]
+        prove.append(d)
+    riassunto["da_provare"] = prove[:6]
     return riassunto
 
 
@@ -396,7 +465,7 @@ article h3{margin:0 0 6px;font-size:19px;line-height:1.3}article p{margin:6px 0}
 .tryzone h2{color:var(--accent);border-bottom:none;margin:18px 0 0;font-size:16px}
 .sub{font:14px system-ui,sans-serif;color:var(--muted);margin:4px 0 8px}
 .try{border-left:3px solid var(--accent)}.try ol{margin:4px 0 0;padding-left:22px}.try li{margin:3px 0}
-.tags{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:6px}
+.tags{display:flex;gap:6px;flex-wrap:wrap;align-items:center;margin-bottom:6px}.tags .rel{margin-bottom:0}
 .tag{font:600 11px system-ui,sans-serif;letter-spacing:.03em;text-transform:uppercase;color:var(--accent);border:1px solid var(--accent);border-radius:999px;padding:2px 8px}
 .rel{display:inline-block;font:600 11px system-ui,sans-serif;letter-spacing:.03em;text-transform:uppercase;color:var(--muted);background:var(--chip);border-radius:999px;padding:2px 8px;margin-bottom:6px}
 .rel.ok{color:#15803d;background:#dcfce7}.rel.warn{color:#b45309;background:#fef3c7}
@@ -455,16 +524,26 @@ def pagina(giorno, r, per_id, stato, modello, archivio, prefisso):
         parti.append('<section class="tryzone"><h2>🧪 Da provare oggi</h2>'
                      '<p class="sub">Nuovi strumenti e possibilità emersi dalle notizie di oggi</p>')
         for d in r["da_provare"]:
-            tag = "".join(f'<span class="tag">{e(t)}</span>'
-                          for t in (d.get("difficolta"), d.get("costo"), d.get("disponibilita")) if t)
+            inutili = ("non indicato", "da verificare")
+            utili = [t for t in (d.get("difficolta"), d.get("costo"), d.get("disponibilita"))
+                     if t and not any(x in t.lower() for x in inutili)]
+            aff = d.get("affidabilita", "")
+            classe = {"Fonte ufficiale": "ok", "Confermata": "ok", "Da verificare": "warn"}.get(aff, "")
+            badge = f'<span class="rel {classe}">{e(aff)}</span>' if aff else ""
+            tag = badge + "".join(f'<span class="tag">{e(t)}</span>' for t in utili)
             passi = d.get("come_iniziare") or d.get("come") or []
             if isinstance(passi, str):
                 passi = [passi]
-            lista = ("<ol>" + "".join(f"<li>{e(p)}</li>" for p in passi) + "</ol>") if passi else ""
+            if passi == [PASSO_ONESTO] or len(passi) == 1:
+                come = f'<p class="why"><b>Come iniziare:</b> {e(passi[0])}</p>'
+            elif passi:
+                come = ('<p class="why"><b>Come iniziare</b></p><ol>'
+                        + "".join(f"<li>{e(x)}</li>" for x in passi) + "</ol>")
+            else:
+                come = ""
             parti.append(f'<article class="try"><div class="tags">{tag}</div>'
                          f'<h3>{e(d.get("cosa"))}</h3><p>{e(d.get("a_cosa_serve"))}</p>'
-                         f'{"<p class=why><b>Come iniziare</b></p>" + lista if lista else ""}'
-                         f"{chips(d['fonti'], per_id)}</article>")
+                         f"{come}{chips(d['fonti'], per_id)}</article>")
         parti.append("</section>")
     for s in r["sezioni"]:
         parti.append(f"<h2>{e(s['titolo'])}</h2>")
