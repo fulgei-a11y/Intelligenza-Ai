@@ -420,10 +420,17 @@ A) "strumenti_nuovi" — LA SEZIONE PIÙ IMPORTANTE (da 0 a 6, meglio 3 ottimi c
 B) "novita_strumenti" — "Novità negli strumenti che già usi" (da 0 a 5)
    Nuove funzioni concrete di ChatGPT, Gemini, Claude, Copilot, Meta AI, Perplexity, app Google,
    Microsoft, Apple, Samsung e simili. Spiega cosa cambia per chi le usa e, se le fonti lo dicono,
-   come provarla e se è già disponibile in Italia. Niente modelli per soli sviluppatori.
-C) "in_breve" — al massimo 3 notizie davvero grosse sull'AI che una persona comune deve conoscere
-   (es. una legge che cambia cosa si può usare in Italia, un rischio concreto per gli utenti).
-   Una frase ciascuna. Se non ce ne sono, lista vuota. Mai notizie da community.
+   come provarla e se è già disponibile in Italia.
+   ESCLUDI: modelli per soli sviluppatori, prodotti per aziende (Google Cloud, Azure, AWS, "Enterprise",
+   piani aziendali, agenti per i sistemi aziendali), novità riservate ai clienti business.
+   Vanno bene i piani per privati (anche a pagamento) e gli strumenti per liberi professionisti.
+C) "in_breve" — DA 0 A 3, spesso 0. Solo notizie che cambiano qualcosa per chi USA l'AI in Italia:
+   - una legge o regola che cambia cosa si può usare (es. AI Act, Garante privacy);
+   - un rischio concreto per gli utenti (truffe con l'AI, falle di sicurezza in app diffuse, deepfake);
+   - un servizio diffuso che chiude, cambia prezzo o arriva/sparisce in Italia.
+   NON vanno in "in_breve": guerre e geopolitica, data center ed energia, accordi tra aziende,
+   finanziamenti, borsa, cause legali, licenziamenti, studi scientifici, politica estera.
+   Una frase ciascuna. Se non c'è nulla che rispetti questi criteri, lista vuota. Mai notizie da community.
 
 Rispondi SOLO con JSON valido:
 {
