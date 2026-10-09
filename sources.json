@@ -13,8 +13,8 @@
     {"nome": "Ars Technica", "categoria": "Testate tech", "url": "https://arstechnica.com/ai/feed/", "max": 10},
     {"nome": "TechCrunch", "categoria": "Testate tech", "url": "https://techcrunch.com/category/artificial-intelligence/feed/", "max": 12},
 
-    {"nome": "ANSA Tecnologia", "categoria": "Italia", "url": "https://www.ansa.it/sito/notizie/tecnologia/tecnologia_rss.xml", "max": 30, "filtro_ai": true},
-    {"nome": "Wired Italia", "categoria": "Italia", "url": "https://www.wired.it/feed/rss", "max": 30, "filtro_ai": true},
+    {"nome": "ANSA", "categoria": "Italia", "url": "https://news.google.com/rss/search?q=site:ansa.it+%22intelligenza+artificiale%22+when:2d&hl=it&gl=IT&ceid=IT:it", "max": 8},
+    {"nome": "Wired Italia", "categoria": "Italia", "url": "https://news.google.com/rss/search?q=site:wired.it+%22intelligenza+artificiale%22+OR+AI+when:2d&hl=it&gl=IT&ceid=IT:it", "max": 8},
     {"nome": "Il Sole 24 Ore Tecnologia", "categoria": "Italia", "url": "https://www.ilsole24ore.com/rss/tecnologia.xml", "max": 30, "filtro_ai": true},
     {"nome": "Google News Italia", "categoria": "Italia", "url": "https://news.google.com/rss/search?q=%22intelligenza+artificiale%22+when:1d&hl=it&gl=IT&ceid=IT:it", "max": 15},
 
