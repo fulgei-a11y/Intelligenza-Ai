@@ -2,11 +2,17 @@ name: Riassunto AI quotidiano
 
 on:
   schedule:
-    - cron: "17 5 * * *"
-  workflow_dispatch: {}
+    - cron: "17 5 * * *"   # 07:17 ora legale italiana (06:17 con l'ora solare)
+  workflow_dispatch:
+    inputs:
+      settimana:
+        description: "Crea anche l'edizione 'La settimana dell'AI' (1 = sì)"
+        required: false
+        default: "0"
 
 permissions:
   contents: write
+  issues: write
 
 concurrency:
   group: digest
@@ -14,24 +20,49 @@ concurrency:
 
 jobs:
   digest:
-    runs-on: ubuntu-latest
-    timeout-minutes: 20
+    runs-on: ubuntu-24.04
+    timeout-minutes: 45
+    env:
+      AVVISI_FILE: ${{ github.workspace }}/../avvisi.txt
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
 
-      - uses: actions/setup-python@v5
+      - uses: actions/setup-python@v6
         with:
           python-version: "3.12"
 
-      - name: Installa la lingua italiana per le date
+      - name: Installa gli strumenti
         run: |
           sudo locale-gen it_IT.UTF-8 || true
+          sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg
+          pip install -q trafilatura googlenewsdecoder || echo "Librerie facoltative non installate: si usa la riserva."
+
+      - name: Controlla che gli script siano completi
+        run: |
+          for f in digest.py tools/audio.py; do
+            python -m py_compile "$f" || { echo "❌ $f non è valido: ricaricalo per intero."; exit 1; }
+            tail -15 "$f" | grep -q "main()" || { echo "❌ $f è incompleto: ricaricalo per intero."; exit 1; }
+          done
+
+      - name: Cache della voce Paola
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/ai-news-tts
+          key: paola-tts-1.12.14
 
       - name: Genera il riassunto
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           GEMINI_MODEL: ${{ vars.GEMINI_MODEL }}
+          SETTIMANA: ${{ github.event.inputs.settimana }}
         run: python digest.py
+
+      - name: Crea l'audio con la voce Paola
+        continue-on-error: true
+        run: python tools/audio.py
+
+      - name: Aggiorna le pagine con l'audio
+        run: python digest.py --pagine
 
       - name: Pubblica
         run: |
@@ -40,4 +71,22 @@ jobs:
           git add docs
           git diff --cached --quiet && echo "Nessuna novità" && exit 0
           git commit -m "Riassunto del $(TZ=Europe/Rome date +%Y-%m-%d)"
+          git pull --rebase
           git push
+
+      - name: Avvisami se qualcosa non va
+        if: always()
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          F="$AVVISI_FILE"
+          touch "$F"
+          if [ "${{ job.status }}" != "success" ]; then
+            echo "- L'aggiornamento automatico si è interrotto con un errore." >> "$F"
+          fi
+          [ -s "$F" ] || { echo "Tutto regolare."; exit 0; }
+          echo "" >> "$F"
+          echo "Dettagli dell'esecuzione: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}" >> "$F"
+          cat "$F"
+          gh issue create --title "⚠️ AI News Digest: problema del $(TZ=Europe/Rome date +%d/%m/%Y)" --body-file "$F" \
+            || echo "Impossibile aprire la segnalazione (le Issues del repository sono attive?)"
