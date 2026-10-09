@@ -140,10 +140,26 @@ def analizza_feed(contenuto: bytes):
     return articoli
 
 
-def raccogli(fonti, limite_tempo):
+EDITORI_UFFICIALI = {
+    "openai", "openai.com", "blog.google", "google", "google blog", "google deepmind", "deepmind.google",
+    "anthropic", "anthropic.com", "www.anthropic.com", "meta", "www.meta.com", "about.fb.com",
+    "ai.meta.com", "microsoft", "blogs.microsoft.com", "nvidia", "nvidia blog", "hugging face",
+    "mistral ai", "commissione europea", "european commission", "governo.it", "agid",
+}
+
+
+def separa_editore(titolo):
+    """I titoli di Google News finiscono con ' - Editore': li separiamo."""
+    m = re.match(r"^(.*\S)\s+[-–—]\s+([^-–—]{2,60})$", titolo)
+    return (m.group(1), m.group(2).strip()) if m else (titolo, "")
+
+
+def raccogli(fonti, limite_tempo, editori_esclusi=()):
     tutti, stato = [], []
     visti = set()
+    esclusi = {x.lower() for x in editori_esclusi}
     for f in fonti:
+        escludi = re.compile(f["escludi"], re.IGNORECASE) if f.get("escludi") else None
         try:
             grezzi = analizza_feed(scarica(f["url"]))
         except (urllib.error.URLError, ET.ParseError, TimeoutError, OSError, ValueError) as e:
@@ -158,11 +174,26 @@ def raccogli(fonti, limite_tempo):
                 continue
             if f.get("filtro_ai") and not PAROLE_AI.search(a["titolo"] + " " + a["testo"]):
                 continue
+            if escludi and escludi.search(a["titolo"]):
+                continue
+            tipo = f.get("tipo", "testata")
+            fonte = f["nome"]
+            if "news.google.com" in f["url"]:
+                a["titolo"], editore = separa_editore(a["titolo"])
+                if editore:
+                    if editore.lower() in esclusi:
+                        continue
+                    fonte = editore
+                    if editore.lower() in EDITORI_UFFICIALI:
+                        tipo = "ufficiale"
+                if a["testo"].startswith(a["titolo"][:40]):
+                    a["testo"] = ""  # Google News ripete solo il titolo
             chiave = re.sub(r"\W+", "", a["titolo"].lower())[:80]
             if chiave in visti:
                 continue
             visti.add(chiave)
-            a["fonte"] = f["nome"]
+            a["fonte"] = fonte
+            a["tipo"] = tipo
             a["categoria"] = f["categoria"]
             tutti.append(a)
             presi += 1
@@ -177,59 +208,88 @@ def raccogli(fonti, limite_tempo):
 
 # ---------------------------------------------------------------- Gemini
 
-ISTRUZIONI = """Sei un giornalista esperto di intelligenza artificiale che scrive una rassegna
-quotidiana in ITALIANO per un lettore curioso, non necessariamente tecnico, che vuole
-restare informato e scoprire nuove possibilità concrete offerte dall'AI.
+ISTRUZIONI = """Sei il caporedattore di una rassegna quotidiana sull'intelligenza artificiale, in ITALIANO.
+Il lettore è una persona italiana curiosa, NON programmatore, che vuole: (1) capire cosa succede
+davvero nel mondo dell'AI, (2) scoprire cose nuove e concrete che può usare nella sua vita e nel lavoro.
+Il tuo valore sta nel SELEZIONARE e nel distinguere i fatti dal rumore.
 
-Ricevi un elenco di articoli, ciascuno con un id (a1, a2, ...). Regole tassative:
-- Usa SOLO le informazioni presenti negli articoli forniti. Non inventare fatti, cifre o nomi.
-- Ogni notizia deve citare in "fonti" gli id degli articoli da cui proviene.
-- Raggruppa articoli che parlano dello stesso fatto in un'unica notizia.
-- Scegli le notizie davvero rilevanti (massimo 12 in totale), scarta pubblicità e rumore.
-- Scrivi in modo chiaro, senza gergo inutile; spiega i termini tecnici in poche parole.
-- Se un fatto è riportato solo da post di community (Reddit, Hacker News), dillo esplicitamente.
+Ricevi articoli nel formato: [id] {tipo · editore · sezione} titolo — estratto
+Tipi di fonte, dal più al meno autorevole:
+- ufficiale: comunicato o blog dell'azienda/ente interessato (affidabile sui fatti, ma è autopromozione)
+- testata: giornale o rivista (affidabilità dipende dall'editore: Reuters, MIT Technology Review, The Verge,
+  Ars Technica, TechCrunch, Guardian, NYT, Sole 24 Ore, ANSA, RaiNews sono solide; siti di gadget, blog SEO
+  e siti finanziari che commentano titoli di borsa sono deboli)
+- aggregatore: articolo trovato tramite Google News, valuta l'editore indicato
+- ricerca: paper scientifico non ancora revisionato (arXiv)
+- community: post di Reddit o Hacker News, NON verificato
 
-Rispondi SOLO con JSON valido in questo formato:
+REGOLE SUI FATTI (tassative)
+1. Usa SOLO informazioni presenti negli articoli. Non inventare fatti, cifre, nomi, date, prezzi.
+2. UNA NOTIZIA = UN FATTO. Unisci solo articoli che raccontano lo stesso identico evento.
+   Non creare notizie "contenitore" (es. "le controversie di X") che mescolano fatti diversi.
+3. Se le fonti si contraddicono, dai precedenza a fonti ufficiali e testate solide; segnala
+   esplicitamente l'indiscrezione come tale ("secondo [editore], non confermato").
+4. Un'affermazione riportata solo da community o da un editore debole va in "Dalla community"
+   oppure va scritta come "Secondo [fonte], non verificato". Mai presentarla come fatto.
+5. IGNORA: storie di clienti / casi studio aziendali ("Come l'azienda X usa ChatGPT"), annunci di
+   partnership minori, commenti sul prezzo delle azioni, articoli puramente promozionali.
+6. Scrivi chiaro, frasi brevi, niente gergo; spiega ogni termine tecnico in poche parole.
+
+SELEZIONE E SEZIONI (massimo 12 notizie in tutto, meglio 8 ottime che 12 mediocri)
+- "Le notizie principali": 3-5 fatti più importanti della giornata per chiunque.
+- "Dai laboratori AI": nuovi modelli, prodotti, regole di OpenAI, Google, Anthropic, Meta, ecc.
+- "Dall'Italia e dall'Europa": leggi, aziende, sanità, scuola, PA. Molto apprezzata dal lettore.
+- "Ricerca": massimo 2, solo se si può spiegare in parole semplici perché un giorno toccherà la vita di
+  tutti. Altrimenti ometti la sezione.
+- "Dalla community": massimo 3, cose interessanti emerse su Reddit/Hacker News, sempre presentate come
+  segnalazioni non verificate.
+Per ogni notizia, "affidabilita" vale: "Fonte ufficiale" (c'è una fonte ufficiale), "Confermata"
+(almeno due testate solide), "Una fonte" (una sola testata solida), "Da verificare" (solo community,
+editori deboli o indiscrezioni).
+
+SEZIONE "da_provare" — LA PIÙ IMPORTANTE
+Cose che il lettore può PROVARE davvero, oggi o a breve. Cercale in tutti gli articoli.
+Criteri, tutti obbligatori:
+- È un prodotto, una funzione, un'app o uno strumento accessibile a un privato o a un piccolo
+  professionista (non solo grandi aziende, non solo sviluppatori).
+- Ha un uso concreto e comprensibile: scrivi un esempio realistico nella vita di un italiano
+  (lavoro d'ufficio, studio, famiglia, salute, viaggi, foto, burocrazia, hobby...).
+- NON sono validi: casi studio di clienti, strumenti solo enterprise, risultati di ricerca, modelli che
+  richiedono di essere installati su un proprio server (salvo uno solo, marcato "Per esperti", se è
+  davvero notevole).
+- Meglio 2 suggerimenti ottimi che 5 deboli. Se oggi non c'è nulla di valido, lascia la lista vuota.
+- "come_iniziare": 2-4 passi concreti ricavati dalle fonti (dove andare, quale app, cosa cercare).
+  Se le fonti non lo dicono, un solo passo: "Leggi l'articolo per i dettagli".
+- "disponibilita": "Disponibile ora", "In arrivo", "Solo in alcuni paesi" o "Non indicato" secondo le fonti.
+- Costo solo se scritto nelle fonti, altrimenti "Costo non indicato".
+
+Rispondi SOLO con JSON valido:
 {
-  "titolo_giorno": "titolo breve che riassume la giornata",
-  "in_breve": "2-3 frasi con il quadro generale della giornata",
+  "titolo_giorno": "titolo breve e concreto della giornata",
+  "in_breve": "3 frasi: il fatto più importante, una tendenza, una cosa utile per il lettore",
+  "da_provare": [
+    {"cosa": "nome", "a_cosa_serve": "1-2 frasi con esempio concreto",
+     "come_iniziare": ["passo 1", "passo 2"], "costo": "Gratis / A pagamento / Gratis con limiti / Costo non indicato",
+     "difficolta": "Facile / Media / Per esperti", "disponibilita": "Disponibile ora", "fonti": ["a3"]}
+  ],
   "sezioni": [
     {"titolo": "Le notizie principali", "notizie": [
-      {"titolo": "...", "riassunto": "2-4 frasi", "perche_conta": "1 frase", "fonti": ["a1"]}
+      {"titolo": "...", "riassunto": "2-4 frasi", "perche_conta": "1 frase concreta",
+       "affidabilita": "Fonte ufficiale", "fonti": ["a1", "a5"]}
     ]},
-    {"titolo": "Dai laboratori AI", "notizie": [...]},
-    {"titolo": "Dall'Italia e dall'Europa", "notizie": [...]},
-    {"titolo": "Ricerca", "notizie": [...]},
-    {"titolo": "Dalla community", "notizie": [...]}
-  ],
-  "da_provare": [
-    {
-      "cosa": "nome dello strumento, funzione o servizio",
-      "a_cosa_serve": "1-2 frasi: cosa permette di fare nella vita o nel lavoro di tutti i giorni, con un esempio concreto",
-      "come_iniziare": ["passo 1", "passo 2", "passo 3"],
-      "costo": "Gratis / A pagamento / Gratis con limiti / Non indicato nelle fonti",
-      "difficolta": "Facile / Media / Per esperti",
-      "fonti": ["a3"]
-    }
+    {"titolo": "Dai laboratori AI", "notizie": []},
+    {"titolo": "Dall'Italia e dall'Europa", "notizie": []},
+    {"titolo": "Ricerca", "notizie": []},
+    {"titolo": "Dalla community", "notizie": []}
   ]
 }
-Ometti le sezioni vuote.
-
-LA SEZIONE "da_provare" È LA PIÙ IMPORTANTE della rassegna: il lettore vuole scoprire cosa può
-fare di nuovo con l'AI. Cercala con cura in TUTTI gli articoli (lanci di prodotti, nuove funzioni
-di ChatGPT/Gemini/Claude/Copilot, app, strumenti open source, tutorial, casi d'uso interessanti).
-- Inserisci da 3 a 6 elementi quando le fonti lo permettono; mai inventarne per arrivare al numero.
-- Solo cose che una persona può usare davvero oggi o a breve, non risultati di ricerca teorici.
-- Preferisci ciò che è utilizzabile da chi non è programmatore; gli strumenti tecnici segnali come "Per esperti".
-- "come_iniziare" deve contenere 2-4 passi concreti basati sulle fonti (dove andare, cosa cercare);
-  se le fonti non lo dicono, scrivi un solo passo: "Leggi l'articolo per i dettagli".
-- Per costo e disponibilità in Italia/UE riporta solo ciò che è scritto nelle fonti; altrimenti "Non indicato nelle fonti".
-- Una novità può comparire sia tra le notizie sia in "da_provare"."""
+Ometti le sezioni vuote. Ogni elemento deve avere almeno un id valido in "fonti"."""
 
 
 def chiedi_a_gemini(articoli, chiave):
     elenco = "\n".join(
-        f"[{a['id']}] ({a['categoria']} · {a['fonte']}) {a['titolo']} — {a['testo']}"
+        f"[{a['id']}] {{{a.get('tipo', 'testata')} · {a['fonte']} · {a['categoria']}}} {a['titolo']}"
+        + (f" — {a['testo']}" if a["testo"] else "")
         for a in articoli
     )
     corpo = {
@@ -267,13 +327,27 @@ def chiedi_a_gemini(articoli, chiave):
 
 def verifica(riassunto, per_id):
     """Scarta tutto ciò che non cita articoli realmente letti (niente link inventati)."""
+    limiti = {"ricerca": 2, "dalla community": 3}
     sezioni = []
     for s in riassunto.get("sezioni", []):
         notizie = []
         for n in s.get("notizie", []):
-            n["fonti"] = [i for i in n.get("fonti", []) if i in per_id]
-            if n["fonti"] and n.get("titolo"):
-                notizie.append(n)
+            n["fonti"] = list(dict.fromkeys(i for i in n.get("fonti", []) if i in per_id))
+            if not (n["fonti"] and n.get("titolo")):
+                continue
+            tipi = {per_id[i].get("tipo") for i in n["fonti"]}
+            # Regole fisse, indipendenti dal modello:
+            if tipi <= {"community"}:
+                n["affidabilita"] = "Da verificare"
+            elif "ufficiale" in tipi and n.get("affidabilita") != "Da verificare":
+                n["affidabilita"] = "Fonte ufficiale"
+            elif tipi <= {"ricerca"}:
+                n["affidabilita"] = "Studio non revisionato"
+            elif not n.get("affidabilita"):
+                editori = {per_id[i]["fonte"] for i in n["fonti"]}
+                n["affidabilita"] = "Confermata" if len(editori) > 1 else "Una fonte"
+            notizie.append(n)
+        notizie = notizie[: limiti.get(s.get("titolo", "").strip().lower(), 99)]
         if notizie:
             sezioni.append({"titolo": s.get("titolo", ""), "notizie": notizie})
     riassunto["sezioni"] = sezioni
@@ -324,6 +398,10 @@ article h3{margin:0 0 6px;font-size:19px;line-height:1.3}article p{margin:6px 0}
 .try{border-left:3px solid var(--accent)}.try ol{margin:4px 0 0;padding-left:22px}.try li{margin:3px 0}
 .tags{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:6px}
 .tag{font:600 11px system-ui,sans-serif;letter-spacing:.03em;text-transform:uppercase;color:var(--accent);border:1px solid var(--accent);border-radius:999px;padding:2px 8px}
+.rel{display:inline-block;font:600 11px system-ui,sans-serif;letter-spacing:.03em;text-transform:uppercase;color:var(--muted);background:var(--chip);border-radius:999px;padding:2px 8px;margin-bottom:6px}
+.rel.ok{color:#15803d;background:#dcfce7}.rel.warn{color:#b45309;background:#fef3c7}
+@media (prefers-color-scheme:dark){.rel.ok{color:#86efac;background:#14532d}.rel.warn{color:#fcd34d;background:#451a03}}
+.legenda{font:13px system-ui,sans-serif;color:var(--muted)}
 .arch a{color:var(--ink)}.arch li{margin:4px 0}
 details{margin-top:40px;font:14px system-ui,sans-serif;color:var(--muted)}
 .ko{color:#dc2626}
@@ -344,16 +422,22 @@ def chips(ids, per_id):
 
 
 def pagina(giorno, r, per_id, stato, modello, archivio, prefisso):
-    data_it = giorno.strftime("%A %d %B %Y")
+    giorni = ["lunedì", "martedì", "mercoledì", "giovedì", "venerdì", "sabato", "domenica"]
+    mesi = ["gennaio", "febbraio", "marzo", "aprile", "maggio", "giugno", "luglio", "agosto",
+            "settembre", "ottobre", "novembre", "dicembre"]
+    data_it = f"{giorni[giorno.weekday()]} {giorno.day} {mesi[giorno.month - 1]} {giorno.year}"
     parti = [f'<p class="top">AI News Digest · {e(data_it)}</p>',
              f"<h1>{e(r.get('titolo_giorno'))}</h1>",
              f'<p class="lead">{e(r.get("in_breve"))}</p>']
+    if not r.get("da_provare") and r.get("sezioni") and "non disponibile" not in str(r.get("in_breve")):
+        parti.append('<section class="tryzone"><h2>🧪 Da provare oggi</h2><p class="sub">Oggi nessuna '
+                     'novità abbastanza concreta da consigliare: meglio niente che un suggerimento debole.</p></section>')
     if r.get("da_provare"):
         parti.append('<section class="tryzone"><h2>🧪 Da provare oggi</h2>'
                      '<p class="sub">Nuovi strumenti e possibilità emersi dalle notizie di oggi</p>')
         for d in r["da_provare"]:
             tag = "".join(f'<span class="tag">{e(t)}</span>'
-                          for t in (d.get("difficolta"), d.get("costo")) if t)
+                          for t in (d.get("difficolta"), d.get("costo"), d.get("disponibilita")) if t)
             passi = d.get("come_iniziare") or d.get("come") or []
             if isinstance(passi, str):
                 passi = [passi]
@@ -368,7 +452,11 @@ def pagina(giorno, r, per_id, stato, modello, archivio, prefisso):
         for n in s["notizie"]:
             perche = (f'<p class="why"><b>Perché conta:</b> {e(n["perche_conta"])}</p>'
                       if n.get("perche_conta") else "")
-            parti.append(f"<article><h3>{e(n['titolo'])}</h3><p>{e(n.get('riassunto'))}</p>"
+            aff = n.get("affidabilita", "")
+            classe = {"Fonte ufficiale": "ok", "Confermata": "ok", "Da verificare": "warn",
+                      "Studio non revisionato": "warn"}.get(aff, "")
+            badge = f'<span class="rel {classe}">{e(aff)}</span>' if aff else ""
+            parti.append(f"<article>{badge}<h3>{e(n['titolo'])}</h3><p>{e(n.get('riassunto'))}</p>"
                          f"{perche}{chips(n['fonti'], per_id)}</article>")
     if archivio:
         voci = "".join(f'<li><a href="{prefisso}giorni/{g}.html">{g}</a></li>' for g in archivio[:60])
@@ -397,10 +485,11 @@ def main():
         except locale.Error:
             pass
 
-    fonti = json.loads((ROOT / "sources.json").read_text(encoding="utf-8"))["fonti"]
+    config = json.loads((ROOT / "sources.json").read_text(encoding="utf-8"))
+    fonti = config["fonti"]
     limite = datetime.now(timezone.utc) - timedelta(hours=ORE_FINESTRA)
     print(f"Leggo {len(fonti)} fonti (ultime {ORE_FINESTRA} ore)…")
-    articoli, stato = raccogli(fonti, limite)
+    articoli, stato = raccogli(fonti, limite, config.get("editori_esclusi", []))
     if not articoli:
         print("Nessun articolo trovato: non aggiorno il sito.", file=sys.stderr)
         sys.exit(1)
