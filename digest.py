@@ -1,9 +1,10 @@
 #!/usr/bin/env python3
 """
-AI News Digest — riassunto quotidiano delle notizie sull'intelligenza artificiale.
+AI News Digest — guida quotidiana ai nuovi strumenti di intelligenza artificiale, per il lavoro e per
+tutti i giorni: strumenti nuovi, novità negli strumenti che già si usano, al massimo 3 notizie "In breve".
 
 1. Legge i feed RSS/Atom elencati in sources.json (ultime ORE_FINESTRA ore)
-2. Toglie gli articoli già usati nell'edizione precedente (niente doppioni)
+2. Toglie gli articoli già usati negli ultimi 14 giorni (niente doppioni, niente strumenti ripetuti)
 3. Scarica il testo completo degli articoli che hanno solo il titolo (anche da Google News)
 4. Chiede a Gemini un riassunto in italiano, citando solo articoli realmente letti,
    poi applica regole fisse: etichette di affidabilità, "Solo titoli", niente accuse senza fonti solide
@@ -92,11 +93,17 @@ def scarica(url: str, timeout: int = 25) -> bytes:
         _ultimo_accesso[host] = time.time()
         req = urllib.request.Request(url, headers={"User-Agent": UA, "Accept": "*/*"})
         try:
-            with urllib.request.urlopen(req, timeout=timeout) as r:
+            with urllib.request.urlopen(req, timeout=timeout + 15 * tentativo) as r:
                 return r.read()
         except urllib.error.HTTPError as e:
             if e.code in (429, 502, 503) and tentativo < 2:
                 time.sleep(15 * (tentativo + 1))
+                continue
+            raise
+        except (TimeoutError, urllib.error.URLError) as e:
+            # Siti lenti (es. hnrss.org): un secondo tentativo con più tempo a disposizione.
+            if tentativo < 1 and ("timed out" in str(e) or isinstance(e, TimeoutError)):
+                time.sleep(5)
                 continue
             raise
 
@@ -215,11 +222,17 @@ def raccogli(fonti, limite_tempo, editori_esclusi=()):
             print(f"  ✗ {f['nome']}: {e}", file=sys.stderr)
             continue
         presi = 0
+        limite_fonte = (datetime.now(timezone.utc) - timedelta(hours=f["ore"])) if f.get("ore") else limite_tempo
         for a in grezzi:
             if not a["titolo"] or not a["link"].startswith("http"):
                 continue
-            if a["data"] and a["data"] < limite_tempo:
+            if a["data"] and a["data"] < limite_fonte:
                 continue
+            if f.get("tipo") == "vetrina":
+                # Product Hunt: "slogan Discussion | Link"; Show HN: "Article URL: … Points: …"
+                a["testo"] = re.sub(r"\s*Discussion\s*\|\s*Link\s*$", "", a["testo"])
+                a["testo"] = re.sub(r"(Article URL|Comments URL|Points|# Comments):\s*\S*", " ", a["testo"]).strip()
+                a["titolo"] = re.sub(r"^Show HN:\s*", "", a["titolo"])
             if f.get("filtro_ai") and not PAROLE_AI.search(a["titolo"] + " " + a["testo"]):
                 continue
             if escludi and escludi.search(a["titolo"]):
@@ -322,7 +335,7 @@ def estrai_testo(pagina_html, url=""):
 def arricchisci(articoli):
     """Aggiunge il testo completo agli articoli che ne hanno poco. Restituisce quanti ne ha arricchiti."""
     from concurrent.futures import ThreadPoolExecutor
-    ordine = {"ufficiale": 0, "testata": 1, "minore": 2}
+    ordine = {"vetrina": 0, "ufficiale": 1, "testata": 2, "minore": 3}
     candidati = [a for a in articoli
                  if a.get("tipo") in ordine and a.get("categoria") != "Ricerca"
                  and len(a.get("testo", "")) < TESTO_MINIMO]
@@ -362,93 +375,80 @@ def arricchisci(articoli):
 
 # ---------------------------------------------------------------- Gemini
 
-ISTRUZIONI = """Sei il caporedattore di una rassegna quotidiana sull'intelligenza artificiale, in ITALIANO.
-Il lettore è una persona italiana curiosa, NON programmatore, che vuole: (1) capire cosa succede
-davvero nel mondo dell'AI, (2) scoprire cose nuove e concrete che può usare nella sua vita e nel lavoro.
-Il tuo valore sta nel SELEZIONARE e nel distinguere i fatti dal rumore.
+ISTRUZIONI = """Sei il redattore di "AI News Digest", una guida quotidiana in ITALIANO agli STRUMENTI di
+intelligenza artificiale. Il lettore è una persona italiana NON programmatrice che vuole una cosa sola:
+scoprire AI nuove e cose utili da usare nel lavoro (ufficio, professione, piccola attività, studio) e nella
+vita di tutti i giorni (casa, famiglia, salute, viaggi, foto, burocrazia, hobby).
+NON è un notiziario: politica, cause legali, licenziamenti, finanziamenti, borsa, polemiche e ricerca
+scientifica interessano solo se cambiano subito cosa il lettore può usare.
 
 Ricevi articoli nel formato: [id] {tipo · editore · sezione} titolo — estratto
-Tipi di fonte, dal più al meno autorevole:
-- ufficiale: comunicato o blog dell'azienda/ente interessato (affidabile sui fatti, ma è autopromozione)
-- testata: giornale o rivista riconosciuta e affidabile
-- minore: sito non verificato (blog, siti SEO, piccoli portali): usalo solo se confermato da altre fonti
-- ricerca: paper scientifico non ancora revisionato (arXiv)
-- community: post di Reddit o Hacker News, NON verificato
+Tipi di fonte:
+- ufficiale: comunicato o blog dell'azienda interessata (affidabile sui fatti, ma è autopromozione)
+- testata: giornale o rivista affidabile
+- vetrina: prodotto appena presentato dal suo stesso creatore (Product Hunt, Show HN). Prova che lo
+  strumento esiste e si può provare, non che funzioni bene: descrivilo per quello che dichiara di fare.
+- minore: sito non verificato: usalo solo se confermato da altre fonti o se è una vetrina di strumenti
+- community: post di Reddit, NON verificato
 Molti articoli arrivano SOLO CON IL TITOLO: in quel caso sai CHE COSA è successo ma non i dettagli.
-Non dedurre dettagli che il titolo non dice (come funziona, dove si trova, prezzi, paesi, date).
-Se TUTTE le fonti di una notizia sono [SOLO TITOLO], il riassunto è di 1-2 frasi e dice soltanto
-ciò che i titoli affermano: niente elenchi, cause, numeri o conseguenze che i titoli non contengono.
-Non usare le tue conoscenze per completare la notizia: conta solo ciò che è scritto negli articoli.
+Non dedurre dettagli che il titolo non dice. Conta solo ciò che è scritto negli articoli.
 
 REGOLE SUI FATTI (tassative)
-1. Usa SOLO informazioni presenti negli articoli. Non inventare fatti, cifre, nomi, date, prezzi.
-2. UNA NOTIZIA = UN FATTO. Unisci solo articoli che raccontano lo stesso identico evento.
-   Non creare notizie "contenitore" (es. "le controversie di X") che mescolano fatti diversi.
-3. Se le fonti si contraddicono, dai precedenza a fonti ufficiali e testate solide; segnala
-   esplicitamente l'indiscrezione come tale ("secondo [editore], non confermato").
-4. Un'affermazione riportata solo da community o da un editore debole va in "Dalla community"
-   oppure va scritta come "Secondo [fonte], non verificato". Mai presentarla come fatto.
-5. IGNORA: storie di clienti / casi studio aziendali ("Come l'azienda X usa ChatGPT"), annunci di
-   partnership minori, commenti sul prezzo delle azioni, articoli puramente promozionali.
+1. Usa SOLO informazioni presenti negli articoli. Non inventare nomi, prezzi, menu, siti, date, paesi.
+2. Prezzo, lingua italiana, disponibilità in Italia, piattaforma (iPhone, Android, Mac, Windows, web):
+   scrivili SOLO se un articolo li dice. Altrimenti usa "Non indicato".
+3. "come_iniziare": 2-4 passi concreti SOLO se un articolo li descrive davvero; altrimenti lista vuota [].
+   MAI frasi vuote come "apri l'articolo".
+4. MAI riportare accuse (reati, frodi, scandali) contro persone o aziende.
+5. Se ricevi l'elenco "GIÀ SEGNALATI DI RECENTE", non riproporre quegli strumenti e quelle novità, a meno
+   che oggi ci sia uno sviluppo nuovo e concreto (es. arriva in Italia, diventa gratis): in quel caso
+   racconta SOLO la novità.
 6. Scrivi chiaro, frasi brevi, niente gergo; spiega ogni termine tecnico in poche parole.
-7. MAI riportare accuse (reati, furti di dati, frodi, illeciti, scandali) contro persone o aziende se le
-   uniche fonti sono community o editori "minore": ometti la notizia.
-8. Se ricevi l'elenco "GIÀ PUBBLICATE NELL'EDIZIONE PRECEDENTE", non ripetere quelle notizie. Riprendile
-   solo se gli articoli di oggi riportano uno sviluppo nuovo, e in quel caso racconta SOLO la novità.
+   Scrivi sempre "AI" (mai "IA"), salvo nei nomi propri.
 
-SELEZIONE E SEZIONI (massimo 12 notizie in tutto, meglio 8 ottime che 12 mediocri)
-- "Le notizie principali": 3-5 fatti più importanti della giornata per chiunque.
-- "Dai laboratori AI": nuovi modelli, prodotti, regole di OpenAI, Google, Anthropic, Meta, ecc.
-- "Dall'Italia e dall'Europa": leggi, aziende, sanità, scuola, PA. Molto apprezzata dal lettore.
-- "Ricerca": massimo 2, solo se si può spiegare in parole semplici perché un giorno toccherà la vita di
-  tutti. Altrimenti ometti la sezione.
-- "Dalla community": massimo 3, cose interessanti emerse su Reddit/Hacker News, sempre presentate come
-  segnalazioni non verificate.
-Per ogni notizia, "affidabilita" vale: "Fonte ufficiale" (c'è una fonte ufficiale), "Confermata"
-(almeno due testate solide), "Una fonte" (una sola testata solida), "Da verificare" (solo community,
-editori deboli o indiscrezioni).
-
-SEZIONE "da_provare" — LA PIÙ IMPORTANTE
-Cose che il lettore può PROVARE davvero, oggi o a breve. Cercale in tutti gli articoli.
-Criteri, tutti obbligatori:
-- È un prodotto, una funzione, un'app o uno strumento accessibile a un privato o a un piccolo
-  professionista (non solo grandi aziende, non solo sviluppatori).
-- Ha un uso concreto e comprensibile: scrivi un esempio realistico nella vita di un italiano
-  (lavoro d'ufficio, studio, famiglia, salute, viaggi, foto, burocrazia, hobby...).
-- NON sono validi: casi studio di clienti, strumenti solo enterprise, risultati di ricerca, modelli che
-  richiedono di essere installati su un proprio server (salvo uno solo, marcato "Per esperti", se è
-  davvero notevole).
-- Meglio 2 suggerimenti ottimi che 5 deboli. Se oggi non c'è nulla di valido, lascia la lista vuota.
-- "come_iniziare": 2-4 passi concreti SOLO se il testo di un articolo li descrive davvero.
-  Se le fonti hanno solo il titolo o non spiegano come si usa, scrivi esattamente un passo:
-  "Apri l'articolo per sapere come attivarlo". MAI inventare menu, plugin, siti o procedure.
-- "disponibilita": "Disponibile ora", "In arrivo", "Solo in alcuni paesi" solo se scritto nelle fonti,
-  altrimenti "Disponibilità da verificare".
-- Preferisci novità riportate da fonti ufficiali o testate; se l'unica fonte è "minore", inseriscila
-  solo se davvero interessante.
-- Costo solo se scritto nelle fonti, altrimenti "Costo non indicato".
+COSA SCEGLIERE
+A) "strumenti_nuovi" — LA SEZIONE PIÙ IMPORTANTE (da 0 a 6, meglio 3 ottimi che 6 mediocri)
+   App, siti, estensioni, servizi AI NUOVI o appena arrivati, usabili da un privato o da un piccolo
+   professionista. Criteri, tutti obbligatori:
+   - si usa senza programmare (niente API, SDK, librerie, framework, strumenti per sviluppatori,
+     infrastruttura, modelli da installare su un proprio server);
+   - non è riservato alle grandi aziende;
+   - ha un uso concreto: in "a_cosa_serve" scrivi un esempio realistico nella vita di un italiano;
+   - NON sono strumenti: casi studio di clienti, partnership, risultati di ricerca, finanziamenti.
+   Preferisci ciò che è gratuito o ha una prova gratuita, funziona in italiano o è disponibile in Italia.
+   Se oggi non c'è nulla di valido, lascia la lista vuota.
+B) "novita_strumenti" — "Novità negli strumenti che già usi" (da 0 a 5)
+   Nuove funzioni concrete di ChatGPT, Gemini, Claude, Copilot, Meta AI, Perplexity, app Google,
+   Microsoft, Apple, Samsung e simili. Spiega cosa cambia per chi le usa e, se le fonti lo dicono,
+   come provarla e se è già disponibile in Italia. Niente modelli per soli sviluppatori.
+C) "in_breve" — al massimo 3 notizie davvero grosse sull'AI che una persona comune deve conoscere
+   (es. una legge che cambia cosa si può usare in Italia, un rischio concreto per gli utenti).
+   Una frase ciascuna. Se non ce ne sono, lista vuota. Mai notizie da community.
 
 Rispondi SOLO con JSON valido:
 {
-  "titolo_giorno": "titolo breve e concreto della giornata",
-  "in_breve": "3 frasi: il fatto più importante, una tendenza, una cosa utile per il lettore. Niente frasi sulla rassegna stessa",
-  "da_provare": [
-    {"cosa": "nome", "a_cosa_serve": "1-2 frasi con esempio concreto",
-     "come_iniziare": ["passo 1", "passo 2"], "costo": "Gratis / A pagamento / Gratis con limiti / Costo non indicato",
-     "difficolta": "Facile / Media / Per esperti", "disponibilita": "Disponibile ora", "fonti": ["a3"]}
+  "titolo_giorno": "titolo breve e concreto, centrato sullo strumento o la novità più utile del giorno",
+  "presentazione": "2-3 frasi: lo strumento più interessante di oggi e per chi è utile. Niente frasi sulla rassegna stessa",
+  "strumenti_nuovi": [
+    {"cosa": "nome dello strumento", "a_cosa_serve": "1-2 frasi con un esempio concreto",
+     "per_chi": "Lavoro / Tutti i giorni / Lavoro e tutti i giorni / Studio",
+     "ambito": "2-3 parole, es. Scrittura, Foto e video, Organizzazione, Ricerca, Casa, Salute, Viaggi",
+     "come_iniziare": ["passo 1", "passo 2"],
+     "costo": "Gratis / Gratis con limiti / A pagamento / Prova gratuita / Non indicato",
+     "piattaforma": "es. Web, iPhone, Android, Mac, Windows, estensione Chrome / Non indicato",
+     "italiano": "Sì / No / Non indicato",
+     "difficolta": "Facile / Media", "fonti": ["a3"]}
   ],
-  "sezioni": [
-    {"titolo": "Le notizie principali", "notizie": [
-      {"titolo": "...", "riassunto": "2-4 frasi", "perche_conta": "1 frase concreta",
-       "affidabilita": "Fonte ufficiale", "fonti": ["a1", "a5"]}
-    ]},
-    {"titolo": "Dai laboratori AI", "notizie": []},
-    {"titolo": "Dall'Italia e dall'Europa", "notizie": []},
-    {"titolo": "Ricerca", "notizie": []},
-    {"titolo": "Dalla community", "notizie": []}
+  "novita_strumenti": [
+    {"strumento": "ChatGPT", "titolo": "...", "cosa_cambia": "2-3 frasi pratiche",
+     "come_provarla": "1 frase, solo se le fonti lo dicono, altrimenti stringa vuota",
+     "disponibilita": "Disponibile ora / In arrivo / Non in Italia / Non indicato", "fonti": ["a5"]}
+  ],
+  "in_breve": [
+    {"titolo": "...", "frase": "1 frase", "fonti": ["a9"]}
   ]
 }
-Ometti le sezioni vuote. Ogni elemento deve avere almeno un id valido in "fonti"."""
+Ogni elemento deve avere almeno un id valido in "fonti"."""
 
 
 def chiedi_a_gemini(articoli, chiave, gia_pubblicate=()):
@@ -460,9 +460,34 @@ def chiedi_a_gemini(articoli, chiave, gia_pubblicate=()):
     )
     testo = "ARTICOLI DI OGGI:\n" + elenco
     if gia_pubblicate:
-        testo = ("GIÀ PUBBLICATE NELL'EDIZIONE PRECEDENTE (non ripeterle senza sviluppi nuovi):\n"
+        testo = ("GIÀ SEGNALATI DI RECENTE (non riproporli senza sviluppi nuovi):\n"
                  + "\n".join(f"- {t}" for t in gia_pubblicate) + "\n\n" + testo)
-    return chiama_gemini(ISTRUZIONI, testo, chiave)
+    risposta, modello = chiama_gemini(ISTRUZIONI, testo, chiave)
+    return normalizza_risposta(risposta), modello
+
+
+SEZ_NOVITA = "Novità negli strumenti che già usi"
+SEZ_BREVE = "In breve"
+
+
+def normalizza_risposta(r):
+    """Porta la risposta di Gemini al formato salvato (lo stesso dell'archivio: da_provare + sezioni)."""
+    if "sezioni" in r and "strumenti_nuovi" not in r:
+        return r                                   # formato vecchio: lo lasciamo com'è
+    novita = [{"titolo": n.get("titolo", ""), "strumento": n.get("strumento", ""),
+               "riassunto": n.get("cosa_cambia", ""), "come_provarla": n.get("come_provarla", ""),
+               "disponibilita": n.get("disponibilita", ""), "fonti": n.get("fonti", [])}
+              for n in r.get("novita_strumenti", []) or []]
+    brevi = [{"titolo": n.get("titolo", ""), "riassunto": n.get("frase", ""), "fonti": n.get("fonti", [])}
+             for n in (r.get("in_breve") if isinstance(r.get("in_breve"), list) else []) or []]
+    sezioni = []
+    if novita:
+        sezioni.append({"titolo": SEZ_NOVITA, "notizie": novita})
+    if brevi:
+        sezioni.append({"titolo": SEZ_BREVE, "breve": True, "notizie": brevi})
+    return {"titolo_giorno": r.get("titolo_giorno", ""),
+            "in_breve": r.get("presentazione") or (r.get("in_breve") if isinstance(r.get("in_breve"), str) else ""),
+            "da_provare": r.get("strumenti_nuovi", []) or [], "sezioni": sezioni, "formato": 2}
 
 
 def chiama_gemini(istruzioni, testo, chiave):
@@ -500,9 +525,11 @@ def chiama_gemini(istruzioni, testo, chiave):
     raise RuntimeError(ultimo_errore or "Gemini non disponibile")
 
 
-PRIORITA_TIPO = {"ufficiale": 0, "testata": 1, "minore": 2, "ricerca": 3, "community": 4}
+PRIORITA_TIPO = {"ufficiale": 0, "vetrina": 1, "testata": 1, "minore": 2, "ricerca": 3, "community": 4}
 MAX_LINK = 4
-PASSO_ONESTO = "Apri l'articolo per sapere come attivarlo"
+PASSO_ONESTO = "Apri l'articolo per sapere come attivarlo"   # usato nelle edizioni vecchie
+LIMITI_SEZIONE = {SEZ_NOVITA.lower(): 5, SEZ_BREVE.lower(): 3, "ricerca": 2, "dalla community": 3}
+NON_INDICATO = ("non indicat", "da verificare", "non specificat", "sconosciut")
 
 
 def pulisci_fonti(ids, per_id):
@@ -523,10 +550,26 @@ def affidabilita(ids, per_id, proposta=""):
         return "Fonte ufficiale"
     solide = {per_id[i]["fonte"] for i in ids if per_id[i].get("tipo") == "testata"}
     if not solide:
+        if "vetrina" in tipi:
+            return "Appena lanciato"      # presentato dal creatore: esiste, ma nessuno l'ha ancora recensito
         return "Da verificare"            # solo siti minori o community
     if len(solide) >= 2:
         return "Confermata"
     return "Una fonte" if proposta != "Da verificare" else "Da verificare"
+
+
+def link_prova(ids, per_id):
+    """Il link da aprire per provare lo strumento: la vetrina o il sito ufficiale, mai un articolo qualsiasi."""
+    for i in ids:
+        if per_id[i].get("tipo") in ("vetrina", "ufficiale") and "news.google.com" not in per_id[i]["link"]:
+            return per_id[i]["link"]
+    return ""
+
+
+def utile(valore):
+    """Vero se il campo dice qualcosa (non 'Non indicato' e simili)."""
+    v = str(valore or "").strip().lower()
+    return bool(v) and not any(x in v for x in NON_INDICATO)
 
 
 ACCUSE = re.compile(
@@ -537,29 +580,34 @@ ACCUSE = re.compile(
 
 def verifica(riassunto, per_id):
     """Scarta tutto ciò che non cita articoli realmente letti e applica le regole di affidabilità."""
-    limiti = {"ricerca": 2, "dalla community": 3}
     sezioni = []
     for s in riassunto.get("sezioni", []):
-        community = "community" in s.get("titolo", "").lower()
+        titolo_s = s.get("titolo", "").strip()
+        community = "community" in titolo_s.lower()
+        breve = s.get("breve") or titolo_s.lower() == SEZ_BREVE.lower()
         notizie = []
         for n in s.get("notizie", []):
             ids = pulisci_fonti(n.get("fonti", []), per_id)
             if not (ids and n.get("titolo")):
                 continue
             tipi = {per_id[i].get("tipo") for i in ids}
-            deboli = tipi <= {"community", "minore"}
+            deboli = tipi <= {"community", "minore", "vetrina"}
             if deboli and ACCUSE.search(f"{n.get('titolo', '')} {n.get('riassunto', '')}"):
                 print(f"  ⊘ scartata (accusa senza fonti solide): {n.get('titolo')}")
                 continue
             if tipi <= {"community"} and not community:
                 continue                   # le voci della community stanno solo nella loro sezione
+            if breve and deboli:
+                continue                   # "In breve" solo con fonti solide
             n["affidabilita"] = affidabilita(ids, per_id, n.get("affidabilita", ""))
             n["solo_titoli"] = all(per_id[i].get("solo_titolo") for i in ids)
+            if n["solo_titoli"]:
+                n["come_provarla"] = ""    # senza testo non sappiamo come si attiva
             n["fonti"] = ids[:MAX_LINK]
             notizie.append(n)
-        notizie = notizie[: limiti.get(s.get("titolo", "").strip().lower(), 99)]
+        notizie = notizie[: LIMITI_SEZIONE.get(titolo_s.lower(), 99)]
         if notizie:
-            sezioni.append({"titolo": s.get("titolo", ""), "notizie": notizie})
+            sezioni.append({**s, "titolo": titolo_s, "notizie": notizie})
     riassunto["sezioni"] = sezioni
 
     prove = []
@@ -568,13 +616,28 @@ def verifica(riassunto, per_id):
         if not (ids and d.get("cosa")):
             continue
         if all(per_id[i].get("tipo") == "ricerca" for i in ids):
-            continue                       # la ricerca non è "da provare"
+            continue                       # la ricerca non è uno strumento da provare
+        if ACCUSE.search(f"{d.get('cosa', '')} {d.get('a_cosa_serve', '')}") and \
+                {per_id[i].get("tipo") for i in ids} <= {"community", "minore", "vetrina"}:
+            continue
         d["affidabilita"] = affidabilita(ids, per_id)
+        passi = d.get("come_iniziare") or []
+        if isinstance(passi, str):
+            passi = [passi]
+        passi = [p for p in passi if p and "apri l'articolo" not in p.lower()]
         if all(per_id[i].get("solo_titolo") for i in ids):
-            # Senza testo non sappiamo come si attiva: niente passi dedotti.
-            d["come_iniziare"] = [PASSO_ONESTO]
-            if d.get("disponibilita") not in ("In arrivo",):
-                d["disponibilita"] = "Disponibilità da verificare"
+            passi = []                     # senza testo non sappiamo come si attiva: niente passi dedotti
+            d["solo_titoli"] = True
+            # Dal solo titolo non si ricavano prezzo, lingua e piattaforma, salvo che il titolo li dica.
+            titoli = " ".join(per_id[i]["titolo"] for i in ids).lower()
+            if not re.search(r"\bfree\b|gratis|gratuit", titoli):
+                d["costo"] = "Non indicato"
+            if "ital" not in titoli:
+                d["italiano"] = "Non indicato"
+            if not re.search(r"iphone|ios|android|mac|windows|chrome|web|app\b", titoli):
+                d["piattaforma"] = "Non indicato"
+        d["come_iniziare"] = passi[:4]
+        d["prova"] = link_prova(ids, per_id)
         d["fonti"] = ids[:MAX_LINK]
         prove.append(d)
     riassunto["da_provare"] = prove[:6]
@@ -583,7 +646,7 @@ def verifica(riassunto, per_id):
 
 def senza_ai(articoli):
     """Versione di riserva: titoli raggruppati per categoria, senza riassunto."""
-    ordine = ["Laboratori", "Testate tech", "Italia", "Ricerca", "Community"]
+    ordine = ["Strumenti", "Laboratori", "Testate tech", "Italia", "Community"]
     sezioni = []
     for c in ordine:
         gruppo = [a for a in articoli if a["categoria"] == c]
@@ -660,8 +723,13 @@ CSS += """
 .risultati a{color:var(--ink);text-decoration:none}.risultati small{display:block;font:12px system-ui,sans-serif;color:var(--muted)}
 .arch{padding-left:0;list-style:none}.arch small{font:12px system-ui,sans-serif;color:var(--muted);margin-right:6px}
 .etichette dt{display:inline-block;margin-top:8px}.etichette dd{margin:2px 0 0}
-article:target{outline:2px solid var(--accent)}
-@media print{.listen,.week,.cerca,.risultati,.glossario{display:none!important}}
+article:target,li:target{outline:2px solid var(--accent)}
+.prova{display:inline-block;margin:8px 8px 0 0;font:700 14px system-ui,sans-serif;color:#fff;background:var(--accent);text-decoration:none;padding:8px 16px;border-radius:999px}
+.prova:active{transform:scale(.97)}
+@media (prefers-color-scheme:dark){.prova{color:#1d1d1f}}
+.brevi{list-style:none;padding:0;margin:0}.brevi li{padding:10px 0;border-bottom:1px solid var(--line);font-size:16px}
+.brevi .src{display:inline-flex;margin:4px 0 0}
+@media print{.listen,.week,.cerca,.risultati,.glossario,.prova{display:none!important}}
 """
 
 GLOSSARIO = [
@@ -721,6 +789,8 @@ ETICHETTE = [
     ("Confermata", "Riportata da almeno due testate giornalistiche affidabili."),
     ("Una fonte", "Riportata da una sola testata affidabile."),
     ("Da verificare", "Solo siti minori o discussioni online: prendila come una voce."),
+    ("Appena lanciato", "Strumento presentato dal suo stesso creatore (es. Product Hunt): esiste e si può "
+     "provare, ma nessuna testata l'ha ancora recensito."),
     ("Studio non revisionato", "Ricerca pubblicata prima del controllo di altri esperti."),
     ("Solo titoli", "Le fonti disponibili avevano solo il titolo: il riassunto si limita a quello, "
      "per i dettagli apri l'articolo."),
@@ -861,41 +931,65 @@ def pagina(dati, archivio, prefisso, settimana=None):
     if settimana:
         parti.append(f'<a class="week" href="{prefisso}settimana/{settimana[0]}.html">'
                      f'<small>📅 La settimana dell\'AI</small><b>{e(settimana[1])}</b> →</a>')
+    nuovo_formato = r.get("formato") == 2
+    nome_zona = "🧪 Strumenti nuovi" if nuovo_formato else "🧪 Da provare oggi"
     if not r.get("da_provare") and r.get("sezioni") and "non disponibile" not in str(r.get("in_breve")):
-        parti.append('<section class="tryzone"><h2>🧪 Da provare oggi</h2><p class="sub">Oggi nessuna '
-                     'novità abbastanza concreta da consigliare: meglio niente che un suggerimento debole.</p></section>')
+        parti.append(f'<section class="tryzone"><h2>{nome_zona}</h2><p class="sub">Oggi nessuno strumento nuovo '
+                     'abbastanza concreto da consigliare: meglio niente che un suggerimento debole.</p></section>')
     if r.get("da_provare"):
-        parti.append('<section class="tryzone"><h2>🧪 Da provare oggi</h2>'
-                     '<p class="sub">Nuovi strumenti e possibilità emersi dalle notizie di oggi</p>')
+        sotto = ("App e servizi AI appena usciti, da usare al lavoro o tutti i giorni" if nuovo_formato
+                 else "Nuovi strumenti e possibilità emersi dalle notizie di oggi")
+        parti.append(f'<section class="tryzone"><h2>{nome_zona}</h2><p class="sub">{sotto}</p>')
         for d in r["da_provare"]:
-            inutili = ("non indicato", "da verificare")
-            utili = [t for t in (d.get("difficolta"), d.get("costo"), d.get("disponibilita"))
-                     if t and not any(x in t.lower() for x in inutili)]
-            tag = badge(d.get("affidabilita", "")) + "".join(f'<span class="tag">{e(t)}</span>' for t in utili)
+            etichette = [d.get("per_chi"), d.get("ambito"), d.get("costo"), d.get("difficolta")]
+            if utile(d.get("piattaforma")):
+                etichette.append(d["piattaforma"])
+            if str(d.get("italiano", "")).strip().lower() in ("sì", "si"):
+                etichette.append("In italiano")
+            if utile(d.get("disponibilita")):
+                etichette.append(d["disponibilita"])
+            tag = (badge(d.get("affidabilita", ""), d.get("solo_titoli") and nuovo_formato)
+                   + "".join(f'<span class="tag">{e(t)}</span>' for t in dict.fromkeys(etichette) if utile(t)))
             passi = d.get("come_iniziare") or d.get("come") or []
             if isinstance(passi, str):
                 passi = [passi]
-            if passi == [PASSO_ONESTO] or len(passi) == 1:
+            passi = [x for x in passi if x and x != PASSO_ONESTO]
+            if len(passi) == 1:
                 come = f'<p class="why"><b>Come iniziare:</b> {e(passi[0])}</p>'
             elif passi:
                 come = ('<p class="why"><b>Come iniziare</b></p><ol>'
                         + "".join(f"<li>{e(x)}</li>" for x in passi) + "</ol>")
             else:
                 come = ""
+            prova = (f'<a class="prova" href="{e(d["prova"])}" target="_blank" rel="noopener">Provalo ↗</a>'
+                     if d.get("prova") else "")
             parti.append(f'<article class="try"><div class="tags">{tag}</div>'
                          f'<h3>{e(d.get("cosa"))}</h3><p>{e(d.get("a_cosa_serve"))}</p>'
-                         f"{come}{chips(d['fonti'], per_id)}</article>")
+                         f"{come}{prova}{chips(d['fonti'], per_id)}</article>")
         parti.append("</section>")
     k = 0
     for s in r["sezioni"]:
         parti.append(f"<h2>{e(s['titolo'])}</h2>")
+        breve = s.get("breve")
+        if breve:
+            parti.append('<ul class="brevi">')
         for n in s["notizie"]:
             k += 1
+            if breve:
+                parti.append(f'<li id="n{k}"><b>{e(n["titolo"])}.</b> {e(n.get("riassunto"))} '
+                             f"{chips(n['fonti'][:2], per_id)}</li>")
+                continue
             perche = (f'<p class="why"><b>Perché conta:</b> {e(n["perche_conta"])}</p>'
                       if n.get("perche_conta") else "")
+            if n.get("come_provarla"):
+                perche += f'<p class="why"><b>Come provarla:</b> {e(n["come_provarla"])}</p>'
+            extra = "".join(f'<span class="tag">{e(t)}</span>'
+                            for t in (n.get("strumento"), n.get("disponibilita")) if utile(t))
             parti.append(f'<article id="n{k}"><div class="tags">{badge(n.get("affidabilita", ""), n.get("solo_titoli"))}'
-                         f"</div><h3>{e(n['titolo'])}</h3><p>{e(n.get('riassunto'))}</p>"
+                         f"{extra}</div><h3>{e(n['titolo'])}</h3><p>{e(n.get('riassunto'))}</p>"
                          f"{perche}{chips(n['fonti'], per_id)}</article>")
+        if breve:
+            parti.append("</ul>")
     parti.append(glossario_html(r))
     parti.append(archivio_html(archivio, prefisso))
     parti.append(legenda_html())
@@ -929,24 +1023,37 @@ def pagina_settimana(w, archivio):
              '<button type="button" onclick="condividi()">📤 Condividi</button>'
              '<button type="button" onclick="copiaWhatsApp(this)">💬 Copia per WhatsApp</button>'
              '<button type="button" onclick="window.print()">📄 Salva PDF</button></div>',
-             "<h2>Le 5 notizie che contano</h2>"]
+             ]
+    nuovo = w.get("formato") == 2
+    blocco_prove = []
+    if w.get("da_provare"):
+        titolo_prove = ("🧪 I migliori strumenti nuovi della settimana" if nuovo
+                        else "🧪 Il meglio da provare della settimana")
+        blocco_prove.append(f'<section class="tryzone"><h2>{titolo_prove}</h2>')
+        for d in w["da_provare"]:
+            blocco_prove.append(f'<article class="try"><h3>{e(d.get("cosa"))}</h3><p>{e(d.get("a_cosa_serve"))}</p>'
+                                f'<div class="src"><a href="{prefisso}giorni/{e(d.get("giorno"))}.html">'
+                                f'{e(data_breve(d.get("giorno")))} ↗</a></div></article>')
+        blocco_prove.append("</section>")
+    blocco_notizie = []
+    if w.get("notizie"):
+        blocco_notizie.append("<h2>Le novità che contano</h2>" if nuovo else "<h2>Le 5 notizie che contano</h2>")
     for i, n in enumerate(w.get("notizie", []), 1):
         link = "".join(f'<a href="{prefisso}giorni/{g}.html#n{k}">{e(data_breve(g))} ↗</a>'
                        for g, k in n.get("rif", []))
-        parti.append(f"<article><h3>{i}. {e(n.get('titolo'))}</h3><p>{e(n.get('racconto'))}</p>"
-                     f'<p class="why"><b>Perché conta:</b> {e(n.get("perche_conta"))}</p>'
-                     f'<div class="src">{link}</div></article>')
-    if w.get("da_provare"):
-        parti.append('<section class="tryzone"><h2>🧪 Il meglio da provare della settimana</h2>')
-        for d in w["da_provare"]:
-            parti.append(f'<article class="try"><h3>{e(d.get("cosa"))}</h3><p>{e(d.get("a_cosa_serve"))}</p>'
-                         f'<div class="src"><a href="{prefisso}giorni/{e(d.get("giorno"))}.html">'
-                         f'{e(data_breve(d.get("giorno")))} ↗</a></div></article>')
-        parti.append("</section>")
+        perche = (f'<p class="why"><b>Perché conta:</b> {e(n.get("perche_conta"))}</p>'
+                  if n.get("perche_conta") else "")
+        blocco_notizie.append(f"<article><h3>{i}. {e(n.get('titolo'))}</h3><p>{e(n.get('racconto'))}</p>"
+                              f'{perche}<div class="src">{link}</div></article>')
+    parti += (blocco_prove + blocco_notizie) if nuovo else (blocco_notizie + blocco_prove)
     parti.append(f'<p class="meta"><a href="{prefisso}index.html">← Torna all\'edizione di oggi</a></p>')
     parti.append(archivio_html(archivio, prefisso))
     url_pagina = indirizzo_sito() + f"settimana/{w['giorno']}.html"
     righe = [f"📅 *La settimana dell'AI* · {periodo}", "", f"*{w.get('titolo', '')}*", w.get("in_breve", ""), ""]
+    if w.get("formato") == 2 and w.get("da_provare"):
+        righe.append("🧪 *Strumenti della settimana*")
+        righe += [f"• *{d.get('cosa', '')}*: {d.get('a_cosa_serve', '')}" for d in w["da_provare"]]
+        righe.append("")
     righe += [f"{i}. {n.get('titolo', '')}" for i, n in enumerate(w.get("notizie", []), 1)]
     if url_pagina:
         righe += ["", f"Leggi tutto: {url_pagina}"]
@@ -971,17 +1078,26 @@ def testo_whatsapp(data_it, r, url):
     """Versione testuale breve, con la formattazione di WhatsApp (*grassetto*, _corsivo_)."""
     righe = [f"🤖 *AI News Digest* · {data_it}", "", f"*{r.get('titolo_giorno', '')}*",
              r.get("in_breve", ""), ""]
+    nuovo = r.get("formato") == 2
     if r.get("da_provare"):
-        righe.append("🧪 *Da provare oggi*")
+        righe.append("🧪 *Strumenti nuovi*" if nuovo else "🧪 *Da provare oggi*")
         for d in r["da_provare"]:
-            righe.append(f"• *{d.get('cosa', '')}*: {d.get('a_cosa_serve', '')}")
+            costo = f" ({d['costo']})" if nuovo and utile(d.get("costo")) else ""
+            righe.append(f"• *{d.get('cosa', '')}*{costo}: {d.get('a_cosa_serve', '')}")
         righe.append("")
-    principali = next((s for s in r.get("sezioni", []) if "principal" in s.get("titolo", "").lower()), None)
-    if principali:
-        righe.append("📰 *Le notizie principali*")
-        for n in principali["notizie"][:5]:
-            righe.append(f"• {n.get('titolo', '')}")
-        righe.append("")
+    if nuovo:
+        novita = next((s for s in r.get("sezioni", []) if s.get("titolo") == SEZ_NOVITA), None)
+        if novita:
+            righe.append("✨ *Novità negli strumenti che già usi*")
+            righe += [f"• {n.get('titolo', '')}" for n in novita["notizie"][:5]]
+            righe.append("")
+    else:
+        principali = next((s for s in r.get("sezioni", []) if "principal" in s.get("titolo", "").lower()), None)
+        if principali:
+            righe.append("📰 *Le notizie principali*")
+            for n in principali["notizie"][:5]:
+                righe.append(f"• {n.get('titolo', '')}")
+            righe.append("")
     if url:
         righe.append(f"Leggi tutto con le fonti: {url}")
     return "\n".join(righe).strip()
@@ -1090,20 +1206,23 @@ def rigenera_tutto():
 
 # ---------------------------------------------------------------- la settimana dell'AI (domenica)
 
-ISTRUZIONI_SETTIMANA = """Sei il caporedattore di una rassegna sull'intelligenza artificiale, in ITALIANO, per un
-lettore curioso e non tecnico. Ricevi le notizie già pubblicate negli ultimi 7 giorni, ognuna con un codice
-[AAAA-MM-GG#n]. Scegli le 5 notizie (o vicende) più importanti della settimana per una persona comune.
-Se una vicenda è stata raccontata in più giorni, uniscila in una sola voce citando tutti i codici.
-Usa SOLO le informazioni presenti nel testo ricevuto, senza aggiungere nulla di tuo.
-Preferisci notizie con affidabilità "Fonte ufficiale" o "Confermata"; mai voci "Da verificare".
-Scegli anche fino a 2 cose "da provare" tra quelle segnalate (codice [AAAA-MM-GG#provare-n]), solo se valide.
+ISTRUZIONI_SETTIMANA = """Sei il redattore di "AI News Digest", una guida in ITALIANO agli strumenti di intelligenza
+artificiale per persone NON programmatrici, da usare al lavoro e nella vita di tutti i giorni.
+Ricevi quanto pubblicato negli ultimi 7 giorni: strumenti nuovi (codice [AAAA-MM-GG#provare-n]) e novità
+o notizie (codice [AAAA-MM-GG#n]).
+1. Scegli i 5 MIGLIORI strumenti nuovi della settimana (o meno, se non sono validi): preferisci quelli
+   gratuiti o con prova gratuita, utili a molte persone, disponibili in Italia.
+2. Scegli fino a 5 novità più utili negli strumenti già diffusi (ChatGPT, Gemini, Claude, Copilot...).
+   Se una novità è stata raccontata in più giorni, uniscila in una sola voce citando tutti i codici.
+Usa SOLO le informazioni presenti nel testo ricevuto, senza aggiungere nulla di tuo. Mai voci "Da verificare".
+Scrivi sempre "AI", mai "IA".
 
 Rispondi SOLO con JSON valido:
 {"titolo": "titolo breve della settimana",
- "in_breve": "2-3 frasi sul senso della settimana",
- "notizie": [{"titolo": "...", "racconto": "2-4 frasi", "perche_conta": "1 frase concreta",
-              "rif": ["2026-10-05#3", "2026-10-07#1"]}],
- "da_provare": [{"cosa": "...", "a_cosa_serve": "1-2 frasi", "rif": "2026-10-06#provare-1"}]}"""
+ "in_breve": "2-3 frasi: le cose più utili scoperte questa settimana",
+ "da_provare": [{"cosa": "...", "a_cosa_serve": "1-2 frasi", "rif": "2026-10-06#provare-1"}],
+ "notizie": [{"titolo": "...", "racconto": "2-3 frasi", "perche_conta": "1 frase concreta",
+              "rif": ["2026-10-05#3", "2026-10-07#1"]}]}"""
 
 
 def costruisci_settimana(chiave, fine):
@@ -1127,7 +1246,8 @@ def costruisci_settimana(chiave, fine):
         for j, d in enumerate(x["riassunto"].get("da_provare", []), 1):
             cod = f"{x['giorno']}#provare-{j}"
             prove[cod] = x["giorno"]
-            righe.append(f"[{cod}] DA PROVARE: {d.get('cosa', '')} — {d.get('a_cosa_serve', '')}")
+            costo = f" ({d['costo']})" if utile(d.get("costo")) else ""
+            righe.append(f"[{cod}] STRUMENTO: {d.get('cosa', '')}{costo} — {d.get('a_cosa_serve', '')}")
     w, modello = chiama_gemini(ISTRUZIONI_SETTIMANA, "NOTIZIE DELLA SETTIMANA:\n" + "\n".join(righe), chiave)
     notizie = []
     for n in w.get("notizie", []):
@@ -1135,14 +1255,14 @@ def costruisci_settimana(chiave, fine):
         if rif and n.get("titolo"):
             n["rif"] = [(c.split("#")[0], int(c.split("#")[1])) for c in rif]
             notizie.append(n)
-    if len(notizie) < 3:
-        raise RuntimeError("riassunto settimanale troppo povero")
     da_provare = []
-    for d in w.get("da_provare", [])[:2]:
+    for d in w.get("da_provare", [])[:5]:
         if d.get("rif") in prove and d.get("cosa"):
             d["giorno"] = prove[d["rif"]]
             da_provare.append(d)
-    out = {"giorno": fine, "titolo": w.get("titolo", "La settimana dell'AI"), "in_breve": w.get("in_breve", ""),
+    if len(notizie) + len(da_provare) < 3:
+        raise RuntimeError("riassunto settimanale troppo povero")
+    out = {"giorno": fine, "formato": 2, "titolo": w.get("titolo", "La settimana dell'AI"), "in_breve": w.get("in_breve", ""),
            "notizie": notizie[:5], "da_provare": da_provare, "modello": modello,
            "generato": datetime.now(timezone.utc).isoformat(timespec="seconds")}
     SETTIMANE.mkdir(parents=True, exist_ok=True)
@@ -1201,23 +1321,30 @@ def main():
     oggi = datetime.now(TZ)
     giorno = oggi.strftime("%Y-%m-%d")
 
-    # Niente doppioni: togliamo gli articoli già citati nell'edizione precedente.
+    # Niente doppioni: togliamo gli articoli già citati nelle ultime due settimane e diciamo a Gemini
+    # quali strumenti e novità sono già stati segnalati (così uno strumento non torna ogni giorno).
+    GIORNI_MEMORIA = 14
+    soglia = (oggi - timedelta(days=GIORNI_MEMORIA)).strftime("%Y-%m-%d")
+    recenti = [x for x in (leggi_json(p) for p in giorni_salvati() if soglia <= p.stem < giorno) if x]
     gia_pubblicate = []
-    precedenti = [p for p in giorni_salvati() if p.stem < giorno]
-    prec = leggi_json(precedenti[-1]) if precedenti else None
-    if prec:
+    if recenti:
         chiave_t = lambda t: re.sub(r"\W+", "", (t or "").lower())[:80]
-        vecchi_link = {a.get("link") for a in prec.get("articoli", {}).values()}
-        vecchi_titoli = {chiave_t(a.get("titolo")) for a in prec.get("articoli", {}).values()}
+        vecchi_link, vecchi_titoli = set(), set()
+        for x in recenti:
+            for a in x.get("articoli", {}).values():
+                vecchi_link.add(a.get("link"))
+                vecchi_titoli.add(chiave_t(a.get("titolo")))
         prima = len(articoli)
         articoli = [a for a in articoli
                     if a["link"] not in vecchi_link and chiave_t(a["titolo"]) not in vecchi_titoli]
-        gia_pubblicate = [n.get("titolo", "") for s in prec["riassunto"].get("sezioni", [])
-                          for n in s.get("notizie", [])]
-        gia_pubblicate += [d.get("cosa", "") for d in prec["riassunto"].get("da_provare", [])]
-        print(f"Tolti {prima - len(articoli)} articoli già usati il {prec['giorno']}.")
+        for x in recenti:
+            r_ = x.get("riassunto", {})
+            gia_pubblicate += [d.get("cosa", "") for d in r_.get("da_provare", [])]
+            gia_pubblicate += [n.get("titolo", "") for s in r_.get("sezioni", []) for n in s.get("notizie", [])]
+        gia_pubblicate = [t for t in dict.fromkeys(gia_pubblicate) if t][-150:]
+        print(f"Tolti {prima - len(articoli)} articoli già usati negli ultimi {GIORNI_MEMORIA} giorni.")
         if not articoli:
-            avvisa("Tutti gli articoli erano già stati pubblicati ieri: il sito non è stato aggiornato.")
+            avvisa("Tutti gli articoli erano già stati pubblicati: il sito non è stato aggiornato.")
             scrivi_avvisi()
             sys.exit(1)
 
@@ -1234,7 +1361,7 @@ def main():
         try:
             riassunto, modello = chiedi_a_gemini(articoli, chiave, gia_pubblicate)
             riassunto = verifica(riassunto, per_id)
-            if not riassunto["sezioni"]:
+            if not (riassunto["sezioni"] or riassunto.get("da_provare")):
                 raise RuntimeError("riassunto vuoto")
         except Exception as ex:  # qualunque problema: si pubblica comunque la versione semplice
             avvisa(f"Gemini non disponibile ({str(ex)[:200]}): pubblicata la versione senza riassunto.")

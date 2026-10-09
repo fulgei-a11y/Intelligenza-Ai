@@ -69,7 +69,7 @@ def copione(dati):
     pezzi = [f"A I News Digest di {GIORNI[d.weekday()]} {d.day} {MESI[d.month]} {d.year}.",
              normalizza(r.get("titolo_giorno")), normalizza(r.get("in_breve"))]
     if r.get("da_provare"):
-        pezzi.append("Da provare oggi.")
+        pezzi.append("Strumenti nuovi." if r.get("formato") == 2 else "Da provare oggi.")
         for x in r["da_provare"]:
             pezzi.append(normalizza(f"{x.get('cosa', '')}. {x.get('a_cosa_serve', '')}"))
     for s in r.get("sezioni", []):
