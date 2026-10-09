@@ -2,7 +2,7 @@
   "_nota": "Elenco delle fonti. Puoi aggiungere o togliere feed RSS/Atom. 'filtro_ai': true tiene solo gli articoli che parlano di AI. 'max': quanti articoli al massimo prendere dal feed.",
   "fonti": [
     {"nome": "OpenAI", "categoria": "Laboratori", "url": "https://openai.com/news/rss.xml", "max": 10},
-    {"nome": "Google DeepMind", "categoria": "Laboratori", "url": "https://deepmind.google/blog/rss.xml", "max": 10},
+    {"nome": "Google DeepMind / Gemini (Google News)", "categoria": "Laboratori", "url": "https://news.google.com/rss/search?q=DeepMind+OR+%22Google+Gemini%22+when:1d&hl=en-US&gl=US&ceid=US:en", "max": 8},
     {"nome": "Google AI", "categoria": "Laboratori", "url": "https://blog.google/technology/ai/rss/", "max": 10},
     {"nome": "Hugging Face", "categoria": "Laboratori", "url": "https://huggingface.co/blog/feed.xml", "max": 10},
     {"nome": "Anthropic (Google News)", "categoria": "Laboratori", "url": "https://news.google.com/rss/search?q=Anthropic+Claude+when:1d&hl=en-US&gl=US&ceid=US:en", "max": 8},
