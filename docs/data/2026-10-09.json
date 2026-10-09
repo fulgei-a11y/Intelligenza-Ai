@@ -1,0 +1,613 @@
+{
+ "giorno": "2026-10-09",
+ "modello": "gemini-2.5-flash",
+ "riassunto": {
+  "titolo_giorno": "AI tra Innovazione, Etica e Regolamentazione: Dalle Aziende ai Laboratori, l'Impatto Cresce",
+  "in_breve": "La giornata vede un'accelerazione nell'adozione dell'AI in ambito aziendale, con significativi progressi nei laboratori di ricerca. Emergono però importanti questioni etiche e legali, dalla trasparenza dei dati all'abuso dei modelli, mentre l'Italia si muove sul fronte regolatorio e applicativo.",
+  "sezioni": [
+   {
+    "titolo": "Le notizie principali",
+    "notizie": [
+     {
+      "titolo": "AI Act: Pubblicato il Decreto Legislativo in Italia",
+      "riassunto": "Il Decreto Legislativo 179/2026 sull'AI Act è stato pubblicato, delineando i cambiamenti per imprese e lavoratori in Italia. Questo segna un passo cruciale nell'adeguamento del quadro normativo italiano alla regolamentazione europea sull'intelligenza artificiale.",
+      "perche_conta": "È un aggiornamento legislativo fondamentale che influenzerà lo sviluppo e l'adozione dell'AI nel paese.",
+      "fonti": [
+       "a52"
+      ]
+     },
+     {
+      "titolo": "OpenAI licenzia ricercatori per la sicurezza, accuse di 'grave violazione della fiducia'",
+      "riassunto": "OpenAI ha confermato il licenziamento di tre ricercatori per la sicurezza, accusati di una 'grave violazione della fiducia' nella gestione di informazioni sensibili. I ricercatori, tuttavia, contestano le accuse, sollevando preoccupazioni su un possibile 'effetto raggelante' sulla cultura della sicurezza AI all'interno dell'azienda.",
+      "perche_conta": "Sottolinea le tensioni interne e le sfide etiche nella gestione della sicurezza e della trasparenza nelle aziende leader dell'AI.",
+      "fonti": [
+       "a29",
+       "a44"
+      ]
+     },
+     {
+      "titolo": "USA Today fa causa a OpenAI per violazione di copyright",
+      "riassunto": "Il gruppo editoriale USA Today ha intentato una causa contro OpenAI, accusandola di aver copiato 'centinaia di migliaia' di articoli per addestrare i suoi modelli AI senza autorizzazione. La richiesta di risarcimento supera i 250 milioni di dollari.",
+      "perche_conta": "Evidenzia le crescenti sfide legali e le questioni di copyright che l'industria dell'AI deve affrontare riguardo all'uso dei dati per l'addestramento.",
+      "fonti": [
+       "a32"
+      ]
+     },
+     {
+      "titolo": "Anthropic vieta comportamenti 'crudeli o abusivi' verso il suo modello Claude",
+      "riassunto": "Anthropic ha aggiornato le sue politiche d'uso, proibendo esplicitamente comportamenti 'crudeli o abusivi' verso il suo modello AI Claude. Le nuove regole mirano anche a prevenire usi ad alto rischio come l'interferenza elettorale e lo sviluppo di armi.",
+      "perche_conta": "Riflette una crescente attenzione delle aziende AI alla sicurezza e all'etica nell'interazione uomo-macchina, anche a livello di 'trattamento' dei modelli.",
+      "fonti": [
+       "a7",
+       "a8",
+       "a9",
+       "a10",
+       "a12",
+       "a13",
+       "a34"
+      ]
+     },
+     {
+      "titolo": "Nikon squalifica vincitore di concorso per uso di AI generativa",
+      "riassunto": "Il vincitore di un prestigioso concorso di video microscopici di Nikon è stato squalificato per aver utilizzato intelligenza artificiale generativa, violando le regole della competizione. Un nuovo vincitore è stato successivamente annunciato.",
+      "perche_conta": "Mostra come l'AI stia influenzando anche i settori creativi e la necessità di definire regole chiare sull'autenticità e l'originalità.",
+      "fonti": [
+       "a26",
+       "a35"
+      ]
+     }
+    ]
+   },
+   {
+    "titolo": "Dai laboratori AI",
+    "notizie": [
+     {
+      "titolo": "OpenAI accelera l'efficienza aziendale con soluzioni AI avanzate",
+      "riassunto": "Le soluzioni di OpenAI stanno rivoluzionando i flussi di lavoro aziendali: Sophos ha ridotto i tempi di indagine sulle minacce informatiche del 96%, Asana ha tagliato i costi dei modelli di 76 volte e Oracle trasforma giorni di lavoro in minuti in vari settori, utilizzando strumenti come Daybreak, GPT-6 Astra e Codex.",
+      "perche_conta": "Dimostra l'impatto concreto e misurabile dell'AI nell'ottimizzazione delle operazioni aziendali, rendendole più veloci ed economiche.",
+      "fonti": [
+       "a1",
+       "a2",
+       "a3",
+       "a5"
+      ]
+     },
+     {
+      "titolo": "Meta spinge su agenti AI e occhiali intelligenti come futuro dell'interazione",
+      "riassunto": "Mark Zuckerberg sta accelerando gli investimenti di Meta negli agenti AI e negli occhiali intelligenti, con l'obiettivo di integrare l'AI in ogni aspetto del business. Questo ha già avuto un impatto sul mercato, come dimostrato dal rialzo delle azioni di Warby Parker, partner per gli occhiali AI.",
+      "perche_conta": "Indica la direzione strategica di Meta verso un futuro in cui l'AI sarà pervasiva nei dispositivi e nelle interazioni quotidiane, con un focus sull'hardware indossabile.",
+      "fonti": [
+       "a15",
+       "a16",
+       "a17",
+       "a18",
+       "a19"
+      ]
+     },
+     {
+      "titolo": "Google introduce l'AI agentica in Gemini per le aziende",
+      "riassunto": "Google sta estendendo le capacità di Gemini, trasformandolo in un agente AI in grado di pianificare ed eseguire compiti complessi, delegare lavoro a sotto-agenti e operare su diverse applicazioni aziendali. Questo include la possibilità di avere una propria identità lavorativa con un indirizzo email.",
+      "perche_conta": "Segna un'evoluzione significativa nell'automazione intelligente per il mondo aziendale, rendendo l'AI più autonoma e integrata nei flussi di lavoro.",
+      "fonti": [
+       "a48"
+      ]
+     },
+     {
+      "titolo": "OpenAI rilascia risultati matematici 'sbalorditivi' che richiedono anni di studio",
+      "riassunto": "OpenAI ha pubblicato una vasta collezione di oltre 700 paper matematici su GitHub, con formalizzazioni Lean. I matematici hanno descritto questi risultati come 'sbalorditivi' e 'senza precedenti', prevedendo anni di studio per comprenderli appieno.",
+      "perche_conta": "Rappresenta un enorme passo avanti nelle capacità dell'AI nel campo della matematica e della logica formale, aprendo nuove frontiere di ricerca.",
+      "fonti": [
+       "a25",
+       "a50"
+      ]
+     }
+    ]
+   },
+   {
+    "titolo": "Dall'Italia e dall'Europa",
+    "notizie": [
+     {
+      "titolo": "Crescita record delle imprese AI in Italia: quasi 15.000 aziende attive",
+      "riassunto": "L'Italia conta quasi 15.000 imprese attive nel settore dell'intelligenza artificiale, con un impressionante 72% di queste nate negli ultimi cinque anni. Questo dato evidenzia un rapido sviluppo dell'ecosistema AI nel paese.",
+      "perche_conta": "Indica un vivace e rapido sviluppo dell'ecosistema AI italiano, con un forte potenziale di innovazione e crescita economica.",
+      "fonti": [
+       "a53"
+      ]
+     },
+     {
+      "titolo": "L'AI nella sanità italiana e globale: tra applicazioni cliniche e sfide di produttività",
+      "riassunto": "L'intelligenza artificiale sta entrando nei percorsi clinici oculistici in Italia per la diagnosi di retinopatia e glaucoma. A livello globale, l'OCSE rivela che 230 milioni di persone utilizzano già l'AI per la salute, sebbene oltre il 90% dei dirigenti non veda ancora effetti sulla produttività.",
+      "perche_conta": "Mostra l'adozione pratica dell'AI in settori critici come la sanità, pur evidenziando le sfide nella misurazione del suo impatto sulla produttività.",
+      "fonti": [
+       "a60",
+       "a61"
+      ]
+     }
+    ]
+   },
+   {
+    "titolo": "Ricerca",
+    "notizie": [
+     {
+      "titolo": "Nuova memoria a lungo termine per agenti AI: 50 milioni di token di contesto",
+      "riassunto": "Una nuova ricerca presenta un sistema di memoria a lungo termine chiamato 'galahad-kv' che permette ai modelli linguistici di utilizzare una finestra di contesto di 50 milioni di token. Questo approccio è più veloce e meno costoso del ricalcolo tradizionale, migliorando l'efficienza degli agenti AI.",
+      "perche_conta": "Risolve una delle principali limitazioni dei modelli linguistici, consentendo agli agenti AI di gestire informazioni molto più ampie e complesse.",
+      "fonti": [
+       "a88"
+      ]
+     }
+    ]
+   },
+   {
+    "titolo": "Dalla community",
+    "notizie": [
+     {
+      "titolo": "Controversie su trasparenza e dati, e nuovi modelli dalla community AI",
+      "riassunto": "La community ha segnalato che Strata avrebbe riscritto la cronologia di Github per rimuovere le menzioni di 'Co-Authored by Claude'. Inoltre, sono emerse accuse, riportate dalla community, secondo cui i risultati matematici di OpenAI sarebbero stati ottenuti utilizzando dati utente rubati. Nel frattempo, è stato rilasciato il nuovo modello Qwen-Image-2.1-Turbo per la creazione e modifica di immagini con pesi aperti. (Notizie riportate da post di community).",
+      "perche_conta": "Queste discussioni evidenziano le crescenti preoccupazioni della community riguardo alla trasparenza e all'etica nell'AI, mentre si assiste anche al rilascio di nuovi strumenti potenti.",
+      "fonti": [
+       "a93",
+       "a99",
+       "a94",
+       "a96"
+      ]
+     }
+    ]
+   }
+  ],
+  "da_provare": [
+   {
+    "cosa": "Automatizzare flussi di lavoro complessi con gli strumenti OpenAI",
+    "come": "Esplora le API e le soluzioni aziendali di OpenAI, come ChatGPT Work e Codex, per identificare aree dove l'automazione può snellire i tuoi processi di recruiting, ingegneria o operazioni.",
+    "fonti": [
+     "a3"
+    ]
+   },
+   {
+    "cosa": "Creare contenuti visivi accattivanti con Pollo AI",
+    "come": "Se hai idee creative per immagini o video pubblicitari, cerca la piattaforma Pollo AI. Utilizza modelli OpenAI (GPT-5.6, GPT-6 Astra, GPT-Image-2.5) per trasformarle in immagini dettagliate e video cinematografici.",
+    "fonti": [
+     "a4"
+    ]
+   },
+   {
+    "cosa": "L'app italiana CapisciAMe per facilitare la comunicazione con l'AI",
+    "come": "Cerca l'app CapisciAMe, sviluppata da Davide Mulfari, per scoprire come l'intelligenza artificiale può supportare le tue esigenze comunicative in modo innovativo.",
+    "fonti": [
+     "a57"
+    ]
+   },
+   {
+    "cosa": "Interagire visivamente con agenti AI disegnando sullo schermo",
+    "come": "È stato presentato uno strumento che permette agli agenti AI di disegnare frecce, riquadri e testo direttamente sullo schermo. Cerca 'big-arrow-on-the-screen' su GitHub per esplorare questa funzionalità e integrarla nei tuoi progetti di automazione. (Notizia riportata da post di community).",
+    "fonti": [
+     "a91"
+    ]
+   }
+  ]
+ },
+ "articoli": {
+  "a34": {
+   "titolo": "Anthropic bans ‘abusive or cruel behavior’ toward Claude",
+   "link": "https://www.theverge.com/ai-artificial-intelligence/1008100/anthropic-new-usage-policy-abuse-claude",
+   "data": "2026-10-08T13:00:00-04:00",
+   "testo": "Anthropic is making changes to its usage policy for the first time in over a year to reflect new and high-risk cases of misuse - including election interference, weapons development, surveillance, and health and financial uses. But one of the most significant changes prohibits \"sustained and needless abusive or cruel behavior\" toward Claude. Last August, […]",
+   "fonte": "The Verge",
+   "categoria": "Testate tech",
+   "id": "a34"
+  },
+  "a2": {
+   "titolo": "Asana cuts model costs 76x in browser tests with GPT-6.1 Sol",
+   "link": "https://openai.com/index/asana-browser-agent",
+   "data": "2026-10-09T07:00:00+00:00",
+   "testo": "Using GPT-6 Astra in Codex, Asana made its browser agent 76x cheaper and 5x faster in tests to offer customers more capable models.",
+   "fonte": "OpenAI",
+   "categoria": "Laboratori",
+   "id": "a2"
+  },
+  "a5": {
+   "titolo": "LegalOn halves Codex costs while maintaining development speed",
+   "link": "https://openai.com/index/legalon-halves-codex-costs",
+   "data": "2026-10-08T12:00:00+00:00",
+   "testo": "LegalOn cut estimated daily Codex costs by 65% while maintaining development speed. It matched Astra, Sol, and Luna to tasks and managed budgets strategically.",
+   "fonte": "OpenAI",
+   "categoria": "Laboratori",
+   "id": "a5"
+  },
+  "a96": {
+   "titolo": "Qwen-Image-2.1-Turbo released!",
+   "link": "https://www.reddit.com/r/LocalLLaMA/comments/1x1lclx/qwenimage21turbo_released/",
+   "data": "2026-10-09T13:27:18+00:00",
+   "testo": "Qwen-Image-2.1-Turbo, create and edit images in just 8 denoising steps! Open weights now available! Built on Qwen-Image-2.1, Turbo is an accelerated checkpoint on the same 7B visual generation architecture. Fewer steps does not mean lower quality: it still generates strong 2K images from text, and supports continued creation through natural-language edits, from adding accessories to changing a sc…",
+   "fonte": "Reddit r/LocalLLaMA",
+   "categoria": "Community",
+   "id": "a96"
+  },
+  "a15": {
+   "titolo": "Inside Mark Zuckerberg’s Decision to Pull the Trigger on Meta’s A.I. Agent - The New York Times",
+   "link": "https://news.google.com/rss/articles/CBMivgFBVV95cUxOQUtkVjlwSXlOeEVudTI3NWxvd0RVeDBVOGwySmNxOGZ3ZDRmODQ0UTZsZGpLRzNhZXQxWFRISmloVm5xTVdlMFFnNzI4Tm4zdmpiWnlURXYtc2lPeWszZTh2T0RMSnpKbHhjdk5rRmMxUk1sYXFUNkxqbGlSWkNBdkRVTmlJdFIyR005NkE2c1g1aHlkYWFyLTRvbjQwdXFpdzBsUVFkSWI1MkhvaUxoNHQtbzR4RS14M0VCRlNB?oc=5",
+   "data": "2026-10-09T09:03:46+00:00",
+   "testo": "Inside Mark Zuckerberg’s Decision to Pull the Trigger on Meta’s A.I. Agent The New York Times",
+   "fonte": "Meta AI (Google News)",
+   "categoria": "Laboratori",
+   "id": "a15"
+  },
+  "a61": {
+   "titolo": "Retinopatia e glaucoma: l’intelligenza artificiale entra nei percorsi clinici oculistici - Il Sole 24 ORE",
+   "link": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxPTktwSzQ4aDFlbmRuX19ydWtGcHI2RWxGRnRBLTJJRE1nSUFGYW5rLTQ1Uk1RdzVMX1VSMGhOU2djc1FlejhVTDNXcnNrUEZYeXJpcVZLWmJmSkpxRVl6bUJkY1NqRHBGNWhNUWJrTzdaam5uNW0wUVJHMFJNOHVBQ05WMzE0Qy1TZ3RnZG9kd05pQlpoeExoOEV3cVNVNnZheUVqSm1rSmxza0NoYWRsX3FnZHBvQXB0cWRtSUlFcmZoUQ?oc=5",
+   "data": "2026-10-09T09:32:52+00:00",
+   "testo": "Retinopatia e glaucoma: l’intelligenza artificiale entra nei percorsi clinici oculistici Il Sole 24 ORE",
+   "fonte": "Google News Italia",
+   "categoria": "Italia",
+   "id": "a61"
+  },
+  "a35": {
+   "titolo": "AI disqualification yields new Nikon Small World in Motion winner",
+   "link": "https://arstechnica.com/science/2026/10/winning-nikon-small-world-in-motion-video-disqualified-for-ai-use/",
+   "data": "2026-10-09T18:44:06+00:00",
+   "testo": "New winner is Nguyen Nam Nhat of Vietnam for video of a roundworm and single-celled Dileptus.",
+   "fonte": "Ars Technica",
+   "categoria": "Testate tech",
+   "id": "a35"
+  },
+  "a1": {
+   "titolo": "Sophos cuts threat investigation time by 96% with OpenAI Daybreak",
+   "link": "https://openai.com/index/sophos",
+   "data": "2026-10-09T07:00:00+00:00",
+   "testo": "Discover how Sophos uses OpenAI’s Daybreak to cut cyber-threat investigation time by 96% and automate 52% of MDR cases while preserving human oversight.",
+   "fonte": "OpenAI",
+   "categoria": "Laboratori",
+   "id": "a1"
+  },
+  "a19": {
+   "titolo": "Mark Zuckerberg tells investors Meta’s AI investments are accelerating every part of the business; and to - The Times of India",
+   "link": "https://news.google.com/rss/articles/CBMi7wJBVV95cUxOOG1VNUR2blZsamh4RUU4MXR2eUUzTTFEaS1SLXFQNTRoSVB0SmkwMFlScUlVZU9qNzRJMG9XbFdRZzRCdWFGR3JXZkdlc2J0UV9aZUd4dnc2R1NxUmY0Z2Z6Mlhrc2s1dzczVjhScXo3Um9YSEtwMEZUd0hIRWtGYVlvOGJpZERDaXMxQ3didWxudkhxVy1GSFhrRUMtQURDLXAzZ1lxajM1NDZON0hqXzZINGtXaEFHX25BRGM4eFg0NVJwUW5lS2JoYm9qQW9GWEFlM2VKOUdtRTVsNng4dUltY2lTX0VEdk9GVmxaSmxXb2M1ampuV3V1bXNhY0dZZnd6SGdtNHM1Tm91cHJaQnpzR3ltRXpkdkI1Um1XamtJS2puWlJqS3JEM180RzNBNXB5ekt4eDh4S3V5RjBwNjdpcE0wT3l6dHdKMG5jaVo2d2hiUlFrU0l4enZHNzhBaUlwc2dFYUtqRHA3U2RZ0gH0AkFVX3lxTE52V3E1ZUdGMkt0bmdOSC1NZGtMT1R0ZmZTQjNVbnFxRkR6OHRDWTRvaGVhRjdZRzRoMzVIMF9vX2xHWWhSaXpVVjRUemg5VWk2LW9DYXZ3dm9BQ2o5U0JzaTRGZWF1V0ZYNDBoekNpLThMNXdKRjYwaGR4a3B2MTc2aTFYbmVLMjJja0pEMG9NYVd3bEZwcHJYMFdGZUhQQlRQSTBWNUhEc2t1aTBMbm9haF9wSVQtNktiY2VEeDJBaUhIdDVhdHd5aVhId0tuME5nY19yaUtlcldqbVVLQ2JDTkN0NWN2QzE5MFpEMVg5aTdrc0N2Y0l1RUQ3Nk9vaHg3MVloTzB0NGZJZG1aUGF5TTRiRkotejVKUFRJQUt3bTVCc2o3c1UwdUZVZTRvNGZMbk9QOTJlUnNyNXBLX2d1akpnRHFXaE0wOVVyaDc0MWhxbUFNYW1GamVNcG5uVVR0eUFGTFdxQVFPN2RrdXc3S0IyUQ?oc=5",
+   "data": "2026-10-09T09:25:00+00:00",
+   "testo": "Mark Zuckerberg tells investors Meta’s AI investments are accelerating every part of the business; and to The Times of India",
+   "fonte": "Meta AI (Google News)",
+   "categoria": "Laboratori",
+   "id": "a19"
+  },
+  "a18": {
+   "titolo": "AI glasses for seniors: Support that moves with you - www.meta.com",
+   "link": "https://news.google.com/rss/articles/CBMib0FVX3lxTE12aUVDS1ZrSXVOcGxKaGk4MUNzUzhQMXYwU0VZcGNQN2Z3OWxQU0VaRm81aW0tNmRsOTBQMmFkU1NrSXpwX1dTdWNXVkdYUF96UHdydFM1bDlQX2NkUTdnQ1hYNTJZLWNMX2Y5V3hnRQ?oc=5",
+   "data": "2026-10-09T00:16:03+00:00",
+   "testo": "AI glasses for seniors: Support that moves with you www.meta.com",
+   "fonte": "Meta AI (Google News)",
+   "categoria": "Laboratori",
+   "id": "a18"
+  },
+  "a12": {
+   "titolo": "Anthropic bans users from ‘needless abusive or cruel behavior’ towards Claude - The Guardian",
+   "link": "https://news.google.com/rss/articles/CBMikwFBVV95cUxPb2lja2Y3b2J4SGw2TDhuWUNxNmxablZvTlcwSVg4eHhuSUFwNUEzQTd0WFhOTlJMd0F5UHBDSnhxTl9nVXJlNjFrZVBSc1Zic01sZ1RuZ2tTTlQ3RVVLUEw5OFI2NDcwNzNPSVpYTUJmR1pVdmd2NWkyOUtxcTg5bC05ckRhX1pnSVRZdVhLSlQ0ckU?oc=5",
+   "data": "2026-10-09T01:25:00+00:00",
+   "testo": "Anthropic bans users from ‘needless abusive or cruel behavior’ towards Claude The Guardian",
+   "fonte": "Anthropic (Google News)",
+   "categoria": "Laboratori",
+   "id": "a12"
+  },
+  "a32": {
+   "titolo": "USA Today becomes the latest publisher to sue OpenAI",
+   "link": "https://www.theverge.com/ai-artificial-intelligence/1008198/usa-today-openai-copyright-lawsuit",
+   "data": "2026-10-08T13:58:33-04:00",
+   "testo": "USA Today Co., along with the several local newspapers it owns, is suing OpenAI over claims that the company copied \"hundreds of thousands\" of articles to train its AI models, as reported earlier by Reuters. In a filing on Thursday, the publisher asks for damages of more than $250 million, alleging OpenAI's unauthorized use of […]",
+   "fonte": "The Verge",
+   "categoria": "Testate tech",
+   "id": "a32"
+  },
+  "a60": {
+   "titolo": "L'intelligenza artificiale corre, la sanità arranca. Ocse: “230 milioni di persone la usano già per la salute”. Ma oltre il 90% dei dirigenti non vede ancora effetti sulla produttività. Ecco il piano - Quotidiano Sanità",
+   "link": "https://news.google.com/rss/articles/CBMiyAJBVV95cUxQcW1XVkZJeTNlb1lWSUZCM2g3cmc1WGNWOEhsbXExTDYzVDRfbERSSndCVm5UVkE1eWlUbldFdnZRVm5jSlY3bFpNMnlVOUFkbEkyMkhWRGxLUlJrMFk1T05aNFNNN0JyNktSN3FabnRHUFBadk1PSDRFa3ZlRGNxUEEwQ0ZYcWVvTlR5RU1yM3hHT0FvVzNkMWxPSDVfai05dXBIc1J2SUUzb1l4eTBrQ21SX1hEaXJBcmZvN19XREpEMlljNHZxSzZyaWRlemF5aGFSRWxqOEZkdGUxWURzTUs4VUdmSFNuSzVaM1lkMlpZYVdUdnNIYi1lMHBqVnFCb2Z2Rlg3MXhTSDBHendKVFdBLWRvWmVCTUpkbnd6cE02WTc2SFBiVEJ0bVpHTkVCc1k5b0JWQVNMTjc5Z0Q5dWktNGUwQzM3?oc=5",
+   "data": "2026-10-09T10:48:15+00:00",
+   "testo": "L'intelligenza artificiale corre, la sanità arranca. Ocse: “230 milioni di persone la usano già per la salute”. Ma oltre il 90% dei dirigenti non vede ancora effetti sulla produttività. Ecco il piano Quotidiano Sanità",
+   "fonte": "Google News Italia",
+   "categoria": "Italia",
+   "id": "a60"
+  },
+  "a13": {
+   "titolo": "Anthropic Wants to Ban Chatbot Abuse: What Smart People Are Saying - Business Insider",
+   "link": "https://news.google.com/rss/articles/CBMipgFBVV95cUxPNHNqdW1RQ2xLTjFVWDZnZlMwYUJCM1pFekVCekNmRmFCTjhIOG01MXpJU3JfNl9SUnMtOG9zN1lTWHRBRUFpQ3Q1d042cjlqNkViWWNpcUdZQlBhWXpsNnVOSGNUMS1qNXQwOWJqWWJPR2poMWw0Yl90Tzlwb20waEpTbkRNeWVCRVZaT1Y3ZVg5dGVVSDBDTTlGNjd5X0wxT0Y5aGhB?oc=5",
+   "data": "2026-10-09T11:58:00+00:00",
+   "testo": "Anthropic Wants to Ban Chatbot Abuse: What Smart People Are Saying Business Insider",
+   "fonte": "Anthropic (Google News)",
+   "categoria": "Laboratori",
+   "id": "a13"
+  },
+  "a29": {
+   "titolo": "OpenAI doubles down on decision to fire three AI safety researchers",
+   "link": "https://www.theverge.com/ai-artificial-intelligence/1008604/openai-defends-decision-fire-safety-researchers",
+   "data": "2026-10-09T05:48:26-04:00",
+   "testo": "OpenAI is standing firm on its decision to fire three safety researchers after an investigation found they committed \"a significant breach of trust.\" In a post on X on Friday, the company said Jasmine Wang, Tomek Korbak and Mikita ⁠Balesni were dismissed for violating \"clear policies on handling sensitive information.\" It insisted the decision was […]",
+   "fonte": "The Verge",
+   "categoria": "Testate tech",
+   "id": "a29"
+  },
+  "a16": {
+   "titolo": "Warby Parker Stock Surges on Meta’s AI Glasses Push. Smart Eyewear Is Booming. - Barron's",
+   "link": "https://news.google.com/rss/articles/CBMiggFBVV95cUxOTTVkYlhmMVZ6U0dmT0QxUTBjakhnLXRyUEI1ejJKRUpjTTIzdWFOTmdwUTdDeDVrRzhyRTdRdF9kMHpMZW15dHRFZEpVT2ZsRHJzVlJ5M24yVEFQMzl5V3VGOEVvSFk4VjRVa1RvbDEzLXE3NkFTMzhGckhzY0pqM3FB?oc=5",
+   "data": "2026-10-09T11:41:25+00:00",
+   "testo": "Warby Parker Stock Surges on Meta’s AI Glasses Push. Smart Eyewear Is Booming. Barron's",
+   "fonte": "Meta AI (Google News)",
+   "categoria": "Laboratori",
+   "id": "a16"
+  },
+  "a50": {
+   "titolo": "OpenAI pubblica oltre 700 paper matematici su GitHub con formalizzazioni Lean",
+   "link": "https://www.ilsole24ore.com/art/openai-sceglie-trasparenza-e-condivide-oltre-700-paper-matematica-AJdbyIeB",
+   "data": "2026-10-09T05:41:00+00:00",
+   "testo": "Online un repository GitHub sul quale pubblicare tutti i risultati che i propri modelli ottengono nell’ambito della risoluzione di problemi matematici.",
+   "fonte": "Il Sole 24 Ore Tecnologia",
+   "categoria": "Italia",
+   "id": "a50"
+  },
+  "a17": {
+   "titolo": "Planet Fitness Can Manage Potential Risks to Churn, Membership Growth From Meta AI Agent, UBS Says - Yahoo Finance",
+   "link": "https://news.google.com/rss/articles/CBMiowFBVV95cUxNdzFwbGt1TGdtbUFMNzN6SnJ1dDhWc1BSekRZN2M1ZU1JREgwdFZyMzMtNkFveWk3azJHdGJYVDZQSGhWR3prMWt4LWJGTDdVOWpSbU1UN0tyaVFobzJDMWRsVk01MGw3UUxEbWhRVTFGcUxoTnl4RnJndHJ0R1B1TUFyYUR0RktVSmI3T1lCTnJaWkpScjFweXlGUXRfUzFuU3Rv?oc=5",
+   "data": "2026-10-09T18:22:03+00:00",
+   "testo": "Planet Fitness Can Manage Potential Risks to Churn, Membership Growth From Meta AI Agent, UBS Says Yahoo Finance",
+   "fonte": "Meta AI (Google News)",
+   "categoria": "Laboratori",
+   "id": "a17"
+  },
+  "a10": {
+   "titolo": "Anthropic Just Banned Being Cruel to Claude. The Reason Should Concern Us All - Inc.com",
+   "link": "https://news.google.com/rss/articles/CBMitwFBVV95cUxOcGl4TVplNlRrcUw1OHQ0dDRsMGJFdlVjbVN4ejdjSmpyc2ZzUFpycjdQdGZISm5MQkdFOS1mZkY2WllkQVFFZjdhSDVuN0NxdVlYVW1aS25OZzRZeWFpblJQdzdPRjh3MlVfOVVTdUk4bTVyb1E4NjE0NElKYy1pWjZJSzYzaXBTYWZBREdzWG1SRS1Fb19xM1Nnd2UwMVJKY3BNMUthNW44bFgyMTl0cWEwUkJ1RVE?oc=5",
+   "data": "2026-10-09T12:24:48+00:00",
+   "testo": "Anthropic Just Banned Being Cruel to Claude. The Reason Should Concern Us All Inc.com",
+   "fonte": "Anthropic (Google News)",
+   "categoria": "Laboratori",
+   "id": "a10"
+  },
+  "a88": {
+   "titolo": "Real Long-Term Memory for AI: A 50-Million-Token Window That Is Faster and Cheaper Than Recompute",
+   "link": "https://arxiv.org/abs/2610.10845",
+   "data": "2026-10-09T00:00:00-04:00",
+   "testo": "arXiv:2610.10845v1 Announce Type: new Abstract: A large language model can only use the text that fits in its context window, and it recomputes its internal key-value (KV) state for a prompt every time the prompt is sent. We test a memory layer, the public package galahad-kv, that saves the KV state of each block of about 16,000 tokens to encrypted local NVMe disk and loads it back later, byte-ex…",
+   "fonte": "arXiv cs.CL",
+   "categoria": "Ricerca",
+   "id": "a88"
+  },
+  "a91": {
+   "titolo": "Show HN: Let your AI agents paint big arrows, boxes and text on your screen",
+   "link": "https://github.com/franzenzenhofer/big-arrow-on-the-screen",
+   "data": "2026-10-09T11:03:48+00:00",
+   "testo": "Article URL: https://github.com/franzenzenhofer/big-arrow-on-the-screen Comments URL: https://news.ycombinator.com/item?id=50018817 Points: 320 # Comments: 139",
+   "fonte": "Hacker News",
+   "categoria": "Community",
+   "id": "a91"
+  },
+  "a25": {
+   "titolo": "‘Pure insanity’: Mathematicians will need years to make sense of OpenAI’s latest drop",
+   "link": "https://www.theverge.com/ai-artificial-intelligence/1008726/openai-mathematics-solutions-chaos",
+   "data": "2026-10-09T15:09:44-04:00",
+   "testo": "\"Staggering.\" \"Overwhelming.\" \"Unprecedented.\" \"Surreal.\" \"Pure insanity.\" Those were among the descriptions more than three dozen mathematicians reached for in conversations with The Verge as they tried to make sense of the flood of mathematical results OpenAI abruptly dropped on the field this week. Amid the awe, excitement, and uncertainty over the sheer scale of the […]",
+   "fonte": "The Verge",
+   "categoria": "Testate tech",
+   "id": "a25"
+  },
+  "a53": {
+   "titolo": "Intelligenza artificiale, in Italia quasi 15mila imprese: il 72% è nato negli ultimi cinque anni - RaiNews",
+   "link": "https://news.google.com/rss/articles/CBMiiwJBVV95cUxQMFpIeHItdk41SUpfNUItVUtiYzFxTGdoNURqazltcWlqTUxaV094dDFnNjZSZ3JhR0E4Z09JeDVtSnk3bTktdHI5YXZjSG9mLTlOWXVFUU1TdkNacnZERFBnMTUzclZSaXByd2xWalQ5MTlwR0FHV2ZRZWNNdjlCekZGM2lMbXZMd3kzQWdkam1oRE9ZZEJsdi02alR0WnhyVG9sTDdPWE0xb2VvS3FYZ05pdm1hMjNILUZoQklaemg1UlJFR1pqQzFUcG92OVhRb0xhVmNvSDN4WkFhaXBuZi13ZGNXNEc0WHFFbXRkaGI4RFRGUWpWbmhTaE1qZXBkX2Uyc2E1NWpZbGPSAYsCQVVfeXFMUDBaSHhyLXZONUlKXzVCLVVLYmMxcUxnaDVEams5bXFpak1MWldPeHQxZzY2UmdyYUdBOGdPSXg1bUp5N205LXRyOWF2Y0hvZi05Tll1RVFNU3ZDWnJ2RERQZzE1M3JWUmlwcndsVmpUOTE5cEdBR1dmUWVjTXY5QnpGRjNpTG12THd5M0FnZGptaERPWWRCbHYtNmpUdFp4clRvbEw3T1hNMW9lb0txWGdOaXZtYTIzSC1GaEJJWnpoNVJSRUdaakMxVHBvdjlYUW9MYVZjb0gzeFpBYWlwbmYtd2RjVzRHNFhxRW10ZGhiOERURlFqVm5oU2hNamVwZF9lMnNhNTVqWWxj?oc=5",
+   "data": "2026-10-09T14:47:00+00:00",
+   "testo": "Intelligenza artificiale, in Italia quasi 15mila imprese: il 72% è nato negli ultimi cinque anni RaiNews",
+   "fonte": "Google News Italia",
+   "categoria": "Italia",
+   "id": "a53"
+  },
+  "a57": {
+   "titolo": "Grazie all’app CapisciAMe di Davide Mulfari l’intelligenza artificiale aiuta a comunicare - intoscana",
+   "link": "https://news.google.com/rss/articles/CBMizAFBVV95cUxQRGVfUkVBd1c2aDJ0aDlyV0puN0pKWGpScEZpUjRtODNiRVJUMTJ4QnhBenhkQmRlSlg1TlpfeVlybHhfLWdvaGtfUmdxcXJzYWV4R3FSVUJsUk10OEFqSTdVbDJJUGE4RDdROU5LcXh6clZfZHhHZDJSdUljbTZFU0JwOE5ObV9CZ2ZwdWZkdVp3SHJ1SUdqLS0wZlJxWU5NRFNqTUUzQTVoY1BvMkxZUzJSdGNodzBOdnRtZXFKTXlxNFRVSEpnNjh3WDM?oc=5",
+   "data": "2026-10-09T17:24:23+00:00",
+   "testo": "Grazie all’app CapisciAMe di Davide Mulfari l’intelligenza artificiale aiuta a comunicare intoscana",
+   "fonte": "Google News Italia",
+   "categoria": "Italia",
+   "id": "a57"
+  },
+  "a93": {
+   "titolo": "Strata rewrote their Github history to wipe evidence of Claude-authoring",
+   "link": "https://www.reddit.com/r/LocalLLaMA/comments/1x15a8w/strata_rewrote_their_github_history_to_wipe/",
+   "data": "2026-10-08T22:52:03+00:00",
+   "testo": "Just noticed this today when I went to run the built-in \"UPDATE\" script and git failed because there was no common ancestor. Looked into why, and apparently every historical commit has been re-written to strip the \"Co-Authored by Claude\" text from the descriptions. Personally I think that's pretty gross. I'm struggling to think of any reason to do this other than an intention to be dishonest abou…",
+   "fonte": "Reddit r/LocalLLaMA",
+   "categoria": "Community",
+   "id": "a93"
+  },
+  "a99": {
+   "titolo": "OpenAI's math findings built on stolen user data",
+   "link": "https://www.reddit.com/r/LocalLLaMA/comments/1x1rk4o/openais_math_findings_built_on_stolen_user_data/",
+   "data": "2026-10-09T17:32:13+00:00",
+   "testo": "submitted by /u/CuTe_M0nitor [link] [comments]",
+   "fonte": "Reddit r/LocalLLaMA",
+   "categoria": "Community",
+   "id": "a99"
+  },
+  "a44": {
+   "titolo": "Fired OpenAI safety researchers dispute misconduct claims, warn of chilling effect",
+   "link": "https://techcrunch.com/2026/10/08/fired-openai-safety-researchers-dispute-misconduct-claims-warn-of-chilling-effect/",
+   "data": "2026-10-08T20:04:26+00:00",
+   "testo": "Three fired OpenAI safety researchers dispute allegations of mishandling sensitive information, warning in an open letter that their dismissals are creating a chilling effect on the company’s AI safety culture.",
+   "fonte": "TechCrunch",
+   "categoria": "Testate tech",
+   "id": "a44"
+  },
+  "a26": {
+   "titolo": "Nikon microscopic video competition winner disqualified for using generative AI",
+   "link": "https://www.theverge.com/ai-artificial-intelligence/1008930/nikon-small-world-in-motion-winner-ai",
+   "data": "2026-10-09T14:06:57-04:00",
+   "testo": "Nikon says the video that originally won first place in its Small World in Motion contest \"did not comply with the competition rules regarding generative AI.\" BBC reports that the original first place video from Dr. Ning Xu claimed to show \"tiny, hair-like structures called cilia moving in the airway of a child with the […]",
+   "fonte": "The Verge",
+   "categoria": "Testate tech",
+   "id": "a26"
+  },
+  "a52": {
+   "titolo": "AI Act: pubblicato il D.Lgs. 179/2026, cosa cambia per imprese e lavoro - Ipsoa",
+   "link": "https://news.google.com/rss/articles/CBMi7wFBVV95cUxNaUtVTDBkaVlsZVJYeGYwZkYtNU1FcGJoSF83SGZxeDk1SFBaU3hzanFsQ1NVQ3FXMFpkNGZSR1ZseVVQOXV2WGJENnBYNDZNNnAyV1FYQndPamxhcVlUSHhObFd5c0c1eW9VTTFad2lqQ1A4d3FFcEszQ3pURnVubE1ObTY3YldoUGJnLWw5WVk5cVI3clBEWUoxVU56d2V2VG1MQzFyNktqdHRqU1FaY1lTb1VoM2FlLW01b3JRY0xQQV9JWHVINlBIWGpmTlkySzlGYlVnY2VNQnI2Y005S2JLSWFZX1dMWnl0MEpIUQ?oc=5",
+   "data": "2026-10-09T07:01:58+00:00",
+   "testo": "AI Act: pubblicato il D.Lgs. 179/2026, cosa cambia per imprese e lavoro Ipsoa",
+   "fonte": "Google News Italia",
+   "categoria": "Italia",
+   "id": "a52"
+  },
+  "a3": {
+   "titolo": "How Oracle turns days of work into minutes with ChatGPT and Codex",
+   "link": "https://openai.com/index/oracle",
+   "data": "2026-10-08T16:00:00+00:00",
+   "testo": "Across recruiting, engineering, and operations, Oracle turns specialist knowledge into fast, repeatable workflows with ChatGPT Work and Codex.",
+   "fonte": "OpenAI",
+   "categoria": "Laboratori",
+   "id": "a3"
+  },
+  "a48": {
+   "titolo": "Google brings agentic AI to Gemini, starting with businesses",
+   "link": "https://techcrunch.com/2026/10/08/google-brings-agentic-ai-to-gemini-starting-with-businesses/",
+   "data": "2026-10-08T18:18:00+00:00",
+   "testo": "Google is turning Gemini into an AI agent that can plan, execute tasks, and work across business apps and systems. The agent can delegate work to subagents, use multiple AI models, and even gets its own workplace identity, complete with an email address.",
+   "fonte": "TechCrunch",
+   "categoria": "Testate tech",
+   "id": "a48"
+  },
+  "a8": {
+   "titolo": "Anthropic bars \"abusive or cruel\" behavior toward its Claude AI model - CBS News",
+   "link": "https://news.google.com/rss/articles/CBMid0FVX3lxTE1Cc0xQa0oxTGNmSmZaYk9kZktQYkZmMzlJdzRkZWV4RFFOOVBxY2szQmhqazROLWhmeGFvYTFxanRlLURweGlKVjBIRnZMT21DSVJyeG9ObHN2S2J3TTBVWll3dXlmNjFiaWpNbnhuU2tVckV0SmtV?oc=5",
+   "data": "2026-10-09T14:59:48+00:00",
+   "testo": "Anthropic bars \"abusive or cruel\" behavior toward its Claude AI model CBS News",
+   "fonte": "Anthropic (Google News)",
+   "categoria": "Laboratori",
+   "id": "a8"
+  },
+  "a9": {
+   "titolo": "Anthropic asks users to stop being mean to Claude - The Register",
+   "link": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxNYm1BN01TVXF6eDVwQU81bWZXYWExX091aXN2UHRxUG1KZ2h0bEhqZUoxRHZBRXAzdTg1U0hSdjBoWjJ3MU9WSzNXSDNQUHdBQm15cndjbUZydzNiZVNGWDUwOVVrOEtLOXFQZU9GWk85VlQ2MDBCdTVBb1ExY3RXYXBObXBhbGk5bUZBckxyS3ZNTDVaOXFlUFR0UkdJdWc1Q1RHYXJfY0JCdw?oc=5",
+   "data": "2026-10-09T10:42:00+00:00",
+   "testo": "Anthropic asks users to stop being mean to Claude The Register",
+   "fonte": "Anthropic (Google News)",
+   "categoria": "Laboratori",
+   "id": "a9"
+  },
+  "a7": {
+   "titolo": "Anthropic Pauses Free Claude Startup Perks Days After Launch - Forbes",
+   "link": "https://news.google.com/rss/articles/CBMisgFBVV95cUxNSXhCYjlxWDNfb1ltVFFTVTkxdjdiS2p0RlB2UjU1a3BlaVNqbUM0WVlIS2dOdV9JaVE0ZHI3VFFzVkZJZU5PZHVieTRMVU1MWFNITzNUZVg4ZHRrQ3Z4cThUUlpQeHZ0QnRSb3M2RjR0OXhnbnhQbHBiX1EtRnBkTjZfUl9ENTROZ0E1aERQOF9ZcUxUdUF4Tl9YWkx0VkUtQnRWaDVoVWZmREthbFJMYnJ3?oc=5",
+   "data": "2026-10-09T14:54:37+00:00",
+   "testo": "Anthropic Pauses Free Claude Startup Perks Days After Launch Forbes",
+   "fonte": "Anthropic (Google News)",
+   "categoria": "Laboratori",
+   "id": "a7"
+  },
+  "a4": {
+   "titolo": "Pollo AI turns creative ideas into campaigns with OpenAI",
+   "link": "https://openai.com/index/pollo-ai",
+   "data": "2026-10-08T12:00:00+00:00",
+   "testo": "With GPT-5.6, GPT-6 Astra, and GPT‑Image‑2.5, Pollo AI helps creators turn bold ideas into detailed images and cinematic video ads.",
+   "fonte": "OpenAI",
+   "categoria": "Laboratori",
+   "id": "a4"
+  },
+  "a94": {
+   "titolo": "Qwen/Qwen-Image-2.1-Turbo · Hugging Face",
+   "link": "https://www.reddit.com/r/LocalLLaMA/comments/1x1ldef/qwenqwenimage21turbo_hugging_face/",
+   "data": "2026-10-09T13:28:14+00:00",
+   "testo": "submitted by /u/chocofoxy [link] [comments]",
+   "fonte": "Reddit r/LocalLLaMA",
+   "categoria": "Community",
+   "id": "a94"
+  }
+ },
+ "fonti": [
+  {
+   "nome": "OpenAI",
+   "ok": true,
+   "presi": 5
+  },
+  {
+   "nome": "Google DeepMind",
+   "ok": true,
+   "presi": 0
+  },
+  {
+   "nome": "Google AI",
+   "ok": true,
+   "presi": 0
+  },
+  {
+   "nome": "Hugging Face",
+   "ok": true,
+   "presi": 1
+  },
+  {
+   "nome": "Anthropic (Google News)",
+   "ok": true,
+   "presi": 8
+  },
+  {
+   "nome": "Meta AI (Google News)",
+   "ok": true,
+   "presi": 6
+  },
+  {
+   "nome": "MIT Technology Review",
+   "ok": true,
+   "presi": 4
+  },
+  {
+   "nome": "The Verge",
+   "ok": true,
+   "presi": 10
+  },
+  {
+   "nome": "Ars Technica",
+   "ok": true,
+   "presi": 2
+  },
+  {
+   "nome": "TechCrunch",
+   "ok": true,
+   "presi": 12
+  },
+  {
+   "nome": "ANSA Tecnologia",
+   "ok": true,
+   "presi": 0
+  },
+  {
+   "nome": "Wired Italia",
+   "ok": true,
+   "presi": 0
+  },
+  {
+   "nome": "Il Sole 24 Ore Tecnologia",
+   "ok": true,
+   "presi": 2
+  },
+  {
+   "nome": "Google News Italia",
+   "ok": true,
+   "presi": 15
+  },
+  {
+   "nome": "arXiv cs.AI",
+   "ok": true,
+   "presi": 15
+  },
+  {
+   "nome": "arXiv cs.CL",
+   "ok": true,
+   "presi": 10
+  },
+  {
+   "nome": "Hacker News",
+   "ok": true,
+   "presi": 2
+  },
+  {
+   "nome": "Reddit r/LocalLLaMA",
+   "ok": true,
+   "presi": 8
+  },
+  {
+   "nome": "Reddit r/artificial",
+   "ok": false,
+   "errore": "HTTP Error 429: Too Many Requests",
+   "presi": 0
+  }
+ ]
+}
