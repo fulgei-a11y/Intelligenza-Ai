@@ -1,0 +1,28 @@
+{
+  "_nota": "Elenco delle fonti. Puoi aggiungere o togliere feed RSS/Atom. 'filtro_ai': true tiene solo gli articoli che parlano di AI. 'max': quanti articoli al massimo prendere dal feed.",
+  "fonti": [
+    {"nome": "OpenAI", "categoria": "Laboratori", "url": "https://openai.com/news/rss.xml", "max": 10},
+    {"nome": "Google DeepMind", "categoria": "Laboratori", "url": "https://deepmind.google/blog/rss.xml", "max": 10},
+    {"nome": "Google AI", "categoria": "Laboratori", "url": "https://blog.google/technology/ai/rss/", "max": 10},
+    {"nome": "Hugging Face", "categoria": "Laboratori", "url": "https://huggingface.co/blog/feed.xml", "max": 10},
+    {"nome": "Anthropic (Google News)", "categoria": "Laboratori", "url": "https://news.google.com/rss/search?q=Anthropic+Claude+when:1d&hl=en-US&gl=US&ceid=US:en", "max": 8},
+    {"nome": "Meta AI (Google News)", "categoria": "Laboratori", "url": "https://news.google.com/rss/search?q=%22Meta+AI%22+OR+Llama+when:1d&hl=en-US&gl=US&ceid=US:en", "max": 6},
+
+    {"nome": "MIT Technology Review", "categoria": "Testate tech", "url": "https://www.technologyreview.com/topic/artificial-intelligence/feed", "max": 10},
+    {"nome": "The Verge", "categoria": "Testate tech", "url": "https://www.theverge.com/rss/ai-artificial-intelligence/index.xml", "max": 12},
+    {"nome": "Ars Technica", "categoria": "Testate tech", "url": "https://arstechnica.com/ai/feed/", "max": 10},
+    {"nome": "TechCrunch", "categoria": "Testate tech", "url": "https://techcrunch.com/category/artificial-intelligence/feed/", "max": 12},
+
+    {"nome": "ANSA Tecnologia", "categoria": "Italia", "url": "https://www.ansa.it/sito/notizie/tecnologia/tecnologia_rss.xml", "max": 30, "filtro_ai": true},
+    {"nome": "Wired Italia", "categoria": "Italia", "url": "https://www.wired.it/feed/rss", "max": 30, "filtro_ai": true},
+    {"nome": "Il Sole 24 Ore Tecnologia", "categoria": "Italia", "url": "https://www.ilsole24ore.com/rss/tecnologia.xml", "max": 30, "filtro_ai": true},
+    {"nome": "Google News Italia", "categoria": "Italia", "url": "https://news.google.com/rss/search?q=%22intelligenza+artificiale%22+when:1d&hl=it&gl=IT&ceid=IT:it", "max": 15},
+
+    {"nome": "arXiv cs.AI", "categoria": "Ricerca", "url": "https://rss.arxiv.org/rss/cs.AI", "max": 15},
+    {"nome": "arXiv cs.CL", "categoria": "Ricerca", "url": "https://rss.arxiv.org/rss/cs.CL", "max": 10},
+
+    {"nome": "Hacker News", "categoria": "Community", "url": "https://hnrss.org/newest?q=AI+OR+LLM+OR+GPT+OR+Claude+OR+Gemini&points=100", "max": 15},
+    {"nome": "Reddit r/LocalLLaMA", "categoria": "Community", "url": "https://www.reddit.com/r/LocalLLaMA/top/.rss?t=day", "max": 8},
+    {"nome": "Reddit r/artificial", "categoria": "Community", "url": "https://www.reddit.com/r/artificial/top/.rss?t=day", "max": 8}
+  ]
+}
