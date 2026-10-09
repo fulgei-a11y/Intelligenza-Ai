@@ -1,27 +1,163 @@
 {
-  "_nota": "Elenco delle fonti. Puoi aggiungere o togliere feed RSS/Atom. 'filtro_ai': true tiene solo gli articoli che parlano di AI. 'max': quanti articoli al massimo prendere dal feed.",
+  "_nota": "Elenco delle fonti. 'tipo': ufficiale | testata | aggregatore | ricerca | community (dice a Gemini quanto fidarsi). 'max': articoli massimi per fonte. 'filtro_ai': true tiene solo articoli sull'AI. 'escludi': espressione che scarta i titoli corrispondenti (es. casi studio di marketing). 'editori_esclusi': siti scartati quando arrivano da Google News.",
+  "editori_esclusi": [
+    "Geeky Gadgets",
+    "Benzinga",
+    "Yahoo Finance",
+    "Barron's",
+    "Seeking Alpha",
+    "The Motley Fool",
+    "MSN"
+  ],
   "fonti": [
-    {"nome": "OpenAI", "categoria": "Laboratori", "url": "https://openai.com/news/rss.xml", "max": 10},
-    {"nome": "Google DeepMind / Gemini (Google News)", "categoria": "Laboratori", "url": "https://news.google.com/rss/search?q=DeepMind+OR+%22Google+Gemini%22+when:1d&hl=en-US&gl=US&ceid=US:en", "max": 8},
-    {"nome": "Google AI", "categoria": "Laboratori", "url": "https://blog.google/technology/ai/rss/", "max": 10},
-    {"nome": "Hugging Face", "categoria": "Laboratori", "url": "https://huggingface.co/blog/feed.xml", "max": 10},
-    {"nome": "Anthropic (Google News)", "categoria": "Laboratori", "url": "https://news.google.com/rss/search?q=Anthropic+Claude+when:1d&hl=en-US&gl=US&ceid=US:en", "max": 8},
-    {"nome": "Meta AI (Google News)", "categoria": "Laboratori", "url": "https://news.google.com/rss/search?q=%22Meta+AI%22+OR+Llama+when:1d&hl=en-US&gl=US&ceid=US:en", "max": 6},
-
-    {"nome": "MIT Technology Review", "categoria": "Testate tech", "url": "https://www.technologyreview.com/topic/artificial-intelligence/feed", "max": 10},
-    {"nome": "The Verge", "categoria": "Testate tech", "url": "https://www.theverge.com/rss/ai-artificial-intelligence/index.xml", "max": 12},
-    {"nome": "Ars Technica", "categoria": "Testate tech", "url": "https://arstechnica.com/ai/feed/", "max": 10},
-    {"nome": "TechCrunch", "categoria": "Testate tech", "url": "https://techcrunch.com/category/artificial-intelligence/feed/", "max": 12},
-
-    {"nome": "ANSA", "categoria": "Italia", "url": "https://news.google.com/rss/search?q=site:ansa.it+%22intelligenza+artificiale%22+when:2d&hl=it&gl=IT&ceid=IT:it", "max": 8},
-    {"nome": "Wired Italia", "categoria": "Italia", "url": "https://news.google.com/rss/search?q=site:wired.it+%22intelligenza+artificiale%22+OR+AI+when:2d&hl=it&gl=IT&ceid=IT:it", "max": 8},
-    {"nome": "Il Sole 24 Ore Tecnologia", "categoria": "Italia", "url": "https://www.ilsole24ore.com/rss/tecnologia.xml", "max": 30, "filtro_ai": true},
-    {"nome": "Google News Italia", "categoria": "Italia", "url": "https://news.google.com/rss/search?q=%22intelligenza+artificiale%22+when:1d&hl=it&gl=IT&ceid=IT:it", "max": 15},
-
-    {"nome": "arXiv cs.AI", "categoria": "Ricerca", "url": "https://rss.arxiv.org/rss/cs.AI", "max": 15},
-    {"nome": "arXiv cs.CL", "categoria": "Ricerca", "url": "https://rss.arxiv.org/rss/cs.CL", "max": 10},
-
-    {"nome": "Hacker News", "categoria": "Community", "url": "https://hnrss.org/newest?q=AI+OR+LLM+OR+GPT+OR+Claude+OR+Gemini&points=100", "max": 15},
-    {"nome": "Reddit (r/LocalLLaMA + r/artificial)", "categoria": "Community", "url": "https://www.reddit.com/r/LocalLLaMA+artificial/top/.rss?t=day&limit=25", "max": 12}
+    {
+      "nome": "OpenAI",
+      "tipo": "ufficiale",
+      "categoria": "Laboratori",
+      "url": "https://openai.com/news/rss.xml",
+      "max": 6,
+      "escludi": "\\b(with|using|on) (ChatGPT|Codex|OpenAI|GPT[\\w.\\- ]*|the OpenAI API)$|^How \\S+( \\S+)? (uses|turns|builds|scales|cuts|transforms|brings|powers)\\b|^(?!OpenAI\\b|Introducing\\b|ChatGPT\\b|Codex\\b|GPT\\b|Our\\b)\\S+( \\S+)? (cuts|halves|saves|boosts|accelerates|doubles|triples|turns|builds|scales|transforms|reimagines|brings|powers)\\b"
+    },
+    {
+      "nome": "Google DeepMind / Gemini",
+      "tipo": "aggregatore",
+      "categoria": "Laboratori",
+      "url": "https://news.google.com/rss/search?q=DeepMind+OR+%22Google+Gemini%22+when:1d&hl=en-US&gl=US&ceid=US:en",
+      "max": 8
+    },
+    {
+      "nome": "Google AI",
+      "tipo": "ufficiale",
+      "categoria": "Laboratori",
+      "url": "https://blog.google/technology/ai/rss/",
+      "max": 6
+    },
+    {
+      "nome": "Hugging Face",
+      "tipo": "ufficiale",
+      "categoria": "Laboratori",
+      "url": "https://huggingface.co/blog/feed.xml",
+      "max": 4
+    },
+    {
+      "nome": "Anthropic / Claude",
+      "tipo": "aggregatore",
+      "categoria": "Laboratori",
+      "url": "https://news.google.com/rss/search?q=Anthropic+Claude+when:1d&hl=en-US&gl=US&ceid=US:en",
+      "max": 8
+    },
+    {
+      "nome": "Meta AI",
+      "tipo": "aggregatore",
+      "categoria": "Laboratori",
+      "url": "https://news.google.com/rss/search?q=%22Meta+AI%22+OR+Llama+when:1d&hl=en-US&gl=US&ceid=US:en",
+      "max": 6
+    },
+    {
+      "nome": "Microsoft Copilot",
+      "tipo": "aggregatore",
+      "categoria": "Laboratori",
+      "url": "https://news.google.com/rss/search?q=%22Microsoft+Copilot%22+when:1d&hl=en-US&gl=US&ceid=US:en",
+      "max": 5
+    },
+    {
+      "nome": "MIT Technology Review",
+      "tipo": "testata",
+      "categoria": "Testate tech",
+      "url": "https://www.technologyreview.com/topic/artificial-intelligence/feed",
+      "max": 8
+    },
+    {
+      "nome": "The Verge",
+      "tipo": "testata",
+      "categoria": "Testate tech",
+      "url": "https://www.theverge.com/rss/ai-artificial-intelligence/index.xml",
+      "max": 12
+    },
+    {
+      "nome": "Ars Technica",
+      "tipo": "testata",
+      "categoria": "Testate tech",
+      "url": "https://arstechnica.com/ai/feed/",
+      "max": 8
+    },
+    {
+      "nome": "TechCrunch",
+      "tipo": "testata",
+      "categoria": "Testate tech",
+      "url": "https://techcrunch.com/category/artificial-intelligence/feed/",
+      "max": 12
+    },
+    {
+      "nome": "Nuove funzioni AI (Google News)",
+      "tipo": "aggregatore",
+      "categoria": "Testate tech",
+      "url": "https://news.google.com/rss/search?q=(ChatGPT+OR+Gemini+OR+Claude+OR+Copilot)+(%22new+feature%22+OR+%22now+available%22+OR+%22rolls+out%22+OR+launches)+when:1d&hl=en-US&gl=US&ceid=US:en",
+      "max": 10
+    },
+    {
+      "nome": "ANSA",
+      "tipo": "testata",
+      "categoria": "Italia",
+      "url": "https://news.google.com/rss/search?q=site:ansa.it+%22intelligenza+artificiale%22+when:2d&hl=it&gl=IT&ceid=IT:it",
+      "max": 8
+    },
+    {
+      "nome": "Wired Italia",
+      "tipo": "testata",
+      "categoria": "Italia",
+      "url": "https://news.google.com/rss/search?q=site:wired.it+%22intelligenza+artificiale%22+OR+AI+when:2d&hl=it&gl=IT&ceid=IT:it",
+      "max": 6
+    },
+    {
+      "nome": "Il Sole 24 Ore Tecnologia",
+      "tipo": "testata",
+      "categoria": "Italia",
+      "url": "https://www.ilsole24ore.com/rss/tecnologia.xml",
+      "max": 30,
+      "filtro_ai": true
+    },
+    {
+      "nome": "Google News Italia",
+      "tipo": "aggregatore",
+      "categoria": "Italia",
+      "url": "https://news.google.com/rss/search?q=%22intelligenza+artificiale%22+when:1d&hl=it&gl=IT&ceid=IT:it",
+      "max": 15
+    },
+    {
+      "nome": "Novità AI da provare (Italia)",
+      "tipo": "aggregatore",
+      "categoria": "Italia",
+      "url": "https://news.google.com/rss/search?q=(ChatGPT+OR+Gemini+OR+Claude+OR+Copilot)+(%22nuova+funzione%22+OR+%22arriva+in+Italia%22+OR+%22disponibile+in+Italia%22+OR+%22come+usare%22)+when:2d&hl=it&gl=IT&ceid=IT:it",
+      "max": 8
+    },
+    {
+      "nome": "arXiv cs.AI",
+      "tipo": "ricerca",
+      "categoria": "Ricerca",
+      "url": "https://rss.arxiv.org/rss/cs.AI",
+      "max": 4
+    },
+    {
+      "nome": "arXiv cs.CL",
+      "tipo": "ricerca",
+      "categoria": "Ricerca",
+      "url": "https://rss.arxiv.org/rss/cs.CL",
+      "max": 2
+    },
+    {
+      "nome": "Hacker News",
+      "tipo": "community",
+      "categoria": "Community",
+      "url": "https://hnrss.org/newest?q=AI+OR+LLM+OR+GPT+OR+Claude+OR+Gemini&points=100",
+      "max": 8
+    },
+    {
+      "nome": "Reddit",
+      "tipo": "community",
+      "categoria": "Community",
+      "url": "https://www.reddit.com/r/LocalLLaMA+artificial/top/.rss?t=day&limit=25",
+      "max": 10
+    }
   ]
 }
