@@ -1,26 +1,22 @@
 {
  "giorno": "2026-10-10",
- "generato": "2026-10-10T15:07:06+00:00",
+ "generato": "2026-10-10T15:23:23+00:00",
  "modello": "gemini-3.5-flash",
- "testi_completi": 15,
+ "testi_completi": 16,
  "riassunto": {
-  "titolo_giorno": "Rembrandt porta il fotoritocco con l'AI gratis e locale su computer",
-  "in_breve": "La novità più interessante di oggi è Rembrandt, un'alternativa gratuita ad Adobe Lightroom che permette di ritoccare le fotografie sul computer semplicemente descrivendo a parole le modifiche desiderate. Trovi anche diversi strumenti utili per organizzare i file sul Mac ed elaborare contenuti visivi.",
+  "titolo_giorno": "Ritocco fotografico a parole e assistenti AI integrati nei messaggi",
+  "in_breve": "Tra i nuovi strumenti di oggi spicca Rembrandt, un programma gratuito per modificare le immagini semplicemente descrivendo le modifiche desiderate a testo. Molto utile anche Caddy, un assistente che trasforma le chat del telefono in impegni e promemoria sul calendario.",
   "da_provare": [
    {
     "cosa": "Rembrandt",
-    "a_cosa_serve": "È un software gratuito per il fotoritocco che applica modifiche alle fotografie interpretando comandi in testo semplice, come rendere l'immagine più calda o più luminosa, senza alterare i file originali.",
+    "a_cosa_serve": "Un programma di fotoritocco da installare sul computer che permette di modificare le immagini scrivendo indicazioni a testo (come 'più calda e luminosa') e applicando effetti AI per cieli, sfondi e sfocature.",
     "per_chi": "Lavoro e tutti i giorni",
     "ambito": "Foto e video",
-    "come_iniziare": [
-     "Scarica e installa l'applicazione per Mac, Windows o Linux dal sito ufficiale del progetto",
-     "Seleziona la cartella del tuo computer che contiene le foto da modificare",
-     "Scrivi a parole la modifica desiderata o usa i comandi visivi per regolare luci, colori e sfondi"
-    ],
+    "come_iniziare": [],
     "costo": "Gratis",
     "piattaforma": "Mac, Windows, Linux",
     "italiano": "Non indicato",
-    "difficolta": "Facile",
+    "difficolta": "Media",
     "fonti": [
      "a17"
     ],
@@ -28,24 +24,24 @@
     "prova": "https://github.com/thesnarkitecht/rembrandt"
    },
    {
-    "cosa": "Sorted",
-    "a_cosa_serve": "Organizza e riordina automaticamente i file e i documenti presenti sul computer Mac garantendo la massima privacy sui dati visibili.",
+    "cosa": "Caddy",
+    "a_cosa_serve": "Un assistente virtuale che funziona dentro l'app dei messaggi dello smartphone (iMessage o RCS) per estrarre appuntamenti o liste dalle conversazioni, salvandoli in automatico nel calendario.",
     "per_chi": "Lavoro e tutti i giorni",
     "ambito": "Organizzazione",
     "come_iniziare": [],
     "costo": "Non indicato",
-    "piattaforma": "Mac",
+    "piattaforma": "iPhone, Android",
     "italiano": "Non indicato",
     "difficolta": "Facile",
     "fonti": [
-     "a14"
+     "a28"
     ],
-    "affidabilita": "Appena lanciato",
-    "prova": "https://www.producthunt.com/products/sorted-6"
+    "affidabilita": "Una fonte",
+    "prova": ""
    },
    {
     "cosa": "PocketWebTools for Mac",
-    "a_cosa_serve": "Raccoglie in un'unica applicazione per Mac funzioni per chattare con l'AI, trascrivere file audio ed elaborare video in locale, direttamente sul proprio dispositivo.",
+    "a_cosa_serve": "Un'applicazione per Mac che riunisce in un unico programma strumenti di intelligenza artificiale locale per chattare, trascrivere audio ed elaborare video.",
     "per_chi": "Lavoro e tutti i giorni",
     "ambito": "Organizzazione",
     "come_iniziare": [],
@@ -60,8 +56,24 @@
     "prova": "https://www.producthunt.com/products/pocketwebtools"
    },
    {
+    "cosa": "Maildun for Mac",
+    "a_cosa_serve": "Un programma per Mac dedicato alla creazione di email aziendali e promozionali in linea con lo stile del proprio marchio, lavorando a mano o con l'aiuto dell'AI.",
+    "per_chi": "Lavoro",
+    "ambito": "Scrittura",
+    "come_iniziare": [],
+    "costo": "Non indicato",
+    "piattaforma": "Mac",
+    "italiano": "Non indicato",
+    "difficolta": "Facile",
+    "fonti": [
+     "a2"
+    ],
+    "affidabilita": "Appena lanciato",
+    "prova": "https://www.producthunt.com/products/maildun-for-mac"
+   },
+   {
     "cosa": "PixRater",
-    "a_cosa_serve": "Aiuta a scartare rapidamente le fotografie uscite male e a selezionare e valutare le immagini migliori all'interno di grandi raccolte di scatti.",
+    "a_cosa_serve": "Un'applicazione pensata per fotografi e appassionati che aiuta a selezionare, valutare e scartare rapidamente ampi volumi di foto.",
     "per_chi": "Lavoro e tutti i giorni",
     "ambito": "Foto e video",
     "come_iniziare": [],
@@ -74,58 +86,12 @@
     ],
     "affidabilita": "Appena lanciato",
     "prova": "https://www.producthunt.com/products/pixrater"
-   },
-   {
-    "cosa": "Maildun for Mac",
-    "a_cosa_serve": "Facilita la creazione e la progettazione di email grafiche e promozionali in linea con l'identità del proprio marchio o della propria attività.",
-    "per_chi": "Lavoro",
-    "ambito": "Scrittura",
-    "come_iniziare": [],
-    "costo": "Non indicato",
-    "piattaforma": "Mac",
-    "italiano": "Non indicato",
-    "difficolta": "Media",
-    "fonti": [
-     "a2"
-    ],
-    "affidabilita": "Appena lanciato",
-    "prova": "https://www.producthunt.com/products/maildun-for-mac"
    }
   ],
-  "sezioni": [
-   {
-    "titolo": "Novità negli strumenti che già usi",
-    "notizie": [
-     {
-      "titolo": "Arrivano dashboard dinamiche e spiegazioni animate",
-      "strumento": "Claude",
-      "riassunto": "È possibile richiedere all'assistente Claude la creazione di pannelli di controllo con dati aggiornati in tempo reale (dashboard) e spiegazioni visive animate per semplificare l'analisi di concetti e report.",
-      "come_provarla": "",
-      "disponibilita": "Disponibile ora",
-      "fonti": [
-       "a3",
-       "a46"
-      ],
-      "affidabilita": "Appena lanciato",
-      "solo_titoli": false
-     }
-    ]
-   }
-  ],
+  "sezioni": [],
   "formato": 2
  },
  "articoli": {
-  "a11": {
-   "titolo": "PixRater",
-   "link": "https://www.producthunt.com/products/pixrater",
-   "data": "2026-10-09T15:26:44-07:00",
-   "testo": "Cull and rate your photos faster",
-   "fonte": "Product Hunt (AI)",
-   "tipo": "vetrina",
-   "solo_titolo": false,
-   "categoria": "Strumenti",
-   "id": "a11"
-  },
   "a2": {
    "titolo": "Maildun for Mac",
    "link": "https://www.producthunt.com/products/maildun-for-mac",
@@ -137,38 +103,39 @@
    "categoria": "Strumenti",
    "id": "a2"
   },
-  "a3": {
-   "titolo": "Claude Dashboards & Motion",
-   "link": "https://www.producthunt.com/products/claude-dashboards-motion",
-   "data": "2026-10-09T08:13:51-07:00",
-   "testo": "Ask Claude for live dashboards and animated explainers",
+  "a11": {
+   "titolo": "PixRater",
+   "link": "https://www.producthunt.com/products/pixrater",
+   "data": "2026-10-09T15:26:44-07:00",
+   "testo": "Cull and rate your photos faster",
    "fonte": "Product Hunt (AI)",
    "tipo": "vetrina",
    "solo_titolo": false,
    "categoria": "Strumenti",
-   "id": "a3"
+   "id": "a11"
   },
-  "a14": {
-   "titolo": "Sorted",
-   "link": "https://www.producthunt.com/products/sorted-6",
-   "data": "2026-10-08T15:52:23-07:00",
-   "testo": "Your private AI file organizer for Mac",
+  "a7": {
+   "titolo": "PocketWebTools for Mac",
+   "link": "https://www.producthunt.com/products/pocketwebtools",
+   "data": "2026-10-09T00:00:05-07:00",
+   "testo": "Local AI chat, transcription and video tools in one Mac app",
    "fonte": "Product Hunt (AI)",
    "tipo": "vetrina",
    "solo_titolo": false,
    "categoria": "Strumenti",
-   "id": "a14"
+   "id": "a7"
   },
-  "a46": {
-   "titolo": "Anthropic Launches Claude Dashboards and Motion, Takes Docs Out of Beta",
-   "link": "https://news.google.com/rss/articles/CBMilwFBVV95cUxOWVJZMTZuNjhhWUdzajY5bzZQTklEbThJUXJmLU1BZTVZUklnZG9uNU1CWXRheDN5blFlU2lBTFkwT1lVVHpXS1NKa2RSRVFfamU2cEVJTHRxZUIzemRIY3JuTmhNbllJb0hvc1VNRHBPUmY3aHBrMk1CWmhZZ3JPQlRDVnhNMk5wVU9iTEY2YWRzWTAyX29n?oc=5",
-   "data": "2026-10-09T21:53:01+00:00",
-   "testo": "",
-   "fonte": "Unite.AI",
-   "tipo": "minore",
-   "solo_titolo": true,
-   "categoria": "Laboratori",
-   "id": "a46"
+  "a28": {
+   "titolo": "Here are the top AI agents that can live in your text messages",
+   "link": "https://techcrunch.com/2026/10/10/all-the-ai-agents-that-can-live-in-your-text-messages/",
+   "data": "2026-10-10T14:00:00+00:00",
+   "testo": "Rather than downloading another app, a growing number of agents can simply be texted like an ordinary person. You text it what you need, and it can remember context, connect to the apps and services you already use, and complete tasks on your behalf. That can mean scheduling an appointment, organizing a calendar, researching a trip, sending an email, making a reservation, shopping online, or reminding you about something days later. While Instinct is one of the buzziest AI agents at present, thanks to its $10 billion valuation after its latest funding round of $1 billion, there are many others also making a play for this space. Below are the most notable options so far, from general-purpose personal assistants to agents designed for families, travel, and work. Caddy Caddy is an AI assistant that turns the information scattered across your phone into things you can actually act on. It lives in iMessage for iPhone users and RCS for Android users, so there’s no separate app or inbox to constantly check. For instance, an email contains an appointment that needs to be added to your calendar or a friend sends a list of things to pick up. Instead of worrying about all the details getting buried, Caddy connects to your calendars and conversations, then identifies things that may require action. It can add events to your calendar, set reminders, keep track of follow-ups, and even do research for you. Caddy has been available in public beta since April 2026. Comma Comma is designed to manage tasks across both work and everyday life. Comma carries tasks through to completion, checking its own work and determining when a task is finished. Completed work is surfaced for review when a decision or approval is needed. It also proactively notifies users and recommends the next steps. I…",
+   "fonte": "TechCrunch",
+   "tipo": "testata",
+   "solo_titolo": false,
+   "categoria": "Testate tech",
+   "id": "a28",
+   "testo_completo": true
   },
   "a17": {
    "titolo": "Free open source Adobe Lightroom alternative, completely local with AI",
@@ -181,17 +148,6 @@
    "categoria": "Strumenti",
    "id": "a17",
    "testo_completo": true
-  },
-  "a7": {
-   "titolo": "PocketWebTools for Mac",
-   "link": "https://www.producthunt.com/products/pocketwebtools",
-   "data": "2026-10-09T00:00:05-07:00",
-   "testo": "Local AI chat, transcription and video tools in one Mac app",
-   "fonte": "Product Hunt (AI)",
-   "tipo": "vetrina",
-   "solo_titolo": false,
-   "categoria": "Strumenti",
-   "id": "a7"
   }
  },
  "fonti": [
@@ -207,18 +163,21 @@
   },
   {
    "nome": "Nuove app AI (internazionale)",
-   "ok": true,
-   "presi": 10
+   "ok": false,
+   "errore": "HTTP Error 503: Service Unavailable",
+   "presi": 0
   },
   {
    "nome": "Nuove app AI (Italia)",
-   "ok": true,
-   "presi": 8
+   "ok": false,
+   "errore": "HTTP Error 503: Service Unavailable",
+   "presi": 0
   },
   {
    "nome": "Novità AI da provare (Italia)",
-   "ok": true,
-   "presi": 8
+   "ok": false,
+   "errore": "HTTP Error 503: Service Unavailable",
+   "presi": 0
   },
   {
    "nome": "OpenAI",
@@ -237,18 +196,21 @@
   },
   {
    "nome": "Nuove funzioni AI (Google News)",
-   "ok": true,
-   "presi": 12
+   "ok": false,
+   "errore": "HTTP Error 503: Service Unavailable",
+   "presi": 0
   },
   {
    "nome": "Anthropic / Claude",
-   "ok": true,
-   "presi": 6
+   "ok": false,
+   "errore": "HTTP Error 503: Service Unavailable",
+   "presi": 0
   },
   {
    "nome": "Microsoft Copilot",
-   "ok": true,
-   "presi": 5
+   "ok": false,
+   "errore": "HTTP Error 503: Service Unavailable",
+   "presi": 0
   },
   {
    "nome": "Hugging Face",
@@ -258,12 +220,12 @@
   {
    "nome": "The Verge",
    "ok": true,
-   "presi": 7
+   "presi": 8
   },
   {
    "nome": "TechCrunch",
    "ok": true,
-   "presi": 9
+   "presi": 10
   },
   {
    "nome": "Ars Technica",
@@ -272,13 +234,15 @@
   },
   {
    "nome": "ANSA",
-   "ok": true,
-   "presi": 6
+   "ok": false,
+   "errore": "HTTP Error 503: Service Unavailable",
+   "presi": 0
   },
   {
    "nome": "Wired Italia",
-   "ok": true,
-   "presi": 1
+   "ok": false,
+   "errore": "HTTP Error 503: Service Unavailable",
+   "presi": 0
   },
   {
    "nome": "Il Sole 24 Ore Tecnologia",
@@ -292,5 +256,5 @@
   }
  ],
  "audio": "audio/2026-10-10.mp3",
- "durata": 89.8
+ "durata": 75.7
 }
