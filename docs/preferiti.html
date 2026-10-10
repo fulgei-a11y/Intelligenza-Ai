@@ -1,0 +1,168 @@
+<!doctype html><html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>AI News Digest — I miei preferiti</title><meta name="description" content="Gli strumenti AI che ho salvato"><meta name="theme-color" content="#c2410c"><link rel="manifest" href="manifest.webmanifest"><link rel="icon" type="image/png" href="icona-192.png"><link rel="apple-touch-icon" href="apple-touch-icon.png"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="AI News"><meta property="og:type" content="article"><meta property="og:site_name" content="AI News Digest"><meta property="og:title" content="AI News Digest — I miei preferiti"><meta property="og:description" content="Gli strumenti AI che ho salvato"><meta property="og:image" content="https://fulgei-a11y.github.io/Intelligenza-Ai/anteprima.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:locale" content="it_IT"><meta name="twitter:card" content="summary_large_image"><meta property="og:url" content="https://fulgei-a11y.github.io/Intelligenza-Ai/preferiti.html"><style>
+:root{--bg:#f7f5f0;--card:#fff;--ink:#1d1d1f;--muted:#6b6b70;--line:#e4e0d8;--accent:#c2410c;--chip:#f1ede4}
+@media (prefers-color-scheme:dark){:root{--bg:#141413;--card:#1e1e1c;--ink:#ecebe6;--muted:#9c9a93;--line:#2e2d2a;--accent:#fb923c;--chip:#2a2926}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.6 Georgia,'Iowan Old Style',serif}
+main{max-width:720px;margin:0 auto;padding:28px 16px 60px}
+.top{font:600 13px/1.4 system-ui,sans-serif;letter-spacing:.08em;text-transform:uppercase;color:var(--accent)}
+h1{font-size:30px;line-height:1.2;margin:6px 0 12px}h2{font:700 14px/1.3 system-ui,sans-serif;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin:40px 0 12px;padding-bottom:8px;border-bottom:1px solid var(--line)}
+.lead{font-size:19px;color:var(--ink)}.meta{font:13px system-ui,sans-serif;color:var(--muted)}
+article{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px 18px;margin:12px 0}
+article h3{margin:0 0 6px;font-size:19px;line-height:1.3}article p{margin:6px 0}
+.why{font-size:15px;color:var(--muted)}.why b{color:var(--accent);font-weight:600}
+.src{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
+.src a{font:12px system-ui,sans-serif;background:var(--chip);color:var(--ink);text-decoration:none;padding:4px 9px;border-radius:999px;max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.src a:hover{color:var(--accent)}
+.tryzone{background:var(--chip);border-radius:16px;padding:4px 16px 12px;margin:28px -4px 0}
+.tryzone h2{color:var(--accent);border-bottom:none;margin:18px 0 0;font-size:16px}
+.sub{font:14px system-ui,sans-serif;color:var(--muted);margin:4px 0 8px}
+.try{border-left:3px solid var(--accent)}.try ol{margin:4px 0 0;padding-left:22px}.try li{margin:3px 0}
+.tags{display:flex;gap:6px;flex-wrap:wrap;align-items:center;margin-bottom:6px}.tags .rel{margin-bottom:0}
+.tag{font:600 11px system-ui,sans-serif;letter-spacing:.03em;text-transform:uppercase;color:var(--accent);border:1px solid var(--accent);border-radius:999px;padding:2px 8px}
+.rel{display:inline-block;font:600 11px system-ui,sans-serif;letter-spacing:.03em;text-transform:uppercase;color:var(--muted);background:var(--chip);border-radius:999px;padding:2px 8px;margin-bottom:6px}
+.rel.ok{color:#15803d;background:#dcfce7}.rel.warn{color:#b45309;background:#fef3c7}
+@media (prefers-color-scheme:dark){.rel.ok{color:#86efac;background:#14532d}.rel.warn{color:#fcd34d;background:#451a03}}
+.legenda{font:13px system-ui,sans-serif;color:var(--muted)}
+.arch a{color:var(--ink)}.arch li{margin:4px 0}
+details{margin-top:40px;font:14px system-ui,sans-serif;color:var(--muted)}
+.ko{color:#dc2626}
+.share{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 4px}
+.share button{font:600 14px system-ui,sans-serif;color:var(--ink);background:var(--card);border:1px solid var(--line);border-radius:999px;padding:9px 14px;cursor:pointer}
+.share button:active{transform:scale(.97)}
+.toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%);background:var(--ink);color:var(--bg);font:14px system-ui,sans-serif;padding:10px 16px;border-radius:999px}
+@media print{
+  :root{--bg:#fff;--card:#fff;--ink:#111;--muted:#555;--line:#ccc;--accent:#b4410c;--chip:#f3f3f3}
+  body{font-size:12pt}main{max-width:none;padding:0}
+  .share,.arch,details,.toast{display:none!important}
+  h2:has(+ .arch){display:none}
+  article,.tryzone{break-inside:avoid;box-shadow:none}
+  .src a{border:1px solid #ccc}
+  .src a::after{content:" (" attr(href) ")";font-size:8pt;color:#666;white-space:normal;word-break:break-all}
+  .src a{white-space:normal;overflow:visible}
+  @page{margin:14mm}
+}
+
+.when{font:13px system-ui,sans-serif;color:var(--muted);margin:-4px 0 10px}
+.rel.soft{color:var(--muted);background:transparent;border:1px dashed var(--line)}
+.listen{display:flex;align-items:center;gap:10px;flex-wrap:wrap;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:10px 14px;margin:14px 0 4px}
+.listen span{font:600 14px system-ui,sans-serif}.listen audio{width:100%;height:40px}
+.week{display:block;text-decoration:none;color:var(--ink);background:var(--card);border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:12px;padding:12px 16px;margin:18px 0 0}
+.week small{display:block;font:600 12px system-ui,sans-serif;letter-spacing:.06em;text-transform:uppercase;color:var(--accent)}
+.week b{font-size:17px}
+.glossario dl{margin:0}.glossario dt{font-weight:700;margin-top:10px}.glossario dd{margin:2px 0 0;color:var(--muted);font-size:15px}
+.cerca{width:100%;font:16px system-ui,sans-serif;padding:11px 14px;border:1px solid var(--line);border-radius:12px;background:var(--card);color:var(--ink);margin:4px 0 10px}
+.risultati{list-style:none;padding:0;margin:0 0 14px}.risultati li{padding:8px 0;border-bottom:1px solid var(--line)}
+.risultati a{color:var(--ink);text-decoration:none}.risultati small{display:block;font:12px system-ui,sans-serif;color:var(--muted)}
+.arch{padding-left:0;list-style:none}.arch small{font:12px system-ui,sans-serif;color:var(--muted);margin-right:6px}
+.etichette dt{display:inline-block;margin-top:8px}.etichette dd{margin:2px 0 0}
+article:target,li:target{outline:2px solid var(--accent)}
+.prova{display:inline-block;margin:8px 8px 0 0;font:700 14px system-ui,sans-serif;color:#fff;background:var(--accent);text-decoration:none;padding:8px 16px;border-radius:999px}
+.prova:active{transform:scale(.97)}
+@media (prefers-color-scheme:dark){.prova{color:#1d1d1f}}
+.brevi{list-style:none;padding:0;margin:0}.brevi li{padding:10px 0;border-bottom:1px solid var(--line);font-size:16px}
+.brevi .src{display:inline-flex;margin:4px 0 0}
+article{position:relative}article .tags{padding-right:40px}
+.stella{position:absolute;top:10px;right:10px;width:38px;height:38px;border-radius:50%;border:1px solid var(--line);background:var(--card);color:var(--muted);font-size:20px;line-height:1;cursor:pointer}
+.stella[aria-pressed="true"]{color:#eab308;border-color:#eab308;background:#fef9c3}
+@media (prefers-color-scheme:dark){.stella[aria-pressed="true"]{background:#422006}}
+.vaipref{font:600 14px system-ui,sans-serif;color:var(--ink);background:var(--card);border:1px solid var(--line);border-radius:999px;padding:9px 14px;text-decoration:none}
+.pref article h3 a{color:var(--ink)}.pref .vuoto{font:15px system-ui,sans-serif;color:var(--muted)}
+.pref .quando{font:12px system-ui,sans-serif;color:var(--muted);margin:0 0 4px}
+.togli{font:600 13px system-ui,sans-serif;color:var(--muted);background:none;border:1px solid var(--line);border-radius:999px;padding:5px 12px;cursor:pointer;margin-top:8px}
+.filtri{display:flex;gap:6px;flex-wrap:wrap;margin:8px 0}.filtri button{font:600 13px system-ui,sans-serif;border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:999px;padding:6px 12px;cursor:pointer}
+.filtri button[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:#fff}
+@media print{.listen,.week,.cerca,.risultati,.glossario,.prova,.stella,.vaipref,.togli,.filtri{display:none!important}}
+</style></head><body><main><p class="top">AI News Digest</p><h1>⭐ I miei preferiti</h1><p class="lead">Gli strumenti e le novità che hai segnato con la stellina, per ritrovarli quando ti servono.</p><p class="meta" id="conta"></p><div class="share"><button type="button" onclick="copiaPreferiti(this)">💬 Copia elenco per WhatsApp</button><a class="vaipref" href="index.html">← Edizione di oggi</a></div><div class="filtri" id="filtri"></div><section class="pref" id="lista"></section><p class="meta">I preferiti restano salvati in questo browser, su questo dispositivo. Se cancelli i dati di navigazione o usi la navigazione privata non vengono conservati.</p><h2>Archivio</h2><input class="cerca" type="search" placeholder="🔎 Cerca nelle edizioni passate…" aria-label="Cerca nell'archivio" oninput="cerca(this.value)" onfocus="caricaIndice()"><ul class="risultati" id="risultati" aria-live="polite"></ul><ul class="arch" id="arch"><li><a href="giorni/2026-10-10.html"><small>10 ott</small>Ritocco fotografico a parole e assistenti AI integrati nei messaggi</a></li><li><a href="giorni/2026-10-09.html"><small>9 ott</small>Agenti AI al centro: Google lancia, Anthropic detta regole, l&#x27;Italia si adegua</a></li></ul></main><script>const DIGEST={"titolo": "I miei preferiti", "testo": "", "url": "https://fulgei-a11y.github.io/Intelligenza-Ai/preferiti.html"};const PREFISSO="";
+function condividi(){
+  const d={title:DIGEST.titolo,text:DIGEST.titolo,url:DIGEST.url||location.href};
+  if(navigator.share){navigator.share(d).catch(()=>{});}
+  else{copia(d.url,null,'Link copiato');}
+}
+function copiaWhatsApp(b){copia(DIGEST.testo,b,'✓ Copiato! Incollalo in WhatsApp');}
+function copia(t,b,msg){
+  const fatto=()=>{if(b){const o=b.textContent;b.textContent=msg;setTimeout(()=>b.textContent=o,2500);}else{alertino(msg);}};
+  if(navigator.clipboard&&window.isSecureContext){navigator.clipboard.writeText(t).then(fatto).catch(()=>vecchio(t,fatto));}
+  else{vecchio(t,fatto);}
+}
+function vecchio(t,fatto){const a=document.createElement('textarea');a.value=t;a.style.position='fixed';a.style.opacity='0';
+  document.body.appendChild(a);a.select();try{document.execCommand('copy');fatto();}catch(e){}a.remove();}
+function alertino(m){const d=document.createElement('div');d.className='toast';d.textContent=m;document.body.appendChild(d);setTimeout(()=>d.remove(),2500);}
+let INDICE=null,attesa=null;
+function caricaIndice(){
+  if(INDICE||attesa)return attesa;
+  attesa=fetch(PREFISSO+'indice.json',{cache:'no-cache'}).then(r=>r.json()).then(j=>{INDICE=j;return j;}).catch(()=>{INDICE=[];});
+  return attesa;
+}
+function norm(s){return (s||'').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'');}
+function cerca(q){
+  const ul=document.getElementById('risultati'),arch=document.getElementById('arch');
+  q=norm(q.trim());
+  if(q.length<2){ul.innerHTML='';arch.style.display='';return;}
+  caricaIndice().then(()=>{
+    const parole=q.split(/\s+/),out=[];
+    for(const g of INDICE||[]){for(const n of g.n){
+      const t=norm(n[1]+' '+n[2]);
+      if(parole.every(p=>t.includes(p)))out.push([g.g,n]);
+    }}
+    arch.style.display='none';
+    ul.innerHTML=out.length?'':'<li>Nessun risultato.</li>';
+    for(const [g,n] of out.slice(0,40)){
+      const li=document.createElement('li'),a=document.createElement('a');
+      a.href=PREFISSO+'giorni/'+g+'.html'+(n[0]?'#n'+n[0]:'');
+      const s=document.createElement('small');s.textContent=g.split('-').reverse().join('/');
+      a.append(s,document.createTextNode(n[1]));li.append(a);ul.append(li);
+    }
+  });
+}
+const CHIAVE_PREF='ai-news-preferiti';
+function leggiPref(){try{return JSON.parse(localStorage.getItem(CHIAVE_PREF)||'[]')||[];}catch(e){return [];}}
+function scriviPref(l){try{localStorage.setItem(CHIAVE_PREF,JSON.stringify(l));return true;}catch(e){alertino('Il browser non permette di salvare i preferiti');return false;}}
+function aggiornaStelle(){
+  const ids=new Set(leggiPref().map(p=>p.id));
+  document.querySelectorAll('.stella').forEach(b=>{const on=ids.has(b.dataset.id);b.setAttribute('aria-pressed',on);
+    b.textContent=on?'★':'☆';b.title=on?'Togli dai preferiti':'Aggiungi ai preferiti';b.setAttribute('aria-label',b.title);});
+  const n=document.getElementById('nPref');if(n)n.textContent=ids.size?'('+ids.size+')':'';
+}
+function stella(b){
+  let l=leggiPref();const d=b.dataset;
+  if(l.some(p=>p.id===d.id)){l=l.filter(p=>p.id!==d.id);if(scriviPref(l))alertino('Tolto dai preferiti');}
+  else{l.unshift({id:d.id,titolo:d.titolo,testo:d.testo,giorno:d.giorno,ancora:d.ancora,link:d.link,tipo:d.tipo,
+    salvato:new Date().toISOString().slice(0,10)});if(scriviPref(l))alertino('⭐ Aggiunto ai preferiti');}
+  aggiornaStelle();
+}
+document.addEventListener('DOMContentLoaded',aggiornaStelle);
+addEventListener('pageshow',aggiornaStelle);
+if('serviceWorker' in navigator){addEventListener('load',()=>navigator.serviceWorker.register(PREFISSO+'sw.js').catch(()=>{}));}
+
+let filtro='tutti';
+function disegna(){
+  const tutti=leggiPref(),box=document.getElementById('lista');box.innerHTML='';
+  const tipi=['tutti',...new Set(tutti.map(p=>p.tipo==='Strumento'?'Strumenti':'Novità'))];
+  const f=document.getElementById('filtri');f.innerHTML='';
+  if(tutti.length>1&&tipi.length>2){for(const t of tipi){const b=document.createElement('button');b.type='button';
+    b.textContent=t==='tutti'?'Tutti':t;b.setAttribute('aria-pressed',filtro===t);b.onclick=()=>{filtro=t;disegna();};f.append(b);}}
+  const l=tutti.filter(p=>filtro==='tutti'||(filtro==='Strumenti')===(p.tipo==='Strumento'));
+  document.getElementById('conta').textContent=tutti.length?(tutti.length===1?'1 scheda salvata':tutti.length+' schede salvate'):'';
+  if(!l.length){box.innerHTML='<p class="vuoto">Nessun preferito per ora. Tocca la stellina ☆ su uno strumento o una novità e lo ritrovi qui.</p>';return;}
+  for(const p of l){
+    const a=document.createElement('article'),q=document.createElement('p'),h=document.createElement('h3'),
+      t=document.createElement('a'),x=document.createElement('p'),src=document.createElement('div'),togli=document.createElement('button');
+    q.className='quando';q.textContent=(p.tipo||'')+' · '+p.giorno.split('-').reverse().join('/');
+    t.href='giorni/'+p.giorno+'.html#'+p.ancora;t.textContent=p.titolo;h.append(t);x.textContent=p.testo||'';
+    src.className='src';
+    if(p.link){const pr=document.createElement('a');pr.className='prova';pr.href=p.link;pr.target='_blank';pr.rel='noopener';pr.textContent='Provalo ↗';a.append(q,h,x,pr);}
+    else{a.append(q,h,x);}
+    const sc=document.createElement('a');sc.href=t.href;sc.textContent='Apri la scheda ↗';src.append(sc);
+    togli.className='togli';togli.type='button';togli.textContent='✕ Togli';
+    togli.onclick=()=>{scriviPref(leggiPref().filter(y=>y.id!==p.id));disegna();};
+    a.append(src,togli);box.append(a);
+  }
+}
+function copiaPreferiti(b){
+  const l=leggiPref();if(!l.length){alertino('Nessun preferito da copiare');return;}
+  const base=DIGEST.url?DIGEST.url.replace(/preferiti\.html$/,''):location.href.replace(/preferiti\.html.*$/,'');
+  const t='⭐ *I miei strumenti AI preferiti*\n\n'+l.map(p=>'• *'+p.titolo+'*'+(p.testo?': '+p.testo:'')+'\n  '+(p.link||base+'giorni/'+p.giorno+'.html#'+p.ancora)).join('\n\n');
+  copia(t,b,'✓ Copiato!');
+}
+document.addEventListener('DOMContentLoaded',disegna);
+addEventListener('pageshow',disegna);
+</script></body></html>
