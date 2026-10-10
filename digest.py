@@ -736,7 +736,17 @@ article:target,li:target{outline:2px solid var(--accent)}
 @media (prefers-color-scheme:dark){.prova{color:#1d1d1f}}
 .brevi{list-style:none;padding:0;margin:0}.brevi li{padding:10px 0;border-bottom:1px solid var(--line);font-size:16px}
 .brevi .src{display:inline-flex;margin:4px 0 0}
-@media print{.listen,.week,.cerca,.risultati,.glossario,.prova{display:none!important}}
+article{position:relative}article .tags{padding-right:40px}
+.stella{position:absolute;top:10px;right:10px;width:38px;height:38px;border-radius:50%;border:1px solid var(--line);background:var(--card);color:var(--muted);font-size:20px;line-height:1;cursor:pointer}
+.stella[aria-pressed="true"]{color:#eab308;border-color:#eab308;background:#fef9c3}
+@media (prefers-color-scheme:dark){.stella[aria-pressed="true"]{background:#422006}}
+.vaipref{font:600 14px system-ui,sans-serif;color:var(--ink);background:var(--card);border:1px solid var(--line);border-radius:999px;padding:9px 14px;text-decoration:none}
+.pref article h3 a{color:var(--ink)}.pref .vuoto{font:15px system-ui,sans-serif;color:var(--muted)}
+.pref .quando{font:12px system-ui,sans-serif;color:var(--muted);margin:0 0 4px}
+.togli{font:600 13px system-ui,sans-serif;color:var(--muted);background:none;border:1px solid var(--line);border-radius:999px;padding:5px 12px;cursor:pointer;margin-top:8px}
+.filtri{display:flex;gap:6px;flex-wrap:wrap;margin:8px 0}.filtri button{font:600 13px system-ui,sans-serif;border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:999px;padding:6px 12px;cursor:pointer}
+.filtri button[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:#fff}
+@media print{.listen,.week,.cerca,.risultati,.glossario,.prova,.stella,.vaipref,.togli,.filtri{display:none!important}}
 """
 
 GLOSSARIO = [
@@ -830,6 +840,14 @@ def chips(ids, per_id):
         out.append(f'<a href="{e(a["link"])}" target="_blank" rel="noopener" title="{e(a["titolo"])}">'
                    f'{e(a["fonte"])} ↗</a>')
     return '<div class="src">' + "".join(out) + "</div>"
+
+
+def stella(fid, titolo, testo, giorno, ancora, link="", tipo=""):
+    """Pulsante ☆ per salvare la scheda nei Preferiti (salvati nel browser di chi legge)."""
+    return (f'<button type="button" class="stella" aria-pressed="false" title="Aggiungi ai preferiti" '
+            f'aria-label="Aggiungi ai preferiti" data-id="{e(fid)}" data-titolo="{e(titolo)}" '
+            f'data-testo="{e((testo or "")[:300])}" data-giorno="{e(giorno)}" data-ancora="{e(ancora)}" '
+            f'data-link="{e(link)}" data-tipo="{e(tipo)}" onclick="stella(this)">☆</button>')
 
 
 def badge(aff, solo_titoli=False):
@@ -934,7 +952,8 @@ def pagina(dati, archivio, prefisso, settimana=None):
     parti.append('<div class="share">'
                  '<button type="button" onclick="condividi()">📤 Condividi</button>'
                  '<button type="button" onclick="copiaWhatsApp(this)">💬 Copia per WhatsApp</button>'
-                 '<button type="button" onclick="window.print()">📄 Salva PDF</button></div>')
+                 '<button type="button" onclick="window.print()">📄 Salva PDF</button>'
+                 f'<a class="vaipref" href="{prefisso}preferiti.html">⭐ Preferiti <span id="nPref"></span></a></div>')
     if settimana:
         parti.append(f'<a class="week" href="{prefisso}settimana/{settimana[0]}.html">'
                      f'<small>📅 La settimana dell\'AI</small><b>{e(settimana[1])}</b> →</a>')
@@ -947,7 +966,7 @@ def pagina(dati, archivio, prefisso, settimana=None):
         sotto = ("App e servizi AI appena usciti, da usare al lavoro o tutti i giorni" if nuovo_formato
                  else "Nuovi strumenti e possibilità emersi dalle notizie di oggi")
         parti.append(f'<section class="tryzone"><h2>{nome_zona}</h2><p class="sub">{sotto}</p>')
-        for d in r["da_provare"]:
+        for j, d in enumerate(r["da_provare"], 1):
             etichette = [d.get("per_chi"), d.get("ambito"), d.get("costo"), d.get("difficolta")]
             if utile(d.get("piattaforma")):
                 etichette.append(d["piattaforma"])
@@ -970,7 +989,9 @@ def pagina(dati, archivio, prefisso, settimana=None):
                 come = ""
             prova = (f'<a class="prova" href="{e(d["prova"])}" target="_blank" rel="noopener">Provalo ↗</a>'
                      if d.get("prova") else "")
-            parti.append(f'<article class="try"><div class="tags">{tag}</div>'
+            pref = stella(f"{dati['giorno']}#p{j}", d.get("cosa", ""), d.get("a_cosa_serve", ""), dati["giorno"],
+                          f"p{j}", d.get("prova", ""), "Strumento")
+            parti.append(f'<article class="try" id="p{j}">{pref}<div class="tags">{tag}</div>'
                          f'<h3>{e(d.get("cosa"))}</h3><p>{e(d.get("a_cosa_serve"))}</p>'
                          f"{come}{prova}{chips(d['fonti'], per_id)}</article>")
         parti.append("</section>")
@@ -992,7 +1013,9 @@ def pagina(dati, archivio, prefisso, settimana=None):
                 perche += f'<p class="why"><b>Come provarla:</b> {e(n["come_provarla"])}</p>'
             extra = "".join(f'<span class="tag">{e(t)}</span>'
                             for t in (n.get("strumento"), n.get("disponibilita")) if utile(t))
-            parti.append(f'<article id="n{k}"><div class="tags">{badge(n.get("affidabilita", ""), n.get("solo_titoli"))}'
+            pref = stella(f"{dati['giorno']}#n{k}", n.get("titolo", ""), n.get("riassunto", ""), dati["giorno"],
+                          f"n{k}", "", n.get("strumento") or "Novità")
+            parti.append(f'<article id="n{k}">{pref}<div class="tags">{badge(n.get("affidabilita", ""), n.get("solo_titoli"))}'
                          f"{extra}</div><h3>{e(n['titolo'])}</h3><p>{e(n.get('riassunto'))}</p>"
                          f"{perche}{chips(n['fonti'], per_id)}</article>")
         if breve:
@@ -1068,6 +1091,60 @@ def pagina_settimana(w, archivio):
                           "url": url_pagina}, ensure_ascii=False).replace("</", "<\\/")
     return (testa(f"La settimana dell'AI — {w.get('titolo', '')}", w.get("in_breve", ""), url_pagina, prefisso)
             + f"<body><main>{''.join(parti)}</main>" + piede(prefisso, dati_js))
+
+
+PAGINA_PREFERITI_JS = """
+let filtro='tutti';
+function disegna(){
+  const tutti=leggiPref(),box=document.getElementById('lista');box.innerHTML='';
+  const tipi=['tutti',...new Set(tutti.map(p=>p.tipo==='Strumento'?'Strumenti':'Novità'))];
+  const f=document.getElementById('filtri');f.innerHTML='';
+  if(tutti.length>1&&tipi.length>2){for(const t of tipi){const b=document.createElement('button');b.type='button';
+    b.textContent=t==='tutti'?'Tutti':t;b.setAttribute('aria-pressed',filtro===t);b.onclick=()=>{filtro=t;disegna();};f.append(b);}}
+  const l=tutti.filter(p=>filtro==='tutti'||(filtro==='Strumenti')===(p.tipo==='Strumento'));
+  document.getElementById('conta').textContent=tutti.length?(tutti.length===1?'1 scheda salvata':tutti.length+' schede salvate'):'';
+  if(!l.length){box.innerHTML='<p class="vuoto">Nessun preferito per ora. Tocca la stellina ☆ su uno strumento o una novità e lo ritrovi qui.</p>';return;}
+  for(const p of l){
+    const a=document.createElement('article'),q=document.createElement('p'),h=document.createElement('h3'),
+      t=document.createElement('a'),x=document.createElement('p'),src=document.createElement('div'),togli=document.createElement('button');
+    q.className='quando';q.textContent=(p.tipo||'')+' · '+p.giorno.split('-').reverse().join('/');
+    t.href='giorni/'+p.giorno+'.html#'+p.ancora;t.textContent=p.titolo;h.append(t);x.textContent=p.testo||'';
+    src.className='src';
+    if(p.link){const pr=document.createElement('a');pr.className='prova';pr.href=p.link;pr.target='_blank';pr.rel='noopener';pr.textContent='Provalo ↗';a.append(q,h,x,pr);}
+    else{a.append(q,h,x);}
+    const sc=document.createElement('a');sc.href=t.href;sc.textContent='Apri la scheda ↗';src.append(sc);
+    togli.className='togli';togli.type='button';togli.textContent='✕ Togli';
+    togli.onclick=()=>{scriviPref(leggiPref().filter(y=>y.id!==p.id));disegna();};
+    a.append(src,togli);box.append(a);
+  }
+}
+function copiaPreferiti(b){
+  const l=leggiPref();if(!l.length){alertino('Nessun preferito da copiare');return;}
+  const base=DIGEST.url?DIGEST.url.replace(/preferiti\\.html$/,''):location.href.replace(/preferiti\\.html.*$/,'');
+  const t='⭐ *I miei strumenti AI preferiti*\\n\\n'+l.map(p=>'• *'+p.titolo+'*'+(p.testo?': '+p.testo:'')+'\\n  '+(p.link||base+'giorni/'+p.giorno+'.html#'+p.ancora)).join('\\n\\n');
+  copia(t,b,'✓ Copiato!');
+}
+document.addEventListener('DOMContentLoaded',disegna);
+addEventListener('pageshow',disegna);
+"""
+
+
+def pagina_preferiti(archivio):
+    url_pagina = indirizzo_sito() + "preferiti.html"
+    parti = ['<p class="top">AI News Digest</p>', "<h1>⭐ I miei preferiti</h1>",
+             '<p class="lead">Gli strumenti e le novità che hai segnato con la stellina, per ritrovarli quando ti servono.</p>',
+             '<p class="meta" id="conta"></p>',
+             '<div class="share"><button type="button" onclick="copiaPreferiti(this)">💬 Copia elenco per WhatsApp</button>'
+             '<a class="vaipref" href="index.html">← Edizione di oggi</a></div>',
+             '<div class="filtri" id="filtri"></div><section class="pref" id="lista"></section>',
+             '<p class="meta">I preferiti restano salvati in questo browser, su questo dispositivo. '
+             'Se cancelli i dati di navigazione o usi la navigazione privata non vengono conservati.</p>']
+    parti.append(archivio_html(archivio, ""))
+    dati_js = json.dumps({"titolo": "I miei preferiti", "testo": "", "url": url_pagina},
+                         ensure_ascii=False).replace("</", "<\\/")
+    return (testa("AI News Digest — I miei preferiti", "Gli strumenti AI che ho salvato", url_pagina, "")
+            + f"<body><main>{''.join(parti)}</main>"
+            + piede("", dati_js).replace("</script>", PAGINA_PREFERITI_JS + "</script>", 1))
 
 
 def indirizzo_sito():
@@ -1152,6 +1229,24 @@ function cerca(q){
     }
   });
 }
+const CHIAVE_PREF='ai-news-preferiti';
+function leggiPref(){try{return JSON.parse(localStorage.getItem(CHIAVE_PREF)||'[]')||[];}catch(e){return [];}}
+function scriviPref(l){try{localStorage.setItem(CHIAVE_PREF,JSON.stringify(l));return true;}catch(e){alertino('Il browser non permette di salvare i preferiti');return false;}}
+function aggiornaStelle(){
+  const ids=new Set(leggiPref().map(p=>p.id));
+  document.querySelectorAll('.stella').forEach(b=>{const on=ids.has(b.dataset.id);b.setAttribute('aria-pressed',on);
+    b.textContent=on?'★':'☆';b.title=on?'Togli dai preferiti':'Aggiungi ai preferiti';b.setAttribute('aria-label',b.title);});
+  const n=document.getElementById('nPref');if(n)n.textContent=ids.size?'('+ids.size+')':'';
+}
+function stella(b){
+  let l=leggiPref();const d=b.dataset;
+  if(l.some(p=>p.id===d.id)){l=l.filter(p=>p.id!==d.id);if(scriviPref(l))alertino('Tolto dai preferiti');}
+  else{l.unshift({id:d.id,titolo:d.titolo,testo:d.testo,giorno:d.giorno,ancora:d.ancora,link:d.link,tipo:d.tipo,
+    salvato:new Date().toISOString().slice(0,10)});if(scriviPref(l))alertino('⭐ Aggiunto ai preferiti');}
+  aggiornaStelle();
+}
+document.addEventListener('DOMContentLoaded',aggiornaStelle);
+addEventListener('pageshow',aggiornaStelle);
 if('serviceWorker' in navigator){addEventListener('load',()=>navigator.serviceWorker.register(PREFISSO+'sw.js').catch(()=>{}));}
 """
 
@@ -1208,6 +1303,7 @@ def rigenera_tutto():
     for x in edizioni:
         (GIORNI / f"{x['giorno']}.html").write_text(pagina(x, archivio, "../"), encoding="utf-8")
     (DOCS / "index.html").write_text(pagina(ultima, archivio, "", banner), encoding="utf-8")
+    (DOCS / "preferiti.html").write_text(pagina_preferiti(archivio), encoding="utf-8")
     print(f"Pagine aggiornate: {len(edizioni)} edizioni, {len(settimane)} settimanali.")
 
 
