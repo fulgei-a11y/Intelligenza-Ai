@@ -16,6 +16,9 @@ import tempfile
 import wave
 from concurrent.futures import ThreadPoolExecutor
 from datetime import date, datetime, timedelta
+from zoneinfo import ZoneInfo
+
+ROMA = ZoneInfo("Europe/Rome")
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -68,6 +71,19 @@ def copione(dati):
     d = datetime.strptime(dati["giorno"], "%Y-%m-%d")
     pezzi = [f"A I News Digest di {GIORNI[d.weekday()]} {d.day} {MESI[d.month]} {d.year}.",
              normalizza(r.get("titolo_giorno")), normalizza(r.get("in_breve"))]
+    for u in reversed(dati.get("aggiornamenti", [])):
+        ru = u.get("riassunto") or {}
+        if not (ru.get("da_provare") or ru.get("sezioni")):
+            continue
+        ora = datetime.fromisoformat(u["generato"]).astimezone(ROMA)
+        pezzi.append(f"Aggiornamento delle {ora.hour} e {ora.minute:02d}: le novità dopo l'edizione del mattino.")
+        for x in ru.get("da_provare", []):
+            pezzi.append(normalizza(f"{x.get('cosa', '')}. {x.get('a_cosa_serve', '')}"))
+        for s in ru.get("sezioni", []):
+            for n in s.get("notizie", []):
+                pezzi.append(normalizza(n.get("titolo")))
+                pezzi.append(normalizza(n.get("riassunto")))
+        pezzi.append("Ed ecco l'edizione del mattino.")
     if r.get("da_provare"):
         pezzi.append("Strumenti nuovi." if r.get("formato") == 2 else "Da provare oggi.")
         for x in r["da_provare"]:
