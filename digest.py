@@ -382,6 +382,10 @@ ISTRUZIONI = """Sei il redattore di "AI News Digest", una guida quotidiana in IT
 intelligenza artificiale. Il lettore è una persona italiana NON programmatrice che vuole una cosa sola:
 scoprire AI nuove e cose utili da usare nel lavoro (ufficio, professione, piccola attività, studio) e nella
 vita di tutti i giorni (casa, famiglia, salute, viaggi, foto, burocrazia, hobby).
+Vuole soprattutto restare un passo avanti: capire dove sta andando l'AI, scoprire le novità che contano
+in TUTTI gli ambiti (scrittura, foto e video, voce, documenti, organizzazione, dati, studio, creatività...)
+e poterle sfruttare nel lavoro e nel personale. Non restringere per tipo di lavoro.
+Il lettore usa un telefono ANDROID e un PC WINDOWS: per lui conta sapere DOVE si usa ogni strumento.
 NON è un notiziario: politica, cause legali, licenziamenti, finanziamenti, borsa, polemiche e ricerca
 scientifica interessano solo se cambiano subito cosa il lettore può usare.
 
@@ -398,8 +402,10 @@ Non dedurre dettagli che il titolo non dice. Conta solo ciò che è scritto negl
 
 REGOLE SUI FATTI (tassative)
 1. Usa SOLO informazioni presenti negli articoli. Non inventare nomi, prezzi, menu, siti, date, paesi.
-2. Prezzo, lingua italiana, disponibilità in Italia, piattaforma (iPhone, Android, Mac, Windows, web):
-   scrivili SOLO se un articolo li dice. Altrimenti usa "Non indicato".
+2. Prezzo, lingua italiana, disponibilità in Italia e piattaforme: scrivili SOLO se un articolo li dice.
+   Altrimenti usa "Non indicato" (per le piattaforme: lista vuota []). Per le piattaforme usa SOLO questi
+   nomi: "Browser" (sito web o estensione del browser), "Android", "iPhone", "Windows", "Mac", "Linux".
+   Un'app per iPhone NON è automaticamente anche per Android, e un'app per Mac non è anche per Windows.
 3. "come_iniziare": 2-4 passi concreti SOLO se un articolo li descrive davvero; altrimenti lista vuota [].
    MAI frasi vuote come "apri l'articolo".
 4. MAI riportare accuse (reati, frodi, scandali) contro persone o aziende.
@@ -418,7 +424,16 @@ A) "strumenti_nuovi" — LA SEZIONE PIÙ IMPORTANTE (da 0 a 6, meglio 3 ottimi c
    - non è riservato alle grandi aziende;
    - ha un uso concreto: in "a_cosa_serve" scrivi un esempio realistico nella vita di un italiano;
    - NON sono strumenti: casi studio di clienti, partnership, risultati di ricerca, finanziamenti.
+   ORDINE: metti PRIMA gli strumenti che si usano nel Browser o su Android (il lettore li prova subito),
+   poi quelli per Windows, poi gli altri. Gli strumenti SOLO per Mac o SOLO per iPhone riportali comunque
+   se sono davvero interessanti (fanno capire dove va l'AI), ma in fondo: la pagina li segnerà come tali.
    Preferisci ciò che è gratuito o ha una prova gratuita, funziona in italiano o è disponibile in Italia.
+   AI SUL DISPOSITIVO: dai particolare risalto alle AI che funzionano sul telefono o sul computer senza
+   mandare i dati online (locali, offline, private, come KernelAI): il lettore segue questa tendenza.
+   Per queste metti "sul_dispositivo": true (solo se le fonti dicono che funziona in locale/offline).
+   "come_sfruttarla": UNA frase con un uso pratico concreto, anche nel lavoro (es. "Riassumere i verbali
+   delle riunioni senza caricarli online"). Scrivila solo se ciò che dicono le fonti permette un esempio
+   sensato; altrimenti stringa vuota "". Niente frasi generiche come "aumenta la produttività".
    Se oggi non c'è nulla di valido, lascia la lista vuota.
 B) "novita_strumenti" — "Novità negli strumenti che già usi" (da 0 a 5)
    Nuove funzioni concrete di ChatGPT, Gemini, Claude, Copilot, Meta AI, Perplexity, app Google,
@@ -438,14 +453,16 @@ C) "in_breve" — DA 0 A 3, spesso 0. Solo notizie che cambiano qualcosa per chi
 Rispondi SOLO con JSON valido:
 {
   "titolo_giorno": "titolo breve e concreto, centrato sullo strumento o la novità più utile del giorno",
-  "presentazione": "2-3 frasi: lo strumento più interessante di oggi e per chi è utile. Niente frasi sulla rassegna stessa",
+  "presentazione": "2-3 frasi: lo strumento più interessante di oggi, cosa dice di dove va l'AI e come sfruttarlo. Niente frasi sulla rassegna stessa",
   "strumenti_nuovi": [
     {"cosa": "nome dello strumento", "a_cosa_serve": "1-2 frasi con un esempio concreto",
      "per_chi": "Lavoro / Tutti i giorni / Lavoro e tutti i giorni / Studio",
      "ambito": "2-3 parole, es. Scrittura, Foto e video, Organizzazione, Ricerca, Casa, Salute, Viaggi",
      "come_iniziare": ["passo 1", "passo 2"],
      "costo": "Gratis / Gratis con limiti / A pagamento / Prova gratuita / Non indicato",
-     "piattaforma": "es. Web, iPhone, Android, Mac, Windows, estensione Chrome / Non indicato",
+     "piattaforme": ["Browser", "Android"],
+     "sul_dispositivo": false,
+     "come_sfruttarla": "1 frase con un uso pratico, anche al lavoro, oppure stringa vuota",
      "italiano": "Sì / No / Non indicato",
      "difficolta": "Facile / Media", "fonti": ["a3"]}
   ],
@@ -586,6 +603,50 @@ def link_prova(ids, per_id):
     return ""
 
 
+PIATTAFORME = ["Browser", "Android", "Windows", "iPhone", "Mac", "Linux"]
+USABILI = ("Browser", "Android", "Windows")         # quelle che il lettore può provare subito
+SINONIMI_PIATTAFORMA = [
+    (r"browser|\bweb\b|sito|online|estension|extension|chrome|edge|firefox", "Browser"),
+    (r"android|google play", "Android"), (r"windows|\bpc\b", "Windows"),
+    (r"iphone|\bios\b|ipad|app store", "iPhone"), (r"\bmac|macos|osx", "Mac"), (r"linux", "Linux"),
+]
+
+
+def piattaforme_di(d):
+    """Lista ordinata delle piattaforme di uno strumento (anche dal vecchio campo testuale 'piattaforma')."""
+    grezzo = d.get("piattaforme")
+    if grezzo is None:
+        grezzo = d.get("piattaforma", "")
+    voci = grezzo if isinstance(grezzo, list) else re.split(r"[,/;]| e ", str(grezzo))
+    trovate = set()
+    for v in voci:
+        for rx, nome in SINONIMI_PIATTAFORMA:
+            if re.search(rx, str(v), re.IGNORECASE):
+                trovate.add(nome)
+    return [p for p in PIATTAFORME if p in trovate]
+
+
+def etichette_piattaforma(d):
+    """['✓ Browser', '✓ Android', 'iPhone'] oppure ['Solo Mac'] se il lettore non può usarlo."""
+    pp = piattaforme_di(d)
+    if not pp:
+        return []
+    if not any(p in USABILI for p in pp):
+        return ["Solo " + " e ".join(pp)]
+    return [("✓ " + p) if p in USABILI else p for p in pp]
+
+
+def ordine_strumento(d):
+    pp = piattaforme_di(d)
+    if "Browser" in pp or "Android" in pp:
+        return 0
+    if "Windows" in pp:
+        return 1
+    if not pp:
+        return 2                                     # piattaforma non indicata
+    return 3                                         # solo Mac / iPhone / Linux
+
+
 def utile(valore):
     """Vero se il campo dice qualcosa (non 'Non indicato' e simili)."""
     v = str(valore or "").strip().lower()
@@ -654,12 +715,22 @@ def verifica(riassunto, per_id):
                 d["costo"] = "Non indicato"
             if "ital" not in titoli:
                 d["italiano"] = "Non indicato"
-            if not re.search(r"iphone|ios|android|mac|windows|chrome|web|app\b", titoli):
-                d["piattaforma"] = "Non indicato"
+            if not re.search(r"iphone|ios|android|mac|windows|chrome|web|browser", titoli):
+                d["piattaforme"] = []
+            d["sul_dispositivo"] = bool(d.get("sul_dispositivo")) and bool(
+                re.search(r"offline|on-device|local|privat|senza internet|sul (tuo )?(telefono|dispositivo)", titoli))
         d["come_iniziare"] = passi[:4]
+        d["piattaforme"] = piattaforme_di(d)
+        d["sul_dispositivo"] = bool(d.get("sul_dispositivo"))
+        sfrutta = str(d.get("come_sfruttarla") or "").strip()
+        generica = re.search(r"produttivit|efficienz|risparmia(re)? tempo", sfrutta, re.IGNORECASE)
+        if len(sfrutta) < 15 or (generica and len(sfrutta) < 60):
+            sfrutta = ""                    # niente frasi vuote o generiche
+        d["come_sfruttarla"] = sfrutta
         d["prova"] = link_prova(ids, per_id)
         d["fonti"] = ids[:MAX_LINK]
         prove.append(d)
+    prove.sort(key=ordine_strumento)        # prima Browser e Android, poi Windows, poi il resto (ordine stabile)
     riassunto["da_provare"] = prove[:6]
     return riassunto
 
@@ -749,6 +820,13 @@ article:target,li:target{outline:2px solid var(--accent)}
 @media (prefers-color-scheme:dark){.prova{color:#1d1d1f}}
 .brevi{list-style:none;padding:0;margin:0}.brevi li{padding:10px 0;border-bottom:1px solid var(--line);font-size:16px}
 .brevi .src{display:inline-flex;margin:4px 0 0}
+.dove{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin:2px 0 8px;font:13px system-ui,sans-serif;color:var(--muted)}
+.dove b{font-weight:600;margin-right:2px}
+.pf{font:600 12px system-ui,sans-serif;border-radius:6px;padding:3px 8px;background:var(--chip);color:var(--ink)}
+.pf.si{background:#dcfce7;color:#15803d}.pf.solo{background:#f3f4f6;color:#6b7280;border:1px dashed #9ca3af}
+.pf.locale{background:#e0e7ff;color:#3730a3}
+@media (prefers-color-scheme:dark){.pf.si{background:#14532d;color:#86efac}.pf.solo{background:transparent;color:#9c9a93}
+.pf.locale{background:#1e1b4b;color:#c7d2fe}}
 .agg{border:2px solid var(--accent);border-radius:16px;padding:6px 14px 10px;margin:22px -4px 0}
 .agg .tryzone{margin:12px -10px 0}
 .agg-top{font:700 15px system-ui,sans-serif;color:var(--accent);margin:10px 0 2px}
@@ -975,8 +1053,6 @@ def contenuto(r, per_id, giorno, pre=""):
         parti.append(f'<section class="tryzone"><h2>{nome_zona}</h2><p class="sub">{sotto}</p>')
         for j, d in enumerate(r["da_provare"], 1):
             etichette = [d.get("per_chi"), d.get("ambito"), d.get("costo"), d.get("difficolta")]
-            if utile(d.get("piattaforma")):
-                etichette.append(d["piattaforma"])
             if str(d.get("italiano", "")).strip().lower() in ("sì", "si"):
                 etichette.append("In italiano")
             if utile(d.get("disponibilita")):
@@ -996,11 +1072,18 @@ def contenuto(r, per_id, giorno, pre=""):
                 come = ""
             prova = (f'<a class="prova" href="{e(d["prova"])}" target="_blank" rel="noopener">Provalo ↗</a>'
                      if d.get("prova") else "")
+            dove = "".join(f'<span class="pf{" si" if t.startswith("✓") else " solo" if t.startswith("Solo") else ""}">'
+                           f'{e(t)}</span>' for t in etichette_piattaforma(d))
+            if d.get("sul_dispositivo"):
+                dove += '<span class="pf locale">🔒 Funziona sul dispositivo</span>'
+            dove = f'<div class="dove"><b>Dove si usa:</b> {dove}</div>' if dove else ""
+            if d.get("come_sfruttarla"):
+                come = f'<p class="why"><b>Come sfruttarla:</b> {e(d["come_sfruttarla"])}</p>' + come
             ancora = f"{pre}p{j}"
             pref = stella(f"{giorno}#{ancora}", d.get("cosa", ""), d.get("a_cosa_serve", ""), giorno,
                           ancora, d.get("prova", ""), "Strumento")
             parti.append(f'<article class="try" id="{ancora}">{pref}<div class="tags">{tag}</div>'
-                         f'<h3>{e(d.get("cosa"))}</h3><p>{e(d.get("a_cosa_serve"))}</p>'
+                         f'<h3>{e(d.get("cosa"))}</h3>{dove}<p>{e(d.get("a_cosa_serve"))}</p>'
                          f"{come}{prova}{chips(d['fonti'], per_id)}</article>")
         parti.append("</section>")
     k = 0
@@ -1233,8 +1316,11 @@ def testo_whatsapp(data_it, r, url, aggiornamenti=()):
     if r.get("da_provare"):
         righe.append("🧪 *Strumenti nuovi*" if nuovo else "🧪 *Da provare oggi*")
         for d in r["da_provare"]:
-            costo = f" ({d['costo']})" if nuovo and utile(d.get("costo")) else ""
-            righe.append(f"• *{d.get('cosa', '')}*{costo}: {d.get('a_cosa_serve', '')}")
+            info = [d["costo"]] if nuovo and utile(d.get("costo")) else []
+            info += [t.replace("✓ ", "") for t in etichette_piattaforma(d)] if nuovo else []
+            info += ["sul dispositivo"] if d.get("sul_dispositivo") else []
+            extra = f" ({', '.join(info)})" if info else ""
+            righe.append(f"• *{d.get('cosa', '')}*{extra}: {d.get('a_cosa_serve', '')}")
         righe.append("")
     if nuovo:
         novita = next((s for s in r.get("sezioni", []) if s.get("titolo") == SEZ_NOVITA), None)
@@ -1403,7 +1489,8 @@ artificiale per persone NON programmatrici, da usare al lavoro e nella vita di t
 Ricevi quanto pubblicato negli ultimi 7 giorni: strumenti nuovi (codice [AAAA-MM-GG#provare-n]) e novità
 o notizie (codice [AAAA-MM-GG#n]).
 1. Scegli i 5 MIGLIORI strumenti nuovi della settimana (o meno, se non sono validi): preferisci quelli
-   gratuiti o con prova gratuita, utili a molte persone, disponibili in Italia.
+   gratuiti o con prova gratuita, utili a molte persone, disponibili in Italia, usabili nel browser o su
+   Android (il lettore usa Android e Windows). Dai risalto alle AI che funzionano sul dispositivo.
 2. Scegli fino a 5 novità più utili negli strumenti già diffusi (ChatGPT, Gemini, Claude, Copilot...).
    Se una novità è stata raccontata in più giorni, uniscila in una sola voce citando tutti i codici.
 Usa SOLO le informazioni presenti nel testo ricevuto, senza aggiungere nulla di tuo. Mai voci "Da verificare".
@@ -1439,7 +1526,9 @@ def costruisci_settimana(chiave, fine):
             for j, d in enumerate(r.get("da_provare", []), 1):
                 cod = f"{x['giorno']}#{pre}provare-{j}"
                 prove[cod] = x["giorno"]
-                costo = f" ({d['costo']})" if utile(d.get("costo")) else ""
+                info = ([d["costo"]] if utile(d.get("costo")) else []) + piattaforme_di(d)
+                info += ["sul dispositivo"] if d.get("sul_dispositivo") else []
+                costo = f" ({', '.join(info)})" if info else ""
                 righe.append(f"[{cod}] STRUMENTO: {d.get('cosa', '')}{costo} — {d.get('a_cosa_serve', '')}")
     w, modello = chiama_gemini(ISTRUZIONI_SETTIMANA, "NOTIZIE DELLA SETTIMANA:\n" + "\n".join(righe), chiave)
     notizie = []
