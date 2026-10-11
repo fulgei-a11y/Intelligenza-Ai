@@ -890,6 +890,11 @@ article:target,li:target{outline:2px solid var(--accent)}
 .cassetta-indice{display:flex;flex-wrap:wrap;gap:6px;margin:14px 0}
 .cassetta-indice a{font:600 13px system-ui,sans-serif;color:var(--ink);background:var(--card);border:1px solid var(--line);border-radius:999px;padding:6px 12px;text-decoration:none}
 .osint .sub a{color:inherit}
+.osint.nuovi{border-left-color:var(--accent)}.osint.nuovi h2{color:var(--accent)}
+.osint .quando a{color:inherit}.osint details.altri{margin-top:10px;font:14px system-ui,sans-serif;color:var(--muted)}
+.osint.mia h3 a{color:var(--ink);text-decoration:none}.osint.mia{border-left-color:#eab308}.osint.mia h2{color:#a16207}
+@media (prefers-color-scheme:dark){.osint.mia h2{color:#facc15}}
+.osint .quando{font:12px system-ui,sans-serif;color:var(--muted);margin:0 0 4px}.osint .vuoto{font:14px system-ui,sans-serif;color:var(--muted)}
 .agg{border:2px solid var(--accent);border-radius:16px;padding:6px 14px 10px;margin:22px -4px 0}
 .agg .tryzone{margin:12px -10px 0}
 .agg-top{font:700 15px system-ui,sans-serif;color:var(--accent);margin:10px 0 2px}
@@ -1001,12 +1006,13 @@ def chips(ids, per_id):
     return '<div class="src">' + "".join(out) + "</div>"
 
 
-def stella(fid, titolo, testo, giorno, ancora, link="", tipo=""):
-    """Pulsante ☆ per salvare la scheda nei Preferiti (salvati nel browser di chi legge)."""
+def stella(fid, titolo, testo, giorno, ancora, link="", tipo="", pagina=""):
+    """Pulsante ☆ per salvare la scheda nei Preferiti (salvati nel browser di chi legge).
+    `pagina` serve alle schede fuori dalle edizioni (es. "cassetta-osint.html#t3")."""
     return (f'<button type="button" class="stella" aria-pressed="false" title="Aggiungi ai preferiti" '
             f'aria-label="Aggiungi ai preferiti" data-id="{e(fid)}" data-titolo="{e(titolo)}" '
             f'data-testo="{e((testo or "")[:300])}" data-giorno="{e(giorno)}" data-ancora="{e(ancora)}" '
-            f'data-link="{e(link)}" data-tipo="{e(tipo)}" onclick="stella(this)">☆</button>')
+            f'data-link="{e(link)}" data-tipo="{e(tipo)}" data-pagina="{e(pagina)}" onclick="stella(this)">☆</button>')
 
 
 def badge(aff, solo_titoli=False):
@@ -1334,8 +1340,8 @@ function disegna(){
   for(const p of l){
     const a=document.createElement('article'),q=document.createElement('p'),h=document.createElement('h3'),
       t=document.createElement('a'),x=document.createElement('p'),src=document.createElement('div'),togli=document.createElement('button');
-    q.className='quando';q.textContent=(p.tipo||'')+' · '+p.giorno.split('-').reverse().join('/');
-    t.href='giorni/'+p.giorno+'.html#'+p.ancora;t.textContent=p.titolo;h.append(t);x.textContent=p.testo||'';
+    q.className='quando';q.textContent=quandoPref(p);
+    t.href=schedaPref(p);t.textContent=p.titolo;h.append(t);x.textContent=p.testo||'';
     src.className='src';
     if(p.link){const pr=document.createElement('a');pr.className='prova';pr.href=p.link;pr.target='_blank';pr.rel='noopener';pr.textContent='Provalo ↗';a.append(q,h,x,pr);}
     else{a.append(q,h,x);}
@@ -1347,8 +1353,8 @@ function disegna(){
 }
 function copiaPreferiti(b){
   const l=leggiPref();if(!l.length){alertino('Nessun preferito da copiare');return;}
-  const base=DIGEST.url?DIGEST.url.replace(/preferiti\\.html$/,''):location.href.replace(/preferiti\\.html.*$/,'');
-  const t='⭐ *I miei strumenti AI preferiti*\\n\\n'+l.map(p=>'• *'+p.titolo+'*'+(p.testo?': '+p.testo:'')+'\\n  '+(p.link||base+'giorni/'+p.giorno+'.html#'+p.ancora)).join('\\n\\n');
+  const base=/^http/.test(DIGEST.url||'')?DIGEST.url.replace(/preferiti\\.html$/,''):location.href.replace(/preferiti\\.html.*$/,'');
+  const t='⭐ *I miei strumenti AI preferiti*\\n\\n'+l.map(p=>'• *'+p.titolo+'*'+(p.testo?': '+p.testo:'')+'\\n  '+(p.link||base+schedaPref(p))).join('\\n\\n');
   copia(t,b,'✓ Copiato!');
 }
 document.addEventListener('DOMContentLoaded',disegna);
@@ -1374,11 +1380,31 @@ def pagina_preferiti(archivio):
             + piede("", dati_js).replace("</script>", PAGINA_PREFERITI_JS + "</script>", 1))
 
 
-def pagina_cassetta(cassetta, archivio):
-    """Pagina fissa con gli strumenti OSINT consolidati (dati in cassetta_osint.json)."""
+def nuovi_arrivi(edizioni, cassetta):
+    """Tutti gli strumenti OSINT segnalati nelle edizioni (anche negli aggiornamenti), dal più recente,
+    senza doppioni e senza quelli già presenti tra i consolidati della cassetta."""
+    norm = lambda t: re.sub(r"\W+", "", (t or "").lower())
+    consolidati = {norm(t["nome"]) for c in cassetta.get("categorie", []) for t in c.get("strumenti", [])}
+    visti, out = set(), []
+    for x in sorted(edizioni, key=lambda x: x["giorno"], reverse=True):
+        per_id = x.get("articoli", {})
+        for pre, r in reversed(list(riassunti_del_giorno(x))):
+            for j, d in enumerate(r.get("osint", []) or [], 1):
+                chiave = norm(d.get("cosa"))
+                if not chiave or chiave in visti or chiave in consolidati:
+                    continue
+                visti.add(chiave)
+                out.append((x["giorno"], f"{pre}o{j}", d, per_id))
+    return out
+
+
+def pagina_cassetta(cassetta, archivio, edizioni=()):
+    """Pagina con gli strumenti OSINT consolidati (fissi, da cassetta_osint.json) e i nuovi arrivi (automatici)."""
     url_pagina = indirizzo_sito() + "cassetta-osint.html"
     cat = cassetta.get("categorie", [])
-    indice = "".join(f'<a href="#c{i}">{e(c.get("icona", ""))} {e(c["titolo"])}</a>' for i, c in enumerate(cat, 1))
+    arrivi = nuovi_arrivi(edizioni, cassetta)
+    indice = ('<a href="#nuovi">🆕 Nuovi arrivi' + (f" ({len(arrivi)})" if arrivi else "") + "</a>"
+              + "".join(f'<a href="#c{i}">{e(c.get("icona", ""))} {e(c["titolo"])}</a>' for i, c in enumerate(cat, 1)))
     parti = ['<p class="top">AI News Digest · OSINT</p>', "<h1>🧰 Cassetta degli attrezzi OSINT</h1>",
              '<p class="lead">Gli strumenti consolidati per le indagini su fonti aperte, divisi per tipo di '
              'indagine, con piattaforma e costo. Le novità arrivano ogni giorno nella sezione 🔎 Strumenti OSINT.</p>',
@@ -1387,17 +1413,46 @@ def pagina_cassetta(cassetta, archivio):
              f' {e(cassetta.get("aggiornato", "")[:4])}.</p>',
              '<div class="share"><a class="vaipref" href="index.html">← Edizione di oggi</a>'
              '<a class="vaipref" href="preferiti.html">⭐ Preferiti</a></div>',
-             f'<nav class="cassetta-indice">{indice}</nav>']
+             f'<nav class="cassetta-indice">{indice}</nav>',
+             '<section class="osint mia"><h2>⭐ I tuoi strumenti OSINT</h2><p class="sub">Quelli che hai segnato con la '
+             'stellina, qui e nelle edizioni del giorno. Restano salvati su questo dispositivo.</p>'
+             '<div id="mieiOsint"></div></section>']
+    # Nuovi arrivi: si riempie da solo con gli strumenti OSINT delle edizioni; i più vecchi restano, in fondo.
+    parti.append('<section class="osint nuovi" id="nuovi"><h2>🆕 Nuovi arrivi</h2><p class="sub">Gli strumenti '
+                 'OSINT segnalati nelle edizioni del giorno, dal più recente. Si aggiunge da solo e non cancella '
+                 'nulla. Sono novità: non ancora collaudate come quelle consolidate più sotto.</p>')
+    if not arrivi:
+        parti.append('<p class="vuoto">Ancora nessuno: appena un\'edizione segnala uno strumento OSINT, compare qui.</p>')
+    schede = []
+    for giorno, ancora, d, per_id in arrivi:
+        schede.append(scheda_strumento(d, per_id, giorno, ancora, "OSINT", True,
+                                       etichette=[d.get("uso"), d.get("costo") or "Costo non indicato",
+                                                  d.get("difficolta")])
+                      .replace('<div class="tags">', f'<p class="quando">Segnalato il {e(data_breve(giorno))} '
+                               f'{giorno[:4]} · <a href="giorni/{giorno}.html#{ancora}">vedi l\'edizione</a></p>'
+                               '<div class="tags">', 1)
+                      .replace(f'id="{ancora}"', f'id="n-{giorno}-{ancora}"', 1))
+    parti += schede[:10]
+    if len(schede) > 10:
+        parti.append(f'<details class="altri"><summary>Mostra gli altri {len(schede) - 10} nuovi arrivi</summary>'
+                     + "".join(schede[10:]) + "</details>")
+    parti.append("</section>")
+    parti.append('<p class="agg-top mattino">🧰 Gli strumenti consolidati</p>')
+    n_t = 0
     for i, c in enumerate(cat, 1):
         parti.append(f'<section class="osint" id="c{i}"><h2>{e(c.get("icona", ""))} {e(c["titolo"])}</h2>')
         if c.get("consiglio"):
             parti.append(f'<p class="sub">💡 {e(c["consiglio"])}</p>')
         for t in c.get("strumenti", []):
+            n_t += 1
+            ancora = "t" + re.sub(r"\W+", "-", t["nome"].lower()).strip("-")
+            pref = stella(f"cassetta#{ancora}", t["nome"], t.get("descrizione", ""), "", ancora, t["url"], "OSINT",
+                          f"cassetta-osint.html#{ancora}")
             dove = "".join(f'<span class="pf{" si" if x.startswith("✓") else " solo" if x.startswith("Solo") else ""}">'
                            f'{e(x)}</span>' for x in etichette_piattaforma(t))
             tag = "".join(f'<span class="tag">{e(x)}</span>' for x in (t.get("costo"), t.get("difficolta")) if x)
             nota = f'<p class="why"><b>Attenzione:</b> {e(t["nota"])}</p>' if t.get("nota") else ""
-            parti.append(f'<article class="try"><div class="tags">{tag}</div><h3>{e(t["nome"])}</h3>'
+            parti.append(f'<article class="try" id="{ancora}">{pref}<div class="tags">{tag}</div><h3>{e(t["nome"])}</h3>'
                          f'<div class="dove"><b>Dove si usa:</b> {dove}</div><p>{e(t.get("descrizione"))}</p>{nota}'
                          f'<a class="prova" href="{e(t["url"])}" target="_blank" rel="noopener">Apri ↗</a></article>')
         parti.append("</section>")
@@ -1510,16 +1565,31 @@ function cerca(q){
 const CHIAVE_PREF='ai-news-preferiti';
 function leggiPref(){try{return JSON.parse(localStorage.getItem(CHIAVE_PREF)||'[]')||[];}catch(e){return [];}}
 function scriviPref(l){try{localStorage.setItem(CHIAVE_PREF,JSON.stringify(l));return true;}catch(e){alertino('Il browser non permette di salvare i preferiti');return false;}}
+function schedaPref(p,pre){return (pre||'')+(p.pagina||('giorni/'+p.giorno+'.html#'+p.ancora));}
+function quandoPref(p){return (p.tipo||'')+' · '+(p.giorno?p.giorno.split('-').reverse().join('/'):'Cassetta OSINT');}
+function disegnaMieiOsint(){
+  const box=document.getElementById('mieiOsint');if(!box)return;
+  const l=leggiPref().filter(p=>p.tipo==='OSINT');box.innerHTML='';
+  if(!l.length){box.innerHTML='<p class="vuoto">Tocca la stellina ☆ su uno strumento OSINT, qui sotto o nelle edizioni del giorno, e lo ritrovi qui in cima.</p>';return;}
+  for(const p of l){
+    const a=document.createElement('article'),h=document.createElement('h3'),t=document.createElement('a'),x=document.createElement('p'),q=document.createElement('p');
+    a.className='try';q.className='quando';q.textContent=quandoPref(p);
+    t.href=schedaPref(p,PREFISSO);t.textContent=p.titolo;h.append(t);x.textContent=p.testo||'';a.append(q,h,x);
+    if(p.link){const pr=document.createElement('a');pr.className='prova';pr.href=p.link;pr.target='_blank';pr.rel='noopener';pr.textContent='Apri ↗';a.append(pr);}
+    box.append(a);
+  }
+}
 function aggiornaStelle(){
   const ids=new Set(leggiPref().map(p=>p.id));
   document.querySelectorAll('.stella').forEach(b=>{const on=ids.has(b.dataset.id);b.setAttribute('aria-pressed',on);
     b.textContent=on?'★':'☆';b.title=on?'Togli dai preferiti':'Aggiungi ai preferiti';b.setAttribute('aria-label',b.title);});
   const n=document.getElementById('nPref');if(n)n.textContent=ids.size?'('+ids.size+')':'';
+  disegnaMieiOsint();
 }
 function stella(b){
   let l=leggiPref();const d=b.dataset;
   if(l.some(p=>p.id===d.id)){l=l.filter(p=>p.id!==d.id);if(scriviPref(l))alertino('Tolto dai preferiti');}
-  else{l.unshift({id:d.id,titolo:d.titolo,testo:d.testo,giorno:d.giorno,ancora:d.ancora,link:d.link,tipo:d.tipo,
+  else{l.unshift({id:d.id,titolo:d.titolo,testo:d.testo,giorno:d.giorno,ancora:d.ancora,link:d.link,tipo:d.tipo,pagina:d.pagina||'',
     salvato:new Date().toISOString().slice(0,10)});if(scriviPref(l))alertino('⭐ Aggiunto ai preferiti');}
   aggiornaStelle();
 }
@@ -1608,7 +1678,7 @@ def rigenera_tutto():
     (DOCS / "preferiti.html").write_text(pagina_preferiti(archivio), encoding="utf-8")
     cassetta = leggi_json(ROOT / "cassetta_osint.json") if (ROOT / "cassetta_osint.json").exists() else None
     if cassetta:
-        (DOCS / "cassetta-osint.html").write_text(pagina_cassetta(cassetta, archivio), encoding="utf-8")
+        (DOCS / "cassetta-osint.html").write_text(pagina_cassetta(cassetta, archivio, edizioni), encoding="utf-8")
     print(f"Pagine aggiornate: {len(edizioni)} edizioni, {len(settimane)} settimanali.")
 
 
