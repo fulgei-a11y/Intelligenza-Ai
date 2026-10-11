@@ -112,11 +112,12 @@
       "max": 5
     },
     {
-      "nome": "Hugging Face",
-      "tipo": "ufficiale",
+      "nome": "Altri assistenti AI (Perplexity, Mistral, Meta AI…)",
+      "tipo": "aggregatore",
       "categoria": "Laboratori",
-      "url": "https://huggingface.co/blog/feed.xml",
-      "max": 3
+      "url": "https://news.google.com/rss/search?q=(Perplexity+OR+%22Le+Chat%22+OR+Mistral+OR+%22Meta+AI%22+OR+DeepSeek+OR+Grok+OR+%22Apple+Intelligence%22+OR+%22Galaxy+AI%22)+(%22new+feature%22+OR+%22now+available%22+OR+launches+OR+%22rolls+out%22+OR+app)+when:1d&hl=en-US&gl=US&ceid=US:en",
+      "max": 8,
+      "escludi": "stock|shares|earnings|funding|raises|valuation|IPO|lawsuit"
     },
     {
       "nome": "The Verge",
@@ -140,6 +141,21 @@
       "max": 6
     },
     {
+      "nome": "The Decoder",
+      "tipo": "testata",
+      "categoria": "Testate tech",
+      "url": "https://the-decoder.com/feed/",
+      "max": 10
+    },
+    {
+      "nome": "TLDR AI (newsletter)",
+      "tipo": "aggregatore",
+      "categoria": "Testate tech",
+      "url": "https://tldr.tech/api/rss/ai",
+      "max": 2,
+      "ore": 48
+    },
+    {
       "nome": "ANSA",
       "tipo": "testata",
       "categoria": "Italia",
@@ -159,6 +175,22 @@
       "categoria": "Italia",
       "url": "https://www.ilsole24ore.com/rss/tecnologia.xml",
       "max": 30,
+      "filtro_ai": true
+    },
+    {
+      "nome": "Punto Informatico",
+      "tipo": "testata",
+      "categoria": "Italia",
+      "url": "https://www.punto-informatico.it/feed/",
+      "max": 30,
+      "filtro_ai": true
+    },
+    {
+      "nome": "HDblog",
+      "tipo": "testata",
+      "categoria": "Italia",
+      "url": "https://www.hdblog.it/feed/",
+      "max": 40,
       "filtro_ai": true
     },
     {
@@ -185,12 +217,29 @@
       "ore": 168
     },
     {
+      "nome": "GIJN (guide per giornalisti investigativi)",
+      "tipo": "testata",
+      "categoria": "OSINT",
+      "url": "https://gijn.org/feed/",
+      "max": 5,
+      "ore": 96,
+      "escludi": "fellowship|apply now|conference|award|visiting professor|job|hiring|SECOND COURSE|webinar"
+    },
+    {
+      "nome": "OSINT – verifica e fact-checking (internazionale)",
+      "tipo": "aggregatore",
+      "categoria": "OSINT",
+      "url": "https://news.google.com/rss/search?q=(%22fact-checking+tool%22+OR+%22verification+tool%22+OR+%22geolocation+tool%22+OR+%22reverse+image+search%22+OR+%22open+source+investigation%22+OR+%22OSINT+toolkit%22)+when:3d&hl=en-US&gl=US&ceid=US:en",
+      "max": 5,
+      "escludi": "stock|shares|earnings|funding|raises|valuation|IPO|acquires|acquisition|market (size|report|growth)|webinar|conference|summit|course|certification|training|bootcamp|hiring|job|ransomware|hackers? (attack|group)|breach at|military contract|defen[cs]e contract|threat intelligence platform"
+    },
+    {
       "nome": "OSINT – nuovi strumenti (internazionale)",
       "tipo": "aggregatore",
       "categoria": "OSINT",
       "url": "https://news.google.com/rss/search?q=OSINT+(tool+OR+tools+OR+%22new+tool%22+OR+launches+OR+released+OR+free+OR+%22browser+extension%22)+when:3d&hl=en-US&gl=US&ceid=US:en",
-      "max": 8,
-      "escludi": "stock|shares|earnings|funding|raises|valuation|IPO|arrest|sentenced|ransomware attack"
+      "max": 6,
+      "escludi": "stock|shares|earnings|funding|raises|valuation|IPO|acquires|acquisition|market (size|report|growth)|webinar|conference|summit|course|certification|training|bootcamp|hiring|job|ransomware|hackers? (attack|group)|breach at|military contract|defen[cs]e contract|threat intelligence platform"
     },
     {
       "nome": "OSINT – strumenti (Italia)",
@@ -198,7 +247,8 @@
       "categoria": "OSINT",
       "url": "https://news.google.com/rss/search?q=OSINT+(strumento+OR+strumenti+OR+tool+OR+gratuito+OR+indagini)+when:7d&hl=it&gl=IT&ceid=IT:it",
       "max": 4,
-      "ore": 168
+      "ore": 168,
+      "escludi": "corso|master|evento|convegno|webinar|seminario|workshop|certificazion|offerta di lavoro"
     },
     {
       "nome": "Reddit (OSINT)",

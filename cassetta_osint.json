@@ -56,6 +56,16 @@
       "consiglio": "Nessuno strumento dà una certezza da solo: incrocia i risultati e annota ogni passaggio.",
       "strumenti": [
         {
+          "nome": "Google Fact Check Explorer",
+          "url": "https://toolbox.google.com/factcheck/explorer",
+          "descrizione": "Cerca se una notizia, una frase o un'immagine sono già state verificate dai fact-checker di tutto il mondo.",
+          "piattaforme": [
+            "Browser"
+          ],
+          "costo": "Gratis",
+          "difficolta": "Facile"
+        },
+        {
           "nome": "InVID-WeVerify",
           "url": "https://www.invid-project.eu/tools-and-services/invid-verification-plugin/",
           "descrizione": "Estensione usata dalle redazioni: divide i video in fotogrammi da cercare, legge i metadati, analisi forense.",
@@ -149,6 +159,17 @@
           ],
           "costo": "Gratis",
           "difficolta": "Media"
+        },
+        {
+          "nome": "Mapillary",
+          "url": "https://www.mapillary.com/",
+          "descrizione": "Foto a livello strada caricate dagli utenti, anche dove Street View non arriva: utile per riconoscere un luogo.",
+          "piattaforme": [
+            "Browser",
+            "Android"
+          ],
+          "costo": "Gratis",
+          "difficolta": "Facile"
         }
       ]
     },
