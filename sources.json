@@ -1,5 +1,5 @@
 {
-  "_nota": "Elenco delle fonti. 'tipo': ufficiale | testata | aggregatore | vetrina | community (dice a Gemini quanto fidarsi; 'vetrina' = nuovi prodotti presentati dai loro creatori, es. Product Hunt e Show HN). 'categoria': Strumenti | Laboratori | Testate tech | Italia | Community. 'max': articoli massimi per fonte. 'ore': finestra in ore solo per quella fonte. 'filtro_ai': true tiene solo articoli sull'AI. 'escludi': espressione che scarta i titoli corrispondenti. 'editori_esclusi': siti scartati quando arrivano da Google News.",
+  "_nota": "Elenco delle fonti. 'tipo': ufficiale | testata | aggregatore | vetrina | community (dice a Gemini quanto fidarsi; 'vetrina' = nuovi prodotti presentati dai loro creatori, es. Product Hunt e Show HN). 'categoria': Strumenti (anche le AI che funzionano sul dispositivo, offline e private) | Laboratori | Testate tech | Italia | Community. 'max': articoli massimi per fonte. 'ore': finestra in ore solo per quella fonte. 'filtro_ai': true tiene solo articoli sull'AI. 'escludi': espressione che scarta i titoli corrispondenti. 'editori_esclusi': siti scartati quando arrivano da Google News.",
   "editori_esclusi": [
     "Geeky Gadgets",
     "Benzinga",
@@ -50,6 +50,21 @@
       "categoria": "Strumenti",
       "url": "https://news.google.com/rss/search?q=(ChatGPT+OR+Gemini+OR+Claude+OR+Copilot)+(%22nuova+funzione%22+OR+%22arriva+in+Italia%22+OR+%22disponibile+in+Italia%22+OR+%22come+usare%22)+when:2d&hl=it&gl=IT&ceid=IT:it",
       "max": 8
+    },
+    {
+      "nome": "AI sul dispositivo (internazionale)",
+      "tipo": "aggregatore",
+      "categoria": "Strumenti",
+      "url": "https://news.google.com/rss/search?q=(%22on-device+AI%22+OR+%22offline+AI%22+OR+%22local+AI%22+OR+%22private+AI%22+OR+%22local+LLM%22)+(app+OR+launches+OR+released+OR+Android+OR+Windows)+when:2d&hl=en-US&gl=US&ceid=US:en",
+      "max": 8,
+      "escludi": "stock|shares|earnings|funding|raises|valuation|IPO|chip sales"
+    },
+    {
+      "nome": "AI sul dispositivo (Italia)",
+      "tipo": "aggregatore",
+      "categoria": "Strumenti",
+      "url": "https://news.google.com/rss/search?q=(%22AI+offline%22+OR+%22intelligenza+artificiale+offline%22+OR+%22AI+locale%22+OR+%22senza+internet%22+OR+%22sul+dispositivo%22)+(app+OR+smartphone+OR+PC)+when:3d&hl=it&gl=IT&ceid=IT:it",
+      "max": 5
     },
     {
       "nome": "OpenAI",
@@ -152,6 +167,14 @@
       "categoria": "Community",
       "url": "https://www.reddit.com/r/ChatGPT+artificial+GeminiAI+ClaudeAI/top/.rss?t=day&limit=25",
       "max": 8
+    },
+    {
+      "nome": "Reddit (AI locale)",
+      "tipo": "community",
+      "categoria": "Community",
+      "url": "https://www.reddit.com/r/LocalLLaMA+LocalLLM/top/.rss?t=day&limit=25",
+      "max": 5,
+      "filtro_ai": true
     }
   ]
 }
