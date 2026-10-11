@@ -60,6 +60,10 @@ article:target,li:target{outline:2px solid var(--accent)}
 @media (prefers-color-scheme:dark){.prova{color:#1d1d1f}}
 .brevi{list-style:none;padding:0;margin:0}.brevi li{padding:10px 0;border-bottom:1px solid var(--line);font-size:16px}
 .brevi .src{display:inline-flex;margin:4px 0 0}
+.agg{border:2px solid var(--accent);border-radius:16px;padding:6px 14px 10px;margin:22px -4px 0}
+.agg .tryzone{margin:12px -10px 0}
+.agg-top{font:700 15px system-ui,sans-serif;color:var(--accent);margin:10px 0 2px}
+.agg-top.mattino{margin-top:30px;padding-top:12px;border-top:1px solid var(--line)}
 article{position:relative}article .tags{padding-right:40px}
 .stella{position:absolute;top:10px;right:10px;width:38px;height:38px;border-radius:50%;border:1px solid var(--line);background:var(--card);color:var(--muted);font-size:20px;line-height:1;cursor:pointer}
 .stella[aria-pressed="true"]{color:#eab308;border-color:#eab308;background:#fef9c3}
@@ -107,7 +111,7 @@ function cerca(q){
     ul.innerHTML=out.length?'':'<li>Nessun risultato.</li>';
     for(const [g,n] of out.slice(0,40)){
       const li=document.createElement('li'),a=document.createElement('a');
-      a.href=PREFISSO+'giorni/'+g+'.html'+(n[0]?'#n'+n[0]:'');
+      a.href=PREFISSO+'giorni/'+g+'.html'+(n[0]?'#'+(typeof n[0]==='number'?'n'+n[0]:n[0]):'');
       const s=document.createElement('small');s.textContent=g.split('-').reverse().join('/');
       a.append(s,document.createTextNode(n[1]));li.append(a);ul.append(li);
     }
@@ -130,6 +134,18 @@ function stella(b){
   aggiornaStelle();
 }
 document.addEventListener('DOMContentLoaded',aggiornaStelle);
+function prossimo(){
+  const el=document.getElementById('prossimo');if(!el||!DIGEST.orari||!DIGEST.orari.length)return;
+  const ora=new Date();let p=null;
+  for(let g=0;g<3;g++)for(const o of DIGEST.orari){const [h,m]=o.split(':').map(Number);
+    const d=new Date(Date.UTC(ora.getUTCFullYear(),ora.getUTCMonth(),ora.getUTCDate()+g,h,m));if(d>ora&&(!p||d<p))p=d;}
+  if(!p)return;
+  const roma={timeZone:'Europe/Rome'},giorno=x=>x.toLocaleDateString('it-IT',roma);
+  const domani=new Date(ora.getTime()+864e5);
+  const quale=giorno(p)===giorno(ora)?'oggi':giorno(p)===giorno(domani)?'domani':giorno(p);
+  el.textContent='prossimo aggiornamento '+quale+' verso le '+p.toLocaleTimeString('it-IT',{...roma,hour:'2-digit',minute:'2-digit'});
+}
+document.addEventListener('DOMContentLoaded',prossimo);
 addEventListener('pageshow',aggiornaStelle);
 if('serviceWorker' in navigator){addEventListener('load',()=>navigator.serviceWorker.register(PREFISSO+'sw.js').catch(()=>{}));}
 
