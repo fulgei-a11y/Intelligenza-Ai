@@ -446,10 +446,13 @@ D) "osint" — "Strumenti OSINT" (da 0 a 4): strumenti NUOVI o aggiornati per in
    quelli usati da giornalisti investigativi, fact-checker e analisti. Solo strumenti reali e funzionanti,
    usabili nel BROWSER (sito o estensione) o su WINDOWS. Ambiti ammessi: verifica di foto e video,
    geolocalizzazione di immagini, metadati di file, archivi web, domini e siti, aziende e registri pubblici,
-   navi e aerei, immagini satellitari, analisi di documenti, mappe e dati aperti.
-   ESCLUDI SEMPRE: strumenti per cercare, schedare o localizzare persone private (ricerca persone, numeri di
-   telefono, riconoscimento facciale, profili social di un individuo), spyware e app per spiare, raccolta di
-   password o dati rubati, strumenti di intrusione. In caso di dubbio, escludi.
+   navi e aerei, immagini satellitari, analisi di documenti, mappe e dati aperti, e anche PERSONE E ACCOUNT
+   su fonti pubbliche (username e profili social, email e numeri di telefono, presenza online, verifica di
+   identità e antifrode, controllo se un'email compare in una fuga di dati, soggetti nei registri pubblici).
+   Per questi ultimi usa "uso": "Persone e account".
+   ESCLUDI SEMPRE, senza eccezioni: spyware e app per controllare di nascosto un telefono o un account;
+   archivi di dati rubati o password trafugate; riconoscimento facciale per identificare persone;
+   localizzazione in tempo reale di una persona o di un telefono; strumenti di intrusione o hacking.
    Per ognuno: "uso" (2-4 parole, es. "Verifica immagini", "Geolocalizzazione", "Aziende e registri"),
    "costo" (Gratis / Gratis con limiti / A pagamento / Non indicato), "piattaforme", "come_sfruttarla"
    (un esempio di indagine lecita, es. "Verificare se una foto virale è davvero di oggi"). Se uno strumento
@@ -774,13 +777,18 @@ def verifica_strumento(d, per_id):
     return d
 
 
-# Strumenti che servono a spiare, schedare o colpire persone: non vengono mai proposti.
+# Gli unici strumenti OSINT mai proposti: spiare di nascosto, dati rubati, riconoscimento facciale di persone,
+# localizzazione in tempo reale di persone o telefoni, intrusione. Tutto il resto (anche persone e account
+# su fonti pubbliche) è ammesso, con l'avviso sull'uso lecito.
 OSINT_VIETATI = re.compile(
-    r"stalker|spyware|spia(re)? (il|la|un|una|partner|telefono)|track(ing)? (a |someone|phone|person)|"
-    r"traccia(re)? (una persona|il telefono|qualcuno)|localizza(re)? (una persona|un numero|qualcuno)|"
-    r"people.?search|ricerca (di )?persone|face.?search|riconoscimento facciale|facial recognition|"
-    r"reverse (phone|face)|doxx|password|credential|data breach|leak(ed)? (data|database)|combolist|"
-    r"hack(ing)? (account|social)|keylogger|phishing|malware|exploit",
+    r"stalker|spyware|spy app|app spia|spia(re)? (il|la|un|una|partner|telefono|whatsapp)|monitor(are|aggio)? di nascosto|"
+    r"keylogger|malware|phishing|exploit|hack(ing|erare)? (account|social|profil)|"
+    r"face.?search|ricerca (per|del) volto|riconoscimento facciale|facial recognition|reverse face|"
+    r"(real.?time|in tempo reale|live) (location|tracking|posizione)|"
+    r"(track|locate|trace) (a )?(phone|person|someone)|"
+    r"(traccia|localizza)(re)? (una persona|il telefono|un telefono|un numero|qualcuno)|"
+    r"combolist|credential dump|password dump|stolen (data|credentials|passwords)|dati rubati|"
+    r"leak(ed)? (database|credentials|passwords)|doxx",
     re.IGNORECASE)
 
 
@@ -879,6 +887,9 @@ article:target,li:target{outline:2px solid var(--accent)}
 .osint{background:var(--chip);border-radius:16px;padding:4px 16px 12px;margin:28px -4px 0;border-left:4px solid #0f766e}
 .osint h2{color:#0f766e;border-bottom:none;margin:18px 0 0;font-size:16px}.osint .try{border-left-color:#0f766e}
 @media (prefers-color-scheme:dark){.osint h2{color:#5eead4}.osint{border-left-color:#5eead4}.osint .try{border-left-color:#5eead4}}
+.cassetta-indice{display:flex;flex-wrap:wrap;gap:6px;margin:14px 0}
+.cassetta-indice a{font:600 13px system-ui,sans-serif;color:var(--ink);background:var(--card);border:1px solid var(--line);border-radius:999px;padding:6px 12px;text-decoration:none}
+.osint .sub a{color:inherit}
 .agg{border:2px solid var(--accent);border-radius:16px;padding:6px 14px 10px;margin:22px -4px 0}
 .agg .tryzone{margin:12px -10px 0}
 .agg-top{font:700 15px system-ui,sans-serif;color:var(--accent);margin:10px 0 2px}
@@ -1130,7 +1141,7 @@ def scheda_strumento(d, per_id, giorno, ancora, tipo, nuovo_formato=True, etiche
             f"{come}{prova}{chips(d['fonti'], per_id)}</article>")
 
 
-def contenuto(r, per_id, giorno, pre=""):
+def contenuto(r, per_id, giorno, pre="", prefisso=""):
     """Strumenti, novità e "In breve" di un'edizione. `pre` distingue gli aggiornamenti (es. "u1")."""
     parti = []
     nuovo_formato = r.get("formato") == 2
@@ -1147,8 +1158,10 @@ def contenuto(r, per_id, giorno, pre=""):
         parti.append("</section>")
     if r.get("osint"):
         parti.append('<section class="osint"><h2>🔎 Strumenti OSINT</h2><p class="sub">Strumenti per indagini su '
-                     'fonti aperte (verifica, geolocalizzazione, aziende, siti) usabili nel browser o su Windows. '
-                     'Usali solo per scopi leciti e nel rispetto della privacy.</p>')
+                     'fonti aperte (verifica, geolocalizzazione, aziende, siti, persone e account) usabili nel browser '
+                     'o su Windows. Usali solo per scopi leciti: sui dati delle persone vale il GDPR. '
+                     f'Gli strumenti consolidati sono nella <a href="{prefisso}cassetta-osint.html" '
+                     'class="link-cassetta">🧰 Cassetta degli attrezzi OSINT</a>.</p>')
         for j, d in enumerate(r["osint"], 1):
             parti.append(scheda_strumento(d, per_id, giorno, f"{pre}o{j}", "OSINT", True,
                                           etichette=[d.get("uso"), d.get("costo") or "Costo non indicato",
@@ -1212,7 +1225,8 @@ def pagina(dati, archivio, prefisso, settimana=None):
                  '<button type="button" onclick="condividi()">📤 Condividi</button>'
                  '<button type="button" onclick="copiaWhatsApp(this)">💬 Copia per WhatsApp</button>'
                  '<button type="button" onclick="window.print()">📄 Salva PDF</button>'
-                 f'<a class="vaipref" href="{prefisso}preferiti.html">⭐ Preferiti <span id="nPref"></span></a></div>')
+                 f'<a class="vaipref" href="{prefisso}preferiti.html">⭐ Preferiti <span id="nPref"></span></a>'
+                 f'<a class="vaipref" href="{prefisso}cassetta-osint.html">🧰 Cassetta OSINT</a></div>')
     if settimana:
         parti.append(f'<a class="week" href="{prefisso}settimana/{settimana[0]}.html">'
                      f'<small>📅 La settimana dell\'AI</small><b>{e(settimana[1])}</b> →</a>')
@@ -1221,7 +1235,7 @@ def pagina(dati, archivio, prefisso, settimana=None):
         u = aggiornamenti[i - 1]
         ora = ora_di(u.get("generato"))
         ru = u.get("riassunto") or {}
-        corpo = contenuto(ru, per_id, dati["giorno"], f"u{i}") if ru else []
+        corpo = contenuto(ru, per_id, dati["giorno"], f"u{i}", prefisso) if ru else []
         if not corpo and (i != len(aggiornamenti) or any(x.get("riassunto") for x in aggiornamenti)):
             continue                       # "nessuna novità" solo se finora non ce n'è stata nessuna
         intro = ru.get("in_breve") if corpo else ("Nessuna novità rispetto a stamattina: ci rivediamo al prossimo "
@@ -1231,7 +1245,7 @@ def pagina(dati, archivio, prefisso, settimana=None):
                      + (f'<p class="lead">{e(intro)}</p>' if intro else "") + "".join(corpo) + "</section>")
     if aggiornamenti:
         parti.append(f'<p class="agg-top mattino">☀️ Edizione del mattino{f" · {e(ora_mattino)}" if ora_mattino else ""}</p>')
-    parti += contenuto(r, per_id, dati["giorno"])
+    parti += contenuto(r, per_id, dati["giorno"], "", prefisso)
     parti.append(glossario_html([r] + [u.get("riassunto") or {} for u in aggiornamenti]))
     parti.append(archivio_html(archivio, prefisso))
     parti.append(legenda_html())
@@ -1358,6 +1372,41 @@ def pagina_preferiti(archivio):
     return (testa("AI News Digest — I miei preferiti", "Gli strumenti AI che ho salvato", url_pagina, "")
             + f"<body><main>{''.join(parti)}</main>"
             + piede("", dati_js).replace("</script>", PAGINA_PREFERITI_JS + "</script>", 1))
+
+
+def pagina_cassetta(cassetta, archivio):
+    """Pagina fissa con gli strumenti OSINT consolidati (dati in cassetta_osint.json)."""
+    url_pagina = indirizzo_sito() + "cassetta-osint.html"
+    cat = cassetta.get("categorie", [])
+    indice = "".join(f'<a href="#c{i}">{e(c.get("icona", ""))} {e(c["titolo"])}</a>' for i, c in enumerate(cat, 1))
+    parti = ['<p class="top">AI News Digest · OSINT</p>', "<h1>🧰 Cassetta degli attrezzi OSINT</h1>",
+             '<p class="lead">Gli strumenti consolidati per le indagini su fonti aperte, divisi per tipo di '
+             'indagine, con piattaforma e costo. Le novità arrivano ogni giorno nella sezione 🔎 Strumenti OSINT.</p>',
+             '<p class="meta">Usali solo per scopi leciti: sui dati delle persone vale il GDPR. Costi e condizioni '
+             f'cambiano: controlla sul sito di ciascuno. Elenco aggiornato al {e(data_breve(cassetta.get("aggiornato", "2026-10-11")))}'
+             f' {e(cassetta.get("aggiornato", "")[:4])}.</p>',
+             '<div class="share"><a class="vaipref" href="index.html">← Edizione di oggi</a>'
+             '<a class="vaipref" href="preferiti.html">⭐ Preferiti</a></div>',
+             f'<nav class="cassetta-indice">{indice}</nav>']
+    for i, c in enumerate(cat, 1):
+        parti.append(f'<section class="osint" id="c{i}"><h2>{e(c.get("icona", ""))} {e(c["titolo"])}</h2>')
+        if c.get("consiglio"):
+            parti.append(f'<p class="sub">💡 {e(c["consiglio"])}</p>')
+        for t in c.get("strumenti", []):
+            dove = "".join(f'<span class="pf{" si" if x.startswith("✓") else " solo" if x.startswith("Solo") else ""}">'
+                           f'{e(x)}</span>' for x in etichette_piattaforma(t))
+            tag = "".join(f'<span class="tag">{e(x)}</span>' for x in (t.get("costo"), t.get("difficolta")) if x)
+            nota = f'<p class="why"><b>Attenzione:</b> {e(t["nota"])}</p>' if t.get("nota") else ""
+            parti.append(f'<article class="try"><div class="tags">{tag}</div><h3>{e(t["nome"])}</h3>'
+                         f'<div class="dove"><b>Dove si usa:</b> {dove}</div><p>{e(t.get("descrizione"))}</p>{nota}'
+                         f'<a class="prova" href="{e(t["url"])}" target="_blank" rel="noopener">Apri ↗</a></article>')
+        parti.append("</section>")
+    parti.append(archivio_html(archivio, ""))
+    dati_js = json.dumps({"titolo": "Cassetta degli attrezzi OSINT", "testo": "Cassetta degli attrezzi OSINT: "
+                          + url_pagina, "url": url_pagina}, ensure_ascii=False).replace("</", "<\\/")
+    return (testa("AI News Digest — Cassetta degli attrezzi OSINT",
+                  "Gli strumenti OSINT consolidati, divisi per tipo di indagine, con piattaforma e costo.", url_pagina, "")
+            + f"<body><main>{''.join(parti)}</main>" + piede("", dati_js))
 
 
 def indirizzo_sito():
@@ -1557,6 +1606,9 @@ def rigenera_tutto():
         (GIORNI / f"{x['giorno']}.html").write_text(pagina(x, archivio, "../"), encoding="utf-8")
     (DOCS / "index.html").write_text(pagina(ultima, archivio, "", banner), encoding="utf-8")
     (DOCS / "preferiti.html").write_text(pagina_preferiti(archivio), encoding="utf-8")
+    cassetta = leggi_json(ROOT / "cassetta_osint.json") if (ROOT / "cassetta_osint.json").exists() else None
+    if cassetta:
+        (DOCS / "cassetta-osint.html").write_text(pagina_cassetta(cassetta, archivio), encoding="utf-8")
     print(f"Pagine aggiornate: {len(edizioni)} edizioni, {len(settimane)} settimanali.")
 
 
