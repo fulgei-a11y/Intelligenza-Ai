@@ -453,6 +453,11 @@ D) "osint" — "Strumenti OSINT" (da 0 a 4): strumenti NUOVI o aggiornati per in
    su fonti pubbliche (username e profili social, email e numeri di telefono, presenza online, verifica di
    identità e antifrode, controllo se un'email compare in una fuga di dati, soggetti nei registri pubblici).
    Per questi ultimi usa "uso": "Persone e account".
+   QUALITÀ: preferisci gli strumenti segnalati o usati da Bellingcat, GIJN, fact-checker e giornalisti
+   investigativi, e quelli gratuiti o con una versione gratuita. NON sono strumenti da segnalare: piattaforme
+   aziendali di "threat intelligence" o cybersicurezza vendute a grandi aziende, corsi, eventi, webinar,
+   certificazioni, offerte di lavoro, notizie su attacchi hacker. Un'inchiesta che USA uno strumento è valida
+   solo se l'articolo spiega lo strumento in modo che il lettore possa usarlo anche lui.
    ESCLUDI SEMPRE, senza eccezioni: spyware e app per controllare di nascosto un telefono o un account;
    archivi di dati rubati o password trafugate; riconoscimento facciale per identificare persone;
    localizzazione in tempo reale di una persona o di un telefono; strumenti di intrusione o hacking.
@@ -1918,6 +1923,29 @@ def costruisci_settimana(chiave, fine):
 
 # ---------------------------------------------------------------- avvisi
 
+def controlla_salute_fonti(stato_oggi, giorni=7):
+    """Il lunedì mattina: segnala le fonti che da una settimana non portano nulla (feed cambiato o sito bloccato).
+    Così l'elenco delle fonti resta buono nel tempo senza doverlo controllare a mano."""
+    storico = [x.get("fonti", []) for x in (leggi_json(p) for p in giorni_salvati()[-giorni:]) if x]
+    if len(storico) < giorni - 1:
+        return
+    storico.append(stato_oggi)
+    vuote, rotte = [], []
+    for f in stato_oggi:
+        righe = [next((x for x in st if x.get("nome") == f["nome"]), None) for st in storico]
+        righe = [r for r in righe if r]
+        if len(righe) < giorni:
+            continue                       # fonte aggiunta da poco: aspettiamo
+        if all(not r.get("ok") for r in righe):
+            rotte.append(f["nome"])
+        elif all(r.get("ok") and not r.get("presi") for r in righe):
+            vuote.append(f["nome"])
+    if rotte:
+        avvisa(f"Fonti non raggiungibili da {giorni} giorni (da sostituire in sources.json): {', '.join(rotte)}.")
+    if vuote:
+        avvisa(f"Fonti senza articoli da {giorni} giorni (feed cambiato o filtro troppo stretto?): {', '.join(vuote)}.")
+
+
 def avvisa(msg):
     print("⚠️  " + msg, file=sys.stderr)
     AVVISI.append(msg)
@@ -1965,6 +1993,8 @@ def main():
 
     oggi = datetime.now(TZ)
     giorno = oggi.strftime("%Y-%m-%d")
+    if oggi.weekday() == 0 and not (DATA / f"{giorno}.json").exists():
+        controlla_salute_fonti(stato)
     chiave_t = lambda t: re.sub(r"\W+", "", (t or "").lower())[:80]
 
     # Seconda scansione della giornata? Se l'edizione di oggi esiste già (ed è venuta bene) questa diventa un
