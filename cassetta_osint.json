@@ -3,6 +3,55 @@
   "aggiornato": "2026-10-11",
   "categorie": [
     {
+      "titolo": "Directory e raccolte di strumenti",
+      "icona": "📚",
+      "consiglio": "Il punto di partenza quando non sai quale strumento usare: cerca la categoria, poi verifica che lo strumento funzioni ancora.",
+      "strumenti": [
+        {
+          "nome": "OSINT Framework",
+          "url": "https://osintframework.com/",
+          "descrizione": "Mappa ad albero di centinaia di strumenti divisi per tipo di ricerca (email, username, domini, immagini, aziende…).",
+          "piattaforme": [
+            "Browser"
+          ],
+          "costo": "Gratis",
+          "difficolta": "Facile",
+          "nota": "Molti link sono datati o non più attivi: controllali prima di fidarti."
+        },
+        {
+          "nome": "Bellingcat Online Investigations Toolkit",
+          "url": "https://bellingcat.gitbook.io/toolkit",
+          "descrizione": "Il catalogo di riferimento degli strumenti OSINT, curato da Bellingcat, con guide d'uso.",
+          "piattaforme": [
+            "Browser"
+          ],
+          "costo": "Gratis",
+          "difficolta": "Facile"
+        },
+        {
+          "nome": "IntelTechniques Search Tools",
+          "url": "https://inteltechniques.com/tools/",
+          "descrizione": "Moduli di ricerca pronti di Michael Bazzell (motori di ricerca, social, domini, mappe…): le ricerche partono dal tuo browser.",
+          "piattaforme": [
+            "Browser"
+          ],
+          "costo": "Gratis",
+          "difficolta": "Media",
+          "nota": "Pensati per schermi grandi e richiedono di consentire i popup; alcuni moduli non funzionano più."
+        },
+        {
+          "nome": "Awesome OSINT",
+          "url": "https://github.com/jivoi/awesome-osint",
+          "descrizione": "La più ampia lista curata su GitHub: strumenti, script e guide per ogni nicchia, aggiornata dalla community.",
+          "piattaforme": [
+            "Browser"
+          ],
+          "costo": "Gratis",
+          "difficolta": "Media"
+        }
+      ]
+    },
+    {
       "titolo": "Ricerca inversa delle immagini",
       "icona": "🖼️",
       "consiglio": "Usane sempre più di una: ogni motore trova risultati diversi. Ritaglia la parte interessante della foto prima di cercarla.",
@@ -209,6 +258,27 @@
           "difficolta": "Facile"
         },
         {
+          "nome": "crt.sh",
+          "url": "https://crt.sh/",
+          "descrizione": "Registro pubblico dei certificati HTTPS: rivela sottodomini e siti collegati a un dominio, senza contattarlo.",
+          "piattaforme": [
+            "Browser"
+          ],
+          "costo": "Gratis",
+          "difficolta": "Media"
+        },
+        {
+          "nome": "Shodan",
+          "url": "https://www.shodan.io/",
+          "descrizione": "Motore di ricerca dei dispositivi e server collegati a Internet: cosa espone un'azienda o un indirizzo IP.",
+          "piattaforme": [
+            "Browser"
+          ],
+          "costo": "Gratis con limiti",
+          "difficolta": "Per esperti",
+          "nota": "Usalo per raccolta passiva: non interagire con i sistemi trovati senza autorizzazione."
+        },
+        {
           "nome": "urlscan.io",
           "url": "https://urlscan.io/",
           "descrizione": "Apre un sito al posto tuo e mostra cosa carica, dove punta e a chi appartiene: utile contro le truffe.",
@@ -363,6 +433,16 @@
           "difficolta": "Per esperti"
         },
         {
+          "nome": "Holehe",
+          "url": "https://github.com/megadose/holehe",
+          "descrizione": "Verifica su quali siti è registrato un indirizzo email, da riga di comando.",
+          "piattaforme": [
+            "Windows"
+          ],
+          "costo": "Gratis",
+          "difficolta": "Per esperti"
+        },
+        {
           "nome": "Have I Been Pwned",
           "url": "https://haveibeenpwned.com/",
           "descrizione": "Dice se un'email è finita in una fuga di dati e in quale (senza mostrare i dati).",
@@ -375,20 +455,10 @@
       ]
     },
     {
-      "titolo": "Metodo e organizzazione",
+      "titolo": "Metodo, analisi e automazione",
       "icona": "🗂️",
       "consiglio": "Annota fonte, data e ora di ogni scoperta: un'indagine vale quanto la sua documentazione.",
       "strumenti": [
-        {
-          "nome": "Bellingcat Online Investigations Toolkit",
-          "url": "https://bellingcat.gitbook.io/toolkit",
-          "descrizione": "Il catalogo di riferimento degli strumenti OSINT, curato da Bellingcat, con guide d'uso.",
-          "piattaforme": [
-            "Browser"
-          ],
-          "costo": "Gratis",
-          "difficolta": "Facile"
-        },
         {
           "nome": "Hunchly",
           "url": "https://www.hunch.ly/",
@@ -409,6 +479,17 @@
           ],
           "costo": "Gratis con limiti",
           "difficolta": "Per esperti"
+        },
+        {
+          "nome": "SpiderFoot",
+          "url": "https://github.com/smicallef/spiderfoot",
+          "descrizione": "Automatizza la raccolta da oltre 100 fonti (whois, DNS, social, fughe di dati) partendo da un solo dato, con interfaccia web locale.",
+          "piattaforme": [
+            "Windows"
+          ],
+          "costo": "Gratis",
+          "difficolta": "Per esperti",
+          "nota": "Alcuni moduli contattano direttamente il bersaglio: usali solo dopo la raccolta passiva e se è lecito."
         }
       ]
     }
