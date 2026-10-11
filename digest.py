@@ -49,6 +49,9 @@ SETTIMANE = DOCS / "settimana"
 AUDIO = DOCS / "audio"
 
 ORE_FINESTRA = int(os.environ.get("ORE_FINESTRA", "36"))
+# Orari degli aggiornamenti automatici in ora UTC: DEVONO coincidere con i "cron" di .github/workflows/digest.yml.
+# 05:17 e 16:17 UTC = 7:17 e 18:17 con l'ora legale, 6:17 e 17:17 con l'ora solare.
+ORARI_UTC = ["05:17", "16:17"]
 # Il primo modello disponibile vince; se uno viene ritirato (errore 404) si passa al successivo.
 MODELLI = [m for m in dict.fromkeys([
     os.environ.get("GEMINI_MODEL", "").strip(),
@@ -458,7 +461,15 @@ Rispondi SOLO con JSON valido:
 Ogni elemento deve avere almeno un id valido in "fonti"."""
 
 
-def chiedi_a_gemini(articoli, chiave, gia_pubblicate=()):
+AVVISO_AGGIORNAMENTO = """QUESTO È UN AGGIORNAMENTO DELLA GIORNATA: il lettore ha già letto l'edizione del mattino.
+Riporta SOLO strumenti e novità davvero nuovi, assenti dall'elenco "GIÀ SEGNALATI DI RECENTE".
+Meglio niente che un doppione: se non c'è nulla di nuovo e utile, restituisci liste vuote.
+"titolo_giorno" e "presentazione" devono riguardare SOLO le novità di questo aggiornamento.
+
+"""
+
+
+def chiedi_a_gemini(articoli, chiave, gia_pubblicate=(), aggiornamento=False):
     elenco = "\n".join(
         f"[{a['id']}] {{{a.get('tipo', 'testata')} · {a['fonte']} · {a['categoria']}}} {a['titolo']}"
         + (f" — {a['testo']}" if not a.get("solo_titolo") and a["testo"]
@@ -469,6 +480,8 @@ def chiedi_a_gemini(articoli, chiave, gia_pubblicate=()):
     if gia_pubblicate:
         testo = ("GIÀ SEGNALATI DI RECENTE (non riproporli senza sviluppi nuovi):\n"
                  + "\n".join(f"- {t}" for t in gia_pubblicate) + "\n\n" + testo)
+    if aggiornamento:
+        testo = AVVISO_AGGIORNAMENTO + testo
     risposta, modello = chiama_gemini(ISTRUZIONI, testo, chiave)
     return normalizza_risposta(risposta), modello
 
@@ -736,6 +749,10 @@ article:target,li:target{outline:2px solid var(--accent)}
 @media (prefers-color-scheme:dark){.prova{color:#1d1d1f}}
 .brevi{list-style:none;padding:0;margin:0}.brevi li{padding:10px 0;border-bottom:1px solid var(--line);font-size:16px}
 .brevi .src{display:inline-flex;margin:4px 0 0}
+.agg{border:2px solid var(--accent);border-radius:16px;padding:6px 14px 10px;margin:22px -4px 0}
+.agg .tryzone{margin:12px -10px 0}
+.agg-top{font:700 15px system-ui,sans-serif;color:var(--accent);margin:10px 0 2px}
+.agg-top.mattino{margin-top:30px;padding-top:12px;border-top:1px solid var(--line)}
 article{position:relative}article .tags{padding-right:40px}
 .stella{position:absolute;top:10px;right:10px;width:38px;height:38px;border-radius:50%;border:1px solid var(--line);background:var(--card);color:var(--muted);font-size:20px;line-height:1;cursor:pointer}
 .stella[aria-pressed="true"]{color:#eab308;border-color:#eab308;background:#fef9c3}
@@ -871,7 +888,7 @@ def testo_della_giornata(r):
 
 
 def glossario_html(r, massimo=8):
-    testo = testo_della_giornata(r)
+    testo = " ".join(testo_della_giornata(x) for x in (r if isinstance(r, list) else [r]))
     voci = [(t, d) for rx, t, d in GLOSSARIO if rx.search(testo)][:massimo]
     if not voci:
         return ""
@@ -926,40 +943,30 @@ def legenda_html():
     return f'<details><summary>Come leggere le etichette</summary><dl class="etichette">{righe}</dl></details>'
 
 
-def pagina(dati, archivio, prefisso, settimana=None):
-    r = dati["riassunto"]
-    per_id = dati.get("articoli", {})
-    stato = dati.get("fonti", [])
-    modello = dati.get("modello", "")
-    giorno = datetime.strptime(dati["giorno"], "%Y-%m-%d")
-    data_it = data_italiana(giorno)
-    quando = ""
-    if dati.get("generato"):
-        try:
-            quando = f"Aggiornato alle {datetime.fromisoformat(dati['generato']).astimezone(TZ):%H:%M}"
-        except ValueError:
-            pass
-    parti = [f'<p class="top">AI News Digest · {e(data_it)}</p>',
-             f"<h1>{e(r.get('titolo_giorno'))}</h1>",
-             f'<p class="when">{e(quando)}</p>' if quando else "",
-             f'<p class="lead">{e(r.get("in_breve"))}</p>']
-    audio = dati.get("audio")
-    if audio and (DOCS / audio).exists():
-        minuti = round((dati.get("durata") or 0) / 60)
-        parti.append(f'<div class="listen"><span>🎧 Ascolta'
-                     f'{f" · {minuti} min" if minuti else ""}</span>'
-                     f'<audio controls preload="none" src="{prefisso}{e(audio)}"></audio></div>')
-    parti.append('<div class="share">'
-                 '<button type="button" onclick="condividi()">📤 Condividi</button>'
-                 '<button type="button" onclick="copiaWhatsApp(this)">💬 Copia per WhatsApp</button>'
-                 '<button type="button" onclick="window.print()">📄 Salva PDF</button>'
-                 f'<a class="vaipref" href="{prefisso}preferiti.html">⭐ Preferiti <span id="nPref"></span></a></div>')
-    if settimana:
-        parti.append(f'<a class="week" href="{prefisso}settimana/{settimana[0]}.html">'
-                     f'<small>📅 La settimana dell\'AI</small><b>{e(settimana[1])}</b> →</a>')
+def ora_di(iso):
+    try:
+        return f"{datetime.fromisoformat(iso).astimezone(TZ):%H:%M}"
+    except (TypeError, ValueError):
+        return ""
+
+
+def orari_italiani(giorno=None):
+    """Gli orari di ORARI_UTC espressi nell'ora italiana del giorno indicato (cambia con l'ora legale)."""
+    g = giorno or datetime.now(TZ)
+    out = []
+    for o in ORARI_UTC:
+        h, m = map(int, o.split(":"))
+        d = datetime(g.year, g.month, g.day, h, m, tzinfo=timezone.utc).astimezone(TZ)
+        out.append(f"{d.hour}:{d.minute:02d}")
+    return out
+
+
+def contenuto(r, per_id, giorno, pre=""):
+    """Strumenti, novità e "In breve" di un'edizione. `pre` distingue gli aggiornamenti (es. "u1")."""
+    parti = []
     nuovo_formato = r.get("formato") == 2
     nome_zona = "🧪 Strumenti nuovi" if nuovo_formato else "🧪 Da provare oggi"
-    if not r.get("da_provare") and r.get("sezioni") and "non disponibile" not in str(r.get("in_breve")):
+    if not pre and not r.get("da_provare") and r.get("sezioni") and "non disponibile" not in str(r.get("in_breve")):
         parti.append(f'<section class="tryzone"><h2>{nome_zona}</h2><p class="sub">Oggi nessuno strumento nuovo '
                      'abbastanza concreto da consigliare: meglio niente che un suggerimento debole.</p></section>')
     if r.get("da_provare"):
@@ -989,22 +996,24 @@ def pagina(dati, archivio, prefisso, settimana=None):
                 come = ""
             prova = (f'<a class="prova" href="{e(d["prova"])}" target="_blank" rel="noopener">Provalo ↗</a>'
                      if d.get("prova") else "")
-            pref = stella(f"{dati['giorno']}#p{j}", d.get("cosa", ""), d.get("a_cosa_serve", ""), dati["giorno"],
-                          f"p{j}", d.get("prova", ""), "Strumento")
-            parti.append(f'<article class="try" id="p{j}">{pref}<div class="tags">{tag}</div>'
+            ancora = f"{pre}p{j}"
+            pref = stella(f"{giorno}#{ancora}", d.get("cosa", ""), d.get("a_cosa_serve", ""), giorno,
+                          ancora, d.get("prova", ""), "Strumento")
+            parti.append(f'<article class="try" id="{ancora}">{pref}<div class="tags">{tag}</div>'
                          f'<h3>{e(d.get("cosa"))}</h3><p>{e(d.get("a_cosa_serve"))}</p>'
                          f"{come}{prova}{chips(d['fonti'], per_id)}</article>")
         parti.append("</section>")
     k = 0
-    for s in r["sezioni"]:
+    for s in r.get("sezioni", []):
         parti.append(f"<h2>{e(s['titolo'])}</h2>")
         breve = s.get("breve")
         if breve:
             parti.append('<ul class="brevi">')
         for n in s["notizie"]:
             k += 1
+            ancora = f"{pre}n{k}"
             if breve:
-                parti.append(f'<li id="n{k}"><b>{e(n["titolo"])}.</b> {e(n.get("riassunto"))} '
+                parti.append(f'<li id="{ancora}"><b>{e(n["titolo"])}.</b> {e(n.get("riassunto"))} '
                              f"{chips(n['fonti'][:2], per_id)}</li>")
                 continue
             perche = (f'<p class="why"><b>Perché conta:</b> {e(n["perche_conta"])}</p>'
@@ -1013,14 +1022,66 @@ def pagina(dati, archivio, prefisso, settimana=None):
                 perche += f'<p class="why"><b>Come provarla:</b> {e(n["come_provarla"])}</p>'
             extra = "".join(f'<span class="tag">{e(t)}</span>'
                             for t in (n.get("strumento"), n.get("disponibilita")) if utile(t))
-            pref = stella(f"{dati['giorno']}#n{k}", n.get("titolo", ""), n.get("riassunto", ""), dati["giorno"],
-                          f"n{k}", "", n.get("strumento") or "Novità")
-            parti.append(f'<article id="n{k}">{pref}<div class="tags">{badge(n.get("affidabilita", ""), n.get("solo_titoli"))}'
+            pref = stella(f"{giorno}#{ancora}", n.get("titolo", ""), n.get("riassunto", ""), giorno,
+                          ancora, "", n.get("strumento") or "Novità")
+            parti.append(f'<article id="{ancora}">{pref}<div class="tags">{badge(n.get("affidabilita", ""), n.get("solo_titoli"))}'
                          f"{extra}</div><h3>{e(n['titolo'])}</h3><p>{e(n.get('riassunto'))}</p>"
                          f"{perche}{chips(n['fonti'], per_id)}</article>")
         if breve:
             parti.append("</ul>")
-    parti.append(glossario_html(r))
+    return parti
+
+
+def pagina(dati, archivio, prefisso, settimana=None):
+    r = dati["riassunto"]
+    per_id = dati.get("articoli", {})
+    stato = dati.get("fonti", [])
+    modello = dati.get("modello", "")
+    giorno = datetime.strptime(dati["giorno"], "%Y-%m-%d")
+    data_it = data_italiana(giorno)
+    aggiornamenti = dati.get("aggiornamenti", [])
+    ora_mattino = ora_di(dati.get("generato"))
+    ultima_ora = ora_di(aggiornamenti[-1].get("generato")) if aggiornamenti else ora_mattino
+    orari = " e le ".join(orari_italiani(giorno))
+    quando = f"Aggiornato alle {ultima_ora}" if ultima_ora else ""
+    if prefisso == "":
+        # Solo nella pagina di oggi: il prossimo aggiornamento (calcolato dal browser, vedi prossimo() nel JS)
+        quando += (f' · <span id="prossimo">aggiornamenti ogni giorno verso le {e(orari)}</span>')
+    parti = [f'<p class="top">AI News Digest · {e(data_it)}</p>',
+             f"<h1>{e(r.get('titolo_giorno'))}</h1>",
+             f'<p class="when">🕖 {quando}</p>' if quando else "",
+             f'<p class="lead">{e(r.get("in_breve"))}</p>']
+    audio = dati.get("audio")
+    if audio and (DOCS / audio).exists():
+        minuti = round((dati.get("durata") or 0) / 60)
+        parti.append(f'<div class="listen"><span>🎧 Ascolta'
+                     f'{f" · {minuti} min" if minuti else ""}</span>'
+                     f'<audio controls preload="none" src="{prefisso}{e(audio)}"></audio></div>')
+    parti.append('<div class="share">'
+                 '<button type="button" onclick="condividi()">📤 Condividi</button>'
+                 '<button type="button" onclick="copiaWhatsApp(this)">💬 Copia per WhatsApp</button>'
+                 '<button type="button" onclick="window.print()">📄 Salva PDF</button>'
+                 f'<a class="vaipref" href="{prefisso}preferiti.html">⭐ Preferiti <span id="nPref"></span></a></div>')
+    if settimana:
+        parti.append(f'<a class="week" href="{prefisso}settimana/{settimana[0]}.html">'
+                     f'<small>📅 La settimana dell\'AI</small><b>{e(settimana[1])}</b> →</a>')
+    # Gli aggiornamenti del pomeriggio/sera stanno in cima: solo le novità rispetto al mattino.
+    for i in range(len(aggiornamenti), 0, -1):
+        u = aggiornamenti[i - 1]
+        ora = ora_di(u.get("generato"))
+        ru = u.get("riassunto") or {}
+        corpo = contenuto(ru, per_id, dati["giorno"], f"u{i}") if ru else []
+        if not corpo and (i != len(aggiornamenti) or any(x.get("riassunto") for x in aggiornamenti)):
+            continue                       # "nessuna novità" solo se finora non ce n'è stata nessuna
+        intro = ru.get("in_breve") if corpo else ("Nessuna novità rispetto a stamattina: ci rivediamo al prossimo "
+                                                    "aggiornamento.")
+        parti.append(f'<section class="agg" id="u{i}"><p class="agg-top">🆕 Aggiornamento delle {e(ora)}</p>'
+                     f'<p class="sub">Solo le novità uscite dopo l\'edizione del mattino{f" ({e(ora_mattino)})" if ora_mattino else ""}.</p>'
+                     + (f'<p class="lead">{e(intro)}</p>' if intro else "") + "".join(corpo) + "</section>")
+    if aggiornamenti:
+        parti.append(f'<p class="agg-top mattino">☀️ Edizione del mattino{f" · {e(ora_mattino)}" if ora_mattino else ""}</p>')
+    parti += contenuto(r, per_id, dati["giorno"])
+    parti.append(glossario_html([r] + [u.get("riassunto") or {} for u in aggiornamenti]))
     parti.append(archivio_html(archivio, prefisso))
     parti.append(legenda_html())
     ok = sum(1 for s in stato if s["ok"])
@@ -1035,8 +1096,8 @@ def pagina(dati, archivio, prefisso, settimana=None):
     url_sito = indirizzo_sito()
     url_pagina = url_sito + (f"giorni/{dati['giorno']}.html" if prefisso else "")
     titolo_pag = f"AI News Digest · {giorno:%d/%m/%Y}"
-    dati_js = json.dumps({"titolo": titolo_pag, "testo": testo_whatsapp(data_it, r, url_pagina),
-                          "url": url_pagina}, ensure_ascii=False).replace("</", "<\\/")
+    dati_js = json.dumps({"titolo": titolo_pag, "testo": testo_whatsapp(data_it, r, url_pagina, aggiornamenti),
+                          "url": url_pagina, "orari": ORARI_UTC}, ensure_ascii=False).replace("</", "<\\/")
     return (testa(f"{titolo_pag} — {r.get('titolo_giorno', '')}", r.get("in_breve", ""), url_pagina, prefisso)
             + f"<body><main>{''.join(parti)}</main>" + piede(prefisso, dati_js))
 
@@ -1069,8 +1130,8 @@ def pagina_settimana(w, archivio):
     if w.get("notizie"):
         blocco_notizie.append("<h2>Le novità che contano</h2>" if nuovo else "<h2>Le 5 notizie che contano</h2>")
     for i, n in enumerate(w.get("notizie", []), 1):
-        link = "".join(f'<a href="{prefisso}giorni/{g}.html#n{k}">{e(data_breve(g))} ↗</a>'
-                       for g, k in n.get("rif", []))
+        link = "".join(f'<a href="{prefisso}giorni/{g}.html#{f"n{k}" if isinstance(k, int) else e(k)}">'
+                       f'{e(data_breve(g))} ↗</a>' for g, k in n.get("rif", []))
         perche = (f'<p class="why"><b>Perché conta:</b> {e(n.get("perche_conta"))}</p>'
                   if n.get("perche_conta") else "")
         blocco_notizie.append(f"<article><h3>{i}. {e(n.get('titolo'))}</h3><p>{e(n.get('racconto'))}</p>"
@@ -1158,10 +1219,16 @@ def indirizzo_sito():
     return f"https://{utente.lower()}.github.io/{nome}/"
 
 
-def testo_whatsapp(data_it, r, url):
+def testo_whatsapp(data_it, r, url, aggiornamenti=()):
     """Versione testuale breve, con la formattazione di WhatsApp (*grassetto*, _corsivo_)."""
     righe = [f"🤖 *AI News Digest* · {data_it}", "", f"*{r.get('titolo_giorno', '')}*",
              r.get("in_breve", ""), ""]
+    for u in reversed(list(aggiornamenti)):
+        ru = u.get("riassunto") or {}
+        voci = [f"• *{d.get('cosa', '')}*: {d.get('a_cosa_serve', '')}" for d in ru.get("da_provare", [])]
+        voci += [f"• {n.get('titolo', '')}" for x in ru.get("sezioni", []) for n in x.get("notizie", [])]
+        if voci:
+            righe += [f"🆕 *Aggiornamento delle {ora_di(u.get('generato'))}*"] + voci + [""]
     nuovo = r.get("formato") == 2
     if r.get("da_provare"):
         righe.append("🧪 *Strumenti nuovi*" if nuovo else "🧪 *Da provare oggi*")
@@ -1223,7 +1290,7 @@ function cerca(q){
     ul.innerHTML=out.length?'':'<li>Nessun risultato.</li>';
     for(const [g,n] of out.slice(0,40)){
       const li=document.createElement('li'),a=document.createElement('a');
-      a.href=PREFISSO+'giorni/'+g+'.html'+(n[0]?'#n'+n[0]:'');
+      a.href=PREFISSO+'giorni/'+g+'.html'+(n[0]?'#'+(typeof n[0]==='number'?'n'+n[0]:n[0]):'');
       const s=document.createElement('small');s.textContent=g.split('-').reverse().join('/');
       a.append(s,document.createTextNode(n[1]));li.append(a);ul.append(li);
     }
@@ -1246,6 +1313,18 @@ function stella(b){
   aggiornaStelle();
 }
 document.addEventListener('DOMContentLoaded',aggiornaStelle);
+function prossimo(){
+  const el=document.getElementById('prossimo');if(!el||!DIGEST.orari||!DIGEST.orari.length)return;
+  const ora=new Date();let p=null;
+  for(let g=0;g<3;g++)for(const o of DIGEST.orari){const [h,m]=o.split(':').map(Number);
+    const d=new Date(Date.UTC(ora.getUTCFullYear(),ora.getUTCMonth(),ora.getUTCDate()+g,h,m));if(d>ora&&(!p||d<p))p=d;}
+  if(!p)return;
+  const roma={timeZone:'Europe/Rome'},giorno=x=>x.toLocaleDateString('it-IT',roma);
+  const domani=new Date(ora.getTime()+864e5);
+  const quale=giorno(p)===giorno(ora)?'oggi':giorno(p)===giorno(domani)?'domani':giorno(p);
+  el.textContent='prossimo aggiornamento '+quale+' verso le '+p.toLocaleTimeString('it-IT',{...roma,hour:'2-digit',minute:'2-digit'});
+}
+document.addEventListener('DOMContentLoaded',prossimo);
 addEventListener('pageshow',aggiornaStelle);
 if('serviceWorker' in navigator){addEventListener('load',()=>navigator.serviceWorker.register(PREFISSO+'sw.js').catch(()=>{}));}
 """
@@ -1266,6 +1345,14 @@ def leggi_json(p):
         return None
 
 
+def riassunti_del_giorno(x):
+    """L'edizione del mattino ("" ) e gli aggiornamenti ("u1", "u2"…), con il prefisso delle loro ancore."""
+    yield "", x.get("riassunto") or {}
+    for i, u in enumerate(x.get("aggiornamenti", []), 1):
+        if u.get("riassunto"):
+            yield f"u{i}", u["riassunto"]
+
+
 def rigenera_tutto():
     """Ricrea tutte le pagine a partire dai dati salvati (così ogni modifica grafica vale anche per l'archivio)."""
     for d in (DATA, GIORNI, SETTIMANE):
@@ -1278,13 +1365,15 @@ def rigenera_tutto():
 
     indice = []
     for x in reversed(edizioni):
-        voci, k = [], 0
-        for s in x["riassunto"].get("sezioni", []):
-            for n in s.get("notizie", []):
-                k += 1
-                voci.append([k, n.get("titolo", ""), (n.get("riassunto") or "")[:220]])
-        for d in x["riassunto"].get("da_provare", []):
-            voci.append([0, "🧪 " + d.get("cosa", ""), (d.get("a_cosa_serve") or "")[:220]])
+        voci = []
+        for pre, r in riassunti_del_giorno(x):
+            k = 0
+            for s in r.get("sezioni", []):
+                for n in s.get("notizie", []):
+                    k += 1
+                    voci.append([k if not pre else f"{pre}n{k}", n.get("titolo", ""), (n.get("riassunto") or "")[:220]])
+            for j, d in enumerate(r.get("da_provare", []), 1):
+                voci.append([f"{pre}p{j}", "🧪 " + d.get("cosa", ""), (d.get("a_cosa_serve") or "")[:220]])
         indice.append({"g": x["giorno"], "t": x["riassunto"].get("titolo_giorno", ""), "n": voci})
     (DOCS / "indice.json").write_text(json.dumps(indice, ensure_ascii=False, separators=(",", ":")),
                                       encoding="utf-8")
@@ -1338,25 +1427,27 @@ def costruisci_settimana(chiave, fine):
         return False
     righe, validi, prove = [], set(), {}
     for x in edizioni:
-        k = 0
-        for s in x["riassunto"].get("sezioni", []):
-            for n in s.get("notizie", []):
-                k += 1
-                cod = f"{x['giorno']}#{k}"
-                validi.add(cod)
-                righe.append(f"[{cod}] ({n.get('affidabilita', '')}) {n.get('titolo', '')} — "
-                             f"{n.get('riassunto', '')}")
-        for j, d in enumerate(x["riassunto"].get("da_provare", []), 1):
-            cod = f"{x['giorno']}#provare-{j}"
-            prove[cod] = x["giorno"]
-            costo = f" ({d['costo']})" if utile(d.get("costo")) else ""
-            righe.append(f"[{cod}] STRUMENTO: {d.get('cosa', '')}{costo} — {d.get('a_cosa_serve', '')}")
+        for pre, r in riassunti_del_giorno(x):
+            k = 0
+            for s in r.get("sezioni", []):
+                for n in s.get("notizie", []):
+                    k += 1
+                    cod = f"{x['giorno']}#{pre}{k}" if not pre else f"{x['giorno']}#{pre}n{k}"
+                    validi.add(cod)
+                    righe.append(f"[{cod}] ({n.get('affidabilita', '')}) {n.get('titolo', '')} — "
+                                 f"{n.get('riassunto', '')}")
+            for j, d in enumerate(r.get("da_provare", []), 1):
+                cod = f"{x['giorno']}#{pre}provare-{j}"
+                prove[cod] = x["giorno"]
+                costo = f" ({d['costo']})" if utile(d.get("costo")) else ""
+                righe.append(f"[{cod}] STRUMENTO: {d.get('cosa', '')}{costo} — {d.get('a_cosa_serve', '')}")
     w, modello = chiama_gemini(ISTRUZIONI_SETTIMANA, "NOTIZIE DELLA SETTIMANA:\n" + "\n".join(righe), chiave)
     notizie = []
     for n in w.get("notizie", []):
         rif = [c for c in dict.fromkeys(n.get("rif", [])) if c in validi]
         if rif and n.get("titolo"):
-            n["rif"] = [(c.split("#")[0], int(c.split("#")[1])) for c in rif]
+            n["rif"] = [(c.split("#")[0], int(c.split("#")[1]) if c.split("#")[1].isdigit() else c.split("#")[1])
+                        for c in rif]
             notizie.append(n)
     da_provare = []
     for d in w.get("da_provare", [])[:5]:
@@ -1423,34 +1514,65 @@ def main():
 
     oggi = datetime.now(TZ)
     giorno = oggi.strftime("%Y-%m-%d")
+    chiave_t = lambda t: re.sub(r"\W+", "", (t or "").lower())[:80]
+
+    # Seconda scansione della giornata? Se l'edizione di oggi esiste già (ed è venuta bene) questa diventa un
+    # AGGIORNAMENTO: solo ciò che è uscito dopo, mostrato in cima alla pagina sopra l'edizione del mattino.
+    file_oggi = DATA / f"{giorno}.json"
+    mattino = leggi_json(file_oggi) if file_oggi.exists() else None
+    aggiornamento = bool(mattino and mattino.get("riassunto") and "senza AI" not in str(mattino.get("modello"))
+                         and "--nuova" not in sys.argv)
+    n_agg = len(mattino.get("aggiornamenti", [])) + 1 if aggiornamento else 0
+    if aggiornamento:
+        print(f"L'edizione di oggi esiste già: preparo l'aggiornamento n. {n_agg} (solo novità).")
 
     # Niente doppioni: togliamo gli articoli già citati nelle ultime due settimane e diciamo a Gemini
     # quali strumenti e novità sono già stati segnalati (così uno strumento non torna ogni giorno).
+    # Nell'aggiornamento togliamo anche TUTTI gli articoli già esaminati stamattina, anche se non citati.
     GIORNI_MEMORIA = 14
     soglia = (oggi - timedelta(days=GIORNI_MEMORIA)).strftime("%Y-%m-%d")
-    recenti = [x for x in (leggi_json(p) for p in giorni_salvati() if soglia <= p.stem < giorno) if x]
+    recenti = [x for x in (leggi_json(p) for p in giorni_salvati()
+                           if soglia <= p.stem < giorno or (aggiornamento and p.stem == giorno)) if x]
     gia_pubblicate = []
-    if recenti:
-        chiave_t = lambda t: re.sub(r"\W+", "", (t or "").lower())[:80]
-        vecchi_link, vecchi_titoli = set(), set()
-        for x in recenti:
-            for a in x.get("articoli", {}).values():
-                vecchi_link.add(a.get("link"))
-                vecchi_titoli.add(chiave_t(a.get("titolo")))
-        prima = len(articoli)
-        articoli = [a for a in articoli
-                    if a["link"] not in vecchi_link and chiave_t(a["titolo"]) not in vecchi_titoli]
-        for x in recenti:
-            r_ = x.get("riassunto", {})
+    vecchi_link, vecchi_titoli = set(), set()
+    for x in recenti:
+        for a in x.get("articoli", {}).values():
+            vecchi_link.add(a.get("link"))
+            vecchi_titoli.add(chiave_t(a.get("titolo")))
+        for pre, r_ in riassunti_del_giorno(x):
             gia_pubblicate += [d.get("cosa", "") for d in r_.get("da_provare", [])]
             gia_pubblicate += [n.get("titolo", "") for s in r_.get("sezioni", []) for n in s.get("notizie", [])]
-        gia_pubblicate = [t for t in dict.fromkeys(gia_pubblicate) if t][-150:]
-        print(f"Tolti {prima - len(articoli)} articoli già usati negli ultimi {GIORNI_MEMORIA} giorni.")
-        if not articoli:
-            avvisa("Tutti gli articoli erano già stati pubblicati: il sito non è stato aggiornato.")
-            scrivi_avvisi()
-            sys.exit(1)
+    if aggiornamento:
+        vecchi_titoli |= set(mattino.get("visti", []))
+    gia_pubblicate = [t for t in dict.fromkeys(gia_pubblicate) if t][-150:]
+    visti_oggi = [chiave_t(a["titolo"]) for a in articoli]       # da ricordare per l'aggiornamento
+    prima = len(articoli)
+    articoli = [a for a in articoli if a["link"] not in vecchi_link and chiave_t(a["titolo"]) not in vecchi_titoli]
+    print(f"Tolti {prima - len(articoli)} articoli già visti" + (" stamattina o" if aggiornamento else "")
+          + f" negli ultimi {GIORNI_MEMORIA} giorni.")
 
+    def salva_aggiornamento(riassunto_u, modello_u, completi_u=0, salvati_u=None):
+        mattino.setdefault("aggiornamenti", []).append({
+            "generato": datetime.now(timezone.utc).isoformat(timespec="seconds"),
+            "modello": modello_u, "testi_completi": completi_u, "riassunto": riassunto_u})
+        mattino.setdefault("articoli", {}).update(salvati_u or {})
+        mattino["visti"] = list(dict.fromkeys(mattino.get("visti", []) + visti_oggi))
+        file_oggi.write_text(json.dumps(mattino, ensure_ascii=False, indent=1), encoding="utf-8")
+
+    if not articoli:
+        if aggiornamento:
+            print("Nessuna novità rispetto a stamattina.")
+            salva_aggiornamento(None, "")
+            rigenera_tutto()
+            scrivi_avvisi()
+            return
+        avvisa("Tutti gli articoli erano già stati pubblicati: il sito non è stato aggiornato.")
+        scrivi_avvisi()
+        sys.exit(1)
+
+    if aggiornamento:                     # id diversi da quelli del mattino (es. u1a3)
+        for a in articoli:
+            a["id"] = f"u{n_agg}{a['id']}"
     completi = arricchisci(articoli)
     candidati = sum(1 for a in articoli if a.get("tipo") in ("ufficiale", "testata", "minore"))
     if candidati >= 10 and completi == 0:
@@ -1459,32 +1581,53 @@ def main():
         a.setdefault("solo_titolo", not a.get("testo"))
     per_id = {a["id"]: a for a in articoli}
 
-    modello = "senza AI"
-    if chiave:
-        try:
-            riassunto, modello = chiedi_a_gemini(articoli, chiave, gia_pubblicate)
-            riassunto = verifica(riassunto, per_id)
-            if not (riassunto["sezioni"] or riassunto.get("da_provare")):
-                raise RuntimeError("riassunto vuoto")
-        except Exception as ex:  # qualunque problema: si pubblica comunque la versione semplice
-            avvisa(f"Gemini non disponibile ({str(ex)[:200]}): pubblicata la versione senza riassunto.")
-            riassunto, modello = senza_ai(articoli), "senza AI (Gemini non disponibile)"
-    else:
-        avvisa("GEMINI_API_KEY non impostata: pubblicata la versione senza riassunto.")
-        riassunto = senza_ai(articoli)
+    def da_salvare(riassunto):
+        usati = {i for s in riassunto["sezioni"] for n in s["notizie"] for i in n["fonti"]}
+        usati |= {i for d in riassunto.get("da_provare", []) for i in d["fonti"]}
+        return {i: {k: (v.isoformat() if isinstance(v, datetime) else v) for k, v in per_id[i].items()}
+                for i in usati}
 
     for d in (DATA, GIORNI):
         d.mkdir(parents=True, exist_ok=True)
-    usati = {i for s in riassunto["sezioni"] for n in s["notizie"] for i in n["fonti"]}
-    usati |= {i for d in riassunto.get("da_provare", []) for i in d["fonti"]}
-    salvati = {i: {k: (v.isoformat() if isinstance(v, datetime) else v) for k, v in per_id[i].items()}
-               for i in usati}
-    dati = {"giorno": giorno, "generato": datetime.now(timezone.utc).isoformat(timespec="seconds"),
-            "modello": modello, "testi_completi": completi, "riassunto": riassunto,
-            "articoli": salvati, "fonti": stato}
-    (DATA / f"{giorno}.json").write_text(json.dumps(dati, ensure_ascii=False, indent=1), encoding="utf-8")
 
-    if oggi.weekday() == 6 or os.environ.get("SETTIMANA") == "1":
+    if aggiornamento:
+        if not chiave:
+            avvisa("GEMINI_API_KEY non impostata: aggiornamento saltato.")
+            scrivi_avvisi()
+            return
+        try:
+            riassunto, modello = chiedi_a_gemini(articoli, chiave, gia_pubblicate, aggiornamento=True)
+            riassunto = verifica(riassunto, per_id)
+        except Exception as ex:   # l'edizione del mattino resta com'è
+            avvisa(f"Aggiornamento non riuscito, resta l'edizione del mattino ({str(ex)[:200]}).")
+            scrivi_avvisi()
+            return
+        vuoto = not (riassunto["sezioni"] or riassunto.get("da_provare"))
+        salva_aggiornamento(None if vuoto else riassunto, modello, completi, {} if vuoto else da_salvare(riassunto))
+        print("Aggiornamento: " + ("nessuna novità rilevante." if vuoto else
+              f"{len(riassunto.get('da_provare', []))} strumenti, "
+              f"{sum(len(s['notizie']) for s in riassunto['sezioni'])} novità."))
+    else:
+        modello = "senza AI"
+        if chiave:
+            try:
+                riassunto, modello = chiedi_a_gemini(articoli, chiave, gia_pubblicate)
+                riassunto = verifica(riassunto, per_id)
+                if not (riassunto["sezioni"] or riassunto.get("da_provare")):
+                    raise RuntimeError("riassunto vuoto")
+            except Exception as ex:  # qualunque problema: si pubblica comunque la versione semplice
+                avvisa(f"Gemini non disponibile ({str(ex)[:200]}): pubblicata la versione senza riassunto.")
+                riassunto, modello = senza_ai(articoli), "senza AI (Gemini non disponibile)"
+        else:
+            avvisa("GEMINI_API_KEY non impostata: pubblicata la versione senza riassunto.")
+            riassunto = senza_ai(articoli)
+        dati = {"giorno": giorno, "generato": datetime.now(timezone.utc).isoformat(timespec="seconds"),
+                "modello": modello, "testi_completi": completi, "riassunto": riassunto,
+                "articoli": da_salvare(riassunto), "fonti": stato, "visti": visti_oggi}
+        file_oggi.write_text(json.dumps(dati, ensure_ascii=False, indent=1), encoding="utf-8")
+
+    forza = os.environ.get("SETTIMANA") == "1"
+    if (oggi.weekday() == 6 and not (SETTIMANE / f"{giorno}.json").exists()) or forza:
         if chiave:
             try:
                 costruisci_settimana(chiave, giorno)
@@ -1493,7 +1636,7 @@ def main():
 
     rigenera_tutto()
     scrivi_avvisi()
-    print(f"Fatto: edizione del {giorno}.")
+    print(f"Fatto: {'aggiornamento' if aggiornamento else 'edizione'} del {giorno}.")
 
 
 if __name__ == "__main__":
