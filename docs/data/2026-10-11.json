@@ -199,6 +199,17 @@
    "solo_titolo": false,
    "categoria": "Italia",
    "id": "u6a108"
+  },
+  "u7a30": {
+   "titolo": "Gemini potrebbe chiamare amici e familiari al posto tuo",
+   "link": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxQZGc2dEpOTER1N0ppcWNhOTVMMFc0WUxBcEcxc0lfYnhqbEdPSHJDLVNIcFFocVVMWDRLRlVrSzZBTXJtVkdWRVMzNEY3QlFkbTVXaDIyMGNBaEJ3VjZzeVVESDV4OTBjYm1TWE9NYk16N0VycmhRUEY4b01GSXgzN1FiZE55QlJpQXlqVXlDVzlwWXlfVDg3alFWTW56czRad09PNnRjeW1RZVZsaGxaaTY1SFFsekxS?oc=5",
+   "data": "2026-10-11T14:00:30+00:00",
+   "testo": "",
+   "fonte": "Fastweb",
+   "tipo": "minore",
+   "solo_titolo": true,
+   "categoria": "Strumenti",
+   "id": "u7a30"
   }
  },
  "fonti": [
@@ -299,7 +310,7 @@
   }
  ],
  "audio": "audio/2026-10-11.mp3",
- "durata": 164.5,
+ "durata": 182.2,
  "aggiornamenti": [
   {
    "generato": "2026-10-11T10:01:17+00:00",
@@ -487,6 +498,40 @@
     ],
     "formato": 2
    }
+  },
+  {
+   "generato": "2026-10-11T16:39:17+00:00",
+   "modello": "gemini-3.5-flash",
+   "testi_completi": 0,
+   "riassunto": {
+    "titolo_giorno": "Gemini potrebbe presto effettuare telefonate a parenti e amici",
+    "in_breve": "Nell'aggiornamento di oggi spicca un'indiscrezione riguardante Gemini, che potrebbe presto integrare la capacità di effettuare chiamate vocali verso i contatti personali dell'utente. Questa novità mostra come gli assistenti di intelligenza artificiale si stiano evolvendo verso una sempre maggiore autonomia nella gestione delle comunicazioni quotidiane.",
+    "citati": [
+     "Gemini"
+    ],
+    "da_provare": [],
+    "osint": [],
+    "sezioni": [
+     {
+      "titolo": "Novità negli strumenti che già usi",
+      "notizie": [
+       {
+        "titolo": "Gemini potrebbe effettuare telefonate ad amici e familiari",
+        "strumento": "Gemini",
+        "riassunto": "È in fase di sviluppo una funzione che permetterebbe all'assistente AI di Google di effettuare chiamate vocali ai contatti della rubrica al posto dell'utente.",
+        "come_provarla": "",
+        "disponibilita": "Non indicato",
+        "fonti": [
+         "u7a30"
+        ],
+        "affidabilita": "Da verificare",
+        "solo_titoli": true
+       }
+      ]
+     }
+    ],
+    "formato": 2
+   }
   }
  ],
  "visti": [
@@ -664,6 +709,24 @@
   "visualsfromcjpsjuly20protestfalselylinkedtooctober10stirboom",
   "oldvideosfalselysharedashindugroupsarrivingindelhitoopposecjpsprotestatjantarman",
   "shewenttonursingschoolwithagirlwhofakedapregnancyandshebustedherafterdoingarever",
-  "firstdieselcargoapproachesafterwashingtoneasesrestrictionsosint"
+  "firstdieselcargoapproachesafterwashingtoneasesrestrictionsosint",
+  "intelintcreaches500millionaitooldownloadsasedgeintegrationsexpand",
+  "chinesetechgiantsacceleratedevelopmentofpersonalaiagents",
+  "geminipotrebbechiamareamiciefamiliarialpostotuo",
+  "anthropicvietalacrudeltàversoclaudedal12112026techinsiderorg",
+  "howtorunvllmnativelyonwindows",
+  "incontrigenitoriinsegnantineglistatiunitiprogrammateincontriindividualiconciascu",
+  "googlerollsoutgeminiagentforbusinesstasks",
+  "claudecyberaccessexpandstothreeverifiedtiers",
+  "anthropictookitsaitestsofflineafterclaudesubmittedafalsehomicidetiptopolice",
+  "microsoftbuiltaversionofwindows11withoutthebloatbuttheresabigcatch",
+  "microsoftsnadellawantsanemergencybrakeoneveryaimodel",
+  "deepseekscheapflashmodelreportedlyspentotherpeoplesapikeys",
+  "aiagentteamswastemassivetokensforbarelymeasurablequalitygainsresearchfinds",
+  "theinternetiswild",
+  "chatgptgonecrazy",
+  "stateoftheaiwarsrightnow",
+  "hereswhyrtx5090costs5000aifirmsarebuyinggaminggpusbythepallet",
+  "godseyeosintplatformaggregatesglobaltrackingandlivesurveillancefeeds"
  ]
 }
