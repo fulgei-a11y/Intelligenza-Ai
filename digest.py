@@ -1540,8 +1540,10 @@ def nuovi_arrivi(edizioni, cassetta):
 METODO_OSINT = [
     ("1", "La domanda", "Scrivi in una riga cosa vuoi verificare: «questa foto è di oggi?», «questa ditta esiste?»."),
     ("2", "Le fonti", "Parti dalle fonti ufficiali e primarie (registri, siti delle aziende, l'originale di una foto)."),
-    ("3", "L'incrocio", "Nessuno strumento basta da solo: conferma ogni dato con almeno due strumenti diversi."),
-    ("4", "Le prove", "Salva pagine e risultati con data e ora (archive.today, Hunchly): domani potrebbero sparire."),
+    ("3", "Prima la raccolta passiva", "Archivi, cache, registri e motori di ricerca non avvisano nessuno. Gli strumenti "
+     "che contattano il bersaglio (scansioni, verifiche attive) vengono dopo, solo se servono e se è lecito."),
+    ("4", "L'incrocio", "Nessuno strumento basta da solo: conferma ogni dato con almeno due strumenti diversi."),
+    ("5", "Le prove", "Salva pagine e risultati con data e ora (archive.today, Hunchly): domani potrebbero sparire."),
 ]
 
 
@@ -1579,8 +1581,8 @@ def pagina_cassetta(cassetta, archivio, edizioni=()):
              + "".join(f"<li><b>{e(t)}.</b> {e(d)}</li>" for _, t, d in METODO_OSINT) + "</ol></section>",
              '<h2>Che cosa devi verificare?</h2><nav class="griglia">'
              + "".join(f'<a href="#c{i}"><span>{e(c.get("icona", ""))}</span>{e(c["titolo"])}'
-                       f'<small>{len(c.get("strumenti", []))} strumenti</small></a>' for i, c in enumerate(cat, 1))
-             + (f'<a href="#nuovi" class="nuovi"><span>🆕</span>Nuovi arrivi<small>{len(arrivi)} strumenti</small></a>'
+                       f'<small>{len(c.get("strumenti", []))} strument{"o" if len(c.get("strumenti", [])) == 1 else "i"}</small></a>' for i, c in enumerate(cat, 1))
+             + (f'<a href="#nuovi" class="nuovi"><span>🆕</span>Nuovi arrivi<small>{len(arrivi)} strument{"o" if len(arrivi) == 1 else "i"}</small></a>'
                 if arrivi else "") + "</nav>",
              # si mostra solo se ci sono strumenti salvati (vedi disegnaMieiOsint nel JS)
              '<section class="osint mia" id="mia" hidden><h2>⭐ I tuoi strumenti OSINT</h2>'
