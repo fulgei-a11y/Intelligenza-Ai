@@ -48,6 +48,27 @@
           ],
           "costo": "Gratis",
           "difficolta": "Media"
+        },
+        {
+          "nome": "Aware Online – OSINT Tools",
+          "url": "https://www.aware-online.com/en/osint-tools/",
+          "descrizione": "Moduli di ricerca gratuiti di un'accademia OSINT olandese, divisi per tipo (username, email, siti, aziende, immagini, social…).",
+          "piattaforme": [
+            "Browser"
+          ],
+          "costo": "Gratis",
+          "difficolta": "Facile"
+        },
+        {
+          "nome": "The OSINT Toolbox – AI Resources",
+          "url": "https://github.com/The-Osint-Toolbox/AI-Resources",
+          "descrizione": "Raccolta di strumenti AI utili all'OSINT: ricerca inversa, OCR, traduzione, trascrizione, motori di ricerca AI.",
+          "piattaforme": [
+            "Browser"
+          ],
+          "costo": "Gratis",
+          "difficolta": "Media",
+          "nota": "Molti servizi AI conservano ciò che carichi: non usarli con materiale riservato."
         }
       ]
     },
@@ -96,6 +117,17 @@
           ],
           "costo": "Gratis",
           "difficolta": "Facile"
+        },
+        {
+          "nome": "Lenso",
+          "url": "https://lenso.ai/",
+          "descrizione": "Ricerca inversa con l'AI divisa per tipo: luoghi, duplicati, immagini simili e correlate. Bravo a ritrovare un posto o le copie di una foto.",
+          "piattaforme": [
+            "Browser"
+          ],
+          "costo": "Gratis con limiti",
+          "difficolta": "Facile",
+          "nota": "Ha anche la ricerca per volto, disponibile solo in alcune regioni: usala solo per cercare il tuo volto. Su altre persone serve il loro consenso (GDPR, dato biometrico)."
         }
       ]
     },
@@ -179,6 +211,17 @@
       "icona": "🛰️",
       "consiglio": "Confronta dettagli fissi (insegne, montagne, pali, linee della strada) più che quelli che cambiano.",
       "strumenti": [
+        {
+          "nome": "Picarta",
+          "url": "https://picarta.ai/",
+          "descrizione": "L'AI stima dove è stata scattata una foto guardando paesaggio, edifici e segnaletica, anche senza dati GPS.",
+          "piattaforme": [
+            "Browser"
+          ],
+          "costo": "Gratis con limiti",
+          "difficolta": "Facile",
+          "nota": "È una stima: confermala sempre con mappe e immagini satellitari."
+        },
         {
           "nome": "Google Earth Pro",
           "url": "https://www.google.com/earth/about/versions/",
@@ -279,6 +322,16 @@
           "nota": "Usalo per raccolta passiva: non interagire con i sistemi trovati senza autorizzazione."
         },
         {
+          "nome": "Censys",
+          "url": "https://search.censys.io/",
+          "descrizione": "Come Shodan: server, certificati e servizi esposti su Internet, utile per capire chi c'è dietro un sito.",
+          "piattaforme": [
+            "Browser"
+          ],
+          "costo": "Gratis con limiti",
+          "difficolta": "Per esperti"
+        },
+        {
           "nome": "urlscan.io",
           "url": "https://urlscan.io/",
           "descrizione": "Apre un sito al posto tuo e mostra cosa carica, dove punta e a chi appartiene: utile contro le truffe.",
@@ -307,6 +360,17 @@
           ],
           "costo": "Gratis con limiti",
           "difficolta": "Per esperti"
+        },
+        {
+          "nome": "Ahmia",
+          "url": "https://ahmia.fi/",
+          "descrizione": "Motore di ricerca dei siti .onion della rete Tor, con filtro dei contenuti illegali.",
+          "piattaforme": [
+            "Browser"
+          ],
+          "costo": "Gratis",
+          "difficolta": "Per esperti",
+          "nota": "Per aprire i risultati serve il Tor Browser: usalo con prudenza e solo per ricerche lecite."
         }
       ]
     },
@@ -349,6 +413,84 @@
           "nome": "ICIJ Offshore Leaks",
           "url": "https://offshoreleaks.icij.org/",
           "descrizione": "Società offshore emerse dalle grandi inchieste giornalistiche (Panama Papers e altre).",
+          "piattaforme": [
+            "Browser"
+          ],
+          "costo": "Gratis",
+          "difficolta": "Facile"
+        },
+        {
+          "nome": "OCCRP Aleph",
+          "url": "https://aleph.occrp.org/",
+          "descrizione": "Archivio di documenti, registri societari e fughe di notizie pubblicate dalle inchieste dell'OCCRP, ricercabile per nome.",
+          "piattaforme": [
+            "Browser"
+          ],
+          "costo": "Gratis",
+          "difficolta": "Media",
+          "nota": "Alcune raccolte richiedono la registrazione o un accesso da giornalista."
+        },
+        {
+          "nome": "EU Sanctions Map",
+          "url": "https://www.sanctionsmap.eu/",
+          "descrizione": "Mappa ufficiale UE delle sanzioni in vigore, paese per paese, con l'elenco di persone ed enti colpiti.",
+          "piattaforme": [
+            "Browser"
+          ],
+          "costo": "Gratis",
+          "difficolta": "Facile"
+        }
+      ]
+    },
+    {
+      "titolo": "Dati pubblici Italia ed Europa",
+      "icona": "🇪🇺",
+      "consiglio": "I dati ufficiali sono la base più solida di un'indagine: citane sempre la fonte e la data di consultazione.",
+      "strumenti": [
+        {
+          "nome": "dati.gov.it",
+          "url": "https://www.dati.gov.it/",
+          "descrizione": "Il catalogo degli open data della Pubblica Amministrazione italiana: migliaia di dataset scaricabili.",
+          "piattaforme": [
+            "Browser"
+          ],
+          "costo": "Gratis",
+          "difficolta": "Facile"
+        },
+        {
+          "nome": "ANAC – Autorità Anticorruzione",
+          "url": "https://www.anticorruzione.it/",
+          "descrizione": "Dati e banche dati sui contratti pubblici e sugli appalti in Italia.",
+          "piattaforme": [
+            "Browser"
+          ],
+          "costo": "Gratis",
+          "difficolta": "Media"
+        },
+        {
+          "nome": "IndicePA",
+          "url": "https://indicepa.gov.it/",
+          "descrizione": "Elenco ufficiale di enti e uffici pubblici italiani con indirizzi e PEC.",
+          "piattaforme": [
+            "Browser"
+          ],
+          "costo": "Gratis",
+          "difficolta": "Facile"
+        },
+        {
+          "nome": "TED – Tenders Electronic Daily",
+          "url": "https://ted.europa.eu/",
+          "descrizione": "Tutti i bandi di gara pubblici europei sopra soglia: chi compra cosa, per quanto, da chi.",
+          "piattaforme": [
+            "Browser"
+          ],
+          "costo": "Gratis",
+          "difficolta": "Media"
+        },
+        {
+          "nome": "data.europa.eu",
+          "url": "https://data.europa.eu/",
+          "descrizione": "Il portale ufficiale degli open data dell'Unione Europea e degli Stati membri.",
           "piattaforme": [
             "Browser"
           ],
@@ -423,6 +565,16 @@
           "difficolta": "Facile"
         },
         {
+          "nome": "Epieos",
+          "url": "https://epieos.com/",
+          "descrizione": "Da un'email o un numero di telefono mostra gli account e i servizi pubblici collegati.",
+          "piattaforme": [
+            "Browser"
+          ],
+          "costo": "Gratis con limiti",
+          "difficolta": "Facile"
+        },
+        {
           "nome": "Sherlock",
           "url": "https://github.com/sherlock-project/sherlock",
           "descrizione": "Come WhatsMyName, ma da riga di comando e su centinaia di siti.",
@@ -451,6 +603,77 @@
           ],
           "costo": "Gratis",
           "difficolta": "Facile"
+        },
+        {
+          "nome": "PhoneInfoga",
+          "url": "https://sundowndev.github.io/phoneinfoga/",
+          "descrizione": "Analizza un numero di telefono: paese, operatore, tipo di linea e tracce pubbliche online.",
+          "piattaforme": [
+            "Windows"
+          ],
+          "costo": "Gratis",
+          "difficolta": "Per esperti",
+          "nota": "Il numero di una persona è un dato personale: usalo solo con uno scopo lecito e documentato."
+        }
+      ]
+    },
+    {
+      "titolo": "AI per l'analisi",
+      "icona": "🤖",
+      "consiglio": "L'AI aiuta a leggere, tradurre e riassumere, ma sbaglia e inventa: ogni dato va verificato sulla fonte originale. Per materiale riservato usa i modelli locali.",
+      "strumenti": [
+        {
+          "nome": "Perplexity",
+          "url": "https://www.perplexity.ai/",
+          "descrizione": "Motore di ricerca con AI che risponde citando le fonti: utile per orientarsi velocemente su un argomento.",
+          "piattaforme": [
+            "Browser",
+            "Android",
+            "Windows"
+          ],
+          "costo": "Gratis con limiti",
+          "difficolta": "Facile"
+        },
+        {
+          "nome": "Consensus",
+          "url": "https://consensus.app/",
+          "descrizione": "Cerca e riassume studi scientifici pubblicati: per verificare un'affermazione su basi di ricerca.",
+          "piattaforme": [
+            "Browser"
+          ],
+          "costo": "Gratis con limiti",
+          "difficolta": "Facile"
+        },
+        {
+          "nome": "LM Studio",
+          "url": "https://lmstudio.ai/",
+          "descrizione": "Fa girare modelli AI sul tuo PC, senza internet: analizzi documenti riservati senza mandarli online.",
+          "piattaforme": [
+            "Windows"
+          ],
+          "costo": "Gratis",
+          "difficolta": "Media"
+        },
+        {
+          "nome": "GPT4All",
+          "url": "https://gpt4all.io/",
+          "descrizione": "Alternativa a LM Studio, semplice da installare, con chat sui tuoi documenti locali.",
+          "piattaforme": [
+            "Windows"
+          ],
+          "costo": "Gratis",
+          "difficolta": "Media"
+        },
+        {
+          "nome": "Whisper",
+          "url": "https://github.com/openai/whisper",
+          "descrizione": "Trascrive audio e video in decine di lingue, italiano compreso, sul tuo computer.",
+          "piattaforme": [
+            "Windows"
+          ],
+          "costo": "Gratis",
+          "difficolta": "Per esperti",
+          "nota": "Si usa da riga di comando; molte app gratuite lo integrano con un'interfaccia semplice."
         }
       ]
     },
@@ -490,6 +713,26 @@
           "costo": "Gratis",
           "difficolta": "Per esperti",
           "nota": "Alcuni moduli contattano direttamente il bersaglio: usali solo dopo la raccolta passiva e se è lecito."
+        },
+        {
+          "nome": "Google Alerts",
+          "url": "https://www.google.com/alerts",
+          "descrizione": "Ti avvisa via email quando compare online un nome, un'azienda o una parola chiave: il monitoraggio più semplice.",
+          "piattaforme": [
+            "Browser"
+          ],
+          "costo": "Gratis",
+          "difficolta": "Facile"
+        },
+        {
+          "nome": "Gephi",
+          "url": "https://gephi.org/",
+          "descrizione": "Disegna e analizza reti di relazioni (persone, società, account) a partire da tabelle di dati.",
+          "piattaforme": [
+            "Windows"
+          ],
+          "costo": "Gratis",
+          "difficolta": "Per esperti"
         }
       ]
     }
