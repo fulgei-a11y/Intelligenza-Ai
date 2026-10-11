@@ -1,0 +1,395 @@
+{
+  "_nota": "Cassetta degli attrezzi OSINT: strumenti consolidati, divisi per tipo di indagine. Si modifica a mano. 'piattaforme': Browser / Windows / Android / iPhone / Mac. 'costo': Gratis / Gratis con limiti / A pagamento. 'difficolta': Facile / Media / Per esperti.",
+  "aggiornato": "2026-10-11",
+  "categorie": [
+    {
+      "titolo": "Ricerca inversa delle immagini",
+      "icona": "🖼️",
+      "consiglio": "Usane sempre più di una: ogni motore trova risultati diversi. Ritaglia la parte interessante della foto prima di cercarla.",
+      "strumenti": [
+        {
+          "nome": "Google Lens",
+          "url": "https://lens.google/",
+          "descrizione": "Trova dove compare una foto online, prodotti e luoghi simili.",
+          "piattaforme": [
+            "Browser",
+            "Android"
+          ],
+          "costo": "Gratis",
+          "difficolta": "Facile"
+        },
+        {
+          "nome": "TinEye",
+          "url": "https://tineye.com/",
+          "descrizione": "Cerca copie esatte di un'immagine e mostra la più vecchia: utile per capire se una foto 'nuova' è in realtà riciclata.",
+          "piattaforme": [
+            "Browser"
+          ],
+          "costo": "Gratis con limiti",
+          "difficolta": "Facile"
+        },
+        {
+          "nome": "Bing Visual Search",
+          "url": "https://www.bing.com/visualsearch",
+          "descrizione": "Ricerca per immagine di Microsoft, spesso trova risultati diversi da Google.",
+          "piattaforme": [
+            "Browser"
+          ],
+          "costo": "Gratis",
+          "difficolta": "Facile"
+        },
+        {
+          "nome": "Yandex Immagini",
+          "url": "https://yandex.com/images/",
+          "descrizione": "Molto efficace su luoghi ed edifici, soprattutto dell'Europa dell'Est.",
+          "piattaforme": [
+            "Browser"
+          ],
+          "costo": "Gratis",
+          "difficolta": "Facile"
+        }
+      ]
+    },
+    {
+      "titolo": "Verifica di foto e video",
+      "icona": "🎞️",
+      "consiglio": "Nessuno strumento dà una certezza da solo: incrocia i risultati e annota ogni passaggio.",
+      "strumenti": [
+        {
+          "nome": "InVID-WeVerify",
+          "url": "https://www.invid-project.eu/tools-and-services/invid-verification-plugin/",
+          "descrizione": "Estensione usata dalle redazioni: divide i video in fotogrammi da cercare, legge i metadati, analisi forense.",
+          "piattaforme": [
+            "Browser"
+          ],
+          "costo": "Gratis",
+          "difficolta": "Media"
+        },
+        {
+          "nome": "Forensically",
+          "url": "https://29a.ch/photo-forensics/",
+          "descrizione": "Evidenzia zone clonate o ritoccate in una foto (analisi del livello di errore, rumore, clonazione).",
+          "piattaforme": [
+            "Browser"
+          ],
+          "costo": "Gratis",
+          "difficolta": "Media"
+        },
+        {
+          "nome": "FotoForensics",
+          "url": "https://fotoforensics.com/",
+          "descrizione": "Analisi forense delle immagini con spiegazioni didattiche per imparare a leggerle.",
+          "piattaforme": [
+            "Browser"
+          ],
+          "costo": "Gratis con limiti",
+          "difficolta": "Media"
+        },
+        {
+          "nome": "Hive – rilevatore di immagini AI",
+          "url": "https://hivemoderation.com/ai-generated-content-detection",
+          "descrizione": "Stima se un'immagine o un testo sono stati creati con l'AI.",
+          "piattaforme": [
+            "Browser"
+          ],
+          "costo": "Gratis con limiti",
+          "difficolta": "Facile",
+          "nota": "Inaffidabile come tutti i rilevatori: usalo come indizio, mai come prova."
+        }
+      ]
+    },
+    {
+      "titolo": "Metadati dei file",
+      "icona": "🏷️",
+      "consiglio": "Social e WhatsApp cancellano quasi sempre i metadati: servono soprattutto sui file originali.",
+      "strumenti": [
+        {
+          "nome": "ExifTool",
+          "url": "https://exiftool.org/",
+          "descrizione": "Legge (e cancella) data, ora, dispositivo e coordinate GPS di foto, video e documenti.",
+          "piattaforme": [
+            "Windows"
+          ],
+          "costo": "Gratis",
+          "difficolta": "Per esperti"
+        }
+      ]
+    },
+    {
+      "titolo": "Luoghi, ore e immagini satellitari",
+      "icona": "🛰️",
+      "consiglio": "Confronta dettagli fissi (insegne, montagne, pali, linee della strada) più che quelli che cambiano.",
+      "strumenti": [
+        {
+          "nome": "Google Earth Pro",
+          "url": "https://www.google.com/earth/about/versions/",
+          "descrizione": "Vista 3D e immagini storiche: si vede come cambia un luogo negli anni.",
+          "piattaforme": [
+            "Windows"
+          ],
+          "costo": "Gratis",
+          "difficolta": "Media"
+        },
+        {
+          "nome": "Copernicus Browser",
+          "url": "https://browser.dataspace.copernicus.eu/",
+          "descrizione": "Immagini satellitari europee Sentinel aggiornate di continuo: incendi, alluvioni, cantieri.",
+          "piattaforme": [
+            "Browser"
+          ],
+          "costo": "Gratis",
+          "difficolta": "Media"
+        },
+        {
+          "nome": "SunCalc",
+          "url": "https://www.suncalc.org/",
+          "descrizione": "Posizione del sole in ogni luogo e ora: dall'ombra si stima quando è stata scattata una foto.",
+          "piattaforme": [
+            "Browser"
+          ],
+          "costo": "Gratis",
+          "difficolta": "Media"
+        }
+      ]
+    },
+    {
+      "titolo": "Siti web e domini",
+      "icona": "🌐",
+      "consiglio": "Prima di fidarti di un sito, guarda da quanto tempo esiste e com'era in passato.",
+      "strumenti": [
+        {
+          "nome": "Wayback Machine",
+          "url": "https://web.archive.org/",
+          "descrizione": "Le versioni passate di una pagina web, anche se oggi è stata cancellata o modificata.",
+          "piattaforme": [
+            "Browser"
+          ],
+          "costo": "Gratis",
+          "difficolta": "Facile"
+        },
+        {
+          "nome": "archive.today",
+          "url": "https://archive.ph/",
+          "descrizione": "Salva una copia fissa di una pagina, utile come prova di cosa c'era scritto.",
+          "piattaforme": [
+            "Browser"
+          ],
+          "costo": "Gratis",
+          "difficolta": "Facile"
+        },
+        {
+          "nome": "ICANN Lookup",
+          "url": "https://lookup.icann.org/",
+          "descrizione": "Chi ha registrato un dominio e quando (spesso i dati personali sono oscurati).",
+          "piattaforme": [
+            "Browser"
+          ],
+          "costo": "Gratis",
+          "difficolta": "Facile"
+        },
+        {
+          "nome": "urlscan.io",
+          "url": "https://urlscan.io/",
+          "descrizione": "Apre un sito al posto tuo e mostra cosa carica, dove punta e a chi appartiene: utile contro le truffe.",
+          "piattaforme": [
+            "Browser"
+          ],
+          "costo": "Gratis con limiti",
+          "difficolta": "Media"
+        },
+        {
+          "nome": "VirusTotal",
+          "url": "https://www.virustotal.com/",
+          "descrizione": "Controlla link e file sospetti con decine di antivirus insieme.",
+          "piattaforme": [
+            "Browser"
+          ],
+          "costo": "Gratis",
+          "difficolta": "Facile"
+        },
+        {
+          "nome": "DNSDumpster",
+          "url": "https://dnsdumpster.com/",
+          "descrizione": "Mappa dei server e sottodomini collegati a un sito.",
+          "piattaforme": [
+            "Browser"
+          ],
+          "costo": "Gratis con limiti",
+          "difficolta": "Per esperti"
+        }
+      ]
+    },
+    {
+      "titolo": "Aziende, registri e sanzioni",
+      "icona": "🏢",
+      "consiglio": "Per l'Italia la fonte ufficiale è il Registro Imprese; le banche dati internazionali aiutano con le società estere.",
+      "strumenti": [
+        {
+          "nome": "Registro Imprese",
+          "url": "https://www.registroimprese.it/",
+          "descrizione": "Visure ufficiali delle imprese italiane: soci, amministratori, bilanci.",
+          "piattaforme": [
+            "Browser"
+          ],
+          "costo": "A pagamento",
+          "difficolta": "Facile"
+        },
+        {
+          "nome": "OpenCorporates",
+          "url": "https://opencorporates.com/",
+          "descrizione": "La più grande banca dati aperta di società nel mondo.",
+          "piattaforme": [
+            "Browser"
+          ],
+          "costo": "Gratis con limiti",
+          "difficolta": "Facile"
+        },
+        {
+          "nome": "OpenSanctions",
+          "url": "https://www.opensanctions.org/",
+          "descrizione": "Persone e società sotto sanzioni internazionali o politicamente esposte.",
+          "piattaforme": [
+            "Browser"
+          ],
+          "costo": "Gratis con limiti",
+          "difficolta": "Facile"
+        },
+        {
+          "nome": "ICIJ Offshore Leaks",
+          "url": "https://offshoreleaks.icij.org/",
+          "descrizione": "Società offshore emerse dalle grandi inchieste giornalistiche (Panama Papers e altre).",
+          "piattaforme": [
+            "Browser"
+          ],
+          "costo": "Gratis",
+          "difficolta": "Facile"
+        }
+      ]
+    },
+    {
+      "titolo": "Navi e aerei",
+      "icona": "🚢",
+      "consiglio": "Le posizioni arrivano dai transponder: possono essere spenti o falsificati, verifica sempre con altre fonti.",
+      "strumenti": [
+        {
+          "nome": "MarineTraffic",
+          "url": "https://www.marinetraffic.com/",
+          "descrizione": "Posizione e storia delle navi nel mondo.",
+          "piattaforme": [
+            "Browser",
+            "Android"
+          ],
+          "costo": "Gratis con limiti",
+          "difficolta": "Facile"
+        },
+        {
+          "nome": "VesselFinder",
+          "url": "https://www.vesselfinder.com/",
+          "descrizione": "Alternativa per seguire le navi, con dati sui porti.",
+          "piattaforme": [
+            "Browser",
+            "Android"
+          ],
+          "costo": "Gratis con limiti",
+          "difficolta": "Facile"
+        },
+        {
+          "nome": "Flightradar24",
+          "url": "https://www.flightradar24.com/",
+          "descrizione": "Voli in tempo reale e storico dei percorsi.",
+          "piattaforme": [
+            "Browser",
+            "Android"
+          ],
+          "costo": "Gratis con limiti",
+          "difficolta": "Facile"
+        },
+        {
+          "nome": "ADS-B Exchange",
+          "url": "https://globe.adsbexchange.com/",
+          "descrizione": "Traffico aereo senza filtri, compresi molti voli non mostrati altrove.",
+          "piattaforme": [
+            "Browser"
+          ],
+          "costo": "Gratis",
+          "difficolta": "Media"
+        }
+      ]
+    },
+    {
+      "titolo": "Persone e account (fonti pubbliche)",
+      "icona": "👤",
+      "consiglio": "Sui dati delle persone vale il GDPR: raccogli solo ciò che serve a uno scopo lecito e documentato.",
+      "strumenti": [
+        {
+          "nome": "WhatsMyName",
+          "url": "https://whatsmyname.app/",
+          "descrizione": "Su quali siti esiste un certo nome utente: utile anche per controllare la propria esposizione.",
+          "piattaforme": [
+            "Browser"
+          ],
+          "costo": "Gratis",
+          "difficolta": "Facile"
+        },
+        {
+          "nome": "Sherlock",
+          "url": "https://github.com/sherlock-project/sherlock",
+          "descrizione": "Come WhatsMyName, ma da riga di comando e su centinaia di siti.",
+          "piattaforme": [
+            "Windows"
+          ],
+          "costo": "Gratis",
+          "difficolta": "Per esperti"
+        },
+        {
+          "nome": "Have I Been Pwned",
+          "url": "https://haveibeenpwned.com/",
+          "descrizione": "Dice se un'email è finita in una fuga di dati e in quale (senza mostrare i dati).",
+          "piattaforme": [
+            "Browser"
+          ],
+          "costo": "Gratis",
+          "difficolta": "Facile"
+        }
+      ]
+    },
+    {
+      "titolo": "Metodo e organizzazione",
+      "icona": "🗂️",
+      "consiglio": "Annota fonte, data e ora di ogni scoperta: un'indagine vale quanto la sua documentazione.",
+      "strumenti": [
+        {
+          "nome": "Bellingcat Online Investigations Toolkit",
+          "url": "https://bellingcat.gitbook.io/toolkit",
+          "descrizione": "Il catalogo di riferimento degli strumenti OSINT, curato da Bellingcat, con guide d'uso.",
+          "piattaforme": [
+            "Browser"
+          ],
+          "costo": "Gratis",
+          "difficolta": "Facile"
+        },
+        {
+          "nome": "Hunchly",
+          "url": "https://www.hunch.ly/",
+          "descrizione": "Registra in automatico ogni pagina visitata durante un'indagine, con data e ora.",
+          "piattaforme": [
+            "Browser",
+            "Windows"
+          ],
+          "costo": "A pagamento",
+          "difficolta": "Media"
+        },
+        {
+          "nome": "Maltego",
+          "url": "https://www.maltego.com/",
+          "descrizione": "Collega persone, società, siti e account in un grafico per vedere le relazioni.",
+          "piattaforme": [
+            "Windows"
+          ],
+          "costo": "Gratis con limiti",
+          "difficolta": "Per esperti"
+        }
+      ]
+    }
+  ]
+}
