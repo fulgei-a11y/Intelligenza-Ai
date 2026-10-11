@@ -67,6 +67,12 @@ article:target,li:target{outline:2px solid var(--accent)}
 .pf.locale{background:#e0e7ff;color:#3730a3}
 @media (prefers-color-scheme:dark){.pf.si{background:#14532d;color:#86efac}.pf.solo{background:transparent;color:#9c9a93}
 .pf.locale{background:#1e1b4b;color:#c7d2fe}}
+.osint{background:var(--chip);border-radius:16px;padding:4px 16px 12px;margin:28px -4px 0;border-left:4px solid #0f766e}
+.osint h2{color:#0f766e;border-bottom:none;margin:18px 0 0;font-size:16px}.osint .try{border-left-color:#0f766e}
+@media (prefers-color-scheme:dark){.osint h2{color:#5eead4}.osint{border-left-color:#5eead4}.osint .try{border-left-color:#5eead4}}
+.cassetta-indice{display:flex;flex-wrap:wrap;gap:6px;margin:14px 0}
+.cassetta-indice a{font:600 13px system-ui,sans-serif;color:var(--ink);background:var(--card);border:1px solid var(--line);border-radius:999px;padding:6px 12px;text-decoration:none}
+.osint .sub a{color:inherit}
 .agg{border:2px solid var(--accent);border-radius:16px;padding:6px 14px 10px;margin:22px -4px 0}
 .agg .tryzone{margin:12px -10px 0}
 .agg-top{font:700 15px system-ui,sans-serif;color:var(--accent);margin:10px 0 2px}
@@ -81,6 +87,7 @@ article{position:relative}article .tags{padding-right:40px}
 .togli{font:600 13px system-ui,sans-serif;color:var(--muted);background:none;border:1px solid var(--line);border-radius:999px;padding:5px 12px;cursor:pointer;margin-top:8px}
 .filtri{display:flex;gap:6px;flex-wrap:wrap;margin:8px 0}.filtri button{font:600 13px system-ui,sans-serif;border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:999px;padding:6px 12px;cursor:pointer}
 .filtri button[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:#fff}
+@media print{.osint{break-inside:auto}}
 @media print{.listen,.week,.cerca,.risultati,.glossario,.prova,.stella,.vaipref,.togli,.filtri{display:none!important}}
 </style></head><body><main><p class="top">AI News Digest</p><h1>⭐ I miei preferiti</h1><p class="lead">Gli strumenti e le novità che hai segnato con la stellina, per ritrovarli quando ti servono.</p><p class="meta" id="conta"></p><div class="share"><button type="button" onclick="copiaPreferiti(this)">💬 Copia elenco per WhatsApp</button><a class="vaipref" href="index.html">← Edizione di oggi</a></div><div class="filtri" id="filtri"></div><section class="pref" id="lista"></section><p class="meta">I preferiti restano salvati in questo browser, su questo dispositivo. Se cancelli i dati di navigazione o usi la navigazione privata non vengono conservati.</p><h2>Archivio</h2><input class="cerca" type="search" placeholder="🔎 Cerca nelle edizioni passate…" aria-label="Cerca nell'archivio" oninput="cerca(this.value)" onfocus="caricaIndice()"><ul class="risultati" id="risultati" aria-live="polite"></ul><ul class="arch" id="arch"><li><a href="giorni/2026-10-11.html"><small>11 ott</small>Strumenti AI privati per Mac e smartphone: riordinare file e usare l&#x27;AI offline</a></li><li><a href="giorni/2026-10-10.html"><small>10 ott</small>Ritocco fotografico a parole e assistenti AI integrati nei messaggi</a></li><li><a href="giorni/2026-10-09.html"><small>9 ott</small>Agenti AI al centro: Google lancia, Anthropic detta regole, l&#x27;Italia si adegua</a></li></ul></main><script>const DIGEST={"titolo": "I miei preferiti", "testo": "", "url": "https://fulgei-a11y.github.io/Intelligenza-Ai/preferiti.html"};const PREFISSO="";
 function condividi(){
@@ -159,11 +166,12 @@ if('serviceWorker' in navigator){addEventListener('load',()=>navigator.serviceWo
 let filtro='tutti';
 function disegna(){
   const tutti=leggiPref(),box=document.getElementById('lista');box.innerHTML='';
-  const tipi=['tutti',...new Set(tutti.map(p=>p.tipo==='Strumento'?'Strumenti':'Novità'))];
+  const gruppo=p=>p.tipo==='Strumento'?'Strumenti':p.tipo==='OSINT'?'OSINT':'Novità';
+  const tipi=['tutti',...new Set(tutti.map(gruppo))];
   const f=document.getElementById('filtri');f.innerHTML='';
   if(tutti.length>1&&tipi.length>2){for(const t of tipi){const b=document.createElement('button');b.type='button';
     b.textContent=t==='tutti'?'Tutti':t;b.setAttribute('aria-pressed',filtro===t);b.onclick=()=>{filtro=t;disegna();};f.append(b);}}
-  const l=tutti.filter(p=>filtro==='tutti'||(filtro==='Strumenti')===(p.tipo==='Strumento'));
+  const l=tutti.filter(p=>filtro==='tutti'||gruppo(p)===filtro);
   document.getElementById('conta').textContent=tutti.length?(tutti.length===1?'1 scheda salvata':tutti.length+' schede salvate'):'';
   if(!l.length){box.innerHTML='<p class="vuoto">Nessun preferito per ora. Tocca la stellina ☆ su uno strumento o una novità e lo ritrovi qui.</p>';return;}
   for(const p of l){
