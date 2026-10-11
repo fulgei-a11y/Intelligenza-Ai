@@ -73,6 +73,11 @@ article:target,li:target{outline:2px solid var(--accent)}
 .cassetta-indice{display:flex;flex-wrap:wrap;gap:6px;margin:14px 0}
 .cassetta-indice a{font:600 13px system-ui,sans-serif;color:var(--ink);background:var(--card);border:1px solid var(--line);border-radius:999px;padding:6px 12px;text-decoration:none}
 .osint .sub a{color:inherit}
+.osint.nuovi{border-left-color:var(--accent)}.osint.nuovi h2{color:var(--accent)}
+.osint .quando a{color:inherit}.osint details.altri{margin-top:10px;font:14px system-ui,sans-serif;color:var(--muted)}
+.osint.mia h3 a{color:var(--ink);text-decoration:none}.osint.mia{border-left-color:#eab308}.osint.mia h2{color:#a16207}
+@media (prefers-color-scheme:dark){.osint.mia h2{color:#facc15}}
+.osint .quando{font:12px system-ui,sans-serif;color:var(--muted);margin:0 0 4px}.osint .vuoto{font:14px system-ui,sans-serif;color:var(--muted)}
 .agg{border:2px solid var(--accent);border-radius:16px;padding:6px 14px 10px;margin:22px -4px 0}
 .agg .tryzone{margin:12px -10px 0}
 .agg-top{font:700 15px system-ui,sans-serif;color:var(--accent);margin:10px 0 2px}
@@ -134,16 +139,31 @@ function cerca(q){
 const CHIAVE_PREF='ai-news-preferiti';
 function leggiPref(){try{return JSON.parse(localStorage.getItem(CHIAVE_PREF)||'[]')||[];}catch(e){return [];}}
 function scriviPref(l){try{localStorage.setItem(CHIAVE_PREF,JSON.stringify(l));return true;}catch(e){alertino('Il browser non permette di salvare i preferiti');return false;}}
+function schedaPref(p,pre){return (pre||'')+(p.pagina||('giorni/'+p.giorno+'.html#'+p.ancora));}
+function quandoPref(p){return (p.tipo||'')+' · '+(p.giorno?p.giorno.split('-').reverse().join('/'):'Cassetta OSINT');}
+function disegnaMieiOsint(){
+  const box=document.getElementById('mieiOsint');if(!box)return;
+  const l=leggiPref().filter(p=>p.tipo==='OSINT');box.innerHTML='';
+  if(!l.length){box.innerHTML='<p class="vuoto">Tocca la stellina ☆ su uno strumento OSINT, qui sotto o nelle edizioni del giorno, e lo ritrovi qui in cima.</p>';return;}
+  for(const p of l){
+    const a=document.createElement('article'),h=document.createElement('h3'),t=document.createElement('a'),x=document.createElement('p'),q=document.createElement('p');
+    a.className='try';q.className='quando';q.textContent=quandoPref(p);
+    t.href=schedaPref(p,PREFISSO);t.textContent=p.titolo;h.append(t);x.textContent=p.testo||'';a.append(q,h,x);
+    if(p.link){const pr=document.createElement('a');pr.className='prova';pr.href=p.link;pr.target='_blank';pr.rel='noopener';pr.textContent='Apri ↗';a.append(pr);}
+    box.append(a);
+  }
+}
 function aggiornaStelle(){
   const ids=new Set(leggiPref().map(p=>p.id));
   document.querySelectorAll('.stella').forEach(b=>{const on=ids.has(b.dataset.id);b.setAttribute('aria-pressed',on);
     b.textContent=on?'★':'☆';b.title=on?'Togli dai preferiti':'Aggiungi ai preferiti';b.setAttribute('aria-label',b.title);});
   const n=document.getElementById('nPref');if(n)n.textContent=ids.size?'('+ids.size+')':'';
+  disegnaMieiOsint();
 }
 function stella(b){
   let l=leggiPref();const d=b.dataset;
   if(l.some(p=>p.id===d.id)){l=l.filter(p=>p.id!==d.id);if(scriviPref(l))alertino('Tolto dai preferiti');}
-  else{l.unshift({id:d.id,titolo:d.titolo,testo:d.testo,giorno:d.giorno,ancora:d.ancora,link:d.link,tipo:d.tipo,
+  else{l.unshift({id:d.id,titolo:d.titolo,testo:d.testo,giorno:d.giorno,ancora:d.ancora,link:d.link,tipo:d.tipo,pagina:d.pagina||'',
     salvato:new Date().toISOString().slice(0,10)});if(scriviPref(l))alertino('⭐ Aggiunto ai preferiti');}
   aggiornaStelle();
 }

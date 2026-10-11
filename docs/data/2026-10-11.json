@@ -166,6 +166,17 @@
    "solo_titolo": false,
    "categoria": "Strumenti",
    "id": "u3a15"
+  },
+  "u4a18": {
+   "titolo": "How to use Tripadvisor’s AI-powered assistant to create a travel itinerary",
+   "link": "https://news.google.com/rss/articles/CBMijwFBVV95cUxPdmJBcldDWHFzd2VwM1gzVUxmX0hWNDNQS3lxT3pWNWRTMVRpZHJuRGROa21hQWotaTF2ZEdDMFN3QlVDaUVnYnVXUUVWbW12bHRfaUx5NEw3a3dtVEtwUVFWUDUwU1lKcGY1TWlubW5GaGhpVEhFM0tsZ1JRVU0taTNpa0JKdm1jOGV0YTVtTQ?oc=5",
+   "data": "2026-10-11T09:00:00+00:00",
+   "testo": "",
+   "fonte": "Mashable",
+   "tipo": "testata",
+   "solo_titolo": true,
+   "categoria": "Strumenti",
+   "id": "u4a18"
   }
  },
  "fonti": [
@@ -266,7 +277,7 @@
   }
  ],
  "audio": "audio/2026-10-11.mp3",
- "durata": 114.3,
+ "durata": 134.4,
  "aggiornamenti": [
   {
    "generato": "2026-10-11T10:01:17+00:00",
@@ -359,6 +370,37 @@
     ],
     "osint": [],
     "sezioni": [],
+    "formato": 2
+   }
+  },
+  {
+   "generato": "2026-10-11T12:03:14+00:00",
+   "modello": "gemini-2.5-flash",
+   "testi_completi": 0,
+   "riassunto": {
+    "titolo_giorno": "Tripadvisor integra l'AI per i tuoi viaggi",
+    "in_breve": "La novità di oggi è l'introduzione di un assistente AI direttamente su Tripadvisor, che promette di semplificare la pianificazione dei viaggi. Questo mostra come l'intelligenza artificiale stia diventando sempre più un aiuto concreto nelle attività quotidiane, anche per organizzare le vacanze.",
+    "da_provare": [],
+    "osint": [],
+    "sezioni": [
+     {
+      "titolo": "Novità negli strumenti che già usi",
+      "notizie": [
+       {
+        "titolo": "Tripadvisor integra l'assistente AI per creare itinerari di viaggio",
+        "strumento": "Tripadvisor",
+        "riassunto": "Tripadvisor ha introdotto un assistente basato sull'AI che aiuta gli utenti a creare itinerari di viaggio personalizzati, suggerendo attività e luoghi da visitare.",
+        "come_provarla": "",
+        "disponibilita": "Non indicato",
+        "fonti": [
+         "u4a18"
+        ],
+        "affidabilita": "Una fonte",
+        "solo_titoli": true
+       }
+      ]
+     }
+    ],
     "formato": 2
    }
   }
@@ -490,6 +532,9 @@
   "ukrainianforcestargetdroneportinoryolregion",
   "osirisailiveildashboardosintopensourcechefadiscutere",
   "phishingaziendaleperchéidipendentiformaticliccanocomunque",
-  "informaticaforenseagenovailfuturodelleprovedigitalitraaiedeepfake"
+  "informaticaforenseagenovailfuturodelleprovedigitalitraaiedeepfake",
+  "assist",
+  "howtousetripadvisorsaipoweredassistanttocreateatravelitinerary",
+  "anthropicsclaudeaisubmitsfakemurdetip"
  ]
 }
