@@ -412,7 +412,10 @@ REGOLE SUI FATTI (tassative)
 5. Se ricevi l'elenco "GIÀ SEGNALATI DI RECENTE", non riproporre quegli strumenti e quelle novità, a meno
    che oggi ci sia uno sviluppo nuovo e concreto (es. arriva in Italia, diventa gratis): in quel caso
    racconta SOLO la novità.
-6. Scrivi chiaro, frasi brevi, niente gergo; spiega ogni termine tecnico in poche parole.
+6. "titolo_giorno" e "presentazione" possono nominare SOLO strumenti o novità che hai messo in una delle liste
+   (strumenti_nuovi, osint, novita_strumenti, in_breve). Mai citare qualcosa che non ha la sua scheda.
+   Elenca in "citati" i nomi che hai usato.
+7. Scrivi chiaro, frasi brevi, niente gergo; spiega ogni termine tecnico in poche parole.
    Scrivi sempre "AI" (mai "IA"), salvo nei nomi propri.
 
 COSA SCEGLIERE
@@ -469,6 +472,7 @@ Rispondi SOLO con JSON valido:
 {
   "titolo_giorno": "titolo breve e concreto, centrato sullo strumento o la novità più utile del giorno",
   "presentazione": "2-3 frasi: lo strumento più interessante di oggi, cosa dice di dove va l'AI e come sfruttarlo. Niente frasi sulla rassegna stessa",
+  "citati": ["nomi esatti degli strumenti o servizi nominati in titolo_giorno e presentazione"],
   "strumenti_nuovi": [
     {"cosa": "nome dello strumento", "a_cosa_serve": "1-2 frasi con un esempio concreto",
      "per_chi": "Lavoro / Tutti i giorni / Lavoro e tutti i giorni / Studio",
@@ -543,6 +547,7 @@ def normalizza_risposta(r):
         sezioni.append({"titolo": SEZ_BREVE, "breve": True, "notizie": brevi})
     return {"titolo_giorno": r.get("titolo_giorno", ""),
             "in_breve": r.get("presentazione") or (r.get("in_breve") if isinstance(r.get("in_breve"), str) else ""),
+            "citati": r.get("citati", []) or [],
             "da_provare": r.get("strumenti_nuovi", []) or [], "osint": r.get("osint", []) or [],
             "sezioni": sezioni, "formato": 2}
 
@@ -681,6 +686,56 @@ ACCUSE = re.compile(
 
 def verifica(riassunto, per_id):
     """Scarta tutto ciò che non cita articoli realmente letti e applica le regole di affidabilità."""
+    proposti = [d.get("cosa", "") for d in riassunto.get("da_provare", []) + (riassunto.get("osint") or [])]
+    proposti += [n.get("titolo", "") for s in riassunto.get("sezioni", []) for n in s.get("notizie", [])]
+    riassunto = _verifica(riassunto, per_id)
+    return controlla_presentazione(riassunto, proposti)
+
+
+SIGLE_NOTE = {"AI", "IA", "OSINT", "GDPR", "API", "PDF", "USA", "UE", "EU", "LLM", "APP", "WEB", "PC", "IOS", "GPS",
+              "SMS", "OCR", "FAQ", "CEO", "ANSA", "NASA", "NATO", "ONU", "AGI", "RAG", "GPT", "VPN"}
+
+
+def _norm(t):
+    return re.sub(r"\W+", "", (t or "").lower())
+
+
+def controlla_presentazione(riassunto, proposti=()):
+    """Il titolo e la presentazione devono parlare solo di ciò che ha una scheda. Se nominano qualcosa che è stato
+    scartato o che non c'è (es. «OSIRIS AI LIVE» citato senza scheda), vengono riscritti a partire dalle schede."""
+    if riassunto.get("formato") != 2:
+        return riassunto
+    tools = riassunto.get("da_provare", []) + riassunto.get("osint", [])
+    notizie = [n for s in riassunto.get("sezioni", []) for n in s.get("notizie", [])]
+    tenuti = [d.get("cosa", "") for d in tools] + [n.get("titolo", "") for n in notizie] + \
+             [n.get("strumento", "") for n in notizie]
+    testo_tenuti = _norm(" ".join(tenuti + [d.get("a_cosa_serve", "") for d in tools] +
+                                  [n.get("riassunto", "") for n in notizie]))
+    vetrina = f"{riassunto.get('titolo_giorno', '')} {riassunto.get('in_breve', '')}"
+    problemi = [p for p in proposti if p and _norm(p) not in _norm(" ".join(tenuti)) and _norm(p) in _norm(vetrina)]
+    problemi += [c for c in riassunto.get("citati", []) or [] if _norm(c) and _norm(c) not in testo_tenuti]
+    problemi += [m for m in re.findall(r"\b[A-Z][A-Z0-9]{3,}(?:\s+[A-Z][A-Z0-9]+)*\b", vetrina)
+                 if not set(m.split()) <= SIGLE_NOTE and _norm(m) not in testo_tenuti]
+    if not problemi:
+        return riassunto
+    print(f"  ✎ presentazione riscritta: nominava {', '.join(dict.fromkeys(problemi))} senza scheda")
+    nomi = [d.get("cosa", "") for d in tools] or [n.get("titolo", "") for n in notizie]
+    if not nomi:
+        riassunto["titolo_giorno"], riassunto["in_breve"] = "Le novità AI di oggi", ""
+        return riassunto
+    riassunto["titolo_giorno"] = ("Novità di oggi: " + ", ".join(nomi[:2])
+                                  + (f" e altri {len(nomi) - 2}" if len(nomi) > 2 else ""))
+    frasi = []
+    for d in tools[:2]:
+        primo = re.split(r"(?<=[.!?])\s", d.get("a_cosa_serve", "").strip())[0]
+        frasi.append(f"{d.get('cosa', '')}: {primo}" if primo else d.get("cosa", ""))
+    if not frasi:
+        frasi = [f"{n.get('titolo', '')}." for n in notizie[:2]]
+    riassunto["in_breve"] = " ".join(f if f.endswith((".", "!", "?")) else f + "." for f in frasi)
+    return riassunto
+
+
+def _verifica(riassunto, per_id):
     sezioni = []
     for s in riassunto.get("sezioni", []):
         titolo_s = s.get("titolo", "").strip()
@@ -887,6 +942,21 @@ article:target,li:target{outline:2px solid var(--accent)}
 .osint{background:var(--chip);border-radius:16px;padding:4px 16px 12px;margin:28px -4px 0;border-left:4px solid #0f766e}
 .osint h2{color:#0f766e;border-bottom:none;margin:18px 0 0;font-size:16px}.osint .try{border-left-color:#0f766e}
 @media (prefers-color-scheme:dark){.osint h2{color:#5eead4}.osint{border-left-color:#5eead4}.osint .try{border-left-color:#5eead4}}
+.metodo{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:4px 18px 10px;margin:18px 0}
+.metodo h2{border:0;margin:14px 0 6px;color:var(--ink)}.metodo ol{margin:0;padding-left:20px;font-size:15px}.metodo li{margin:6px 0}
+.griglia{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:8px}
+.griglia a{display:flex;flex-direction:column;gap:2px;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:10px 12px;
+  color:var(--ink);text-decoration:none;font:600 14px/1.3 system-ui,sans-serif}
+.griglia a span{font-size:20px}.griglia small{font-weight:400;color:var(--muted);font-size:12px}
+.griglia a.nuovi{border-color:var(--accent)}
+.cat{margin-top:8px}.consiglio{font:14px system-ui,sans-serif;color:var(--muted);margin:0 0 6px}
+.riga{position:relative;padding:12px 52px 12px 0;border-bottom:1px solid var(--line);background:none;border-radius:0;margin:0;border-left:0;border-right:0;border-top:0}
+.riga h3{font-size:17px;margin:0 0 2px}.riga h3 a{color:var(--ink);text-decoration:none}
+.riga p{margin:2px 0;font-size:15px}.riga .dove{margin:6px 0 0}.riga .stella{top:10px;right:0}
+.riga .nota{font:13px system-ui,sans-serif;color:#b45309}
+.costo{font:600 12px system-ui,sans-serif;border-radius:6px;padding:3px 8px}
+.costo.gratis{background:#dcfce7;color:#15803d}.costo.limiti{background:#fef3c7;color:#92400e}.costo.pagamento{background:#fee2e2;color:#991b1b}
+@media (prefers-color-scheme:dark){.costo.gratis{background:#14532d;color:#86efac}.costo.limiti{background:#451a03;color:#fcd34d}.costo.pagamento{background:#450a0a;color:#fca5a5}}
 .cassetta-indice{display:flex;flex-wrap:wrap;gap:6px;margin:14px 0}
 .cassetta-indice a{font:600 13px system-ui,sans-serif;color:var(--ink);background:var(--card);border:1px solid var(--line);border-radius:999px;padding:6px 12px;text-decoration:none}
 .osint .sub a{color:inherit}
@@ -895,6 +965,14 @@ article:target,li:target{outline:2px solid var(--accent)}
 .osint.mia h3 a{color:var(--ink);text-decoration:none}.osint.mia{border-left-color:#eab308}.osint.mia h2{color:#a16207}
 @media (prefers-color-scheme:dark){.osint.mia h2{color:#facc15}}
 .osint .quando{font:12px system-ui,sans-serif;color:var(--muted);margin:0 0 4px}.osint .vuoto{font:14px system-ui,sans-serif;color:var(--muted)}
+.menu{display:flex;gap:4px;overflow-x:auto;margin:-12px -16px 18px;padding:10px 16px;border-bottom:1px solid var(--line);
+  position:sticky;top:0;background:var(--bg);z-index:5;scrollbar-width:none}
+.menu::-webkit-scrollbar{display:none}
+.menu a{flex:none;font:600 14px system-ui,sans-serif;color:var(--muted);text-decoration:none;padding:7px 11px;border-radius:999px}
+.menu a[aria-current]{color:var(--ink);background:var(--chip)}
+.when a{color:inherit}.agg.vuota{border-style:dashed;border-width:1px}
+.agg h2{margin-top:22px}.agg .quando,.try .quando{font:12px system-ui,sans-serif;color:var(--muted);margin:0 0 4px}
+.brevi small{font:12px system-ui,sans-serif;color:var(--muted)}
 .agg{border:2px solid var(--accent);border-radius:16px;padding:6px 14px 10px;margin:22px -4px 0}
 .agg .tryzone{margin:12px -10px 0}
 .agg-top{font:700 15px system-ui,sans-serif;color:var(--accent);margin:10px 0 2px}
@@ -910,6 +988,7 @@ article{position:relative}article .tags{padding-right:40px}
 .filtri{display:flex;gap:6px;flex-wrap:wrap;margin:8px 0}.filtri button{font:600 13px system-ui,sans-serif;border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:999px;padding:6px 12px;cursor:pointer}
 .filtri button[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:#fff}
 @media print{.osint{break-inside:auto}}
+@media print{.menu{display:none!important}}
 @media print{.listen,.week,.cerca,.risultati,.glossario,.prova,.stella,.vaipref,.togli,.filtri{display:none!important}}
 """
 
@@ -1006,6 +1085,22 @@ def chips(ids, per_id):
     return '<div class="src">' + "".join(out) + "</div>"
 
 
+ULTIMA_SETTIMANA = None   # (giorno, titolo) dell'ultima "Settimana dell'AI", impostata da rigenera_tutto()
+
+
+def menu(prefisso, attivo=""):
+    """Barra di navigazione comune a tutte le pagine (separata dai pulsanti di azione)."""
+    voci = [("oggi", f"{prefisso}index.html", "📰 Oggi"),
+            ("preferiti", f"{prefisso}preferiti.html", '⭐ Preferiti <span id="nPref"></span>'),
+            ("osint", f"{prefisso}cassetta-osint.html", "🧰 OSINT")]
+    if ULTIMA_SETTIMANA:
+        voci.append(("settimana", f"{prefisso}settimana/{ULTIMA_SETTIMANA[0]}.html", "📅 Settimana"))
+    voci.append(("archivio", "#archivio", "🗂️ Archivio"))
+    return ('<nav class="menu" aria-label="Sezioni del sito">'
+            + "".join(f'<a href="{h}"{" aria-current=page" if k == attivo else ""}>{t}</a>' for k, h, t in voci)
+            + "</nav>")
+
+
 def stella(fid, titolo, testo, giorno, ancora, link="", tipo="", pagina=""):
     """Pulsante ☆ per salvare la scheda nei Preferiti (salvati nel browser di chi legge).
     `pagina` serve alle schede fuori dalle edizioni (es. "cassetta-osint.html#t3")."""
@@ -1078,7 +1173,7 @@ def archivio_html(archivio, prefisso):
         return ""
     voci = "".join(f'<li><a href="{prefisso}giorni/{g}.html"><small>{e(data_breve(g))}</small>{e(t)}</a></li>'
                    for g, t in archivio[:60])
-    return ('<h2>Archivio</h2>'
+    return ('<h2 id="archivio">Archivio</h2>'
             '<input class="cerca" type="search" placeholder="🔎 Cerca nelle edizioni passate…" '
             'aria-label="Cerca nell\'archivio" oninput="cerca(this.value)" onfocus="caricaIndice()">'
             '<ul class="risultati" id="risultati" aria-live="polite"></ul>'
@@ -1147,6 +1242,68 @@ def scheda_strumento(d, per_id, giorno, ancora, tipo, nuovo_formato=True, etiche
             f"{come}{prova}{chips(d['fonti'], per_id)}</article>")
 
 
+def scheda_notizia(n, per_id, giorno, ancora, breve=False, ora=""):
+    """Una notizia: riga breve (sezione "In breve") o scheda completa con stellina."""
+    if breve:
+        return (f'<li id="{ancora}">{f"<small>🕐 {e(ora)}</small> " if ora else ""}<b>{e(n["titolo"])}.</b> '
+                f"{e(n.get('riassunto'))} {chips(n['fonti'][:2], per_id)}</li>")
+    perche = (f'<p class="why"><b>Perché conta:</b> {e(n["perche_conta"])}</p>'
+              if n.get("perche_conta") else "")
+    if n.get("come_provarla"):
+        perche += f'<p class="why"><b>Come provarla:</b> {e(n["come_provarla"])}</p>'
+    extra = "".join(f'<span class="tag">{e(t)}</span>'
+                    for t in (n.get("strumento"), n.get("disponibilita")) if utile(t))
+    pref = stella(f"{giorno}#{ancora}", n.get("titolo", ""), n.get("riassunto", ""), giorno,
+                  ancora, "", n.get("strumento") or "Novità")
+    quando = f'<p class="quando">🕐 ore {e(ora)}</p>' if ora else ""
+    return (f'<article id="{ancora}">{pref}{quando}<div class="tags">{badge(n.get("affidabilita", ""), n.get("solo_titoli"))}'
+            f"{extra}</div><h3>{e(n['titolo'])}</h3><p>{e(n.get('riassunto'))}</p>"
+            f"{perche}{chips(n['fonti'], per_id)}</article>")
+
+
+def blocco_aggiornamenti(aggiornamenti, per_id, giorno, prefisso, ora_mattino):
+    """Un solo riquadro con TUTTI gli aggiornamenti della giornata, divisi per tipo, ogni scheda con la sua ora."""
+    if not aggiornamenti:
+        return []
+    strumenti, osint, novita, brevi = [], [], [], []
+    for i in range(len(aggiornamenti), 0, -1):           # dal più recente
+        u = aggiornamenti[i - 1]
+        ru, ora = u.get("riassunto") or {}, ora_di(u.get("generato"))
+
+        def con_ora(h, ora=ora):
+            return h.replace('<div class="tags">', f'<p class="quando">🕐 ore {e(ora)}</p><div class="tags">', 1)
+        for j, d in enumerate(ru.get("da_provare", []), 1):
+            strumenti.append(con_ora(scheda_strumento(d, per_id, giorno, f"u{i}p{j}", "Strumento", True)))
+        for j, d in enumerate(ru.get("osint", []) or [], 1):
+            osint.append(con_ora(scheda_strumento(d, per_id, giorno, f"u{i}o{j}", "OSINT", True, etichette=[
+                d.get("uso"), d.get("costo") or "Costo non indicato", d.get("difficolta")])))
+        k = 0
+        for s in ru.get("sezioni", []):
+            for n in s.get("notizie", []):
+                k += 1
+                if s.get("breve"):
+                    brevi.append(scheda_notizia(n, per_id, giorno, f"u{i}n{k}", True, ora))
+                else:
+                    novita.append(scheda_notizia(n, per_id, giorno, f"u{i}n{k}", False, ora))
+    ultima = ora_di(aggiornamenti[-1].get("generato"))
+    sotto = (f"Solo ciò che è uscito dopo l'edizione del mattino{f' ({e(ora_mattino)})' if ora_mattino else ''}. "
+             f"Ultimo controllo alle {e(ultima)}.")
+    if not (strumenti or osint or novita or brevi):
+        return [f'<section class="agg vuota" id="aggiornamenti"><p class="agg-top">🆕 Aggiornamenti di oggi</p>'
+                f'<p class="sub">{sotto} Nessuna novità rispetto a stamattina.</p></section>']
+    parti = [f'<section class="agg" id="aggiornamenti"><p class="agg-top">🆕 Aggiornamenti di oggi</p><p class="sub">{sotto}</p>']
+    if strumenti:
+        parti += ['<h2>🧪 Strumenti nuovi</h2>'] + strumenti
+    if osint:
+        parti += ['<h2>🔎 Strumenti OSINT</h2>'] + osint
+    if novita:
+        parti += [f'<h2>{e(SEZ_NOVITA)}</h2>'] + novita
+    if brevi:
+        parti += [f'<h2>{e(SEZ_BREVE)}</h2><ul class="brevi">'] + brevi + ["</ul>"]
+    parti.append("</section>")
+    return parti
+
+
 def contenuto(r, per_id, giorno, pre="", prefisso=""):
     """Strumenti, novità e "In breve" di un'edizione. `pre` distingue gli aggiornamenti (es. "u1")."""
     parti = []
@@ -1181,22 +1338,7 @@ def contenuto(r, per_id, giorno, pre="", prefisso=""):
             parti.append('<ul class="brevi">')
         for n in s["notizie"]:
             k += 1
-            ancora = f"{pre}n{k}"
-            if breve:
-                parti.append(f'<li id="{ancora}"><b>{e(n["titolo"])}.</b> {e(n.get("riassunto"))} '
-                             f"{chips(n['fonti'][:2], per_id)}</li>")
-                continue
-            perche = (f'<p class="why"><b>Perché conta:</b> {e(n["perche_conta"])}</p>'
-                      if n.get("perche_conta") else "")
-            if n.get("come_provarla"):
-                perche += f'<p class="why"><b>Come provarla:</b> {e(n["come_provarla"])}</p>'
-            extra = "".join(f'<span class="tag">{e(t)}</span>'
-                            for t in (n.get("strumento"), n.get("disponibilita")) if utile(t))
-            pref = stella(f"{giorno}#{ancora}", n.get("titolo", ""), n.get("riassunto", ""), giorno,
-                          ancora, "", n.get("strumento") or "Novità")
-            parti.append(f'<article id="{ancora}">{pref}<div class="tags">{badge(n.get("affidabilita", ""), n.get("solo_titoli"))}'
-                         f"{extra}</div><h3>{e(n['titolo'])}</h3><p>{e(n.get('riassunto'))}</p>"
-                         f"{perche}{chips(n['fonti'], per_id)}</article>")
+            parti.append(scheda_notizia(n, per_id, giorno, f"{pre}n{k}", breve))
         if breve:
             parti.append("</ul>")
     return parti
@@ -1213,11 +1355,16 @@ def pagina(dati, archivio, prefisso, settimana=None):
     ora_mattino = ora_di(dati.get("generato"))
     ultima_ora = ora_di(aggiornamenti[-1].get("generato")) if aggiornamenti else ora_mattino
     orari = " e le ".join(orari_italiani(giorno))
-    quando = f"Aggiornato alle {ultima_ora}" if ultima_ora else ""
+    quando = ""
+    if ora_mattino:
+        quando = f"Edizione delle {ora_mattino}"
+        if aggiornamenti and ultima_ora != ora_mattino:
+            quando += f' · <a href="#aggiornamenti">aggiornata alle {ultima_ora}</a>'
     if prefisso == "":
         # Solo nella pagina di oggi: il prossimo aggiornamento (calcolato dal browser, vedi prossimo() nel JS)
         quando += (f' · <span id="prossimo">aggiornamenti ogni giorno verso le {e(orari)}</span>')
-    parti = [f'<p class="top">AI News Digest · {e(data_it)}</p>',
+    parti = [menu(prefisso, "oggi" if prefisso == "" else "archivio"),
+             f'<p class="top">AI News Digest · {e(data_it)}</p>',
              f"<h1>{e(r.get('titolo_giorno'))}</h1>",
              f'<p class="when">🕖 {quando}</p>' if quando else "",
              f'<p class="lead">{e(r.get("in_breve"))}</p>']
@@ -1230,27 +1377,15 @@ def pagina(dati, archivio, prefisso, settimana=None):
     parti.append('<div class="share">'
                  '<button type="button" onclick="condividi()">📤 Condividi</button>'
                  '<button type="button" onclick="copiaWhatsApp(this)">💬 Copia per WhatsApp</button>'
-                 '<button type="button" onclick="window.print()">📄 Salva PDF</button>'
-                 f'<a class="vaipref" href="{prefisso}preferiti.html">⭐ Preferiti <span id="nPref"></span></a>'
-                 f'<a class="vaipref" href="{prefisso}cassetta-osint.html">🧰 Cassetta OSINT</a></div>')
+                 '<button type="button" onclick="window.print()">📄 Salva PDF</button></div>')
     if settimana:
         parti.append(f'<a class="week" href="{prefisso}settimana/{settimana[0]}.html">'
                      f'<small>📅 La settimana dell\'AI</small><b>{e(settimana[1])}</b> →</a>')
-    # Gli aggiornamenti del pomeriggio/sera stanno in cima: solo le novità rispetto al mattino.
-    for i in range(len(aggiornamenti), 0, -1):
-        u = aggiornamenti[i - 1]
-        ora = ora_di(u.get("generato"))
-        ru = u.get("riassunto") or {}
-        corpo = contenuto(ru, per_id, dati["giorno"], f"u{i}", prefisso) if ru else []
-        if not corpo and (i != len(aggiornamenti) or any(x.get("riassunto") for x in aggiornamenti)):
-            continue                       # "nessuna novità" solo se finora non ce n'è stata nessuna
-        intro = ru.get("in_breve") if corpo else ("Nessuna novità rispetto a stamattina: ci rivediamo al prossimo "
-                                                    "aggiornamento.")
-        parti.append(f'<section class="agg" id="u{i}"><p class="agg-top">🆕 Aggiornamento delle {e(ora)}</p>'
-                     f'<p class="sub">Solo le novità uscite dopo l\'edizione del mattino{f" ({e(ora_mattino)})" if ora_mattino else ""}.</p>'
-                     + (f'<p class="lead">{e(intro)}</p>' if intro else "") + "".join(corpo) + "</section>")
-    if aggiornamenti:
-        parti.append(f'<p class="agg-top mattino">☀️ Edizione del mattino{f" · {e(ora_mattino)}" if ora_mattino else ""}</p>')
+    # Tutti gli aggiornamenti della giornata in un solo riquadro, sopra l'edizione del mattino.
+    blocco = blocco_aggiornamenti(aggiornamenti, per_id, dati["giorno"], prefisso, ora_mattino)
+    parti += blocco
+    if blocco:
+        parti.append(f'<p class="agg-top mattino">☀️ Edizione del mattino{f" · ore {e(ora_mattino)}" if ora_mattino else ""}</p>')
     parti += contenuto(r, per_id, dati["giorno"], "", prefisso)
     parti.append(glossario_html([r] + [u.get("riassunto") or {} for u in aggiornamenti]))
     parti.append(archivio_html(archivio, prefisso))
@@ -1278,7 +1413,8 @@ def pagina_settimana(w, archivio):
     fine = datetime.strptime(w["giorno"], "%Y-%m-%d")
     inizio = fine - timedelta(days=6)
     periodo = f"dal {inizio.day} {MESI_IT[inizio.month - 1]} al {fine.day} {MESI_IT[fine.month - 1]} {fine.year}"
-    parti = [f'<p class="top">La settimana dell\'AI · {e(periodo)}</p>',
+    parti = [menu(prefisso, "settimana"),
+             f'<p class="top">La settimana dell\'AI · {e(periodo)}</p>',
              f"<h1>{e(w.get('titolo'))}</h1>",
              f'<p class="lead">{e(w.get("in_breve"))}</p>',
              '<div class="share">'
@@ -1308,7 +1444,6 @@ def pagina_settimana(w, archivio):
         blocco_notizie.append(f"<article><h3>{i}. {e(n.get('titolo'))}</h3><p>{e(n.get('racconto'))}</p>"
                               f'{perche}<div class="src">{link}</div></article>')
     parti += (blocco_prove + blocco_notizie) if nuovo else (blocco_notizie + blocco_prove)
-    parti.append(f'<p class="meta"><a href="{prefisso}index.html">← Torna all\'edizione di oggi</a></p>')
     parti.append(archivio_html(archivio, prefisso))
     url_pagina = indirizzo_sito() + f"settimana/{w['giorno']}.html"
     righe = [f"📅 *La settimana dell'AI* · {periodo}", "", f"*{w.get('titolo', '')}*", w.get("in_breve", ""), ""]
@@ -1364,11 +1499,10 @@ addEventListener('pageshow',disegna);
 
 def pagina_preferiti(archivio):
     url_pagina = indirizzo_sito() + "preferiti.html"
-    parti = ['<p class="top">AI News Digest</p>', "<h1>⭐ I miei preferiti</h1>",
+    parti = [menu("", "preferiti"), '<p class="top">AI News Digest</p>', "<h1>⭐ I miei preferiti</h1>",
              '<p class="lead">Gli strumenti e le novità che hai segnato con la stellina, per ritrovarli quando ti servono.</p>',
              '<p class="meta" id="conta"></p>',
-             '<div class="share"><button type="button" onclick="copiaPreferiti(this)">💬 Copia elenco per WhatsApp</button>'
-             '<a class="vaipref" href="index.html">← Edizione di oggi</a></div>',
+             '<div class="share"><button type="button" onclick="copiaPreferiti(this)">💬 Copia elenco per WhatsApp</button></div>',
              '<div class="filtri" id="filtri"></div><section class="pref" id="lista"></section>',
              '<p class="meta">I preferiti restano salvati in questo browser, su questo dispositivo. '
              'Se cancelli i dati di navigazione o usi la navigazione privata non vengono conservati.</p>']
@@ -1398,69 +1532,87 @@ def nuovi_arrivi(edizioni, cassetta):
     return out
 
 
+METODO_OSINT = [
+    ("1", "La domanda", "Scrivi in una riga cosa vuoi verificare: «questa foto è di oggi?», «questa ditta esiste?»."),
+    ("2", "Le fonti", "Parti dalle fonti ufficiali e primarie (registri, siti delle aziende, l'originale di una foto)."),
+    ("3", "L'incrocio", "Nessuno strumento basta da solo: conferma ogni dato con almeno due strumenti diversi."),
+    ("4", "Le prove", "Salva pagine e risultati con data e ora (archive.today, Hunchly): domani potrebbero sparire."),
+]
+
+
+def riga_strumento(t, prefisso=""):
+    """Riga compatta per uno strumento consolidato della cassetta."""
+    ancora = "t" + re.sub(r"\W+", "-", t["nome"].lower()).strip("-")
+    pref = stella(f"cassetta#{ancora}", t["nome"], t.get("descrizione", ""), "", ancora, t["url"], "OSINT",
+                  f"cassetta-osint.html#{ancora}")
+    dove = "".join(f'<span class="pf{" si" if x.startswith("✓") else " solo" if x.startswith("Solo") else ""}">'
+                   f'{e(x)}</span>' for x in etichette_piattaforma(t))
+    costo = t.get("costo", "")
+    classe_costo = "gratis" if costo == "Gratis" else "pagamento" if costo == "A pagamento" else "limiti"
+    info = f'<span class="costo {classe_costo}">{e(costo)}</span>' if costo else ""
+    if t.get("difficolta") and t["difficolta"] != "Facile":
+        info += f'<span class="pf">{e(t["difficolta"])}</span>'
+    nota = f'<p class="nota">⚠️ {e(t["nota"])}</p>' if t.get("nota") else ""
+    return (f'<article class="riga" id="{ancora}">{pref}'
+            f'<h3><a href="{e(t["url"])}" target="_blank" rel="noopener">{e(t["nome"])} ↗</a></h3>'
+            f'<p>{e(t.get("descrizione"))}</p>{nota}<div class="dove">{dove}{info}</div></article>')
+
+
 def pagina_cassetta(cassetta, archivio, edizioni=()):
-    """Pagina con gli strumenti OSINT consolidati (fissi, da cassetta_osint.json) e i nuovi arrivi (automatici)."""
+    """Pagina OSINT: metodo, indice per tipo di indagine, i tuoi strumenti, i nuovi arrivi (automatici)
+    e gli strumenti consolidati (fissi, da cassetta_osint.json) in righe compatte."""
     url_pagina = indirizzo_sito() + "cassetta-osint.html"
     cat = cassetta.get("categorie", [])
     arrivi = nuovi_arrivi(edizioni, cassetta)
-    indice = ('<a href="#nuovi">🆕 Nuovi arrivi' + (f" ({len(arrivi)})" if arrivi else "") + "</a>"
-              + "".join(f'<a href="#c{i}">{e(c.get("icona", ""))} {e(c["titolo"])}</a>' for i, c in enumerate(cat, 1)))
-    parti = ['<p class="top">AI News Digest · OSINT</p>', "<h1>🧰 Cassetta degli attrezzi OSINT</h1>",
-             '<p class="lead">Gli strumenti consolidati per le indagini su fonti aperte, divisi per tipo di '
-             'indagine, con piattaforma e costo. Le novità arrivano ogni giorno nella sezione 🔎 Strumenti OSINT.</p>',
-             '<p class="meta">Usali solo per scopi leciti: sui dati delle persone vale il GDPR. Costi e condizioni '
-             f'cambiano: controlla sul sito di ciascuno. Elenco aggiornato al {e(data_breve(cassetta.get("aggiornato", "2026-10-11")))}'
-             f' {e(cassetta.get("aggiornato", "")[:4])}.</p>',
-             '<div class="share"><a class="vaipref" href="index.html">← Edizione di oggi</a>'
-             '<a class="vaipref" href="preferiti.html">⭐ Preferiti</a></div>',
-             f'<nav class="cassetta-indice">{indice}</nav>',
-             '<section class="osint mia"><h2>⭐ I tuoi strumenti OSINT</h2><p class="sub">Quelli che hai segnato con la '
-             'stellina, qui e nelle edizioni del giorno. Restano salvati su questo dispositivo.</p>'
+    totale = sum(len(c.get("strumenti", [])) for c in cat)
+    aggiornato = cassetta.get("aggiornato", "")
+    parti = [menu("", "osint"),
+             '<p class="top">AI News Digest · OSINT</p>', "<h1>🧰 Cassetta degli attrezzi OSINT</h1>",
+             f'<p class="lead">{totale} strumenti collaudati per le indagini su fonti aperte, divisi per tipo di '
+             'indagine. Sotto si aggiungono da soli i nuovi strumenti segnalati ogni giorno.</p>',
+             '<section class="metodo"><h2>Come si imposta un\'indagine</h2><ol>'
+             + "".join(f"<li><b>{e(t)}.</b> {e(d)}</li>" for _, t, d in METODO_OSINT) + "</ol></section>",
+             '<h2>Che cosa devi verificare?</h2><nav class="griglia">'
+             + "".join(f'<a href="#c{i}"><span>{e(c.get("icona", ""))}</span>{e(c["titolo"])}'
+                       f'<small>{len(c.get("strumenti", []))} strumenti</small></a>' for i, c in enumerate(cat, 1))
+             + (f'<a href="#nuovi" class="nuovi"><span>🆕</span>Nuovi arrivi<small>{len(arrivi)} strumenti</small></a>'
+                if arrivi else "") + "</nav>",
+             # si mostra solo se ci sono strumenti salvati (vedi disegnaMieiOsint nel JS)
+             '<section class="osint mia" id="mia" hidden><h2>⭐ I tuoi strumenti OSINT</h2>'
+             '<p class="sub">Quelli che hai segnato con la stellina, qui e nelle edizioni. Salvati su questo dispositivo.</p>'
              '<div id="mieiOsint"></div></section>']
-    # Nuovi arrivi: si riempie da solo con gli strumenti OSINT delle edizioni; i più vecchi restano, in fondo.
-    parti.append('<section class="osint nuovi" id="nuovi"><h2>🆕 Nuovi arrivi</h2><p class="sub">Gli strumenti '
-                 'OSINT segnalati nelle edizioni del giorno, dal più recente. Si aggiunge da solo e non cancella '
-                 'nulla. Sono novità: non ancora collaudate come quelle consolidate più sotto.</p>')
-    if not arrivi:
-        parti.append('<p class="vuoto">Ancora nessuno: appena un\'edizione segnala uno strumento OSINT, compare qui.</p>')
-    schede = []
-    for giorno, ancora, d, per_id in arrivi:
-        schede.append(scheda_strumento(d, per_id, giorno, ancora, "OSINT", True,
-                                       etichette=[d.get("uso"), d.get("costo") or "Costo non indicato",
-                                                  d.get("difficolta")])
-                      .replace('<div class="tags">', f'<p class="quando">Segnalato il {e(data_breve(giorno))} '
-                               f'{giorno[:4]} · <a href="giorni/{giorno}.html#{ancora}">vedi l\'edizione</a></p>'
-                               '<div class="tags">', 1)
-                      .replace(f'id="{ancora}"', f'id="n-{giorno}-{ancora}"', 1))
-    parti += schede[:10]
-    if len(schede) > 10:
-        parti.append(f'<details class="altri"><summary>Mostra gli altri {len(schede) - 10} nuovi arrivi</summary>'
-                     + "".join(schede[10:]) + "</details>")
-    parti.append("</section>")
-    parti.append('<p class="agg-top mattino">🧰 Gli strumenti consolidati</p>')
-    n_t = 0
     for i, c in enumerate(cat, 1):
-        parti.append(f'<section class="osint" id="c{i}"><h2>{e(c.get("icona", ""))} {e(c["titolo"])}</h2>')
+        parti.append(f'<section class="cat" id="c{i}"><h2>{e(c.get("icona", ""))} {e(c["titolo"])}</h2>')
         if c.get("consiglio"):
-            parti.append(f'<p class="sub">💡 {e(c["consiglio"])}</p>')
-        for t in c.get("strumenti", []):
-            n_t += 1
-            ancora = "t" + re.sub(r"\W+", "-", t["nome"].lower()).strip("-")
-            pref = stella(f"cassetta#{ancora}", t["nome"], t.get("descrizione", ""), "", ancora, t["url"], "OSINT",
-                          f"cassetta-osint.html#{ancora}")
-            dove = "".join(f'<span class="pf{" si" if x.startswith("✓") else " solo" if x.startswith("Solo") else ""}">'
-                           f'{e(x)}</span>' for x in etichette_piattaforma(t))
-            tag = "".join(f'<span class="tag">{e(x)}</span>' for x in (t.get("costo"), t.get("difficolta")) if x)
-            nota = f'<p class="why"><b>Attenzione:</b> {e(t["nota"])}</p>' if t.get("nota") else ""
-            parti.append(f'<article class="try" id="{ancora}">{pref}<div class="tags">{tag}</div><h3>{e(t["nome"])}</h3>'
-                         f'<div class="dove"><b>Dove si usa:</b> {dove}</div><p>{e(t.get("descrizione"))}</p>{nota}'
-                         f'<a class="prova" href="{e(t["url"])}" target="_blank" rel="noopener">Apri ↗</a></article>')
+            parti.append(f'<p class="consiglio">💡 {e(c["consiglio"])}</p>')
+        parti += [riga_strumento(t) for t in c.get("strumenti", [])]
         parti.append("</section>")
+    if arrivi:
+        parti.append('<section class="osint nuovi" id="nuovi"><h2>🆕 Nuovi arrivi</h2><p class="sub">Strumenti OSINT '
+                     'segnalati nelle edizioni del giorno, dal più recente. Si aggiungono da soli e restano. Sono '
+                     'novità: provali con prudenza, non sono ancora collaudati come quelli qui sopra.</p>')
+        schede = []
+        for giorno, ancora, d, per_id in arrivi:
+            schede.append(scheda_strumento(d, per_id, giorno, ancora, "OSINT", True,
+                                           etichette=[d.get("uso"), d.get("costo") or "Costo non indicato",
+                                                      d.get("difficolta")])
+                          .replace('<div class="tags">', f'<p class="quando">Segnalato il {e(data_breve(giorno))} '
+                                   f'{giorno[:4]} · <a href="giorni/{giorno}.html#{ancora}">vedi l\'edizione</a></p>'
+                                   '<div class="tags">', 1)
+                          .replace(f'id="{ancora}"', f'id="n-{giorno}-{ancora}"', 1))
+        parti += schede[:10]
+        if len(schede) > 10:
+            parti.append(f'<details class="altri"><summary>Mostra gli altri {len(schede) - 10} nuovi arrivi</summary>'
+                         + "".join(schede[10:]) + "</details>")
+        parti.append("</section>")
+    parti.append('<p class="meta">Usa questi strumenti solo per scopi leciti: sui dati delle persone vale il GDPR. '
+                 'Costi e condizioni cambiano, controlla sul sito di ciascuno'
+                 + (f" (elenco rivisto il {e(data_breve(aggiornato))} {e(aggiornato[:4])})" if aggiornato else "") + ".</p>")
     parti.append(archivio_html(archivio, ""))
     dati_js = json.dumps({"titolo": "Cassetta degli attrezzi OSINT", "testo": "Cassetta degli attrezzi OSINT: "
                           + url_pagina, "url": url_pagina}, ensure_ascii=False).replace("</", "<\\/")
     return (testa("AI News Digest — Cassetta degli attrezzi OSINT",
-                  "Gli strumenti OSINT consolidati, divisi per tipo di indagine, con piattaforma e costo.", url_pagina, "")
+                  "Strumenti OSINT collaudati, divisi per tipo di indagine, con piattaforma e costo.", url_pagina, "")
             + f"<body><main>{''.join(parti)}</main>" + piede("", dati_js))
 
 
@@ -1570,7 +1722,8 @@ function quandoPref(p){return (p.tipo||'')+' · '+(p.giorno?p.giorno.split('-').
 function disegnaMieiOsint(){
   const box=document.getElementById('mieiOsint');if(!box)return;
   const l=leggiPref().filter(p=>p.tipo==='OSINT');box.innerHTML='';
-  if(!l.length){box.innerHTML='<p class="vuoto">Tocca la stellina ☆ su uno strumento OSINT, qui sotto o nelle edizioni del giorno, e lo ritrovi qui in cima.</p>';return;}
+  const sez=document.getElementById('mia');if(sez)sez.hidden=!l.length;
+  if(!l.length)return;
   for(const p of l){
     const a=document.createElement('article'),h=document.createElement('h3'),t=document.createElement('a'),x=document.createElement('p'),q=document.createElement('p');
     a.className='try';q.className='quando';q.textContent=quandoPref(p);
@@ -1662,6 +1815,8 @@ def rigenera_tutto():
                                       encoding="utf-8")
 
     settimane = [x for x in (leggi_json(p) for p in sorted(SETTIMANE.glob("*.json"))) if x]
+    global ULTIMA_SETTIMANA
+    ULTIMA_SETTIMANA = (settimane[-1]["giorno"], settimane[-1].get("titolo", "")) if settimane else None
     for w in settimane:
         (SETTIMANE / f"{w['giorno']}.html").write_text(pagina_settimana(w, archivio), encoding="utf-8")
 
