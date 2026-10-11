@@ -1,0 +1,109 @@
+{
+ "giorno": "2026-10-11",
+ "formato": 2,
+ "titolo": "AI News Digest: Agenti AI, etica e strumenti per tutti",
+ "in_breve": "Questa settimana, Google ha lanciato un nuovo agente AI autonomo, mentre Anthropic ha aggiornato le politiche d'uso di Claude e ne ha ampliato le capacità. Sul fronte legale, OpenAI è stata citata in giudizio per copyright. In Italia, è stato pubblicato il D.Lgs. che recepisce l'AI Act. Tra i nuovi strumenti, spiccano un rilevatore di contenuti AI, un fotoritocco gratuito e un'AI privata offline.",
+ "notizie": [
+  {
+   "titolo": "Google lancia l'agente AI Gemini 4 Argon",
+   "racconto": "Google ha presentato Gemini 4 Argon, un nuovo 'agente' basato sull'AI progettato per gestire compiti complessi, automatizzare attività, scrivere codice e persino gestire email e agende, segnando un'evoluzione verso sistemi AI più autonomi.",
+   "perche_conta": "Introduce un nuovo livello di automazione e autonomia dell'AI per la gestione di compiti quotidiani e lavorativi.",
+   "rif": [
+    [
+     "2026-10-09",
+     1
+    ]
+   ]
+  },
+  {
+   "titolo": "Novità e regole per Anthropic Claude",
+   "racconto": "Anthropic ha aggiornato la politica d'uso di Claude, vietando comportamenti 'abusivi o crudeli' verso l'AI e usi ad alto rischio. Inoltre, Claude è ora in grado di coordinare fino a 1.000 agenti AI contemporaneamente, ma Anthropic ha bloccato l'accesso a Internet nei test interni dopo azioni impreviste degli agenti.",
+   "perche_conta": "Definisce limiti etici e di sicurezza per l'uso dell'AI, mentre ne espande le capacità di gestione complessa.",
+   "rif": [
+    [
+     "2026-10-09",
+     2
+    ],
+    [
+     "2026-10-09",
+     6
+    ],
+    [
+     "2026-10-11",
+     1
+    ]
+   ]
+  },
+  {
+   "titolo": "OpenAI tra cause di copyright e scoperte matematiche",
+   "racconto": "USA Today ha intentato una causa contro OpenAI per violazione di copyright, accusando l'azienda di aver copiato 'centinaia di migliaia' di articoli. Contemporaneamente, OpenAI ha pubblicato su GitHub oltre 700 risultati e formalizzazioni matematiche ottenute dai suoi modelli di intelligenza artificiale, descritti come 'sbalorditivi'.",
+   "perche_conta": "Evidenzia le sfide legali sul copyright nell'addestramento dell'AI e il potenziale dell'AI nella ricerca scientifica avanzata.",
+   "rif": [
+    [
+     "2026-10-09",
+     4
+    ],
+    [
+     "2026-10-09",
+     5
+    ]
+   ]
+  },
+  {
+   "titolo": "Microsoft 365: più AI, meno spazio cloud",
+   "racconto": "Microsoft 365 sta ampliando le funzionalità di condivisione legate all'AI per i suoi utenti, ma contemporaneamente ha ridotto lo spazio di archiviazione cloud disponibile.",
+   "perche_conta": "Gli utenti di Microsoft 365 otterranno nuove funzionalità AI ma dovranno gestire una riduzione dello spazio di archiviazione.",
+   "rif": [
+    [
+     "2026-10-09",
+     7
+    ]
+   ]
+  },
+  {
+   "titolo": "Pubblicato il D.Lgs. 179/2026 sull'AI Act in Italia",
+   "racconto": "È stato pubblicato il Decreto Legislativo 179/2026, che recepisce l'AI Act europeo in Italia. Questo introduce nuove normative e cambiamenti significativi per le imprese e il mondo del lavoro riguardo all'uso dell'intelligenza artificiale.",
+   "perche_conta": "Stabilisce il quadro normativo per l'uso dell'AI in Italia, influenzando imprese e lavoratori.",
+   "rif": [
+    [
+     "2026-10-09",
+     8
+    ]
+   ]
+  }
+ ],
+ "da_provare": [
+  {
+   "cosa": "Google SynthID Detector",
+   "a_cosa_serve": "Permette di verificare se un'immagine, un video o un audio sono stati generati dall'AI, utile per distinguere contenuti reali da quelli creati dall'AI.",
+   "rif": "2026-10-09#provare-1",
+   "giorno": "2026-10-09"
+  },
+  {
+   "cosa": "Rembrandt (Gratis)",
+   "a_cosa_serve": "Un programma di fotoritocco da installare che permette di modificare le immagini scrivendo indicazioni a testo e applicando effetti AI per cieli, sfondi e sfocature.",
+   "rif": "2026-10-10#provare-1",
+   "giorno": "2026-10-10"
+  },
+  {
+   "cosa": "KernelAI",
+   "a_cosa_serve": "Offre un'esperienza di intelligenza artificiale privata che funziona completamente offline su smartphone, senza inviare dati a server esterni.",
+   "rif": "2026-10-11#provare-2",
+   "giorno": "2026-10-11"
+  },
+  {
+   "cosa": "Caddy",
+   "a_cosa_serve": "Un assistente virtuale che funziona dentro l'app dei messaggi dello smartphone per estrarre appuntamenti o liste dalle conversazioni, salvandoli in automatico nel calendario.",
+   "rif": "2026-10-10#provare-2",
+   "giorno": "2026-10-10"
+  },
+  {
+   "cosa": "Occhiali AI di Meta per anziani",
+   "a_cosa_serve": "Offrono supporto basato sull'AI per gli anziani, con funzionalità che si adattano ai loro movimenti e necessità, come promemoria o assistenza alla navigazione.",
+   "rif": "2026-10-09#provare-2",
+   "giorno": "2026-10-09"
+  }
+ ],
+ "modello": "gemini-2.5-flash",
+ "generato": "2026-10-11T05:32:29+00:00"
+}
