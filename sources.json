@@ -175,6 +175,45 @@
       "url": "https://www.reddit.com/r/LocalLLaMA+LocalLLM/top/.rss?t=day&limit=25",
       "max": 5,
       "filtro_ai": true
+    },
+    {
+      "nome": "Bellingcat (guide e strumenti)",
+      "tipo": "testata",
+      "categoria": "OSINT",
+      "url": "https://www.bellingcat.com/category/resources/feed/",
+      "max": 3,
+      "ore": 168
+    },
+    {
+      "nome": "OSINT – nuovi strumenti (internazionale)",
+      "tipo": "aggregatore",
+      "categoria": "OSINT",
+      "url": "https://news.google.com/rss/search?q=OSINT+(tool+OR+tools+OR+%22new+tool%22+OR+launches+OR+released+OR+free+OR+%22browser+extension%22)+when:3d&hl=en-US&gl=US&ceid=US:en",
+      "max": 8,
+      "escludi": "stock|shares|earnings|funding|raises|valuation|IPO|arrest|sentenced|ransomware attack"
+    },
+    {
+      "nome": "OSINT – strumenti (Italia)",
+      "tipo": "aggregatore",
+      "categoria": "OSINT",
+      "url": "https://news.google.com/rss/search?q=OSINT+(strumento+OR+strumenti+OR+tool+OR+gratuito+OR+indagini)+when:7d&hl=it&gl=IT&ceid=IT:it",
+      "max": 4,
+      "ore": 168
+    },
+    {
+      "nome": "Reddit (OSINT)",
+      "tipo": "community",
+      "categoria": "OSINT",
+      "url": "https://www.reddit.com/r/OSINT/top/.rss?t=day&limit=25",
+      "max": 5
+    },
+    {
+      "nome": "Hacker News (OSINT)",
+      "tipo": "community",
+      "categoria": "OSINT",
+      "url": "https://hnrss.org/newest?q=OSINT&points=15",
+      "max": 4,
+      "ore": 72
     }
   ]
 }

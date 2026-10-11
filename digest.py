@@ -442,6 +442,18 @@ B) "novita_strumenti" — "Novità negli strumenti che già usi" (da 0 a 5)
    ESCLUDI: modelli per soli sviluppatori, prodotti per aziende (Google Cloud, Azure, AWS, "Enterprise",
    piani aziendali, agenti per i sistemi aziendali), novità riservate ai clienti business.
    Vanno bene i piani per privati (anche a pagamento) e gli strumenti per liberi professionisti.
+D) "osint" — "Strumenti OSINT" (da 0 a 4): strumenti NUOVI o aggiornati per indagini su fonti aperte, come
+   quelli usati da giornalisti investigativi, fact-checker e analisti. Solo strumenti reali e funzionanti,
+   usabili nel BROWSER (sito o estensione) o su WINDOWS. Ambiti ammessi: verifica di foto e video,
+   geolocalizzazione di immagini, metadati di file, archivi web, domini e siti, aziende e registri pubblici,
+   navi e aerei, immagini satellitari, analisi di documenti, mappe e dati aperti.
+   ESCLUDI SEMPRE: strumenti per cercare, schedare o localizzare persone private (ricerca persone, numeri di
+   telefono, riconoscimento facciale, profili social di un individuo), spyware e app per spiare, raccolta di
+   password o dati rubati, strumenti di intrusione. In caso di dubbio, escludi.
+   Per ognuno: "uso" (2-4 parole, es. "Verifica immagini", "Geolocalizzazione", "Aziende e registri"),
+   "costo" (Gratis / Gratis con limiti / A pagamento / Non indicato), "piattaforme", "come_sfruttarla"
+   (un esempio di indagine lecita, es. "Verificare se una foto virale è davvero di oggi"). Se uno strumento
+   si usa solo da riga di comando, scrivi "difficolta": "Per esperti". Se oggi non c'è nulla, lista vuota.
 C) "in_breve" — DA 0 A 3, spesso 0. Solo notizie che cambiano qualcosa per chi USA l'AI in Italia:
    - una legge o regola che cambia cosa si può usare (es. AI Act, Garante privacy);
    - un rischio concreto per gli utenti (truffe con l'AI, falle di sicurezza in app diffuse, deepfake);
@@ -470,6 +482,10 @@ Rispondi SOLO con JSON valido:
     {"strumento": "ChatGPT", "titolo": "...", "cosa_cambia": "2-3 frasi pratiche",
      "come_provarla": "1 frase, solo se le fonti lo dicono, altrimenti stringa vuota",
      "disponibilita": "Disponibile ora / In arrivo / Non in Italia / Non indicato", "fonti": ["a5"]}
+  ],
+  "osint": [
+    {"cosa": "nome", "a_cosa_serve": "1-2 frasi", "uso": "Verifica immagini", "piattaforme": ["Browser"],
+     "costo": "Gratis", "difficolta": "Facile / Media / Per esperti", "come_sfruttarla": "1 frase", "fonti": ["a7"]}
   ],
   "in_breve": [
     {"titolo": "...", "frase": "1 frase", "fonti": ["a9"]}
@@ -524,7 +540,8 @@ def normalizza_risposta(r):
         sezioni.append({"titolo": SEZ_BREVE, "breve": True, "notizie": brevi})
     return {"titolo_giorno": r.get("titolo_giorno", ""),
             "in_breve": r.get("presentazione") or (r.get("in_breve") if isinstance(r.get("in_breve"), str) else ""),
-            "da_provare": r.get("strumenti_nuovi", []) or [], "sezioni": sezioni, "formato": 2}
+            "da_provare": r.get("strumenti_nuovi", []) or [], "osint": r.get("osint", []) or [],
+            "sezioni": sezioni, "formato": 2}
 
 
 def chiama_gemini(istruzioni, testo, chiave):
@@ -691,53 +708,85 @@ def verifica(riassunto, per_id):
             sezioni.append({**s, "titolo": titolo_s, "notizie": notizie})
     riassunto["sezioni"] = sezioni
 
-    prove = []
-    for d in riassunto.get("da_provare", []):
-        ids = pulisci_fonti(d.get("fonti", []), per_id)
-        if not (ids and d.get("cosa")):
-            continue
-        if all(per_id[i].get("tipo") == "ricerca" for i in ids):
-            continue                       # la ricerca non è uno strumento da provare
-        if ACCUSE.search(f"{d.get('cosa', '')} {d.get('a_cosa_serve', '')}") and \
-                {per_id[i].get("tipo") for i in ids} <= {"community", "minore", "vetrina"}:
-            continue
-        d["affidabilita"] = affidabilita(ids, per_id)
-        passi = d.get("come_iniziare") or []
-        if isinstance(passi, str):
-            passi = [passi]
-        passi = [p for p in passi if p and "apri l'articolo" not in p.lower()]
-        if all(per_id[i].get("solo_titolo") for i in ids):
-            passi = []                     # senza testo non sappiamo come si attiva: niente passi dedotti
-            d["solo_titoli"] = True
-            # Dal solo titolo non si ricavano prezzo, lingua e piattaforma, salvo che il titolo li dica.
-            titoli = " ".join(per_id[i]["titolo"] for i in ids).lower()
-            if not re.search(r"\bfree\b|gratis|gratuit", titoli):
-                d["costo"] = "Non indicato"
-            if "ital" not in titoli:
-                d["italiano"] = "Non indicato"
-            if not re.search(r"iphone|ios|android|mac|windows|chrome|web|browser", titoli):
-                d["piattaforme"] = []
-            d["sul_dispositivo"] = bool(d.get("sul_dispositivo")) and bool(
-                re.search(r"offline|on-device|local|privat|senza internet|sul (tuo )?(telefono|dispositivo)", titoli))
-        d["come_iniziare"] = passi[:4]
-        d["piattaforme"] = piattaforme_di(d)
-        d["sul_dispositivo"] = bool(d.get("sul_dispositivo"))
-        sfrutta = str(d.get("come_sfruttarla") or "").strip()
-        generica = re.search(r"produttivit|efficienz|risparmia(re)? tempo", sfrutta, re.IGNORECASE)
-        if len(sfrutta) < 15 or (generica and len(sfrutta) < 60):
-            sfrutta = ""                    # niente frasi vuote o generiche
-        d["come_sfruttarla"] = sfrutta
-        d["prova"] = link_prova(ids, per_id)
-        d["fonti"] = ids[:MAX_LINK]
-        prove.append(d)
+    prove = [x for x in (verifica_strumento(d, per_id) for d in riassunto.get("da_provare", [])) if x]
     prove.sort(key=ordine_strumento)        # prima Browser e Android, poi Windows, poi il resto (ordine stabile)
     riassunto["da_provare"] = prove[:6]
+
+    # OSINT: solo strumenti veri, usabili nel browser o su Windows, mai per spiare o schedare persone.
+    osint = []
+    for d in riassunto.get("osint", []) or []:
+        testo = f"{d.get('cosa', '')} {d.get('a_cosa_serve', '')} {d.get('uso', '')}"
+        if OSINT_VIETATI.search(testo):
+            print(f"  ⊘ OSINT scartato (uso su persone/intrusivo): {d.get('cosa')}")
+            continue
+        d = verifica_strumento(d, per_id)
+        if not d:
+            continue
+        if not any(p in ("Browser", "Windows") for p in d["piattaforme"]):
+            print(f"  ⊘ OSINT scartato (non usabile nel browser o su Windows): {d.get('cosa')}")
+            continue
+        if not utile(d.get("costo")):
+            d["costo"] = "Costo non indicato"
+        osint.append(d)
+    osint.sort(key=lambda d: 0 if "Browser" in d["piattaforme"] else 1)
+    riassunto["osint"] = osint[:4]
     return riassunto
+
+
+def verifica_strumento(d, per_id):
+    """Controlli comuni a ogni scheda strumento. Restituisce la scheda pulita, o None se va scartata."""
+    ids = pulisci_fonti(d.get("fonti", []), per_id)
+    if not (ids and d.get("cosa")):
+        return None
+    if all(per_id[i].get("tipo") == "ricerca" for i in ids):
+        return None                        # la ricerca non è uno strumento da provare
+    if ACCUSE.search(f"{d.get('cosa', '')} {d.get('a_cosa_serve', '')}") and \
+            {per_id[i].get("tipo") for i in ids} <= {"community", "minore", "vetrina"}:
+        return None
+    d["affidabilita"] = affidabilita(ids, per_id)
+    passi = d.get("come_iniziare") or []
+    if isinstance(passi, str):
+        passi = [passi]
+    passi = [p for p in passi if p and "apri l'articolo" not in p.lower()]
+    if all(per_id[i].get("solo_titolo") for i in ids):
+        passi = []                         # senza testo non sappiamo come si attiva: niente passi dedotti
+        d["solo_titoli"] = True
+        # Dal solo titolo non si ricavano prezzo, lingua e piattaforma, salvo che il titolo li dica.
+        titoli = " ".join(per_id[i]["titolo"] for i in ids).lower()
+        if not re.search(r"\bfree\b|gratis|gratuit", titoli):
+            d["costo"] = "Non indicato"
+        if "ital" not in titoli:
+            d["italiano"] = "Non indicato"
+        if not re.search(r"iphone|ios|android|mac|windows|chrome|web|browser", titoli):
+            d["piattaforme"] = []
+        d["sul_dispositivo"] = bool(d.get("sul_dispositivo")) and bool(
+            re.search(r"offline|on-device|local|privat|senza internet|sul (tuo )?(telefono|dispositivo)", titoli))
+    d["come_iniziare"] = passi[:4]
+    d["piattaforme"] = piattaforme_di(d)
+    d["sul_dispositivo"] = bool(d.get("sul_dispositivo"))
+    sfrutta = str(d.get("come_sfruttarla") or "").strip()
+    generica = re.search(r"produttivit|efficienz|risparmia(re)? tempo", sfrutta, re.IGNORECASE)
+    if len(sfrutta) < 15 or (generica and len(sfrutta) < 60):
+        sfrutta = ""                        # niente frasi vuote o generiche
+    d["come_sfruttarla"] = sfrutta
+    d["prova"] = link_prova(ids, per_id)
+    d["fonti"] = ids[:MAX_LINK]
+    return d
+
+
+# Strumenti che servono a spiare, schedare o colpire persone: non vengono mai proposti.
+OSINT_VIETATI = re.compile(
+    r"stalker|spyware|spia(re)? (il|la|un|una|partner|telefono)|track(ing)? (a |someone|phone|person)|"
+    r"traccia(re)? (una persona|il telefono|qualcuno)|localizza(re)? (una persona|un numero|qualcuno)|"
+    r"people.?search|ricerca (di )?persone|face.?search|riconoscimento facciale|facial recognition|"
+    r"reverse (phone|face)|doxx|password|credential|data breach|leak(ed)? (data|database)|combolist|"
+    r"hack(ing)? (account|social)|keylogger|phishing|malware|exploit",
+    re.IGNORECASE)
 
 
 def senza_ai(articoli):
     """Versione di riserva: titoli raggruppati per categoria, senza riassunto."""
-    ordine = ["Strumenti", "Laboratori", "Testate tech", "Italia", "Community"]
+    ordine = ["Strumenti", "OSINT", "Laboratori", "Testate tech", "Italia", "Community"]
     sezioni = []
     for c in ordine:
         gruppo = [a for a in articoli if a["categoria"] == c]
@@ -827,6 +876,9 @@ article:target,li:target{outline:2px solid var(--accent)}
 .pf.locale{background:#e0e7ff;color:#3730a3}
 @media (prefers-color-scheme:dark){.pf.si{background:#14532d;color:#86efac}.pf.solo{background:transparent;color:#9c9a93}
 .pf.locale{background:#1e1b4b;color:#c7d2fe}}
+.osint{background:var(--chip);border-radius:16px;padding:4px 16px 12px;margin:28px -4px 0;border-left:4px solid #0f766e}
+.osint h2{color:#0f766e;border-bottom:none;margin:18px 0 0;font-size:16px}.osint .try{border-left-color:#0f766e}
+@media (prefers-color-scheme:dark){.osint h2{color:#5eead4}.osint{border-left-color:#5eead4}.osint .try{border-left-color:#5eead4}}
 .agg{border:2px solid var(--accent);border-radius:16px;padding:6px 14px 10px;margin:22px -4px 0}
 .agg .tryzone{margin:12px -10px 0}
 .agg-top{font:700 15px system-ui,sans-serif;color:var(--accent);margin:10px 0 2px}
@@ -841,6 +893,7 @@ article{position:relative}article .tags{padding-right:40px}
 .togli{font:600 13px system-ui,sans-serif;color:var(--muted);background:none;border:1px solid var(--line);border-radius:999px;padding:5px 12px;cursor:pointer;margin-top:8px}
 .filtri{display:flex;gap:6px;flex-wrap:wrap;margin:8px 0}.filtri button{font:600 13px system-ui,sans-serif;border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:999px;padding:6px 12px;cursor:pointer}
 .filtri button[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:#fff}
+@media print{.osint{break-inside:auto}}
 @media print{.listen,.week,.cerca,.risultati,.glossario,.prova,.stella,.vaipref,.togli,.filtri{display:none!important}}
 """
 
@@ -957,7 +1010,7 @@ def badge(aff, solo_titoli=False):
 
 def testo_della_giornata(r):
     pezzi = [r.get("titolo_giorno", ""), r.get("in_breve", "")]
-    for d in r.get("da_provare", []):
+    for d in r.get("da_provare", []) + r.get("osint", []):
         pezzi += [d.get("cosa", ""), d.get("a_cosa_serve", "")]
     for s in r.get("sezioni", []):
         for n in s.get("notizie", []):
@@ -1039,6 +1092,44 @@ def orari_italiani(giorno=None):
     return out
 
 
+def scheda_strumento(d, per_id, giorno, ancora, tipo, nuovo_formato=True, etichette=None):
+    """Una scheda strumento (Strumenti nuovi o OSINT) con stellina, piattaforme e pulsante Provalo."""
+    if etichette is None:
+        etichette = [d.get("per_chi"), d.get("ambito"), d.get("costo"), d.get("difficolta")]
+        if str(d.get("italiano", "")).strip().lower() in ("sì", "si"):
+            etichette.append("In italiano")
+        if utile(d.get("disponibilita")):
+            etichette.append(d["disponibilita"])
+    tag = (badge(d.get("affidabilita", ""), d.get("solo_titoli") and nuovo_formato)
+           + "".join(f'<span class="tag">{e(t)}</span>' for t in dict.fromkeys(etichette)
+                     if utile(t) or t == "Costo non indicato"))
+    passi = d.get("come_iniziare") or d.get("come") or []
+    if isinstance(passi, str):
+        passi = [passi]
+    passi = [x for x in passi if x and x != PASSO_ONESTO]
+    if len(passi) == 1:
+        come = f'<p class="why"><b>Come iniziare:</b> {e(passi[0])}</p>'
+    elif passi:
+        come = ('<p class="why"><b>Come iniziare</b></p><ol>'
+                + "".join(f"<li>{e(x)}</li>" for x in passi) + "</ol>")
+    else:
+        come = ""
+    prova = (f'<a class="prova" href="{e(d["prova"])}" target="_blank" rel="noopener">Provalo ↗</a>'
+             if d.get("prova") else "")
+    dove = "".join(f'<span class="pf{" si" if t.startswith("✓") else " solo" if t.startswith("Solo") else ""}">'
+                   f'{e(t)}</span>' for t in etichette_piattaforma(d))
+    if d.get("sul_dispositivo"):
+        dove += '<span class="pf locale">🔒 Funziona sul dispositivo</span>'
+    dove = f'<div class="dove"><b>Dove si usa:</b> {dove}</div>' if dove else ""
+    if d.get("come_sfruttarla"):
+        come = f'<p class="why"><b>Come sfruttarla:</b> {e(d["come_sfruttarla"])}</p>' + come
+    pref = stella(f"{giorno}#{ancora}", d.get("cosa", ""), d.get("a_cosa_serve", ""), giorno,
+                  ancora, d.get("prova", ""), tipo)
+    return (f'<article class="try" id="{ancora}">{pref}<div class="tags">{tag}</div>'
+            f'<h3>{e(d.get("cosa"))}</h3>{dove}<p>{e(d.get("a_cosa_serve"))}</p>'
+            f"{come}{prova}{chips(d['fonti'], per_id)}</article>")
+
+
 def contenuto(r, per_id, giorno, pre=""):
     """Strumenti, novità e "In breve" di un'edizione. `pre` distingue gli aggiornamenti (es. "u1")."""
     parti = []
@@ -1052,39 +1143,16 @@ def contenuto(r, per_id, giorno, pre=""):
                  else "Nuovi strumenti e possibilità emersi dalle notizie di oggi")
         parti.append(f'<section class="tryzone"><h2>{nome_zona}</h2><p class="sub">{sotto}</p>')
         for j, d in enumerate(r["da_provare"], 1):
-            etichette = [d.get("per_chi"), d.get("ambito"), d.get("costo"), d.get("difficolta")]
-            if str(d.get("italiano", "")).strip().lower() in ("sì", "si"):
-                etichette.append("In italiano")
-            if utile(d.get("disponibilita")):
-                etichette.append(d["disponibilita"])
-            tag = (badge(d.get("affidabilita", ""), d.get("solo_titoli") and nuovo_formato)
-                   + "".join(f'<span class="tag">{e(t)}</span>' for t in dict.fromkeys(etichette) if utile(t)))
-            passi = d.get("come_iniziare") or d.get("come") or []
-            if isinstance(passi, str):
-                passi = [passi]
-            passi = [x for x in passi if x and x != PASSO_ONESTO]
-            if len(passi) == 1:
-                come = f'<p class="why"><b>Come iniziare:</b> {e(passi[0])}</p>'
-            elif passi:
-                come = ('<p class="why"><b>Come iniziare</b></p><ol>'
-                        + "".join(f"<li>{e(x)}</li>" for x in passi) + "</ol>")
-            else:
-                come = ""
-            prova = (f'<a class="prova" href="{e(d["prova"])}" target="_blank" rel="noopener">Provalo ↗</a>'
-                     if d.get("prova") else "")
-            dove = "".join(f'<span class="pf{" si" if t.startswith("✓") else " solo" if t.startswith("Solo") else ""}">'
-                           f'{e(t)}</span>' for t in etichette_piattaforma(d))
-            if d.get("sul_dispositivo"):
-                dove += '<span class="pf locale">🔒 Funziona sul dispositivo</span>'
-            dove = f'<div class="dove"><b>Dove si usa:</b> {dove}</div>' if dove else ""
-            if d.get("come_sfruttarla"):
-                come = f'<p class="why"><b>Come sfruttarla:</b> {e(d["come_sfruttarla"])}</p>' + come
-            ancora = f"{pre}p{j}"
-            pref = stella(f"{giorno}#{ancora}", d.get("cosa", ""), d.get("a_cosa_serve", ""), giorno,
-                          ancora, d.get("prova", ""), "Strumento")
-            parti.append(f'<article class="try" id="{ancora}">{pref}<div class="tags">{tag}</div>'
-                         f'<h3>{e(d.get("cosa"))}</h3>{dove}<p>{e(d.get("a_cosa_serve"))}</p>'
-                         f"{come}{prova}{chips(d['fonti'], per_id)}</article>")
+            parti.append(scheda_strumento(d, per_id, giorno, f"{pre}p{j}", "Strumento", nuovo_formato))
+        parti.append("</section>")
+    if r.get("osint"):
+        parti.append('<section class="osint"><h2>🔎 Strumenti OSINT</h2><p class="sub">Strumenti per indagini su '
+                     'fonti aperte (verifica, geolocalizzazione, aziende, siti) usabili nel browser o su Windows. '
+                     'Usali solo per scopi leciti e nel rispetto della privacy.</p>')
+        for j, d in enumerate(r["osint"], 1):
+            parti.append(scheda_strumento(d, per_id, giorno, f"{pre}o{j}", "OSINT", True,
+                                          etichette=[d.get("uso"), d.get("costo") or "Costo non indicato",
+                                                     d.get("difficolta")]))
         parti.append("</section>")
     k = 0
     for s in r.get("sezioni", []):
@@ -1241,11 +1309,12 @@ PAGINA_PREFERITI_JS = """
 let filtro='tutti';
 function disegna(){
   const tutti=leggiPref(),box=document.getElementById('lista');box.innerHTML='';
-  const tipi=['tutti',...new Set(tutti.map(p=>p.tipo==='Strumento'?'Strumenti':'Novità'))];
+  const gruppo=p=>p.tipo==='Strumento'?'Strumenti':p.tipo==='OSINT'?'OSINT':'Novità';
+  const tipi=['tutti',...new Set(tutti.map(gruppo))];
   const f=document.getElementById('filtri');f.innerHTML='';
   if(tutti.length>1&&tipi.length>2){for(const t of tipi){const b=document.createElement('button');b.type='button';
     b.textContent=t==='tutti'?'Tutti':t;b.setAttribute('aria-pressed',filtro===t);b.onclick=()=>{filtro=t;disegna();};f.append(b);}}
-  const l=tutti.filter(p=>filtro==='tutti'||(filtro==='Strumenti')===(p.tipo==='Strumento'));
+  const l=tutti.filter(p=>filtro==='tutti'||gruppo(p)===filtro);
   document.getElementById('conta').textContent=tutti.length?(tutti.length===1?'1 scheda salvata':tutti.length+' schede salvate'):'';
   if(!l.length){box.innerHTML='<p class="vuoto">Nessun preferito per ora. Tocca la stellina ☆ su uno strumento o una novità e lo ritrovi qui.</p>';return;}
   for(const p of l){
@@ -1308,7 +1377,8 @@ def testo_whatsapp(data_it, r, url, aggiornamenti=()):
              r.get("in_breve", ""), ""]
     for u in reversed(list(aggiornamenti)):
         ru = u.get("riassunto") or {}
-        voci = [f"• *{d.get('cosa', '')}*: {d.get('a_cosa_serve', '')}" for d in ru.get("da_provare", [])]
+        voci = [f"• *{d.get('cosa', '')}*: {d.get('a_cosa_serve', '')}"
+                for d in ru.get("da_provare", []) + ru.get("osint", [])]
         voci += [f"• {n.get('titolo', '')}" for x in ru.get("sezioni", []) for n in x.get("notizie", [])]
         if voci:
             righe += [f"🆕 *Aggiornamento delle {ora_di(u.get('generato'))}*"] + voci + [""]
@@ -1321,6 +1391,12 @@ def testo_whatsapp(data_it, r, url, aggiornamenti=()):
             info += ["sul dispositivo"] if d.get("sul_dispositivo") else []
             extra = f" ({', '.join(info)})" if info else ""
             righe.append(f"• *{d.get('cosa', '')}*{extra}: {d.get('a_cosa_serve', '')}")
+        righe.append("")
+    if r.get("osint"):
+        righe.append("🔎 *Strumenti OSINT*")
+        for d in r["osint"]:
+            info = [d.get("costo") or "Costo non indicato"] + [t.replace("✓ ", "") for t in etichette_piattaforma(d)]
+            righe.append(f"• *{d.get('cosa', '')}* ({', '.join(info)}): {d.get('a_cosa_serve', '')}")
         righe.append("")
     if nuovo:
         novita = next((s for s in r.get("sezioni", []) if s.get("titolo") == SEZ_NOVITA), None)
@@ -1460,6 +1536,8 @@ def rigenera_tutto():
                     voci.append([k if not pre else f"{pre}n{k}", n.get("titolo", ""), (n.get("riassunto") or "")[:220]])
             for j, d in enumerate(r.get("da_provare", []), 1):
                 voci.append([f"{pre}p{j}", "🧪 " + d.get("cosa", ""), (d.get("a_cosa_serve") or "")[:220]])
+            for j, d in enumerate(r.get("osint", []), 1):
+                voci.append([f"{pre}o{j}", "🔎 " + d.get("cosa", ""), (d.get("a_cosa_serve") or "")[:220]])
         indice.append({"g": x["giorno"], "t": x["riassunto"].get("titolo_giorno", ""), "n": voci})
     (DOCS / "indice.json").write_text(json.dumps(indice, ensure_ascii=False, separators=(",", ":")),
                                       encoding="utf-8")
@@ -1491,6 +1569,7 @@ o notizie (codice [AAAA-MM-GG#n]).
 1. Scegli i 5 MIGLIORI strumenti nuovi della settimana (o meno, se non sono validi): preferisci quelli
    gratuiti o con prova gratuita, utili a molte persone, disponibili in Italia, usabili nel browser o su
    Android (il lettore usa Android e Windows). Dai risalto alle AI che funzionano sul dispositivo.
+   Puoi includere 1 strumento OSINT (codice [AAAA-MM-GG#osint-n]) se è davvero notevole.
 2. Scegli fino a 5 novità più utili negli strumenti già diffusi (ChatGPT, Gemini, Claude, Copilot...).
    Se una novità è stata raccontata in più giorni, uniscila in una sola voce citando tutti i codici.
 Usa SOLO le informazioni presenti nel testo ricevuto, senza aggiungere nulla di tuo. Mai voci "Da verificare".
@@ -1523,6 +1602,12 @@ def costruisci_settimana(chiave, fine):
                     validi.add(cod)
                     righe.append(f"[{cod}] ({n.get('affidabilita', '')}) {n.get('titolo', '')} — "
                                  f"{n.get('riassunto', '')}")
+            for j, d in enumerate(r.get("osint", []), 1):
+                cod = f"{x['giorno']}#{pre}osint-{j}"
+                prove[cod] = x["giorno"]
+                info = [d.get("costo") or "Costo non indicato"] + piattaforme_di(d)
+                righe.append(f"[{cod}] STRUMENTO OSINT: {d.get('cosa', '')} ({', '.join(info)}) — "
+                             f"{d.get('a_cosa_serve', '')}")
             for j, d in enumerate(r.get("da_provare", []), 1):
                 cod = f"{x['giorno']}#{pre}provare-{j}"
                 prove[cod] = x["giorno"]
@@ -1629,7 +1714,7 @@ def main():
             vecchi_link.add(a.get("link"))
             vecchi_titoli.add(chiave_t(a.get("titolo")))
         for pre, r_ in riassunti_del_giorno(x):
-            gia_pubblicate += [d.get("cosa", "") for d in r_.get("da_provare", [])]
+            gia_pubblicate += [d.get("cosa", "") for d in r_.get("da_provare", []) + r_.get("osint", [])]
             gia_pubblicate += [n.get("titolo", "") for s in r_.get("sezioni", []) for n in s.get("notizie", [])]
     if aggiornamento:
         vecchi_titoli |= set(mattino.get("visti", []))
@@ -1672,7 +1757,7 @@ def main():
 
     def da_salvare(riassunto):
         usati = {i for s in riassunto["sezioni"] for n in s["notizie"] for i in n["fonti"]}
-        usati |= {i for d in riassunto.get("da_provare", []) for i in d["fonti"]}
+        usati |= {i for d in riassunto.get("da_provare", []) + riassunto.get("osint", []) for i in d["fonti"]}
         return {i: {k: (v.isoformat() if isinstance(v, datetime) else v) for k, v in per_id[i].items()}
                 for i in usati}
 
@@ -1691,7 +1776,7 @@ def main():
             avvisa(f"Aggiornamento non riuscito, resta l'edizione del mattino ({str(ex)[:200]}).")
             scrivi_avvisi()
             return
-        vuoto = not (riassunto["sezioni"] or riassunto.get("da_provare"))
+        vuoto = not (riassunto["sezioni"] or riassunto.get("da_provare") or riassunto.get("osint"))
         salva_aggiornamento(None if vuoto else riassunto, modello, completi, {} if vuoto else da_salvare(riassunto))
         print("Aggiornamento: " + ("nessuna novità rilevante." if vuoto else
               f"{len(riassunto.get('da_provare', []))} strumenti, "
@@ -1702,7 +1787,7 @@ def main():
             try:
                 riassunto, modello = chiedi_a_gemini(articoli, chiave, gia_pubblicate)
                 riassunto = verifica(riassunto, per_id)
-                if not (riassunto["sezioni"] or riassunto.get("da_provare")):
+                if not (riassunto["sezioni"] or riassunto.get("da_provare") or riassunto.get("osint")):
                     raise RuntimeError("riassunto vuoto")
             except Exception as ex:  # qualunque problema: si pubblica comunque la versione semplice
                 avvisa(f"Gemini non disponibile ({str(ex)[:200]}): pubblicata la versione senza riassunto.")
