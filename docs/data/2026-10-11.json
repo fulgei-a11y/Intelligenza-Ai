@@ -144,6 +144,17 @@
    "solo_titolo": false,
    "categoria": "Strumenti",
    "id": "u1a3"
+  },
+  "u2a93": {
+   "titolo": "Open-source Mac app that runs EmbeddingGemma 2 locally to search your files by what’s in them",
+   "link": "https://www.reddit.com/r/LocalLLaMA/comments/1x2eeds/opensource_mac_app_that_runs_embeddinggemma_2/",
+   "data": "2026-10-10T12:43:33+00:00",
+   "testo": "DigUp is a free Mac app that runs Google DeepMind’s new EmbeddingGemma 2 locally over your own files. The model puts text, images, audio and video in one space, so you describe what you remember and land on it: “zebra in a video” opens the clip at the moment it shows up “where they talk about sleep” jumps to that minute of a podcast “the clause about pets in the lease” shows the PDF page, your wo…",
+   "fonte": "Reddit (AI locale)",
+   "tipo": "community",
+   "solo_titolo": false,
+   "categoria": "Community",
+   "id": "u2a93"
   }
  },
  "fonti": [
@@ -244,7 +255,7 @@
   }
  ],
  "audio": "audio/2026-10-11.mp3",
- "durata": 84.6,
+ "durata": 99.5,
  "aggiornamenti": [
   {
    "generato": "2026-10-11T10:01:17+00:00",
@@ -269,6 +280,39 @@
       ],
       "affidabilita": "Appena lanciato",
       "prova": "https://www.producthunt.com/products/floorgen"
+     }
+    ],
+    "sezioni": [],
+    "formato": 2
+   }
+  },
+  {
+   "generato": "2026-10-11T10:35:52+00:00",
+   "modello": "gemini-2.5-flash",
+   "testi_completi": 0,
+   "riassunto": {
+    "titolo_giorno": "DigUp: l'AI locale che cerca nei tuoi file",
+    "in_breve": "Oggi scopriamo DigUp, un'app per Mac che porta l'intelligenza artificiale direttamente sul tuo computer per cercare in tutti i tuoi file. Questa novità mostra come l'AI stia diventando sempre più personale e privata, permettendoti di trovare informazioni senza inviare i tuoi dati online.",
+    "da_provare": [
+     {
+      "cosa": "DigUp",
+      "a_cosa_serve": "Un'app per Mac che usa l'AI per cercare contenuti all'interno dei tuoi file (testo, immagini, audio, video) sul tuo computer, descrivendoli a parole tue.",
+      "per_chi": "Lavoro e tutti i giorni",
+      "ambito": "Ricerca, Organizzazione, Documenti, Foto e video, Voce",
+      "come_iniziare": [],
+      "costo": "Gratis",
+      "piattaforme": [
+       "Mac"
+      ],
+      "sul_dispositivo": true,
+      "come_sfruttarla": "Trovare rapidamente un'informazione specifica in un vecchio documento, una frase in un podcast o un oggetto in un video senza caricarli online.",
+      "italiano": "Non indicato",
+      "difficolta": "Facile",
+      "fonti": [
+       "u2a93"
+      ],
+      "affidabilita": "Da verificare",
+      "prova": ""
      }
     ],
     "sezioni": [],
@@ -357,6 +401,32 @@
   "vibecodedthisskitwithclaudemywifedoesntgetitbutiknowyouguyswill",
   "canwepleasestartbuildingappsandsystemstosavehumanityfromscarcityandcorruptionins",
   "claudeopus55decompilesaps2eragameovernightandhundredsofthemnowruninbrowsertabs",
-  "imademyclaudecodesubagentsavideocallweirdlyitsthebestwayivefoundtofollowwhatthey"
+  "imademyclaudecodesubagentsavideocallweirdlyitsthebestwayivefoundtofollowwhatthey",
+  "sorted",
+  "idismissedthishypedaiappformonthsandnowiuseitforeveryclaudeandchatgptprompt",
+  "younggreekprogrammerdevelopsaitooltotrackgovernmentspending",
+  "mafieeintelligenzaartificialecosìlecoschediventanodigitali",
+  "napsteraicomefunzionalapppercrearemusicaconlia",
+  "umanifatespazioalttgdiriminiilrelatoresaràunrobotumanoideeparleràdellavorodelfut",
+  "microsoftweeklynewsurfacelaptoplocalaiandmicrosoft365familystoragecuts",
+  "hphpqisexpandinglocalaipcsandworkstations",
+  "rtxsparkpoweredwindowspcsareheretobringlocalaiagentstothemass",
+  "localaidevelopmentkeytoglobalcompetitivenesssaysiftikharalimalik",
+  "microsoftturnswindowsintoagentostargetsdeveloperswithlocalai",
+  "qubolookstoondeviceaitowidensmarthomeadoptioninindiaceonikhilrajpal",
+  "nvidiamapsoutlocalaihardwarepushasbuybackfirepowerreaches235billion",
+  "nvidiaties1billionresearchbettoalocalaihardwarerollout",
+  "inuovipcasusconnvidiartxsparksipossonofinalmenteordinareeccospecificheeprezzi",
+  "cagliarijuventusstreaminggratisdovevederlaliveoggi",
+  "rtxsparkesurfacelaptopultraiadirettamentesulpc",
+  "truffawhatsappilfalsoconcorsoperrubarelaccountlallarmedellapolizia",
+  "dovevederelaziomonzainstreaminggratisseriea202627",
+  "reatoolconnectsclaudecodeandcursortoghidraandidaprotoreverseengineeranything",
+  "conversazionisulfuturoalecce120appuntamentieoltre200ospiti",
+  "opensourcemacappthatrunsembeddinggemma2locallytosearchyourfilesbywhatsinthem",
+  "buildinga4xr9700setupfora10personstartup",
+  "qualcommceorevealsaicompanieswantphonesrunning100billionparametermodelscontinuou",
+  "nomorertx5090",
+  "amdreportedlyraisesgddr6pricesforboardpartners"
  ]
 }
