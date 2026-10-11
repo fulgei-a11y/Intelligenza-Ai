@@ -155,6 +155,17 @@
    "solo_titolo": false,
    "categoria": "Community",
    "id": "u2a93"
+  },
+  "u3a15": {
+   "titolo": "OpenPilot",
+   "link": "https://www.producthunt.com/products/openpilot",
+   "data": "2026-10-08T22:53:51-07:00",
+   "testo": "Open-source desktop AI agent for any model you choose",
+   "fonte": "Product Hunt (AI)",
+   "tipo": "vetrina",
+   "solo_titolo": false,
+   "categoria": "Strumenti",
+   "id": "u3a15"
   }
  },
  "fonti": [
@@ -255,7 +266,7 @@
   }
  ],
  "audio": "audio/2026-10-11.mp3",
- "durata": 99.5,
+ "durata": 114.3,
  "aggiornamenti": [
   {
    "generato": "2026-10-11T10:01:17+00:00",
@@ -315,6 +326,38 @@
       "prova": ""
      }
     ],
+    "sezioni": [],
+    "formato": 2
+   }
+  },
+  {
+   "generato": "2026-10-11T11:30:38+00:00",
+   "modello": "gemini-3.5-flash",
+   "testi_completi": 0,
+   "riassunto": {
+    "titolo_giorno": "Agenti AI per desktop e nuove dashboard OSINT nell'aggiornamento di oggi",
+    "in_breve": "L'aggiornamento del giorno propone OpenPilot, un agente AI open source per automatizzare compiti sul computer con modelli a scelta, e OSIRIS AI LIVE, una dashboard open source per l'analisi di dati da fonti aperte.",
+    "da_provare": [
+     {
+      "cosa": "OpenPilot",
+      "a_cosa_serve": "Un agente AI open source per sistemi desktop che permette di automatizzare varie attività sul computer utilizzando qualsiasi modello scelto dall'utente.",
+      "per_chi": "Lavoro",
+      "ambito": "Organizzazione",
+      "come_iniziare": [],
+      "costo": "Gratis",
+      "piattaforme": [],
+      "sul_dispositivo": false,
+      "come_sfruttarla": "Automatizzare compiti sul computer integrando il modello di intelligenza artificiale preferito.",
+      "italiano": "Non indicato",
+      "difficolta": "Media",
+      "fonti": [
+       "u3a15"
+      ],
+      "affidabilita": "Appena lanciato",
+      "prova": "https://www.producthunt.com/products/openpilot"
+     }
+    ],
+    "osint": [],
     "sezioni": [],
     "formato": 2
    }
@@ -427,6 +470,26 @@
   "buildinga4xr9700setupfora10personstartup",
   "qualcommceorevealsaicompanieswantphonesrunning100billionparametermodelscontinuou",
   "nomorertx5090",
-  "amdreportedlyraisesgddr6pricesforboardpartners"
+  "amdreportedlyraisesgddr6pricesforboardpartners",
+  "openpilot",
+  "learningtouselocalaiisexcitingoverwhelmingandfrustrating",
+  "theuseoflocalaianexcitingandchallengingexperience",
+  "microsoftintroducessurfacelaptopultraforlocalai",
+  "desktopamdviraleda1499esegueliaofflinepressionesultitolonvidia",
+  "explaininginference",
+  "exithouselaunchesonethereumlettingholdersexitunwantednftsandtokensforexit",
+  "businesstechnewswhatarethebestaiwebsitebuilders",
+  "anthropicaimodelwentroguesubmittedfakeunsolvedmurdertip",
+  "claudeaisentuspoliceafalsemurdertipauthoritiessay",
+  "creatoroffreeadobeclonesunveilsopensourcemicrosoftofficeexcelpowerpointandwordre",
+  "oliverstoneematthewmodineincontrano300ragazziaferrara",
+  "thefirstrussiandieselshipmenthasarrivedontheuseastcoastosintanalystssay",
+  "droneshityandexsthirddatacenterdisruptingpopularservicesacrossrussiarbcukraine",
+  "hikerapitradesscrapermaintenanceforperrequestpricing",
+  "kasperskyenhancesthreatintelligenceportalwithnewaipoweredfeatures",
+  "ukrainianforcestargetdroneportinoryolregion",
+  "osirisailiveildashboardosintopensourcechefadiscutere",
+  "phishingaziendaleperchéidipendentiformaticliccanocomunque",
+  "informaticaforenseagenovailfuturodelleprovedigitalitraaiedeepfake"
  ]
 }
