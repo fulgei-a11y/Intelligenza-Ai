@@ -60,6 +60,13 @@ article:target,li:target{outline:2px solid var(--accent)}
 @media (prefers-color-scheme:dark){.prova{color:#1d1d1f}}
 .brevi{list-style:none;padding:0;margin:0}.brevi li{padding:10px 0;border-bottom:1px solid var(--line);font-size:16px}
 .brevi .src{display:inline-flex;margin:4px 0 0}
+.dove{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin:2px 0 8px;font:13px system-ui,sans-serif;color:var(--muted)}
+.dove b{font-weight:600;margin-right:2px}
+.pf{font:600 12px system-ui,sans-serif;border-radius:6px;padding:3px 8px;background:var(--chip);color:var(--ink)}
+.pf.si{background:#dcfce7;color:#15803d}.pf.solo{background:#f3f4f6;color:#6b7280;border:1px dashed #9ca3af}
+.pf.locale{background:#e0e7ff;color:#3730a3}
+@media (prefers-color-scheme:dark){.pf.si{background:#14532d;color:#86efac}.pf.solo{background:transparent;color:#9c9a93}
+.pf.locale{background:#1e1b4b;color:#c7d2fe}}
 .agg{border:2px solid var(--accent);border-radius:16px;padding:6px 14px 10px;margin:22px -4px 0}
 .agg .tryzone{margin:12px -10px 0}
 .agg-top{font:700 15px system-ui,sans-serif;color:var(--accent);margin:10px 0 2px}
