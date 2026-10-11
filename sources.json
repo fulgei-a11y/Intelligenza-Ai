@@ -141,6 +141,13 @@
       "max": 6
     },
     {
+      "nome": "MIT Technology Review",
+      "tipo": "testata",
+      "categoria": "Testate tech",
+      "url": "https://www.technologyreview.com/topic/artificial-intelligence/feed",
+      "max": 6
+    },
+    {
       "nome": "The Decoder",
       "tipo": "testata",
       "categoria": "Testate tech",

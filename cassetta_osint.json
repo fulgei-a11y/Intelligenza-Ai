@@ -29,6 +29,28 @@
           "difficolta": "Facile"
         },
         {
+          "nome": "OSINT Directory",
+          "url": "https://www.osintdirectory.com/tools",
+          "descrizione": "Directory curata di centinaia di strumenti per categoria, con tutorial e playbook di indagine.",
+          "piattaforme": [
+            "Browser"
+          ],
+          "costo": "Gratis",
+          "difficolta": "Facile",
+          "nota": "Mescola strumenti gratuiti, commerciali e di sicurezza offensiva: scegli solo quelli adatti a un'indagine lecita."
+        },
+        {
+          "nome": "OSINT-S – catalogo strumenti",
+          "url": "https://osint-s.com/osint-tools/",
+          "descrizione": "Catalogo per tipo di indagine con, per ogni strumento, l'alternativa gratuita e quella a pagamento e i prezzi verificati.",
+          "piattaforme": [
+            "Browser"
+          ],
+          "costo": "Gratis",
+          "difficolta": "Facile",
+          "nota": "È curato da un'azienda di servizi investigativi: i link rimandano spesso ai suoi servizi."
+        },
+        {
           "nome": "IntelTechniques Search Tools",
           "url": "https://inteltechniques.com/tools/",
           "descrizione": "Moduli di ricerca pronti di Michael Bazzell (motori di ricerca, social, domini, mappe…): le ricerche partono dal tuo browser.",
@@ -223,10 +245,11 @@
           "nota": "È una stima: confermala sempre con mappe e immagini satellitari."
         },
         {
-          "nome": "Google Earth Pro",
-          "url": "https://www.google.com/earth/about/versions/",
-          "descrizione": "Vista 3D e immagini storiche: si vede come cambia un luogo negli anni.",
+          "nome": "Google Earth",
+          "url": "https://earth.google.com/",
+          "descrizione": "Vista 3D del mondo nel browser; la versione Pro per Windows aggiunge le immagini storiche per vedere come cambia un luogo negli anni.",
           "piattaforme": [
+            "Browser",
             "Windows"
           ],
           "costo": "Gratis",
@@ -256,6 +279,17 @@
           "nome": "Mapillary",
           "url": "https://www.mapillary.com/",
           "descrizione": "Foto a livello strada caricate dagli utenti, anche dove Street View non arriva: utile per riconoscere un luogo.",
+          "piattaforme": [
+            "Browser",
+            "Android"
+          ],
+          "costo": "Gratis",
+          "difficolta": "Facile"
+        },
+        {
+          "nome": "OpenStreetMap",
+          "url": "https://www.openstreetmap.org/",
+          "descrizione": "Mappa libera e dettagliata del mondo, aggiornata dai volontari: sentieri, edifici, negozi, spesso più ricca delle mappe commerciali.",
           "piattaforme": [
             "Browser",
             "Android"
@@ -682,6 +716,17 @@
       "icona": "🗂️",
       "consiglio": "Annota fonte, data e ora di ogni scoperta: un'indagine vale quanto la sua documentazione.",
       "strumenti": [
+        {
+          "nome": "Berkeley Protocol",
+          "url": "https://www.ohchr.org/en/publications/policy-and-methodological-publications/berkeley-protocol-digital-open-source",
+          "descrizione": "Lo standard internazionale ONU per le indagini digitali su fonti aperte: come raccogliere, verificare e conservare le prove in modo legale ed etico.",
+          "piattaforme": [
+            "Browser"
+          ],
+          "costo": "Gratis",
+          "difficolta": "Media",
+          "nota": "Disponibile in inglese, francese, spagnolo e nelle altre lingue ONU, non in italiano."
+        },
         {
           "nome": "Hunchly",
           "url": "https://www.hunch.ly/",
