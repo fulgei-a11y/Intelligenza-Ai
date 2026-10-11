@@ -73,11 +73,11 @@ def copione(dati):
              normalizza(r.get("titolo_giorno")), normalizza(r.get("in_breve"))]
     for u in reversed(dati.get("aggiornamenti", [])):
         ru = u.get("riassunto") or {}
-        if not (ru.get("da_provare") or ru.get("sezioni")):
+        if not (ru.get("da_provare") or ru.get("sezioni") or ru.get("osint")):
             continue
         ora = datetime.fromisoformat(u["generato"]).astimezone(ROMA)
         pezzi.append(f"Aggiornamento delle {ora.hour} e {ora.minute:02d}: le novità dopo l'edizione del mattino.")
-        for x in ru.get("da_provare", []):
+        for x in ru.get("da_provare", []) + ru.get("osint", []):
             pezzi.append(normalizza(f"{x.get('cosa', '')}. {x.get('a_cosa_serve', '')}"))
         for s in ru.get("sezioni", []):
             for n in s.get("notizie", []):
@@ -87,6 +87,10 @@ def copione(dati):
     if r.get("da_provare"):
         pezzi.append("Strumenti nuovi." if r.get("formato") == 2 else "Da provare oggi.")
         for x in r["da_provare"]:
+            pezzi.append(normalizza(f"{x.get('cosa', '')}. {x.get('a_cosa_serve', '')}"))
+    if r.get("osint"):
+        pezzi.append("Strumenti OSINT, per le indagini su fonti aperte.")
+        for x in r["osint"]:
             pezzi.append(normalizza(f"{x.get('cosa', '')}. {x.get('a_cosa_serve', '')}"))
     for s in r.get("sezioni", []):
         pezzi.append(normalizza(s.get("titolo")))
