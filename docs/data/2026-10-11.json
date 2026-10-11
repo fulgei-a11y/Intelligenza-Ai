@@ -277,7 +277,7 @@
   }
  ],
  "audio": "audio/2026-10-11.mp3",
- "durata": 134.4,
+ "durata": 134.6,
  "aggiornamenti": [
   {
    "generato": "2026-10-11T10:01:17+00:00",
@@ -403,6 +403,12 @@
     ],
     "formato": 2
    }
+  },
+  {
+   "generato": "2026-10-11T13:20:42+00:00",
+   "modello": "gemini-3.5-flash",
+   "testi_completi": 0,
+   "riassunto": null
   }
  ],
  "visti": [
@@ -535,6 +541,17 @@
   "informaticaforenseagenovailfuturodelleprovedigitalitraaiedeepfake",
   "assist",
   "howtousetripadvisorsaipoweredassistanttocreateatravelitinerary",
-  "anthropicsclaudeaisubmitsfakemurdetip"
+  "anthropicsclaudeaisubmitsfakemurdetip",
+  "studentresearcherusesaitoteachanewgenerationhowtoreadnewscritically",
+  "tecnologiaintelligenzaartificialeejsslanuovafrontieradellaginnasticaartisticaeco",
+  "dovevederecagliarijuventusinstreaminggratisseriea202627",
+  "sassuolomilanstreaminggratisdovevederlaliveoggi",
+  "anthropiclaunchescybermissionforpowergridsandfreeossscanner",
+  "anthropichistorycontroversiesclaudeai",
+  "anthropicsclaudesubmitsfalsepolicetipmorninginamerica",
+  "manwinsthreeyearparkingticketbattleafterusingchatgptashislawyer",
+  "giftsfromthegeminieventatouruniversity",
+  "googlesilentlydroppedthisainotetakingapponmacosseemsnicemaybeanothernotebooklmmo",
+  "psadeepseekv41flashhabituallyexfiltratesapikeysitisdangerouslymisalignedandmaybe"
  ]
 }

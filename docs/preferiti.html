@@ -70,6 +70,21 @@ article:target,li:target{outline:2px solid var(--accent)}
 .osint{background:var(--chip);border-radius:16px;padding:4px 16px 12px;margin:28px -4px 0;border-left:4px solid #0f766e}
 .osint h2{color:#0f766e;border-bottom:none;margin:18px 0 0;font-size:16px}.osint .try{border-left-color:#0f766e}
 @media (prefers-color-scheme:dark){.osint h2{color:#5eead4}.osint{border-left-color:#5eead4}.osint .try{border-left-color:#5eead4}}
+.metodo{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:4px 18px 10px;margin:18px 0}
+.metodo h2{border:0;margin:14px 0 6px;color:var(--ink)}.metodo ol{margin:0;padding-left:20px;font-size:15px}.metodo li{margin:6px 0}
+.griglia{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:8px}
+.griglia a{display:flex;flex-direction:column;gap:2px;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:10px 12px;
+  color:var(--ink);text-decoration:none;font:600 14px/1.3 system-ui,sans-serif}
+.griglia a span{font-size:20px}.griglia small{font-weight:400;color:var(--muted);font-size:12px}
+.griglia a.nuovi{border-color:var(--accent)}
+.cat{margin-top:8px}.consiglio{font:14px system-ui,sans-serif;color:var(--muted);margin:0 0 6px}
+.riga{position:relative;padding:12px 52px 12px 0;border-bottom:1px solid var(--line);background:none;border-radius:0;margin:0;border-left:0;border-right:0;border-top:0}
+.riga h3{font-size:17px;margin:0 0 2px}.riga h3 a{color:var(--ink);text-decoration:none}
+.riga p{margin:2px 0;font-size:15px}.riga .dove{margin:6px 0 0}.riga .stella{top:10px;right:0}
+.riga .nota{font:13px system-ui,sans-serif;color:#b45309}
+.costo{font:600 12px system-ui,sans-serif;border-radius:6px;padding:3px 8px}
+.costo.gratis{background:#dcfce7;color:#15803d}.costo.limiti{background:#fef3c7;color:#92400e}.costo.pagamento{background:#fee2e2;color:#991b1b}
+@media (prefers-color-scheme:dark){.costo.gratis{background:#14532d;color:#86efac}.costo.limiti{background:#451a03;color:#fcd34d}.costo.pagamento{background:#450a0a;color:#fca5a5}}
 .cassetta-indice{display:flex;flex-wrap:wrap;gap:6px;margin:14px 0}
 .cassetta-indice a{font:600 13px system-ui,sans-serif;color:var(--ink);background:var(--card);border:1px solid var(--line);border-radius:999px;padding:6px 12px;text-decoration:none}
 .osint .sub a{color:inherit}
@@ -78,6 +93,14 @@ article:target,li:target{outline:2px solid var(--accent)}
 .osint.mia h3 a{color:var(--ink);text-decoration:none}.osint.mia{border-left-color:#eab308}.osint.mia h2{color:#a16207}
 @media (prefers-color-scheme:dark){.osint.mia h2{color:#facc15}}
 .osint .quando{font:12px system-ui,sans-serif;color:var(--muted);margin:0 0 4px}.osint .vuoto{font:14px system-ui,sans-serif;color:var(--muted)}
+.menu{display:flex;gap:4px;overflow-x:auto;margin:-12px -16px 18px;padding:10px 16px;border-bottom:1px solid var(--line);
+  position:sticky;top:0;background:var(--bg);z-index:5;scrollbar-width:none}
+.menu::-webkit-scrollbar{display:none}
+.menu a{flex:none;font:600 14px system-ui,sans-serif;color:var(--muted);text-decoration:none;padding:7px 11px;border-radius:999px}
+.menu a[aria-current]{color:var(--ink);background:var(--chip)}
+.when a{color:inherit}.agg.vuota{border-style:dashed;border-width:1px}
+.agg h2{margin-top:22px}.agg .quando,.try .quando{font:12px system-ui,sans-serif;color:var(--muted);margin:0 0 4px}
+.brevi small{font:12px system-ui,sans-serif;color:var(--muted)}
 .agg{border:2px solid var(--accent);border-radius:16px;padding:6px 14px 10px;margin:22px -4px 0}
 .agg .tryzone{margin:12px -10px 0}
 .agg-top{font:700 15px system-ui,sans-serif;color:var(--accent);margin:10px 0 2px}
@@ -93,8 +116,9 @@ article{position:relative}article .tags{padding-right:40px}
 .filtri{display:flex;gap:6px;flex-wrap:wrap;margin:8px 0}.filtri button{font:600 13px system-ui,sans-serif;border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:999px;padding:6px 12px;cursor:pointer}
 .filtri button[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:#fff}
 @media print{.osint{break-inside:auto}}
+@media print{.menu{display:none!important}}
 @media print{.listen,.week,.cerca,.risultati,.glossario,.prova,.stella,.vaipref,.togli,.filtri{display:none!important}}
-</style></head><body><main><p class="top">AI News Digest</p><h1>⭐ I miei preferiti</h1><p class="lead">Gli strumenti e le novità che hai segnato con la stellina, per ritrovarli quando ti servono.</p><p class="meta" id="conta"></p><div class="share"><button type="button" onclick="copiaPreferiti(this)">💬 Copia elenco per WhatsApp</button><a class="vaipref" href="index.html">← Edizione di oggi</a></div><div class="filtri" id="filtri"></div><section class="pref" id="lista"></section><p class="meta">I preferiti restano salvati in questo browser, su questo dispositivo. Se cancelli i dati di navigazione o usi la navigazione privata non vengono conservati.</p><h2>Archivio</h2><input class="cerca" type="search" placeholder="🔎 Cerca nelle edizioni passate…" aria-label="Cerca nell'archivio" oninput="cerca(this.value)" onfocus="caricaIndice()"><ul class="risultati" id="risultati" aria-live="polite"></ul><ul class="arch" id="arch"><li><a href="giorni/2026-10-11.html"><small>11 ott</small>Strumenti AI privati per Mac e smartphone: riordinare file e usare l&#x27;AI offline</a></li><li><a href="giorni/2026-10-10.html"><small>10 ott</small>Ritocco fotografico a parole e assistenti AI integrati nei messaggi</a></li><li><a href="giorni/2026-10-09.html"><small>9 ott</small>Agenti AI al centro: Google lancia, Anthropic detta regole, l&#x27;Italia si adegua</a></li></ul></main><script>const DIGEST={"titolo": "I miei preferiti", "testo": "", "url": "https://fulgei-a11y.github.io/Intelligenza-Ai/preferiti.html"};const PREFISSO="";
+</style></head><body><main><nav class="menu" aria-label="Sezioni del sito"><a href="index.html">📰 Oggi</a><a href="preferiti.html" aria-current=page>⭐ Preferiti <span id="nPref"></span></a><a href="cassetta-osint.html">🧰 OSINT</a><a href="settimana/2026-10-11.html">📅 Settimana</a><a href="#archivio">🗂️ Archivio</a></nav><p class="top">AI News Digest</p><h1>⭐ I miei preferiti</h1><p class="lead">Gli strumenti e le novità che hai segnato con la stellina, per ritrovarli quando ti servono.</p><p class="meta" id="conta"></p><div class="share"><button type="button" onclick="copiaPreferiti(this)">💬 Copia elenco per WhatsApp</button></div><div class="filtri" id="filtri"></div><section class="pref" id="lista"></section><p class="meta">I preferiti restano salvati in questo browser, su questo dispositivo. Se cancelli i dati di navigazione o usi la navigazione privata non vengono conservati.</p><h2 id="archivio">Archivio</h2><input class="cerca" type="search" placeholder="🔎 Cerca nelle edizioni passate…" aria-label="Cerca nell'archivio" oninput="cerca(this.value)" onfocus="caricaIndice()"><ul class="risultati" id="risultati" aria-live="polite"></ul><ul class="arch" id="arch"><li><a href="giorni/2026-10-11.html"><small>11 ott</small>Strumenti AI privati per Mac e smartphone: riordinare file e usare l&#x27;AI offline</a></li><li><a href="giorni/2026-10-10.html"><small>10 ott</small>Ritocco fotografico a parole e assistenti AI integrati nei messaggi</a></li><li><a href="giorni/2026-10-09.html"><small>9 ott</small>Agenti AI al centro: Google lancia, Anthropic detta regole, l&#x27;Italia si adegua</a></li></ul></main><script>const DIGEST={"titolo": "I miei preferiti", "testo": "", "url": "https://fulgei-a11y.github.io/Intelligenza-Ai/preferiti.html"};const PREFISSO="";
 function condividi(){
   const d={title:DIGEST.titolo,text:DIGEST.titolo,url:DIGEST.url||location.href};
   if(navigator.share){navigator.share(d).catch(()=>{});}
@@ -144,7 +168,8 @@ function quandoPref(p){return (p.tipo||'')+' · '+(p.giorno?p.giorno.split('-').
 function disegnaMieiOsint(){
   const box=document.getElementById('mieiOsint');if(!box)return;
   const l=leggiPref().filter(p=>p.tipo==='OSINT');box.innerHTML='';
-  if(!l.length){box.innerHTML='<p class="vuoto">Tocca la stellina ☆ su uno strumento OSINT, qui sotto o nelle edizioni del giorno, e lo ritrovi qui in cima.</p>';return;}
+  const sez=document.getElementById('mia');if(sez)sez.hidden=!l.length;
+  if(!l.length)return;
   for(const p of l){
     const a=document.createElement('article'),h=document.createElement('h3'),t=document.createElement('a'),x=document.createElement('p'),q=document.createElement('p');
     a.className='try';q.className='quando';q.textContent=quandoPref(p);
