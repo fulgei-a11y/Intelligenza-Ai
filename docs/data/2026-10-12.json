@@ -284,6 +284,17 @@
    "categoria": "Testate tech",
    "id": "u2a84",
    "testo_completo": true
+  },
+  "u3a151": {
+   "titolo": "OSINT of Slovenia",
+   "link": "https://www.reddit.com/r/OSINT/comments/1x1eqox/osint_of_slovenia/",
+   "data": "2026-10-09T07:12:36+00:00",
+   "testo": "Free OSINT toolkit for Slovenia: https://unishka.substack.com/p/osint-of-slovenia Feel free to let me know in the comments if we've missed any important sources. You can also find toolkits for other countries that have been covered so far on UNISHKA's Substack, and our website. https://substack.com/@unishkaresearchservice Website link: https://unishka.com/osint-world-series/ submitted by /u/Puzzl…",
+   "fonte": "Reddit (OSINT)",
+   "tipo": "community",
+   "solo_titolo": false,
+   "categoria": "OSINT",
+   "id": "u3a151"
   }
  },
  "fonti": [
@@ -723,10 +734,17 @@
   "imadeanopensourceaileaderboardthatshowsthebestmodelsyourmachinecanrun",
   "buildingstratafromsource",
   "factcheckviralsohailafridiarrestpictureisaigenerated",
-  "whatilearnedfromgeolocating1000satelliteimageseinternationalrelations"
+  "whatilearnedfromgeolocating1000satelliteimageseinternationalrelations",
+  "builtforyougeorgiasecofstatelaunchesnewgabbyaitoolonline",
+  "lintelligenzaartificialealserviziodellebiblioteche",
+  "metalaunchesmusewonderaimodeltochallengechatgptandclaude",
+  "reportepicgamesgoesallinonaifordisneycollaboration",
+  "updateiaskedgpttogetmeasurprisegiftthisiswhatitgotme",
+  "onceagainanthropicdoingfreemarketingforopenweightmodels",
+  "osintofslovenia"
  ],
  "audio": "audio/2026-10-12.mp3",
- "durata": 231.6,
+ "durata": 244.8,
  "aggiornamenti": [
   {
    "generato": "2026-10-12T16:45:55+00:00",
@@ -1004,6 +1022,41 @@
       ]
      }
     ],
+    "formato": 2
+   }
+  },
+  {
+   "generato": "2026-10-12T21:08:47+00:00",
+   "modello": "gemini-3.5-flash",
+   "testi_completi": 1,
+   "riassunto": {
+    "titolo_giorno": "Toolkit OSINT per consultare fonti pubbliche sulla Slovenia",
+    "in_breve": "L'aggiornamento di oggi evidenzia una risorsa dedicata all'analisi di fonti aperte sulla Slovenia. Il toolkit raccoglie banche dati e registri pubblici consultabili dal browser per verifiche su società o informazioni pubbliche.",
+    "citati": [
+     "OSINT Toolkit Slovenia"
+    ],
+    "da_provare": [],
+    "osint": [
+     {
+      "cosa": "OSINT Toolkit Slovenia",
+      "a_cosa_serve": "Una raccolta organizzata di fonti aperte, banche dati e registri pubblici dedicati alla Slovenia.",
+      "uso": "Aziende e registri",
+      "piattaforme": [
+       "Browser"
+      ],
+      "costo": "Gratis",
+      "difficolta": "Facile",
+      "come_sfruttarla": "Consultare registri e fonti pubbliche slovene per verifiche su società o soggetti nell'area.",
+      "fonti": [
+       "u3a151"
+      ],
+      "affidabilita": "Da verificare",
+      "come_iniziare": [],
+      "sul_dispositivo": false,
+      "prova": ""
+     }
+    ],
+    "sezioni": [],
     "formato": 2
    }
   }
