@@ -213,6 +213,77 @@
    "solo_titolo": true,
    "categoria": "Strumenti",
    "id": "u1a13"
+  },
+  "u2a82": {
+   "titolo": "Meta releases its first frontier model, Muse Wonder",
+   "link": "https://techcrunch.com/2026/10/12/meta-releases-its-first-frontier-model-muse-wonder/",
+   "data": "2026-10-12T17:56:56+00:00",
+   "testo": "Meta’s Superintelligence Lab released a pair of new state-of-the-art models on Monday, Muse Wonder and Muse Wonder Full, representing the company’s first attempt at a frontier model. Where Muse Spark aimed to be a lightweight model that could perform at low latency, the Wonder models are larger and said to be more capable, with higher benchmark scores and better results on complex tasks like coding. According to Meta’s testing (presented in the model card), Wonder and Wonder Full achieve comparable benchmark scores to Fable 5.1 and GPT-6 Astra. “Together, they mark the next step on our scaling ladder and a major leap toward personal superintelligence,” Meta’s blog post about the models reads. That scale is reflected in the pricing: Accessed through the Meta Model API, Wonder will cost $4 per million input tokens and $20 per million output tokens, making it roughly equivalent in cost to GPT-6 Sol or Opus 5.5. Notably, Wonder Full will only be available to Muse Code subscribers and will not be served through the API. Both models will also be used to power the Muse agent. In keeping with Meta’s interest in developing personal assistants that can perform tasks over a long period, the company placed particular emphasis on the new models’ ability to retain and synthesize information given by the user, a property Meta calls “active memory.” To achieve better recall, Meta highlighted the MemoryBench benchmark, which challenges continual learning and memory construction frameworks. According to the company’s testing, Muse Wonder now scores higher on MemoryBench than Fable, Opus, or Astra. “We put a tremendous amount of effort into making sure your model can remember what’s important to you over days, weeks, months, and beyond,” said research scientist Kavya Kopparapu in a video…",
+   "fonte": "TechCrunch",
+   "tipo": "testata",
+   "solo_titolo": false,
+   "categoria": "Testate tech",
+   "id": "u2a82",
+   "testo_completo": true
+  },
+  "u2a114": {
+   "titolo": "Home Assistant semplifica l’accesso all’AI, i rischi da conoscere",
+   "link": "https://www.punto-informatico.it/home-assistant-semplifica-accesso-ai-rischi-conoscere/",
+   "data": "2026-10-12T17:33:09+00:00",
+   "testo": "Far dialogare ChatGPT o Claude con i dispositivi della propria casa smart non è una novità. Home Assistant permette già questa interazione da diversi mesi, ma la configurazione richiedeva alcune conoscenze tecniche e un po’ di pazienza. Con il suo aggiornamento 2026.10, disponibile dal 7 ottobre, la piattaforma domotica open source vuole rendere questa possibilità molto più accessibile. Bastano ormai pochi clic per collegare un assistente AI, senza perdersi nei menu. Una semplificazione apprezzabile, anche se solleva alcune domande sulla sicurezza dei nostri dispositivi connessi. Un clic per collegare ChatGPT o Claude alla propria casa Home Assistant si basa sul Model Context Protocol (MCP), un protocollo aperto che permette alle intelligenze artificiali di comunicare con applicazioni e servizi di terze parti. Concretamente, un assistente compatibile può consultare lo stato dei dispositivi della casa e agire su determinati apparecchi, in base alle funzioni e alle autorizzazioni disponibili. Finora bisognava installare l’integrazione MCP, selezionare le funzionalità da condividere, poi trovare l’indirizzo giusto per collegare il proprio assistente. Una procedura tutt’altro che insormontabile, ma che poteva scoraggiare gli utenti meno esperti. Con Home Assistant 2026.10, tutto avviene ormai in una nuova sezione AI, accessibile dalle impostazioni di sistema. Una scheda dedicata al protocollo MCP permette di attivare il server con un clic e mostra direttamente gli indirizzi necessari alla connessione. Basta poi copiare quello corrispondente al proprio assistente compatibile. L’integrazione funziona anche nel senso opposto. Home Assistant può ormai rilevare automaticamente le applicazioni che propongono il proprio server MCP, per poi chiedere una conferma prima di collegarl…",
+   "fonte": "Punto Informatico",
+   "tipo": "testata",
+   "solo_titolo": false,
+   "categoria": "Italia",
+   "id": "u2a114",
+   "testo_completo": true
+  },
+  "u2a79": {
+   "titolo": "Meta has some Wonder Full new AI models",
+   "link": "https://www.theverge.com/ai-artificial-intelligence/1009479/meta-muse-wonder-full-ai-model",
+   "data": "2026-10-12T13:00:00-04:00",
+   "testo": "Meta is making up for lost time in the AI race. After launching Muse Spark, the first model from its revamped Superintelligence Labs division, and buzzy AI agent Muse, it’s now launching two new models it claims can go toe-to-toe with the industry’s best. Meta has some Wonder Full new AI models Meta says the models compete with the industry’s best and will soon power its Muse agent. The new models, Muse Wonder and Muse Wonder Full, are available for Muse Code subscribers starting today. Wonder can also be accessed through the Meta Model API, Meta said. Meta says it eventually plans to power its Muse AI agent with Wonder, starting with subscribers, and will develop specialized models it “can bring to everyone using Muse.” It hasn’t shared specifics or provided a timeline for either. The company says its new models can rival leading models from OpenAI and Anthropic, including GPT-6 Astra, Claude Opus 5.5, and Claude Fable 5.1, pointing to results from internal testing on several industry benchmarks. It’s unclear how they stack up against Google’s Gemini 4 Argon, whose capabilities are still coming into focus. The launches are part of Meta’s aggressive push to reestablish itself as a major force in AI. The company has poured billions into talent and infrastructure and has been steadily expanding its AI lineup, including with image model Muse Image and a heavy focus on bringing useful AI agents to the masses through Muse.",
+   "fonte": "The Verge",
+   "tipo": "testata",
+   "solo_titolo": false,
+   "categoria": "Testate tech",
+   "id": "u2a79",
+   "testo_completo": true
+  },
+  "u2a95": {
+   "titolo": "Meta's new frontier model Muse Wonder Full breaks into the AI top tier",
+   "link": "https://the-decoder.com/metas-new-frontier-model-muse-wonder-full-breaks-into-the-ai-top-tier/",
+   "data": "2026-10-12T18:48:29+00:00",
+   "testo": "Meta's new frontier model Muse Wonder Full breaks into the AI top tier Key Points - Meta's two new models, Muse Wonder and Muse Wonder Full, close the gap to the leading frontier models. - The biggest gains are in agentic coding and autonomous problem-solving. - Both versions cost nearly three times as much per API call as their predecessor, Muse Spark 1.3. Meta released its frontier model Muse Wonder in two variants, and both land among the best AI models available. Muse Wonder Full scores 56 points on the Artificial Analysis Intelligence Index v4.3, while Muse Wonder hits 52. Its predecessor, Muse Spark 1.3, sat at 48 points, which makes this a significant jump from what was a mid-tier model. The biggest gains show up in agentic evaluations, tests that measure how well an AI model can handle complex tasks on its own. On Terminal-Bench 4.0, performance jumped from 33 to 57 percent. Muse Wonder Full places in the top three on six out of ten benchmarks overall, a strong result for Meta, which seems to have recovered after a weaker stretch with its open Llama models. Meta highlights two new features. \"Active Memory\" lets the model remember key information across conversations and recall it when needed. \"Active Focus\" is the model's ability to stick with difficult tasks, try alternative approaches, and ask follow-up questions when something isn't clear. Both are central to Meta's pitch for a personal AI agent that can access calendars, messages, and documents. Both models support a one-million-token context window and accept text, images, video, and audio as input. Muse Wonder is available through Meta's API and Muse Code, while Muse Wonder Full is currently limited to Muse Code users. Muse Wonder will soon power the Muse app as well, starting with paying subscribers. Ove…",
+   "fonte": "The Decoder",
+   "tipo": "testata",
+   "solo_titolo": false,
+   "categoria": "Testate tech",
+   "id": "u2a95",
+   "testo_completo": true
+  },
+  "u2a123": {
+   "titolo": "Chiede all'AI un percorso in montagna, rischia la vita a 16 anni",
+   "link": "https://www.hdblog.it/tecnologia/articoli/n673364/ia-percorso-montagna-ragazzo-salvato-canada/",
+   "data": "2026-10-12T18:40:00+02:00",
+   "testo": "Un 16enne segue un percorso pianificato con Claude e resta bloccato su una parete in Canada.",
+   "fonte": "HDblog",
+   "tipo": "testata",
+   "solo_titolo": false,
+   "categoria": "Italia",
+   "id": "u2a123"
+  },
+  "u2a84": {
+   "titolo": "Honeyjar offers AI tools to improve PR and comms at every company",
+   "link": "https://techcrunch.com/2026/10/12/honeyjar-offers-ai-tools-to-improve-pr-and-comms-at-every-company/",
+   "data": "2026-10-12T15:45:00+00:00",
+   "testo": "Journalists, entrepreneurs, and even some public relations professionals will tell you that the PR process is broken (buy me a drink sometime, and I’ll give you my rant). But could AI actually make things better? Honeyjar, which will be attending this week’s TechCrunch Disrupt as part of the Startup Battlefield 200, wants to use AI to make the expertise and judgment of the best PR pros available to everyone, including founders who have no idea where to start. The startup’s founders, CEO Michelle Masek and CCO Nadia Jamshidi, certainly fit the bill when it comes to PR expertise. They’ve both spent decades in the field, doing in-house communications and working at agencies. Masek recently served as senior vice president of marketing and communications for Ev Williams’ venture firm, Obvious Ventures. As Masek described the challenges involved in “helping with the why and when of comms and marketing for 110 portfolio companies” (the startups her firm had invested in), I flashed back to my own brief stint leading marketing at an early-stage VC firm, where founders were constantly asking for help getting into TechCrunch. So I wasn’t surprised that Masek found herself asking, “Is there a way to scale the senior-level expertise into AI [in a way] that actually helps users do the work of comms in the proactive and skilled way that we do?” Honeyjar is her answer to that question. It automates processes like writing announcements, finding the best journalists to pitch, and identifying the most promising speaking opportunities. But Jamshidi told me in a follow-up email that Honeyjar’s vision goes beyond getting press coverage and beyond specific AI tools. “Honeyjar can find reporters, build media lists, scan news and social, track coverage, and surface opportunities,” she said. “T…",
+   "fonte": "TechCrunch",
+   "tipo": "testata",
+   "solo_titolo": false,
+   "categoria": "Testate tech",
+   "id": "u2a84",
+   "testo_completo": true
   }
  },
  "fonti": [
@@ -612,10 +683,50 @@
   "oldvideosfalselysharedashindugroupsarrivingindelhitoopposecjpsprotestatjantarman",
   "hindugroupsenroutetodelhitoopposecjpprotestsnovideosareoldandunrelated",
   "howscammersbuiltdeployedafakeversionofnigeriastrafficagency",
-  "kyivstrikessixrussianmilitarylocationsacrossoccupiedterritoriesinmassiveweekendb"
+  "kyivstrikessixrussianmilitarylocationsacrossoccupiedterritoriesinmassiveweekendb",
+  "fromgtavoniphonetofreephotoshopthisaitoolisupendingsoftware",
+  "approvalmaxlaunchesailayerforbillapprovals",
+  "grasslaunchesaitooltoreadpublicwebpageswhilegrasstokenhoversnear077amidpricereco",
+  "c3aijumpsafternorthlandupgradepointstofasteraiappdevelopment",
+  "metalaunchespaidaiassistantmodelmusewonderasitseeksrevenuebeyondads",
+  "gemini35transcribetrascrizioneaudiointesto2026techinsiderorg",
+  "microsoftplanshugedeploymentofitsownaichipswithaneyeonsavingcosts",
+  "ilfuturodegliassistentiaièsuldispositivolaprevisioneditonyfadell",
+  "metalaunchesmusewonderaimodeltorivalchatgptandclaude",
+  "acalviolaunchesshadowplexaiagentingeminimarketplace",
+  "metalauncheswonderaimodelstorivalchatgptclaudezuckerbergstepsupairace",
+  "musewonderlaunchesatopus55pricesbuttrailsitinbenchmarks",
+  "anthropicsclaudeaisubmittedfalsemurdertiptophiladelphiapolice",
+  "aimodelsubmitsfalsetiponphiladelphiapoliceunsolvedhomicidecase",
+  "anthropicclaimsitsaiagentwasnttryingtomisleadpolicewhenitsubmittedafalsetipinaho",
+  "anthropicsaisubmittedafaketipinanunsolvedmurdercase",
+  "microsoftcopilotaipredictsbitcoincashtohit5000by2027",
+  "microsoftisturningexcelspreadsheetsintobeautifulinteractivecanvaseswithcopilot",
+  "musewonder",
+  "metalaunchesmusewonderaiinnewpaidservicetest",
+  "endermansaysmuskslegoorderplacedbygrokbotwascanceled",
+  "metahassomewonderfullnewaimodels",
+  "metareleasesitsfirstfrontiermodelmusewonder",
+  "windbornewinsaheftyusairforcecontractforitsballoondata",
+  "honeyjaroffersaitoolstoimproveprandcommsateverycompany",
+  "russiawasnotreadyforthedatacenterwaritstartedwithukraine",
+  "metasnewfrontiermodelmusewonderfullbreaksintotheaitoptier",
+  "sakanaaisselfimprovingmodelgetsbetteratsolvingandjudgingbutcantcatchitsownblinds",
+  "microsoftlanciamaia300puntasuunchipiaproprietariopersfidarenvidia",
+  "homeassistantsemplificalaccessoallaiirischidaconoscere",
+  "thelancetlaimalevolapuòminacciarelesistenzadellumanità",
+  "appleeventodedicatoaicreatorafineottobrepermostraretuttiinuovidevice",
+  "hyundaitucsonnlineilsuvpiùaudacesimostraaparigi2026",
+  "chiedeallaiunpercorsoinmontagnarischialavitaa16anni",
+  "damagecontrolbycaptaininsightx",
+  "nvidiaisstoppingproductionofrtx5090s",
+  "imadeanopensourceaileaderboardthatshowsthebestmodelsyourmachinecanrun",
+  "buildingstratafromsource",
+  "factcheckviralsohailafridiarrestpictureisaigenerated",
+  "whatilearnedfromgeolocating1000satelliteimageseinternationalrelations"
  ],
  "audio": "audio/2026-10-12.mp3",
- "durata": 156.1,
+ "durata": 231.6,
  "aggiornamenti": [
   {
    "generato": "2026-10-12T16:45:55+00:00",
@@ -800,6 +911,92 @@
         "disponibilita": "Non indicato",
         "fonti": [
          "u1a114"
+        ],
+        "affidabilita": "Una fonte",
+        "solo_titoli": false
+       }
+      ]
+     }
+    ],
+    "formato": 2
+   }
+  },
+  {
+   "generato": "2026-10-12T20:56:46+00:00",
+   "modello": "gemini-3.5-flash",
+   "testi_completi": 9,
+   "riassunto": {
+    "titolo_giorno": "Home Assistant facilita l'AI in casa e Meta lancia i modelli Muse Wonder",
+    "in_breve": "La domotica di Home Assistant si aggiorna permettendo di collegare ChatGPT e Claude alla casa intelligente con un solo clic. Sul fronte dell'intelligenza artificiale avanzata, Meta presenta i modelli Muse Wonder, progettati con una memoria a lungo termine per ricordare i contesti dell'utente.",
+    "citati": [
+     "Home Assistant",
+     "ChatGPT",
+     "Claude",
+     "Meta AI",
+     "Muse Wonder"
+    ],
+    "da_provare": [
+     {
+      "cosa": "Honeyjar",
+      "a_cosa_serve": "Piattaforma che usa l'AI per gestire la comunicazione e le relazioni pubbliche, aiutando a scrivere comunicati stampa, individuare giornalisti target e monitorare le opportunità sui media.",
+      "per_chi": "Lavoro",
+      "ambito": "Scrittura e lavoro",
+      "come_iniziare": [],
+      "costo": "Non indicato",
+      "piattaforme": [],
+      "sul_dispositivo": false,
+      "come_sfruttarla": "Pianificare la strategia di comunicazione della propria attività e identificare i contatti stampa più adatti.",
+      "italiano": "Non indicato",
+      "difficolta": "Facile",
+      "fonti": [
+       "u2a84"
+      ],
+      "affidabilita": "Una fonte",
+      "prova": ""
+     }
+    ],
+    "osint": [],
+    "sezioni": [
+     {
+      "titolo": "Novità negli strumenti che già usi",
+      "notizie": [
+       {
+        "titolo": "Collegamento diretto a ChatGPT e Claude per la casa intelligente",
+        "strumento": "Home Assistant",
+        "riassunto": "Con l'aggiornamento 2026.10, la piattaforma di domotica introduce una sezione dedicata all'AI nelle impostazioni che permette di attivare il server MCP con un solo clic. In questo modo è possibile far interagire assistenti come ChatGPT e Claude con i dispositivi di casa senza configurazioni tecniche complesse.",
+        "come_provarla": "Accedere alle impostazioni di sistema di Home Assistant aggiornato alla versione 2026.10 e aprire la nuova scheda dedicata all'AI.",
+        "disponibilita": "Disponibile ora",
+        "fonti": [
+         "u2a114"
+        ],
+        "affidabilita": "Una fonte",
+        "solo_titoli": false
+       },
+       {
+        "titolo": "Nuovi modelli Muse Wonder con memoria estesa",
+        "strumento": "Meta AI",
+        "riassunto": "Meta ha lanciato i modelli Muse Wonder e Muse Wonder Full. La novità principale è la funzione Active Memory, che consente all'assistente di ricordare informazioni e preferenze dell'utente nel corso del tempo, insieme alla capacità Active Focus per gestire compiti articolati mantenendo la concentrazione sull'obiettivo.",
+        "come_provarla": "Disponibile per gli abbonati al piano Muse Code e tramite API; l'integrazione nell'app Muse per utenti paganti è prevista a breve.",
+        "disponibilita": "Disponibile ora",
+        "fonti": [
+         "u2a79",
+         "u2a82",
+         "u2a95"
+        ],
+        "affidabilita": "Confermata",
+        "solo_titoli": false
+       }
+      ]
+     },
+     {
+      "titolo": "In breve",
+      "breve": true,
+      "notizie": [
+       {
+        "titolo": "Pericoli nelle mappe e percorsi generati dall'AI",
+        "riassunto": "Un escursionista di 16 anni è rimasto bloccato su una parete rocciosa in Canada dopo aver seguito un itinerario di montagna pianificato con il chatbot Claude, richiamando l'attenzione sui rischi dell'uso dell'AI per pianificare attività all'aperto.",
+        "fonti": [
+         "u2a123"
         ],
         "affidabilita": "Una fonte",
         "solo_titoli": false
