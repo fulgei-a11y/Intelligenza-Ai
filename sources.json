@@ -261,8 +261,9 @@
       "nome": "Reddit (OSINT)",
       "tipo": "community",
       "categoria": "OSINT",
-      "url": "https://www.reddit.com/r/OSINT/top/.rss?t=day&limit=25",
-      "max": 5
+      "url": "https://www.reddit.com/r/OSINT/top/.rss?t=week&limit=25",
+      "max": 5,
+      "ore": 168
     },
     {
       "nome": "Hacker News (OSINT)",
