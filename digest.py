@@ -83,6 +83,7 @@ NS = {
 # ---------------------------------------------------------------- lettura feed
 
 _ultimo_accesso = {}
+_vuole_browser = set()
 
 
 def scarica(url: str, timeout: int = 25) -> bytes:
@@ -94,11 +95,15 @@ def scarica(url: str, timeout: int = 25) -> bytes:
         if attesa > 0:
             time.sleep(attesa)
         _ultimo_accesso[host] = time.time()
-        req = urllib.request.Request(url, headers={"User-Agent": UA, "Accept": "*/*"})
+        ua = UA_BROWSER if tentativo and url in _vuole_browser else UA
+        req = urllib.request.Request(url, headers={"User-Agent": ua, "Accept": "*/*"})
         try:
             with urllib.request.urlopen(req, timeout=timeout + 15 * tentativo) as r:
                 return r.read()
         except urllib.error.HTTPError as e:
+            if e.code == 403 and url not in _vuole_browser and tentativo < 2:
+                _vuole_browser.add(url)    # alcuni siti (es. GIJN) rifiutano i programmi automatici
+                continue
             if e.code in (429, 502, 503) and tentativo < 2:
                 time.sleep(15 * (tentativo + 1))
                 continue
@@ -447,7 +452,8 @@ B) "novita_strumenti" — "Novità negli strumenti che già usi" (da 0 a 5)
    Vanno bene i piani per privati (anche a pagamento) e gli strumenti per liberi professionisti.
 D) "osint" — "Strumenti OSINT" (da 0 a 4): strumenti NUOVI o aggiornati per indagini su fonti aperte, come
    quelli usati da giornalisti investigativi, fact-checker e analisti. Solo strumenti reali e funzionanti,
-   usabili nel BROWSER (sito o estensione) o su WINDOWS. Ambiti ammessi: verifica di foto e video,
+   usabili nel BROWSER (sito o estensione) o su WINDOWS; se le fonti non dicono la piattaforma va bene lo
+   stesso (lascia "piattaforme" vuoto). Ambiti ammessi: verifica di foto e video,
    geolocalizzazione di immagini, metadati di file, archivi web, domini e siti, aziende e registri pubblici,
    navi e aerei, immagini satellitari, analisi di documenti, mappe e dati aperti, e anche PERSONE E ACCOUNT
    su fonti pubbliche (username e profili social, email e numeri di telefono, presenza online, verifica di
@@ -785,13 +791,13 @@ def _verifica(riassunto, per_id):
         d = verifica_strumento(d, per_id)
         if not d:
             continue
-        if not any(p in ("Browser", "Windows") for p in d["piattaforme"]):
+        if d["piattaforme"] and not any(p in ("Browser", "Windows") for p in d["piattaforme"]):
             print(f"  ⊘ OSINT scartato (non usabile nel browser o su Windows): {d.get('cosa')}")
-            continue
+            continue                       # se la piattaforma non è indicata lo teniamo: quasi sempre è un sito web
         if not utile(d.get("costo")):
             d["costo"] = "Costo non indicato"
         osint.append(d)
-    osint.sort(key=lambda d: 0 if "Browser" in d["piattaforme"] else 1)
+    osint.sort(key=lambda d: 0 if "Browser" in d["piattaforme"] else 1 if d["piattaforme"] else 2)
     riassunto["osint"] = osint[:4]
     return riassunto
 
