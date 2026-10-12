@@ -85,6 +85,16 @@ article:target,li:target{outline:2px solid var(--accent)}
 .costo{font:600 12px system-ui,sans-serif;border-radius:6px;padding:3px 8px}
 .costo.gratis{background:#dcfce7;color:#15803d}.costo.limiti{background:#fef3c7;color:#92400e}.costo.pagamento{background:#fee2e2;color:#991b1b}
 @media (prefers-color-scheme:dark){.costo.gratis{background:#14532d;color:#86efac}.costo.limiti{background:#451a03;color:#fcd34d}.costo.pagamento{background:#450a0a;color:#fca5a5}}
+[hidden]{display:none!important}
+.bollino{display:inline-block;min-width:18px;padding:1px 5px;margin-left:2px;border-radius:999px;background:var(--accent);
+  color:#fff;font:700 11px/16px system-ui,sans-serif;text-align:center;vertical-align:1px}
+.letti-bar{display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap;margin:6px 0 10px;
+  font:600 14px system-ui,sans-serif}
+.letti-bar button,.daleggere button{font:600 13px system-ui,sans-serif;border:1px solid var(--line);background:var(--card);
+  color:var(--ink);border-radius:999px;padding:6px 12px;cursor:pointer}
+.arrivo.nonletto{border-left-color:var(--accent);box-shadow:0 0 0 2px var(--accent) inset}
+.daleggere{display:flex;align-items:center;gap:10px;margin:0 44px 6px 0;font:700 12px system-ui,sans-serif;color:var(--accent)}
+.daleggere button{padding:3px 10px;font-size:12px}
 .cassetta-indice{display:flex;flex-wrap:wrap;gap:6px;margin:14px 0}
 .cassetta-indice a{font:600 13px system-ui,sans-serif;color:var(--ink);background:var(--card);border:1px solid var(--line);border-radius:999px;padding:6px 12px;text-decoration:none}
 .osint .sub a{color:inherit}
@@ -118,7 +128,7 @@ article{position:relative}article .tags{padding-right:40px}
 @media print{.osint{break-inside:auto}}
 @media print{.menu{display:none!important}}
 @media print{.listen,.week,.cerca,.risultati,.glossario,.prova,.stella,.vaipref,.togli,.filtri{display:none!important}}
-</style></head><body><main><nav class="menu" aria-label="Sezioni del sito"><a href="index.html">📰 Oggi</a><a href="preferiti.html" aria-current=page>⭐ Preferiti <span id="nPref"></span></a><a href="cassetta-osint.html">🧰 OSINT</a><a href="settimana/2026-10-11.html">📅 Settimana</a><a href="#archivio">🗂️ Archivio</a></nav><p class="top">AI News Digest</p><h1>⭐ I miei preferiti</h1><p class="lead">Gli strumenti e le novità che hai segnato con la stellina, per ritrovarli quando ti servono.</p><p class="meta" id="conta"></p><div class="share"><button type="button" onclick="copiaPreferiti(this)">💬 Copia elenco per WhatsApp</button></div><div class="filtri" id="filtri"></div><section class="pref" id="lista"></section><p class="meta">I preferiti restano salvati in questo browser, su questo dispositivo. Se cancelli i dati di navigazione o usi la navigazione privata non vengono conservati.</p><h2 id="archivio">Archivio</h2><input class="cerca" type="search" placeholder="🔎 Cerca nelle edizioni passate…" aria-label="Cerca nell'archivio" oninput="cerca(this.value)" onfocus="caricaIndice()"><ul class="risultati" id="risultati" aria-live="polite"></ul><ul class="arch" id="arch"><li><a href="giorni/2026-10-12.html"><small>12 ott</small>ChatGPT introduce i grafici interattivi e Claude si aggiorna per l&#x27;ufficio</a></li><li><a href="giorni/2026-10-11.html"><small>11 ott</small>Strumenti AI privati per Mac e smartphone: riordinare file e usare l&#x27;AI offline</a></li><li><a href="giorni/2026-10-10.html"><small>10 ott</small>Ritocco fotografico a parole e assistenti AI integrati nei messaggi</a></li><li><a href="giorni/2026-10-09.html"><small>9 ott</small>Agenti AI al centro: Google lancia, Anthropic detta regole, l&#x27;Italia si adegua</a></li></ul></main><script>const DIGEST={"titolo": "I miei preferiti", "testo": "", "url": "https://fulgei-a11y.github.io/Intelligenza-Ai/preferiti.html"};const PREFISSO="";
+</style></head><body><main><nav class="menu" aria-label="Sezioni del sito"><a href="index.html">📰 Oggi</a><a href="preferiti.html" aria-current=page>⭐ Preferiti <span id="nPref"></span></a><a href="cassetta-osint.html">🧰 OSINT <span id="nOsint" class="bollino" hidden></span></a><a href="settimana/2026-10-11.html">📅 Settimana</a><a href="#archivio">🗂️ Archivio</a></nav><p class="top">AI News Digest</p><h1>⭐ I miei preferiti</h1><p class="lead">Gli strumenti e le novità che hai segnato con la stellina, per ritrovarli quando ti servono.</p><p class="meta" id="conta"></p><div class="share"><button type="button" onclick="copiaPreferiti(this)">💬 Copia elenco per WhatsApp</button></div><div class="filtri" id="filtri"></div><section class="pref" id="lista"></section><p class="meta">I preferiti restano salvati in questo browser, su questo dispositivo. Se cancelli i dati di navigazione o usi la navigazione privata non vengono conservati.</p><h2 id="archivio">Archivio</h2><input class="cerca" type="search" placeholder="🔎 Cerca nelle edizioni passate…" aria-label="Cerca nell'archivio" oninput="cerca(this.value)" onfocus="caricaIndice()"><ul class="risultati" id="risultati" aria-live="polite"></ul><ul class="arch" id="arch"><li><a href="giorni/2026-10-12.html"><small>12 ott</small>ChatGPT introduce i grafici interattivi e Claude si aggiorna per l&#x27;ufficio</a></li><li><a href="giorni/2026-10-11.html"><small>11 ott</small>Strumenti AI privati per Mac e smartphone: riordinare file e usare l&#x27;AI offline</a></li><li><a href="giorni/2026-10-10.html"><small>10 ott</small>Ritocco fotografico a parole e assistenti AI integrati nei messaggi</a></li><li><a href="giorni/2026-10-09.html"><small>9 ott</small>Agenti AI al centro: Google lancia, Anthropic detta regole, l&#x27;Italia si adegua</a></li></ul></main><script>const DIGEST={"titolo": "I miei preferiti", "testo": "", "url": "https://fulgei-a11y.github.io/Intelligenza-Ai/preferiti.html"};const PREFISSO="";
 function condividi(){
   const d={title:DIGEST.titolo,text:DIGEST.titolo,url:DIGEST.url||location.href};
   if(navigator.share){navigator.share(d).catch(()=>{});}
@@ -205,6 +215,38 @@ function prossimo(){
   el.textContent='prossimo aggiornamento '+quale+' verso le '+p.toLocaleTimeString('it-IT',{...roma,hour:'2-digit',minute:'2-digit'});
 }
 document.addEventListener('DOMContentLoaded',prossimo);
+const CHIAVE_LETTI='ai-news-osint-letti';
+function leggiLetti(){try{return new Set(JSON.parse(localStorage.getItem(CHIAVE_LETTI)||'[]'));}catch(e){return new Set();}}
+function scriviLetti(st){try{localStorage.setItem(CHIAVE_LETTI,JSON.stringify([...st]));}catch(e){}}
+function segnaLetto(id){const st=leggiLetti();st.add(id);scriviLetti(st);aggiornaLetti();}
+function segnaTuttiLetti(){const st=leggiLetti();document.querySelectorAll('.arrivo').forEach(a=>st.add(a.dataset.lid));
+  scriviLetti(st);aggiornaLetti();alertino('✓ Tutti segnati come letti');}
+function aggiornaLetti(){
+  const letti=leggiLetti(),box=document.getElementById('arriviNuovi'),vecchi=document.getElementById('arriviLetti');
+  if(box&&vecchi){
+    let nuovi=0,giaLetti=0;
+    document.querySelectorAll('.arrivo').forEach(a=>{
+      const letto=letti.has(a.dataset.lid);a.classList.toggle('nonletto',!letto);
+      let b=a.querySelector('.daleggere');
+      if(!letto&&!b){b=document.createElement('div');b.className='daleggere';
+        b.innerHTML='<span>● Da leggere</span><button type="button">✓ Letto</button>';
+        b.querySelector('button').onclick=()=>segnaLetto(a.dataset.lid);a.prepend(b);
+        a.querySelectorAll('a').forEach(l=>l.addEventListener('click',()=>segnaLetto(a.dataset.lid)));}
+      if(letto&&b)b.remove();
+      if(letto){vecchi.append(a);giaLetti++;}else{box.append(a);nuovi++;}
+    });
+    vecchi.hidden=!giaLetti;vecchi.querySelector('summary').textContent='Già letti ('+giaLetti+')';
+    const t=document.getElementById('nonLetti'),bt=document.getElementById('tuttiLetti');
+    if(t)t.textContent=nuovi?(nuovi===1?'1 da leggere':nuovi+' da leggere'):'Nessuna novità da leggere ✓';
+    if(bt)bt.hidden=!nuovi;
+    const tile=document.querySelector('.griglia a.nuovi small');if(tile)tile.textContent=nuovi?nuovi+' da leggere':'tutto letto';
+    mostraBollino(nuovi);return;
+  }
+  fetch(PREFISSO+'osint-arrivi.json',{cache:'no-cache'}).then(r=>r.ok?r.json():[]).then(ids=>{
+    mostraBollino(ids.filter(id=>!letti.has(id)).length);}).catch(()=>{});
+}
+function mostraBollino(n){const b=document.getElementById('nOsint');if(b){b.hidden=!n;b.textContent=n;}}
+document.addEventListener('DOMContentLoaded',aggiornaLetti);
 addEventListener('pageshow',aggiornaStelle);
 if('serviceWorker' in navigator){addEventListener('load',()=>navigator.serviceWorker.register(PREFISSO+'sw.js').catch(()=>{}));}
 
