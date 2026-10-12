@@ -962,6 +962,16 @@ article:target,li:target{outline:2px solid var(--accent)}
 .costo{font:600 12px system-ui,sans-serif;border-radius:6px;padding:3px 8px}
 .costo.gratis{background:#dcfce7;color:#15803d}.costo.limiti{background:#fef3c7;color:#92400e}.costo.pagamento{background:#fee2e2;color:#991b1b}
 @media (prefers-color-scheme:dark){.costo.gratis{background:#14532d;color:#86efac}.costo.limiti{background:#451a03;color:#fcd34d}.costo.pagamento{background:#450a0a;color:#fca5a5}}
+[hidden]{display:none!important}
+.bollino{display:inline-block;min-width:18px;padding:1px 5px;margin-left:2px;border-radius:999px;background:var(--accent);
+  color:#fff;font:700 11px/16px system-ui,sans-serif;text-align:center;vertical-align:1px}
+.letti-bar{display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap;margin:6px 0 10px;
+  font:600 14px system-ui,sans-serif}
+.letti-bar button,.daleggere button{font:600 13px system-ui,sans-serif;border:1px solid var(--line);background:var(--card);
+  color:var(--ink);border-radius:999px;padding:6px 12px;cursor:pointer}
+.arrivo.nonletto{border-left-color:var(--accent);box-shadow:0 0 0 2px var(--accent) inset}
+.daleggere{display:flex;align-items:center;gap:10px;margin:0 44px 6px 0;font:700 12px system-ui,sans-serif;color:var(--accent)}
+.daleggere button{padding:3px 10px;font-size:12px}
 .cassetta-indice{display:flex;flex-wrap:wrap;gap:6px;margin:14px 0}
 .cassetta-indice a{font:600 13px system-ui,sans-serif;color:var(--ink);background:var(--card);border:1px solid var(--line);border-radius:999px;padding:6px 12px;text-decoration:none}
 .osint .sub a{color:inherit}
@@ -1097,7 +1107,7 @@ def menu(prefisso, attivo=""):
     """Barra di navigazione comune a tutte le pagine (separata dai pulsanti di azione)."""
     voci = [("oggi", f"{prefisso}index.html", "📰 Oggi"),
             ("preferiti", f"{prefisso}preferiti.html", '⭐ Preferiti <span id="nPref"></span>'),
-            ("osint", f"{prefisso}cassetta-osint.html", "🧰 OSINT")]
+            ("osint", f"{prefisso}cassetta-osint.html", '🧰 OSINT <span id="nOsint" class="bollino" hidden></span>')]
     if ULTIMA_SETTIMANA:
         voci.append(("settimana", f"{prefisso}settimana/{ULTIMA_SETTIMANA[0]}.html", "📅 Settimana"))
     voci.append(("archivio", "#archivio", "🗂️ Archivio"))
@@ -1588,29 +1598,31 @@ def pagina_cassetta(cassetta, archivio, edizioni=()):
              '<section class="osint mia" id="mia" hidden><h2>⭐ I tuoi strumenti OSINT</h2>'
              '<p class="sub">Quelli che hai segnato con la stellina, qui e nelle edizioni. Salvati su questo dispositivo.</p>'
              '<div id="mieiOsint"></div></section>']
+    if arrivi:
+        # Nuovi arrivi: in alto quelli ancora da leggere; quelli già letti finiscono in "Già letti" (vedi JS).
+        parti.append('<section class="osint nuovi" id="nuovi"><h2>🆕 Nuovi arrivi</h2><p class="sub">Strumenti OSINT '
+                     'segnalati nelle edizioni del giorno, dal più recente. Si aggiungono da soli e restano. Sono '
+                     'novità: provali con prudenza, non sono ancora collaudati come quelli più sotto.</p>'
+                     '<div class="letti-bar"><span id="nonLetti"></span>'
+                     '<button type="button" id="tuttiLetti" onclick="segnaTuttiLetti()">✓ Segna tutti come letti</button></div>'
+                     '<div id="arriviNuovi">')
+        for giorno, ancora, d, per_id in arrivi:
+            lid = f"{giorno}#{ancora}"
+            parti.append(scheda_strumento(d, per_id, giorno, ancora, "OSINT", True,
+                                          etichette=[d.get("uso"), d.get("costo") or "Costo non indicato",
+                                                     d.get("difficolta")])
+                         .replace('<div class="tags">', f'<p class="quando">Segnalato il {e(data_breve(giorno))} '
+                                  f'{giorno[:4]} · <a href="giorni/{giorno}.html#{ancora}">vedi l\'edizione</a></p>'
+                                  '<div class="tags">', 1)
+                         .replace(f'<article class="try" id="{ancora}"',
+                                  f'<article class="try arrivo" data-lid="{e(lid)}" id="n-{giorno}-{ancora}"', 1))
+        parti.append('</div><details class="altri" id="arriviLetti" hidden><summary>Già letti</summary></details>'
+                     "</section>")
     for i, c in enumerate(cat, 1):
         parti.append(f'<section class="cat" id="c{i}"><h2>{e(c.get("icona", ""))} {e(c["titolo"])}</h2>')
         if c.get("consiglio"):
             parti.append(f'<p class="consiglio">💡 {e(c["consiglio"])}</p>')
         parti += [riga_strumento(t) for t in c.get("strumenti", [])]
-        parti.append("</section>")
-    if arrivi:
-        parti.append('<section class="osint nuovi" id="nuovi"><h2>🆕 Nuovi arrivi</h2><p class="sub">Strumenti OSINT '
-                     'segnalati nelle edizioni del giorno, dal più recente. Si aggiungono da soli e restano. Sono '
-                     'novità: provali con prudenza, non sono ancora collaudati come quelli qui sopra.</p>')
-        schede = []
-        for giorno, ancora, d, per_id in arrivi:
-            schede.append(scheda_strumento(d, per_id, giorno, ancora, "OSINT", True,
-                                           etichette=[d.get("uso"), d.get("costo") or "Costo non indicato",
-                                                      d.get("difficolta")])
-                          .replace('<div class="tags">', f'<p class="quando">Segnalato il {e(data_breve(giorno))} '
-                                   f'{giorno[:4]} · <a href="giorni/{giorno}.html#{ancora}">vedi l\'edizione</a></p>'
-                                   '<div class="tags">', 1)
-                          .replace(f'id="{ancora}"', f'id="n-{giorno}-{ancora}"', 1))
-        parti += schede[:10]
-        if len(schede) > 10:
-            parti.append(f'<details class="altri"><summary>Mostra gli altri {len(schede) - 10} nuovi arrivi</summary>'
-                         + "".join(schede[10:]) + "</details>")
         parti.append("</section>")
     parti.append('<p class="meta">Usa questi strumenti solo per scopi leciti: sui dati delle persone vale il GDPR. '
                  'Costi e condizioni cambiano, controlla sul sito di ciascuno'
@@ -1766,6 +1778,38 @@ function prossimo(){
   el.textContent='prossimo aggiornamento '+quale+' verso le '+p.toLocaleTimeString('it-IT',{...roma,hour:'2-digit',minute:'2-digit'});
 }
 document.addEventListener('DOMContentLoaded',prossimo);
+const CHIAVE_LETTI='ai-news-osint-letti';
+function leggiLetti(){try{return new Set(JSON.parse(localStorage.getItem(CHIAVE_LETTI)||'[]'));}catch(e){return new Set();}}
+function scriviLetti(st){try{localStorage.setItem(CHIAVE_LETTI,JSON.stringify([...st]));}catch(e){}}
+function segnaLetto(id){const st=leggiLetti();st.add(id);scriviLetti(st);aggiornaLetti();}
+function segnaTuttiLetti(){const st=leggiLetti();document.querySelectorAll('.arrivo').forEach(a=>st.add(a.dataset.lid));
+  scriviLetti(st);aggiornaLetti();alertino('✓ Tutti segnati come letti');}
+function aggiornaLetti(){
+  const letti=leggiLetti(),box=document.getElementById('arriviNuovi'),vecchi=document.getElementById('arriviLetti');
+  if(box&&vecchi){
+    let nuovi=0,giaLetti=0;
+    document.querySelectorAll('.arrivo').forEach(a=>{
+      const letto=letti.has(a.dataset.lid);a.classList.toggle('nonletto',!letto);
+      let b=a.querySelector('.daleggere');
+      if(!letto&&!b){b=document.createElement('div');b.className='daleggere';
+        b.innerHTML='<span>● Da leggere</span><button type="button">✓ Letto</button>';
+        b.querySelector('button').onclick=()=>segnaLetto(a.dataset.lid);a.prepend(b);
+        a.querySelectorAll('a').forEach(l=>l.addEventListener('click',()=>segnaLetto(a.dataset.lid)));}
+      if(letto&&b)b.remove();
+      if(letto){vecchi.append(a);giaLetti++;}else{box.append(a);nuovi++;}
+    });
+    vecchi.hidden=!giaLetti;vecchi.querySelector('summary').textContent='Già letti ('+giaLetti+')';
+    const t=document.getElementById('nonLetti'),bt=document.getElementById('tuttiLetti');
+    if(t)t.textContent=nuovi?(nuovi===1?'1 da leggere':nuovi+' da leggere'):'Nessuna novità da leggere ✓';
+    if(bt)bt.hidden=!nuovi;
+    const tile=document.querySelector('.griglia a.nuovi small');if(tile)tile.textContent=nuovi?nuovi+' da leggere':'tutto letto';
+    mostraBollino(nuovi);return;
+  }
+  fetch(PREFISSO+'osint-arrivi.json',{cache:'no-cache'}).then(r=>r.ok?r.json():[]).then(ids=>{
+    mostraBollino(ids.filter(id=>!letti.has(id)).length);}).catch(()=>{});
+}
+function mostraBollino(n){const b=document.getElementById('nOsint');if(b){b.hidden=!n;b.textContent=n;}}
+document.addEventListener('DOMContentLoaded',aggiornaLetti);
 addEventListener('pageshow',aggiornaStelle);
 if('serviceWorker' in navigator){addEventListener('load',()=>navigator.serviceWorker.register(PREFISSO+'sw.js').catch(()=>{}));}
 """
@@ -1841,6 +1885,8 @@ def rigenera_tutto():
     cassetta = leggi_json(ROOT / "cassetta_osint.json") if (ROOT / "cassetta_osint.json").exists() else None
     if cassetta:
         (DOCS / "cassetta-osint.html").write_text(pagina_cassetta(cassetta, archivio, edizioni), encoding="utf-8")
+        (DOCS / "osint-arrivi.json").write_text(json.dumps(
+            [f"{g}#{a}" for g, a, _, _ in nuovi_arrivi(edizioni, cassetta)]), encoding="utf-8")
     print(f"Pagine aggiornate: {len(edizioni)} edizioni, {len(settimane)} settimanali.")
 
 
