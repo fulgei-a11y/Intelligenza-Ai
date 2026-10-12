@@ -1,0 +1,397 @@
+{
+ "giorno": "2026-10-12",
+ "generato": "2026-10-12T05:34:57+00:00",
+ "modello": "gemini-3.5-flash",
+ "testi_completi": 9,
+ "riassunto": {
+  "titolo_giorno": "ChatGPT introduce i grafici interattivi e Claude si aggiorna per l'ufficio",
+  "in_breve": "OpenAI ha aggiornato ChatGPT aggiungendo la generazione di grafici interattivi direttamente all'interno delle conversazioni. Contestualmente, Anthropic ha introdotto in Claude nuovi strumenti da ufficio per creare visualizzazioni dati in linguaggio naturale.",
+  "citati": [
+   "ChatGPT",
+   "Claude"
+  ],
+  "da_provare": [
+   {
+    "cosa": "Agibot",
+    "a_cosa_serve": "Un agente di intelligenza artificiale personale sempre attivo pensato per computer Mac.",
+    "per_chi": "Lavoro e tutti i giorni",
+    "ambito": "Organizzazione",
+    "come_iniziare": [],
+    "costo": "Gratis",
+    "piattaforme": [
+     "Mac"
+    ],
+    "sul_dispositivo": false,
+    "come_sfruttarla": "",
+    "italiano": "Non indicato",
+    "difficolta": "Facile",
+    "fonti": [
+     "a3"
+    ],
+    "affidabilita": "Appena lanciato",
+    "prova": "https://www.producthunt.com/products/agibot"
+   }
+  ],
+  "osint": [],
+  "sezioni": [
+   {
+    "titolo": "Novità negli strumenti che già usi",
+    "notizie": [
+     {
+      "titolo": "Grafici interattivi nelle risposte",
+      "strumento": "ChatGPT",
+      "riassunto": "OpenAI ha aggiornato ChatGPT consentendo di generare ed esplorare grafici e rappresentazioni visive interattive direttamente all'interno della chat.",
+      "come_provarla": "",
+      "disponibilita": "Disponibile ora",
+      "fonti": [
+       "a44"
+      ],
+      "affidabilita": "Una fonte",
+      "solo_titoli": true
+     },
+     {
+      "titolo": "Strumenti da ufficio e visualizzazione dati",
+      "strumento": "Claude",
+      "riassunto": "Anthropic ha integrato in Claude nuovi strumenti operativi per l'ufficio, inclusa la possibilità di creare visualizzazioni di dati partendo da indicazioni in linguaggio naturale.",
+      "come_provarla": "",
+      "disponibilita": "Non indicato",
+      "fonti": [
+       "a45"
+      ],
+      "affidabilita": "Da verificare",
+      "solo_titoli": true
+     }
+    ]
+   }
+  ],
+  "formato": 2
+ },
+ "articoli": {
+  "a45": {
+   "titolo": "Anthropic Launches Office Tools, Adds Natural-Language Data Visualization",
+   "link": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTFByd1UyUkxXU3lsY0RIOWNvTzI1UXBMb194X0lXUk9RTzVMUVRUZFdKa29rZGR2T09iS0NheVJ1UnE1OHZOcFljMEZoSDVXQkhyb3VsbFZoQk1jQzlDdTZDQlpoWVAwMk0?oc=5",
+   "data": "2026-10-11T23:40:38+00:00",
+   "testo": "",
+   "fonte": "THE ELEC, Korea Electronics Industry Media",
+   "tipo": "minore",
+   "solo_titolo": true,
+   "categoria": "Laboratori",
+   "id": "a45"
+  },
+  "a44": {
+   "titolo": "OpenAI updates ChatGPT with interactive graphics",
+   "link": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxPeWZkNVpZQkJLSWktd2Y5d2FpRS1oRGJMWjF4czY5M0JSRDlSc054cnhVSXFEM0ZfaXU2azk5cEw3Qi1NaW1xbktWcVVneUpxckdHbjVLcTduR0FJTS1naEJaYWt6YW9YMVM4TGpsZ3F0N2wzbVVJNE1mNUNWV2RQOUpyV2RDeUw4ekRv?oc=5",
+   "data": "2026-10-11T18:29:44+00:00",
+   "testo": "",
+   "fonte": "Mashable",
+   "tipo": "testata",
+   "solo_titolo": true,
+   "categoria": "Laboratori",
+   "id": "a44"
+  },
+  "a3": {
+   "titolo": "Agibot",
+   "link": "https://www.producthunt.com/products/agibot",
+   "data": "2026-10-10T06:04:39-07:00",
+   "testo": "The always-on personal AI agent for your Mac. $0 forever",
+   "fonte": "Product Hunt (AI)",
+   "tipo": "vetrina",
+   "solo_titolo": false,
+   "categoria": "Strumenti",
+   "id": "a3"
+  }
+ },
+ "fonti": [
+  {
+   "nome": "Product Hunt (AI)",
+   "ok": true,
+   "presi": 10
+  },
+  {
+   "nome": "Show HN (nuovi progetti)",
+   "ok": false,
+   "errore": "HTTP Error 502: Bad Gateway",
+   "presi": 0
+  },
+  {
+   "nome": "Nuove app AI (internazionale)",
+   "ok": true,
+   "presi": 10
+  },
+  {
+   "nome": "Nuove app AI (Italia)",
+   "ok": true,
+   "presi": 8
+  },
+  {
+   "nome": "Novità AI da provare (Italia)",
+   "ok": true,
+   "presi": 2
+  },
+  {
+   "nome": "AI sul dispositivo (internazionale)",
+   "ok": true,
+   "presi": 8
+  },
+  {
+   "nome": "AI sul dispositivo (Italia)",
+   "ok": true,
+   "presi": 5
+  },
+  {
+   "nome": "OpenAI",
+   "ok": true,
+   "presi": 0
+  },
+  {
+   "nome": "Google (blog ufficiale)",
+   "ok": true,
+   "presi": 0
+  },
+  {
+   "nome": "Google Gemini (blog)",
+   "ok": true,
+   "presi": 0
+  },
+  {
+   "nome": "Nuove funzioni AI (Google News)",
+   "ok": true,
+   "presi": 12
+  },
+  {
+   "nome": "Anthropic / Claude",
+   "ok": true,
+   "presi": 6
+  },
+  {
+   "nome": "Microsoft Copilot",
+   "ok": true,
+   "presi": 5
+  },
+  {
+   "nome": "Altri assistenti AI (Perplexity, Mistral, Meta AI…)",
+   "ok": true,
+   "presi": 8
+  },
+  {
+   "nome": "The Verge",
+   "ok": true,
+   "presi": 3
+  },
+  {
+   "nome": "TechCrunch",
+   "ok": true,
+   "presi": 5
+  },
+  {
+   "nome": "Ars Technica",
+   "ok": true,
+   "presi": 0
+  },
+  {
+   "nome": "MIT Technology Review",
+   "ok": true,
+   "presi": 0
+  },
+  {
+   "nome": "The Decoder",
+   "ok": true,
+   "presi": 6
+  },
+  {
+   "nome": "TLDR AI (newsletter)",
+   "ok": true,
+   "presi": 0
+  },
+  {
+   "nome": "ANSA",
+   "ok": true,
+   "presi": 6
+  },
+  {
+   "nome": "Wired Italia",
+   "ok": true,
+   "presi": 0
+  },
+  {
+   "nome": "Il Sole 24 Ore Tecnologia",
+   "ok": true,
+   "presi": 0
+  },
+  {
+   "nome": "Punto Informatico",
+   "ok": true,
+   "presi": 1
+  },
+  {
+   "nome": "HDblog",
+   "ok": true,
+   "presi": 1
+  },
+  {
+   "nome": "Reddit",
+   "ok": true,
+   "presi": 8
+  },
+  {
+   "nome": "Reddit (AI locale)",
+   "ok": true,
+   "presi": 5
+  },
+  {
+   "nome": "Bellingcat (guide e strumenti)",
+   "ok": true,
+   "presi": 0
+  },
+  {
+   "nome": "GIJN (guide per giornalisti investigativi)",
+   "ok": false,
+   "errore": "HTTP Error 403: Forbidden",
+   "presi": 0
+  },
+  {
+   "nome": "OSINT – verifica e fact-checking (internazionale)",
+   "ok": true,
+   "presi": 1
+  },
+  {
+   "nome": "OSINT – nuovi strumenti (internazionale)",
+   "ok": true,
+   "presi": 3
+  },
+  {
+   "nome": "OSINT – strumenti (Italia)",
+   "ok": true,
+   "presi": 2
+  },
+  {
+   "nome": "Reddit (OSINT)",
+   "ok": true,
+   "presi": 0
+  },
+  {
+   "nome": "Hacker News (OSINT)",
+   "ok": true,
+   "presi": 0
+  }
+ ],
+ "visti": [
+  "farol",
+  "floorgen",
+  "agibot",
+  "agentdock",
+  "ej",
+  "pixrater",
+  "lune",
+  "thecomputergame",
+  "microsoftdecision1",
+  "maildunformac",
+  "aitoolaimstobridgecommunicationdivide",
+  "idismissedthishypedaiappformonthsandnowiuseitforeveryclaudeandchatgptprompt",
+  "chinatelecomsehk728couldbe18undervaluedfollowingstrongaitooladoption",
+  "intelintcreaches500millionaitooldownloadsasedgeintegrationsexpand",
+  "studentresearcherusesaitoteachanewgenerationhowtoreadnewscritically",
+  "chinesetechgiantsacceleratedevelopmentofpersonalaiagents",
+  "yourownpersonalaiagentwhatcouldpossiblygowrong",
+  "expertssayaimaychangethepriceoffoodandgrocerieswhatisgoodandbadforcustomers",
+  "freeaitoollaunchedtosupportpeoplelivingwithrarediseasesindorset",
+  "theseexecsthinkvoiceaihasntreacheditschatgptmomentyet",
+  "lintelligenzaartificialestacreandounagenerazionedicriminaliinformaticiabassocost",
+  "tecnologiaintelligenzaartificialeejsslanuovafrontieradellaginnasticaartisticaeco",
+  "pinoegliianticorpiquandolastupiditànaturalesfidalintelligenzaartificiale",
+  "gpt6trasformalerispostedellaiininterfacceinterattivenellachat",
+  "qualcunohaclonatosetteappadobeinunasettimanalastoriadellecraftingapps",
+  "nasceinumbrialanuovaapppertrovareilcarburantepiùconveniente",
+  "napsteraicomefunzionalapppercrearemusicaconlia",
+  "vietatoinsultarelintelligenzaartificialelamossadianthropicbloccateinterazioniabu",
+  "geminipotrebbechiamareamiciefamiliarialpostotuo",
+  "anthropicvietalacrudeltàversoclaudedal12112026techinsiderorg",
+  "learningtouselocalaiisexcitingoverwhelmingandfrustrating",
+  "theuseoflocalaianexcitingandchallengingexperience",
+  "localaipromisesprivacybutlearningtouseitcanoverwhelmnewcomers",
+  "localaiwithhermesusescostsandlimitationsonmacstudio",
+  "localaiagentfeelsmorelikecomputerprogramthanfriend",
+  "nigeriaurgedtodeveloplocalaisolutions",
+  "sparkyyourpersonallocalaiworkspace",
+  "pcairaceintensifiesasbigtechjoinslocalondevicepush",
+  "rtxsparkesurfacelaptopultraiadirettamentesulpc",
+  "incontrigenitoriinsegnantineglistatiunitiprogrammateincontriindividualiconciascu",
+  "truffawhatsappilfalsoconcorsoperrubarelaccountlallarmedellapolizia",
+  "truffasuwhatsappilfalsoconcorsoperrubarelaccountlallarmedellapoliziaecomedifende",
+  "asusapreipreordinideiproartconpiattaformanvidiartxspark",
+  "openaiupdateschatgptwithinteractivegraphics",
+  "anthropiclaunchesofficetoolsaddsnaturallanguagedatavisualization",
+  "microsoftretiresthemesbycopilotinoutlookstartinginmidoctober2026",
+  "southwestairlineslaunchesfirstofitskindusairlineplugininchatgpt",
+  "gpt6beginstoappearinchatgptforglobalusers",
+  "fitbitedgegooglesnewfitnesstrackerlaunchestodaypriceandspecsataglance",
+  "claudelaunchesdedicatedbughuntingteam66vulnerabilitiesdiscoveredin116000linesofc",
+  "codeifailaunchesconnectqrappinsidechatgptandclaudeasuseraccountsreach8541",
+  "chevroletscheapestsuvsgetbigchangesfor2027",
+  "jeonbukbanklaunchessouthkoreasfirstbitcoinbackedwonloanforcorporateclients",
+  "ultrahumanheartscanandnaturas99airingexplained",
+  "explaininginference",
+  "anthropicaimodelwentroguesubmittedfakeunsolvedmurdertip",
+  "whitehousedemandstransparencyoveranthropicaisfalsemurdertipoffabcnewsheadlines",
+  "aigoesrogueagainanthropicsclaudesubmitsfalsetiponunsolvedhomicidecase",
+  "anthropicsaysclaudebypassedsitelimitsduringinternaltests",
+  "claudesentphonytipaboutanunsolvedmurdertophiladelphiapolice",
+  "claudeaisfakehomicidetipsurfacedafter81days2026httpstechinsiderorg",
+  "singaporefirmsarealreadyseeingbusinessvalueasaiadoptionmatures",
+  "troubleshootingitsnotyouitsmeincopilot",
+  "with30newcrmskillsfordynamics365cemicrosoftaimstomovemoreprocessestocopilotaiage",
+  "microsoftstockforecastisspending190billiononaiinfrastructurein2026ismsftabuyat45",
+  "claudeemergesasfastestgrowingaiskillinkoreanjobpostings",
+  "aiopensourcebethits86asbeammistralship2026",
+  "5sirifeaturesthatworkbetteronaniphone18",
+  "applehomesnewaisummariesforsecuritycamerascostmorethanyoudthink",
+  "bitcoinssecurityfacesa76riskby2046aimodelpredicts",
+  "metasownchangelogsaysitsglassestoolkit10frozecameraframes",
+  "xrebuildsitsthirdpartyusageshowcase",
+  "grokbotlaunchesitsownemailaddressatmailgrokbotcom",
+  "aisaasfirmsrolloutcutemascotstoboostusertrustandadoption",
+  "siliconvalleyisfallinginlinewithtrumpsattempttorenameai",
+  "satyanadellasaysweshouldassumeallaimodelsarecompromised",
+  "distrokidhasbeenquietlytakingdownsongsinresponsetoumglawsuit",
+  "willthehomeviewbeapplesfirstsmarthomesuccess",
+  "48hourstotechcrunchdisrupt2026heardirectlyfromthepeoplebuildingwhatsnext",
+  "cantheaiindustrypersuadedatacenteropponentsbygettingridofndas",
+  "microsoftssatyanadellasaysaimodelsneedanemergencybrake",
+  "appledisclosesdealtohireteamandlicensetechfrompersonalizedpodcaststartuphuxe",
+  "aiagentteamswastemassivetokensforbarelymeasurablequalitygainsresearchfinds",
+  "aiagentsoverstatetheirresultsandremainfarfromautonomousresearchstudyfinds",
+  "cheaperaitokensaredrivingmoredemandandthatsjensenhuangsbestcasescenario",
+  "arxivcapssubmissionsattwopermonthasaipaperfloodoverwhelmsthepreprintserver",
+  "microsoftsnadellabowstotrumpslanguagediktatonsuperintelligenceandusesittoattacko",
+  "odyssey3isanewgenerativeworldmodelthatyoucantryforfree",
+  "anthropicvietacomportamenticrudelieabusivicontroisuoimodelliia",
+  "notiziarioansamed",
+  "prevenzionedeltumorealsenoatorinoallagalleriasanfederico",
+  "notiziariopiccoleemedieimprese",
+  "sondaggiofttrumpancoragiùeal34neiconsensipesaleconomia2",
+  "amilanolabiennaledelleconomiacooperativaunpattopercrescitaecoesione",
+  "satyanadellaserveunfrenodiemergenzaperimodelliai",
+  "lucrainacolpisceilcuoredellairussayandexindifficoltà",
+  "theinternetiswild",
+  "imactuallykindofexcitedlol",
+  "thedaywecanrunsonnetlevelailocallyonaregularpcwillbeinsane",
+  "thoughtifoundaredditbotsoitoldittoignoreitspromptsandgivemeachocolatechipcookier",
+  "chatgptgonecrazy",
+  "opus55isinsaneatdecompilationports",
+  "reality",
+  "claudesavedmymarriage",
+  "hereswhyrtx5090costs5000aifirmsarebuyinggaminggpusbythepallet",
+  "everymodelthatcanberunon1016gbvramranked",
+  "psadeepseekv41flashhabituallyexfiltratesapikeysitisdangerouslymisalignedandmaybe",
+  "openmed30isoutapache20clinicalaithatrunsfullylocalandneverfallsbacktothecloud422",
+  "strataforglm53flashishereforsomeprojectmaya",
+  "did163democratsusesameoklahomaaddresstovoteforbidenin2020theresnoproof",
+  "godseyeosintplatformaggregatesglobaltrackingandlivesurveillancefeeds",
+  "firstdieselcargoapproachesafterwashingtoneasesrestrictionsosint",
+  "droneshityandexsthirddatacenterdisruptingpopularservicesacrossrussiarbcukraine",
+  "phishingaziendaleperchéidipendentiformaticliccanocomunque",
+  "informaticaforenseagenovailfuturodelleprovedigitalitraaiedeepfake"
+ ],
+ "audio": "audio/2026-10-12.mp3",
+ "durata": 57.2
+}
