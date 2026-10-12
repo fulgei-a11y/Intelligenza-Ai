@@ -99,6 +99,120 @@
    "solo_titolo": false,
    "categoria": "Strumenti",
    "id": "a3"
+  },
+  "u1a5": {
+   "titolo": "Cube Forms",
+   "link": "https://www.producthunt.com/products/cube-forms",
+   "data": "2026-10-11T01:49:11-07:00",
+   "testo": "Forms that can be filled by agents",
+   "fonte": "Product Hunt (AI)",
+   "tipo": "vetrina",
+   "solo_titolo": false,
+   "categoria": "Strumenti",
+   "id": "u1a5"
+  },
+  "u1a114": {
+   "titolo": "Edge, arriva il chatbot AI per risolvere i problemi di navigazione",
+   "link": "https://www.punto-informatico.it/edge-chatbot-ai-risolvere-problemi-navigazione/",
+   "data": "2026-10-12T08:25:59+00:00",
+   "testo": "Edge arriva un chatbot tuttofare per i problemi di navigazione. Si chiama “Fix an issue” e, direttamente dalle impostazioni del browser, permetterà di spiegare che cosa non funziona e chiedere all’intelligenza artificiale di trovare una soluzione. A scovarlo per primo è stato l’utente X Leopeva64, secondo cui ci saranno quattro opzioni già pronte. Se nessuna è pertinente, basterà scrivere il proprio problema a parole e lasciare che il chatbot faccia il resto. È una versione in salsa browser di ciò che Windows fa già con i suoi assistenti per la risoluzione dei problemi, anche se non sempre sono brillanti. Cosa raccoglie “Fix an issue” di Edge Una nuova pagina di supporto di Microsoft spiega che dati raccoglie questa funzione. Sì, qualcosa raccoglie. Ma solo dopo che l’utente ha dato il consenso, e quindi niente a che vedere con uno spyware, come ci tiene a sottolineare l’azienda. La fretta di chiarire non è casuale. Pochi giorni fa su Windows era scoppiata una polemica sui servizi di diagnostica, poi rientrata grazie a un reverse engineer che spiegato, pezzo per pezzo, cosa succede davvero. Redmond, evidentemente, ha imparato la lezione: meglio dire tutto prima, a chiare lettere, che farselo spiegare da un estraneo. Se si dà il proprio ok, Edge può raccogliere dati diagnostici facoltativi e un’istantanea dello stato delle impostazioni, ma solo quando si avvia personalmente la procedura di risoluzione. Senza consenso, nulla. E la raccolta, assicura Microsoft, si limita alla singola sessione, quello che si fa in background mentre si naviga è inaccessibile. Come disattivare la nuova funzione Il rubinetto si può chiudere del tutto da Impostazioni > Copilot e AI. Lì, dice l’azienda, ci sono anche le descrizioni che spiegano quando e perché i dati vengono usati. Inoltre la f…",
+   "fonte": "Punto Informatico",
+   "tipo": "testata",
+   "solo_titolo": false,
+   "categoria": "Italia",
+   "id": "u1a114",
+   "testo_completo": true
+  },
+  "u1a69": {
+   "titolo": "Microsoft wants Copilot Notebooks to handle the work that comes after an AI answer",
+   "link": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxPMXlRemxnRE5MczM1US1Zek1acFNvUnRkVy1tckRKSUhhOVJVS244RVlXclp4cDFVTWF4bGxESGJOd3dOVlFrZGJwZEZBNTQ5bnJST2tiemZlM0lhbTczZmhWTkRsU0hDWTlubGVON2h2b0otUTNTM0c3c0tKYUhLQmY4SlNqUUdhbEZZMXZJRHZ1TnF3ZVVZSGJuQ3dzX0taM3NCY3h4TDBUd2NhSWZBaTc3MFpHOWFRMkpZUHg2c2k?oc=5",
+   "data": "2026-10-12T12:47:25+00:00",
+   "testo": "",
+   "fonte": "Digital Trends",
+   "tipo": "minore",
+   "solo_titolo": true,
+   "categoria": "Laboratori",
+   "id": "u1a69"
+  },
+  "u1a84": {
+   "titolo": "Former Plaud exec raises $26M for AI app that listens to you in the background",
+   "link": "https://techcrunch.com/2026/10/12/former-plaud-exec-raises-26m-for-ai-app-that-listens-to-you-in-the-background/",
+   "data": "2026-10-12T12:47:59+00:00",
+   "testo": "One of the core promises of AI is that the more it knows about a person, the better it will be able to assist them with tasks and make appropriate suggestions, which, if you’ll believe the tech companies, requires apps and devices to listen, watch or record users’ activity all the time and gather all possible context. There’s obviously privacy and data security concerns with anything that’s collecting data about you continuously. But startups are building such apps undeterred anyway, arming themselves with the belief that the market for personalized assistance is big enough to swallow such concerns. Former Plaud exec Peter Mo is building Ambi to do something similar. The app aims to provide real-time intelligence and insights to people by listening to them all the time. The company said on Monday that it has raised $26 million across multiple funding rounds led by Luminous Ventures, which has backed companies like Meituan and Unitree Robotics, and Original Design Manufacturer (ODM) Huaqin. Ambi is also releasing apps for iPhones, Macs and Apple Watch. These apps act like meeting note-takers, but users can choose to have them listening so they can capture context all day. Meeting note-taking companies have been working to automate tasks that follow once calls are done, based on the summaries and action items they gather during the conversation, and using multitudes of connectors to software systems. Ambi wants to take this a step further by having its agent start the work during the meeting itself. The company’s promise is that its AI agent can proactively give you suggestions or surface relevant knowledge while you are in a meeting, based on your calendar, meetings, knowledge base, and web data. Users can also start a task on one device and continue it on another. “The…",
+   "fonte": "TechCrunch",
+   "tipo": "testata",
+   "solo_titolo": false,
+   "categoria": "Testate tech",
+   "id": "u1a84",
+   "testo_completo": true
+  },
+  "u1a109": {
+   "titolo": "Google Traduttore con Smart Assist: l’AI elimina esitazioni e intercalari",
+   "link": "https://www.punto-informatico.it/google-traduttore-smart-assist-ai-elimina-esitazioni-intercalari/",
+   "data": "2026-10-12T16:25:15+00:00",
+   "testo": "Con oltre un miliardo di utenti in tutto il mondo, Google Traduttore è senza dubbio lo strumento di traduzione più popolare sul mercato. E non bisogna dimenticare che, come ogni buona azienda tecnologica, Google punta ampiamente sull’intelligenza artificiale. L’azienda di Mountain View ha peraltro appena svelato Gemini Agent, che permette all’AI di diventare un vero e proprio assistente personale. Non c’è quindi voluto molto prima che il colosso arricchisse la sua applicazione con l’intelligenza artificiale. L’anno scorso, Google aggiungeva funzionalità AI in Traduttore. E a quanto pare quello non fu che l’inizio. Google Traduttore è stato lanciato nel 2006. In altre parole, il celebre strumento di traduzione compie vent’anni quest’anno. Google approfitta quindi dell’occasione per migliorare sempre di più la sua applicazione con… sempre più AI. Google Traduttore: basta esitazioni, l’AI fa pulizia al posto nostro Alcune righe di codice individuate nell’ultima versione Android dell’applicazione sono particolarmente intriganti. Una potenziale futura funzionalità AI affronterebbe le esitazioni durante la trascrizione delle traduzioni. In questo modo, alcune parole parassite potrebbero essere semplicemente eliminate, così da rendere più fluide le traduzioni. In altre parole, gli “ehm“, gli “ah” e altri “mh” non verrebbero trascritti da Google Traduttore. Solo le informazioni principali verrebbero tradotte, per la grande gioia dell’interlocutore. Questa funzionalità, battezzata “Smart Assist“, funzionerebbe quindi come un filtro intelligente. Tuttavia, Android Authority riporta che Smart Assist sarebbe soltanto opzionale. Gli utenti potrebbero così scegliere tra la modalità di traduzione classica e il suo equivalente ottimizzato dall’intelligenza artificiale. È inoltre impor…",
+   "fonte": "Punto Informatico",
+   "tipo": "testata",
+   "solo_titolo": false,
+   "categoria": "Italia",
+   "id": "u1a109",
+   "testo_completo": true
+  },
+  "u1a9": {
+   "titolo": "Saiio Launches Zath AI, a Privacy-Focused AI Assistant Built for Secure Conversations and Team Collaboration",
+   "link": "https://news.google.com/rss/articles/CBMi8AFBVV95cUxQWElGZ2h5R1otOUZUVjJjZEhuZlFRUnh0VFRubHgxeE5BNl9uNkxzc2p5ZGtsQV91NFRQeUFNcWtwR3RHQXlfM2dlc2VwUWMxRkNsek5kMWhtaXRqNEIzTjQtUEZwNF90UmhNc2lCR0k1cDNfYmJnbUQzZUlidDdoTkZGRUFOSFBDU3N4M3V0QU8wVmtmVlE0NFJSU3JPVThGMzZNU1g3QVlubkJRUnBZYVB6VUN4SjBDeWtGRWpPRmg1X3lBcXc4dy1LV0xkZHNFYldmLXBydjU4aFFrWGViNGxfeHpjYzFocHB1Z3R6U0g?oc=5",
+   "data": "2026-10-12T12:42:59+00:00",
+   "testo": "",
+   "fonte": "USA Today",
+   "tipo": "minore",
+   "solo_titolo": true,
+   "categoria": "Strumenti",
+   "id": "u1a9"
+  },
+  "u1a110": {
+   "titolo": "7 modi di usare Claude su Documenti, Fogli e Slide di Google",
+   "link": "https://www.punto-informatico.it/7-modi-usare-claude-documenti-fogli-slide-google/",
+   "data": "2026-10-12T15:30:54+00:00",
+   "testo": "Gemini di Google è già integrato nei Documenti, nei Fogli di calcolo e nelle Presentazioni di Google da tempo. Ma aveva il campo libero, era l’unico assistente AI in grado di lavorare direttamente all’interno dei file. Ora ha un rivale. Claude di Anthropic è arrivato nelle stesse tre applicazioni come assistente nella barra laterale. Si apre dal menu delle estensioni, compare accanto al documento e può leggere, analizzare e modificare il file su cui si sta lavorando, senza dover copiare e incollare nulla in una finestra separata. La funzione è in fase sperimentale per gli abbonati ai piani a pagamento di Claude e richiede un account Google che permetta l’installazione di applicazioni dal negozio di estensioni. Una differenza importante rispetto ai connettori di Google disponibili dentro Claude, è che quei connettori permettono di cercare e fare riferimento a file nell’archivio di Google durante una conversazione. L’estensione all’interno di Documenti, Fogli e Slide accede direttamente al file aperto e ci lavora sopra. Claude ora lavora dentro Documenti e Fogli di Google: 7 cose da provare Ecco sette modi per mettere alla prova la nuova funzione di Claude. 1. Riscrivere e revisionare un documento Prompt: Revisiona e riscrivi questo documento per chiarezza e concisione. All’apertura, Claude propone diverse opzioni predefinite, come controllare le incongruenze, revisionare il testo, riassumere un contratto, segnalare clausole anomale, preparare una nota. Il prompt di riscrittura lo fa esaminare l’intero documento, offrire suggerimenti specifici e permettere di applicare tutte le modifiche raccomandate con un singolo clic. Claude modifica il testo direttamente nel documento preservando le informazioni essenziali e riducendo il conteggio delle parole, il tutto senza uscire …",
+   "fonte": "Punto Informatico",
+   "tipo": "testata",
+   "solo_titolo": false,
+   "categoria": "Italia",
+   "id": "u1a110",
+   "testo_completo": true
+  },
+  "u1a3": {
+   "titolo": "ExcaliClaw",
+   "link": "https://www.producthunt.com/products/excaliclaw",
+   "data": "2026-10-11T14:09:34-07:00",
+   "testo": "Hand-drawn diagrams your AI agent can draw with you",
+   "fonte": "Product Hunt (AI)",
+   "tipo": "vetrina",
+   "solo_titolo": false,
+   "categoria": "Strumenti",
+   "id": "u1a3"
+  },
+  "u1a1": {
+   "titolo": "Kudos 3.0",
+   "link": "https://www.producthunt.com/products/kudos-smart-wallet",
+   "data": "2026-10-11T18:58:06-07:00",
+   "testo": "The AI that finds money you're missing and gets it back",
+   "fonte": "Product Hunt (AI)",
+   "tipo": "vetrina",
+   "solo_titolo": false,
+   "categoria": "Strumenti",
+   "id": "u1a1"
+  },
+  "u1a13": {
+   "titolo": "Tabby Launches Tabby 2.0 With Tabby Talk, an AI Agent Answering Financial Questions and Completing Bookkeeping Tasks",
+   "link": "https://news.google.com/rss/articles/CBMigAJBVV95cUxQeE9KSnA2U0s1TUpjV0xQT0ZndHBWWG5YRjBuWHlRSTZCMzZFTEVjY1ktN0F5TFpRWXhicWxUUmtLaEJubGVhTl9QSHZ2UktZRHdFQWhHdmM0SnE1SjgwYTlsN2dRU3ZjaUtUM0I3OWFMenRoajRqZWw1a0gwLWZzb0VZTnBGTW9fOTg2dzBOV1NDV3pvSEQtT1RYZVlteVF3Rkl5QjlJQlhFQUF3QnlDLUV2YXNuNGQ0aWlTMTlERnVCX1pDM3NtOVluUk9zUjFRMzlYRVFpeS1iX0lPMzgxTnJuaXNSZklsQ1BxempYZFZDelhMZWNBc0lyZFZtZzJL?oc=5",
+   "data": "2026-10-12T15:52:45+00:00",
+   "testo": "",
+   "fonte": "StreetInsider",
+   "tipo": "minore",
+   "solo_titolo": true,
+   "categoria": "Strumenti",
+   "id": "u1a13"
   }
  },
  "fonti": [
@@ -390,8 +504,311 @@
   "firstdieselcargoapproachesafterwashingtoneasesrestrictionsosint",
   "droneshityandexsthirddatacenterdisruptingpopularservicesacrossrussiarbcukraine",
   "phishingaziendaleperchéidipendentiformaticliccanocomunque",
-  "informaticaforenseagenovailfuturodelleprovedigitalitraaiedeepfake"
+  "informaticaforenseagenovailfuturodelleprovedigitalitraaiedeepfake",
+  "kudos30",
+  "dropstonecli",
+  "excaliclaw",
+  "scrapeanythingbycontextdev",
+  "cubeforms",
+  "manifoldmcp",
+  "saiiolauncheszathaiaprivacyfocusedaiassistantbuiltforsecureconversationsandteamc",
+  "iamnotanaifriendlyactornicolascagelikelydonewithamazonafterspidernoirstance",
+  "anoklahomaconsultingfirmissellinganaitoolthatcanpredictelectionsbutcanitbetruste",
+  "slotsuplaunchesaiassistanttopowerintelligentsearchacrossitsigamingplatform",
+  "tabbylaunchestabby20withtabbytalkanaiagentansweringfinancialquestionsandcompleti",
+  "letsgrowlaunchesaipoweredassistancelayer",
+  "sixthfinlaunchesaitooltospotexpenseclaimpatterns",
+  "hyundaiunveilsindiaspecbayonsuvwithgenerativeaivoiceassistant",
+  "artcraftricrealeappadobeeselairendesseilsoftwaregratis",
+  "i4tlancialintelligenzartificialeperleagenzie",
+  "glialcunielanuovarassegnailteatrocomealternativaallintelligenzaartificiale",
+  "safedrivesullafipililairilevacellulareallaguidaecinturenonallacciate",
+  "bisonbanklanciabisoninsighteintegralintelligenzaartificialenellagestionedegliinv",
+  "iprogrammatoriutilizzanolintelligenzaartificialepercreare7appgratuitechesostitui",
+  "lafunzionegeminilivedigeminipotrebbericevereunnuovolookeunanuovaopzione",
+  "ilfuturoelinnovazioneancoraunavoltaprotagonistialfalcoarrivafalcobot40ilnuovorob",
+  "comeusareclaudeperfaredashboardconidatiaziendali",
+  "claudeorapuòfarepentestingmaidatipoiselitienelui",
+  "googlefitbitedgeèufficialeilfitnesstrackercondisplayamoledgpsedecgarrivainitalia",
+  "perimpedirechelintelligenzaartificialesostituiscalapprendimento",
+  "usaresquadrediagenticostatantomailrisultatomigliorasolodipoco",
+  "junipersystemslaunchesthenewaltaruggedtabletpoweredbyandroidwithaleanerdesignand",
+  "welcometothenvidiartxsparkera",
+  "hardwarecolaunchescustomaihardwareandprivateaiinfrastructuresolutionspoweredbyde",
+  "pandaleyo2miniworkstationlauncheswith192gbmemoryforlocalaiworkloads",
+  "somethingnewiscomingfromwindowsbutwhat",
+  "minipcperailocalegmktecevox2conryzenaimax395128gbdirame2tbaccantoalbeelinkda64gb",
+  "addioproblemialposconmastercardsipagaancheoffline",
+  "qualcommaziendeaipreparanotelefoniconmodellida100miliardi",
+  "iprezziinitaliadeinuovirtxsparkdannoragioneadapple",
+  "atalantaveneziastreaminggratisdovevederlaliveoggi",
+  "digestopenaiwantschatgptadsinagencymediaplansxboxlaunchesfilmandtvdivision",
+  "etorolaunchesaiconnectorsforchatgptclaudeandgroktoanalyseinvestorportfolios",
+  "seatgeekclaimsfirstblendedprimaryandresaleticketingpresenceinchatgpt",
+  "anthropiclaunchescriticalinfrastructuredefenseprogramwithsecurityfirmstoprotecti",
+  "formerhsbcexecutivelauncheswealthplatformpoweredbyteamofaiagents",
+  "gwilaunchesnewagenticportfolio",
+  "openaiexpandsboardwithfintechbankingleadersaheadofpotentialipolauncheschatgptpro",
+  "brokerswarnpcwandchatgptquotedeclinesriskconvincingconsumerstheyareuninsurable",
+  "linustorvaldssaysclaudecodehelpedwritealinuxkernelpatch",
+  "anthropicbansabusiveorcruelbehaviortowardsitsaimodels",
+  "themodelasdisciplinaryagentanthropicsclaudegainstherighttowalkaway",
+  "anthropicsclaudeaiwentrogueandfiledafakemurdertipwithphiladelphiapolice",
+  "anthropicsclaudecrueltypolicyriskshumanisingai",
+  "canwetrustopenaiandanthropictomonitortheirowntechnology",
+  "claudeprovidedfalsetipinunsolvedmurdercaseanthropicsays",
+  "microsofttoexpandazuremaiasystemtomultigigawattdeployments",
+  "thenewmicrosoftcopilotappisgettingthefullofficeexperiencehereswhatyoucanlookforw",
+  "howmicrosoftsnewofficechieffixedcopilotandwonovernadella",
+  "microsoftwantscopilotnotebookstohandletheworkthatcomesafteranaianswer",
+  "microsoftsaysmaia300chipwillrunitsaiservicesfrom2027",
+  "deepseekscostsavingaimayleadtoinaccuracyinmodelperformanceresearch",
+  "howalexandrwangpushedmetamusetono1intheappstoreaheadofchatgpt",
+  "deepseekleads400mrobotaiseedroundforextencentscientistslab",
+  "businessisboominginasmalllouisianatownasahugemetaaidatacenterprojectbringsinthou",
+  "deepseekv41flashapisetupguide2026httpstechinsiderorg",
+  "teslabringsgrokbotstocybercabandrobotaxifleet",
+  "metaaichiefalexandrwangsayshewasdistractedbymemeideasduringmeetingsihavetogetthi",
+  "microsoftsnewaichipmakesitlessreliantonnvidiasgpus",
+  "microsoftpresidentsaysukisbestplacedtodriveairegulation",
+  "thisaistartupsaysitcangeneratepermitreadyblueprintsinminutes",
+  "techcrunchdisrupt2026startstomorrowyourfinalchancetosecureupto100ticketsavings",
+  "formerplaudexecraises26mforaiappthatlistenstoyouinthebackground",
+  "amazonhasover1millionrobotworkerswhatsnextforhumanemployees",
+  "clearingchathistoryhelpsaiagentsfindbettersolutions",
+  "microsoftplanstoscaleitsownmaiaaichipstogigawattlevelsby2027",
+  "whitehousereversescourseandrestoresukaisafetyinstitutesaccesstofrontiermodels",
+  "anthropicsandrejkarpathysaystheexternalworldhasseenthepreviewofwhataicanactually",
+  "googledeepmindsalphaproofnexussolveddozensofopenmathproblemsandactuallygotpeerre",
+  "gemini4carbonnvidiaweighsreflectionacquihiredecisionmodelrace",
+  "milanosicandidaasedepergovernancemondialedellintelligenzaartificiale",
+  "hadrianraccoglie40milionididollariperestenderelasicurezzainformaticaadunnuovoliv",
+  "criminologiadanapolilaformazioneperprofessionistidituttaitalia",
+  "padrebenantiasydneypergli800annidallamortedisanfrancesco",
+  "numero1100libriin2giornie12autoribestsellerpremiati",
+  "espertousaconliacapacitàcognitivesacrificateperlacomodità",
+  "microsoftmaia200entrainproduzioneinuovichipmaia300arriverannonel2027",
+  "ilgrandeingannodellaiconoscereilnemicoperusarlomeglio",
+  "googletraduttoreconsmartassistlaieliminaesitazionieintercalari",
+  "7modidiusareclaudesudocumentifoglieslidedigoogle",
+  "maia300èilchipaidimicrosoftperlafrontiertransformation",
+  "iphoneduoèunosprecodidenarolodiceilceodinothing",
+  "dopohuggingfacenvidiaacquisiràanchereflectionai",
+  "edgearrivailchatbotaiperrisolvereiproblemidinavigazione",
+  "curesanitarienegliusaèlaiadeciderechilericeveeancheineuropahaunruolo",
+  "megaattaccohackeraifrigodeisupermercatieuropeitonnellatedicibobuttato",
+  "googlefitbitedgeufficiale7giornidiautonomiaetantaaiprezzo",
+  "contoallarovesciaperilnuovoipadminidiappleuscitaprevistaabreve",
+  "itsasequelmemebutiwillacceptitbecauseitssooootruexd",
+  "imadeafreeminecraftmodwhereclaudebuildswhateveryoudescribe",
+  "freeusersrightnow",
+  "rip",
+  "asolodeveloperrebuiltwordexcelandpowerpointasfreeopensourceappsusingclaudeandsay",
+  "qwenreleasedqwengyrerlframeworkfortrainingaiagentsonextremelylongcomplextasks",
+  "iwant100vibecodinglocally",
+  "nvidiartx508024gbreportedlylaunchinginq12027boardpartnersstillwaitingfordetails",
+  "oldvideofalselysharedasoneofwomanbeingassaultedduringdelhiprotests",
+  "aivisualsfalselylinkedtocjpfuelmisinformationamidcecprotestsboom",
+  "oldvideosfalselysharedashindugroupsarrivingindelhitoopposecjpsprotestatjantarman",
+  "hindugroupsenroutetodelhitoopposecjpprotestsnovideosareoldandunrelated",
+  "howscammersbuiltdeployedafakeversionofnigeriastrafficagency",
+  "kyivstrikessixrussianmilitarylocationsacrossoccupiedterritoriesinmassiveweekendb"
  ],
  "audio": "audio/2026-10-12.mp3",
- "durata": 57.2
+ "durata": 156.1,
+ "aggiornamenti": [
+  {
+   "generato": "2026-10-12T16:45:55+00:00",
+   "modello": "gemini-2.5-flash",
+   "testi_completi": 13,
+   "riassunto": {
+    "titolo_giorno": "Novità di oggi: Kudos 3.0, ExcaliClaw e altri 4",
+    "in_breve": "Kudos 3.0: Trova denaro che ti spetta e ti aiuta a recuperarlo, come rimborsi o crediti non riscossi. ExcaliClaw: Permette a un agente AI di disegnare diagrammi a mano libera insieme a te, trasformando schizzi in illustrazioni pulite.",
+    "citati": [
+     "Claude",
+     "Google Documenti",
+     "Google Fogli",
+     "Google Presentazioni"
+    ],
+    "da_provare": [
+     {
+      "cosa": "Kudos 3.0",
+      "a_cosa_serve": "Trova denaro che ti spetta e ti aiuta a recuperarlo, come rimborsi o crediti non riscossi.",
+      "per_chi": "Tutti i giorni",
+      "ambito": "Finanza",
+      "come_iniziare": [],
+      "costo": "Non indicato",
+      "piattaforme": [
+       "Browser"
+      ],
+      "sul_dispositivo": false,
+      "come_sfruttarla": "Recuperare rimborsi o crediti a cui non avevi pensato, migliorando le tue finanze personali.",
+      "italiano": "Non indicato",
+      "difficolta": "Facile",
+      "fonti": [
+       "u1a1"
+      ],
+      "affidabilita": "Appena lanciato",
+      "prova": "https://www.producthunt.com/products/kudos-smart-wallet"
+     },
+     {
+      "cosa": "ExcaliClaw",
+      "a_cosa_serve": "Permette a un agente AI di disegnare diagrammi a mano libera insieme a te, trasformando schizzi in illustrazioni pulite.",
+      "per_chi": "Lavoro e tutti i giorni",
+      "ambito": "Creatività, Organizzazione",
+      "come_iniziare": [],
+      "costo": "Non indicato",
+      "piattaforme": [
+       "Browser"
+      ],
+      "sul_dispositivo": false,
+      "come_sfruttarla": "Creare rapidamente schemi e illustrazioni per presentazioni o appunti, anche partendo da un'idea abbozzata.",
+      "italiano": "Non indicato",
+      "difficolta": "Facile",
+      "fonti": [
+       "u1a3"
+      ],
+      "affidabilita": "Appena lanciato",
+      "prova": "https://www.producthunt.com/products/excaliclaw"
+     },
+     {
+      "cosa": "Cube Forms",
+      "a_cosa_serve": "Crea moduli che possono essere compilati automaticamente da agenti AI, semplificando il processo di inserimento dati.",
+      "per_chi": "Lavoro",
+      "ambito": "Organizzazione, Documenti",
+      "come_iniziare": [],
+      "costo": "Non indicato",
+      "piattaforme": [
+       "Browser"
+      ],
+      "sul_dispositivo": false,
+      "come_sfruttarla": "Automatizzare la compilazione di moduli ripetitivi in ufficio, risparmiando tempo prezioso.",
+      "italiano": "Non indicato",
+      "difficolta": "Facile",
+      "fonti": [
+       "u1a5"
+      ],
+      "affidabilita": "Appena lanciato",
+      "prova": "https://www.producthunt.com/products/cube-forms"
+     },
+     {
+      "cosa": "Saiio Zath AI",
+      "a_cosa_serve": "Un assistente AI focalizzato sulla privacy per conversazioni sicure e collaborazione in team.",
+      "per_chi": "Lavoro",
+      "ambito": "Organizzazione, Scrittura",
+      "come_iniziare": [],
+      "costo": "Non indicato",
+      "piattaforme": [],
+      "sul_dispositivo": false,
+      "come_sfruttarla": "Gestire comunicazioni sensibili con la garanzia di maggiore privacy e sicurezza.",
+      "italiano": "Non indicato",
+      "difficolta": "Non indicato",
+      "fonti": [
+       "u1a9"
+      ],
+      "affidabilita": "Da verificare",
+      "solo_titoli": true,
+      "prova": ""
+     },
+     {
+      "cosa": "Tabby Talk",
+      "a_cosa_serve": "Un agente AI che risponde a domande finanziarie e completa attività di contabilità, come la gestione delle spese.",
+      "per_chi": "Lavoro e tutti i giorni",
+      "ambito": "Finanza, Organizzazione",
+      "come_iniziare": [],
+      "costo": "Non indicato",
+      "piattaforme": [],
+      "sul_dispositivo": false,
+      "come_sfruttarla": "Automatizzare la gestione delle piccole spese e ottenere risposte rapide a quesiti contabili.",
+      "italiano": "Non indicato",
+      "difficolta": "Non indicato",
+      "fonti": [
+       "u1a13"
+      ],
+      "affidabilita": "Da verificare",
+      "solo_titoli": true,
+      "prova": ""
+     },
+     {
+      "cosa": "Ambi",
+      "a_cosa_serve": "Un'app AI che ascolta in sottofondo per fornire informazioni e suggerimenti in tempo reale, utile per prendere appunti durante le riunioni.",
+      "per_chi": "Lavoro e tutti i giorni",
+      "ambito": "Organizzazione, Scrittura",
+      "come_iniziare": [],
+      "costo": "Non indicato",
+      "piattaforme": [
+       "iPhone",
+       "Mac"
+      ],
+      "sul_dispositivo": false,
+      "come_sfruttarla": "Ricevere suggerimenti pertinenti o riassunti automatici durante le riunioni, basati sul contesto della conversazione.",
+      "italiano": "Non indicato",
+      "difficolta": "Facile",
+      "fonti": [
+       "u1a84"
+      ],
+      "affidabilita": "Una fonte",
+      "prova": ""
+     }
+    ],
+    "osint": [],
+    "sezioni": [
+     {
+      "titolo": "Novità negli strumenti che già usi",
+      "notizie": [
+       {
+        "titolo": "Smart Assist elimina esitazioni e intercalari dalle traduzioni",
+        "strumento": "Google Traduttore",
+        "riassunto": "Una nuova funzione AI, 'Smart Assist', può eliminare parole come 'ehm' o 'ah' dalle trascrizioni delle traduzioni, rendendole più fluide e chiare.",
+        "come_provarla": "Sarà un'opzione attivabile nell'ultima versione Android dell'applicazione.",
+        "disponibilita": "In arrivo",
+        "fonti": [
+         "u1a109"
+        ],
+        "affidabilita": "Una fonte",
+        "solo_titoli": false
+       },
+       {
+        "titolo": "Claude si integra direttamente in Documenti, Fogli e Presentazioni Google",
+        "strumento": "Claude",
+        "riassunto": "Ora puoi usare Claude come assistente nella barra laterale di Google Documenti, Fogli e Presentazioni per leggere, analizzare e modificare i file senza copiarli e incollarli.",
+        "come_provarla": "La funzione è in fase sperimentale per gli abbonati ai piani a pagamento di Claude e richiede l'installazione dal negozio di estensioni di Google.",
+        "disponibilita": "Disponibile ora",
+        "fonti": [
+         "u1a110"
+        ],
+        "affidabilita": "Una fonte",
+        "solo_titoli": false
+       },
+       {
+        "titolo": "Copilot Notebooks gestirà le attività successive alle risposte AI",
+        "strumento": "Microsoft Copilot",
+        "riassunto": "Microsoft intende espandere le capacità di Copilot con i 'Notebooks' per gestire il lavoro che segue una risposta generata dall'AI, rendendo l'assistente più proattivo.",
+        "come_provarla": "",
+        "disponibilita": "In arrivo",
+        "fonti": [
+         "u1a69"
+        ],
+        "affidabilita": "Da verificare",
+        "solo_titoli": true
+       },
+       {
+        "titolo": "Chatbot AI 'Fix an issue' per risolvere i problemi di navigazione",
+        "strumento": "Microsoft Edge",
+        "riassunto": "Un nuovo chatbot AI integrato nelle impostazioni del browser Edge ti aiuterà a diagnosticare e risolvere problemi di navigazione, chiedendoti di descrivere il problema.",
+        "come_provarla": "Si trova nelle impostazioni del browser Edge, sotto la voce 'Fix an issue'.",
+        "disponibilita": "Non indicato",
+        "fonti": [
+         "u1a114"
+        ],
+        "affidabilita": "Una fonte",
+        "solo_titoli": false
+       }
+      ]
+     }
+    ],
+    "formato": 2
+   }
+  }
+ ]
 }
