@@ -1,0 +1,672 @@
+{
+ "giorno": "2026-10-13",
+ "generato": "2026-10-13T05:42:46+00:00",
+ "modello": "gemini-2.5-flash",
+ "testi_completi": 16,
+ "riassunto": {
+  "titolo_giorno": "Progetti architettonici con l'AI e app salute sul dispositivo",
+  "in_breve": "Oggi scopriamo Blueprints AI, uno strumento che rivoluziona la progettazione architettonica generando progetti completi da semplici schizzi. Questo mostra come l'AI stia trasformando settori professionali complessi. Vediamo anche Dotti, un'app che usa l'AI direttamente sul telefono per monitorare la salute in modo privato, evidenziando la crescente importanza delle AI locali per la protezione dei dati personali.",
+  "citati": [
+   "Blueprints AI",
+   "Dotti"
+  ],
+  "da_provare": [
+   {
+    "cosa": "Blueprints AI",
+    "a_cosa_serve": "Genera progetti architettonici conformi alle normative e pronti per i permessi edilizi in pochi minuti, partendo da uno schizzo 2D o un PDF.",
+    "per_chi": "Lavoro",
+    "ambito": "Architettura, Design",
+    "come_iniziare": [],
+    "costo": "Non indicato",
+    "piattaforme": [
+     "Browser"
+    ],
+    "sul_dispositivo": false,
+    "come_sfruttarla": "Creare rapidamente progetti edilizi preliminari o definitivi, riducendo i tempi di progettazione e le verifiche manuali.",
+    "italiano": "Non indicato",
+    "difficolta": "Media",
+    "fonti": [
+     "a84"
+    ],
+    "affidabilita": "Una fonte",
+    "prova": ""
+   },
+   {
+    "cosa": "Dotti",
+    "a_cosa_serve": "Un'app per il monitoraggio del ciclo mestruale che utilizza l'AI sul dispositivo per eliminare la necessità di tracciare i dati nel cloud.",
+    "per_chi": "Tutti i giorni",
+    "ambito": "Salute",
+    "come_iniziare": [],
+    "costo": "Non indicato",
+    "piattaforme": [],
+    "sul_dispositivo": true,
+    "come_sfruttarla": "Monitorare il proprio ciclo mestruale in modo privato, senza inviare dati sensibili a servizi cloud.",
+    "italiano": "Non indicato",
+    "difficolta": "Facile",
+    "fonti": [
+     "a36"
+    ],
+    "affidabilita": "Da verificare",
+    "solo_titoli": true,
+    "prova": ""
+   },
+   {
+    "cosa": "Atticus",
+    "a_cosa_serve": "Un assistente vocale per Mac che esegue compiti complessi o semplici ricerche web, aprendo app o riproducendo musica.",
+    "per_chi": "Lavoro e tutti i giorni",
+    "ambito": "Organizzazione, Ricerca",
+    "come_iniziare": [
+     "Tieni premuto Control-Option-Spazio",
+     "Parla o digita il tuo compito"
+    ],
+    "costo": "Non indicato",
+    "piattaforme": [
+     "Mac"
+    ],
+    "sul_dispositivo": false,
+    "come_sfruttarla": "Controllare il Mac con la voce per aprire applicazioni o cercare informazioni online.",
+    "italiano": "Non indicato",
+    "difficolta": "Facile",
+    "fonti": [
+     "a7"
+    ],
+    "affidabilita": "Appena lanciato",
+    "prova": "https://github.com/SaarthurR/atticus-mac"
+   }
+  ],
+  "osint": [],
+  "sezioni": [
+   {
+    "titolo": "Novità negli strumenti che già usi",
+    "notizie": [
+     {
+      "titolo": "Gemini 3.5 Transcribe per la trascrizione audio",
+      "strumento": "Gemini",
+      "riassunto": "Gemini introduce una nuova funzionalità, Gemini 3.5 Transcribe, che permette di convertire l'audio in testo.",
+      "come_provarla": "",
+      "disponibilita": "Non indicato",
+      "fonti": [
+       "a30"
+      ],
+      "affidabilita": "Da verificare",
+      "solo_titoli": true
+     },
+     {
+      "titolo": "Meta lancia il modello AI Muse Wonder per competere con ChatGPT e Claude",
+      "strumento": "Meta AI",
+      "riassunto": "Meta ha lanciato il suo nuovo modello di intelligenza artificiale, Muse Wonder, che secondo l'azienda supera in prestazioni Claude Opus 5.5 e GPT-6 Astra. Questo modello è progettato per sfidare i principali concorrenti nel campo dell'AI generativa.",
+      "come_provarla": "",
+      "disponibilita": "Disponibile ora",
+      "fonti": [
+       "a46",
+       "a48",
+       "a49",
+       "a55"
+      ],
+      "affidabilita": "Da verificare",
+      "solo_titoli": false
+     },
+     {
+      "titolo": "Anthropic lancia il modello Claude Haiku, più veloce ed economico",
+      "strumento": "Claude",
+      "riassunto": "Anthropic ha rilasciato Claude Haiku, un nuovo modello più veloce e accessibile. Questo modello offre prestazioni migliorate a un costo inferiore rispetto alle versioni precedenti di Claude.",
+      "come_provarla": "",
+      "disponibilita": "Disponibile ora",
+      "fonti": [
+       "a51"
+      ],
+      "affidabilita": "Da verificare",
+      "solo_titoli": true
+     },
+     {
+      "titolo": "L'app Microsoft Copilot si integra completamente con Office",
+      "strumento": "Microsoft Copilot",
+      "riassunto": "L'app Microsoft Copilot sta per ricevere l'integrazione completa con le applicazioni di Office come Word ed Excel, offrendo un'esperienza AI più profonda e coesa all'interno della suite di produttività.",
+      "come_provarla": "",
+      "disponibilita": "Non indicato",
+      "fonti": [
+       "a67"
+      ],
+      "affidabilita": "Da verificare",
+      "solo_titoli": true
+     },
+     {
+      "titolo": "X lancia 'The X Subscription' che include Grok",
+      "strumento": "Grok",
+      "riassunto": "X ha introdotto un nuovo abbonamento, 'The X Subscription', che unifica l'accesso a Grok, Cursor e X Premium in un unico piano. Il costo parte da 8 dollari al mese.",
+      "come_provarla": "",
+      "disponibilita": "Disponibile ora",
+      "fonti": [
+       "a69",
+       "a70",
+       "a72"
+      ],
+      "affidabilita": "Da verificare",
+      "solo_titoli": true
+     }
+    ]
+   },
+   {
+    "titolo": "In breve",
+    "breve": true,
+    "notizie": [
+     {
+      "titolo": "Il Regno Unito mantiene l'accesso ai modelli AI avanzati per i test di sicurezza",
+      "riassunto": "Nonostante i tentativi di bloccare l'accesso, il British AI Security Institute (AISI) ha confermato di poter continuare a testare i modelli AI più recenti di Anthropic e OpenAI, rafforzando il suo ruolo nella regolamentazione della sicurezza AI.",
+      "fonti": [
+       "a83",
+       "a96"
+      ],
+      "affidabilita": "Confermata",
+      "solo_titoli": false
+     },
+     {
+      "titolo": "L'AI decide sull'accesso alle cure sanitarie negli USA e in Europa",
+      "riassunto": "L'intelligenza artificiale sta assumendo un ruolo crescente nelle decisioni sull'accesso alle cure sanitarie negli Stati Uniti e anche in Europa, sollevando questioni etiche e di equità.",
+      "fonti": [
+       "a117"
+      ],
+      "affidabilita": "Una fonte",
+      "solo_titoli": false
+     }
+    ]
+   }
+  ],
+  "formato": 2
+ },
+ "articoli": {
+  "a67": {
+   "titolo": "The new Microsoft Copilot app is getting the full Office experience — here's what you can look forward to from Word, Excel and more",
+   "link": "https://news.google.com/rss/articles/CBMi7gFBVV95cUxPRzB3Qm1GWXRzenBodjZoX1BXeFZid2kyMF9NMW9hXzJsWlhqZTlrekVNdno4UkNsU2p3YmtjYjlKR0JiUk9DRmVPMzRBUEQ5ZTFPVXZleHZoNGp6Y0hPUWY3Z3Mtb0w1WEFiMkRYRlFlRTdIYkZsYVdYbXcxODNxV1IwNXpqX0xPdkt5WXZpQWlYQl9nV0tJZHpEUE5QcV9WQjRtQUdtc0NISzdBcTM5OGh5T280N3lKbkRucGltQWNZX2lqSGpqNmY5ckFuRmFKbTE0SGIzQkdpel9WeFlZZDRGZEV0U0pNN0JSNURB?oc=5",
+   "data": "2026-10-12T14:25:00+00:00",
+   "testo": "",
+   "fonte": "TechRadar",
+   "tipo": "minore",
+   "solo_titolo": true,
+   "categoria": "Laboratori",
+   "id": "a67"
+  },
+  "a83": {
+   "titolo": "Microsoft president says UK is best placed to drive AI regulation",
+   "link": "https://techcrunch.com/2026/10/12/microsoft-president-says-uk-is-best-placed-to-drive-ai-regulation/",
+   "data": "2026-10-12T15:31:19+00:00",
+   "testo": "Microsoft president Brad Smith is calling for urgent regulation of AI, and his argument is that consumer products like milk and washing machines have more oversight than the companies building artificial intelligence. On a recent BBC podcast, Smith called AI both a “weapon and a tool” that is putting the world’s cybersecurity at risk and said the “moment has arrived” to institute global safety rules. Smith also said the U.K., and not the U.S. or European Union, is best placed to lead on global safety rules. Britain’s AI Security Institute (AISI), launched in 2023, receives access to major models from U.S. frontier labs before they are deployed and has quickly become a leader in AI safety testing. That role has been under threat in recent weeks, with U.S. president Donald Trump warning against “globalist” organizations, which he claims are interfering with American companies. Last month, he reportedly asked Anthropic and OpenAI to withhold new models from British testers, but AISI confirmed on Monday that it is able to access and test the latest models. Despite the president’s pushback, however, Smith argued the U.K. can regulate AI in ways that the U.S. cannot. “In Washington, D.C., people don’t look at the U.K. and they don’t look at London the way they look at Brussels,” he told the BBC. “That’s a strength.” His comments come amid rallying cries from tech leaders, including Anthropic’s Dario Amodei and OpenAI’s Sam Altman, to slow the pace of AI development in the wake of several incidents where AI agents went rogue. Last month, Trump hosted tech leaders of companies, including OpenAI, Anthropic, Nvidia, AMD, SpaceX, Meta, and Google, at the White House to discuss AI safety. They signed a “morally binding” document in which they agreed to work with “independent audit…",
+   "fonte": "TechCrunch",
+   "tipo": "testata",
+   "solo_titolo": false,
+   "categoria": "Testate tech",
+   "id": "a83",
+   "testo_completo": true
+  },
+  "a49": {
+   "titolo": "Meta launches Muse Wonder AI models, challenging top rivals",
+   "link": "https://news.google.com/rss/articles/CBMivwFBVV95cUxQNFBCSkJOUTJvcFZBcUtfczgzT3J1LVBSdHVfWXVvM3pDa0hwVU9pV0VwMUQ3ZlVoeWF5VDFZWDNRQjlvUS1OdWtKc2pJaGRxVTlCbm5oS2R0UW9ndlJIMldNR3BGWmItS1gxYzRuY2Nwa1Q2ZFV6WEs0MGxaMkFKZm5iUWZDZGwwWm1KVVA5b0otekRTcE1SeGM1T1M3NkNKZF85YWZMaHBNQTg5R0Z5aXdqUWNndTJqMFRaejNiRQ?oc=5",
+   "data": "2026-10-13T01:54:00+00:00",
+   "testo": "",
+   "fonte": "TradingView",
+   "tipo": "minore",
+   "solo_titolo": true,
+   "categoria": "Laboratori",
+   "id": "a49"
+  },
+  "a69": {
+   "titolo": "X Launches 'The X Subscription': Grok, Cursor, and Premium in One Plan From $8/Month - BASENOR",
+   "link": "https://news.google.com/rss/articles/CBMiswFBVV95cUxPOVA3NXZUQVJxek1sZ25iTjZPQm12SUswd2xLOUt2TGlic3liS3o1dFF6WWZwa0ZsbHZyc2dBa2hiSVVkejBVM0pETTR5MzEwMWhTQl9YcmlnOXdOakpfMDlpeTBGQXpZWHlwLTlfa0FKa2VRcEdiRWlzOWhhUG9teC1sQ1JZcGY2bHNPQU1xV3lWUGdMblYzVnhQYl9ieFB2bkZOcUVSeU02OEhBRlhqZnQtMA?oc=5",
+   "data": "2026-10-12T23:05:12+00:00",
+   "testo": "",
+   "fonte": "Tesla Accessories",
+   "tipo": "minore",
+   "solo_titolo": true,
+   "categoria": "Laboratori",
+   "id": "a69"
+  },
+  "a36": {
+   "titolo": "Australian Teen Founder Launches Dotti: An On-Device AI Period Companion Built to Eliminate Cloud Health Tracking",
+   "link": "https://news.google.com/rss/articles/CBMi_wFBVV95cUxOVnBQMlN1WUV6Q0RTRUF4UTdVLTNlcUpjWWhtWU5EeWpCY3F2cS14NkFNb3pfZG9LczF1SWptU0Q2YWpqSklUNjV5bk0zWGxjblQzaE4wS3dqSlFwbTJEOEhoVjRHTUVtY3lpb19ac3ZQZWJ0ZDZlRlFuMVRrbXgwZkNFN1dwQWhYczZnTDJrRHYwRkpEdTV1aWdMOFgxQV94YUVSenN2eWg2RVZTcm5XaVU4c3EwdnBOUXAwZm1yVVVXSlc4Y1dxN0ZydHE1Um9Ya2xxbDlIT0JHemh2cmxmaE51SVNZTkhBeFp4NTFTSnJUM3pTUWVKcUxCWnJYcXc?oc=5",
+   "data": "2026-10-12T23:49:14+00:00",
+   "testo": "",
+   "fonte": "Press Release Distribution Australia",
+   "tipo": "minore",
+   "solo_titolo": true,
+   "categoria": "Strumenti",
+   "id": "a36"
+  },
+  "a117": {
+   "titolo": "Cure sanitarie, negli USA è l'AI a decidere chi le riceve (e anche in Europa ha un ruolo)",
+   "link": "https://www.hdblog.it/tecnologia/articoli/n673415/assistenza-sanitaria-usa-europa-ruolo-ai/",
+   "data": "2026-10-12T18:25:00+02:00",
+   "testo": "L'intelligenza artificiale è sempre più presente anche in ospedale",
+   "fonte": "HDblog",
+   "tipo": "testata",
+   "solo_titolo": false,
+   "categoria": "Italia",
+   "id": "a117"
+  },
+  "a70": {
+   "titolo": "xAI Launches X Subscription Combining Grok, Grok Bot, Cursor, And X Premium",
+   "link": "https://news.google.com/rss/articles/CBMi2gFBVV95cUxQWm8zUXBJUUpQYW55c3kwZ3JCZjRVamRVdVJJdUp6NWg5bVRxbWs3TUlFLXc3ZmRvcDJuTHdnYzJHSTZKRW1IdTRzMlpYbnpPN2kyQjU3MEg3aFZrTjQ4RzZEUmlZSEFpMzJYMElJTzJuZ1RBQWxtOU1zeVQ4UDVmUTdNcE12cTZNZDNTakplMXVhSl90ZTBvLXVpb0h1Z2JzRGdqS0IxdXhLdWhqM3BleGRBdUptLWF4Uml5cUlwTG15eFlvYTFObTZaRXFsYVo4dF81TmRIQVVoZw?oc=5",
+   "data": "2026-10-12T22:54:48+00:00",
+   "testo": "",
+   "fonte": "TradingView",
+   "tipo": "minore",
+   "solo_titolo": true,
+   "categoria": "Laboratori",
+   "id": "a70"
+  },
+  "a96": {
+   "titolo": "White House reverses course and restores UK AI Safety Institute's access to frontier models",
+   "link": "https://the-decoder.com/white-house-reverses-course-and-restores-uk-ai-safety-institutes-access-to-frontier-models/",
+   "data": "2026-10-12T13:14:54+00:00",
+   "testo": "The White House has reversed course and restored the UK's AI Security Institute's early access to AI models from Anthropic, Google DeepMind, and OpenAI. In September, the Trump administration had told the companies to stop sharing their models with the British agency. Diplomatic pressure from AI Minister Kanishka Narayan led to the reversal. The article White House reverses course and restores UK…",
+   "fonte": "The Decoder",
+   "tipo": "testata",
+   "solo_titolo": false,
+   "categoria": "Testate tech",
+   "id": "a96"
+  },
+  "a84": {
+   "titolo": "This AI startup says it can generate permit-ready blueprints in minutes",
+   "link": "https://techcrunch.com/2026/10/12/this-ai-startup-says-it-can-generate-permit-ready-blueprints-in-minutes/",
+   "data": "2026-10-12T15:27:59+00:00",
+   "testo": "Nearly two decades ago, a young college student wrote his final thesis about software capable of generating design documents for school buildings. Al Dram was studying architecture — following in the footsteps of his parents and grandfather — but it was technology that really intrigued him. There was just one problem: The technology his idea required didn’t exist yet. “Then ChatGPT came along,” said Dram, recalling when OpenAI released the generative AI chatbot that uses large language models (LLMs) in November 2022. His old idea suddenly seemed a lot more possible. Within six months, he launched the concept of Blueprints AI, a startup that uses AI to produce code-compliant and permit-ready architectural construction blueprints in minutes from a 2D sketch or PDF. Blueprints AI, which Dram officially incorporated in 2025 in Santa Monica with co-founder Coco Cao, was selected for the 2026 Startup Battlefield 200, a cohort of promising early-stage startups that have earned a spot to exhibit at this year’s TechCrunch Disrupt, taking place this week from October 13 to 15 in San Francisco. During that 20-year lead-up to Blueprints AI, Dram earned his bachelor’s and master’s degrees in architecture from the University of Tehran and completed two years of PhD coursework on digital design at the European Graduate School in Switzerland. He moved to the United States and opened an architecture firm in 2018 called Drams Design-Build. Then, after obtaining a general contractor’s license, he added a construction business in 2021. Dram should have been satisfied. He wasn’t. “I was saying, okay, maybe I can build new projects that change people’s life in that area, but it wouldn’t be a big impact,” he said. “What makes me very excited about technology is the impact, the hours saved, t…",
+   "fonte": "TechCrunch",
+   "tipo": "testata",
+   "solo_titolo": false,
+   "categoria": "Testate tech",
+   "id": "a84",
+   "testo_completo": true
+  },
+  "a51": {
+   "titolo": "Anthropic launches fastest and affordable Claude Haiku model yet",
+   "link": "https://news.google.com/rss/articles/CBMimAFBVV95cUxPR2NKLW5NdjdqVFZVZVptTWg0MVNhYlFucFE2WXlybUw2RE9hMUVvV0R6aUlyRGtxN3NQS1lPd2JxRW5ERGF6a0x1dVBtRzZOeHpTQ3pOSU40Tk55SXRBa2VlN20xRmdtOWFZOWoxZjBPa2YyNm1salpuMjFLSVhqTGVsWUhWUWdfR3N5RHNjT1JsOGF5UEV3dg?oc=5",
+   "data": "2026-10-13T04:42:09+00:00",
+   "testo": "",
+   "fonte": "My Startup World",
+   "tipo": "minore",
+   "solo_titolo": true,
+   "categoria": "Laboratori",
+   "id": "a51"
+  },
+  "a7": {
+   "titolo": "Atticus – Hold-to-talk voice assistant for macOS that runs on Claude -p",
+   "link": "https://github.com/SaarthurR/atticus-mac",
+   "data": "2026-10-12T00:15:12+00:00",
+   "testo": "Hi HN! I'm Saarth. I'm in 9th grade, and I built Atticus. Atticus is a fast and cheap Mac assistant that can do tasks for you. You hold down Control-Option-Space, speak or type your task, be it complex or a simple browser search, and Atticus will get on it. The interesting part is that simple tasks, like opening apps, playing a Spotify playlist, or web queries, don't touch AI, and instead are pro…",
+   "fonte": "Show HN (nuovi progetti)",
+   "tipo": "vetrina",
+   "solo_titolo": false,
+   "categoria": "Strumenti",
+   "id": "a7"
+  },
+  "a48": {
+   "titolo": "Meta launches Muse Wonder AI model to rival ChatGPT and Claude",
+   "link": "https://news.google.com/rss/articles/CBMiZEFVX3lxTE5WenFrTmVyQVQ0dWVoRXJFblU1eWEwaTUzckQ5RndaUjhFLVZ6eDFjX3hhLVY2bEZLYWlJdW9raGZPSjdFUG9MN1R0ZmJXdENUc2MyOGZBREZXT1Ftd29URWloSks?oc=5",
+   "data": "2026-10-12T17:27:51+00:00",
+   "testo": "",
+   "fonte": "Quartz",
+   "tipo": "minore",
+   "solo_titolo": true,
+   "categoria": "Laboratori",
+   "id": "a48"
+  },
+  "a72": {
+   "titolo": "Elon Musk’s xAI unifies Grok, Cursor and X Premium under a single subscription; launches 'The X Subscription'",
+   "link": "https://news.google.com/rss/articles/CBMi8wFBVV95cUxOYVhhOFF4UVRPRS1JX2UwaTByWDlaM01XX0xLYThKTWlpa2xBWDRuQmdhSDl4Y1NBdjJ4UGNhTGpZdTJxZ1JmMFJYbmRwZEJVQ1ktQ0I1VXptaVJCQ0g2anh2Smpha2dEVHJjTmcxT0tES3dvWUctbjhOdGpfV1IzZEFlMGxlVXpRN3YzQTZlOUp3NjlieUdPYjlzblVlaHhYei00Y1Z4eGhMcDNHX0o2dlNoUU5BLW1TQmE4UjQzdHZOVTlOZE5LZGIyWjV0Z2lUMC0yWU53MHNmc0tzREVPYm10dG0tdXBVOWNEZEJDenhCSVXSAfMBQVVfeXFMTmFYYThReFFUT0UtSV9lMGkwclg5WjNNV19MS2E4Sk1paWtsQVg0bkJnYUg5eGNTQXYyeFBjYUxqWXUycWdSZjBSWG5kcGRCVUNZLUNCNVV6bWlSQkNINmp4dkpqYWtnRFRyY05nMU9LREt3b1lHLW44TnRqX1dSM2RBZTBsZVV6UTd2M0E2ZTlKdzY5YnlHT2I5c25VZWh4WHotNGNWeHhoTHAzR19KNnZTaFFOQS1tU0JhOFI0M3R2TlU5TmROS2RiMlo1dGdpVDAtMllOdzBzZnNLc0RFT2JtdHRtLXVwVTljRGRCQ3p4QklV?oc=5",
+   "data": "2026-10-13T03:58:43+00:00",
+   "testo": "",
+   "fonte": "Storyboard18",
+   "tipo": "minore",
+   "solo_titolo": true,
+   "categoria": "Laboratori",
+   "id": "a72"
+  },
+  "a55": {
+   "titolo": "Meta launches Wonder AI models to rival ChatGPT, Claude; Zuckerberg steps up AI race",
+   "link": "https://news.google.com/rss/articles/CBMi3AFBVV95cUxNMnZHYU1uRkhSSUxMQ191WDhiS185LUNzVS13TmhSN2U5NHpydFlYSENScFZmek1KTmt6TFZ4ZkRwRW1GV0k2eEV0YXZMdHlvOG5sMFBIOVIwQmh1bkIwTFpuWnRBVU5oOXZfTkFybDBYaGFhMUk2YTJrQVVwbXdqSGhuMGdRQ1E4ZjJ5SkVDQjU2QmF6RzlMMkJ0WkliaDAxaWZjQXBRMklFdHhnbEZ0c2dGWDRCdzVDN0dIU2lFZzVONHV6d0xMMmlndTQ3RHVMaDc1Vnktc0dpUmtF0gHiAUFVX3lxTE90U2NiMXU3SXdxRHFKRTdfZk1aVWZMUHV4aXRlUUJIazNBY1YwSnk5ZU12Nm1NamU1c3RGVHVEZDZKQl9fUDRxUDJ6LTFCN3Q4bnZESlJPbTRtTkw1UzhOd3RTSm1Id2xLV0FNZEdodHpsOUtWYkpzN3hNWjJPRGhwQTVFUFVMMG5pVjdKbS1VTUFSSUNOa1BzUXhOdk8yZ0RFcEVGejNjaUh6UjNpMEYwT0JWNUlQZHVQUE4tV0ZnVF9Fc21NSnA1LUNXdXc5VG1aWnZKQmNqOXB5UHN2amRBLWc?oc=5",
+   "data": "2026-10-12T20:31:35+00:00",
+   "testo": "",
+   "fonte": "Moneycontrol.com",
+   "tipo": "minore",
+   "solo_titolo": true,
+   "categoria": "Laboratori",
+   "id": "a55"
+  },
+  "a30": {
+   "titolo": "Gemini 3.5 Transcribe: Trascrizione Audio in Testo 2026 - tech-insider.org",
+   "link": "https://news.google.com/rss/articles/CBMihwFBVV95cUxNM0gxZmhkLW12VTJVUUJzcXdkTVprX0dLVkc2WUxEZTJxTF9TcHQ4RzdSY3JZd2dCVkhoTTZFYWtxTy1sTzRCT1dLSUFkUnJPS05KSzJ6TXhfWlhWTEVyYzZ4VnBhUFF4cUxQMTljTWVqYWJHMFJyM0ZNcVdXM3hJNWc3d2dJaWc?oc=5",
+   "data": "2026-10-12T06:28:49+00:00",
+   "testo": "",
+   "fonte": "Novità AI da provare (Italia)",
+   "tipo": "aggregatore",
+   "solo_titolo": true,
+   "categoria": "Strumenti",
+   "id": "a30"
+  },
+  "a46": {
+   "titolo": "Meta Launches Muse Wonder AI Model to Challenge ChatGPT and Claude",
+   "link": "https://news.google.com/rss/articles/CBMioAFBVV95cUxNSjdoVURSNFowLUVzYkpyc0VUUFl6R1QtNFZOTzdjOWtmTVluUDc3VFQtNWxsNVBJRkN5RnE2WG11MFBka1RZdzNFbnpnY2k3Tkx5NTVRSjlUcERHVjJ1TkJScGdoWll0V3RZbE9ub1VPdUc1TzNFd3hvUTlTSmwtQlNicWRuN1hmOHZHOUxUdlhMallGY29zX3Y3Uk9VMVFD?oc=5",
+   "data": "2026-10-12T23:52:50+00:00",
+   "testo": "",
+   "fonte": "CEOWORLD magazine",
+   "tipo": "minore",
+   "solo_titolo": true,
+   "categoria": "Laboratori",
+   "id": "a46"
+  }
+ },
+ "fonti": [
+  {
+   "nome": "Product Hunt (AI)",
+   "ok": true,
+   "presi": 6
+  },
+  {
+   "nome": "Show HN (nuovi progetti)",
+   "ok": true,
+   "presi": 1
+  },
+  {
+   "nome": "Nuove app AI (internazionale)",
+   "ok": true,
+   "presi": 10
+  },
+  {
+   "nome": "Nuove app AI (Italia)",
+   "ok": true,
+   "presi": 8
+  },
+  {
+   "nome": "Novità AI da provare (Italia)",
+   "ok": true,
+   "presi": 7
+  },
+  {
+   "nome": "AI sul dispositivo (internazionale)",
+   "ok": true,
+   "presi": 8
+  },
+  {
+   "nome": "AI sul dispositivo (Italia)",
+   "ok": true,
+   "presi": 5
+  },
+  {
+   "nome": "OpenAI",
+   "ok": true,
+   "presi": 0
+  },
+  {
+   "nome": "Google (blog ufficiale)",
+   "ok": true,
+   "presi": 0
+  },
+  {
+   "nome": "Google Gemini (blog)",
+   "ok": true,
+   "presi": 0
+  },
+  {
+   "nome": "Nuove funzioni AI (Google News)",
+   "ok": true,
+   "presi": 12
+  },
+  {
+   "nome": "Anthropic / Claude",
+   "ok": true,
+   "presi": 6
+  },
+  {
+   "nome": "Microsoft Copilot",
+   "ok": true,
+   "presi": 5
+  },
+  {
+   "nome": "Altri assistenti AI (Perplexity, Mistral, Meta AI…)",
+   "ok": true,
+   "presi": 8
+  },
+  {
+   "nome": "The Verge",
+   "ok": true,
+   "presi": 3
+  },
+  {
+   "nome": "TechCrunch",
+   "ok": true,
+   "presi": 9
+  },
+  {
+   "nome": "Ars Technica",
+   "ok": true,
+   "presi": 3
+  },
+  {
+   "nome": "MIT Technology Review",
+   "ok": true,
+   "presi": 0
+  },
+  {
+   "nome": "The Decoder",
+   "ok": true,
+   "presi": 7
+  },
+  {
+   "nome": "TLDR AI (newsletter)",
+   "ok": true,
+   "presi": 1
+  },
+  {
+   "nome": "ANSA",
+   "ok": true,
+   "presi": 6
+  },
+  {
+   "nome": "Wired Italia",
+   "ok": true,
+   "presi": 0
+  },
+  {
+   "nome": "Il Sole 24 Ore Tecnologia",
+   "ok": true,
+   "presi": 2
+  },
+  {
+   "nome": "Punto Informatico",
+   "ok": true,
+   "presi": 6
+  },
+  {
+   "nome": "HDblog",
+   "ok": true,
+   "presi": 4
+  },
+  {
+   "nome": "Reddit",
+   "ok": true,
+   "presi": 8
+  },
+  {
+   "nome": "Reddit (AI locale)",
+   "ok": false,
+   "errore": "HTTP Error 429: Too Many Requests",
+   "presi": 0
+  },
+  {
+   "nome": "Bellingcat (guide e strumenti)",
+   "ok": true,
+   "presi": 0
+  },
+  {
+   "nome": "GIJN (guide per giornalisti investigativi)",
+   "ok": false,
+   "errore": "HTTP Error 403: Forbidden",
+   "presi": 0
+  },
+  {
+   "nome": "OSINT – verifica e fact-checking (internazionale)",
+   "ok": true,
+   "presi": 5
+  },
+  {
+   "nome": "OSINT – nuovi strumenti (internazionale)",
+   "ok": true,
+   "presi": 4
+  },
+  {
+   "nome": "OSINT – strumenti (Italia)",
+   "ok": true,
+   "presi": 2
+  },
+  {
+   "nome": "Reddit (OSINT)",
+   "ok": true,
+   "presi": 1
+  },
+  {
+   "nome": "Hacker News (OSINT)",
+   "ok": true,
+   "presi": 0
+  }
+ ],
+ "visti": [
+  "excaliclaw",
+  "cubeforms",
+  "kudos30",
+  "manifoldmcp",
+  "scrapeanythingbycontextdev",
+  "dropstonecli",
+  "atticusholdtotalkvoiceassistantformacosthatrunsonclaudep",
+  "fromgtavoniphonetofreephotoshopthisaitoolisupendingsoftware",
+  "builtforyougeorgiasecofstatelaunchesnewgabbyaitoolonlinewsbtv",
+  "klingainextgenerationaitoolatartlist",
+  "freebeatlaunchesaitoolthatfusessonglyricsintovideoscenes",
+  "fislaunchesagenticaitoolforcfostospotcashflowrisksearlier",
+  "slotsuplaunchesaiassistantdrawingondatabaseof7458gamesand594casinos",
+  "approvalmaxlaunchesailayerforbillapprovals",
+  "anoklahomaconsultingfirmissellinganaitoolthatcanpredictelectionsbutcanitbetruste",
+  "letsgrowlaunchesaipoweredassistancelayer",
+  "slotsuplaunchesaiassistanttopowerintelligentsearchacrossitsigamingplatform",
+  "artcraftricrealeappadobeeselairendesseilsoftwaregratis",
+  "i4tlancialintelligenzartificialeperleagenzie",
+  "fptproponesoluzionidiintelligenzaartificialeasupportodellagestionedelleoperazion",
+  "biotecnologieeintelligenzaartificialethewaicoinvestearoveretonuovasedeinpolomecc",
+  "checosèunstrumentodiriepilogopdfbasatosuintelligenzaartificiale",
+  "lintelligenzaartificialealserviziodellebiblioteche",
+  "safedrivesullafipililairilevacellulareallaguidaecinturenonallacciate",
+  "glialcunielanuovarassegnailteatrocomealternativaallintelligenzaartificiale",
+  "comeusareclaudeperfaredashboardconidatiaziendali",
+  "googlefitbitedgeèufficialeilfitnesstrackercondisplayamoledgpsedecgarrivainitalia",
+  "claudeorapuòfarepentestingmaidatipoiselitienelui",
+  "geminipotrebbechiamareamiciefamiliarialpostotuo",
+  "gemini35transcribetrascrizioneaudiointesto2026techinsiderorg",
+  "perimpedirechelintelligenzaartificialesostituiscalapprendimento",
+  "usaresquadrediagenticostatantomailrisultatomigliorasolodipoco",
+  "offgridaiadds78solarandbatteryproductstopowerofflineai",
+  "junipersystemslaunchesthenewaltaruggedtabletpoweredbyandroidwithaleanerdesignand",
+  "welcometothenvidiartxsparkera",
+  "australianteenfounderlaunchesdottianondeviceaiperiodcompanionbuilttoeliminateclo",
+  "hardwarecolaunchescustomaihardwareandprivateaiinfrastructuresolutionspoweredbyde",
+  "pandaleyo2miniworkstationlauncheswith192gbmemoryforlocalaiworkloads",
+  "microsoftplanshugedeploymentofitsownaichipswithaneyeonsavingcosts",
+  "localaiexcitingoverwhelmingandfrustrating",
+  "minipcperailocalegmktecevox2conryzenaimax395128gbdirame2tbaccantoalbeelinkda64gb",
+  "addioproblemialposconmastercardsipagaancheoffline",
+  "interclubbruggestreaminggratisdovevederlaliveoggi",
+  "qualcommaziendeaipreparanotelefoniconmodellida100miliardi",
+  "iprezziinitaliadeinuovirtxsparkdannoragioneadapple",
+  "metalaunchesmusewonderaimodeltochallengechatgptandclaude",
+  "testliolaunchesleosuccessanaicopilotforthenexteraoftestorchestration",
+  "metalaunchesmusewonderaimodeltorivalchatgptandclaude",
+  "metalaunchesmusewonderaimodelschallengingtoprivals",
+  "lenovogooglebook15launcheswithgeminiaiandoleddisplay",
+  "anthropiclaunchesfastestandaffordableclaudehaikumodelyet",
+  "digestopenaiwantschatgptadsinagencymediaplansxboxlaunchesfilmandtvdivision",
+  "digitalwebsolutionslaunchesgenerativeengineoptimizationservicesacrossitsglobalma",
+  "acalviolaunchesshadowplexaiagentingeminimarketplace",
+  "metalauncheswonderaimodelstorivalchatgptclaudezuckerbergstepsupairace",
+  "googlesnewfitbitedgedoesnthavegeminibutitdoeshaveascreen",
+  "etorolaunchesaiconnectorsforchatgptclaudeandgroktoanalyseinvestorportfolios",
+  "anthropicsclaudeaisubmittedfalsemurdertiptophiladelphiapolice",
+  "strengtheningourdefensesagainstdistillationattacks",
+  "anthropichasbiggerproblemsthanclaudesfeelings",
+  "applereadieshomeviewhubasanthropictightensclauderules",
+  "anthropicsaysnewsafeguardssharplyreduceaidistillationattacks",
+  "anthropicbansusersfrombeingabusiveorcrueltoclaude",
+  "procureproletscontractorstalktotheirliveprocurementdatathroughmicrosoftcopilotan",
+  "microsofttoexpandazuremaiasystemtomultigigawattdeployments",
+  "microsoftcopilotaipredictsbitcoincashtohit5000by2027",
+  "thenewmicrosoftcopilotappisgettingthefullofficeexperiencehereswhatyoucanlookforw",
+  "microsoftunveilsmaia300with40moretokenspermegawatt",
+  "xlaunchesthexsubscriptiongrokcursorandpremiuminoneplanfrom8monthbasenor",
+  "xailaunchesxsubscriptioncombininggrokgrokbotcursorandxpremium",
+  "chatgptvsgeminivsgrokaicheckoutat52share2026techinsiderorg",
+  "elonmusksxaiunifiesgrokcursorandxpremiumunderasinglesubscriptionlaunchesthexsubs",
+  "deepseekscostsavingaimayleadtoinaccuracyinmodelperformanceresearch",
+  "howalexandrwangpushedmetamusetono1intheappstoreaheadofchatgpt",
+  "deepseekleads400mrobotaiseedroundforextencentscientistslab",
+  "redditperplexityaiclashwhattoknowabouthighprofiledatascrappingcase",
+  "metahassomewonderfullnewaimodels",
+  "microsoftsnewaichipmakesitlessreliantonnvidiasgpus",
+  "siliconvalleyisfallinginlinewithtrumpsattempttorenameai",
+  "metareleasesitsfirstfrontiermodelmusewonder",
+  "windbornewinsaheftyusairforcecontractforitsballoondata",
+  "honeyjaroffersaitoolstoimproveprandcommsateverycompany",
+  "microsoftpresidentsaysukisbestplacedtodriveairegulation",
+  "thisaistartupsaysitcangeneratepermitreadyblueprintsinminutes",
+  "techcrunchdisrupt2026startstomorrowyourfinalchancetosecureupto100ticketsavings",
+  "formerplaudexecraises26mforaiappthatlistenstoyouinthebackground",
+  "willthehomeviewbeapplesfirstsmarthomesuccess",
+  "48hourstotechcrunchdisrupt2026heardirectlyfromthepeoplebuildingwhatsnext",
+  "epicgamesreportedlypivotingtoaifirstgamedevelopmentmodel",
+  "russiawasnotreadyforthedatacenterwaritstartedwithukraine",
+  "amazonhasover1millionrobotworkerswhatsnextforhumanemployees",
+  "metasnewfrontiermodelmusewonderfullbreaksintotheaitoptier",
+  "sakanaaisselfimprovingmodelgetsbetteratsolvingandjudgingbutcantcatchitsownblinds",
+  "clearingchathistoryhelpsaiagentsfindbettersolutions",
+  "microsoftplanstoscaleitsownmaiaaichipstogigawattlevelsby2027",
+  "whitehousereversescourseandrestoresukaisafetyinstitutesaccesstofrontiermodels",
+  "anthropicsandrejkarpathysaystheexternalworldhasseenthepreviewofwhataicanactually",
+  "googledeepmindsalphaproofnexussolveddozensofopenmathproblemsandactuallygotpeerre",
+  "gemini4carbonnvidiaweighsreflectionacquihiredecisionmodelrace",
+  "milanosicandidaasedepergovernancemondialedellintelligenzaartificiale",
+  "hadrianraccoglie40milionididollariperestenderelasicurezzainformaticaadunnuovoliv",
+  "padrebenantiasydneypergli800annidallamortedisanfrancesco",
+  "numero1100libriin2giornie12autoribestsellerpremiati",
+  "didamaticalascuolaitalianapresentailmodelloia",
+  "microsoftlanciamaia300puntasuunchipiaproprietariopersfidarenvidia",
+  "microsoftmaia200entrainproduzioneinuovichipmaia300arriverannonel2027",
+  "ilgrandeingannodellaiconoscereilnemicoperusarlomeglio",
+  "homeassistantsemplificalaccessoallaiirischidaconoscere",
+  "thelancetlaimalevolapuòminacciarelesistenzadellumanità",
+  "googletraduttoreconsmartassistlaieliminaesitazionieintercalari",
+  "7modidiusareclaudesudocumentifoglieslidedigoogle",
+  "maia300èilchipaidimicrosoftperlafrontiertransformation",
+  "iphoneduoèunosprecodidenarolodiceilceodinothing",
+  "appleeventodedicatoaicreatorafineottobrepermostraretuttiinuovidevice",
+  "hyundaitucsonnlineilsuvpiùaudacesimostraaparigi2026",
+  "chiedeallaiunpercorsoinmontagnarischialavitaa16anni",
+  "curesanitarienegliusaèlaiadeciderechilericeveeancheineuropahaunruolo",
+  "damagecontrolbycaptaininsightx",
+  "itsasequelmemebutiwillacceptitbecauseitssooootruexd",
+  "updateiaskedgpttogetmeasurprisegiftthisiswhatitgotme",
+  "rip",
+  "markteasedmusewondertodayandreleasedittodaygoogleteasedgemini4argonthreeweeksago",
+  "unfortunatelythismemeisstillrelevantafter4months",
+  "metasaysitsnewmusewonderscoresat856against815forclaudeopus55and814forgpt6astra",
+  "whileiwasvibecodingwithopus55thismorning",
+  "bspandbmaplaunchscamreadyaseaninitiativeandscamcheckphverificationtoolinthephili",
+  "oldvideofalselysharedasoneofwomanbeingassaultedduringdelhiprotests",
+  "did163democratsusesameoklahomaaddresstovoteforbidenin2020theresnoproof",
+  "oldvideosfalselysharedashindugroupsarrivingindelhitoopposecjpsprotestatjantarman",
+  "howiranplayedtheamericanmediaforfools",
+  "whatilearnedfromgeolocating1000satelliteimageseinternationalrelations",
+  "godseyeosintplatformaggregatesglobaltrackingandlivesurveillancefeeds",
+  "howscammersbuiltdeployedafakeversionofnigeriastrafficagency",
+  "kyivstrikessixrussianmilitarylocationsacrossoccupiedterritoriesinmassiveweekendb",
+  "phishingaziendaleperchéidipendentiformaticliccanocomunque",
+  "informaticaforenseagenovailfuturodelleprovedigitalitraaiedeepfake",
+  "osintofslovenia"
+ ],
+ "audio": "audio/2026-10-13.mp3",
+ "durata": 161.0
+}
