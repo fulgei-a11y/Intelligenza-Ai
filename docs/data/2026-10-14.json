@@ -157,6 +157,199 @@
    "categoria": "Testate tech",
    "id": "a93",
    "testo_completo": true
+  },
+  "u1a6": {
+   "titolo": "RoleFit",
+   "link": "https://www.producthunt.com/products/rolefit",
+   "data": "2026-10-13T22:07:36-07:00",
+   "testo": "Tailor every job application without starting from scratch",
+   "fonte": "Product Hunt (AI)",
+   "tipo": "vetrina",
+   "solo_titolo": false,
+   "categoria": "Strumenti",
+   "id": "u1a6"
+  },
+  "u1a54": {
+   "titolo": "Google crea AI anti-truffa che analizza i messaggi sullo smartphone",
+   "link": "https://news.google.com/rss/articles/CBMikwFBVV95cUxObDhWWms3c1dQb3lYbTctSGhSZlhDTlNFOS1EWnNJN2JpS21wanJGSkdwTkJmcVdQQkd0QXNINjlzalRVeDdkN200THQxc3J0cUQ5ZnUybXlsU1R5eTVpWmJ0Y19rdDlteXZNR3EyN0daUTlFZVREYTdQRENTbk8zYWoyOG5xeUtYdWFUR2x5OFNUeUk?oc=5",
+   "data": "2026-10-14T15:43:15+00:00",
+   "testo": "",
+   "fonte": "Punto Informatico",
+   "tipo": "testata",
+   "solo_titolo": true,
+   "categoria": "Strumenti",
+   "id": "u1a54"
+  },
+  "u1a4": {
+   "titolo": "Kugel 3.5",
+   "link": "https://www.producthunt.com/products/kugelaudio",
+   "data": "2026-10-13T06:51:15-07:00",
+   "testo": "Text-to-speech that beats any other Model out there",
+   "fonte": "Product Hunt (AI)",
+   "tipo": "vetrina",
+   "solo_titolo": false,
+   "categoria": "Strumenti",
+   "id": "u1a4"
+  },
+  "u1a104": {
+   "titolo": "Anthropic’s self-replicating AI warning is alarming deja vu",
+   "link": "https://www.theverge.com/ai-artificial-intelligence/1011108/anthropic-self-replicating-ai-smart-devices-risk",
+   "data": "2026-10-14T11:19:02-04:00",
+   "testo": "Are legions of smart devices — fridges, ovens, vacuum cleaners, lawnmowers, security cameras, and TVs — conspiring to take over the internet? No. But they could soon be unwitting hosts to self-replicating AI models that spread from device to device and prove remarkably difficult to contain. Anthropic’s self-replicating AI warning is alarming deja vu Anthropic says its research found ‘signs of life for AI worms,’ that could colonize household devices. Experts say they have a point. Welcome to the unsettling world of AI worms, where, depending on who you ask, the prospect of models spreading uncontrollably across household appliances is either an imminent cybersecurity risk or another case of AI companies spreading doomer-tinged hype. In a blog post published this week, Anthropic warns that small AI models could be “months away” from acquiring such capabilities. Its experiments offer some evidence to support that, but leave a huge gap between what researchers have demonstrated and the looming threat they foretell. Still, experts who spoke to The Verge say that while computer worms and fears of self-replicating AI are nothing new, recent advances suggest there are good reasons to take the warnings seriously. Self-replicating machines have long haunted AI safety researchers. They raise the prospect of systems spreading beyond human control that are difficult, if not impossible, to shut down. As with many fears about advancing AI, attention has largely focused on increasingly powerful frontier models, such as OpenAI’s Astra or Anthropic’s Mythos. But a key limiting factor is their size: They are colossal. Potentially containing trillions of parameters — values learned during training — frontier models require vast computing resources, largely confining them to data centers,…",
+   "fonte": "The Verge",
+   "tipo": "testata",
+   "solo_titolo": false,
+   "categoria": "Testate tech",
+   "id": "u1a104",
+   "testo_completo": true
+  },
+  "u1a133": {
+   "titolo": "Alleged OpenAI spy vibe-coded a surveillance device using his wife's chatbot account",
+   "link": "https://the-decoder.com/alleged-openai-spy-vibe-coded-a-surveillance-device-using-his-wifes-chatbot-account/",
+   "data": "2026-10-14T12:37:05+00:00",
+   "testo": "A Saudi national working as an engineer at OpenAI was arrested for allegedly planting an audio recording device, wrapped in toilet paper, inside the company's executive conference room. According to the indictment, he built the spy tool by vibe-coding it with a chatbot. If convicted, he faces up to five years in prison. The article Alleged OpenAI spy vibe-coded a surveillance device using his wif…",
+   "fonte": "The Decoder",
+   "tipo": "testata",
+   "solo_titolo": false,
+   "categoria": "Testate tech",
+   "id": "u1a133"
+  },
+  "u1a71": {
+   "titolo": "Google rolls out Gemini 4 Argon, excluding free users...",
+   "link": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxNQlBBcHgxa19PTnVXQzRLczQ2b2hEQkFOQ2R6dWplQWtWM0pKNTAtWTdyUm1mem04eldrWi00TVd3NGxRdXlzRWs5ZXFvcVF1T0ZIUzAzZlFla3BZQlhHeVJ1UFVOc0ZfT3ZXcThnZFlFTlRYbHFLT0EtNnl6M0hrMnlNVnRGdGx2elRveEpfNmlITXhHYnRhcWkwY0Z4a0tVRC1XY3RzUm1CU28?oc=5",
+   "data": "2026-10-14T11:24:43+00:00",
+   "testo": "",
+   "fonte": "www.jordannews.jo",
+   "tipo": "minore",
+   "solo_titolo": true,
+   "categoria": "Laboratori",
+   "id": "u1a71"
+  },
+  "u1a50": {
+   "titolo": "Google Play Lets Users Build Private AI Apps For Android Without Publishing Them",
+   "link": "https://news.google.com/rss/articles/CBMivwFBVV95cUxQNm4xbHN3ZmtTcDlZRG9yWWs3SFFHR3FMaWVnNGN0a2NtdVhGdTRTLUZocURtdG5GMHI5TGJkZTdjejJVWW9yZ3F0aE05YkpUc0M2VlA2TDRGXzRpdjJvOWF2MHM3NmVibDFJM1c3cFpHbC1ra3pMckZsZHpTWF9qbXp3VlJJYlpoSDZJV0RmUDc3N1RaTjZTM3JvVFFNZC00UmZSWU9TVnJYQnE2ckVkY0dXakF6bFFSMzFaY0MzQdIBxAFBVV95cUxOT0RaYTYzSEJ6MVpNS29SMUtrS1dPS1Y1UGxwUmNkaWVwNXJJMUhIMnJSSno4NlgyUkp2RkdnUXlKc1BzVmkzeVlzX3ZfNTdsdkpTRS1rckxFTEdIc0FYS2NGYzQ2YkpTQUUtSFV0NUhuSjRMM1UzcnR0alFyXzFEMFI5eG1JdDAyek5iSWx5cU5YX3E1a2tlSXVFREtHd1B3cURENW04Vm5ic2JUSzN3TFE4VTVPbUJCYjM3YnBfSzdIRlJq?oc=5",
+   "data": "2026-10-14T06:43:02+00:00",
+   "testo": "",
+   "fonte": "News18",
+   "tipo": "minore",
+   "solo_titolo": true,
+   "categoria": "Strumenti",
+   "id": "u1a50"
+  },
+  "u1a103": {
+   "titolo": "Android is using AI to suss out scammers in Google Messages",
+   "link": "https://www.theverge.com/tech/1010928/android-scam-protection-enhanced-protection-google-messages",
+   "data": "2026-10-14T12:00:00-04:00",
+   "testo": "Android is introducing new scam defense features that aim to make it easier for users to evade mobile fraud, including bolstered protection in Google Messages and additional safeguarding tools. Building on the Scam Detection feature in Google Messages, a new \"enhanced protection\" setting will be rolling out in the coming weeks that taps into cloud-based […]",
+   "fonte": "The Verge",
+   "tipo": "testata",
+   "solo_titolo": false,
+   "categoria": "Testate tech",
+   "id": "u1a103"
+  },
+  "u1a148": {
+   "titolo": "Se l’AI impara a replicarsi: codici malevoli autonomi potrebbero invadere elettrodomestici e Tv",
+   "link": "https://www.ilsole24ore.com/art/se-l-ai-impara-replicarsi-codici-malevoli-autonomi-potrebbero-invadere-elettrodomestici-e-tv-AJVB5ZjB",
+   "data": "2026-10-14T12:28:00+00:00",
+   "testo": "Se l’AI impara a replicarsi: codici malevoli autonomi potrebbero invadere elettrodomestici e Tv Il lavoro di Anthropic sull’autoreplicazione dei modelli AI affronta una questione concreta: in quali condizioni un sistema potrebbe sfruttare le risorse informatiche disponibili per creare copie di sé stesso, L’ipotesi che un sistema di intelligenza artificiale possa replicarsi autonomamente non appartiene più a copioni di film di fantascienza, ma potrebbe essere realtà a breve. Il lavoro di Anthropic sull’autoreplicazione dei modelli AI affronta una questione concreta: in quali condizioni un sistema potrebbe sfruttare le risorse informatiche disponibili per creare copie di sé stesso, trasferirle su altre macchine e continuare a operare senza dipendere da un’infrastruttura controllata direttamente dai suoi sviluppatori? Chiedilo al Sole Il tema rappresenta una priorità per chi si occupa di cybersecurity e protezione delle infrastrutture critiche, perché delinea uno scenario di rischio concreto: agenti AI capaci di adattarsi a dispositivi diversi, sfruttare sistemi vulnerabili e propagarsi attraverso reti connesse, riducendo progressivamente la necessità di intervento umano. Gli esperimenti non dimostrano che esista già una minaccia di questo tipo operativa su larga scala, ma mostrano che alcune delle barriere tecniche stanno diventando meno solide. Per chi difende reti e infrastrutture, il rischio non è soltanto teorico: è la possibilità che malware potenziati dall’AI trasformino migliaia di dispositivi IoT compromessi in una rete distribuita, capace di espandersi e adattare le proprie operazioni con una velocità e una flessibilità difficili da contrastare. Il punto di partenza è il rapporto pubblicato da Anthropic, Self-replicating AI: assessing the risk, che analizza la p…",
+   "fonte": "Il Sole 24 Ore Tecnologia",
+   "tipo": "testata",
+   "solo_titolo": false,
+   "categoria": "Italia",
+   "id": "u1a148",
+   "testo_completo": true
+  },
+  "u1a100": {
+   "titolo": "OpenAI claims an ex-employee took its product plans and presented them to Apple",
+   "link": "https://www.theverge.com/ai-artificial-intelligence/1011276/openai-employee-unreleased-product-plans",
+   "data": "2026-10-14T12:43:24-04:00",
+   "testo": "OpenAI claims a former employee took more than 100 files related to its product plans before joining Apple. In a document filed on Wednesday, OpenAI accuses the unnamed employee of sending this information to a personal account and then presenting it to Apple leadership, including the vice president of the company’s operations in Asia. OpenAI claims an ex-employee took its product plans and presented them to Apple The former employee took more than 100 confidential files before leaving to join Apple, OpenAI alleges. The filing, reported earlier by Reuters, is tied to a legal battle between Apple and OpenAI over trade secrets — but this time, OpenAI is doing the accusing. It alleges that the files in question contain images of at least one unreleased device, along with supplier information, engineering data, project files, standards for cosmetic finishes, and reports about the “coating and sealing of hardware components.” OpenAI also links Apple’s new HomeView smart display and the range of other devices it revealed this week to the former employee’s presentation. “That presentation appears to have happened months ago — and now, armed with that information, Apple is making a new push into AI-enabled products,” OpenAI claims, while citing an article and a company announcement about Apple’s new product releases. Apple’s product plans typically operate on a very long timeline, and its smart display has been rumored for years. Conversely, Apple accuses OpenAI of stealing confidential documents and spying on hardware prototypes to help build its own products. “OpenAI is very concerned that its trade secret and confidential information is now circulating inside Apple, where Apple engineers can shape Apple’s upcoming products based on OpenAI’s confidential and innovative work,…",
+   "fonte": "The Verge",
+   "tipo": "testata",
+   "solo_titolo": false,
+   "categoria": "Testate tech",
+   "id": "u1a100",
+   "testo_completo": true
+  },
+  "u1a53": {
+   "titolo": "RTX Spark, i laptop arrivano venerdì 16 ottobre con l'AI locale pronta",
+   "link": "https://news.google.com/rss/articles/CBMihgFBVV95cUxQY1g5Vlg4X2Z6dzJ1aE1RTkZfWXNpUTlBeTJKRng1MW1CQWo3Q0lCY19zWjR6SUhKREtBOUM1cHlYZlN4NF9OSEJFRHNEa3RKSGNVT2tEN1BJdVJCQlB1TERGaS1VOHVHSU1uMmhkajJuWXR6eFJDUkxLcnNxQmo2eTNpLWJrQQ?oc=5",
+   "data": "2026-10-14T07:38:01+00:00",
+   "testo": "",
+   "fonte": "Techzilla.it",
+   "tipo": "minore",
+   "solo_titolo": true,
+   "categoria": "Strumenti",
+   "id": "u1a53"
+  },
+  "u1a122": {
+   "titolo": "Recording device hidden in toilet paper found in top-secret OpenAI meeting room",
+   "link": "https://arstechnica.com/tech-policy/2026/10/fbi-arrests-openai-engineer-suspected-of-planting-bug-in-conference-room/",
+   "data": "2026-10-14T16:41:49+00:00",
+   "testo": "It took OpenAI two days to notice that a recording device was hidden in a restricted executive conference room where leadership met to discuss highly confidential information, including technical progress, government engagements, and commercial partnerships. Only those with special clearance are supposed to access that room. But the FBI believes the recording device was planted by Abdulrahman Alfozan, a 35-year-old engineer from Saudi Arabia, who became a permanent US legal resident in 2020. In a press release Tuesday announcing his arrest, the FBI alleged that chatbot logs and CCTV footage suggested that Alfozan—who worked as an OpenAI engineer for more than a year—sought to use the device to spy on OpenAI and risked leaking trade secrets in a way that threatened national security. To conceal the USB device, Alfozan allegedly wrapped it in toilet paper, then plugged it into the back of a conference room television. The device was likely planted on September 28, and OpenAI found it on September 30 and quickly determined that its contents were encrypted, the FBI said. Days later, on October 5, OpenAI installed a camera in that conference room, and the CCTV footage allegedly showed Alfozan attempting to retrieve the recording device that same day. If convicted of violating laws against unlawful recordings, Alfozan faces up to five years in prison and a $250,000 fine, the FBI said. OpenAI did not immediately move to eject Alfozan as a suspected spy. Instead, it gradually cut off his access to systems while working with the FBI to analyze the recording device’s contents. Once enough evidence was gathered, OpenAI timed Alfozan’s firing on Friday with the FBI’s arrest.",
+   "fonte": "Ars Technica",
+   "tipo": "testata",
+   "solo_titolo": false,
+   "categoria": "Testate tech",
+   "id": "u1a122",
+   "testo_completo": true
+  },
+  "u1a8": {
+   "titolo": "CraveLens",
+   "link": "https://www.producthunt.com/products/cravelens",
+   "data": "2026-10-12T12:47:37-07:00",
+   "testo": "See it. Crave it. Get it.",
+   "fonte": "Product Hunt (AI)",
+   "tipo": "vetrina",
+   "solo_titolo": false,
+   "categoria": "Strumenti",
+   "id": "u1a8"
+  },
+  "u1a123": {
+   "titolo": "Anthropic warns small AI models could self-replicate through IoT devices",
+   "link": "https://arstechnica.com/security/2026/10/anthropic-warns-small-ai-models-could-self-replicate-through-iot-devices/",
+   "data": "2026-10-14T12:55:06+00:00",
+   "testo": "AI company Anthropic is warning that advances in small AI models could soon usher in a new era of self-replicating malware that’s capable of infecting smart fridges, vacuum cleaners, and a wide range of other Internet-of-things devices and is more resistant to takedown. By next year, smaller AI models may be able to autonomously self-replicate on all kinds of IoT devices, the company said. Eventually, the capability could enable computer worms, which propagate without requiring human interaction and are capable of infecting unfamiliar IoT devices. An experiment the company performed recently revealed significant challenges in bringing such an AI malware replicator to fruition, so the finding is necessarily tempered. Still, the results do raise concerns about the possibility of new forms of computer worms. Challenging to shut down Anthropic further warned not only about the new potential malware, but also that it could be difficult to stop. In its blog post, it wrote that “a replicator like this would be challenging to shut down, since there’s no centralized point to shut off—though it may be slow (with a doubling time of days). Unlike non-AI malware, it could also figure out unfamiliar devices on its own.” Smaller AI models require much less powerful hardware to run than do frontier models. Anthropic ran small open-weight models on real or simulated low-cost, off-brand Android TV boxes and other types of IoT hardware. Company researchers found that by using quantization to represent the models using fewer bits and splitting the workloads into “shards” running on each device, the models were able to establish inference, meaning that the model weights loaded and could generate output. The lightweight Gemma4-26B-A4B model required just 15 boxes, each equipped with only 4G…",
+   "fonte": "Ars Technica",
+   "tipo": "testata",
+   "solo_titolo": false,
+   "categoria": "Testate tech",
+   "id": "u1a123",
+   "testo_completo": true
+  },
+  "u1a153": {
+   "titolo": "Il sofisticato dispositivo che spiava OpenAI costa 13,99 dollari",
+   "link": "https://www.punto-informatico.it/sofisticato-dispositivo-spiava-openai-costa-13-dollari/",
+   "data": "2026-10-14T12:24:08+00:00",
+   "testo": "La notizia del giorno è l’operazione di spionaggio sventata negli uffici di OpenAI. La casa madre di ChatGPT ha scoperto un sofisticato dispositivo di registrazione nascosto all’interno di uno dei suoi uffici nella sede di San Francisco, collegato a una porta USB dietro a un televisore. È stato individuato anche il responsabile, un ex dipendente già preso in consegna dall’FBI e che ora rischia grosso. Qual è l’artefatto dell’ingegneria impiegato, forse, per rubare i segreti di Sam Altman e soci? Un modulo da 13,99 dollari. Questa è la microspia messa negli uffici di OpenAI È quanto si capisce dalle immagini pubblicate dal Dipartimento di Giustizia statunitense (nonostante la risoluzione infima). Si vede chiaramente il marchio del produttore, Seeed Studio. Il modello preciso sembra essere lo XIAO ESP32-S3 Sense, che chiunque può acquistare dal suo store online. Integra un microfono e una fotocamera da 2 megapixel, racchiusi in dimensioni piuttosto compatte (21x15x17,8 millimetri). Ha poi in dotazione un modulo Wi-Fi in grado di trasmettere informazioni ed è proprio attraverso questo componente che Abdulrahman Alfozan, il responsabile dell’azione, potrebbe aver rubato informazioni riservate a OpenAI. Curiosamente, Seeed Studio ha condiviso nei mesi scorsi un video che spiega come trasformarlo in un dispositivo di intelligenza artificiale, qualcosa di simile al fallimentare Humane AI Pin. Un’altra immagine condivisa dal Dipartimento di Giustizia è quella che ritrae Alfozan in una sorta di selfie catturato il 5 ottobre dall’apparecchio (quando era già stato scoperto, ma non ancora rimosso). L’uomo è entrato nella sala conferenze e ha guardato dietro al televisore, finendo per essere immortalato. Rischia ora fino a cinque anni di reclusione, altri tre di libertà vigilata e …",
+   "fonte": "Punto Informatico",
+   "tipo": "testata",
+   "solo_titolo": false,
+   "categoria": "Italia",
+   "id": "u1a153",
+   "testo_completo": true
+  },
+  "u1a11": {
+   "titolo": "PixLate",
+   "link": "https://www.producthunt.com/products/pixlate",
+   "data": "2026-10-13T21:47:06-07:00",
+   "testo": "Translate documents. Preserve artwork and layout.",
+   "fonte": "Product Hunt (AI)",
+   "tipo": "vetrina",
+   "solo_titolo": false,
+   "categoria": "Strumenti",
+   "id": "u1a11"
+  },
+  "u1a29": {
+   "titolo": "L'intelligenza artificiale sbarca sull'app di YouTube: arriva la funzione 'Ask'",
+   "link": "https://news.google.com/rss/articles/CBMivwFBVV95cUxQMmZDeHp4WnlrY2o4SjN6TVdFU1l4NGhYV1MtcjctTmFDTmhudE92NHJ0TGxKMVNaYVkxVjNjenpURS1sN0VKQnFIZ0JvQWZ5UDdVLS1OZHFnTzl0UWEyUzlzQzZINlZpUHRPMmFKUDk2SDRON3F3c2NfTkdjQzFKTlZUeW9VU29lZVZqdy00aE01RUxXZU9LYkxNVE93Y2xpNW9xZEFia09TR1llV1hIOW5LQ3lHV094cC1wS3lPOA?oc=5",
+   "data": "2026-10-14T06:51:01+00:00",
+   "testo": "",
+   "fonte": "Hardware Upgrade",
+   "tipo": "testata",
+   "solo_titolo": true,
+   "categoria": "Strumenti",
+   "id": "u1a29"
   }
  },
  "fonti": [
@@ -509,8 +702,326 @@
   "moscowclaimsitsdieselexportcapacitywilloutpacetrumpsannouncedtargets",
   "phishingaziendaleperchéidipendentiformaticliccanocomunque",
   "informaticaforenseagenovailfuturodelleprovedigitalitraaiedeepfake",
-  "osintofslovenia"
+  "osintofslovenia",
+  "dailydev",
+  "adant20",
+  "microsoftmaia300",
+  "kugel35",
+  "hindsight10memlake",
+  "rolefit",
+  "slashdocsbyrazorpay",
+  "cravelens",
+  "writerzroom",
+  "nimble",
+  "pixlate",
+  "applehomepodmini2",
+  "editui",
+  "auroralifeline",
+  "ibuiltatooltotrackwhataileaderssayandhowtheirviewschange",
+  "democraticlawmakersopposeaitoolusedatdcareaairports",
+  "indianaintroducesaitoolputsgovernmentdocumentsinplainlanguage",
+  "revievelaunchesbeautyllmsuiteforaiassistantera",
+  "lawmakersaskfaatopausesmartaitoolatwashingtonareaairports",
+  "manulifefinanciallaunchesaiassistantforprovidingunderwritingguidancetoadvisers",
+  "aviationbusinessnews",
+  "alesisaiassistantnowavailableforlawfirms",
+  "manulifesnewaitoolprovidesondemandunderwritingguidanceforadvisors",
+  "parthivpatelstartsanewinningsasanentrepreneurwithsportzengagelaunchescricketaiap",
+  "lintelligenzaartificialesbarcasullappdiyoutubearrivalafunzioneask",
+  "arrivafinecoailintelligenzaartificialeentranelbrokerage",
+  "èarrivatoilnuovolauncherdiepicgamesedèmoltopiùveloce",
+  "castadivagroupconrebelottlaiperliberareiltalento",
+  "castadivaconrebelottmettelaialserviziodeivideo",
+  "arrivalitalianatetipupslintelligenzaartificialechelavoradasolaequandohafinitotic",
+  "sharjahlancianajmlapiattaformadiintelligenzaartificialecheaiutagliinvestitoristr",
+  "profschettinifaunesperimentosuchatgptconglistudentibellissimoilconsigliosucomeus",
+  "comeusaregptstoresuchatgptguidacompletafunzionieconsiglipratici",
+  "comeguadagnareconchatgpt10ideeconcreteperfaresoldiconlintelligenzaartificiale",
+  "hpzbookultrag3a16launchesinindiawithlocalaifocusandamdryzenaimaxprochips",
+  "aiandps5qwen27barrivesonajailbrokenplaystation5",
+  "googleplayletsusersbuildprivateaiappsforandroidwithoutpublishingthem",
+  "rtxsparkilaptoparrivanovenerdì16ottobreconlailocalepronta",
+  "googlecreaaiantitruffacheanalizzaimessaggisullosmartphone",
+  "seafylanciap2tlacomunicazionedibordopassaallosmartphone",
+  "qwen27barrivasullaps5conjailbreak20tokenalsecondo",
+  "cosaèmobicipguidaperigenitori",
+  "howthirdmomentresearchruns10000agentsfor36hours",
+  "theeusnextchapterinaiisagentic",
+  "research2026novelcapabilitiesandintelligence",
+  "17organizationsusingaitoacceleratescientificbreakthroughs",
+  "werepoweringeuropeanscientificdiscoverywithadvancedaicomputeandfrontiermodels",
+  "enablinganaifirsteuropeaneconomy",
+  "metlifelauncheschatgptpluginforpetinsurancequotesandapplications",
+  "googlerollsoutgemini4argonexcludingfreeusers",
+  "gemini4argoninpublicpreviewonsnowflakecortexai",
+  "aroyalaunchesconnectorlinkingcannabiscultivationdatatoclaudeandchatgpt",
+  "liltlaunchesinopenaisplugindirectorybringingonbrandverifiedtranslationdirectlyin",
+  "metlifelauncheschatgptintegrationforpetinsurance",
+  "revenuegrowthagentlaunchesmodelcontextprotocolconnectorbringingcompanyspecificsa",
+  "googlelaunchesitspowerfulgemini4argonaimodel",
+  "googlerollsoutgemini4argonforenterpriseusers",
+  "policereceivefakemurdertipfromanthropicsclaudeai",
+  "claudejustfoundacrisprlikednapatternbutevenanthropicsscientistsarentsurewhatitdo",
+  "judgeappearsskepticalofpentagonargumentsinlegalfightoveranthropicsupplychainrisk",
+  "tenthrevolutiongroupnamedselectpartnerinanthropicsclaudepartnernetwork",
+  "anthropicsaysnewsafeguardscutclaudedistillationby90to99",
+  "youreprobablyoverlookingthesemicrosoft365tools",
+  "microsoftplanstodeployoveramillionmaia300aichipsnextyear",
+  "microsoftknowsitrobbedpublisherstotrainaiitjustdoesntcare",
+  "workdaymakessanaitsnewfrontdoorandtakesitintoclaudecopilotandslack",
+  "microsoftaddsagenticcapabilitieschallengesmeta09252026",
+  "elonmuskhasgrokbuyinghimlegosets",
+  "raybanmetaownerssaytheirglassesarelisteningwithoutbeingasked",
+  "xisbundlingitssocialnetworkwithgrokandcursor",
+  "samsungaddssupportfornewlanguagesacrossgalaxyaifeaturesandbixbygsmarenacomnews",
+  "ofcomsaysitstillhasconcernsoverhowxremovesillegalhatecontent",
+  "grokcaseshighlightrisksforaicompaniesunderillinoisprivacylaw",
+  "metaunveilswonderaimodelscompetingwithopenaiandanthropicforaidominance",
+  "openaiclaimsanexemployeetookitsproductplansandpresentedthemtoapple",
+  "microsofthasanewmachinelearningtooltoimproveweatherforecasts",
+  "squaresnewkioskletsyoutalktoaiforhelpwithyourorder",
+  "androidisusingaitosussoutscammersingooglemessages",
+  "anthropicsselfreplicatingaiwarningisalarmingdejavu",
+  "epicsnewgameslauncherisvibecoded",
+  "deezerwillsoonletyoufilteroutaigeneratedmusic",
+  "save50onyourtechcrunchdisrupt2026ticketandjointhelast2daysinsanfranciscosmoscone",
+  "zenzapraises44mforitsaichatappthataimstoreplacewhatsappintheworkplace",
+  "floqersaiagentsresearchsalesprospectssoteamsdonthaveto",
+  "techcrunchdisrupt2026day2",
+  "scimplifyraises25mtochallengechinasgriponcriticalmaterialswithai",
+  "recordingdevicehiddenintoiletpaperfoundintopsecretopenaimeetingroom",
+  "anthropicwarnssmallaimodelscouldselfreplicatethroughiotdevices",
+  "openaigooglepushingnewaimodelseasilytrickedintomakingnudesresearcherssay",
+  "openaiwillreportedlyshipatleastonemodelthisyearbutitsflagshipstillneedsalignment",
+  "nvidiasjensenhuangpledges2billionforeurope250millionincomputeforuksafetylabs",
+  "aiguardrailsdesignedtostophackersarenowblockingdefendersandorion1aimstofillthega",
+  "allegedopenaispyvibecodedasurveillancedeviceusinghiswifeschatbotaccount",
+  "openaidevarrestedpiapiopencode20",
+  "dedicatoallintelligenzaartificialeorizzontidigitalidiconfindustriaumbria",
+  "openaiagentidiintelligenzaartificialeinrapidacrescitatraaziendeepmiue",
+  "seed2026il15siparladispaziointelligenzaartificialeecittàdelfuturo",
+  "dedicatoallintelligenzaartificialeorizzontidigitalidiconfindustriaumbria2",
+  "selaiimparaareplicarsicodicimalevoliautonomipotrebberoinvadereelettrodomesticiet",
+  "epicgamesannunciailnuovolauncherefornitesulinux",
+  "ilsofisticatodispositivochespiavaopenaicosta1399dollari",
+  "oltre400scienziatichiedonolasupervisionedellai",
+  "inizianoafumareperchécredonochelaicureràilcancroèfollia",
+  "argon4vsopus55",
+  "isaidthenwordonceandallhisanswersarelikethisdidibreakem",
+  "thefutureisbleak",
+  "thegemini4argonisinsane",
+  "openaisblockbusternavierstokesproofisntwhatwethoughtitwas",
+  "whatisanailifehackthatpeopledontseemtoknowyet",
+  "didtrumpapologisetotinubuoverterrorismclaims",
+  "ukrainianosintchannelrussiaturnedabarefieldintoageran5launchsiteinamonthanddrone",
+  "russialaunches39ballisticmissilesandover120dronesatukrainesenergyinfrastructure",
+  "russiabuiltnewmillerovodronebaseforgeran5uavsinonemonthsatelliteimages",
+  "howquicklycanrussiabuildadronebase",
+  "oneofsberbankslargestdatacenterswasattackedforthefirsttimeinthesaratovregionofth"
  ],
  "audio": "audio/2026-10-14.mp3",
- "durata": 94.9
+ "durata": 240.0,
+ "aggiornamenti": [
+  {
+   "generato": "2026-10-14T17:01:05+00:00",
+   "modello": "gemini-2.5-flash",
+   "testi_completi": 23,
+   "riassunto": {
+    "titolo_giorno": "Google Messaggi si arma di AI anti-truffa per proteggere il tuo smartphone",
+    "in_breve": "Una delle novità più attese è l'introduzione di un'intelligenza artificiale in Google Messaggi, progettata per analizzare i tuoi messaggi e avvisarti in tempo reale di potenziali truffe. Questo passo mostra come l'AI stia diventando un guardiano silenzioso della nostra sicurezza digitale, offrendo una protezione concreta nella vita di tutti i giorni.",
+    "citati": [
+     "Google Messaggi"
+    ],
+    "da_provare": [
+     {
+      "cosa": "Kugel 3.5",
+      "a_cosa_serve": "Genera voci realistiche da testo, superando la qualità di molti altri modelli esistenti.",
+      "per_chi": "Lavoro e tutti i giorni",
+      "ambito": "Voce",
+      "come_iniziare": [],
+      "costo": "Non indicato",
+      "piattaforme": [
+       "Browser"
+      ],
+      "sul_dispositivo": false,
+      "come_sfruttarla": "Creare audiolibri o voci narranti per video senza dover registrare la propria voce.",
+      "italiano": "Non indicato",
+      "difficolta": "Facile",
+      "fonti": [
+       "u1a4"
+      ],
+      "affidabilita": "Appena lanciato",
+      "prova": "https://www.producthunt.com/products/kugelaudio"
+     },
+     {
+      "cosa": "RoleFit",
+      "a_cosa_serve": "Personalizza automaticamente il tuo curriculum e la lettera di presentazione per ogni offerta di lavoro, partendo da zero o da modelli esistenti.",
+      "per_chi": "Lavoro",
+      "ambito": "Scrittura, Organizzazione",
+      "come_iniziare": [],
+      "costo": "Non indicato",
+      "piattaforme": [
+       "Browser"
+      ],
+      "sul_dispositivo": false,
+      "come_sfruttarla": "Adattare rapidamente il proprio curriculum e la lettera di presentazione a diverse offerte di lavoro, aumentando le possibilità di essere notati.",
+      "italiano": "Non indicato",
+      "difficolta": "Facile",
+      "fonti": [
+       "u1a6"
+      ],
+      "affidabilita": "Appena lanciato",
+      "prova": "https://www.producthunt.com/products/rolefit"
+     },
+     {
+      "cosa": "CraveLens",
+      "a_cosa_serve": "Permette di identificare prodotti da immagini per trovarli e acquistarli online.",
+      "per_chi": "Tutti i giorni",
+      "ambito": "Shopping, Foto e video",
+      "come_iniziare": [],
+      "costo": "Non indicato",
+      "piattaforme": [
+       "Browser"
+      ],
+      "sul_dispositivo": false,
+      "come_sfruttarla": "Scattare una foto a un oggetto che ti piace e scoprire subito dove comprarlo online.",
+      "italiano": "Non indicato",
+      "difficolta": "Facile",
+      "fonti": [
+       "u1a8"
+      ],
+      "affidabilita": "Appena lanciato",
+      "prova": "https://www.producthunt.com/products/cravelens"
+     },
+     {
+      "cosa": "PixLate",
+      "a_cosa_serve": "Traduce documenti mantenendo intatti l'impaginazione e gli elementi grafici originali.",
+      "per_chi": "Lavoro e tutti i giorni",
+      "ambito": "Documenti, Scrittura",
+      "come_iniziare": [],
+      "costo": "Non indicato",
+      "piattaforme": [
+       "Browser"
+      ],
+      "sul_dispositivo": false,
+      "come_sfruttarla": "Tradurre un manuale tecnico o un contratto in un'altra lingua senza dover rifare l'impaginazione.",
+      "italiano": "Non indicato",
+      "difficolta": "Facile",
+      "fonti": [
+       "u1a11"
+      ],
+      "affidabilita": "Appena lanciato",
+      "prova": "https://www.producthunt.com/products/pixlate"
+     }
+    ],
+    "osint": [],
+    "sezioni": [
+     {
+      "titolo": "Novità negli strumenti che già usi",
+      "notizie": [
+       {
+        "titolo": "Arriva la funzione 'Ask' sull'app di YouTube",
+        "strumento": "YouTube",
+        "riassunto": "L'app di YouTube sta integrando una nuova funzione AI chiamata 'Ask', che permetterà agli utenti di interagire con i contenuti in modo più intelligente, probabilmente ponendo domande sui video.",
+        "come_provarla": "",
+        "disponibilita": "Non indicato",
+        "fonti": [
+         "u1a29"
+        ],
+        "affidabilita": "Una fonte",
+        "solo_titoli": true
+       },
+       {
+        "titolo": "Google Play permette di creare app AI private per Android senza pubblicarle",
+        "strumento": "Google Play",
+        "riassunto": "Gli utenti Android possono ora sviluppare e utilizzare app AI personalizzate direttamente sul proprio telefono, senza la necessità di pubblicarle sul Play Store, garantendo maggiore privacy e controllo.",
+        "come_provarla": "",
+        "disponibilita": "Non indicato",
+        "fonti": [
+         "u1a50"
+        ],
+        "affidabilita": "Da verificare",
+        "solo_titoli": true
+       },
+       {
+        "titolo": "I laptop con NVIDIA RTX Spark e AI locale saranno disponibili dal 16 ottobre",
+        "strumento": "NVIDIA RTX Spark",
+        "riassunto": "I nuovi laptop dotati di chip NVIDIA RTX Spark, che consentono di eseguire l'intelligenza artificiale direttamente sul dispositivo, saranno in vendita a partire dal 16 ottobre.",
+        "come_provarla": "",
+        "disponibilita": "Disponibile ora",
+        "fonti": [
+         "u1a53"
+        ],
+        "affidabilita": "Da verificare",
+        "solo_titoli": true
+       },
+       {
+        "titolo": "Google introduce un'AI anti-truffa che analizza i messaggi sullo smartphone",
+        "strumento": "Google Messaggi",
+        "riassunto": "Google sta implementando una nuova protezione avanzata in Google Messaggi che usa l'AI per rilevare e avvisare gli utenti di potenziali truffe nei messaggi, migliorando la sicurezza mobile.",
+        "come_provarla": "",
+        "disponibilita": "In arrivo",
+        "fonti": [
+         "u1a54",
+         "u1a103"
+        ],
+        "affidabilita": "Confermata",
+        "solo_titoli": false
+       },
+       {
+        "titolo": "Gemini 4 Argon di Google non è disponibile per gli utenti gratuiti",
+        "strumento": "Google Gemini 4 Argon",
+        "riassunto": "Il modello AI avanzato Gemini 4 Argon di Google è stato rilasciato, ma l'accesso è riservato agli utenti a pagamento o aziendali, escludendo quelli con account gratuiti.",
+        "come_provarla": "",
+        "disponibilita": "Non indicato",
+        "fonti": [
+         "u1a71"
+        ],
+        "affidabilita": "Da verificare",
+        "solo_titoli": true
+       }
+      ]
+     },
+     {
+      "titolo": "In breve",
+      "breve": true,
+      "notizie": [
+       {
+        "titolo": "OpenAI accusa un ex dipendente di aver rubato piani di prodotto e presentati ad Apple",
+        "riassunto": "OpenAI ha avviato un'azione legale accusando un ex dipendente di aver sottratto oltre 100 file riservati sui piani di prodotto e di averli poi presentati alla dirigenza di Apple.",
+        "fonti": [
+         "u1a100"
+        ],
+        "affidabilita": "Una fonte",
+        "solo_titoli": false
+       },
+       {
+        "titolo": "Un ingegnere di OpenAI arrestato per spionaggio con un dispositivo di registrazione",
+        "riassunto": "Un ingegnere di OpenAI è stato arrestato dall'FBI con l'accusa di aver nascosto un dispositivo di registrazione in una sala riunioni riservata per spiare l'azienda.",
+        "fonti": [
+         "u1a122",
+         "u1a153",
+         "u1a133"
+        ],
+        "affidabilita": "Confermata",
+        "solo_titoli": false
+       },
+       {
+        "titolo": "Anthropic avverte sui 'worm AI' che potrebbero infettare i dispositivi smart",
+        "riassunto": "Anthropic ha avvertito che piccoli modelli AI potrebbero presto essere in grado di auto-replicarsi e diffondersi tra dispositivi smart (IoT) come frigoriferi e aspirapolvere, rendendoli difficili da controllare.",
+        "fonti": [
+         "u1a104",
+         "u1a123",
+         "u1a148"
+        ],
+        "affidabilita": "Confermata",
+        "solo_titoli": false
+       }
+      ]
+     }
+    ],
+    "formato": 2
+   }
+  }
+ ]
 }
