@@ -1,0 +1,516 @@
+{
+ "giorno": "2026-10-14",
+ "generato": "2026-10-14T05:44:18+00:00",
+ "modello": "gemini-3.5-flash",
+ "testi_completi": 36,
+ "riassunto": {
+  "titolo_giorno": "Pulse Local gestisce le spese sul computer senza cloud e Facebook permette di guidare l'algoritmo",
+  "in_breve": "L'applicazione Pulse Local mostra l'evoluzione dell'AI ad uso personale, permettendo di analizzare i propri conti direttamente sul dispositivo in totale privacy. Parallelamente, Facebook e Google Play introducono novità pratiche per personalizzare i contenuti e utilizzare sul telefono piccole applicazioni create su misura.",
+  "citati": [
+   "Pulse Local",
+   "Facebook",
+   "Google Play"
+  ],
+  "da_provare": [
+   {
+    "cosa": "Pulse Local",
+    "a_cosa_serve": "Un'applicazione per la gestione del bilancio personale che risponde alle domande sulle proprie spese usando un modello AI integrato. Mantiene tutti i dati e il registro finanziario sul computer, senza inviare informazioni all'esterno.",
+    "per_chi": "Tutti i giorni",
+    "ambito": "Organizzazione",
+    "come_iniziare": [],
+    "costo": "Gratis",
+    "piattaforme": [
+     "Mac"
+    ],
+    "sul_dispositivo": true,
+    "come_sfruttarla": "Analizzare l'andamento delle uscite mensili mantenendo le informazioni finanziarie personali private sul proprio computer.",
+    "italiano": "Non indicato",
+    "difficolta": "Facile",
+    "fonti": [
+     "a13"
+    ],
+    "affidabilita": "Appena lanciato",
+    "prova": "https://pulseos.finance"
+   }
+  ],
+  "osint": [
+   {
+    "cosa": "Jake AI",
+    "a_cosa_serve": "Strumento integrato con WhoisXML API per mappare la superficie di attacco di un dominio, identificando sottodomini, infrastruttura di rete, dati DNS e certificati TLS.",
+    "uso": "Aziende e registri",
+    "piattaforme": [],
+    "costo": "Costo non indicato",
+    "difficolta": "Media",
+    "come_sfruttarla": "Ricostruire le connessioni di rete e i domini collegati a un'organizzazione partendo da un solo indirizzo web.",
+    "fonti": [
+     "a170"
+    ],
+    "affidabilita": "Da verificare",
+    "solo_titoli": true,
+    "italiano": "Non indicato",
+    "sul_dispositivo": false,
+    "come_iniziare": [],
+    "prova": ""
+   }
+  ],
+  "sezioni": [
+   {
+    "titolo": "Novità negli strumenti che già usi",
+    "notizie": [
+     {
+      "titolo": "Personalizzazione del feed in linguaggio naturale con Il tuo algoritmo",
+      "strumento": "Facebook",
+      "riassunto": "Facebook consente ora di personalizzare i contenuti mostrati nel feed e nei Reels descrivendo le proprie preferenze in testo semplice o indicando se si è interessati a un argomento. Le raccomandazioni si aggiornano in tempo reale in base alle indicazioni fornite dagli utenti.",
+      "come_provarla": "Toccando il menu con i tre puntini su un post oppure accedendo alle impostazioni delle preferenze del feed.",
+      "disponibilita": "Disponibile ora",
+      "fonti": [
+       "a92",
+       "a104"
+      ],
+      "affidabilita": "Confermata",
+      "solo_titoli": false
+     },
+     {
+      "titolo": "Avvio diretto sul telefono di app personali create con l'AI",
+      "strumento": "Google Play",
+      "riassunto": "Google introduce una funzione che permette di eseguire sul proprio smartphone Android le applicazioni personalizzate create tramite Google AI Studio, senza doverle pubblicare sul Play Store pubblico. Le app restano private e collegate al proprio account Google.",
+      "come_provarla": "Generando un'app su misura con Google AI Studio e avviandola dal Google Play Store sul proprio dispositivo.",
+      "disponibilita": "Non in Italia",
+      "fonti": [
+       "a93",
+       "a107"
+      ],
+      "affidabilita": "Confermata",
+      "solo_titoli": false
+     }
+    ]
+   }
+  ],
+  "formato": 2
+ },
+ "articoli": {
+  "a104": {
+   "titolo": "Facebook is giving users more control over their algorithm",
+   "link": "https://techcrunch.com/2026/10/13/facebook-is-giving-users-more-control-over-their-algorithm/",
+   "data": "2026-10-13T18:05:24+00:00",
+   "testo": "Facebook is the latest social media platform to give users greater control over the algorithm that determines what appears in their feeds. Meta announced the launch of its new AI-powered feature, “Your Algorithm,” on Tuesday, a feature it first launched on Instagram. The new tool allows Facebook users to influence the content they see in Feed and Reels by describing their preferences in their own words using natural language. Rather than relying entirely on automated recommendations, users can now communicate directly with the platform about the topics and content they want to see more or less frequently. According to Meta, the feature is designed to make content recommendations more relevant. Users can adjust their preferences and interact with the algorithms responsible for ranking and recommending posts, with changes reflected in their recommendations in real time. The company has also updated Facebook’s three-dot menu, making it easier for users to manage their content preferences directly from individual posts. By opening the menu, users can access “Your Algorithm” or select the “Interested” and “Not interested” options to indicate whether particular content aligns with their preferences. Meta says the platform may ask follow-up questions to better understand what users liked or disliked, allowing them to provide more detailed feedback. Users can explain what they want to see more or less of, helping Facebook refine its recommendations based on their responses. The introduction of “Your Algorithm” reflects Meta’s broader effort to give people more influence over their social media experiences as AI increasingly shapes content discovery. The move signals a shift away from the traditional recommendation systems that have shaped social media experiences for years, br…",
+   "fonte": "TechCrunch",
+   "tipo": "testata",
+   "solo_titolo": false,
+   "categoria": "Testate tech",
+   "id": "a104",
+   "testo_completo": true
+  },
+  "a13": {
+   "titolo": "Pulse Local, a Mac budgeting app whose AI models run on your machine",
+   "link": "https://pulseos.finance",
+   "data": "2026-10-13T23:13:23+00:00",
+   "testo": "Hi HN, I'm Niz. Pulse Local is a budgeting app for Mac (Apple Silicon, beta) that answers questions about your spending with models that run on your machine. Local mode needs no account. The ledger and your questions stay on the machine, and the app sends no analytics or crash logs. I felt there are not enough consumer apps that run locally with no calls to the outside world that help us manage s…",
+   "fonte": "Show HN (nuovi progetti)",
+   "tipo": "vetrina",
+   "solo_titolo": false,
+   "categoria": "Strumenti",
+   "id": "a13"
+  },
+  "a107": {
+   "titolo": "Google Play now lets anyone build private, vibe-coded apps that run on Android",
+   "link": "https://techcrunch.com/2026/10/13/google-play-now-supports-private-vibe-coded-apps-built-just-for-you/",
+   "data": "2026-10-13T17:00:00+00:00",
+   "testo": "Your vibe-coded applications can now be easily run on Android smartphones without having to first go public on the Google Play Store, the tech giant announced on Tuesday. A new feature will allow users to launch their own personal apps on their device via Google Play using their standard Google account, but they will remain completely private. These personal apps won’t show up in Google Play’s search or listing pages, and won’t be shared with anyone except for the app’s creator. The idea comes as more people are experimenting with building their own applications via AI for specific, personal needs. However, being able to use that app on their own Android device has meant publishing to Google Play, making it accessible to the Play Store’s some 3 billion users. That led many to limit their vibe-coding efforts to web apps that could run on any device instead of something built natively for Android. Now, Google says Android device owners can vibe-code an app using Google AI Studio, then launch it for their own use. These apps are still required to comply with Google Play’s existing policies but allow users to experiment more directly with building apps for Android. Initially, the feature will be available to users in the U.S., age 18 and up. “That’s why the future of apps on Google Play is personal, secure, and built by everyone — and it’s why Play is leading the charge and moving from ‘there’s an app for that’ to ‘there’s an app for me,’” said Sam Bright, Google’s VP and GM for the Google Play and Developer Ecosystem, in a press briefing ahead of Tuesday’s launch. “We started Google Play with a simple goal: to connect you with the apps you love. But after today, we hope it’s clear: Play has evolved to become so much more than that.” In the months ahead, the company said t…",
+   "fonte": "TechCrunch",
+   "tipo": "testata",
+   "solo_titolo": false,
+   "categoria": "Testate tech",
+   "id": "a107",
+   "testo_completo": true
+  },
+  "a170": {
+   "titolo": "How much of an organization's attack surface can you map with a single #AI prompt? Watch Jake AI from WhoisXML API map a domain's attack surface by uncovering subdomains, resolving infrastructure, analyzing DNS and TLS certificate data, and connectin",
+   "link": "https://news.google.com/rss/articles/CBMiswFBVV95cUxNVW5KTUd1Q0NHVkxXNldrc0pUR1R6cERtQUNZRi1Na0pNMHVrbW5uZ1J2RTFNQ01WVDNPang3S2tTTThMRmNTeFdwOWxpZWtPaloxUFRUQXhaRHdRSXVMazF6M1FIcmNlcXVEb0FSNndTRVRkVTBWUWM3QnNsemI0eUo3VDEtWHE3TXBqTF91XzRfSGk3Mk45dXJ6RW5TUGk1V1MzVTN4bXJtbG9xYWxjVGJqYw?oc=5",
+   "data": "2026-10-13T11:51:25+00:00",
+   "testo": "",
+   "fonte": "LinkedIn",
+   "tipo": "minore",
+   "solo_titolo": true,
+   "categoria": "OSINT",
+   "id": "a170"
+  },
+  "a92": {
+   "titolo": "Facebook will let you customize your feed algorithm using AI",
+   "link": "https://www.theverge.com/tech/1010344/meta-facebook-your-algorithm-ai",
+   "data": "2026-10-13T13:01:31-04:00",
+   "testo": "Facebook's new \"Your Algorithm\" feature will let you directly add and manage topics you want to see in your feed and Facebook Reels. Meta says your recommendations \"respond right away\" after you make updates using the new feature by hitting \"interested\" or \"not interested\" for different topics. Your Algorithm previously launched on Instagram earlier this […]",
+   "fonte": "The Verge",
+   "tipo": "testata",
+   "solo_titolo": false,
+   "categoria": "Testate tech",
+   "id": "a92"
+  },
+  "a93": {
+   "titolo": "Google makes it easier to launch your vibe-coded apps",
+   "link": "https://www.theverge.com/tech/1009066/google-play-vibe-coded-android-apps-launch",
+   "data": "2026-10-13T13:00:00-04:00",
+   "testo": "The next time you vibe-code a custom app with Google’s AI Studio, you won’t have to connect your phone to a computer to install it. On Tuesday, Google announced a new feature in the US that will allow you to launch personal apps directly through the Play Store. Google makes it easier to launch your vibe-coded apps You can now launch your vibe-coded app directly from the Google Play Store. Google first launched the ability to vibe-code personal Android apps in May. Even though you can now launch your custom apps in Google Play, the company notes it will continue to keep them “secure, private, and separate from the public store catalog.” You can also launch them using a standard Google account, and the company will soon add the ability to share your app with a select group of people, too. Though this might make it easier to play around with experimental apps, Google is positioning it as an on-ramp of sorts for fledgling developers. “If you want to share your app with the world, Google Play helps you graduate to a professional developer account with the same Trust & Safety reviews and high-quality standards as professional developers,” Sam Bright, Google’s vice president and general manager of Google Play, writes in the announcement.",
+   "fonte": "The Verge",
+   "tipo": "testata",
+   "solo_titolo": false,
+   "categoria": "Testate tech",
+   "id": "a93",
+   "testo_completo": true
+  }
+ },
+ "fonti": [
+  {
+   "nome": "Product Hunt (AI)",
+   "ok": true,
+   "presi": 12
+  },
+  {
+   "nome": "Show HN (nuovi progetti)",
+   "ok": true,
+   "presi": 2
+  },
+  {
+   "nome": "Nuove app AI (internazionale)",
+   "ok": true,
+   "presi": 10
+  },
+  {
+   "nome": "Nuove app AI (Italia)",
+   "ok": true,
+   "presi": 8
+  },
+  {
+   "nome": "Novità AI da provare (Italia)",
+   "ok": true,
+   "presi": 6
+  },
+  {
+   "nome": "AI sul dispositivo (internazionale)",
+   "ok": true,
+   "presi": 8
+  },
+  {
+   "nome": "AI sul dispositivo (Italia)",
+   "ok": true,
+   "presi": 5
+  },
+  {
+   "nome": "OpenAI",
+   "ok": true,
+   "presi": 1
+  },
+  {
+   "nome": "Google (blog ufficiale)",
+   "ok": true,
+   "presi": 4
+  },
+  {
+   "nome": "Google Gemini (blog)",
+   "ok": true,
+   "presi": 0
+  },
+  {
+   "nome": "Nuove funzioni AI (Google News)",
+   "ok": true,
+   "presi": 12
+  },
+  {
+   "nome": "Anthropic / Claude",
+   "ok": true,
+   "presi": 6
+  },
+  {
+   "nome": "Microsoft Copilot",
+   "ok": true,
+   "presi": 5
+  },
+  {
+   "nome": "Altri assistenti AI (Perplexity, Mistral, Meta AI…)",
+   "ok": true,
+   "presi": 8
+  },
+  {
+   "nome": "The Verge",
+   "ok": true,
+   "presi": 10
+  },
+  {
+   "nome": "TechCrunch",
+   "ok": true,
+   "presi": 12
+  },
+  {
+   "nome": "Ars Technica",
+   "ok": true,
+   "presi": 6
+  },
+  {
+   "nome": "MIT Technology Review",
+   "ok": true,
+   "presi": 2
+  },
+  {
+   "nome": "The Decoder",
+   "ok": true,
+   "presi": 8
+  },
+  {
+   "nome": "TLDR AI (newsletter)",
+   "ok": true,
+   "presi": 1
+  },
+  {
+   "nome": "ANSA",
+   "ok": true,
+   "presi": 6
+  },
+  {
+   "nome": "Wired Italia",
+   "ok": true,
+   "presi": 0
+  },
+  {
+   "nome": "Il Sole 24 Ore Tecnologia",
+   "ok": true,
+   "presi": 3
+  },
+  {
+   "nome": "Punto Informatico",
+   "ok": true,
+   "presi": 10
+  },
+  {
+   "nome": "HDblog",
+   "ok": true,
+   "presi": 6
+  },
+  {
+   "nome": "Reddit",
+   "ok": true,
+   "presi": 8
+  },
+  {
+   "nome": "Reddit (AI locale)",
+   "ok": true,
+   "presi": 5
+  },
+  {
+   "nome": "Bellingcat (guide e strumenti)",
+   "ok": true,
+   "presi": 0
+  },
+  {
+   "nome": "GIJN (guide per giornalisti investigativi)",
+   "ok": false,
+   "errore": "HTTP Error 403: Forbidden",
+   "presi": 0
+  },
+  {
+   "nome": "OSINT – verifica e fact-checking (internazionale)",
+   "ok": true,
+   "presi": 5
+  },
+  {
+   "nome": "OSINT – nuovi strumenti (internazionale)",
+   "ok": true,
+   "presi": 5
+  },
+  {
+   "nome": "OSINT – strumenti (Italia)",
+   "ok": true,
+   "presi": 2
+  },
+  {
+   "nome": "Reddit (OSINT)",
+   "ok": true,
+   "presi": 1
+  },
+  {
+   "nome": "Hacker News (OSINT)",
+   "ok": true,
+   "presi": 0
+  }
+ ],
+ "visti": [
+  "musewonder",
+  "vibesmonitorcom",
+  "toby",
+  "thedriveai",
+  "xiryn",
+  "harnesshive",
+  "takesformac",
+  "manifoldmcp",
+  "dropstonecli",
+  "excaliclaw",
+  "kudos30",
+  "scrapeanythingbycontextdev",
+  "pulselocalamacbudgetingappwhoseaimodelsrunonyourmachine",
+  "parsimonyanopensourcebenchmarkforhowmuchcodeaimodelsadd",
+  "amdlaunchesrossanagenticaiassistantforembeddeddesign",
+  "formerwilsonsonsinisubsidiarylaunchesaitoolforhr",
+  "aitrackersukilands90m",
+  "devartaddspostgresqldebuggerfreeaiassistant",
+  "alibabaunveilsgamechangingdevicetochallengemeta",
+  "whatarethebestaiappbuildersforbusinessteams12platformsrankedfor2026",
+  "docuwarelaunchesaiassisteddocumentplatformupgrade",
+  "beatvizlaunchesaitooltocreatefulllengtheditablemusicvideosfromsongs",
+  "newaitoolhelpsuntanglerulesformovingmoneyabroad",
+  "metalaunchesmusewonderzuckerbergsaysitrivalstopmodelsuserscanmanagedifferentacti",
+  "quandolintelligenzaartificialediventaunostrumentodimanipolazionepsicologicaunanu",
+  "castadivagrouppresentarebelottlanuovasocietàdedicataallaproduzionevideoconintell",
+  "castadivagrouplanciarebelottilnuovoaicreativestudiodedicatoaicontenutivideo",
+  "cives20262027noveappuntamentipercapirelesfidedellintelligenzaartificiale",
+  "smartriciclalancialappitalianasenzabarrierecheparla130lingue",
+  "shamslancialapiattaformabedayabasatasullintelligenzaartificialeperlacostituzione",
+  "onscreenformattraiaeipcollaudate",
+  "genapplanuovaquotidianitàdigenzemillennials",
+  "geminipotrebbechiamareamiciefamiliarialpostotuo",
+  "applehomeviewnonarrivainitalianénelluemancasiriaisuios",
+  "gemini4argonarrivanellappgeminiilnuovomodellodigoogleperabbonatiaiproeultra",
+  "gemini4argonèdisponibiledaoggieccodoveusarloequantocosta",
+  "googlegeminicambiaabitudinileistruzionidiventanoskillseigemsvannoversoilpensiona",
+  "fitbitedgeinitaliaprezzonovitàecosamanca",
+  "bestdesktopsforlocalaiin2026labtestedleaderboard",
+  "allsystemsgoglobalpcappecosystemreadyfornvidiartxspark",
+  "thelocalaiquestionihadbackwards",
+  "areaigirlfriendsprivateaicompanionworththemoney2026",
+  "nvidiaandpartnersunveilnewlocalaitoolsforrtxsparklaptops",
+  "googleletsusersrunprivateaibuiltappsonandroidwithoutplaystorepublishing",
+  "offgridaiadds78solarandbatteryproductstopowerofflineai",
+  "rtxsparklaunchweekbringsnewlocalaimodelscreatortoolsanddlss5updates",
+  "googledeepmindegovtechpresentanounmodellodirilevamentodelletruffedirettamentesui",
+  "meteocompareèunappperleprevisioniconunapeculiaritàconfrontafinoa21modelli",
+  "linuxdesktopcambiapassomint27annualeubuntuportamynaailocale",
+  "coloros17opporinnovalinterfacciaeportagliagentiaisuglismartphone",
+  "qualcommalcuneaziendeaipensanoasmartphonepropri",
+  "higgsfieldtakesaivideofrom1minutetoover10",
+  "developinggemini4argonresponsiblyandsafely",
+  "gemini4argoncomestothegeminiapp",
+  "gemini4argonisnowavailablefordevelopers",
+  "gemini4argonbuilttosolveyourhardestproblems",
+  "googlelaunchesflagshipaimodelgemini4argonfordevelopersbusinesses",
+  "googlereleasesgemini4argonitsnewfrontiermodelbenchmarkshowtotryitandpricing",
+  "googlesgeminiargon4isnowavailableworldwide",
+  "gemini4argonisnowavailableworldwideasgooglesmostcapablefrontiermodel",
+  "stratedialaunchesfreeaivisibilityreporttoshowusbusinesseswhetherchatgptgeminiand",
+  "googlelaunchesgemini4argonwithadvancedaireasoningcapabilities",
+  "googlesgemini4argonisnowavailableinthegeminiappandaimodeinsearch",
+  "googlesaysgemini4argonisapowerhouseaimodelanditsrollingoutnow",
+  "quiverquantitativeisnowavailableintheclaudeconnectordirectory",
+  "googlesmuchawaitedgemini4argonisnowavailablebeatsastraandopus55onpricing",
+  "metalaunchesmusewondercatchingopenaianthropichowtotryitbenchmarkresults",
+  "howtouseachatgptdotwhenitrollsouttoyou",
+  "redesigningsourcecontrolatanthropic",
+  "anthropicreinventssourcecontrolasclaudefloodstheworldwithcode",
+  "anthropicsaysitsaimodelsubmittedafalsecoldcasetiptophiladelphiapolice",
+  "anthropicsclaudeledcrisprlikediscoveryissparkingcontroversy",
+  "anthropicadmitsaihelpedhouthisdevelopmissilesthatcouldcorrecttheircourse",
+  "anthropicurgescourtinwashingtondctorehearappealofpentagonblacklisting",
+  "microsoftazureenclavesecurecollaborationforsensitiveworkloadsthemicrosoftcloudbl",
+  "microsoftmsftstockhitsarecordhighhereiswhy",
+  "workdaytobringsanaeverywhereemployeesworkincludingclaudegeminienterprisemicrosof",
+  "designhumanityintheintelligenceage",
+  "microsoftisretiringsomeservicesinfavorofcopilotproducts",
+  "spacexsiunifiesxandgrokunderonemonthlysubscription",
+  "xailaunchesbundledsaassubscription",
+  "itriedthenewmacappthathelpsyouditchappleintelligenceanditsavedme12gbofstoragetoo",
+  "telekomoffersmetaaiglasseswithrealtimetranslationandlivecaptions",
+  "appletvfinallygainingappleintelligenceandsiriai",
+  "appleintelligencecansearchandsummarizehomesecuritycamerafootage",
+  "grokbotgetsitsownemailaddressandscamdetectionbasenor",
+  "liangwenfengbackedswintransformerauthordeepseeklaunchesstrategiclayoutforitsembo",
+  "openaiemployeearrestedforallegedlyplantingabuginaconferenceroom",
+  "shopifyopensitscataloguptomoreaiagents",
+  "xboxisofficiallyembracingthechaosofaipoweredgameports",
+  "idontmissthecameraontheraybanmetaaudioglasses",
+  "facebookwillletyoucustomizeyourfeedalgorithmusingai",
+  "googlemakesiteasiertolaunchyourvibecodedapps",
+  "itsincomprehensiblethatinstagramallowedanaiimageofmiagothtospreadsayherreps",
+  "googlefinallyreleasesgemini4argon",
+  "epicshiftstoaiaccelerateddevelopmentforupcomingdisneygame",
+  "dlss5getstoneddownforitshogwartslegacydebutnextmonth",
+  "sciencecorporationimplantsitsvisionrestoringchipinitsfirststargardtdiseasepatien",
+  "cerebrasceosayswerenearingafuturewhereeveryonehasapersonalaiassistantathome",
+  "industrialnextwantsfactoryrobotstoswitchtasksinminutesnotweeks",
+  "cerebrasceopushesbackonaidoomsdaywarnings",
+  "judgeordersopenaitoturnoverhiringrecordsinappletradesecretscase",
+  "floxintelligenceisbuildingaitokeepwildlifeawayfromtrainsairportsandroads",
+  "facebookisgivingusersmorecontrolovertheiralgorithm",
+  "laplaceintelligenceredteamsrobotsandselfdrivingcarsbeforetheyhittherealworld",
+  "plutosecurityraises42masaigivesenterprisesecurityteamsanewheadache",
+  "googleplaynowletsanyonebuildprivatevibecodedappsthatrunonandroid",
+  "spacexandgooglebothsaidnonowhissoftwareisridingaspacexrocketnexttogoogles",
+  "techcrunchdisrupt2026day1",
+  "disneyoffers20mforcharacteraisscandalplaguedchatbottech",
+  "googlewantstohostyourpersonalvibecodedappsintheplaystore",
+  "gemini4argonbeginsrollingoutingeminiappandantigravitybutonlyifyoupay",
+  "theywargameddimmingthesunitwentevenworsethanyouthink",
+  "epicgamesreportedlypivotingtoaifirstgamedevelopmentmodel",
+  "anthropicsclaudeaisubmittedfalsemurdertiptophiladelphiapolice",
+  "openmodelshaverealbenefitsdotheyoutweightherisks",
+  "ailabsarebuyingdatafromdeadstartupstotraintheirmodels",
+  "406scientistsdemandaimodelsbecutofffromtheinternetimmediately",
+  "machinelearningpioneermichaelijordandismantlesaidoomrhetoricasgrandmoralizingper",
+  "characteraiwillshutdownifnobuyeremergescappingafallfrom27billiongoogledealtobank",
+  "westernmathematiciansfearaimakesthemdumberwhilechinabuildsanentireallianceforit",
+  "anthropicsaysitcutclaudereasoningtokentheftbyupto99infightagainstindustrialscale",
+  "anthropicstudywarnsthatsmallaimodelscouldsoonreplicateacrosseverydaydevices",
+  "metasnewfrontiermodelmusewonderfullbreaksintotheaitoptier",
+  "sakanaaisselfimprovingmodelgetsbetteratsolvingandjudgingbutcantcatchitsownblinds",
+  "musewondermaia300aiselfreplication",
+  "seequentlanciaimagolanalisidelleimmaginibasatasullintelligenzaartificialeperacce",
+  "wolterskluwerintroducelintelligenzaartificialeconversazionaleelariconciliazionea",
+  "cybersecurityeiacorecomorganizzaunconvegnoadaosta",
+  "didamaticalascuolaitalianapresentailmodelloia",
+  "dalturismoorganizzatoalliainuovimodellidelviaggioalttg",
+  "borsamilanochiude",
+  "laviafranceseallintelligenzaartificialecosìparigiblindalasuasovranitàtecnologica",
+  "gemini4argondisponibilealpubblicolarispostadigoogleachatgpt6efable5",
+  "brerapiùaccessibilearrivanoimetaaiglassesperciechieipovedenti",
+  "lemiglioriofferteshellysuamazonpercasasmart",
+  "contocorrenteonlineecartaacanonegratuitoconcréditagricole",
+  "linustorvaldsusaclaudecodeperottimizzarelinuxlasvolta",
+  "datacenteraiconsumanomiliardidilitridacqua",
+  "agentiaifuoricontrollocosasapereprimadiusarli",
+  "sensingartgliocchialiaidimetaraccontanoicapolavoridibrera",
+  "lanuovaappletv4kconchipa19anchedanoimasenzasiriai",
+  "applehomepodmini2nuovosmartspeakerconsiriai",
+  "homeviewèufficialeloschermodiappleperlacasa",
+  "presidentemicrosofturgenteunaregolamentazionedellai",
+  "addioaigiochifisicinintendodicelasua",
+  "smartphoneedipendenzaormaièquasilanormalitàpossederneunogiàad11anni",
+  "omoda4eomoda5nextdoppianovitàaparigitecnologiaiaemotoriibridi",
+  "laièmenocontrollatadellattelallarmedimicrosoft",
+  "droniautonomipiùsicuriilmitsviluppailsistemasando",
+  "gettyimageslascialaborsasalvataggioda460milioni",
+  "werecooked",
+  "someoneusedclaudetogetayearsoldpotholefixedintwodays",
+  "anthropicsaysunkillablesmallmodelsmaybemonthsawayfromselfreplicatingacrosstheint",
+  "itshere",
+  "fable55shouldbereleasedanymoment",
+  "anymomentnow",
+  "whysayprohaveargonwhentheydont",
+  "doesanyoneelsefeellikeopus55isonacompletelydifferentlevelfromeveryothermodel",
+  "qwen27bat20toksonajailbrokenps5sgpuiforkedps5lmandturneditintoanativeapp",
+  "liquidailfm2524ba2b",
+  "newaifaketextgeneratormaybetoodangeroustoreleasesaycreators2019guardianheadline",
+  "iseveryoneinherebuyingupsmarttvsnow",
+  "characteraifilesforbankruptcytosellsomeassetstodisneyfor20million",
+  "equifaxtolaunchmortgageverificationtoolwith95fulfillmentrate",
+  "aigeolocationtoolravenfindsgeolocatesapartmentsfromonephoto",
+  "mpcurgesottawatomoveaheadwithcraincomeverification",
+  "nolabourhasntpromisedtomakejacindaardernnzgovernorgeneral",
+  "factcheckviralvisualsdonotshowtenselawandordersituationinkpafterimpositionofgove",
+  "howmuchofanorganizationsattacksurfacecanyoumapwithasingleaipromptwatchjakeaifrom",
+  "russiabuiltadronelaunchsitenearrostovinonemonthforlaunchingjetpoweredsuicidedron",
+  "whatilearnedfromgeolocating1000satelliteimageseinternationalrelations",
+  "12senatorsurgetrumptocancelputindieseldeal",
+  "moscowclaimsitsdieselexportcapacitywilloutpacetrumpsannouncedtargets",
+  "phishingaziendaleperchéidipendentiformaticliccanocomunque",
+  "informaticaforenseagenovailfuturodelleprovedigitalitraaiedeepfake",
+  "osintofslovenia"
+ ],
+ "audio": "audio/2026-10-14.mp3",
+ "durata": 94.9
+}
