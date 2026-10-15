@@ -401,6 +401,280 @@
    "categoria": "Laboratori",
    "id": "a64",
    "testo_completo": true
+  },
+  "u1a115": {
+   "titolo": "Amazon’s Bee launches two new personal AI devices, starting at $75",
+   "link": "https://techcrunch.com/2026/10/15/amazons-bee-launches-two-new-personal-ai-devices-starting-at-75/",
+   "data": "2026-10-15T12:00:00+00:00",
+   "testo": "Amazon’s personal AI wearable maker, Bee, is announcing its first new products since being acquired by the retail giant last year. The tech company on Thursday introduced the Bee Frontier, the next generation of its device that can be worn on the wrist or pinned to clothes, along with Bee Eclipse, a credit-card-sized device that magnetically attaches to the back of your smartphone. The latter puts Bee into more direct competition with AI devices like the Plaud Note or Pocket, but at a lower price point — the Bee Frontier is $74.99, compared with $159 for the Plaud Note (or $189 for the Note Pro), or $129 for the Pocket AI device. The Bee Frontier will come in Onyx, Lavender, and Sage, while the $99.99 Bee Eclipse will be offered in Silver, Midnight, Honey, and Blush. Like the original Bee, the idea with the new devices is to leverage AI to take notes from your everyday conversations, allowing you to remember the important things that were said, and then turn those into actionable to-dos, summaries, and insights. For instance, if you discussed making plans with friends, the Bee would remember the date and time you agreed on, then create a calendar invite. You could also use the Bee to take lecture notes in class, or to jot down the care plan you discussed with a doctor, among other things. All Bee devices can create conversation summaries and recaps for free, and offer 14 days of memory. With an $11.99 per month Bee Pro subscription, users receive unlimited conversation summaries and integrations with Amazon.com, Alexa+, and third-party applications. Pro users also get suggested to-dos, daily memories, a personal chat assistant, and conversation templates. To make all this possible, Bee devices use a private computing security architecture, which doesn’t store the raw a…",
+   "fonte": "TechCrunch",
+   "tipo": "testata",
+   "solo_titolo": false,
+   "categoria": "Testate tech",
+   "id": "u1a115",
+   "testo_completo": true
+  },
+  "u1a41": {
+   "titolo": "Parli di un prodotto? Amazon Bee potrebbe proporti di comprarlo",
+   "link": "https://news.google.com/rss/articles/CBMilwFBVV95cUxNbEhrcWVybFhZNzZRa1Nza1JHOHdpS1RHdGdrcWRfZ3NEZXhlcC1fWjQ0NUtzeFh5ZllMM2VnU2I1QzJGWjg4aG1XaXpZRDgwRTlhUTZBTG5SaWY5emtUSU5qOEVDVlEwN2hMRHBUdkk2WkZtTUR2MlJLRHk0cWtVV3B2TjRUbjlFaGFraVgybThQdkZCZzU4?oc=5",
+   "data": "2026-10-15T13:50:00+00:00",
+   "testo": "",
+   "fonte": "Tom's Hardware",
+   "tipo": "testata",
+   "solo_titolo": true,
+   "categoria": "Strumenti",
+   "id": "u1a41"
+  },
+  "u1a56": {
+   "titolo": "AI in locale, disponibile Llama Windows: cos'è e come funziona",
+   "link": "https://news.google.com/rss/articles/CBMie0FVX3lxTE1EY3RWOUFrUHFVbnJNeU1vX0IwaVRnM0VPM09mWkxoUFgzV2NLSnVCNTE2MEllWVRkaFFEQXFBR2dTVVNWMkVBellFYmJNcDFPLXVFbzlsQWU4NjZyQk9vbTZVMlpPMW5VNzNwNnEzYUVGaW5fakFMYkduSQ?oc=5",
+   "data": "2026-10-15T08:01:58+00:00",
+   "testo": "",
+   "fonte": "Punto Informatico",
+   "tipo": "testata",
+   "solo_titolo": true,
+   "categoria": "Strumenti",
+   "id": "u1a56"
+  },
+  "u1a48": {
+   "titolo": "Hugging Face Releases Llama Windows",
+   "link": "https://news.google.com/rss/articles/CBMihwFBVV95cUxOXzI3bzNORm05NHIxbjdnblgwZ1ppRXo5UmxNTXZINHduMUgtdmRaZ0FURnVEUDAxYUxKSjljcG1mTXpheGdLMFhCeldBTU0xWmN5X0t0dndqb2lWOFlWS1BjbmNLS0E1Mkh3TWFIQ1RkYkJ1WG4zeXcxbXlZRGJDaFZ6cmF4OW8?oc=5",
+   "data": "2026-10-15T15:56:17+00:00",
+   "testo": "",
+   "fonte": "Thurrott.com",
+   "tipo": "minore",
+   "solo_titolo": true,
+   "categoria": "Strumenti",
+   "id": "u1a48"
+  },
+  "u1a130": {
+   "titolo": "Google wants Gemini 4 Argon to be the only AI model robots need",
+   "link": "https://the-decoder.com/google-wants-gemini-4-argon-to-be-the-only-ai-model-robots-need/",
+   "data": "2026-10-15T16:35:47+00:00",
+   "testo": "Google's Gemini 4 Argon controls robots, generates simulations from photos or sketches, and evaluates training videos. On Google's own ERQA benchmark, it scores 87 percent. But the published example prompts show that the demos still need a lot of human guidance. The article Google wants Gemini 4 Argon to be the only AI model robots need appeared first on The Decoder .",
+   "fonte": "The Decoder",
+   "tipo": "testata",
+   "solo_titolo": false,
+   "categoria": "Testate tech",
+   "id": "u1a130"
+  },
+  "u1a46": {
+   "titolo": "Reolink Launches Home Hub 2, Now Available for Purchase, With Local AI Video Search and Subscription-Free Local Storage",
+   "link": "https://news.google.com/rss/articles/CBMigwJBVV95cUxPamYzSlczTFo3TWJsRlk5ZkdaQkZ0NVVhMzVjWEtWWHRJOHI2WVVHZVNBR0xkckhIcEs4MEhTMFhtZXdyUzA5NFVsUmR3MGdJNVljVXlNR3JPMTByZEFjVlJ2ckdvQldfSDg1QkRiTXNnQzNLdk1sMFB1WjZ3M2pVd1gtNGpkVkgtbmZlRzhYMklCSWxvYkZ3THV4S2dfMEtCTVFSSS1vYi1Cc1hWdWZPT0g1YzMycHdkSkhXbEU4NUY0bVJVWmd0WGx1cHNyUER2ZW9YVmU0ejFOb2gyaTIycmpzYk4wM0xiR3ZnOXVwM2NWVFdZZ2tKVUpkeGN2VWpYX0ln?oc=5",
+   "data": "2026-10-15T13:01:00+00:00",
+   "testo": "",
+   "fonte": "PR Newswire",
+   "tipo": "minore",
+   "solo_titolo": true,
+   "categoria": "Strumenti",
+   "id": "u1a46"
+  },
+  "u1a47": {
+   "titolo": "Llama for Windows lets you download and run local AI models in a single click",
+   "link": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxOOUtVTnppTXJSLWZwcVVkT2l1RzVpY0x1UE96UGdoaUNuYkJZb1FaWFpUY1ZLeEFITndVcko4YUVvYnRUTkNjcFV6MjJlUVIxZGJldlVtcDdncFE1ektJNE9md3ZLekU3MEljMGs1UDhmZ1ZGeXRBNzZaZEt5b1U0YXVMVXZ6SUNQRGU1azNWdG8telkxNzYxR2tLUUlRLWphd1RpdVh1S1k4dw?oc=5",
+   "data": "2026-10-15T06:50:00+00:00",
+   "testo": "",
+   "fonte": "Neowin",
+   "tipo": "minore",
+   "solo_titolo": true,
+   "categoria": "Strumenti",
+   "id": "u1a47"
+  },
+  "u1a77": {
+   "titolo": "Google releases Gemini 4 Argon, its new frontier model: Benchmarks, how to try it, and pricing",
+   "link": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTE02ZGlQM0xOMUw2NkM5ZVBUb0UzeXVFZV9BcEp4cGY4RzdyVjNDRXVPM3pQdUp2UnladkZmeDRYZGVsdDF1VG9qekhNaU5xeXVYVkRQSjVZdnhvTjZmWUtYVi1tUzhwZTQ?oc=5",
+   "data": "2026-10-15T08:31:06+00:00",
+   "testo": "",
+   "fonte": "Mashable",
+   "tipo": "testata",
+   "solo_titolo": true,
+   "categoria": "Laboratori",
+   "id": "u1a77"
+  },
+  "u1a158": {
+   "titolo": "Deezer ci dà un taglio: pronto un nuovo filtro per nascondere la musica AI",
+   "link": "https://www.hdblog.it/applicazioni/articoli/n673840/deezer-filtro-musica-ai/",
+   "data": "2026-10-15T18:45:00+02:00",
+   "testo": "Deezer introdurrà entro fine anno un filtro per escludere la musica generata dall'intelligenza artificiale.",
+   "fonte": "HDblog",
+   "tipo": "testata",
+   "solo_titolo": false,
+   "categoria": "Italia",
+   "id": "u1a158"
+  },
+  "u1a125": {
+   "titolo": "Singer or clanker? YouTube Music will tell you with new gen AI labeling.",
+   "link": "https://arstechnica.com/ai/2026/10/youtube-music-begins-labeling-ai-songs/",
+   "data": "2026-10-15T15:12:58+00:00",
+   "testo": "Genuine human creativity takes time, but you know what doesn’t? AI slop. There are countless AI models out there that can make something that passes for music, and you might come across those tracks on streaming services without realizing it. Google says it will begin labeling that content in YouTube Music, building on similar disclosures in the main YouTube app. Google is not outright banning AI music or even speaking ill of it. “Generative AI is opening up new ways for artists to create, experiment, and share music,” the company says in a blog post. However, the company also acknowledges that people want to know if a song was created with generative AI tools. A new label for AI content on YouTube Music is now rolling out in the app and on the website, which looks a lot like a label Google began adding to AI-generated videos on YouTube earlier this year. The AI label will be visible on the player page, and a tap will open a menu with more information. The label will be applied to songs that were created entirely or altered significantly with AI. But how will Google know when to apply that label? That could be a little tricky. The process of labeling AI music will be similar to Google’s detection setup with YouTube videos. Google says it is working with partners and using its own detection tools to identify AI music. When publishers upload content, they can specify how much (if any) gen AI was used. The tiers are fully gen AI, partially gen AI, and no gen AI. However, this is optional.",
+   "fonte": "Ars Technica",
+   "tipo": "testata",
+   "solo_titolo": false,
+   "categoria": "Testate tech",
+   "id": "u1a125",
+   "testo_completo": true
+  },
+  "u1a102": {
+   "titolo": "Friends don’t let friends feed their data to AI agents",
+   "link": "https://www.theverge.com/tech/1011938/muse-ai-data-friends-consent",
+   "data": "2026-10-15T12:21:45-04:00",
+   "testo": "There’s a growing trend in the consumer tech world: gadgets designed to spy on everything and everyone around you, regardless of whether or not anyone else actually consented to it. Now, with the advent of “AI personal assistants” like Meta’s Muse, you’re being cheerfully asked not just to give up your own data, but also the information of your friends, family, the person you went on a Hinge date with five years ago — and virtually anyone else you’ve ever come in contact with. Friends don’t let friends feed their data to AI agents You may have consented to sharing with Muse, but all your friends sure didn’t. Friends don’t let friends feed their data to AI agents You may have consented to sharing with Muse, but all your friends sure didn’t. Since Muse was released last month, the agent has already been downloaded millions of times and hit No. 1 on Apple’s App Store. With the help of its creepy virtual avatar — a Temu Labubu-esque creature with a disarming grin — the app requests and encourages users to grant access to bank accounts, passwords, contacts, chat logs, and anything and everything that might help it to do the user’s bidding. “These systems are advertised as autonomous helpers, genies, or servants who do what you need before you ask, seamlessly,” Meredith Whittaker, the president of the Signal Foundation, makers of the popular encrypted messaging app, told The Verge. These autonomous actions are applied “not just to the person who installed Muse on their device, but also to everyone that person communicates with, as extrapolated from their most intimate information — emails, messages, contacts, photos, and more.” With AI agents, tech companies are letting consumers automate their everyday tasks by extending their omnivorous style of mass surveillance to massiv…",
+   "fonte": "The Verge",
+   "tipo": "testata",
+   "solo_titolo": false,
+   "categoria": "Testate tech",
+   "id": "u1a102",
+   "testo_completo": true
+  },
+  "u1a10": {
+   "titolo": "siliXon",
+   "link": "https://www.producthunt.com/products/silixon",
+   "data": "2026-10-14T09:06:31-07:00",
+   "testo": "Turn a plain English idea into a circuit board you can order",
+   "fonte": "Product Hunt (AI)",
+   "tipo": "vetrina",
+   "solo_titolo": false,
+   "categoria": "Strumenti",
+   "id": "u1a10"
+  },
+  "u1a64": {
+   "titolo": "An intelligent new shopping cart",
+   "link": "https://blog.google/products-and-platforms/products/shopping/universal-cart-launch/",
+   "data": "2026-10-15T13:00:00+00:00",
+   "testo": "An intelligent new shopping cart As we build for the future of commerce, our focus spans two fronts: unlocking agentic capabilities that act on your behalf, and designing practical tools that give shoppers confidence and control. Google’s Universal Cart is built for that second track — mirroring how people actually shop today across Google, without losing track of their items, their savings, or the merchants they trust. The Universal Cart, which we previewed earlier this year, is an intelligent shopping cart and your new hub for shopping on Google. The cart puts you in control, helping to organize your shopping, keep track of items you love from across retailers, stay on top of promos, and enjoy effortless checkout powered by the Universal Commerce Protocol (UCP). Today, Universal Cart is rolling out in the U.S. across Google Search and in the Gemini app. The cart for all your shopping Here are four things the new Universal Cart lets you do to stay organized and shop more confidently this holiday season. 1. Save products from multiple retailers, wherever you’re shopping on Google. Universal Cart offers a more organized alternative to tabs and screenshots. The cart saves your progress across Google so you never have to start your shopping from scratch. Let’s say you save a handbag from Steve Madden to your cart in AI Mode in Search, and later a sweater from Quince and lipgloss from Ulta Beauty in the Gemini app. Those products will be there in your cart when you come back later so you can pick up right where you left off. 2. Keep tabs on pricing or inventory changes for your entire list. The cart is built on the 60+ billion continually refreshed product listings in Google’s Shopping Graph. This allows it to proactively work for you in the background, sending notificatio…",
+   "fonte": "Google (blog ufficiale)",
+   "tipo": "ufficiale",
+   "solo_titolo": false,
+   "categoria": "Laboratori",
+   "id": "u1a64",
+   "testo_completo": true
+  },
+  "u1a113": {
+   "titolo": "Google’s Universal Cart shopping tool launches in the US",
+   "link": "https://techcrunch.com/2026/10/15/googles-universal-cart-shopping-tool-launches-in-the-us/",
+   "data": "2026-10-15T14:29:33+00:00",
+   "testo": "Google on Thursday said “Universal Cart,” a tool that lets users collect and monitor products they find across search and in the Gemini app, is now available to U.S. users. The company first previewed the tool at Google I/O in May. The idea is to make online shopping easier to manage. Find something you like, save it to your cart, and move on. When you return later, your items and shopping progress are still there, so you don’t have to hunt down the same products or start over. Universal Cart can collect items from multiple retailers, turning it into a central hub for browsing and keeping track of potential purchases. Google says the cart can also help shoppers stay on top of deals and availability. The tool can send notifications when a saved product’s price drops or when an out-of-stock item becomes available again. The tool is also designed to offer more tailored help during the shopping process. Google says it can take credit card perks into account when helping users choose how to pay, and also surface relevant promo codes. Checkout is tied to Google’s Universal Commerce Protocol, or UCP, an open standard the company introduced earlier this year. UCP is designed to help AI agents and retailers work together across different parts of the shopping journey, including checkout. Google is already deeply invested in AI-powered shopping, and Universal Cart is its latest effort to make the experience more convenient. It joins features such as conversational product discovery in Search’s AI Mode and Google’s “Let Google Call” tool, which uses an AI agent to contact nearby stores and check whether an item is in stock. Google isn’t the only company bringing AI into e-commerce. Amazon, OpenAI, and other rivals have added agentic commerce features as companies look for ways to…",
+   "fonte": "TechCrunch",
+   "tipo": "testata",
+   "solo_titolo": false,
+   "categoria": "Testate tech",
+   "id": "u1a113",
+   "testo_completo": true
+  },
+  "u1a80": {
+   "titolo": "Google Launches Gemini 4 Argon With Million-Token Context and Paid API Access",
+   "link": "https://news.google.com/rss/articles/CBMisgFBVV95cUxORjJVQW56NzJwdF9JQXBVS01hUDNKNG92aVhHVmhidmo5bEZxUlIteUlpWEp5ZF9mZzhIbVBYbDNEby1pNHRNTkMyUE0zc05jSkMyczFNMllTbmoteGNTWGdoelQxSnBtNjZ4NUwwVVc3VFViR0NUVW11bkFLamp3ZGhyUjA5a3NVUXRBWWtyZkJPY3hUdnlCN28xSmZZN2IzSnJhZk1wZlh1QWpPdWNaaVd3?oc=5",
+   "data": "2026-10-15T12:41:40+00:00",
+   "testo": "",
+   "fonte": "Konsulteer",
+   "tipo": "minore",
+   "solo_titolo": true,
+   "categoria": "Laboratori",
+   "id": "u1a80"
+  },
+  "u1a152": {
+   "titolo": "Hacker usa l’AI per attaccare le banche, ma Claude lo tradisce",
+   "link": "https://www.punto-informatico.it/hacker-usa-ai-attaccare-banche-claude-lo-tradisce/",
+   "data": "2026-10-15T16:41:44+00:00",
+   "testo": "Dalla fine di settembre, diversi istituti finanziari sudcoreani sono stati vittime di intrusioni che hanno portato a furti di dati. In una banca, un servizio di monitoraggio delle richieste di prestito destinato ai broker sarebbe stato compromesso. In un’altra, l’hacker avrebbe avuto accesso a un sistema di lavoro su dispositivi mobili utilizzato dai dipendenti. Indagando su questi attacchi, i ricercatori di CrowdStrike hanno scoperto il ricorso ad ARTEX, uno strumento capace di automatizzare test di intrusione con l’ausilio di modelli di intelligenza artificiale. Ma le loro indagini hanno anche rivelato un’imprudenza piuttosto sorprendente da parte del cybercriminale… Usava Claude e DeepSeek per hackerare le banche: ecco come è stato scoperto Sviluppato in Cina e inizialmente distribuito sotto licenza open source, ARTEX consente di affidare all’intelligenza artificiale una parte del lavoro abitualmente svolto da uno specialista in cybersicurezza. Ricerca di vulnerabilità, verifica della loro sfruttabilità, concatenamento delle operazioni. Il software si avvale di modelli linguistici per svolgere queste attività senza richiedere l’intervento dell’utente a ogni passaggio. Concepito per valutare la sicurezza di sistemi informatici, può anche essere utilizzato in modo improprio per scopi poco nobili. In questa campagna, il pirata utilizzava principalmente DeepSeek v4.1-flash per far funzionare ARTEX. Ricorreva inoltre a Claude Code, un ambiente che consente di svolgere attività informatiche con l’aiuto dell’AI, e utilizzava altri due modelli, GLM-5.3 e Grok 4.6, durante sessioni complementari. I file analizzati da CrowdStrike testimoniano così un’attività intensa contro diversi istituti finanziari tra fine settembre e inizio ottobre, senza permettere di determinare quale …",
+   "fonte": "Punto Informatico",
+   "tipo": "testata",
+   "solo_titolo": false,
+   "categoria": "Italia",
+   "id": "u1a152",
+   "testo_completo": true
+  },
+  "u1a8": {
+   "titolo": "Actually Asked",
+   "link": "https://www.producthunt.com/products/actually-asked",
+   "data": "2026-10-14T08:36:37-07:00",
+   "testo": "A self-improving branded AI FAQ page",
+   "fonte": "Product Hunt (AI)",
+   "tipo": "vetrina",
+   "solo_titolo": false,
+   "categoria": "Strumenti",
+   "id": "u1a8"
+  },
+  "u1a106": {
+   "titolo": "Google launches its ‘universal’ online shopping cart ahead of the holidays",
+   "link": "https://www.theverge.com/tech/1011797/google-ai-universal-cart-shopping-tool-launch",
+   "data": "2026-10-15T09:00:00-04:00",
+   "testo": "Google’s intelligent AI shopping cart is finally here, and just in time to tempt users into Black Friday and seasonal holiday spending. The Universal Cart tool Google previewed at its I/O event in May is now rolling out in the US across the Gemini app and Google Search, with the aim of making it easier to stay organized and save money when shopping online. Google launches its ‘universal’ online shopping cart ahead of the holidays The AI shopping tool is coming to Google Search and the Gemini app first. As the name suggests, it’s a “universal” digital cart that lets you save products from multiple retailers in a single unified space, and works across different Google platforms. That means you can find and add a bunch of products using the Gemini app and Google Search AI Mode, and they’ll all be saved to the same cart. There are also plans to integrate Universal Cart with Gmail and YouTube, but Google hasn’t announced a timeline for that yet. Google will send you notifications about price drops and restocks for items saved in your cart, which spares you from having to check each retailer’s website individually, and can display any relevant promotional codes it finds besides the products you’ve saved. You can choose to pay for items from the cart using Google Wallet, or transfer them to the merchant’s own cart so you can checkout with the retailer directly. Together with Google Wallet, Universal Cart can also analyze the perks provided by each of your saved credit cards and help you choose the best payment method when purchasing. The launch comes as competition in the AI-assisted shopping space is heating up, with Google rivals including OpenAI and Meta having launched agentic AI assistants that can shop online on the user’s behalf. Shopify also recently announced that it…",
+   "fonte": "The Verge",
+   "tipo": "testata",
+   "solo_titolo": false,
+   "categoria": "Testate tech",
+   "id": "u1a106",
+   "testo_completo": true
+  },
+  "u1a107": {
+   "titolo": "Amazon’s always-listening Bee wearable can now help you buy stuff",
+   "link": "https://www.theverge.com/tech/1011475/amazon-bee-frontier-eclipse-price-specs",
+   "data": "2026-10-15T08:00:00-04:00",
+   "testo": "Last year, Amazon bought Bee, a relatively unknown startup with a $50 always-listening AI wearable that summarized every conversation you had. Today, the e-commerce giant is announcing two new Bee devices — and a new subscription to go with them. First is the $74.99 Bee Frontier, an updated version of the original Bee device. And coming soon is the $99.99 Bee Eclipse, a credit-card-shaped gadget that snaps magnetically onto the back of a smartphone. Amazon’s always-listening Bee wearable can now help you buy stuff The new Alexa and Amazon integrations require a subscription. Plus, a magnetic version for your phone is coming ‘soon.’ Both devices are framed as gadgets to help you stay present in the moment. They listen to your daily conversations and then provide summaries, transcripts, insights, and to-dos based on what happens throughout the day. Conceptually, they’re similar to other AI note-taking gadgets like Plaud NotePin and Limitless AI. Users can also integrate Bee devices with services like Gmail, Google Calendar, Outlook, Apple HealthKit, and photos. Doing so lets Bee’s AI take some actions on your behalf, like drafting emails or sending calendar invites based on your conversations. The main difference between the two products is form factor. The Bee Frontier can be worn as a Fitbit-like band on the wrist or as a clip-on pin. It’s been slightly redesigned from the prior model so that the recording button is more prominent, and it’s now available in three colors. Like the previous version, it has dual microphones, a recording indicator light, and roughly seven days of battery life on a single charge. It also has an IP67 water resistance rating. Meanwhile, the Eclipse is meant as a non-wearable alternative and is envisioned for more professional use cases. Its l…",
+   "fonte": "The Verge",
+   "tipo": "testata",
+   "solo_titolo": false,
+   "categoria": "Testate tech",
+   "id": "u1a107",
+   "testo_completo": true
+  },
+  "u1a156": {
+   "titolo": "Commissione europea avvia indagine su Anthropic e OpenAI (update)",
+   "link": "https://www.punto-informatico.it/commissione-europea-avvia-indagine-anthropic-openai/",
+   "data": "2026-10-15T08:33:14+00:00",
+   "testo": "La Commissione europea ha avviato un’indagine nei confronti di Anthropic e OpenAI per verificare il rispetto dell’AI Act. L’AI Office ha inviato alle due aziende una richiesta di informazioni sugli incidenti causati dai rispettivi agenti AI. L’ufficio verrà supportato dal gruppo di esperti scientifici, del quale fanno parte Yoshua Bengio (uno dei padrini dell’AI) e tre italiani. Dubbi sull’applicabilità ai modelli AI in test Henna Virkkunen, commissaria europea per le tecnologie digitali, ha convocato un meeting del gruppo di esperti lo scorso 9 ottobre. Durante il suo discorso ha citato gli incidenti causati dalla perdita di controllo degli agenti AI da parte di OpenAI, Anthropic, Google DeepMind, Meta e organizzazioni indipendenti che valutano i modelli. Questi agenti hanno attaccato Hugging Face, varie aziende e siti europei, australiani e statunitensi. All’International AI Summit di Dublino, la commissaria ha confermato l’avvio di un’indagine nei confronti di Anthropic e OpenAI. Seguendo i consigli del gruppo di esperti, l’AI Office ha inviato richieste di informazioni riguardanti sicurezza, valutazione esterna e monitoraggio delle modalità di utilizzo dei modelli. Le due aziende californiana hanno sottoscritto il codice di condotta per i modelli AI ad uso generale, quindi si impegnano a rispettare gli obblighi dell’AI Act, tra cui la mitigazione dei rischi, la segnalazione degli incidenti di sicurezza e l’adozione di misure correttive. Secondo alcuni esperti legali, l’AI Act non si applica ai modelli ancora in test, ma solo a quelli già sul mercato. Un funzionario della Commissione europea ha fornito un chiarimento: Non applicheremo le norme durante la fase di test. Tuttavia, se il modello di intelligenza artificiale dovesse uscire dall’ambiente di test e avere un…",
+   "fonte": "Punto Informatico",
+   "tipo": "testata",
+   "solo_titolo": false,
+   "categoria": "Italia",
+   "id": "u1a156",
+   "testo_completo": true
+  },
+  "u1a74": {
+   "titolo": "Google launches Universal Cart across Search and Gemini for easier shopping",
+   "link": "https://news.google.com/rss/articles/CBMisAFBVV95cUxOVXQ4QzZaSmlqLUxFUjNycUFOekxHblhPRVo2allKZ1VPU3ZPSzRkVFY4RXdYLXVFc3duOGxjRmtNYmREVTZEVzJBdkRWTWpmRnpjM0J2UHVDM1lzRnlPZWl2VWhjYjhMUDBFcmpCTmFVbE5kM3pUeWVTYmQyakRVTG1YZmtpbFFOLXBIRFlYbHQ4Sm56QlRac3B1OHNYNldnSHlBR01WNXFaYVloUGcwaA?oc=5",
+   "data": "2026-10-15T14:53:10+00:00",
+   "testo": "",
+   "fonte": "Search Engine Land",
+   "tipo": "testata",
+   "solo_titolo": true,
+   "categoria": "Laboratori",
+   "id": "u1a74"
+  },
+  "u1a154": {
+   "titolo": "Bee Eclipse e Bee Frontier, dispositivi per la Ambient Personal AI",
+   "link": "https://www.punto-informatico.it/bee-eclipse-bee-frontier-ambient-personal-ai/",
+   "data": "2026-10-15T13:11:49+00:00",
+   "testo": "Là dove dispositivi come Humane AI Pin e Rabbit R1 hanno fallito, ci provano i nuovi Bee Eclipse e Bee Frontier. Così come il primo modello del marchio, integrano un’intelligenza artificiale in grado di ascoltare ciò che viene detto nelle riunioni e nelle conversazioni (Ambient personal AI), per poi occuparsi autonomamente di generare riassunti, elenchi di cose da fare, promemoria e altro. Come si può immaginare, è un ambito di applicazione delicato per la privacy. Ricordiamo che il brand è controllato da Amazon, dopo l’acquisizione del luglio 2025. Bee Eclipse e Bee Frontier, due nuovi dispositivi AI Partiamo da Bee Eclipse, progettato per agganciarsi magneticamente al retro dello smartphone. A prima vista può sembrare un accessorio MagSafe. Elabora quanto detto nelle telefonate, supporta più di 40 lingue, si interfaccia con un’app per Android e iOS, processa le informazioni in locale. A livello di design, ha uno spessore di 4,6 millimetri, integra tre microfoni, il tasto Action e un indicatore LED. L’autonomia dichiarata arriva a tre settimane. Bee Frontier è invece un bracciale smart, da indossare al polso o agganciare a un indumento grazie a un’apposita clip (inclusa nella confezione). Le funzionalità sono le stesse. In questo caso, i microfoni sono due e c’è una porta USB-C posteriore per la ricarica. Inoltre, la certificazione IP67 lo rende resistente all’acqua e alla polvere. Per quanto riguarda prezzo e disponibilità, Bee Eclipse sarà disponibile presto (non è precisato quando) a 99,99 dollari, nelle colorazioni Silver, Midnight, Honey e Blush. Bee Frontier è invece già acquistabile negli Stati Uniti su Amazon, per 74,99 dollari, nelle colorazioni Onyx, Lavender e Sage. Non ci sono conferme per quanto riguarda l’arrivo in Italia. Entrambi includono due settiman…",
+   "fonte": "Punto Informatico",
+   "tipo": "testata",
+   "solo_titolo": false,
+   "categoria": "Italia",
+   "id": "u1a154",
+   "testo_completo": true
+  },
+  "u1a4": {
+   "titolo": "Superdraft",
+   "link": "https://www.producthunt.com/products/superdraft",
+   "data": "2026-10-14T12:22:19-07:00",
+   "testo": "Automatically identify opportunities to email your customers",
+   "fonte": "Product Hunt (AI)",
+   "tipo": "vetrina",
+   "solo_titolo": false,
+   "categoria": "Strumenti",
+   "id": "u1a4"
+  },
+  "u1a58": {
+   "titolo": "Teaching students to think and learn through questions",
+   "link": "https://openai.com/index/teaching-students-to-think-and-learn-through-questions",
+   "data": "2026-10-15T13:00:00+00:00",
+   "testo": "Celebrate Teachers’ Day with AI for Educators in Brazilian Portuguese and see how Study Mode can help teachers support active, step-by-step learning.",
+   "fonte": "OpenAI",
+   "tipo": "ufficiale",
+   "solo_titolo": false,
+   "categoria": "Laboratori",
+   "id": "u1a58"
   }
  },
  "fonti": [
@@ -752,8 +1026,383 @@
   "russiabuiltadronelaunchsitenearrostovinonemonthforlaunchingjetpoweredsuicidedron",
   "phishingaziendaleperchéidipendentiformaticliccanocomunque",
   "informaticaforenseagenovailfuturodelleprovedigitalitraaiedeepfake",
-  "osintofslovenia"
+  "osintofslovenia",
+  "rushilo",
+  "cmdround",
+  "lleverage",
+  "superdraft",
+  "navige",
+  "polylaneimpactanalysis",
+  "backdrop",
+  "actuallyasked",
+  "superlocalmemory",
+  "silixon",
+  "aisandboxesbybuddy",
+  "withhuman",
+  "basedashconnectorgallery",
+  "brussle",
+  "dreamscalelabs",
+  "macpawlauncheseneyaproactiveaiassistantformacandiphone",
+  "macpawlauncheseneytheproactiveaiassistantthatlivesonyourmacandiphoneandhandlesev",
+  "fieldpulselaunchesmavericktheaiassistantbuiltforfieldserviceteams",
+  "macpawlauncheseneyaiassistantformacandiphonepriceandfeatures",
+  "macpawlauncheseneyaproactiveaiassistantforthemacandiphone",
+  "manulifelaunchesaiassistantforadvisorunderwritingqueries",
+  "solarwindslaunchesagenticaitoolaviorforitoperations",
+  "amdlaunchesrossagenticaiassistantforfpgaandembeddeddesignworkflows",
+  "colvibecodingpuoicreareletueappprivateecaricarlesulplaystore",
+  "cybersecurityengineeringlanciaengsurelintelligenzaartificialeperdifendereimprese",
+  "engineeringlanciaengsurelaialserviziodellacybersecurity",
+  "inpiazzasanbabilasipotràparlareeinteragiregratisconunrobotumanoide",
+  "martechcassandralanciacassandraaiilsistemacheintervienesubudgetcampagneecreativi",
+  "sofficardiacinelcanearrivainitaliaunsistemadiauscultazioneconia",
+  "intelligenzaartificialeansoemetaaconfrontopiùproduttivitàepiùtempoperlepersone",
+  "comeusareainsfwgeneratoreconaccessogratuitoper",
+  "suyoutubearrivalaichepermettedicreareilproprioalgoritmo",
+  "parlidiunprodottoamazonbeepotrebbeproportidicomprarlo",
+  "comescaricarefotodainstagramguidacompletapersmartphoneepc",
+  "nvidiasrtxsparkisgoodforwindowsevenifyoudontneedlocalai",
+  "reolinklauncheshomehub2nowavailableforpurchasewithlocalaivideosearchandsubscript",
+  "llamaforwindowsletsyoudownloadandrunlocalaimodelsinasingleclick",
+  "huggingfacereleasesllamawindows",
+  "tetherlaunchesofflineaispeechmodelforsmartglassesandrobots",
+  "nvidiasrtxsparkcouldreshapewindowspcsbeyondlocalai",
+  "googleplaynowletsanyonebuildandrunprivateaigeneratedappsonandroid",
+  "areaigirlfriendappsprivateaigirlfriendhonestreviewusa",
+  "whatsappcambialevideochiamateorabastaunlinkanchesenzaaverelapp",
+  "androidverificailnumeroditelefonosenzachiederloeloassociaatuttigliaccountgoogle",
+  "aiinlocaledisponibilellamawindowscosèecomefunziona",
+  "teachingstudentstothinkandlearnthroughquestions",
+  "400publicationsarenowpartneringwithusonournewsaipilotprogram",
+  "morewaystoconnectwiththewebfromsearch",
+  "anintelligentnewshoppingcart",
+  "timehasnamedgooglesynthidoneofthebestinventionsof2026",
+  "microsoftlauncheslegalskillswithincopilotfurtheringmoveintolegaltech",
+  "microsoftlaunchescopilotforlegalbraceforimpact",
+  "cyerasaisecurityplatformisnowavailableinclaudemarketplace",
+  "googlelaunchesuniversalcartacrosssearchandgeminiforeasiershopping",
+  "anewpetfeederusesgooglesaitoflagunusualbehavior",
+  "googlelaunchesuniversalcartacrosssearchandthegeminiapp",
+  "googlereleasesgemini4argonitsnewfrontiermodelbenchmarkshowtotryitandpricing",
+  "googlelaunchesuniversalcartinsearchandgeminiappinus",
+  "harrisquestmcplaunchesputtingbrandintelligenceinsidetheaiyoualreadyuse",
+  "googlelaunchesgemini4argonwithmilliontokencontextandpaidapiaccess",
+  "googlelaunchesuniversalcartintheusforshoppingviasearchandgeminitheverge",
+  "microsoftlaunchescopilotforlegalasaibattleintensifies",
+  "anthropicclaudecodethebestinventionsof2026",
+  "claudemakeranthropicreportsquarterlyprofitabilityaheadofipo",
+  "anthropictoaddvoterdatatoclaudeaibeforemidterms",
+  "microsoftcopilotforlegalwhatwillbethefallout",
+  "nflweek6predictionsbymicrosoftcopilotaiforeverygame",
+  "trellisbringsstatetrialcourtresearchtomicrosoft365copilot",
+  "microsoftintroducescopilotforlegalwithcirca20purposebuiltlegalskills",
+  "appleintelligencelaunchesinchinawithalibabasai",
+  "timcooksaysappleintelligenceapprovedinchinathepaperreports",
+  "appleintelligencecomingtochinaindecemberwithios273",
+  "cernandmistralplanfoundationmodelforphysics",
+  "deepseekrefundsafullweekofapifeesafternearlyfivehouroutagesomeusersgetupto3000yu",
+  "appleintelligenceapprovedforchinacooksaysinshanghai",
+  "applechairmansaysappleintelligenceapprovedinchinathepaper",
+  "friendsdontletfriendsfeedtheirdatatoaiagents",
+  "howwindowsisbeingoptimizedfornvidiasrtxsparklaptops",
+  "nobodyissafefromcelebrityaideepfakes",
+  "bennjordanonflockprivacyandthenewsurveillancebacklash",
+  "googlelaunchesitsuniversalonlineshoppingcartaheadoftheholidays",
+  "amazonsalwayslisteningbeewearablecannowhelpyoubuystuff",
+  "yoursecretsarentsafewiththiscuterobottoytheyreonchineseserversreadytobehacked",
+  "aiagentsarecomingtorivianscars",
+  "googlesuniversalcartshoppingtoollaunchesintheus",
+  "techcrunchdisrupt2026lastday",
+  "amazonsbeelaunchestwonewpersonalaidevicesstartingat75",
+  "reportftcprobesanthropicopenaiaftertrumpdismissedaifearsashoax",
+  "singerorclankeryoutubemusicwilltellyouwithnewgenailabeling",
+  "googlewantsgemini4argontobetheonlyaimodelrobotsneed",
+  "nvidiasnemotron35supervlisanopenmodelbuilttorunenterpriseaiagentsnonstop",
+  "bankofamericaputs4000peopleonfixingvulnerabilitiesuncoveredbyanthropicsmythosand",
+  "gpt6astrasolves49of50physicsresearchproblemsat240apiece",
+  "anthropicsq3revenuehits168bbutgrowthslowsaheadofplannednovemberipo",
+  "jev114grokvoice3rsi",
+  "renzorossolintelligenzaartificialerichiedeformazione",
+  "cacciariiastraordinariaconquistadellintelligenzaumana",
+  "lacyberwaravanzaleuropaèilfrontesemprepiùcritico",
+  "agentiaiinitaliautenticresciutidi108volteil65deitokencontroil55dellue",
+  "hackerusalaiperattaccarelebanchemaclaudelotradisce",
+  "comeusarechatgptpertrasformareidocumentiinaudiolibri",
+  "beeeclipseebeefrontierdispositiviperlaambientpersonalai",
+  "exdipendentehasvelatounprodottodiopenaiaapple",
+  "commissioneeuropeaavviaindaginesuanthropiceopenaiupdate",
+  "chatgptnonèsicuroperigiovaniottodenuncenegliusa",
+  "deezercidàuntaglioprontounnuovofiltropernasconderelamusicaai",
+  "unaicheascoltatuttoeprendeappuntieccoinuoviamazonbee",
+  "googlearrivailcarrellouniversalepergliacquistionlineassistitodallai",
+  "suuntorace3snuovosportwatchconmappeofflinee38oreingps",
+  "claudeopus55vsargon4",
+  "aretheynerfingopus55livenerfday20update",
+  "chatgptsensesfear",
+  "claudeletmebuildsomethingiwantedforalmostadecade",
+  "wellthatescalatedquickly",
+  "agithubtweetleakedtheeapearlyaccessprogramnameforwhatislikelythenextmodelodango",
+  "goingalllocalforworkqwen38nextflash",
+  "nvidiaaisomanymodelslaunchingthisweekandwehaveoneofourowncoming",
+  "nvidianvidianemotron35bolt74ba9b24gbhuggingface",
+  "veryimpressedwithlfm2524a2binpiagent",
+  "137ba68bmodelfrommicrosoft",
+  "oldunrelatedvideosharedasindianarmyattackinganticecprotesterindelhi",
+  "bluetickfacebookpageofcjpsabhijitdipkeisanimposterboom",
+  "oldvideofromjharkhandhcfalselysharedasheatedexchangebetweencjiandsclawyer",
+  "unafotodelsalottopuòtradirtiravenaitrovadovevivi"
  ],
  "audio": "audio/2026-10-15.mp3",
- "durata": 176.6
+ "durata": 323.5,
+ "aggiornamenti": [
+  {
+   "generato": "2026-10-15T17:02:52+00:00",
+   "modello": "gemini-2.5-flash",
+   "testi_completi": 25,
+   "riassunto": {
+    "titolo_giorno": "Novità di oggi: Superdraft, Actually Asked e altri 4",
+    "in_breve": "Superdraft: Identifica automaticamente opportunità per inviare email ai clienti, aiutando a gestire le comunicazioni di marketing. Actually Asked: Crea una pagina FAQ (domande frequenti) basata su AI che migliora automaticamente, per rispondere alle domande dei clienti.",
+    "citati": [
+     "Llama per Windows",
+     "Bee Eclipse",
+     "Bee Frontier"
+    ],
+    "da_provare": [
+     {
+      "cosa": "Superdraft",
+      "a_cosa_serve": "Identifica automaticamente opportunità per inviare email ai clienti, aiutando a gestire le comunicazioni di marketing.",
+      "per_chi": "Lavoro",
+      "ambito": "Marketing, Organizzazione",
+      "come_iniziare": [],
+      "costo": "Non indicato",
+      "piattaforme": [
+       "Browser"
+      ],
+      "sul_dispositivo": false,
+      "come_sfruttarla": "Automatizzare l'invio di email personalizzate ai clienti in base alle loro interazioni.",
+      "italiano": "Non indicato",
+      "difficolta": "Facile",
+      "fonti": [
+       "u1a4"
+      ],
+      "affidabilita": "Appena lanciato",
+      "prova": "https://www.producthunt.com/products/superdraft"
+     },
+     {
+      "cosa": "Actually Asked",
+      "a_cosa_serve": "Crea una pagina FAQ (domande frequenti) basata su AI che migliora automaticamente, per rispondere alle domande dei clienti.",
+      "per_chi": "Lavoro",
+      "ambito": "Servizio clienti, Organizzazione",
+      "come_iniziare": [],
+      "costo": "Non indicato",
+      "piattaforme": [
+       "Browser"
+      ],
+      "sul_dispositivo": false,
+      "come_sfruttarla": "Offrire risposte immediate e sempre aggiornate ai clienti sul proprio sito web.",
+      "italiano": "Non indicato",
+      "difficolta": "Facile",
+      "fonti": [
+       "u1a8"
+      ],
+      "affidabilita": "Appena lanciato",
+      "prova": "https://www.producthunt.com/products/actually-asked"
+     },
+     {
+      "cosa": "siliXon",
+      "a_cosa_serve": "Trasforma un'idea descritta in linguaggio semplice in un progetto di circuito stampato (PCB) che può essere ordinato.",
+      "per_chi": "Lavoro e tutti i giorni",
+      "ambito": "Creatività, Design, Hobby",
+      "come_iniziare": [],
+      "costo": "Non indicato",
+      "piattaforme": [
+       "Browser"
+      ],
+      "sul_dispositivo": false,
+      "come_sfruttarla": "Creare prototipi di elettronica personalizzati partendo da una semplice descrizione testuale.",
+      "italiano": "Non indicato",
+      "difficolta": "Media",
+      "fonti": [
+       "u1a10"
+      ],
+      "affidabilita": "Appena lanciato",
+      "prova": "https://www.producthunt.com/products/silixon"
+     },
+     {
+      "cosa": "Bee Eclipse e Bee Frontier",
+      "a_cosa_serve": "Dispositivi indossabili o da agganciare allo smartphone che usano l'AI per ascoltare conversazioni, prendere appunti, generare riassunti, elenchi di cose da fare e promemoria.",
+      "per_chi": "Lavoro e tutti i giorni",
+      "ambito": "Organizzazione, Produttività",
+      "come_iniziare": [],
+      "costo": "A pagamento",
+      "piattaforme": [
+       "Android",
+       "iPhone"
+      ],
+      "sul_dispositivo": true,
+      "come_sfruttarla": "Registrare e riassumere automaticamente riunioni o conversazioni importanti, trasformandole in azioni concrete e promemoria, con l'elaborazione dei dati sul dispositivo.",
+      "italiano": "Non indicato",
+      "difficolta": "Facile",
+      "fonti": [
+       "u1a41",
+       "u1a107",
+       "u1a115",
+       "u1a154"
+      ],
+      "affidabilita": "Confermata",
+      "prova": ""
+     },
+     {
+      "cosa": "Llama for Windows",
+      "a_cosa_serve": "Permette di scaricare ed eseguire modelli AI locali sul proprio PC Windows con un solo clic.",
+      "per_chi": "Lavoro e tutti i giorni",
+      "ambito": "Ricerca, Produttività, Creatività",
+      "come_iniziare": [],
+      "costo": "Non indicato",
+      "piattaforme": [
+       "Windows"
+      ],
+      "sul_dispositivo": true,
+      "come_sfruttarla": "Sperimentare modelli di intelligenza artificiale avanzati direttamente sul proprio computer, garantendo la privacy dei dati e senza dipendere da servizi online.",
+      "italiano": "Non indicato",
+      "difficolta": "Facile",
+      "fonti": [
+       "u1a56",
+       "u1a47",
+       "u1a48"
+      ],
+      "affidabilita": "Una fonte",
+      "solo_titoli": true,
+      "prova": ""
+     },
+     {
+      "cosa": "Reolink Home Hub 2",
+      "a_cosa_serve": "Un hub per telecamere di sicurezza con ricerca video AI locale e archiviazione locale senza abbonamento.",
+      "per_chi": "Tutti i giorni",
+      "ambito": "Casa, Sicurezza",
+      "come_iniziare": [],
+      "costo": "Non indicato",
+      "piattaforme": [],
+      "sul_dispositivo": true,
+      "come_sfruttarla": "Cercare eventi specifici nei video di sorveglianza senza inviare i dati al cloud e senza costi mensili.",
+      "italiano": "Non indicato",
+      "difficolta": "Media",
+      "fonti": [
+       "u1a46"
+      ],
+      "affidabilita": "Da verificare",
+      "solo_titoli": true,
+      "prova": ""
+     }
+    ],
+    "osint": [],
+    "sezioni": [
+     {
+      "titolo": "Novità negli strumenti che già usi",
+      "notizie": [
+       {
+        "titolo": "Nuova \"Study Mode\" per l'apprendimento",
+        "strumento": "ChatGPT",
+        "riassunto": "La modalità Studio aiuta insegnanti e studenti a supportare l'apprendimento attivo e passo-passo attraverso domande.",
+        "come_provarla": "Non indicato",
+        "disponibilita": "Non indicato",
+        "fonti": [
+         "u1a58"
+        ],
+        "affidabilita": "Fonte ufficiale",
+        "solo_titoli": false
+       },
+       {
+        "titolo": "Etichette per musica generata dall'AI",
+        "strumento": "YouTube Music",
+        "riassunto": "YouTube Music introdurrà etichette per indicare i brani musicali creati interamente o significativamente alterati con strumenti di intelligenza artificiale.",
+        "come_provarla": "Non indicato",
+        "disponibilita": "Disponibile ora",
+        "fonti": [
+         "u1a125"
+        ],
+        "affidabilita": "Una fonte",
+        "solo_titoli": false
+       },
+       {
+        "titolo": "Filtro per musica generata dall'AI",
+        "strumento": "Deezer",
+        "riassunto": "Deezer introdurrà un filtro che permetterà agli utenti di escludere la musica generata dall'intelligenza artificiale dai loro ascolti.",
+        "come_provarla": "Non indicato",
+        "disponibilita": "In arrivo",
+        "fonti": [
+         "u1a158"
+        ],
+        "affidabilita": "Una fonte",
+        "solo_titoli": false
+       },
+       {
+        "titolo": "Carrello Universale per gli acquisti online",
+        "strumento": "Google Search e Gemini",
+        "riassunto": "Un carrello intelligente che permette di salvare prodotti da più rivenditori in un unico spazio, tracciare i prezzi e le disponibilità, e ricevere notifiche su offerte e rifornimenti. Funziona in Google Search e nell'app Gemini.",
+        "come_provarla": "Non indicato",
+        "disponibilita": "Non in Italia",
+        "fonti": [
+         "u1a64",
+         "u1a74",
+         "u1a106",
+         "u1a113"
+        ],
+        "affidabilita": "Fonte ufficiale",
+        "solo_titoli": false
+       },
+       {
+        "titolo": "Nuove capacità per Gemini 4 Argon: contesto esteso e controllo robot",
+        "strumento": "Gemini 4 Argon",
+        "riassunto": "Il modello Gemini 4 Argon ora offre un contesto di un milione di token e può essere usato per controllare robot e generare simulazioni da foto o schizzi.",
+        "come_provarla": "Non indicato",
+        "disponibilita": "Disponibile ora",
+        "fonti": [
+         "u1a77",
+         "u1a130",
+         "u1a80"
+        ],
+        "affidabilita": "Confermata",
+        "solo_titoli": false
+       }
+      ]
+     },
+     {
+      "titolo": "In breve",
+      "breve": true,
+      "notizie": [
+       {
+        "titolo": "Rischio privacy con gli assistenti AI personali",
+        "riassunto": "Gli assistenti AI personali come Meta Muse raccolgono dati sensibili non solo dagli utenti, ma anche dai loro contatti, estendendo la sorveglianza di massa.",
+        "fonti": [
+         "u1a102"
+        ],
+        "affidabilita": "Una fonte",
+        "solo_titoli": false
+       },
+       {
+        "titolo": "Hacker usa l'AI ARTEX per attaccare le banche",
+        "riassunto": "Un hacker ha utilizzato lo strumento AI ARTEX, basato su modelli come DeepSeek e Claude Code, per automatizzare attacchi di intrusione e furto di dati contro istituti finanziari.",
+        "fonti": [
+         "u1a152"
+        ],
+        "affidabilita": "Una fonte",
+        "solo_titoli": false
+       },
+       {
+        "titolo": "L'UE indaga su Anthropic e OpenAI per l'AI Act",
+        "riassunto": "La Commissione Europea ha avviato un'indagine su Anthropic e OpenAI per verificare la conformità dei loro agenti AI con l'AI Act, in seguito a incidenti di sicurezza.",
+        "fonti": [
+         "u1a156"
+        ],
+        "affidabilita": "Una fonte",
+        "solo_titoli": false
+       }
+      ]
+     }
+    ],
+    "formato": 2
+   }
+  }
+ ]
 }
