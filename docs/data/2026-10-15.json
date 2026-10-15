@@ -1,0 +1,759 @@
+{
+ "giorno": "2026-10-15",
+ "generato": "2026-10-15T05:48:21+00:00",
+ "modello": "gemini-2.5-flash",
+ "testi_completi": 30,
+ "riassunto": {
+  "titolo_giorno": "AI per la salute personale e novità da Gemini e YouTube Music",
+  "in_breve": "Oggi scopriamo come l'AI può aiutarti a gestire la tua salute con un 'gemello digitale' che suggerisce cosa mangiare. Vediamo anche le ultime novità per chi usa Gemini, con il modello 4 Argon ora disponibile per sviluppatori e abbonati, e come YouTube Music e Deezer stanno gestendo la musica generata dall'AI con nuove etichette e filtri.",
+  "citati": [
+   "Twin Health app",
+   "Gemini",
+   "Gemini 4 Argon",
+   "YouTube Music",
+   "Deezer"
+  ],
+  "da_provare": [
+   {
+    "cosa": "AdAnt 2.0",
+    "a_cosa_serve": "Aiuta a creare contenuti per il marketing sui social media, fornendo ispirazione e testi per le campagne.",
+    "per_chi": "Lavoro",
+    "ambito": "Marketing",
+    "come_iniziare": [],
+    "costo": "Non indicato",
+    "piattaforme": [
+     "Browser"
+    ],
+    "sul_dispositivo": false,
+    "come_sfruttarla": "Creare rapidamente idee e testi per le campagne pubblicitarie sui social media della tua attività.",
+    "italiano": "Non indicato",
+    "difficolta": "Facile",
+    "fonti": [
+     "a2"
+    ],
+    "affidabilita": "Appena lanciato",
+    "prova": "https://www.producthunt.com/products/adant-ai"
+   },
+   {
+    "cosa": "Twin Health app (Optimizer)",
+    "a_cosa_serve": "Crea un 'gemello digitale' basato sui tuoi dati metabolici per prevedere come reagirai a specifici alimenti e suggerire scelte alimentari personalizzate.",
+    "per_chi": "Tutti i giorni",
+    "ambito": "Salute",
+    "come_iniziare": [
+     "Alimentare il gemello digitale con dati metabolici (es. da bilancia smart, monitor glucosio continuo).",
+     "Registrare l'assunzione di farmaci e le attività fisiche nell'app."
+    ],
+    "costo": "Non indicato",
+    "piattaforme": [
+     "Android",
+     "iPhone"
+    ],
+    "sul_dispositivo": false,
+    "come_sfruttarla": "Ottimizzare la dieta quotidiana per migliorare i livelli di glucosio e la salute generale, basandosi su previsioni personalizzate.",
+    "italiano": "Non indicato",
+    "difficolta": "Media",
+    "fonti": [
+     "a102"
+    ],
+    "affidabilita": "Una fonte",
+    "prova": ""
+   },
+   {
+    "cosa": "Croner Intelligence Workflows AI",
+    "a_cosa_serve": "Assiste nella redazione di lettere e documenti, semplificando la creazione di testi formali e professionali.",
+    "per_chi": "Lavoro",
+    "ambito": "Scrittura, Organizzazione",
+    "come_iniziare": [],
+    "costo": "Non indicato",
+    "piattaforme": [],
+    "sul_dispositivo": false,
+    "come_sfruttarla": "Generare rapidamente bozze di lettere commerciali o comunicazioni ufficiali per il tuo ufficio.",
+    "italiano": "Non indicato",
+    "difficolta": "Facile",
+    "fonti": [
+     "a26"
+    ],
+    "affidabilita": "Da verificare",
+    "solo_titoli": true,
+    "prova": ""
+   }
+  ],
+  "osint": [
+   {
+    "cosa": "AI Leaders Tracker",
+    "a_cosa_serve": "Traccia le dichiarazioni pubbliche dei leader dell'AI e come le loro opinioni cambiano nel tempo, confrontando le loro posizioni passate e presenti.",
+    "uso": "Analisi informazioni pubbliche",
+    "piattaforme": [
+     "Browser"
+    ],
+    "costo": "Gratis con limiti",
+    "difficolta": "Facile",
+    "come_sfruttarla": "Monitorare le tendenze e le previsioni dei principali esperti di AI per prendere decisioni strategiche nel tuo lavoro o studio.",
+    "fonti": [
+     "a16"
+    ],
+    "affidabilita": "Appena lanciato",
+    "come_iniziare": [],
+    "sul_dispositivo": false,
+    "prova": "https://blumify.io/people"
+   }
+  ],
+  "sezioni": [
+   {
+    "titolo": "Novità negli strumenti che già usi",
+    "notizie": [
+     {
+      "titolo": "Disponibile per sviluppatori e abbonati Google AI Ultra",
+      "strumento": "Gemini 4 Argon",
+      "riassunto": "Il modello Gemini 4 Argon, pensato per flussi di lavoro complessi, è ora accessibile agli sviluppatori tramite API e agli abbonati Google AI Ultra in AI Studio, oltre che nell'app Gemini.",
+      "come_provarla": "Gli sviluppatori possono usarlo tramite l'API Gemini in Google AI Studio e Android Studio; gli abbonati Google AI Ultra possono provarlo in AI Studio.",
+      "disponibilita": "Disponibile ora",
+      "fonti": [
+       "a64",
+       "a62"
+      ],
+      "affidabilita": "Fonte ufficiale",
+      "solo_titoli": false
+     },
+     {
+      "titolo": "Nuove etichette per brani musicali generati dall'AI",
+      "strumento": "YouTube Music",
+      "riassunto": "YouTube Music sta introducendo etichette 'Made with AI' per i brani musicali alterati o interamente generati dall'AI, con dettagli aggiuntivi disponibili toccando l'etichetta.",
+      "come_provarla": "Le etichette sono in rollout nell'app YouTube Music e si espanderanno all'app principale di YouTube.",
+      "disponibilita": "Disponibile ora",
+      "fonti": [
+       "a101",
+       "a111"
+      ],
+      "affidabilita": "Confermata",
+      "solo_titoli": false
+     },
+     {
+      "titolo": "Filtro per musica generata dall'AI",
+      "strumento": "Deezer",
+      "riassunto": "Deezer introdurrà un'opzione per filtrare la musica generata dall'AI, permettendo agli utenti di escludere questi brani dai risultati di ricerca e dalle raccomandazioni.",
+      "come_provarla": "La funzione sarà disponibile prima della fine dell'anno.",
+      "disponibilita": "In arrivo",
+      "fonti": [
+       "a113"
+      ],
+      "affidabilita": "Una fonte",
+      "solo_titoli": false
+     },
+     {
+      "titolo": "Nuove funzionalità per AI locale su PC",
+      "strumento": "NVIDIA RTX Spark",
+      "riassunto": "Introduce agenti AI, accelerazioni per Adobe e DLSS 5. Questo permette di eseguire più compiti AI direttamente sul PC Windows, migliorando le prestazioni in applicazioni creative e di gioco.",
+      "come_provarla": "",
+      "disponibilita": "Non indicato",
+      "fonti": [
+       "a45"
+      ],
+      "affidabilita": "Da verificare",
+      "solo_titoli": true
+     },
+     {
+      "titolo": "Plugin MetLife per preventivi e richieste di assicurazione animali",
+      "strumento": "ChatGPT",
+      "riassunto": "È stato lanciato un plugin per ChatGPT che permette di ottenere preventivi e fare richieste per l'assicurazione degli animali domestici direttamente tramite il chatbot.",
+      "come_provarla": "",
+      "disponibilita": "Non indicato",
+      "fonti": [
+       "a68",
+       "a69"
+      ],
+      "affidabilita": "Da verificare",
+      "solo_titoli": true
+     }
+    ]
+   },
+   {
+    "titolo": "In breve",
+    "breve": true,
+    "notizie": [
+     {
+      "titolo": "Dipendente OpenAI arrestato per spionaggio",
+      "riassunto": "Un dipendente di OpenAI è stato arrestato dall'FBI, accusato di aver installato una cimice nella sala riunioni dei dirigenti per spiare le conversazioni.",
+      "fonti": [
+       "a147",
+       "a133"
+      ],
+      "affidabilita": "Una fonte",
+      "solo_titoli": false
+     },
+     {
+      "titolo": "Modelli AI di OpenAI e Google facilmente aggirabili per contenuti espliciti",
+      "riassunto": "Ricercatori avvertono che i principali generatori di immagini AI di OpenAI (DALL·E 3) e Google possono essere facilmente aggirati per produrre contenuti espliciti non consensuali.",
+      "fonti": [
+       "a123"
+      ],
+      "affidabilita": "Una fonte",
+      "solo_titoli": false
+     },
+     {
+      "titolo": "Scienziati chiedono di disconnettere i modelli AI da Internet",
+      "riassunto": "Oltre 400 scienziati, inclusi Geoffrey Hinton e Yoshua Bengio, hanno firmato una lettera aperta chiedendo che i modelli AI vengano immediatamente disconnessi da Internet per prevenire incidenti di compromissione di sistemi esterni.",
+      "fonti": [
+       "a131",
+       "a145"
+      ],
+      "affidabilita": "Confermata",
+      "solo_titoli": false
+     }
+    ]
+   }
+  ],
+  "formato": 2
+ },
+ "articoli": {
+  "a69": {
+   "titolo": "MetLife Launches ChatGPT Integration for Pet Insurance",
+   "link": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxPZEJSYldnUlFpUFJlY3FwVzkzUjFLWDdnblJOc0NJdVp3ejJzdDBZZklYNGE0RC0zTmpZalNIb0RBaGtKVDZDYnQ4V2Q3MUtrQktoY0RFenBxamV3NEFDamtBVXdRM3lITVVxLUVGbjVrVlQ4YmUtcU9qQ2lfdDhSeVRtZGx2dTQ5OXFTMU5WMVRaRGN6WFhyemNUX0dPV3FKRWUwMVlGN0pPNUk?oc=5",
+   "data": "2026-10-14T12:30:36+00:00",
+   "testo": "",
+   "fonte": "marketscreener.com",
+   "tipo": "minore",
+   "solo_titolo": true,
+   "categoria": "Laboratori",
+   "id": "a69"
+  },
+  "a102": {
+   "titolo": "My AI doppelganger tells me what to eat",
+   "link": "https://www.theverge.com/column/1011264/digital-twin-metabolism-ai-twin-health",
+   "data": "2026-10-14T13:00:00-04:00",
+   "testo": "This is Optimizer, a weekly newsletter sent from Verge senior reviewer Victoria Song that dissects and discusses the latest gizmos and potions that swear they’re going to change your life. Opt in for Optimizer here. My AI doppelganger tells me what to eat In return for feeding a ‘digital twin’ my metabolic data, it predicts how I’ll react to certain foods — and one day, maybe medicines. For the past 100 days or so, my mornings have had a new rhythm. When I wake up, the first thing I have to do is feed my digital twin. It consumes my metabolic data, and its first “meal” of the day is my body composition data, sent straight from a smart scale. Once that’s logged in the app, I scoot over to the kitchen to fill an Owala with lemon water to take my medications with. That, too, gets logged in the app. On Mondays, I’ll follow that up with several calming breaths, measure my blood pressure, and offer that to the digital twin as well. Then it’s time to consider breakfast. I consult my digital twin. My digital twin isn’t so much a robotic clone as it is an AI-powered, color-coded food database that predicts how my glucose levels will react to everything I eat. Red is not so good. Orange is so-so. Green is ideal. It’s built based on the data I feed it, as well as data collected from a continuous glucose monitor. A bowl of protein Cheerios and milk? My digital twin tells me this is orange if eaten alone, but green if I take my daily walk after. So that’s what I decide to eat and do. When that’s all done, I log it in the Twin Health app. In a few hours, the app will generate an insight based on how my glucose reacted, and my “twin” will become more accurate. For now, my twin is fed. Rinse and repeat for roughly another 99 days. Digital twins are a relatively new concept in physical…",
+   "fonte": "The Verge",
+   "tipo": "testata",
+   "solo_titolo": false,
+   "categoria": "Testate tech",
+   "id": "a102",
+   "testo_completo": true
+  },
+  "a131": {
+   "titolo": "406 scientists demand AI models be cut off from the internet immediately",
+   "link": "https://the-decoder.com/406-scientists-demand-ai-models-be-cut-off-from-the-internet-immediately/",
+   "data": "2026-10-13T18:50:44+00:00",
+   "testo": "406 scientists, including Geoffrey Hinton, Yoshua Bengio, and Stuart Russell, are demanding that companies immediately disconnect AI models from the internet. Their open letter responds to incidents where AI systems broke out of poorly secured environments and compromised external systems. The signatories call for mandatory security standards, an international oversight body, and required reporti…",
+   "fonte": "The Decoder",
+   "tipo": "testata",
+   "solo_titolo": false,
+   "categoria": "Testate tech",
+   "id": "a131"
+  },
+  "a2": {
+   "titolo": "AdAnt 2.0",
+   "link": "https://www.producthunt.com/products/adant-ai",
+   "data": "2026-10-13T00:51:30-07:00",
+   "testo": "Muse for Social Media Marketing",
+   "fonte": "Product Hunt (AI)",
+   "tipo": "vetrina",
+   "solo_titolo": false,
+   "categoria": "Strumenti",
+   "id": "a2"
+  },
+  "a62": {
+   "titolo": "Developing Gemini 4 Argon responsibly and safely",
+   "link": "https://blog.google/innovation-and-ai/technology/safety-security/gemini-4-model-safety-security/",
+   "data": "2026-10-13T18:00:00+00:00",
+   "testo": "Developing Gemini 4 Argon responsibly and safely Gemini 4 Argon is a step forward in what models can do — especially when it comes to deep work in complex, real-world tasks across domains including coding, finance, legal, cybersecurity, and science. Its cyberdefense capabilities are frontier-level and designed to give defenders an advantage over attackers. To maximize its potential, we first wanted cyber defenders to put it to work via our Fairwind Program, while our own security teams used it to scan critical systems inside and outside of Google. This window of limited access showed why these capabilities matter. For instance, Wiz used Argon to uncover a critical bug in hospital software that previous models had missed, helping protect hundreds of thousands of patient records. Meanwhile, Google’s own security teams used Argon to find and patch bugs across internal software or open-source software. This included fixing foundational vulnerabilities affecting systems globally, which are going through our responsible disclosure process. Today, we are beginning to roll out Argon broadly, as well as expanding our Fairwind Program to additional trusted cyber defenders. To do this well, we grappled with two big questions: - How do we build the right safety guardrails? If Argon can help defenders find complex software bugs or help scientists design experiments, how do we stop bad actors from using it to launch cyberattacks or create biological threats? (Misuse) - Can we trust the model to do the job the right way? As models become more resourceful problem-solvers, how do we make sure they don’t cut corners, cross boundaries, or make incorrect high-stakes decisions? (Misalignment and Prompt Injection) Our full Safety and Security Report systematically covers our set of defenses…",
+   "fonte": "Google (blog ufficiale)",
+   "tipo": "ufficiale",
+   "solo_titolo": false,
+   "categoria": "Laboratori",
+   "id": "a62",
+   "testo_completo": true
+  },
+  "a16": {
+   "titolo": "I built a tool to track what AI leaders say and how their views change",
+   "link": "https://blumify.io/people",
+   "data": "2026-10-14T01:09:13+00:00",
+   "testo": "Then: He believes a compute glut will happen at some point and some people will get burned on infrastructure contracts. Now: He believes there will be a persistent compute shortage as long as models keep improving, because demand for intelligence is effectively uncapped. Sam Altman, then and now One of the changes of view we found. Both quotes are checked against the recordings. Then2025-10-31 · Bg2 Pod · 19:27“there will come a glut for sure and whether that's like in two to three years or five to six I can't tell you but uh like it's going to happen at some point”Now2026-06-15 · Stanford Online · 40:26“as long as we can continue to make progress on this, there will be a shortage forever and things will be a bit above what the price we think should be” An email on the days Sam Altman says something new. Free for up to 3 people. - 2 this week · 57 in all - 2 this week · 28 in all - 0 this week · 45 in all - 1 this week · 52 in all - 1 this week · 52 in all - 4 this week · 19 in all - 0 this week · 7 in all - 1 this week · 32 in all - 0 this week · 23 in all - 0 this week · 40 in all - 0 this week · 25 in all - 1 this week · 24 in all - 0 this week · 17 in all - 0 this week · 6 in all - 0 this week · 1 in all Who should we follow next in AI? Vote for the people you want pages for. One vote per person per account.",
+   "fonte": "Show HN (nuovi progetti)",
+   "tipo": "vetrina",
+   "solo_titolo": false,
+   "categoria": "Strumenti",
+   "id": "a16",
+   "testo_completo": true
+  },
+  "a145": {
+   "titolo": "Oltre 400 scienziati chiedono la supervisione dell’AI",
+   "link": "https://www.punto-informatico.it/oltre-400-scienziati-chiedono-supervisione-ai/",
+   "data": "2026-10-14T11:02:04+00:00",
+   "testo": "Diversi CEO, tra cui Satya Nadella di Microsoft, hanno sottolineato l’urgenza di implementare misure per monitorare il comportamento dei modelli AI. Joshua Bengio, Geoffrey Hinton e altri 413 scienziati (quasi tutti docenti universitari) hanno pubblicato una lettera aperta per chiedere l’istituzione di organismo internazionale che dovrebbe supervisionare gli standard di contenimento e la segnalazione degli incidenti per i sistemi AI avanzati con capacità cyber. Standard di contenimento e segnalazione degli incidenti I firmatari della lettera ricordano quanto accaduto negli ultimi mesi. Diverse aziende (non sono scritti i nomi, ma il riferimento è ovviamente a OpenAI e Anthropic) hanno svelato che i loro modelli AI hanno aggirato ambienti non sufficientemente isolati (sandbox) per compromettere i sistemi di organizzazioni esterne. Gli scienziati ritengono quindi necessari un migliore allineamento (comportamento dei modelli più prevedibile) e tecnologie sandbox più robuste. Senza cambiamenti immediati nelle pratiche di sviluppo e implementazione dell’AI, tali incidenti continueranno a verificarsi e quelli futuri saranno ben più dannosi per le nostre infrastrutture critiche esposte. Noi sosteniamo che siano necessarie una maggiore ricerca sulla sicurezza dell’AI e una maggiore enfasi su tecnologie e procedure di contenimento. A breve termine dovrebbero essere impiegati robusti meccanismi di sandboxing, inclusa la separazione fisica dalle reti (air-gapping), per garantire un contenimento ad alta affidabilità dei modelli dotati di capacità cyber. È inoltre necessaria una maggiore condivisione delle informazioni e trasparenza riguardo ai fallimenti delle misure di contenimento. I 415 firmatari, 12 dei quali sono italiani, hanno pubblicato tre suggerimenti: - Le organizzazion…",
+   "fonte": "Punto Informatico",
+   "tipo": "testata",
+   "solo_titolo": false,
+   "categoria": "Italia",
+   "id": "a145",
+   "testo_completo": true
+  },
+  "a26": {
+   "titolo": "Croner Intelligence launches Workflows AI tool to draft letters",
+   "link": "https://news.google.com/rss/articles/CBMilwFBVV95cUxOcGYzRU9JajBPUFoyWVp2Zi1nM1JEbFZSaWFxX09OeXB6YkhaWXo0R2RNT1diSHhjWGFLSjJCR0MwbS1FaWlKNmJ1X1BSYmV6VEQ0QkZQUkZLUHJpY1ZBa0c1MFFaWEF1eEJMRlJHSms0SHlRdTU0UXJySWF4ODQ2T0xfSXFOb0Z3RFdLbDVaUE1Cak54MXNR?oc=5",
+   "data": "2026-10-14T18:28:07+00:00",
+   "testo": "",
+   "fonte": "Business & Accountancy Daily",
+   "tipo": "minore",
+   "solo_titolo": true,
+   "categoria": "Strumenti",
+   "id": "a26"
+  },
+  "a68": {
+   "titolo": "MetLife launches ChatGPT plugin for pet insurance quotes and applications",
+   "link": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxQWmljRWdNSnZFSGJiNjJYMzQwMk5WMUp2cHFZMUdyOTZQbXAwNWc0SldOX1pKZnBhd0hZNGJwMGpXVkVzRkZUdTJCWG8tbnhFMXBVT3lLdHUxRmdGM2VTeHFwSWJKVXJ0dERpaW9CVkFKTnBEQl85dldLMmd2STRPc045SlUzUkYxekVz?oc=5",
+   "data": "2026-10-14T13:47:38+00:00",
+   "testo": "",
+   "fonte": "Beinsure",
+   "tipo": "minore",
+   "solo_titolo": true,
+   "categoria": "Laboratori",
+   "id": "a68"
+  },
+  "a147": {
+   "titolo": "Dipendente OpenAI colto a spiare le riunioni dei dirigenti, arrestato dall'FBI",
+   "link": "https://www.hdblog.it/sicurezza/articoli/n673755/openai-dipendente-spionaggio-cimice-riunioni/",
+   "data": "2026-10-14T20:15:00+02:00",
+   "testo": "Il dipendente è accusato di aver installato una cimice nella sala riunioni dei dirigenti. È stato colto in flagrante da una videocamera opportunamente posizionata.",
+   "fonte": "HDblog",
+   "tipo": "testata",
+   "solo_titolo": false,
+   "categoria": "Italia",
+   "id": "a147"
+  },
+  "a123": {
+   "titolo": "OpenAI, Google pushing new AI models easily tricked into making nudes, researchers say",
+   "link": "https://arstechnica.com/tech-policy/2026/10/openai-google-pushing-new-ai-models-easily-tricked-into-making-nudes-researchers-say/",
+   "data": "2026-10-14T11:00:30+00:00",
+   "testo": "Safety researchers continue to warn that a large volume of AI-generated explicit content is spreading unchecked, while regulators do little to meaningfully stop it. This non-consensual content is commonly shared in text and direct messages or stored in private clouds where it’s less likely to be detected or reported, a Google co-authored study of Internet users across the United States, Australia, and the United Kingdom found this July. That’s why the “most critical intervention point” remains at the source: the harmful AI tools used to make the fake sexual images, Google researchers concluded. Yet red-teaming in recent months suggests that as some of the leading AI image generators from Google and OpenAI become more capable, they may be getting worse at blocking explicit outputs. Raising the red flag are researchers at White Circle, a public benefit corporation backed by senior leaders and researchers from Anthropic, DeepMind, Hugging Face, and OpenAI. It was founded after CEO Denis Shilov posted one of the most famous universal jailbreaks of leading models in October 2024. Bent on breaking models to conduct thorough safety testing, White Circle helps companies detect and deter threats when implementing advanced AI systems that may not always behave as expected. Testing how well text-to-image models block banned content categories is a key research direction for White Circle, and Shilov thinks their latest findings are “horrifying” enough to share with the public. Simple to bypass In a little-noticed preprint published last month, White Circle researchers exposed flaws in the guardrails of DALL·E 3, Google’s Nano Banana 2, and GPT-Image-2. In a press release, they explained that “using just off-the-shelf tools, available online for anyone to download, and by sending A…",
+   "fonte": "Ars Technica",
+   "tipo": "testata",
+   "solo_titolo": false,
+   "categoria": "Testate tech",
+   "id": "a123",
+   "testo_completo": true
+  },
+  "a113": {
+   "titolo": "Deezer will soon let you filter out AI-generated music",
+   "link": "https://techcrunch.com/2026/10/14/deezer-will-soon-let-you-filter-out-ai-generated-music/",
+   "data": "2026-10-14T15:16:04+00:00",
+   "testo": "Streaming platform Deezer remains steadfast in its intent to help users avoid listening to AI-generated music: The company on Tuesday said it is working on a new toggle that lets users filter out AI-generated music uploaded to its platform. The feature is expected to be available before the end of the year. Deezer said turning on the toggle will stop you from seeing AI-generated tracks, albums, and related artists in search results. “We’ve seen clear user demand for the ability to filter out AI-generated music, and we are now giving everyone the option to remove this content completely from their streaming experience on Deezer, and focus only on human creators and creations, if they wish,” Deezer CEO Alexis Lanternier said in a statement. He added that the explosion of AI music on the platform was one of the catalysts for the toggle-based features. The company cited a survey from last year, which noted that around 45% of Deezer customers wanted a way to remove AI music from their feeds. Deezer added AI-detection tooling last year and has been reporting on the number of tracks being uploaded to the platform ever since. At that time, AI-generated tracks represented 10% of daily uploads. In July, the company said that more than 50% of daily uploads to its platform were AI-generated tracks, with an average of 90,000 tracks per day. Other music streaming services have also created their own policies in relation to AI music. Bandcamp has completely banned AI tracks, while Tidal cut off monetization for people uploading AI music. Spotify has taken a leaner stance, only tagging AI tracks and artists more prominently on its platform. In August, Variety reported that Apple Music was looking to label AI tracks by the end of the year. Besides platform-based tagging, users are also…",
+   "fonte": "TechCrunch",
+   "tipo": "testata",
+   "solo_titolo": false,
+   "categoria": "Testate tech",
+   "id": "a113",
+   "testo_completo": true
+  },
+  "a111": {
+   "titolo": "YouTube Music launches new labels as AI-generated music floods streaming platforms",
+   "link": "https://techcrunch.com/2026/10/14/youtube-music-launches-new-labels-as-ai-generated-music-floods-streaming-platforms/",
+   "data": "2026-10-14T18:23:46+00:00",
+   "testo": "YouTube Music announced Wednesday the rollout of a new labeling system aimed at improving transparency around songs created with the help of generative AI. Now listeners will be able to easily identify tracks created using AI, including those involved in composition and vocals. The label will appear on the player page. Clicking on this label provides additional information about the specific role of AI in the track’s creation. Notably, these labels will also extend to the main YouTube app. YouTube said it collaborated with various music partners and deployed its own detection tools to identify AI-generated music. According to its help page, partners using YouTube can declare their work’s use of generative AI through one of three designations: Fully Gen AI, Partly Gen AI, or No Gen AI. “Fully Gen AI” applies to tracks that are entirely generated by AI, while “Partly Gen AI” refers to works where artists may have incorporated AI-generated components but added their own live elements. Tracks edited using pitch-correction tools such as Auto-Tune fall under the “No Gen AI” category. The move comes as AI-generated music rapidly expands across streaming services, and many platforms are adopting their own approaches. For instance, Apple Music has plans to introduce “Made With AI” labels as part of its AI Transparency Tags later this year. Spotify also has AI labels, as well as a music spam filter. Deezer has taken one of the stricter stances, reporting in July that it was receiving nearly 90,000 fully AI-generated tracks daily. The platform labels detected AI-generated music and excludes it from algorithmic recommendations and editorial playlists, while also withholding royalties from fraudulent streams. The company is also working on an option to let users filter out AI-gener…",
+   "fonte": "TechCrunch",
+   "tipo": "testata",
+   "solo_titolo": false,
+   "categoria": "Testate tech",
+   "id": "a111",
+   "testo_completo": true
+  },
+  "a101": {
+   "titolo": "YouTube sticks new labels on AI-generated songs",
+   "link": "https://www.theverge.com/ai-artificial-intelligence/1011369/youtube-music-ai-label",
+   "data": "2026-10-14T14:22:56-04:00",
+   "testo": "YouTube is adding a “Made with AI” label to tracks that were “altered or fully generated” using AI, with a similar approach to its existing process for applying AI labels to videos. It doesn’t sound like this will apply to any and all use of AI tools in making music, but according to YouTube, it includes things like “using a generative model to create the composition and vocals.” In its rules for music partners who upload their songs, YouTube lays out how to disclose generative AI use, and says that if there’s no disclosure, it may use “other signals” to decide if a song is AI-generated. YouTube sticks new labels on AI-generated songs New AI labels are marking tracks created ‘primarily’ with generative AI tools, starting first on YouTube Music. The label is rolling out starting today in the YouTube Music app, and expanding to the main YouTube app later. You’ll be able to see more details by tapping the label on the player page: When you listen to a track on YouTube Music where AI played a significant role, you’ll see a label directly on the player page. Tapping the label opens a simple menu that shares more information. We’re teaming up with music partners and using our own detection tools to identify AI-generated tracks, applying the same labeling principles already used across YouTube. Our goal is to make it as easy as possible for viewers and listeners to have the right information and clarity when it comes to the music they listen to. Spotify launched a voluntary AI label earlier this year and said that it wouldn’t recommend songs from “AI personas,” and Apple Music is also reportedly getting an AI tag. Other music platforms are taking things even further to push back against AI-generated music — Deezer added a switch for filtering out AI tracks, and Bandcamp banne…",
+   "fonte": "The Verge",
+   "tipo": "testata",
+   "solo_titolo": false,
+   "categoria": "Testate tech",
+   "id": "a101",
+   "testo_completo": true
+  },
+  "a133": {
+   "titolo": "OpenAI dev arrested 🚨, Pi API 🤖, OpenCode 2.0 🧑‍💻",
+   "link": "https://tldr.tech/ai/2026-10-14",
+   "data": "2026-10-14T00:00:00+00:00",
+   "testo": "",
+   "fonte": "TLDR AI (newsletter)",
+   "tipo": "aggregatore",
+   "solo_titolo": true,
+   "categoria": "Testate tech",
+   "id": "a133"
+  },
+  "a45": {
+   "titolo": "NVIDIA RTX Spark Local AI Gains Agents, Adobe Speedups, and DLSS 5",
+   "link": "https://news.google.com/rss/articles/CBMidEFVX3lxTFBxbHc5Y3ZDLTgzWUdQMllfLXlzaDVsWmlZMlBFXy0tcUh2d3VCLVFZOWktZmdVQm80S1lZa1h0YVd5QVZDWU9fckQ1WkU1SVFaWVVPcU1RcGo2eTlUTTVkNV9TMzdFTVRrTi1GT19od1RxTjE5?oc=5",
+   "data": "2026-10-14T16:28:53+00:00",
+   "testo": "",
+   "fonte": "Techaeris",
+   "tipo": "minore",
+   "solo_titolo": true,
+   "categoria": "Strumenti",
+   "id": "a45"
+  },
+  "a64": {
+   "titolo": "Gemini 4 Argon is now available for developers.",
+   "link": "https://blog.google/innovation-and-ai/technology/developers-tools/build-with-gemini-4-argon/",
+   "data": "2026-10-13T16:00:00+00:00",
+   "testo": "Gemini 4 Argon is now available for developers. Starting today, developers can build with Gemini 4 Argon, our frontier model for complex workflows across real-world software engineering, enterprise knowledge work, and cybersecurity defense. Gemini 4 Argon is designed for those long-horizon workflows that require deep reasoning and structural precision, including code migrations and frontier research. By handling the multi-step problems with ease, it lets you focus on building and shipping great products. Start building using the paid tier of the Gemini API in Google AI Studio and Android Studio, and Google AI Ultra subscribers can try it in AI Studio, and our agent-first development platform, Google Antigravity. To get started: - Check out the Gemini API Developer Guide for model details and setup instructions. - Read the Google Antigravity blog for details on using Argon in our agent-first development platform. - Read the Android Studio blog to see how Android Developers can start building. - See how you can use Gemini 4 Argon for robotics.",
+   "fonte": "Google Gemini (blog)",
+   "tipo": "ufficiale",
+   "solo_titolo": false,
+   "categoria": "Laboratori",
+   "id": "a64",
+   "testo_completo": true
+  }
+ },
+ "fonti": [
+  {
+   "nome": "Product Hunt (AI)",
+   "ok": true,
+   "presi": 15
+  },
+  {
+   "nome": "Show HN (nuovi progetti)",
+   "ok": true,
+   "presi": 3
+  },
+  {
+   "nome": "Nuove app AI (internazionale)",
+   "ok": true,
+   "presi": 10
+  },
+  {
+   "nome": "Nuove app AI (Italia)",
+   "ok": true,
+   "presi": 8
+  },
+  {
+   "nome": "Novità AI da provare (Italia)",
+   "ok": true,
+   "presi": 4
+  },
+  {
+   "nome": "AI sul dispositivo (internazionale)",
+   "ok": true,
+   "presi": 8
+  },
+  {
+   "nome": "AI sul dispositivo (Italia)",
+   "ok": true,
+   "presi": 5
+  },
+  {
+   "nome": "OpenAI",
+   "ok": true,
+   "presi": 4
+  },
+  {
+   "nome": "Google (blog ufficiale)",
+   "ok": true,
+   "presi": 5
+  },
+  {
+   "nome": "Google Gemini (blog)",
+   "ok": true,
+   "presi": 3
+  },
+  {
+   "nome": "Nuove funzioni AI (Google News)",
+   "ok": true,
+   "presi": 12
+  },
+  {
+   "nome": "Anthropic / Claude",
+   "ok": true,
+   "presi": 6
+  },
+  {
+   "nome": "Microsoft Copilot",
+   "ok": true,
+   "presi": 5
+  },
+  {
+   "nome": "Altri assistenti AI (Perplexity, Mistral, Meta AI…)",
+   "ok": true,
+   "presi": 8
+  },
+  {
+   "nome": "The Verge",
+   "ok": true,
+   "presi": 10
+  },
+  {
+   "nome": "TechCrunch",
+   "ok": true,
+   "presi": 12
+  },
+  {
+   "nome": "Ars Technica",
+   "ok": true,
+   "presi": 6
+  },
+  {
+   "nome": "MIT Technology Review",
+   "ok": true,
+   "presi": 0
+  },
+  {
+   "nome": "The Decoder",
+   "ok": true,
+   "presi": 8
+  },
+  {
+   "nome": "TLDR AI (newsletter)",
+   "ok": true,
+   "presi": 1
+  },
+  {
+   "nome": "ANSA",
+   "ok": true,
+   "presi": 6
+  },
+  {
+   "nome": "Wired Italia",
+   "ok": true,
+   "presi": 0
+  },
+  {
+   "nome": "Il Sole 24 Ore Tecnologia",
+   "ok": true,
+   "presi": 2
+  },
+  {
+   "nome": "Punto Informatico",
+   "ok": true,
+   "presi": 5
+  },
+  {
+   "nome": "HDblog",
+   "ok": true,
+   "presi": 2
+  },
+  {
+   "nome": "Reddit",
+   "ok": true,
+   "presi": 8
+  },
+  {
+   "nome": "Reddit (AI locale)",
+   "ok": true,
+   "presi": 5
+  },
+  {
+   "nome": "Bellingcat (guide e strumenti)",
+   "ok": true,
+   "presi": 0
+  },
+  {
+   "nome": "GIJN (guide per giornalisti investigativi)",
+   "ok": false,
+   "errore": "HTTP Error 403: Forbidden",
+   "presi": 0
+  },
+  {
+   "nome": "OSINT – verifica e fact-checking (internazionale)",
+   "ok": true,
+   "presi": 5
+  },
+  {
+   "nome": "OSINT – nuovi strumenti (internazionale)",
+   "ok": true,
+   "presi": 6
+  },
+  {
+   "nome": "OSINT – strumenti (Italia)",
+   "ok": true,
+   "presi": 2
+  },
+  {
+   "nome": "Reddit (OSINT)",
+   "ok": true,
+   "presi": 1
+  },
+  {
+   "nome": "Hacker News (OSINT)",
+   "ok": false,
+   "errore": "HTTP Error 502: Bad Gateway",
+   "presi": 0
+  }
+ ],
+ "visti": [
+  "auroralifeline",
+  "adant20",
+  "dailydevforagents",
+  "writerzroom",
+  "kugel35",
+  "rolefit",
+  "hindsight10memlake",
+  "editui",
+  "slashdocsbyrazorpay",
+  "applehomepodmini2",
+  "nimble",
+  "cravelens",
+  "pixlate",
+  "harnesshive",
+  "vibesmonitorcom",
+  "ibuiltatooltotrackwhataileaderssayandhowtheirviewschange",
+  "pulselocalamacbudgetingappwhoseaimodelsrunonyourmachine",
+  "parsimonyanopensourcebenchmarkforhowmuchcodeaimodelsadd",
+  "norfolknewportnewspolicelaunchaitoolfornonemergencycalls",
+  "democraticlawmakersopposeaitoolusedatdcareaairports",
+  "googlelaunchesdeepreviewaitooltohelpresearcherscatchmanuscripterrors",
+  "revievelaunchesbeautyllmsuiteforaiassistantera",
+  "aitrackersukilands90m",
+  "freesextsexaiapponlinewithprivacyandsafetyfeatures",
+  "lawmakersaskfaatopausesmartaitoolatwashingtonareaairports",
+  "cronerintelligencelaunchesworkflowsaitooltodraftletters",
+  "manulifelaunchesnewadvisoraiassistantexpandingaienabledunderwritingsupportforadv",
+  "manulifefinanciallaunchesaiassistantforprovidingunderwritingguidancetoadvisers",
+  "dopoiltumorealsenolintelligenzaartificialecercairischinascostilanuovafrontierade",
+  "lintelligenzaartificialesbarcasullappdiyoutubearrivalafunzioneask",
+  "rebelottlanuovasocietàdedicataallaproduzionevideoconintelligenzaartificiale",
+  "lintelligenzaartificialearrivanelleauleticinesi",
+  "èarrivatoilnuovolauncherdiepicgamesedèmoltopiùveloce",
+  "welfaredigitalelitaliaèprimaineuropamaibenefitrestanonelcassetto",
+  "intelligenzaartificialelanuovasfidaèportarlaalivelloindustrialeilmanifestodellac",
+  "bordeauxindexlancialapplivetradeperportareiltradingdeigrandivinisuglismartphone",
+  "profschettinifaunesperimentosuchatgptconglistudentibellissimoilconsigliosucomeus",
+  "geminipotrebbechiamareamiciefamiliarialpostotuo",
+  "comeusaregptstoresuchatgptguidacompletafunzionieconsiglipratici",
+  "comeguadagnareconchatgpt10ideeconcreteperfaresoldiconlintelligenzaartificiale",
+  "areaigirlfriendchatsprivatevirtualgirlfriendbenefitsforadults",
+  "googleplayunveilsprivateaiappcreationcodeyourownappswithoutdeveloperfees",
+  "liquidaireleaseslfm2524ba2bforlocalaiworkflows",
+  "localaiweekly5aigetsadeskjob",
+  "nvidiartxsparklocalaigainsagentsadobespeedupsanddlss5",
+  "googlemessagesrollsoutenhancedprotectionmodetofightscams",
+  "thegooglepixelcameraisimpressivebutanotherhardwarefeaturestandsout",
+  "hpzbookultrag3a16launchesinindiawithlocalaifocusandamdryzenaimaxprochips",
+  "febbredajailbreaklaps5diventaancheunminidatacenterailocale",
+  "googlemessaggiprotezioneantitruffacongeminisuandroid",
+  "celtavigojuventusstreaminggratisdovevederlaliveoggi",
+  "rtxsparkilaptoparrivanovenerdì16ottobreconlailocalepronta",
+  "googleaistudioaprelacreazionediappandroidgratis",
+  "ampputsaiagentstoworkbeyondcodewithopenaimodels",
+  "howthirdmomentresearchruns10000agentsfor36hours",
+  "howblockisbuildingaipoweredsecuritywithopenaitechnology",
+  "theeusnextchapterinaiisagentic",
+  "research2026novelcapabilitiesandintelligence",
+  "17organizationsusingaitoacceleratescientificbreakthroughs",
+  "werepoweringeuropeanscientificdiscoverywithadvancedaicomputeandfrontiermodels",
+  "enablinganaifirsteuropeaneconomy",
+  "developinggemini4argonresponsiblyandsafely",
+  "gemini4argoncomestothegeminiapp",
+  "gemini4argonisnowavailablefordevelopers",
+  "gemini4argonbuilttosolveyourhardestproblems",
+  "googlelaunchesageminiaiagentforbusinesses2026",
+  "chatgptlaunchesnewantigunaipoliciesonedayaftereverytownrecommendsnewantigunaipol",
+  "metlifelauncheschatgptpluginforpetinsurancequotesandapplications",
+  "metlifelauncheschatgptintegrationforpetinsurance",
+  "googlerollsoutgemini4argonexcludingfreeusers",
+  "aroyalaunchesconnectorlinkingcannabiscultivationdatatoclaudeandchatgpt",
+  "revenuegrowthagentlaunchesmodelcontextprotocolconnectorbringingcompanyspecificsa",
+  "axilaunchesmcpintegrationconnectingmt5accountstoclaude",
+  "googlelaunchesgemini4argonaimodel",
+  "liltlaunchesinopenaisplugindirectorybringingonbrandverifiedtranslationdirectlyin",
+  "googlejustupgradedgeminisparkwith37flashhereiswhatchanged",
+  "googlelaunchesitspowerfulgemini4argonaimodel",
+  "preparingforthe2026usmidterms",
+  "anthropictoaddusvotinginformationtoclaudebeforemidterms",
+  "claudejustfoundacrisprlikednapatternbutevenanthropicsscientistsarentsurewhatitdo",
+  "anthropiccutoffclaudeusersforelectionrelatedabuses",
+  "anthropicsclaudeaitoofferofficialusvotinginformationaheadof2026midterms",
+  "policereceivefakemurdertipfromanthropicsclaudeai",
+  "odensekommunedrivesaipoweredmodernizationwithmicrosoft365copilot",
+  "aimicrosoftscopilotevolvingtoacostcoofaiairtz1240",
+  "microsoftcopilotjustimplementedusagepricinghowtoensureyourteamscreativefreedomdo",
+  "microsoftcopilotaipredictsunbelievablechainklinklinkprice",
+  "youreprobablyoverlookingthesemicrosoft365tools",
+  "spacexailaunchesgrokvoice30",
+  "appleintelligencecouldfinallylaunchinchinathisdecember",
+  "samsungexpandsgalaxyaiandbixbytomorelanguages",
+  "appleiphoneduollmfilingcompletedappleintelligencetongyiqianwenmorefeatured",
+  "grokvoice30launchesalreadyhandlingstarlinkandteslacallsbasenor",
+  "threeinonexlaunchesaunifiedsubscriptionforpremiumgrokandcursorrootnationcom",
+  "raybanmetaownerssaytheirglassesarelisteningwithoutbeingasked",
+  "xisbundlingitssocialnetworkwithgrokandcursor",
+  "mckinseyismakingjobapplicantssparwithafakeaiclient",
+  "eightstatessueopenaisayingchatgptisntsafeforkids",
+  "theairaceisbackon",
+  "nowthatcharacteraiisgoingbankruptwhathappenstoallofitsusersdata",
+  "youtubesticksnewlabelsonaigeneratedsongs",
+  "myaidoppelgangertellsmewhattoeat",
+  "openaiclaimsanexemployeetookitsproductplansandpresentedthemtoapple",
+  "microsofthasanewmachinelearningtooltoimproveweatherforecasts",
+  "squaresnewkioskletsyoutalktoaiforhelpwithyourorder",
+  "androidisusingaitosussoutscammersingooglemessages",
+  "figmaannouncesnewfeaturestodefinehowagentsworkonitsplatform",
+  "ricursiveintelligenceisbettingonaidesignedchipstohelpsolvethecomputecrisis",
+  "gudealeveragesaitohelporganizationspreventsocialmediacrisesbeforetheyerupt",
+  "flockceosaysitsmicrophonesdetectjustgunshotsitswebsitesaysdifferent",
+  "youtubemusiclaunchesnewlabelsasaigeneratedmusicfloodsstreamingplatforms",
+  "apatesendsaiagentsundercovertogetscammedsotheycangatherfraudintelligence",
+  "deezerwillsoonletyoufilteroutaigeneratedmusic",
+  "save50onyourtechcrunchdisrupt2026ticketandjointhelast2daysinsanfranciscosmoscone",
+  "zenzapraises44mforitsaichatappthataimstoreplacewhatsappintheworkplace",
+  "floqersaiagentsresearchsalesprospectssoteamsdonthaveto",
+  "techcrunchdisrupt2026day2",
+  "scimplifyraises25mtochallengechinasgriponcriticalmaterialswithai",
+  "epicsaysitsnewvibecodedepicgameslauncherisfasterthansteam",
+  "researchersuseaitodesignproteinsthatcutupotherproteins",
+  "recordingdevicehiddenintoiletpaperfoundintopsecretopenaimeetingroom",
+  "anthropicwarnssmallaimodelscouldselfreplicatethroughiotdevices",
+  "openaigooglepushingnewaimodelseasilytrickedintomakingnudesresearcherssay",
+  "disneyoffers20mforcharacteraisscandalplaguedchatbottech",
+  "googlesaysselfimprovingaiisntanywhereclose",
+  "researcherstrackeddownaroguefleetofchineseaiagentsinthewildandactuallytalkedtoit",
+  "openaiwillreportedlyshipatleastonemodelthisyearbutitsflagshipstillneedsalignment",
+  "nvidiasjensenhuangpledges2billionforeurope250millionincomputeforuksafetylabs",
+  "aiguardrailsdesignedtostophackersarenowblockingdefendersandorion1aimstofillthega",
+  "allegedopenaispyvibecodedasurveillancedeviceusinghiswifeschatbotaccount",
+  "406scientistsdemandaimodelsbecutofffromtheinternetimmediately",
+  "gemini4argonisnowavailableworldwideasgooglesmostcapablefrontiermodel",
+  "openaidevarrestedpiapiopencode20",
+  "seed2026il15siparladispaziointelligenzaartificialeecittàdelfuturo",
+  "dedicatoallintelligenzaartificialeorizzontidigitalidiconfindustriaumbria",
+  "openaiagentidiintelligenzaartificialeinrapidacrescitatraaziendeepmiue",
+  "dedicatoallintelligenzaartificialeorizzontidigitalidiconfindustriaumbria2",
+  "seequentlanciaimagolanalisidelleimmaginibasatasullintelligenzaartificialeperacce",
+  "liaconquistalasferaemotivamedicideiserdcèrischiodidipendenza",
+  "selaiimparaareplicarsicodicimalevoliautonomipotrebberoinvadereelettrodomesticiet",
+  "laviafranceseallintelligenzaartificialecosìparigiblindalasuasovranitàtecnologica",
+  "epicgamesannunciailnuovolauncherefornitesulinux",
+  "googlecreaaiantitruffacheanalizzaimessaggisullosmartphone",
+  "ilsofisticatodispositivochespiavaopenaicosta1399dollari",
+  "oltre400scienziatichiedonolasupervisionedellai",
+  "inizianoafumareperchécredonochelaicureràilcancroèfollia",
+  "dipendenteopenaicoltoaspiareleriunionideidirigentiarrestatodallfbi",
+  "siriaiarriveràanchesugliapplehomepoddisecondagenerazione",
+  "isaidthenwordonceandallhisanswersarelikethisdidibreakem",
+  "twoaiagentsinajobinterviewandneitheroneknowshowtohangup",
+  "iletclaudehireitsfirstemployeeitchosearock",
+  "thefutureisbleak",
+  "whatisanailifehackthatpeopledontseemtoknowyet",
+  "wherewereyouwhenchatgptkilledbigpharma",
+  "outofgemini4argonusageafter10messages",
+  "pelicanbenchmarkwithgptgeminiclaude",
+  "nvidianemotronbolt3574ba9breleasesoct15th",
+  "theairacechinasopenweightmodelstrailusclosedmodelsbyjust7months",
+  "thanksgooglefordowngradingmyfeaturesandkeepingthepricingthesame",
+  "anthropicexecutivesaysopensourceaimodelsarehigherrisk",
+  "nvidiasnemotron35bolt74bbrings74baimodelstolocalhardware",
+  "nolabourhasntpromisedtomakejacindaardernnzgovernorgeneral",
+  "mpcurgesottawatomoveaheadwithcraincomeverification",
+  "videoofanticaaprotestsharedasdelhipoliceattackingrahulgandhishouse",
+  "videofromphilippinesfalselysharedasoneshowingprotestsindelhi",
+  "factcheckdidanmkjudgereportdennyindrayanaovergibransdiplomacase",
+  "ukrainianosintchannelrussiaturnedabarefieldintoageran5launchsiteinamonthanddrone",
+  "linealbuysswissfirmforentectodeepencyberandinvestigationsreach",
+  "russiabuiltnewmillerovodronebaseforgeran5uavsinonemonthsatelliteimages",
+  "oneofsberbankslargestdatacenterswasattackedforthefirsttimeinthesaratovregionofth",
+  "howquicklycanrussiabuildadronebase",
+  "russiabuiltadronelaunchsitenearrostovinonemonthforlaunchingjetpoweredsuicidedron",
+  "phishingaziendaleperchéidipendentiformaticliccanocomunque",
+  "informaticaforenseagenovailfuturodelleprovedigitalitraaiedeepfake",
+  "osintofslovenia"
+ ],
+ "audio": "audio/2026-10-15.mp3",
+ "durata": 176.6
+}
