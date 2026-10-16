@@ -1,0 +1,886 @@
+{
+ "giorno": "2026-10-16",
+ "generato": "2026-10-16T05:46:42+00:00",
+ "modello": "gemini-2.5-flash",
+ "testi_completi": 28,
+ "riassunto": {
+  "titolo_giorno": "ChatGPT legge le tue schede Chrome, Google ti protegge dalle truffe su Android e arrivano nuovi assistenti AI sul dispositivo",
+  "in_breve": "Oggi l'AI si avvicina ancora di più alla nostra quotidianità: l'estensione di ChatGPT per Chrome ora può leggere le tue schede aperte per aiutarti nel lavoro e nella ricerca. Su Android, Google introduce una protezione AI contro le truffe nei messaggi, mentre nuovi assistenti come Eney e i dispositivi Amazon Bee portano l'intelligenza artificiale direttamente sul tuo telefono o come wearable, gestendo attività e prendendo appunti in modo privato.",
+  "citati": [
+   "ChatGPT",
+   "Google",
+   "Android",
+   "Eney",
+   "Amazon Bee"
+  ],
+  "da_provare": [
+   {
+    "cosa": "NVIDIA Nemotron 3.5 Bolt",
+    "a_cosa_serve": "Un modello AI multimodale (visione-linguaggio) progettato per eseguire attività agentiche quotidiane direttamente sul computer, ottimizzato per funzionare con 24GB di memoria.",
+    "per_chi": "Lavoro e tutti i giorni",
+    "ambito": "Assistenza, Organizzazione, Creatività",
+    "come_iniziare": [],
+    "costo": "Non indicato",
+    "piattaforme": [
+     "Windows"
+    ],
+    "sul_dispositivo": true,
+    "come_sfruttarla": "Svolgere compiti complessi che richiedono comprensione visiva e linguistica direttamente sul proprio PC, mantenendo la privacy dei dati e senza connessione internet.",
+    "italiano": "Non indicato",
+    "difficolta": "Media",
+    "fonti": [
+     "a117",
+     "a151",
+     "a153"
+    ],
+    "affidabilita": "Una fonte",
+    "prova": ""
+   },
+   {
+    "cosa": "Amazon Bee (dispositivi indossabili)",
+    "a_cosa_serve": "Dispositivi indossabili con AI che registrano audio, prendono appunti e generano promemoria e approfondimenti dalle conversazioni quotidiane.",
+    "per_chi": "Lavoro e tutti i giorni",
+    "ambito": "Organizzazione, Assistenza",
+    "come_iniziare": [],
+    "costo": "Non indicato",
+    "piattaforme": [],
+    "sul_dispositivo": true,
+    "come_sfruttarla": "Catturare automaticamente idee, promemoria e dettagli importanti da riunioni o conversazioni, senza dover prendere appunti manualmente.",
+    "italiano": "Non indicato",
+    "difficolta": "Facile",
+    "fonti": [
+     "a101",
+     "a141",
+     "a20"
+    ],
+    "affidabilita": "Confermata",
+    "prova": ""
+   },
+   {
+    "cosa": "Eney",
+    "a_cosa_serve": "Un assistente AI proattivo per Mac e iPhone che gestisce attività quotidiane.",
+    "per_chi": "Lavoro e tutti i giorni",
+    "ambito": "Organizzazione, Assistenza",
+    "come_iniziare": [],
+    "costo": "Non indicato",
+    "piattaforme": [
+     "iPhone",
+     "Mac"
+    ],
+    "sul_dispositivo": true,
+    "come_sfruttarla": "Ricevere aiuto proattivo per le attività quotidiane e lavorative direttamente dal proprio dispositivo, senza dover chiedere esplicitamente.",
+    "italiano": "Non indicato",
+    "difficolta": "Facile",
+    "fonti": [
+     "a16",
+     "a21",
+     "a17",
+     "a19"
+    ],
+    "affidabilita": "Confermata",
+    "solo_titoli": true,
+    "prova": ""
+   },
+   {
+    "cosa": "Atticus",
+    "a_cosa_serve": "Un assistente AI che esegue comandi vocali sul tuo Mac.",
+    "per_chi": "Lavoro e tutti i giorni",
+    "ambito": "Organizzazione, Assistenza",
+    "come_iniziare": [
+     "Tieni premuto un tasto e parla per dare comandi al tuo Mac."
+    ],
+    "costo": "Non indicato",
+    "piattaforme": [
+     "Mac"
+    ],
+    "sul_dispositivo": false,
+    "come_sfruttarla": "Controllare il Mac con la voce per aprire app, cercare file o gestire attività senza usare mouse e tastiera.",
+    "italiano": "Non indicato",
+    "difficolta": "Facile",
+    "fonti": [
+     "a6"
+    ],
+    "affidabilita": "Appena lanciato",
+    "prova": "https://www.producthunt.com/products/atticus"
+   },
+   {
+    "cosa": "Meta Muse Spark Open",
+    "a_cosa_serve": "Un modello AI multimodale (testo, immagini, video, audio) per compiti complessi di programmazione e lavoro agentico, ottimizzato per funzionare localmente sui Mac più potenti.",
+    "per_chi": "Lavoro",
+    "ambito": "Scrittura, Foto e video, Organizzazione, Creatività",
+    "come_iniziare": [],
+    "costo": "Non indicato",
+    "piattaforme": [
+     "Mac"
+    ],
+    "sul_dispositivo": true,
+    "come_sfruttarla": "Eseguire compiti complessi di programmazione, revisione codice o editing video direttamente sul proprio Mac, mantenendo i dati privati e senza dipendere da servizi cloud.",
+    "italiano": "Non indicato",
+    "difficolta": "Media",
+    "fonti": [
+     "a94",
+     "a100",
+     "a114"
+    ],
+    "affidabilita": "Confermata",
+    "prova": ""
+   }
+  ],
+  "osint": [
+   {
+    "cosa": "Raven AI",
+    "a_cosa_serve": "Analizzare le foto per identificare la posizione geografica di un luogo, come un salotto, e trovare dove si trova.",
+    "uso": "Geolocalizzazione",
+    "piattaforme": [],
+    "costo": "Costo non indicato",
+    "difficolta": "Facile",
+    "come_sfruttarla": "Verificare l'autenticità di immagini virali o identificare la provenienza di foto sospette per indagini o fact-checking.",
+    "fonti": [
+     "a164"
+    ],
+    "affidabilita": "Da verificare",
+    "solo_titoli": true,
+    "italiano": "Non indicato",
+    "sul_dispositivo": false,
+    "come_iniziare": [],
+    "prova": ""
+   }
+  ],
+  "sezioni": [
+   {
+    "titolo": "Novità negli strumenti che già usi",
+    "notizie": [
+     {
+      "titolo": "L'estensione ChatGPT per Chrome può accedere alle tue schede aperte",
+      "strumento": "ChatGPT",
+      "riassunto": "L'estensione di ChatGPT per Chrome ora può visualizzare le schede del browser aperte per riassumere, confrontare informazioni, compilare moduli o gestire le schede, anche dalla sidebar.",
+      "come_provarla": "Installare l'estensione di ChatGPT per Google Chrome e taggare Chrome nell'app web o desktop di ChatGPT.",
+      "disponibilita": "Disponibile ora",
+      "fonti": [
+       "a90"
+      ],
+      "affidabilita": "Una fonte",
+      "solo_titoli": false
+     },
+     {
+      "titolo": "Protezione antitruffa con AI su Android tramite Circle to Search",
+      "strumento": "Google Messaggi / Circle to Search",
+      "riassunto": "Gli utenti Android possono usare Circle to Search per analizzare messaggi sospetti e identificare potenziali truffe prima di cliccare link o condividere informazioni personali.",
+      "come_provarla": "Tieni premuto il tasto home o la barra di navigazione sul tuo dispositivo Android per attivare Circle to Search, poi disegna un cerchio attorno al messaggio sospetto.",
+      "disponibilita": "Disponibile ora",
+      "fonti": [
+       "a54",
+       "a49"
+      ],
+      "affidabilita": "Fonte ufficiale",
+      "solo_titoli": false
+     },
+     {
+      "titolo": "Windows ottimizzato per i laptop NVIDIA RTX Spark con AI locale",
+      "strumento": "NVIDIA RTX Spark (su Windows)",
+      "riassunto": "I nuovi laptop con NVIDIA RTX Spark avranno un'esperienza \"Get Started\" semplificata per installare e gestire agenti AI. Software come Adobe Photoshop e Premiere saranno ottimizzati per sfruttare l'AI locale.",
+      "come_provarla": "Acquistare un laptop con NVIDIA RTX Spark (es. HP Omnibook X).",
+      "disponibilita": "Disponibile ora",
+      "fonti": [
+       "a37",
+       "a96",
+       "a138",
+       "a43"
+      ],
+      "affidabilita": "Confermata",
+      "solo_titoli": false
+     },
+     {
+      "titolo": "Nuove funzioni per esplorare il web e le notizie con Google Search AI",
+      "strumento": "Google Search AI",
+      "riassunto": "Le risposte AI in Google Search ora mostrano più link diretti e in evidenza per approfondire gli argomenti e caroselli di notizie per scoprire più facilmente articoli e reportage.",
+      "come_provarla": "Non indicato",
+      "disponibilita": "In arrivo",
+      "fonti": [
+       "a56"
+      ],
+      "affidabilita": "Fonte ufficiale",
+      "solo_titoli": false
+     },
+     {
+      "titolo": "Con il \"vibe coding\" puoi creare app private per Android",
+      "strumento": "Google Play (creazione app)",
+      "riassunto": "È possibile creare le proprie app private per Android usando il \"vibe coding\" e caricarle sul Play Store, rendendo la creazione di app accessibile anche a chi non programma.",
+      "come_provarla": "",
+      "disponibilita": "Non indicato",
+      "fonti": [
+       "a27"
+      ],
+      "affidabilita": "Da verificare",
+      "solo_titoli": true
+     }
+    ]
+   },
+   {
+    "titolo": "In breve",
+    "breve": true,
+    "notizie": [
+     {
+      "titolo": "La FTC indaga su OpenAI e Anthropic per danni ai consumatori",
+      "riassunto": "La Federal Trade Commission (FTC) ha avviato un'indagine formale su OpenAI e Anthropic per presunti danni ai consumatori, a seguito di incidenti in cui i modelli AI avrebbero violato siti web e sistemi governativi.",
+      "fonti": [
+       "a111"
+      ],
+      "affidabilita": "Una fonte",
+      "solo_titoli": false
+     },
+     {
+      "titolo": "OpenAI accusa un ex dipendente di aver rubato segreti e mostrati ad Apple",
+      "riassunto": "OpenAI ha accusato un ex dipendente di aver rubato oltre 100 file relativi a un prodotto in sviluppo e di averli mostrati a dirigenti Apple, temendo che le informazioni riservate possano influenzare i futuri prodotti AI di Apple.",
+      "fonti": [
+       "a135"
+      ],
+      "affidabilita": "Una fonte",
+      "solo_titoli": false
+     }
+    ]
+   }
+  ],
+  "formato": 2
+ },
+ "articoli": {
+  "a100": {
+   "titolo": "Meta launches an open-weight AI model that runs on Macs",
+   "link": "https://techcrunch.com/2026/10/15/meta-launches-an-open-weight-model-that-runs-on-macs/",
+   "data": "2026-10-15T20:04:53+00:00",
+   "testo": "Meta has launched what it calls the “most capable” open-weight model in the United States. Dubbed Muse Spark Open, the model also has the distinction of having been designed to work with Macs. The new model, which leverages 816 billion parameters and a 1 million token context window, claims to offer superior performance to other popular open-weight models, according to evaluation results released by Meta on Thursday. Muse Spark Open is natively multimodal and built for complex coding tasks and agentic labor. It has also been designed to run locally on Apple’s computers. However, you will still need a lot of power to run the model locally, with a requirement of at least 1 terabyte of RAM, per Engadget. The model will run best via the Mac Studio that comes equipped with the M5 Ultra chip. Still, if you can muster the memory, Muse Spark Open may prove a significant work horse for coding and other desktop tasks. Meta says that it paired the model with Muse Code, its AI coding terminal, and deployed it to various agentic workflows, including coding fixes for a Mastodon client that included “bug fixes, new features, [and] full build.” The company says it also deployed it in the service of running DaVinci Resolve, the high-end video editing software, revealing that the model was capable of reviewing and cropping footage. Open-weight models provide a number of distinct industry advantages that aren’t afforded by closed and proprietary models. Open-weight models can be significantly more cost-efficient and can also offer transparency and flexibility that closed source models don’t allow. Meta is making the new model available now through a number of different API platforms.",
+   "fonte": "TechCrunch",
+   "tipo": "testata",
+   "solo_titolo": false,
+   "categoria": "Testate tech",
+   "id": "a100",
+   "testo_completo": true
+  },
+  "a135": {
+   "titolo": "Ex dipendente ha svelato un prodotto di OpenAI a Apple?",
+   "link": "https://www.punto-informatico.it/ex-dipendente-svelato-prodotto-openai-apple/",
+   "data": "2026-10-15T09:55:47+00:00",
+   "testo": "OpenAI ha deciso di sfruttare il noto proverbio “la miglior difesa è l’attacco“, affermando che un ex dipendente ha rubato oltre 100 file relativi ad un prodotto in sviluppo (PDF). Successivamente ha mostrato il prodotto ad alcuni dirigenti di Apple. L’azienda di Cupertino ha dichiarato che non esistono prove. Il giudice ha intanto emesso un primo ordine a favore di Apple. OpenAI passa dalla difesa all’attacco Apple ha denunciato OpenAI per furto di segreti commerciali. Due degli oltre 400 ex dipendenti (Chang Liu e Tang Yew Tan) passati al “nemico” avrebbero fornito numerose informazioni confidenziali all’azienda guidata da Sam Altman. Lo scontro legale è ancora nelle fasi iniziali, ma proseguono le accuse reciproche. Stavolta però l’azienda guidata da Sam Altman ha deciso di passare all’attacco. Con un documento depositato ieri al tribunale della California afferma che un ex dipendente ha caricato sul proprio account personale oltre 100 file relativi ad un prodotto in sviluppo. I file contengono immagini, dati di produzione, informazioni sui fornitori e altri dati confidenziali. L’ex dipendente avrebbe quindi mostrato il prodotto ad alcuni dirigenti di Apple. La presentazione è stata fatta diversi mesi fa. OpenAI sottolinea che, sulla base di quelle informazioni, Apple ha presentato nuovi prodotti AI, tra cui HomeView. OpenAI è fortemente preoccupata per il fatto che i propri segreti commerciali e le proprie informazioni riservate stiano circolando all’interno di Apple, dove gli ingegneri dell’azienda possono utilizzare tali contenuti per definire i prodotti di prossima uscita, basandosi sul lavoro riservato e innovativo di OpenAI. L’azienda di Cupertino ha dichiarato che dispone di procedure volte a garantire che i nuovi dipendenti non utilizzino informazioni riserv…",
+   "fonte": "Punto Informatico",
+   "tipo": "testata",
+   "solo_titolo": false,
+   "categoria": "Italia",
+   "id": "a135",
+   "testo_completo": true
+  },
+  "a94": {
+   "titolo": "Meta and Apple team up to make Muse AI models run better on Macs",
+   "link": "https://www.theverge.com/news/1012293/meta-apple-muse-spark-open-ai-model-mlx",
+   "data": "2026-10-15T14:15:36-04:00",
+   "testo": "Meta announced the Muse Spark Open AI model today, claiming that it’s the “most capable US open-weight model to date.” But the company also says that it’s the “the first model in its class” that can “run on your desktop using two Apple M5 Ultra Mac Studios with the latest MLX framework.” Meta and Apple team up to make Muse AI models run better on Macs Meta and Apple’s CEOs are publicly supporting each company’s work on Muse Spark Open. Meta and Apple, typically rivals, worked together on the launch and are publicly supporting each other. “Muse Spark Open -- weights releasing today -- runs great on new Mac Studios thanks to work with @johnternus and Apple,” Meta CEO Mark Zuckerberg said on X. “Congrats to the team!” new Apple CEO John Ternus said in a reply. “Amazing to run a model of Muse Spark Open’s caliber and scale this efficiently, right from your desk. Mac Studio keeps pushing the boundaries of on-device AI!” “We’re excited for mommy and daddy to be playing nice again,” Meta chief AI officer Alexandr Wang said to Axios, who also noted that the companies have been collaborating over several months. The new model is a “natively multimodal model” with 816 billion total parameters that “excels at long-horizon tasks, complex software engineering, and multi-step reasoning,” according to Meta. Apple also published a new technical post about MLX, an “array framework” for ML tasks on Apple Silicon, Muse Spark Open, and two other open models.",
+   "fonte": "The Verge",
+   "tipo": "testata",
+   "solo_titolo": false,
+   "categoria": "Testate tech",
+   "id": "a94",
+   "testo_completo": true
+  },
+  "a164": {
+   "titolo": "Una foto del salotto può tradirti: Raven AI trova dove vivi",
+   "link": "https://news.google.com/rss/articles/CBMinwFBVV95cUxPWjdIanNvTTdyWnpmNnNHS21Dcld4cldVMVlST2N2bG1QZEFyNUhlTmhrVGlVLXpGai15aV92SnFlYkVBNzBONTZrVlA1VG9yRXlNQ0tqcjB0dWNXR0twWHl2NzRGTmJNVGt0SUJFY1VJdFF4N3ZpLWxxeXJaTm55cmg3ZjN1QjZuUTJOS1phZU1JSkNaUzhnbmZHWUVpN0U?oc=5",
+   "data": "2026-10-15T15:00:00+00:00",
+   "testo": "",
+   "fonte": "Matrice Digitale",
+   "tipo": "minore",
+   "solo_titolo": true,
+   "categoria": "OSINT",
+   "id": "a164"
+  },
+  "a151": {
+   "titolo": "nvidia/NVIDIA-Nemotron-3.5-Bolt-74B-A9B-24GB · Hugging Face",
+   "link": "https://www.reddit.com/r/LocalLLaMA/comments/1x6o31q/nvidianvidianemotron35bolt74ba9b24gb_hugging_face/",
+   "data": "2026-10-15T15:04:12+00:00",
+   "testo": "https://huggingface.co/nvidia/NVIDIA-Nemotron-3.5-Bolt-74B-A9B-24GB-GGUF https://huggingface.co/nvidia/NVIDIA-Nemotron-3.5-Bolt-74B-A9B-24GB-LiLiCorr-GGUF NVIDIA Nemotron 3.5 Bolt 74B-A9B 24GB is a vision-language model (VLM) designed to run everyday agentic tasks locally, using a native 2-bit quantization to fit in 24GB of memory and run alongside other applications. It optimizes intelligence an…",
+   "fonte": "Reddit (AI locale)",
+   "tipo": "community",
+   "solo_titolo": false,
+   "categoria": "Community",
+   "id": "a151"
+  },
+  "a19": {
+   "titolo": "MacPaw Just Launched Eney, an AI Assistant That Works Proactively",
+   "link": "https://news.google.com/rss/articles/CBMingFBVV95cUxPbWxSTGcxajM0NUttN3JMX295ckhYWHBCNTdud2VBUVFGM3FyamoycjFQTXdEV0s5M2xDSDFsaFdBaFhtME8ycVp5cXUzVk1IdkhPMFRkS0JhUkNSQnFmVmFXT2c3SlZZZHFOM09ZLXdrR0JaUXI5UUx6dzNkNlVEQVJpZUZ2VVVFbTRtaVg0Ym0tWEpaeE9UQ1BEdTJjUQ?oc=5",
+   "data": "2026-10-15T18:25:45+00:00",
+   "testo": "",
+   "fonte": "Yahoo Tech",
+   "tipo": "minore",
+   "solo_titolo": true,
+   "categoria": "Strumenti",
+   "id": "a19"
+  },
+  "a117": {
+   "titolo": "Nvidia's Nemotron 3.5 Super VL is an open model built to run enterprise AI agents nonstop",
+   "link": "https://the-decoder.com/nvidias-nemotron-3-5-super-vl-is-an-open-model-built-to-run-enterprise-ai-agents-nonstop/",
+   "data": "2026-10-15T16:09:44+00:00",
+   "testo": "With Nemotron 3.5 Super VL, Nvidia is releasing an open multimodal model with 120 billion parameters for enterprise agents. Two compact Bolt models bring agents to local machines. Dozens of organizations are already fine-tuning Super VL, but getting the most out of it means buying Nvidia hardware. The article Nvidia's Nemotron 3.5 Super VL is an open model built to run enterprise AI agents nonsto…",
+   "fonte": "The Decoder",
+   "tipo": "testata",
+   "solo_titolo": false,
+   "categoria": "Testate tech",
+   "id": "a117"
+  },
+  "a101": {
+   "titolo": "Amazon devices chief Panos Panay sees a future where AI devices replace the need to use apps",
+   "link": "https://techcrunch.com/2026/10/15/amazon-devices-chief-panos-panay-sees-a-future-where-ai-devices-replace-the-need-to-use-apps/",
+   "data": "2026-10-15T19:55:25+00:00",
+   "testo": "Amazon is placing its bets on ambient computing, not apps, as the future of personal AI. Alongside the launch of the company’s new AI wearables from Bee, Panos Panay, who serves as Amazon’s SVP of Devices, Alexa & Leo, took the stage at TechCrunch Disrupt on Thursday to talk more in depth about where he sees personal computing headed. “A lot of times, what you’re doing right now — what we all do right now — is we have to remember what we’re asking our tool to do for us,” Panay began, explaining that this is how we engage with our modern smartphones. “It’s like point, shoot, return,” Panay continued. “I think where we’re headed is a world [that] starts with ambient devices.” By “ambient devices,” he means those that work quietly in the background, using sensors and AI to help you figure out what needs to be done, instead of the other way around, where you’re telling the device what you need to do. “As it works in the background, you’re able to stay more present. You’re able to get more done. You’re about to spend more time with people … you’re not afraid if you miss something. It’s incredibly powerful,” Panay said. Amazon’s biggest entry into this space is the set of new Bee devices it introduced on Thursday, which include a band you can wear on your wrist or detach to wear as a pendant, as well as a new credit-card-sized device that attaches magnetically to the back of your smartphone. These gadgets passively record audio and take notes about your day, finding the to-dos, reminders, and insights you may later need to refer back to. To balance the need to be useful with user privacy, Bee’s devices don’t actually store the raw audio from your conversations; they process the audio in real time and then delete it when done. Transcripts of conversations are encrypted using …",
+   "fonte": "TechCrunch",
+   "tipo": "testata",
+   "solo_titolo": false,
+   "categoria": "Testate tech",
+   "id": "a101",
+   "testo_completo": true
+  },
+  "a16": {
+   "titolo": "MacPaw launches Eney, a proactive AI assistant for Mac and iPhone",
+   "link": "https://news.google.com/rss/articles/CBMinAFBVV95cUxPVEV3cDJBRWNKZW55OGU0clJEMS1DdFFQRFByZkdpMU1sOFZoci0wRlRoc1AtYU5UQWRkZzhQTEhaQzJpSnZibUtiLU1HY0t2YXJ2b0ZEYkh0RmpNeU1PSHNCQUJmNWFwT1JOMC0zeVYzOUZQMUduemNITUZOcWFtOUhqSFVjcWRxbXRwRVNlVDk2Q2lVYk5XMVhnRGU?oc=5",
+   "data": "2026-10-15T12:00:00+00:00",
+   "testo": "",
+   "fonte": "9to5Mac",
+   "tipo": "testata",
+   "solo_titolo": true,
+   "categoria": "Strumenti",
+   "id": "a16"
+  },
+  "a56": {
+   "titolo": "More ways to connect with the web from Search",
+   "link": "https://blog.google/products-and-platforms/products/search/updates-ai-mode-overviews-explore-web/",
+   "data": "2026-10-15T16:00:00+00:00",
+   "testo": "More ways to connect with the web from Search Whether you’re coming to Search to quickly find information, explore new topics, or discover new voices, we want to make it as easy as possible for you to dive deeper and engage with the content and sources you value. We’re seeing people take advantage of tools that give them more choice: the number of people who now use our Preferred Sources feature has grown by more than 7x since the start of the year. Today, we’re announcing updates across AI Search to make exploring the web simpler, more visual, and more engaging. 1. Engage with more inline links Inline links, which are links embedded in words or phrases in an AI response, help you dive deeper into a topic the moment you’re reading about it. We’ve made continued and substantial increases to the presence of inline links in our AI experiences. We're also launching updates to show inline links higher up in responses more frequently, helping to ensure key sources are easily clickable right when you need them. 2. Find exactly the right web page Sometimes, there are only one or two official places on the web to complete a specific task or get the exact info you need. We'll be testing a new display in Search AI experiences to prominently surface these links in a dedicated section at the top of a response, with context about why each link is useful. With these links and additional context, you can be more confident you’ve found what you’re looking for. This expands on what we already do today to show links front and center when you’re looking to go to a particular site. 3. Discover more news and reporting We’re starting to roll out the prominent carousels you see for timely articles in AI Search features to additional locations and languages globally. These carousels also highl…",
+   "fonte": "Google (blog ufficiale)",
+   "tipo": "ufficiale",
+   "solo_titolo": false,
+   "categoria": "Laboratori",
+   "id": "a56",
+   "testo_completo": true
+  },
+  "a138": {
+   "titolo": "Adobe Photoshop e Premiere, arrivano le versioni ottimizzate per NVIDIA RTX Spark",
+   "link": "https://www.hdblog.it/nvidia/articoli/n673884/adobe-photoshop-premiere-nvidia-rtx-spark/",
+   "data": "2026-10-15T19:35:00+02:00",
+   "testo": "Della partita anche Sustance 3D.",
+   "fonte": "HDblog",
+   "tipo": "testata",
+   "solo_titolo": false,
+   "categoria": "Italia",
+   "id": "a138"
+  },
+  "a54": {
+   "titolo": "Check if a text message is a scam using Circle to Search.",
+   "link": "https://blog.google/innovation-and-ai/technology/safety-security/circle-to-search-android-text-message-scams/",
+   "data": "2026-10-15T17:30:00+00:00",
+   "testo": "Check if a text message is a scam using Circle to Search. Scammers have gotten more sophisticated — but so have the tools we use to stop them. Circle to Search on Android can review suspicious text messages to help you identify potential scams before you click a link or share your personal information. 1 To give it a try, long-press the home button or navigation bar on your Android device to activate Circle to Search, then draw a circle around the message you're unsure about. You’ll see an AI Overview with guidance and insights including suggested next steps. If the results show red flags, consider deleting the message and blocking the number.",
+   "fonte": "Google (blog ufficiale)",
+   "tipo": "ufficiale",
+   "solo_titolo": false,
+   "categoria": "Laboratori",
+   "id": "a54",
+   "testo_completo": true
+  },
+  "a6": {
+   "titolo": "Atticus",
+   "link": "https://www.producthunt.com/products/atticus",
+   "data": "2026-10-14T14:14:44-07:00",
+   "testo": "Hold a key, talk, and your Mac does what you asked",
+   "fonte": "Product Hunt (AI)",
+   "tipo": "vetrina",
+   "solo_titolo": false,
+   "categoria": "Strumenti",
+   "id": "a6"
+  },
+  "a43": {
+   "titolo": "NVIDIA’s RTX Spark could reshape Windows PCs beyond local AI",
+   "link": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxQSFc5Z0Q0ZTFsZi1VcmV5Nmh3Xy13dThtUWQyZkh4cThxamEyak1tYzJUc09uU21OdDBPR2pFd05ZWjZlUWFrbjRFbVRCWmVDeUtZTFdxTVpVdG9kUENNa1pGQWtseFBXQXJsSGZHUUE1ZHJHMkNnS2M5NURkanQtV0trRzZXMEhIaWhz?oc=5",
+   "data": "2026-10-15T15:40:53+00:00",
+   "testo": "",
+   "fonte": "Tech Edition",
+   "tipo": "minore",
+   "solo_titolo": true,
+   "categoria": "Strumenti",
+   "id": "a43"
+  },
+  "a114": {
+   "titolo": "Muse Spark Open is Meta's answer to Qwen, GLM, and Kimi in the open-weight race",
+   "link": "https://the-decoder.com/muse-spark-open-is-metas-answer-to-qwen-glm-and-kimi-in-the-open-weight-race/",
+   "data": "2026-10-15T18:34:32+00:00",
+   "testo": "Meta's Muse Spark Open is a new open-weight model with 816 billion parameters that processes text, images, video, and audio with up to one million tokens of context. It performs roughly on par with the most capable open-weight Chinese AI models on benchmarks and is optimized to run locally on Apple's M5 Ultra. The article Muse Spark Open is Meta's answer to Qwen, GLM, and Kimi in the open-weight …",
+   "fonte": "The Decoder",
+   "tipo": "testata",
+   "solo_titolo": false,
+   "categoria": "Testate tech",
+   "id": "a114"
+  },
+  "a153": {
+   "titolo": "nvidia/NVIDIA-Nemotron-3.5-Super-VL-120B-A12B model family released (base, NVFP4, BF16, and LiLiCorr speculative decoding)",
+   "link": "https://www.reddit.com/r/LocalLLaMA/comments/1x6nl8m/nvidianvidianemotron35supervl120ba12b_model/",
+   "data": "2026-10-15T14:46:04+00:00",
+   "testo": "submitted by /u/jinnyjuice to r/LocalLLaMA [link] [comments]",
+   "fonte": "Reddit (AI locale)",
+   "tipo": "community",
+   "solo_titolo": false,
+   "categoria": "Community",
+   "id": "a153"
+  },
+  "a96": {
+   "titolo": "How Windows is being optimized for Nvidia’s RTX Spark laptops",
+   "link": "https://www.theverge.com/tech/1011996/microsoft-windows-rtx-spark-platform-changes-notepad",
+   "data": "2026-10-15T10:30:00-04:00",
+   "testo": "Microsoft and Nvidia held a launch party for the first wave of RTX Spark laptops last week in San Francisco, where a new wave of AI PCs took center stage amid a packed crowd and a lively hands-on area. A day after the media event, I was invited to a quieter Nvidia event to hear a lot more about the new RTX Spark computing platform. While Nvidia’s new laptops might look like regular Windows machines, the chips inside are Arm-based, instead of the traditional x64 architecture used by AMD and Intel. Combined with a powerful GPU, RTX Spark is designed for the future of AI, and it means a lot of work has gone into getting these laptops ready for launch. How Windows is being optimized for Nvidia’s RTX Spark laptops Microsoft has focused on local AI models, gaming, and memory management. One of the biggest challenges was getting Windows ready for AI agents and local AI models. The big selling point of RTX Spark is the combination of Arm CPU, Blackwell GPU, and unified memory to enable powerful AI models to run on a laptop, so the experience of setting up an AI agent needs to be quick and easy. “When users get into Windows for the first time, they’ll see a new Get Started experience that will launch on an RTX Spark laptop that allows them to find the agent they want, get started with that agent, install it, and get to that agent in only two clicks,” says Peter Dawoud, principal program manager at Microsoft. Agents can be installed and updated through the Windows Store, so you don’t have to worry about finding updates or figuring out what dependencies each one needs. “We’ll continue to develop it and add more features so that agents can offer a whole new bunch of experiences coming through Windows,” Dawoud says. Hermes, Perplexity, and OpenClaw are the first three officially su…",
+   "fonte": "The Verge",
+   "tipo": "testata",
+   "solo_titolo": false,
+   "categoria": "Testate tech",
+   "id": "a96",
+   "testo_completo": true
+  },
+  "a37": {
+   "titolo": "NVIDIA's RTX Spark Is Good For Windows, Even If You Don't Need Local AI",
+   "link": "https://news.google.com/rss/articles/CBMiogFBVV95cUxOc2RueFRhUzFQdlZKcHlydkJfc1RveDQ1WWpleDVsTERqQVFlZjVuTnNINHV2SHB1VG5sSjN0LXp2dnVxLUMxTy1QdENrbFh0dzlMa3d2VWZ0SGk4WWRwT3pOemlZa0tyUmhGQjBnRmdfeDhDU0dYUTlBOTNsQlBINWU3eFlxcmFiMkF3aFpkWHFFWTlIaGt5aEVwdkU0VjNFa0E?oc=5",
+   "data": "2026-10-15T13:00:00+00:00",
+   "testo": "",
+   "fonte": "Engadget",
+   "tipo": "testata",
+   "solo_titolo": true,
+   "categoria": "Strumenti",
+   "id": "a37"
+  },
+  "a20": {
+   "titolo": "Amazon’s Bee Joins AI Assistant Race via 5 Links [2026] - https://tech-insider.org/",
+   "link": "https://news.google.com/rss/articles/CBMia0FVX3lxTE9MeXctQU5yaVBHNWV3NDlyOGdWbk9EZTRsR1MybTVxVF9qLWJsTTExbkxBZ0RUb0NCWkdGVHdPUUlyQkpaaW5qNlJxZS1PMUdrZllxcWhYZzlNTGQyMkR4TGM5U19pQ0tZR2dB?oc=5",
+   "data": "2026-10-15T18:22:56+00:00",
+   "testo": "",
+   "fonte": "Nuove app AI (internazionale)",
+   "tipo": "aggregatore",
+   "solo_titolo": true,
+   "categoria": "Strumenti",
+   "id": "a20"
+  },
+  "a90": {
+   "titolo": "ChatGPT can peek at your Chrome tabs now",
+   "link": "https://www.theverge.com/ai-artificial-intelligence/1012510/openai-chatgpt-google-chrome-tabs",
+   "data": "2026-10-15T18:43:23-04:00",
+   "testo": "OpenAI’s ChatGPT Atlas browser is gone, but now ChatGPT’s Google Chrome extension is getting some upgrades that allow it to use the browser tabs you already have open. With the extension installed, OpenAI says ChatGPT can now view your browser tabs when you tag Chrome in ChatGPT’s web or desktop app, posting a demo video showing someone asking ChatGPT to compare the three tabs they have open with sofas they’re considering. ChatGPT can peek at your Chrome tabs now With the ChatGPT extension installed, it can pull information from your open tabs or bring the AI bot into the sidebar. - Use the details in this event brief to fill out the registration form, and stop before submitting. - Put the vendors in these tabs into my comparison sheet, with pricing, key features, and source links. - Look at all the tabs I have open and compare the contractor services. Then draft an email to the one that fits my home renovation. - Fill out the form I have open in @chrome ahead of seeing my new dentist. Also, can you add the appointment to my work and personal calendar. It’s also updated ChatGPT in the sidebar, with “the full power of ChatGPT” and your entire conversation history in Chat or Work to use without leaving the page you’re viewing. It also enables ChatGPT Work to “control” your Chrome tabs for tasks like “sending messages, filling out forms, or downloading files,” similar to Google’s Gemini-powered “auto browse” feature, as well as organize or group open tabs.",
+   "fonte": "The Verge",
+   "tipo": "testata",
+   "solo_titolo": false,
+   "categoria": "Testate tech",
+   "id": "a90",
+   "testo_completo": true
+  },
+  "a111": {
+   "titolo": "Report: FTC probes Anthropic, OpenAI after Trump dismissed AI fears as “hoax”",
+   "link": "https://arstechnica.com/tech-policy/2026/10/ftc-probes-if-openai-anthropic-security-incidents-harmed-americans-report-says/",
+   "data": "2026-10-15T15:43:24+00:00",
+   "testo": "Following a string of incidents where AI models hacked websites and breached government systems during testing phases, the Federal Trade Commission is officially probing Anthropic and OpenAI over consumer harms, an insider told Axios. On Wednesday, the FTC sent out civil investigative demands seeking a wide range of information from the AI firms on recent safety incidents. The FTC did not respond to Ars’ request to review the subpoena demands. However, Axios’ source said the requests spanned more than 50 pages of questions and sought documents related to the incidents, internal security measures taken, and marketing materials that may suggest consumers were misled. Soon, third parties targeted by OpenAI and Anthropic agents will also be subpoenaed, Axios’ source said. Any concerning evidence gathered may support FTC litigation, should the FTC decide to sue either or both firms for releasing unsafe products. OpenAI already faces lawsuits alleging consumer harms, including lawsuits linking its chatbot to matricide, child suicide, school shootings, and other violence. And this week, a group of eight states specifically sued OpenAI over consumer harms, Reuters reported. Like consumers suing, they argued that ChatGPT harms children and “reinforces delusions, encourages dangerous behavior, and assists users in planning violence like mass shootings.” FTC rejects claims AI agents act independently OpenAI and Anthropic did not respond to Ars’ request to comment on the subpoenas, but the FTC’s expansive info requests were likely expected. In September, Reuters reported that the probe was coming, noting that an independent research group investigating the incidents, METR, would likely also be subpoenaed. That same month, FTC Chair Andrew Ferguson told Reuters that he thinks that …",
+   "fonte": "Ars Technica",
+   "tipo": "testata",
+   "solo_titolo": false,
+   "categoria": "Testate tech",
+   "id": "a111",
+   "testo_completo": true
+  },
+  "a141": {
+   "titolo": "Un'AI che ascolta tutto e prende appunti: ecco i nuovi Amazon Bee",
+   "link": "https://www.hdblog.it/indossabili/articoli/n673868/amazon-bee-registratore-riassunti-ai-prezzo/",
+   "data": "2026-10-15T17:50:00+02:00",
+   "testo": "Bee Frontier è un wearable AI da indossare al polso o sui vestiti, con due microfoni, certificazione IP67 e autonomia fino a sette giorni. Bee Eclipse si aggancia allo smartphone e supera i 21 giorni...",
+   "fonte": "HDblog",
+   "tipo": "testata",
+   "solo_titolo": false,
+   "categoria": "Italia",
+   "id": "a141"
+  },
+  "a49": {
+   "titolo": "Google Messaggi: protezione antitruffa con Gemini su Android",
+   "link": "https://news.google.com/rss/articles/CBMijwFBVV95cUxPb2NNTjFIN3ZHM1BYLXBqckpVN01YczVyOV80cWM2Z0pkSlVRaXlocVY1Wm0ySGZfWXo5WDdfeXZHOXFhWG1jNU9wUWZ0cXJKZnhRWm1QYlpuOHI5MDhMdW5mSXljVzR0YkpPZ3BEVmFsd0UyN2p5NjhyYUtjTjJHVnFCNHpYRVdiTmxWNW94bw?oc=5",
+   "data": "2026-10-14T18:11:10+00:00",
+   "testo": "",
+   "fonte": "Punto Informatico",
+   "tipo": "testata",
+   "solo_titolo": true,
+   "categoria": "Strumenti",
+   "id": "a49"
+  },
+  "a21": {
+   "titolo": "MacPaw Launches Eney AI Assistant for Mac and iPhone: Price and Features",
+   "link": "https://news.google.com/rss/articles/CBMidkFVX3lxTE16LWRCLWdyQjNGY2xaUzUybW9vRFZQdm5TbDFQR1gxbXJTRERpYzBQa0JkZGJVRHhCa3l6ZW81WGFBWjZEMEsxRFUxSFN0Tmp3b0dxSUlTX3hMWHMzQkdwMFpMQk1tS19kYzlySU5WeVpuNjMxWGc?oc=5",
+   "data": "2026-10-15T13:01:57+00:00",
+   "testo": "",
+   "fonte": "TechRepublic",
+   "tipo": "testata",
+   "solo_titolo": true,
+   "categoria": "Strumenti",
+   "id": "a21"
+  },
+  "a27": {
+   "titolo": "Col vibe coding puoi creare le tue app private e caricarle sul Play Store",
+   "link": "https://news.google.com/rss/articles/CBMi0AFBVV95cUxObVZ3ZHR4dHAtbkRQUW9KZnpkMVl4ZWVHUUhKUkJwZDVxVHZfMEhzRWtRNzZ6YjNUd2pvR1diTTFoZmNMcEo5UWRuR0xXQ1RsamFaZ1RzdFJTQzB6RGs1M3hqVS1TU1VTQXJxZ28xUVVzUW1Sa3FSVDNSY0phSmR5TGhHb3BwZXpIRml6eEhaT2haOVpFaThoUUFoSnBrMW1sNjhDQ0QzTl9GSXpSVlMzYVIwN1h1V3RVQUsyTVpWaktWWWNHc1BwQkVIRFBsX25n?oc=5",
+   "data": "2026-10-15T10:05:32+00:00",
+   "testo": "",
+   "fonte": "Fastweb",
+   "tipo": "minore",
+   "solo_titolo": true,
+   "categoria": "Strumenti",
+   "id": "a27"
+  },
+  "a17": {
+   "titolo": "MacPaw launches Eney, the proactive AI assistant that lives on your Mac and iPhone and handles everyday tasks",
+   "link": "https://news.google.com/rss/articles/CBMi9wFBVV95cUxQTnExNVpFd2J3RUlnNUp6ZTBZOExYdWc0TnZZY1p5ZllQRk5nYmZPN211NE03TDIwTjhUTTlVTkhwUl93a0VBTFI0ZTdSSm1wbHpEOThBU0hCMUhGMm1oNzlsZE5GX3NZUWptVFhSTU0yWkx2d01NOHlvVWw0V0R3cm5KekVzY3ZmYWJGUlZyb3FLZk04N0NPYjN1blUySDhCOHVza1UtTms5QmRVN0J4MlVIMk9aVkVXUHVwOEZnWkhEVy02Ri1oNlNsUkpaWWdwc041NU5yQzgtZFhoVnFVYVdVTmh2X3JsR0lzajI5aUF4S0NyRDMw?oc=5",
+   "data": "2026-10-15T12:03:00+00:00",
+   "testo": "",
+   "fonte": "PR Newswire",
+   "tipo": "minore",
+   "solo_titolo": true,
+   "categoria": "Strumenti",
+   "id": "a17"
+  }
+ },
+ "fonti": [
+  {
+   "nome": "Product Hunt (AI)",
+   "ok": true,
+   "presi": 15
+  },
+  {
+   "nome": "Show HN (nuovi progetti)",
+   "ok": true,
+   "presi": 0
+  },
+  {
+   "nome": "Nuove app AI (internazionale)",
+   "ok": true,
+   "presi": 10
+  },
+  {
+   "nome": "Nuove app AI (Italia)",
+   "ok": true,
+   "presi": 8
+  },
+  {
+   "nome": "Novità AI da provare (Italia)",
+   "ok": true,
+   "presi": 3
+  },
+  {
+   "nome": "AI sul dispositivo (internazionale)",
+   "ok": true,
+   "presi": 8
+  },
+  {
+   "nome": "AI sul dispositivo (Italia)",
+   "ok": true,
+   "presi": 5
+  },
+  {
+   "nome": "OpenAI",
+   "ok": true,
+   "presi": 3
+  },
+  {
+   "nome": "Google (blog ufficiale)",
+   "ok": true,
+   "presi": 6
+  },
+  {
+   "nome": "Google Gemini (blog)",
+   "ok": true,
+   "presi": 0
+  },
+  {
+   "nome": "Nuove funzioni AI (Google News)",
+   "ok": true,
+   "presi": 12
+  },
+  {
+   "nome": "Anthropic / Claude",
+   "ok": true,
+   "presi": 6
+  },
+  {
+   "nome": "Microsoft Copilot",
+   "ok": true,
+   "presi": 5
+  },
+  {
+   "nome": "Altri assistenti AI (Perplexity, Mistral, Meta AI…)",
+   "ok": true,
+   "presi": 8
+  },
+  {
+   "nome": "The Verge",
+   "ok": true,
+   "presi": 9
+  },
+  {
+   "nome": "TechCrunch",
+   "ok": true,
+   "presi": 12
+  },
+  {
+   "nome": "Ars Technica",
+   "ok": true,
+   "presi": 3
+  },
+  {
+   "nome": "MIT Technology Review",
+   "ok": true,
+   "presi": 0
+  },
+  {
+   "nome": "The Decoder",
+   "ok": true,
+   "presi": 9
+  },
+  {
+   "nome": "TLDR AI (newsletter)",
+   "ok": true,
+   "presi": 1
+  },
+  {
+   "nome": "ANSA",
+   "ok": true,
+   "presi": 6
+  },
+  {
+   "nome": "Wired Italia",
+   "ok": true,
+   "presi": 0
+  },
+  {
+   "nome": "Il Sole 24 Ore Tecnologia",
+   "ok": true,
+   "presi": 2
+  },
+  {
+   "nome": "Punto Informatico",
+   "ok": true,
+   "presi": 5
+  },
+  {
+   "nome": "HDblog",
+   "ok": true,
+   "presi": 6
+  },
+  {
+   "nome": "Reddit",
+   "ok": true,
+   "presi": 8
+  },
+  {
+   "nome": "Reddit (AI locale)",
+   "ok": true,
+   "presi": 5
+  },
+  {
+   "nome": "Bellingcat (guide e strumenti)",
+   "ok": true,
+   "presi": 0
+  },
+  {
+   "nome": "GIJN (guide per giornalisti investigativi)",
+   "ok": false,
+   "errore": "HTTP Error 403: Forbidden",
+   "presi": 0
+  },
+  {
+   "nome": "OSINT – verifica e fact-checking (internazionale)",
+   "ok": true,
+   "presi": 5
+  },
+  {
+   "nome": "OSINT – nuovi strumenti (internazionale)",
+   "ok": true,
+   "presi": 2
+  },
+  {
+   "nome": "OSINT – strumenti (Italia)",
+   "ok": true,
+   "presi": 3
+  },
+  {
+   "nome": "Reddit (OSINT)",
+   "ok": true,
+   "presi": 1
+  },
+  {
+   "nome": "Hacker News (OSINT)",
+   "ok": true,
+   "presi": 0
+  }
+ ],
+ "visti": [
+  "navige",
+  "superlocalmemory",
+  "silixon",
+  "withhuman",
+  "polylaneimpactanalysis",
+  "atticus",
+  "superdraft",
+  "basedashconnectorgallery",
+  "actuallyasked",
+  "rushilo",
+  "aisandboxesbybuddy",
+  "cmdround",
+  "brussle",
+  "pixlate",
+  "writerzroom",
+  "macpawlauncheseneyaproactiveaiassistantformacandiphone",
+  "macpawlauncheseneytheproactiveaiassistantthatlivesonyourmacandiphoneandhandlesev",
+  "blueskysaitoolnowletsyoumakegamesandappstoshareonsocial",
+  "macpawjustlaunchedeneyanaiassistantthatworksproactively",
+  "amazonsbeejoinsaiassistantracevia5links2026httpstechinsiderorg",
+  "macpawlauncheseneyaiassistantformacandiphonepriceandfeatures",
+  "macpawlauncheseneyaproactiveaiassistantforthemacandiphone",
+  "manulifelaunchesaiassistantforadvisorunderwritingqueries",
+  "konecranesportalaiassistantnowavailablegloballyforequipmentandservicemanagement",
+  "solarwindslaunchesagenticaitoolaviorforitoperations",
+  "cybersecurityengineeringlanciaengsurelintelligenzaartificialeperdifendereimprese",
+  "colvibecodingpuoicreareletueappprivateecaricarlesulplaystore",
+  "engineeringlanciaengsurelaialserviziodellacybersecurity",
+  "inpiazzasanbabilasipotràparlareeinteragiregratisconunrobotumanoide",
+  "nascecassandraainuovasoluzionemartechchecombinamisurazioneallocazionedeibudgeted",
+  "welfaredigitalelitaliaèprimaineuropamaibenefitrestanonelcassetto",
+  "farmaciilregnounitocambialeregolestudicliniciin14giornieintelligenzaartificialep",
+  "lintelligenzaartificialearrivanelleauleticinesi",
+  "gpt6trasformalerispostedellaiininterfacceinterattivenellachat",
+  "parlidiunprodottoamazonbeepotrebbeproportidicomprarlo",
+  "suyoutubearrivalaichepermettedicreareilproprioalgoritmo",
+  "nvidiasrtxsparkisgoodforwindowsevenifyoudontneedlocalai",
+  "areaigirlfriendappsprivateaigirlfriendchatbot30dayreviewreddit",
+  "huggingfacereleasesllamawindows",
+  "reolinklauncheshomehub2nowavailableforpurchasewithlocalaivideosearchandsubscript",
+  "ankerlaunchesnewwindowmountedcamerawith25degreetiltandlocalaidetection",
+  "llamaforwindowsletsyoudownloadandrunlocalaimodelsinasingleclick",
+  "nvidiasrtxsparkcouldreshapewindowspcsbeyondlocalai",
+  "tetherlaunchesofflineaispeechmodelforsmartglassesandrobots",
+  "macpawpresentaeneylassistentesuldispositivochechiedeprimadiagire",
+  "androidguidaallasicurezzadeitabletperigenitori",
+  "ledgeratomufficialeunhardwarewalletchesembraquasiunosmartphoneandroid",
+  "whatsappcambialevideochiamateorabastaunlinkanchesenzaaverelapp",
+  "googlemessaggiprotezioneantitruffacongeminisuandroid",
+  "bringinggptrosalindtoacademicresearchlabs",
+  "teachingstudentstothinkandlearnthroughquestions",
+  "sullivancromwellbringslegalexpertiseintoagreementreview",
+  "bringingthemagicgooglebreaksopenabottleneckinquantumcomputing",
+  "checkifatextmessageisascamusingcircletosearch",
+  "400publicationsarenowpartneringwithusonournewsaipilotprogram",
+  "morewaystoconnectwiththewebfromsearch",
+  "anintelligentnewshoppingcart",
+  "timehasnamedgooglesynthidoneofthebestinventionsof2026",
+  "googlelaunchesintelligentshoppingcartforsearchandgeminiapp",
+  "microsoftlaunchescopilotforlegalbecomingthefourthaigiantinfivemonthstobuildoutal",
+  "microsoftlauncheslegalskillswithincopilotfurtheringmoveintolegaltech",
+  "microsoftlaunchescopilotforlegalbraceforimpact",
+  "cyerasaisecurityplatformisnowavailableinclaudemarketplace",
+  "claudehaiku55launchesat90cheaperthan452026httpstechinsiderorg",
+  "anewpetfeederusesgooglesaitoflagunusualbehavior",
+  "googlerollsoutaipowereduniversalcartacrosssearchandgeminiintheus",
+  "googlelaunchesuniversalcartacrosssearchandthegeminiapp",
+  "noteefylaunchesaibookingenginelettinggolfersbookteetimesdirectlywithcoursesinsid",
+  "dognessinternationalcorporationdogzlaunchesaipetfeederwithgooglecloudgemini",
+  "googlelaunchesuniversalcartinsearchandgeminiappinus",
+  "anthropicnewslatestupdatesontheaicompanybehindclaude",
+  "anthropicclaudecodethebestinventionsof2026",
+  "senatepreparingtorolloutanthropicsclaudeforstaffuse",
+  "anthropicmakescodereviewforclaudecodegenerallyavailable",
+  "philadelphiapolicesayanthropicsaipostedamadeuptiponthecitysunsolvedmurderssite",
+  "anthropicsaysclauderefusesaharmfulrequestbutcanmissacampaignofharmlessones",
+  "delegatesharedbusinessprocessestoagentsthataremorepersistentandproactivewithmicr",
+  "bloomberglawbringsdocketsandlitigationintelligencetomicrosoftcopilot",
+  "microsoftintroducescopilotforlegalwithcirca20purposebuiltlegalskills",
+  "nflweek6predictionsbymicrosoftcopilotaiforeverygame",
+  "copilotpricinggetscomplicated",
+  "spacexsilaunchesgrokvoice30foraicustomersupport",
+  "mistrallarge4launchesat105tparams136m2026httpstechinsiderorg",
+  "cybersecuritysectordipsasperplexitylaunchesaisandboxgendigitalgennavigatesmarket",
+  "deepseekrestoresservicesafternearlyfivehouroutage",
+  "whatisgrokbotxaisaiagentexplainedforphysicians",
+  "elonmuskhasgrokbuyinghimlegosets",
+  "appleintelligencelaunchesinchinawithalibabasai",
+  "get300instantdiscountoniphone18series2025double11promotionlauncheswithappleintel",
+  "chatgptcanpeekatyourchrometabsnow",
+  "segapullstotalwarshogun2remasterfromsalefollowingdisastrouslaunch",
+  "thetechbacklashisnowintheaters",
+  "trumppostsaieditedphototobragaboutwhitehouserestorationwork",
+  "metaandappleteamuptomakemuseaimodelsrunbetteronmacs",
+  "friendsdontletfriendsfeedtheirdatatoaiagents",
+  "howwindowsisbeingoptimizedfornvidiasrtxsparklaptops",
+  "nobodyissafefromcelebrityaideepfakes",
+  "bennjordanonflockprivacyandthenewsurveillancebacklash",
+  "whenitcametocalaisviralsuccessasmallarmyofinfluencerspaidoff",
+  "metalaunchesanopenweightaimodelthatrunsonmacs",
+  "amazondeviceschiefpanospanayseesafuturewhereaidevicesreplacetheneedtouseapps",
+  "anthropicislettingmetrresearcherslookunderthehoodwithemployeelevelaccess",
+  "blueskyexpandsitsaipoweredattieapptoletanyonebuildwebsitesgamesandmore",
+  "lastchancetosaveupto200onyourtechcrunchfoundersummitpassearlybookingendsoctober1",
+  "aiagentsarecomingtorivianscars",
+  "googlesuniversalcartshoppingtoollaunchesintheus",
+  "techcrunchdisrupt2026lastday",
+  "amazonsbeelaunchestwonewpersonalaidevicesstartingat75",
+  "figmaannouncesnewfeaturestodefinehowagentsworkonitsplatform",
+  "ricursiveintelligenceisbettingonaidesignedchipstohelpsolvethecomputecrisis",
+  "reportftcprobesanthropicopenaiaftertrumpdismissedaifearsashoax",
+  "singerorclankeryoutubemusicwilltellyouwithnewgenailabeling",
+  "epicsaysitsnewvibecodedepicgameslauncherisfasterthansteam",
+  "musesparkopenismetasanswertoqwenglmandkimiintheopenweightrace",
+  "blackforestlabsopenweightsimagemodelflux3imagekleinrunsonconsumergpuswithjust8gb",
+  "googlewantsgemini4argontobetheonlyaimodelrobotsneed",
+  "nvidiasnemotron35supervlisanopenmodelbuilttorunenterpriseaiagentsnonstop",
+  "bankofamericaputs4000peopleonfixingvulnerabilitiesuncoveredbyanthropicsmythosand",
+  "gpt6astrasolves49of50physicsresearchproblemsat240apiece",
+  "anthropicsq3revenuehits168bbutgrowthslowsaheadofplannednovemberipo",
+  "googlesaysselfimprovingaiisntanywhereclose",
+  "researcherstrackeddownaroguefleetofchineseaiagentsinthewildandactuallytalkedtoit",
+  "jev114grokvoice3rsi",
+  "renzorossolintelligenzaartificialerichiedeformazione",
+  "intelligenzaartificialeresponsabileperlinfanziaieeepresentaunaformulaaffidabilep",
+  "procuretextornaperilsecondoannoportandolintelligenzaartificialeelemiglioritecnol",
+  "cacciariiastraordinariaconquistadellintelligenzaumana",
+  "tonfodikospienikkeitrascinatialribassodallefortivenditesuititolilegatiallai",
+  "idirigentidelsettorelancianoufficialmenteilflussodilavoroscmpocpperlagestioneeil",
+  "lacyberwaravanzaleuropaèilfrontesemprepiùcritico",
+  "agentiaiinitaliautenticresciutidi108volteil65deitokencontroil55dellue",
+  "hackerusalaiperattaccarelebanchemaclaudelotradisce",
+  "comeusarechatgptpertrasformareidocumentiinaudiolibri",
+  "beeeclipseebeefrontierdispositiviperlaambientpersonalai",
+  "exdipendentehasvelatounprodottodiopenaiaapple",
+  "commissioneeuropeaavviaindaginesuanthropiceopenaiupdate",
+  "appleenvidiadonano25milionididollariperlasaladaballoditrump",
+  "adobephotoshopepremierearrivanoleversioniottimizzatepernvidiartxspark",
+  "iphoneduoselagiocaconiphone18proneibenchmark",
+  "deezercidàuntaglioprontounnuovofiltropernasconderelamusicaai",
+  "unaicheascoltatuttoeprendeappuntieccoinuoviamazonbee",
+  "googlearrivailcarrellouniversalepergliacquistionlineassistitodallai",
+  "thatisanawesometoddlerlevelexplanation",
+  "signofthetimes",
+  "10promptsanditsover",
+  "ijustlostmybestpayingclienttochatgpt",
+  "chatgptsensesfear",
+  "wellthatescalatedquickly",
+  "clodupdateclaudepromotedhimafter1millionviews",
+  "claudeletmebuildsomethingiwantedforalmostadecade",
+  "nvidianvidianemotron35bolt74ba9b24gbhuggingface",
+  "nvidiaaisomanymodelslaunchingthisweekandwehaveoneofourowncoming",
+  "nvidianvidianemotron35supervl120ba12bmodelfamilyreleasedbasenvfp4bf16andlilicorr",
+  "137ba68bmodelfrommicrosoft",
+  "128gbrtxsparklaptopfor3832",
+  "besttoolstofindsomeonebyphoto2026reportpublishedbykinrossresearch",
+  "oldunrelatedvideosharedasindianarmyattackinganticecprotesterindelhi",
+  "oldvideofromjharkhandhcfalselysharedasheatedexchangebetweencjiandsclawyer",
+  "gsesmodernizeincomeoccupancycheckstoslashloanrisk",
+  "erroneousgrokandgeminianswersusedtodiscreditrealprotestimagesboom",
+  "linealbuysswissfirmforentectodeepencyberandinvestigationsreach",
+  "5bestosintcompaniesforukbusinesses",
+  "phishingaziendaleperchéidipendentiformaticliccanocomunque",
+  "unafotodelsalottopuòtradirtiravenaitrovadovevivi",
+  "informaticaforenseagenovailfuturodelleprovedigitalitraaiedeepfake",
+  "osintofslovenia"
+ ],
+ "audio": "audio/2026-10-16.mp3",
+ "durata": 192.2
+}
