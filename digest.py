@@ -19,7 +19,7 @@ Librerie facoltative (se mancano si usa una riserva con la sola libreria standar
   trafilatura (estrae il testo degli articoli), googlenewsdecoder (link originali di Google News)
 Variabili d'ambiente:
   GEMINI_API_KEY   chiave gratuita da https://aistudio.google.com/apikey
-  GEMINI_MODEL     modello preferito (default: gemini-3.5-flash, con riserve automatiche)
+  GEMINI_MODEL     modello preferito (default: gemini-3.8-flash, con riserve automatiche)
   ORE_FINESTRA     ore di notizie da considerare (default: 36)
   AVVISI_FILE      file dove annotare i problemi da segnalare
 """
@@ -55,7 +55,8 @@ ORARI_UTC = ["05:17", "16:17"]
 # Il primo modello disponibile vince; se uno viene ritirato (errore 404) si passa al successivo.
 MODELLI = [m for m in dict.fromkeys([
     os.environ.get("GEMINI_MODEL", "").strip(),
-    "gemini-3.5-flash", "gemini-2.5-flash", "gemini-2.5-flash-lite",
+    # Ottobre 2026: Google consiglia 3.8 Flash e 3.5 Flash-Lite; 2.5 Flash-Lite non è più dato ai nuovi progetti.
+    "gemini-3.8-flash", "gemini-3.6-flash", "gemini-3.5-flash-lite", "gemini-2.5-flash", "gemini-3.1-flash-lite",
 ]) if m]
 UA = "Mozilla/5.0 (compatible; AI-News-Digest/1.0; +https://github.com)"
 UA_BROWSER = ("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
@@ -563,14 +564,28 @@ def normalizza_risposta(r):
             "sezioni": sezioni, "formato": 2}
 
 
+def _messaggio_errore(e):
+    """Il messaggio leggibile di un errore HTTP di Gemini (senza tagliarlo a metà)."""
+    try:
+        corpo = e.read().decode("utf-8", "replace")
+        msg = json.loads(corpo).get("error", {}).get("message", "") or corpo
+    except Exception:
+        msg = ""
+    msg = re.sub(r"\s+", " ", msg).strip()
+    return (msg[:160] + "…") if len(msg) > 160 else msg
+
+
 def chiama_gemini(istruzioni, testo, chiave):
+    """Prova i modelli in ordine. Ritirati (404) e quote giornaliere esaurite si saltano subito;
+    sovraccarichi (429/500/503) si riprovano con attese crescenti. Se nessuno risponde, l'errore elenca TUTTI
+    i modelli provati, non solo l'ultimo."""
     corpo = {
         "systemInstruction": {"parts": [{"text": istruzioni}]},
         "contents": [{"role": "user", "parts": [{"text": testo}]}],
         "generationConfig": {"temperature": 0.3, "responseMimeType": "application/json"},
     }
     dati = json.dumps(corpo).encode()
-    ultimo_errore = None
+    errori = {}
     for modello in MODELLI:
         url = f"https://generativelanguage.googleapis.com/v1beta/models/{modello}:generateContent"
         for tentativo in range(3):
@@ -583,19 +598,24 @@ def chiama_gemini(istruzioni, testo, chiave):
                 testo = "".join(p.get("text", "") for p in parti if not p.get("thought"))
                 testo = re.sub(r"^```(?:json)?|```$", "", testo.strip()).strip()
                 print(f"  ✓ riassunto generato con {modello}")
+                if errori:
+                    print("    (prima non hanno risposto: " + "; ".join(f"{m}: {x}" for m, x in errori.items()) + ")")
                 return json.loads(testo), modello
             except urllib.error.HTTPError as e:
-                ultimo_errore = f"{modello}: HTTP {e.code} {e.read()[:200]!r}"
-                print("  ✗ " + ultimo_errore, file=sys.stderr)
-                if e.code in (429, 500, 503):
+                msg = _messaggio_errore(e)
+                errori[modello] = f"HTTP {e.code} {msg}"
+                print(f"  ✗ {modello}: HTTP {e.code} {msg}", file=sys.stderr)
+                giornaliera = e.code == 429 and re.search(r"per ?day|daily|PerDay", msg, re.IGNORECASE)
+                if e.code in (429, 500, 503) and not giornaliera and tentativo < 2:
                     time.sleep(20 * (tentativo + 1))
                     continue
-                break
+                break                       # 404 (modello ritirato), 400, quota del giorno: si passa al prossimo
             except (KeyError, IndexError, json.JSONDecodeError, OSError) as e:
-                ultimo_errore = f"{modello}: {e}"
-                print("  ✗ " + ultimo_errore, file=sys.stderr)
+                errori[modello] = f"{type(e).__name__}: {str(e)[:120]}"
+                print(f"  ✗ {modello}: {errori[modello]}", file=sys.stderr)
                 time.sleep(5)
-    raise RuntimeError(ultimo_errore or "Gemini non disponibile")
+    raise RuntimeError("nessun modello ha risposto. " + " | ".join(f"{m}: {x}" for m, x in errori.items())
+                       if errori else "Gemini non disponibile")
 
 
 PRIORITA_TIPO = {"ufficiale": 0, "vetrina": 1, "testata": 1, "minore": 2, "ricerca": 3, "community": 4}
@@ -2134,7 +2154,7 @@ def main():
             riassunto, modello = chiedi_a_gemini(articoli, chiave, gia_pubblicate, aggiornamento=True)
             riassunto = verifica(riassunto, per_id)
         except Exception as ex:   # l'edizione del mattino resta com'è
-            avvisa(f"Aggiornamento non riuscito, resta l'edizione del mattino ({str(ex)[:200]}).")
+            avvisa(f"Aggiornamento non riuscito, resta l'edizione del mattino ({str(ex)[:900]}).")
             scrivi_avvisi()
             return
         vuoto = not (riassunto["sezioni"] or riassunto.get("da_provare") or riassunto.get("osint"))
@@ -2151,7 +2171,7 @@ def main():
                 if not (riassunto["sezioni"] or riassunto.get("da_provare") or riassunto.get("osint")):
                     raise RuntimeError("riassunto vuoto")
             except Exception as ex:  # qualunque problema: si pubblica comunque la versione semplice
-                avvisa(f"Gemini non disponibile ({str(ex)[:200]}): pubblicata la versione senza riassunto.")
+                avvisa(f"Gemini non disponibile ({str(ex)[:900]}): pubblicata la versione senza riassunto.")
                 riassunto, modello = senza_ai(articoli), "senza AI (Gemini non disponibile)"
         else:
             avvisa("GEMINI_API_KEY non impostata: pubblicata la versione senza riassunto.")
@@ -2167,7 +2187,7 @@ def main():
             try:
                 costruisci_settimana(chiave, giorno)
             except Exception as ex:
-                avvisa(f"Edizione della settimana non creata: {str(ex)[:200]}")
+                avvisa(f"Edizione della settimana non creata: {str(ex)[:900]}")
 
     rigenera_tutto()
     scrivi_avvisi()
