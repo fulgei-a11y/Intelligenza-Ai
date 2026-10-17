@@ -1,0 +1,581 @@
+{
+ "giorno": "2026-10-17",
+ "generato": "2026-10-17T05:43:51+00:00",
+ "modello": "gemini-3.5-flash",
+ "testi_completi": 34,
+ "riassunto": {
+  "titolo_giorno": "Attie AI permette di creare mini-app con un semplice testo e Gemini Notebook si aggiorna",
+  "in_breve": "Tra le novità di oggi spicca Attie AI, uno strumento che consente di generare piccole applicazioni e sondaggi interattivi semplicemente descrivendoli a parole. Google aggiorna inoltre Gemini Notebook per offrire nuove modalità di studio guidato con video brevi e quiz.",
+  "citati": [
+   "Attie AI",
+   "Gemini Notebook"
+  ],
+  "da_provare": [
+   {
+    "cosa": "Attie AI",
+    "a_cosa_serve": "Permette di creare piccole applicazioni web, sondaggi interattivi e mini-giochi inserendo semplicemente una descrizione testuale di ciò che si vuole realizzare.",
+    "per_chi": "Tutti i giorni",
+    "ambito": "Creatività",
+    "come_iniziare": [
+     "Accedi al sito web del servizio",
+     "Scrivi la descrizione dell'applicazione o del sondaggio che desideri creare",
+     "Ottieni il link personalizzato da condividere online"
+    ],
+    "costo": "Non indicato",
+    "piattaforme": [
+     "Browser"
+    ],
+    "sul_dispositivo": false,
+    "come_sfruttarla": "Creare un sondaggio personalizzato o un piccolo gioco interattivo da condividere con i propri contatti o clienti.",
+    "italiano": "Non indicato",
+    "difficolta": "Facile",
+    "fonti": [
+     "a96"
+    ],
+    "affidabilita": "Una fonte",
+    "prova": ""
+   },
+   {
+    "cosa": "Dottr",
+    "a_cosa_serve": "Un assistente digitale pensato per redigere contratti, rilevare potenziali rischi nelle clausole legali e gestire la fase di firma.",
+    "per_chi": "Lavoro",
+    "ambito": "Documenti",
+    "come_iniziare": [],
+    "costo": "Non indicato",
+    "piattaforme": [
+     "Browser"
+    ],
+    "sul_dispositivo": false,
+    "come_sfruttarla": "Esaminare la bozza di un contratto di lavoro o di fornitura per individuare rapidamente clausole svantaggiose.",
+    "italiano": "Non indicato",
+    "difficolta": "Facile",
+    "fonti": [
+     "a8"
+    ],
+    "affidabilita": "Appena lanciato",
+    "prova": "https://www.producthunt.com/products/dottr"
+   },
+   {
+    "cosa": "Grablo Spot",
+    "a_cosa_serve": "Un sistema di gestione video con intelligenza artificiale che consente di cercare e individuare persone o veicoli specifici all'interno delle registrazioni in pochi secondi.",
+    "per_chi": "Lavoro e tutti i giorni",
+    "ambito": "Organizzazione",
+    "come_iniziare": [],
+    "costo": "Gratis",
+    "piattaforme": [
+     "Browser"
+    ],
+    "sul_dispositivo": false,
+    "come_sfruttarla": "Trovare velocemente il momento esatto in cui un veicolo è entrato in un'area monitorata dalle telecamere di sicurezza.",
+    "italiano": "Non indicato",
+    "difficolta": "Media",
+    "fonti": [
+     "a2"
+    ],
+    "affidabilita": "Appena lanciato",
+    "prova": "https://www.producthunt.com/products/grablo-spot"
+   }
+  ],
+  "osint": [],
+  "sezioni": [
+   {
+    "titolo": "Novità negli strumenti che già usi",
+    "notizie": [
+     {
+      "titolo": "Nuove funzioni per lo studio guidato e quiz personalizzati",
+      "strumento": "Gemini Notebook",
+      "riassunto": "Google ha introdotto tre nuove funzionalità su Gemini Notebook per organizzare lo studio: riassunti video di 60 secondi per concetti complessi, panoramiche di apprendimento interattive che combinano appunti, diapositive e quiz, e nuovi formati di verifica a risposta multipla o a completamento.",
+      "come_provarla": "Disponibile accedendo con il proprio account su notebook.google e caricando i propri materiali di studio.",
+      "disponibilita": "Disponibile ora",
+      "fonti": [
+       "a56"
+      ],
+      "affidabilita": "Fonte ufficiale",
+      "solo_titoli": false
+     },
+     {
+      "titolo": "Gemini gestisce meglio la voce e rispetta le interruzioni in casa",
+      "strumento": "Google Home",
+      "riassunto": "L'aggiornamento dell'app Google Home rende le risposte vocali dell'assistente Gemini più naturali. Il sistema chiude subito l'ascolto quando gli si chiede di fermarsi, gestisce in modo corretto il comando di stop per timer e riproduzioni e rispetta le unità di misura della temperatura impostate per l'abitazione.",
+      "come_provarla": "Aggiornando l'applicazione Google Home sul proprio smartphone.",
+      "disponibilita": "Disponibile ora",
+      "fonti": [
+       "a137"
+      ],
+      "affidabilita": "Una fonte",
+      "solo_titoli": false
+     },
+     {
+      "titolo": "Nuova interfaccia grafica in fase di rilascio",
+      "strumento": "Google Traduttore",
+      "riassunto": "Google ha iniziato la distribuzione di un aggiornamento visivo per Google Traduttore, introducendo un'interfaccia utente ridisegnata e più moderna.",
+      "come_provarla": "",
+      "disponibilita": "Disponibile ora",
+      "fonti": [
+       "a31"
+      ],
+      "affidabilita": "Da verificare",
+      "solo_titoli": true
+     }
+    ]
+   },
+   {
+    "titolo": "In breve",
+    "breve": true,
+    "notizie": [
+     {
+      "titolo": "Proposta di legge in Italia sull'assistenza clienti",
+      "riassunto": "È stato presentato al Senato un disegno di legge per estendere l'obbligo di garantire l'interazione con un operatore umano nei servizi di assistenza clienti, vietando l'uso esclusivo dei chatbot.",
+      "fonti": [
+       "a135"
+      ],
+      "affidabilita": "Una fonte",
+      "solo_titoli": false
+     },
+     {
+      "titolo": "Aumenti di prezzo per gli smartphone legati ai data center AI",
+      "riassunto": "L'elevata domanda di memorie necessarie ai data center per l'intelligenza artificiale sta facendo salire i costi dei componenti elettronici, provocando un rincaro sui prezzi di vendita degli smartphone.",
+      "fonti": [
+       "a131"
+      ],
+      "affidabilita": "Una fonte",
+      "solo_titoli": false
+     }
+    ]
+   }
+  ],
+  "formato": 2
+ },
+ "articoli": {
+  "a8": {
+   "titolo": "Dottr",
+   "link": "https://www.producthunt.com/products/dottr",
+   "data": "2026-10-14T19:37:55-07:00",
+   "testo": "Agent that drafts contracts, flags risks + gets them signed",
+   "fonte": "Product Hunt (AI)",
+   "tipo": "vetrina",
+   "solo_titolo": false,
+   "categoria": "Strumenti",
+   "id": "a8"
+  },
+  "a135": {
+   "titolo": "Servizi di assistenza clienti: non solo chatbot",
+   "link": "https://www.punto-informatico.it/servizi-assistenza-clienti-non-solo-chatbot/",
+   "data": "2026-10-16T11:18:37+00:00",
+   "testo": "Lorenzo Basso e Antonio Nicita (Partito Democratico) hanno presentato al Senato un disegno di legge che estende ad altri settori le regole introdotte da AGCOM oltre due anni fa per le comunicazioni elettroniche e recentemente confermate dal Consiglio di Stato. Le aziende non devono offrire un servizio di assistenza clienti solo con un chatbot, ma consentire di parlare con una persona fisica. Diritto di parlare con un umano e altri obblighi In base alla delibera n. 255/24/CONS del 10 luglio 2024, in vigore da agosto 2025, il servizio telefonico di assistenza clienti con un operatore umano deve essere disponibile almeno nei giorni feriali tra le ore 8:30 e le ore 21:30. Le aziende possono utilizzare un chatbot o assistente digitale, ma questa non può essere l’unica opzione disponibile. Il disegno di legge Basso-Nicita (PDF), depositato in Senato il 13 ottobre e assegnato alla Commissione permanente (Ambiente, transizione ecologica, energia, lavori pubblici, comunicazioni, innovazione tecnologica), estende le regole di AGCOM ai seguenti settori: servizi postali, fornitura e distribuzione di energia e gas naturale, servizio idrico, servizio di gestione dei rifiuti urbani, trasporto di passeggeri. Si applica inoltre alle pubbliche amministrazioni e aziende che vendono beni o forniscono servizi diversi da quelli elencati (sono escluse le PMI). L’obbligo più importante è il diritto di interagire con una persona fisica addetta all’assistenza. È vietato l’impiego di sistemi automatizzati di interazione come mezzo esclusivo del servizio di assistenza. Nel caso di assistenza telefonica, l’accesso deve essere consentito tramite il menu principale. L’utente non deve attendere la fine del percorso automatizzato, né rispondere più volte alle stesse domande (ogni riferimento a Angie d…",
+   "fonte": "Punto Informatico",
+   "tipo": "testata",
+   "solo_titolo": false,
+   "categoria": "Italia",
+   "id": "a135",
+   "testo_completo": true
+  },
+  "a56": {
+   "titolo": "We’re sharing 3 tips to study smarter with Gemini Notebook.",
+   "link": "https://blog.google/innovation-and-ai/products/gemini-notebook/three-tips-study-gemini-notebook/",
+   "data": "2026-10-16T16:00:00+00:00",
+   "testo": "We’re sharing 3 tips to study smarter with Gemini Notebook. Studying for exams can feel overwhelming. To help you prepare, we recently launched three new features in Gemini Notebook to make your learning more structured and engaging. - Short Video Overviews: If you’re trying to quickly grasp a tricky concept, you can now generate a 60-second Short Video Overview to help you unpack it. They’re easy to watch on-the-go or share with a classmate. - Interactive Learning Overviews: If you have dozens of notes, lectures, and readings to review, you can create an Interactive Learning Overview under Reports to walk you through your material, step by step. It weaves together summaries and studio outputs like slides, quizzes, and flashcards, all grounded strictly in your coursework. - Expanded quiz formats: We also added more ways for you to test your knowledge with new quiz formats, including short-answer, multi-select, and fill-in-the blank options. After testing yourself or reviewing your flashcards, you can ask your notebook for feedback to pinpoint where you should focus next. Try them with your own materials at notebook.google.",
+   "fonte": "Google (blog ufficiale)",
+   "tipo": "ufficiale",
+   "solo_titolo": false,
+   "categoria": "Laboratori",
+   "id": "a56",
+   "testo_completo": true
+  },
+  "a31": {
+   "titolo": "Google Traduttore cambia look: è partito il rollout della nuova UI più moderna",
+   "link": "https://news.google.com/rss/articles/CBMinwFBVV95cUxPaDc1RFIxbGhRZUc2UnBDVy10bWlmZ2lhbWZ0TVdkREVzWEszZVB2NENlUXNScFJpVWlES2dlTXhGTVd2NFFTTGVWZUlzM1RWWWdsWnZucmR5Q0kyUTFCU3UxOTBtb19LYmpoaF96SFU3T0l3S094R29pSUYyX3lKUExKODJoaUYtbjJYSHNwaU5XbGxkYXlnb2JHd29GR1k?oc=5",
+   "data": "2026-10-16T16:17:59+00:00",
+   "testo": "",
+   "fonte": "TuttoAndroid",
+   "tipo": "minore",
+   "solo_titolo": true,
+   "categoria": "Strumenti",
+   "id": "a31"
+  },
+  "a137": {
+   "titolo": "Google Home si aggiorna: Gemini più naturale e affidabile in casa",
+   "link": "https://www.punto-informatico.it/google-home-si-aggiorna-gemini-piu-naturale-affidabile-casa/",
+   "data": "2026-10-16T08:20:32+00:00",
+   "testo": "Una nuova versione dell’applicazione Google Home porta numerose novità e miglioramenti, soprattutto per quanto riguarda l’assistente Gemini, non ancora molto efficiente su alcuni aspetti. Big G annuncia modi più naturali di concludere una conversazione, Quando terminate una conversazione in modo educato o neutro (ad esempio dicendo “Grazie”), Gemini risponde ora con un breve saluto caloroso, restando al contempo in silenzio e spegnendo immediatamente il microfono quando gli chiedete esplicitamente di smettere di parlare , spiega l’azienda. Google Home: Gemini capisce finalmente quando deve smettere di parlare L’aggiornamento corregge inoltre un problema con il comando “stop”, che poteva essere erroneamente interpretato come la fine di una conversazione, anziché l’interruzione della riproduzione multimediale, dei timer o delle sveglie in corso. Anche la gestione delle richieste di audio rilassante è stata rivista. D’ora in poi, chiedere della “musica rilassante”, “musica da Spa” o “musica da meditazione” avvierà la musica dal servizio di streaming configurato come predefinito. Fino ad ora, Gemini rispondeva a questa richiesta con suoni d’ambiente come il rumore bianco o la pioggia. Gemini diventa più affidabile e più pertinente con i dispositivi connessi della casa L’azienda aggiunge che le risposte meteo rispettano ora l’unità di temperatura preferita (Fahrenheit o Celsius) definita per l’intera abitazione nell’applicazione Google Home. Le previsioni meteo vocali non verranno così più dettate nell’altra unità per errore. Per modificare le proprie preferenze, basta andare in Impostazioni dell’app Home > Unità di temperatura. Per impostazione predefinita, la funzione “Usa la stessa unità ovunque” è disattivata. Infine, sugli schermi smart di tipo Nest Hub, la velocità di…",
+   "fonte": "Punto Informatico",
+   "tipo": "testata",
+   "solo_titolo": false,
+   "categoria": "Italia",
+   "id": "a137",
+   "testo_completo": true
+  },
+  "a2": {
+   "titolo": "Grablo Spot",
+   "link": "https://www.producthunt.com/products/grablo-spot",
+   "data": "2026-10-15T04:36:40-07:00",
+   "testo": "Free AI NVR that finds any person or vehicle in seconds",
+   "fonte": "Product Hunt (AI)",
+   "tipo": "vetrina",
+   "solo_titolo": false,
+   "categoria": "Strumenti",
+   "id": "a2"
+  },
+  "a131": {
+   "titolo": "Crisi nera per gli smartphone, forti rincari a causa dell’intelligenza artificiale",
+   "link": "https://www.ilsole24ore.com/art/crisi-nera-gli-smartphone-forti-rincari-causa-dell-intelligenza-artificiale-AJyQ6QiB",
+   "data": "2026-10-16T05:54:00+00:00",
+   "testo": "Crisi nera per gli smartphone, forti rincari a causa dell’intelligenza artificiale Secondo Counterpoint Research, i prezzi retail degli smartphone sono aumentati globalmente del 20% dall’inizio dell’anno Il conto della corsa all’intelligenza artificiale sta arrivando anche nelle tasche di chi compra uno smartphone. Secondo Counterpoint Research, i prezzi retail degli smartphone sono aumentati globalmente del 20% dall’inizio dell’anno. Nel terzo trimestre 2026 le spedizioni mondiali di telefoni sono crollate del 20% rispetto allo stesso periodo dell’anno precedente, toccando il livello più basso per un terzo trimestre dal 2012. Chiedilo al Sole Fenomeni strettamente collegati: la fame di memoria dei data center per l’AI sta riducendo l’offerta disponibile per l’elettronica di consumo e facendo esplodere i costi, quindi scoraggiando i consumatori, che ora preferiscono rimandare l’acquisto di un cellulare nuovo. Tengono il vecchio per più tempo o si rivolgono al mercato dell’usato (o dei ricondizionati). Va precisato che quel -20% misura le spedizioni dei produttori verso i canali commerciali, non direttamente le vendite ai consumatori. Ma conferma una crisi cominciata a inizi 2026. Significative anche le sorti dei diversi marchi. Samsung conserva il primo posto con il 23% del mercato e limita la flessione delle consegne al 3%; Apple raggiunge una quota record del 22% in un terzo trimestre. Molto peggio i produttori maggiormente esposti alle fasce economiche: Oppo e Vivo perdono oltre il 20%, Xiaomi addirittura più del 30%, scendendo al 10% del mercato. Counterpoint spiega che proprio Xiaomi ha ridotto la presenza nei segmenti a basso prezzo e in alcuni mercati esteri per evitare di vendere con margini diventati insostenibili. I rincari sui chip si sentono infatti sui sop…",
+   "fonte": "Il Sole 24 Ore Tecnologia",
+   "tipo": "testata",
+   "solo_titolo": false,
+   "categoria": "Italia",
+   "id": "a131",
+   "testo_completo": true
+  },
+  "a96": {
+   "titolo": "Bluesky’s AI tool now lets you make games and apps to share on social",
+   "link": "https://www.theverge.com/tech/1012374/bluesky-ai-attie-small-social-games-apps",
+   "data": "2026-10-15T15:57:16-04:00",
+   "testo": "Bluesky’s Attie AI tool, which initially launched earlier this year as a way to use AI to build your own feeds, now lets you make “small” social apps like games, polls, and dashboards that you can then share with others as their own websites. In an interview at TechCrunch Disrupt, Bluesky CEO Toni Schneider said to think of Attie as “social vibe coding or vibe coding for your community.” Bluesky’s AI tool now lets you make games and apps to share on social Attie launched earlier this year as a way to build your own feeds with AI, but Bluesky is expanding what it can do. You can make your own Attie app by typing in a prompt. A simple poll I made about Pokémon Red and Pokémon Blue took a few minutes to generate. If you want to check out something more full-featured, the Attie website currently highlights a few examples like a “Flappy Butterfly” Flappy Bird clone, a drum machine, a quiz, and an idle clicker about a celery man, and each has a custom link on the attie.site domain and attribution for who made the social app at the bottom of the page. The apps I’ve messed around with are pretty lightweight novelties, though I liked the drum machine.",
+   "fonte": "The Verge",
+   "tipo": "testata",
+   "solo_titolo": false,
+   "categoria": "Testate tech",
+   "id": "a96",
+   "testo_completo": true
+  }
+ },
+ "fonti": [
+  {
+   "nome": "Product Hunt (AI)",
+   "ok": true,
+   "presi": 15
+  },
+  {
+   "nome": "Show HN (nuovi progetti)",
+   "ok": true,
+   "presi": 2
+  },
+  {
+   "nome": "Nuove app AI (internazionale)",
+   "ok": true,
+   "presi": 10
+  },
+  {
+   "nome": "Nuove app AI (Italia)",
+   "ok": true,
+   "presi": 8
+  },
+  {
+   "nome": "Novità AI da provare (Italia)",
+   "ok": true,
+   "presi": 4
+  },
+  {
+   "nome": "AI sul dispositivo (internazionale)",
+   "ok": true,
+   "presi": 8
+  },
+  {
+   "nome": "AI sul dispositivo (Italia)",
+   "ok": true,
+   "presi": 5
+  },
+  {
+   "nome": "OpenAI",
+   "ok": true,
+   "presi": 3
+  },
+  {
+   "nome": "Google (blog ufficiale)",
+   "ok": true,
+   "presi": 2
+  },
+  {
+   "nome": "Google Gemini (blog)",
+   "ok": true,
+   "presi": 1
+  },
+  {
+   "nome": "Nuove funzioni AI (Google News)",
+   "ok": true,
+   "presi": 12
+  },
+  {
+   "nome": "Anthropic / Claude",
+   "ok": true,
+   "presi": 6
+  },
+  {
+   "nome": "Microsoft Copilot",
+   "ok": true,
+   "presi": 5
+  },
+  {
+   "nome": "Altri assistenti AI (Perplexity, Mistral, Meta AI…)",
+   "ok": true,
+   "presi": 8
+  },
+  {
+   "nome": "The Verge",
+   "ok": true,
+   "presi": 8
+  },
+  {
+   "nome": "TechCrunch",
+   "ok": true,
+   "presi": 12
+  },
+  {
+   "nome": "Ars Technica",
+   "ok": true,
+   "presi": 4
+  },
+  {
+   "nome": "MIT Technology Review",
+   "ok": true,
+   "presi": 1
+  },
+  {
+   "nome": "The Decoder",
+   "ok": true,
+   "presi": 7
+  },
+  {
+   "nome": "TLDR AI (newsletter)",
+   "ok": true,
+   "presi": 1
+  },
+  {
+   "nome": "ANSA",
+   "ok": true,
+   "presi": 6
+  },
+  {
+   "nome": "Wired Italia",
+   "ok": true,
+   "presi": 0
+  },
+  {
+   "nome": "Il Sole 24 Ore Tecnologia",
+   "ok": true,
+   "presi": 3
+  },
+  {
+   "nome": "Punto Informatico",
+   "ok": true,
+   "presi": 7
+  },
+  {
+   "nome": "HDblog",
+   "ok": true,
+   "presi": 3
+  },
+  {
+   "nome": "Reddit",
+   "ok": true,
+   "presi": 8
+  },
+  {
+   "nome": "Reddit (AI locale)",
+   "ok": true,
+   "presi": 5
+  },
+  {
+   "nome": "Bellingcat (guide e strumenti)",
+   "ok": true,
+   "presi": 0
+  },
+  {
+   "nome": "GIJN (guide per giornalisti investigativi)",
+   "ok": false,
+   "errore": "HTTP Error 403: Forbidden",
+   "presi": 0
+  },
+  {
+   "nome": "OSINT – verifica e fact-checking (internazionale)",
+   "ok": true,
+   "presi": 5
+  },
+  {
+   "nome": "OSINT – nuovi strumenti (internazionale)",
+   "ok": true,
+   "presi": 1
+  },
+  {
+   "nome": "OSINT – strumenti (Italia)",
+   "ok": true,
+   "presi": 0
+  },
+  {
+   "nome": "Reddit (OSINT)",
+   "ok": true,
+   "presi": 0
+  },
+  {
+   "nome": "Hacker News (OSINT)",
+   "ok": true,
+   "presi": 0
+  }
+ ],
+ "visti": [
+  "harnessbyautonomous",
+  "grablospot",
+  "parallax",
+  "tetrizharness",
+  "nemotron35supervl",
+  "mermaid",
+  "gbraintools",
+  "dottr",
+  "agentvault",
+  "bossconsole",
+  "toad",
+  "brussle",
+  "atticus",
+  "superdraft",
+  "basedashconnectorgallery",
+  "rstationasharedresearchlabforyouraiagents",
+  "gemini4argonplaysstarcraft",
+  "aitrackersironamedicalsecures40m",
+  "newbernlaunchestameshaafreeaioperatortohelpresidentsplanoutings",
+  "howtousetripadvisorsaipoweredassistanttocreateatravelitinerary",
+  "miamiluxurycarcompanylaunchesaitoolforbuyerssellers",
+  "konecraneslaunchesaiassistantforkonecranesportalhelpingcustomersidentifyequipmen",
+  "amazonsnewgadgetsincludeanaiassistantthatsalwayslisteningtoyou",
+  "aitooldesignedtopredictbreastcancerrecurrenceclearedbyfda",
+  "bnbpricepredictionbinancelaunchesitsaiassistantasremittixspaymentsfirstecosystem",
+  "mushroomharvestapps",
+  "cronerintelligencelaunchesworkflowsaitooltodraftletters",
+  "welfaredigitalelitaliaèprimaineuropamaibenefitrestanonelcassetto",
+  "cives20262027noveappuntamentipercapirelesfidedellintelligenzaartificiale",
+  "chatgptèliapiùusatadagliitalianimageminicresceeconquistailmobile",
+  "googletraduttorecambialookèpartitoilrolloutdellanuovauipiùmoderna",
+  "eccoilvoltab1ilprimocomputerquantisticoditaliacosèeperchéèunostrumentostrategico",
+  "vasapolliassociatilanciavailiatributaria",
+  "arrivacamonlassistentevirtuale",
+  "epilessialintelligenzaartificialeparlaconilcervellocosìlachatriducedell80ifalsia",
+  "gpt6trasformalerispostedellaiininterfacceinterattivenellachat",
+  "eneycosèecomefunzionalassistenteaipermac",
+  "estensionechatgptperchromeopenaipotenzialintelligenzaartificialenelbrowserper7mi",
+  "googlecispiegacomeusarecerchiaecercapernoncaderenelletruffe",
+  "minisforumlaunchesafanless40tballflashlocalainasat599",
+  "rtxsparklocalaifirststeps",
+  "bestlaptopsforlocalaiin2026labtestedleaderboard",
+  "benchmarkednvidiasrtxsparknotebookdeliversseriouslocalaicomputeataprice",
+  "5waysimusinglocalaitomakethemostofmyoldpchardwarehowtogeek",
+  "nvidialaunchesthreenemotronaimodelsincludingtwoforlocalaiagents",
+  "nvidiartxsparklaptopslaunchworldwidewithlocalaiagentsupport",
+  "reolinkhomehub2launcheswithlocalaivideosearchandexpandablestorage",
+  "nvidiartxsparkdisponibiliipcwindowscon128gbdimemoriaunificataperlailocale",
+  "dallailocaleaimonitoroledinuovipcdimsiarrivanoinitalia",
+  "llamawindowscomefargirarelailocalesulpcsenzainternetesenzapermessi",
+  "nvidiartxsparkarrivainitaliainuovilaptopconailocalepartonoda2999euro",
+  "macstudiom5maxodgxsparkconfrontoeprezziperlailocale",
+  "howitaúisbuildinggenerativeaiforitsentirecustomerbase",
+  "stackoverflowforagentstriplessignupswithchatgptplugin",
+  "bringinggptrosalindtoacademicresearchlabs",
+  "weresharing3tipstostudysmarterwithgemininotebook",
+  "bringingthemagicgooglebreaksopenabottleneckinquantumcomputing",
+  "anintelligentnewshoppingcart",
+  "openaiupdateschatgptwithinteractivegraphics",
+  "alphabetgooglrollsoutgemini4argonglobally",
+  "googlerollsoutuniversalcartintheusforsearchandgemini",
+  "clickintelligencelaunchesnewaiseoservicesforvisibilityacrosschatgptaioverviewsan",
+  "googlelaunchesgemini4argontargetscomplexcodingcybersecurityandscientificresearch",
+  "rankpagelauncheschatgptadsmanagementformalaysianbrandsfollowingsoutheastasiaroll",
+  "microsoftlaunchescopilotforlegalwithaiskillsforcontractreviewandresearch",
+  "googlelaunchesuniversalcartintheuswithpricedropalerts",
+  "googlelaunchesgemini4argontargetsdevelopersandbusinesses",
+  "cyerasaisecurityplatformisnowavailableinclaudemarketplace",
+  "gemini4argongoespublic2vs4pricingclifflooms2026httpstechinsiderorg",
+  "chatgptgetsdeepergooglechromeintegrationincludingcontrolovertabs",
+  "designingmoreefficientquantumcircuitswithclaude",
+  "anthropicquietlypitchesitsownaisafetybilltolawmakers",
+  "anthropicquietlypushesaisafetybillthatwouldlimitgovernmentpowertoblockdangerousm",
+  "claudesolvesquantummemorybottleneckwith17xleanercircuit",
+  "clauderevealsecdsacurveorigins",
+  "anthropicsaysclaudetracednistecdsacurveseedstoa1990srng",
+  "microsoftnowwantslawyersandlegalteamstousecopilotevenforsensitivework",
+  "introducingthecsucampuscopilotchampionsprogram",
+  "microsoftscopilotfacesaukchoicetest",
+  "microsoftunbundlescopilotfrom365samepricedec1",
+  "whytechnologyisnolongeritsscarcestresource",
+  "perplexitylaunchesiosbrowserappwithgoogleasdefaultsearchengine03202026",
+  "applebansnudifyaiappsaftergrokdeepfakescandal",
+  "applesnewappstorerulescrackdownonainudificationandbaitandswitchapps",
+  "metafixesraybansmartglassesbugthatrecordedaudiowithoutheymetahow13outletsframedi",
+  "forgetgeminichatgptandclaudeifinallyfoundmyfavoriteaitoolonandroid",
+  "applesupdatedappstorerulesgoafternudifyaiapps",
+  "cernandmistralplanfoundationmodelsforscientificdiscovery",
+  "metasaystheraybanglassesthatreportedlywokemetaaibythemselvesarefixed",
+  "aweekwithrtxsparkeverythingwevelearnedusingnvidiasnewlaptops",
+  "metasnewtermsmayallowittotrainaionnewssitesforfree",
+  "chatgptcanpeekatyourchrometabsnow",
+  "segapullstotalwarshogun2remasterfromsalefollowingdisastrouslaunch",
+  "thetechbacklashisnowintheaters",
+  "trumppostsaieditedphototobragaboutwhitehouserestorationwork",
+  "blueskysaitoolnowletsyoumakegamesandappstoshareonsocial",
+  "metaandappleteamuptomakemuseaimodelsrunbetteronmacs",
+  "replitisnolongerworkingwithanthropicceosays",
+  "indiabecomesthelatestcountrytoreportrogueaiagentactivity",
+  "annvidiainsiderturnedvconwhyroboticshasnthititschatgptmomentyet",
+  "physicalaiismorethanrobotssaysthenvidiaveterannowinvestinginit",
+  "eloriansfirstaimodelwantstoreasonwithimagesnotjustaboutthem",
+  "jevisvercelsfastestadoptedaimodelever",
+  "markwahlbergonusingaiinfilmtherightwayandbeingopentoanaiclonecarryingonhislegacy",
+  "veritasexpandsitsanticounterfeitchiptojewelrytrophiesandfragrancebottles",
+  "replitsceosaysthefutureofworkistheselfdrivingcompany",
+  "whenitcametocalaisviralsuccessasmallarmyofinfluencerspaidoff",
+  "metalaunchesanopenweightaimodelthatrunsonmacs",
+  "amazondeviceschiefpanospanayseesafuturewhereaidevicesreplacetheneedtouseapps",
+  "openaimodelshackedacryptowalletandbreachedmorewebsites",
+  "thegentlemanpervertproducingaicsamisanjprosecutorsaycops",
+  "metamayusesweepingnewcommercialtostoavoidmillionsinailicensingfees",
+  "superscammedocumentaryshowswhatittakestocatcharomancescammer",
+  "roundtablesaconversationwiththecreatorofaidesignedviruses",
+  "chatgptbecomesafullchromebrowserassistantthatreadsandactsonyouropentabs",
+  "chinaplanstotightenexportcontrolsonopenweightmodelsand23keyaitechnologies",
+  "googlesgemini4argonisclosertotheaifrontierthananygooglemodelinmonths",
+  "isaiinterpretabilityclosetoabreakthroughanewessayhasresearchersdivided",
+  "openaisnewrosalindacademicplangivesresearchlabsupto30freeseatsforayear",
+  "anthropicgivesmetrinsideaccesstoaudititsaimodelsandsafetypractices",
+  "musesparkopenismetasanswertoqwenglmandkimiintheopenweightrace",
+  "musesparkopenmicrosofts3tparammodeld1ultra",
+  "eccosilaaraintelligenzaartificialeconsensibilitàdellaculturapartenopea",
+  "procuretextornaperilsecondoannoportandolintelligenzaartificialeelemiglioritecnol",
+  "sanitàcresconoinvestimentiiniamasoloil2deimedicihacompetenzeadeguate",
+  "giovaniconfindustriaproiettarelitalianelliasiainteressenazionalestrategico",
+  "geodemyallapolitecnicamarcheunprogrammasuterraeprevenzionerischi",
+  "chatgptlapiùusatacrescegeminiedèprimasulmobile",
+  "giocareperimparareperchésimulazionieaistannocambiandolaformazionemanageriale",
+  "ilmitrivoluzionaleprevisionimeteorologicheconilmodellomicrodueteilmachinelearnin",
+  "crisineraperglismartphonefortirincariacausadellintelligenzaartificiale",
+  "agentediopenairubatokendaunwalletsenzaautorizzazione",
+  "appleintelligenceconalibabaincinamasenzasiriai",
+  "usarechatgptperrenderelefaccendedomestichepiùdivertenti",
+  "servizidiassistenzaclientinonsolochatbot",
+  "anthropicscegliemetrperlavalutazionedeimodelliclaude",
+  "googlehomesiaggiornageminipiùnaturaleeaffidabileincasa",
+  "musesparkopenmodelloaiottimizzatopermacstudio",
+  "perchésonotornatoadusareuncomputerconwindowsonarmesnapdragonvideo",
+  "sbobbaainellaremasterditotalwarshogun2segalaritiradallavendita",
+  "metaeappletornanoalavorareassiememeritodellai",
+  "real",
+  "thisis61kbhtmlfile",
+  "isgeminihasaginow",
+  "warning100200500allplanshavethesametokenshereisproof",
+  "noexcuse",
+  "worldsrichestmantheonlyescaperouteforhumanstoavoidbeingeliminatedbyaiistovolunta",
+  "anthropicemployeesaysresistanceisfutile",
+  "jailbrokenps5scannowrunlocalaimodelsatover100tokenspersecondforkofps5lmgoesnativ",
+  "chinaproposesexportcontrolson23aitechnologiesincludinglargemodelsagentsclustersa",
+  "newpaperfromstanfordtogetheraiuiucandmetaintroduceshybridreasoningagentstheseaim",
+  "reflectionbeam10501ba23bhuggingface",
+  "nvidianvidianemotronlabsdory104bbf16huggingface",
+  "research2788tokenssonasinglertx5090withadiffusionllmintroducingorlfullyopensourc",
+  "besttoolstofindsomeonebyphoto2026reportpublishedbykinrossresearch",
+  "googleopenspersonaluseofaigeneratedappslaunchesfreeaipaperverificationtool",
+  "factcheckphotoofmarcoletabackinthesenateaimanipulated",
+  "fakeimagedepictingrealattackonprotesterattrumprallyspreadsonline",
+  "videoofamantryingtoassaultaminorsharedwithfalsecommunalclaim",
+  "osintkaitov3初音ミクv6gumisvcover"
+ ],
+ "audio": "audio/2026-10-17.mp3",
+ "durata": 134.6
+}
