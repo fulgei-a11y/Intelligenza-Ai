@@ -239,6 +239,53 @@
    "categoria": "Testate tech",
    "id": "a96",
    "testo_completo": true
+  },
+  "u1a130": {
+   "titolo": "Apple cambia le regole dell'App Store: stretta sui deepfake AI",
+   "link": "https://www.hdblog.it/apple/articoli/n674022/apple-app-store-nuove-regole-deepfake-ai/",
+   "data": "2026-10-17T09:25:00+02:00",
+   "testo": "Apple rafforza i controlli su deepfake intimi, app nudify e funzioni nascoste.",
+   "fonte": "HDblog",
+   "tipo": "testata",
+   "solo_titolo": false,
+   "categoria": "Italia",
+   "id": "u1a130"
+  },
+  "u1a124": {
+   "titolo": "Apple aggiorna le linee guida per le app di nudificazione",
+   "link": "https://www.punto-informatico.it/apple-aggiorna-linee-guida-app-nudificazione/",
+   "data": "2026-10-17T11:15:10+00:00",
+   "testo": "Le linee guida di App Store vietano da tempo contenuti sessualmente espliciti. Apple ha ora chiarito meglio che sono vietate le app di nudificazione, ovvero la generazione di deepfake sessuali con l’intelligenza artificiale senza un consenso esplicito. L’azienda di Cupertino ha inoltre aggiornato le regole sulle funzionalità post-approvazione. Ban delle app AI di nudificazione Le app di nudificazione permettono di spogliare virtualmente le persone presenti nelle immagini, sfruttando l’intelligenza artificiale. Apple ha ricevuto numerose critiche per non aver rimosso le app di X e Grok, in seguito alla pubblicazione online di deepfake sessuali generati con il chatbot. L’azienda di Cupertino voleva rimuovere Grok, ma alla fine ha accettato le modifiche apportate da xAI (oggi SpaceXSI). Circa tre mesi fa, il Procuratore Generale della California ha ordinato di rimuovere le app di nudificazione dallo store. Apple ha successivamente rispettato l’ordine. Ieri sera ha aggiornato le linee guida per chiarire che queste app sono vietate. Durante la revisione verranno quindi rimosse le app che generano contenuti intimi non consensuali. Gli sviluppatori che non pongono rimedio alle violazioni dopo aver ricevuto una notifica potrebbero essere esclusi dall’App Store. Apple ha inoltre chiarito che sono vietate anche le app con funzionalità nascoste o non documentate. Queste funzionalità, tra cui quella di nudificazione, vengono aggiunte successivamente alla revisione iniziale, una tattica nota come “bait-and-switch”. L’ultimo aggiornamento riguarda le app che agevolano la tratta di esseri umani o lo sfruttamento dei minori (incluso materiale pedopornografico). Queste app sono state sempre vietate, ma ora viene chiarito che verranno rimosse da App Store e bloccata la distribuzione alt…",
+   "fonte": "Punto Informatico",
+   "tipo": "testata",
+   "solo_titolo": false,
+   "categoria": "Italia",
+   "id": "u1a124",
+   "testo_completo": true
+  },
+  "u1a88": {
+   "titolo": "Websites are closing their doors to AI agents",
+   "link": "https://www.theverge.com/ai-artificial-intelligence/1013195/ai-agents-blocked-web",
+   "data": "2026-10-17T09:00:00-04:00",
+   "testo": "Autonomous agents are the hottest thing in AI. OpenAI, Meta, Google, Instinct, and others promise their agents can scour the internet on your behalf, doing anything from booking a dinner reservation and cleaning out your inbox to buying new shoes. But what happens when the rest of the internet won’t play nice? Websites are closing their doors to AI agents OpenAI, Meta, and Google want AI agents to do everything for you. But popular services on the web aren’t letting that happen. In recent weeks, users of services like Meta’s Muse, xAI’s Grok, OpenAI’s Dots, and Instinct have reported blocks preventing their AI agents from performing tasks across top websites. Yelp told TechCrunch that it only allows AI agents that pay for its data licensing program, while Delta Air Lines is preventing them from booking tickets on behalf of users. JPMorgan Chase and Charles Schwab have also confirmed that they’re blocking AI agents from accessing accounts due to security concerns. Some users say sites that previously worked with their AI agent are no longer accessible, including Cars.com and Amtrak, suggesting other companies could be quietly blocking them. Amazon was already fighting off AI agents last year when it banned Perplexity’s agentic shopping feature and sued the AI startup, raising legal and practical questions about the future of agents on the web. At the time, Amazon claimed it “repeatedly requested” that Perplexity stop allowing its AI agents to shop on its website, adding that third-party companies that purchase items on behalf of customers “should operate openly and respect service provider decisions whether or not to participate.” Perplexity responded by pointing out that Amazon doesn’t want AI agents roaming its platform because it won’t get as many human eyeballs in f…",
+   "fonte": "The Verge",
+   "tipo": "testata",
+   "solo_titolo": false,
+   "categoria": "Testate tech",
+   "id": "u1a88",
+   "testo_completo": true
+  },
+  "u1a14": {
+   "titolo": "Llmspeed – feel how fast a local LLM runs before you buy the hardware",
+   "link": "https://llmspeed.dev/",
+   "data": "2026-10-17T04:36:53+00:00",
+   "testo": "Pick hardware and a model, and feel the real speed of a local LLM before you buy. Simulates tokens/sec and time-to-first-token from verified benchmarks for GPUs, Macs, and more. Estimates for a short prompt on a single device. Measured numbers come from community benchmarks (r/LocalLLaMA, localscore.ai and more); others are derived from similar setups or projected from specs. Open source on GitHub .",
+   "fonte": "Show HN (nuovi progetti)",
+   "tipo": "vetrina",
+   "solo_titolo": false,
+   "categoria": "Strumenti",
+   "id": "u1a14",
+   "testo_completo": true
   }
  },
  "fonti": [
@@ -574,8 +621,143 @@
   "factcheckphotoofmarcoletabackinthesenateaimanipulated",
   "fakeimagedepictingrealattackonprotesterattrumprallyspreadsonline",
   "videoofamantryingtoassaultaminorsharedwithfalsecommunalclaim",
-  "osintkaitov3初音ミクv6gumisvcover"
+  "osintkaitov3初音ミクv6gumisvcover",
+  "emochi",
+  "salience",
+  "craftagents",
+  "gputerminalbycontextdev",
+  "step5preview",
+  "llmspeedfeelhowfastalocalllmrunsbeforeyoubuythehardware",
+  "completeaiagentspublishes9866aiagenttemplatesforeverydaybusinesstasks",
+  "howdelltransformedfrompckingtoaiinfrastructuregiant",
+  "chatgptvsclaudevsgeminiwhichaiisbest",
+  "fdaclearsuseofaitooldesignedtopredictwhetherbreastcancerwillrecur",
+  "acompanionbetweenappointmentshongkongstudentsaitoolforcancerpatients",
+  "aiapppredictscappadociahotairballoonflights2weeksaheadwith93accuracy",
+  "lintelligenzaartificialespaventailconsumatoreperil72degliitalianiaumentalavulner",
+  "manfredilintelligenzaartificialealserviziodellepersonelapresentazionedellanuovae",
+  "intelligenzaartificialemelonivacoltalopportunitàdiriaffermareilgenioitalianovide",
+  "lillusionedellaccessoeccolenuoverecinzionidigitali",
+  "lanisregionepugliaapsprotagonistaallaternidigitalweek",
+  "lenuoveguerretecnologiaintelligenzaartificialeeconflittimoderni",
+  "costruireilfuturoinvecedisubirloconlaièancorapiùdifficilepodcast",
+  "googleuniversalcartilcarrelloaichetienedocchioiprezzi",
+  "nvidiabringslocalaicodingworkflowstortxsparkpcs",
+  "imigliorilaptopperlialocalenel2026classificabasatasuitestdilaboratorio",
+  "googlelaunchesuniversalcartforpurchasesacrossretailers",
+  "openailaunchesfestivechatgptcampaignwithnewhindivoices",
+  "alphabetlaunchesgemini4argongloballyforenterpriseworkloads",
+  "microsoftlauncheslegallyapprovedversionofcopilotwithover20ailegalcapabilities",
+  "googlelaunchesgemini4argongloballyforcomplextasks",
+  "zoviznowavailableinthemicrosoftmarketplace",
+  "seatgeekclaimsfirstblendedprimaryandresaleticketingpresenceinchatgpt",
+  "openaibringshindivoicestochatgptinnewfestivecampaignfeaturesneerandleherandshows",
+  "anthropicsclaudeimprovesquantumoptimizationdesigns",
+  "someaccentureemployeesspent1000amonthonanthropicsclaudeaicompanywillnowcentrally",
+  "anthropicsclaudedesignsleanerquantumcircuitsreducingresourcesneededforkeycalcula",
+  "wowitsarealdiscoveryclaudecracksa25yearnsanumbermystery",
+  "anthropicsclaudeaiuncoversoriginsofnsaprovidedcryptographickeysafter25years",
+  "newaiframeworkbridgesacriticalgapinmidrangeweatherforecasts",
+  "aianthropicsiposhowandtellopenaiadsmetaswondermoreairtz1242",
+  "aidailycopilotunbundledglimpsepriced94belowastra",
+  "howtocreateiphoneshortcutswithappleintelligenceandwhyyoushould",
+  "deepseekpushesoutupdatedaimodelitsaysisfasterleaner",
+  "deepseekmovesupthestackv41flashupdateshipsalongsideitsownsearchandfetchapisforag",
+  "deepseekv41flash1017hits770openssearchapi2026httpstechinsiderorg",
+  "deepseekv41flash1017beatslargerrivalsinagentictaskswhileonceagainmassivelycuttin",
+  "deepseekjustreleasedv41flash1017scores770ondeepsweopenssearchapi",
+  "deepseekpushesoutfasterleanerupdatedaimodel",
+  "metaremoveslanguagethatmayhaveallowedittoscrapenewssites",
+  "websitesareclosingtheirdoorstoaiagents",
+  "anopenaimodelhackedagovernmentsitegrabbed24yearsofhospitaldataandkeptitquiet",
+  "anthropicsclaudecracksa25yearoldnsacryptographymysteryinunder30minutes",
+  "aimodelshidemistakesintheirownworkreportsbutonesentenceinyourpromptcanhelp",
+  "mathematicianssayopenaidoesntunderstanditsownnavierstokesproof",
+  "melonipossiamocostruireunaviaitalianaallintelligenzaartificiale",
+  "aldigitalinnovationforumsiparladisicurezzanazionale",
+  "teslaroadsterelonmusksvelaneglistatiunitilautochevola",
+  "appleaggiornalelineeguidaperleappdinudificazione",
+  "nvidiartxsparkallaprovafinalmenteanchewindowshailsuolaptopdefinitivovideo",
+  "applecambialeregoledellappstorestrettasuideepfakeai",
+  "googlecomeevitarelerispostedellianeirisultatidiricerca",
+  "proceduralgenerationwithopusisinsanethisentiregameis20mb",
+  "fridaymode",
+  "gpt6astramademea1clickofflinepatchforstartreklegendsafteritsserversshutdownandit",
+  "gemini4argonusageonproplancomparedtoopus55andgpt6astra",
+  "ibuiltafreewindowswidgetforclaudeusagelimitswithclaudecodepixelclawdreactstoyour",
+  "deepseekaideepseekv41flash1017huggingface",
+  "mylocalaidiscoveredtheultimateoptimization",
+  "nvidiahasofficiallyconfirmedthatthe5090isnotdiscontinuedandwillcontinueshipping",
+  "deepseekv41flash1017nowleadsopenweightmodels",
+  "anticecstirthisvideoofpmmodilashingoutatcongressisold",
+  "factcheckfakeimageshowsmaninmidairafterbeingthrownfromgoliathatsixflagsovergeorg",
+  "sabotaggioastarlinktrabulgariaepoloniaifattileattribuzionieilrischioeuropeo"
  ],
  "audio": "audio/2026-10-17.mp3",
- "durata": 134.6
+ "durata": 180.8,
+ "aggiornamenti": [
+  {
+   "generato": "2026-10-17T16:51:38+00:00",
+   "modello": "gemini-3.8-flash",
+   "testi_completi": 5,
+   "riassunto": {
+    "titolo_giorno": "Llmspeed stima la velocità dell'AI locale prima dell'acquisto hardware",
+    "in_breve": "La novità principale di questo aggiornamento è Llmspeed, uno strumento che permette di simulare la velocità reale dei modelli AI da eseguire sul proprio dispositivo prima di acquistare nuovi componenti. Intanto Apple stringe i controlli su App Store vietando le applicazioni che generano deepfake non consensuali.",
+    "citati": [
+     "Llmspeed",
+     "Apple",
+     "App Store"
+    ],
+    "da_provare": [
+     {
+      "cosa": "Llmspeed",
+      "a_cosa_serve": "Permette di simulare la velocità reale di un modello AI eseguito in locale (misurando token al secondo e tempi di risposta) su diversi tipi di processori e schede grafiche, basandosi su test prestazionali verificati.",
+      "per_chi": "Lavoro e tutti i giorni",
+      "ambito": "Ricerca",
+      "come_iniziare": [],
+      "costo": "Gratis",
+      "piattaforme": [],
+      "sul_dispositivo": false,
+      "come_sfruttarla": "Verificare in anticipo le prestazioni stimate di un'AI locale sul computer o sulla scheda grafica che si intende acquistare.",
+      "italiano": "Non indicato",
+      "difficolta": "Media",
+      "fonti": [
+       "u1a14"
+      ],
+      "affidabilita": "Appena lanciato",
+      "prova": "https://llmspeed.dev/"
+     }
+    ],
+    "osint": [],
+    "sezioni": [
+     {
+      "titolo": "In breve",
+      "breve": true,
+      "notizie": [
+       {
+        "titolo": "Apple vieta su App Store le app per deepfake di nudità",
+        "riassunto": "Apple ha aggiornato le regole di App Store vietando esplicitamente le applicazioni che creano immagini intime non consensuali con l'AI o che introducono funzioni nascoste dopo l'approvazione iniziale.",
+        "fonti": [
+         "u1a124",
+         "u1a130"
+        ],
+        "affidabilita": "Confermata",
+        "solo_titoli": false
+       },
+       {
+        "titolo": "I grandi portali web bloccano gli agenti AI autonomi",
+        "riassunto": "Sempre più servizi online di banche, compagnie aeree e commercio elettronico hanno iniziato a sbarrare l'accesso agli agenti AI che tentano di svolgere acquisti, prenotazioni o operazioni al posto degli utenti.",
+        "fonti": [
+         "u1a88"
+        ],
+        "affidabilita": "Una fonte",
+        "solo_titoli": false
+       }
+      ]
+     }
+    ],
+    "formato": 2
+   }
+  }
+ ]
 }
