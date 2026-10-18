@@ -1,0 +1,117 @@
+{
+ "giorno": "2026-10-18",
+ "formato": 2,
+ "titolo": "AI locale su Windows e integrazioni per il lavoro quotidiano",
+ "in_breve": "Questa settimana spiccano soluzioni per usare modelli AI direttamente sul PC Windows a tutela della privacy, senza passare dal cloud. Al contempo, i grandi assistenti come Claude e Copilot si integrano in modo sempre più profondo nei programmi da ufficio come Google Documenti ed Excel. Arrivano inoltre nuove funzioni pratiche per tradurre file senza perdere l'impaginazione e gestire al meglio lo studio.",
+ "notizie": [
+  {
+   "titolo": "Claude entra direttamente in Google Documenti, Fogli e Presentazioni",
+   "racconto": "Claude è ora disponibile nella barra laterale della suite Google per leggere, analizzare e modificare i contenuti dei file. Non è più necessario copiare e incollare manualmente testi o tabelle da una finestra all'altra.",
+   "perche_conta": "Permette di revisionare testi e analizzare dati da ufficio direttamente nei documenti in cui si lavora quotidianamente.",
+   "rif": [
+    [
+     "2026-10-12",
+     "u1n2"
+    ]
+   ]
+  },
+  {
+   "titolo": "ChatGPT si arricchisce di grafici interattivi ed esplorazione delle schede web",
+   "racconto": "OpenAI ha introdotto in ChatGPT la capacità di generare ed esplorare grafici e visualizzazioni interattive all'interno della conversazione. Inoltre, l'estensione per Chrome consente ora all'assistente di vedere le schede aperte del browser per riassumerle, confrontare informazioni o compilare moduli.",
+   "perche_conta": "Semplifica l'analisi visiva delle informazioni e velocizza il lavoro di navigazione online senza continui copia e incolla.",
+   "rif": [
+    [
+     "2026-10-12",
+     1
+    ],
+    [
+     "2026-10-16",
+     1
+    ]
+   ]
+  },
+  {
+   "titolo": "Gemini lancia il modello 4 Argon e nuovi strumenti per lo studio guidato",
+   "racconto": "Google ha rilasciato Gemini 4 Argon per gli abbonati, offrendo risposte più dirette, un contesto ampio e l'integrazione con oltre 40 applicazioni. Per l'apprendimento arrivano la 'Study Mode' e nuove funzioni su Gemini Notebook con quiz personalizzati e riassunti video di 60 secondi.",
+   "perche_conta": "Rende lo studio e la gestione di compiti complessi più strutturati e rapidi da portare a termine.",
+   "rif": [
+    [
+     "2026-10-13",
+     "u1n1"
+    ],
+    [
+     "2026-10-15",
+     1
+    ],
+    [
+     "2026-10-15",
+     "u1n1"
+    ],
+    [
+     "2026-10-15",
+     "u1n5"
+    ],
+    [
+     "2026-10-17",
+     1
+    ]
+   ]
+  },
+  {
+   "titolo": "Copilot in Excel automatizza i report e registra nuove abilità",
+   "racconto": "Microsoft Copilot in Excel introduce la funzione 'interactive canvas' per generare report interattivi che si aggiornano da soli partendo da semplici istruzioni scritte. Vengono aggiunti anche Skill Builder e Skill Recorder per memorizzare e replicare automaticamente le azioni abituali.",
+   "perche_conta": "Permette a chiunque di creare prospetti complessi e automatizzare le operazioni ripetitive sui fogli di calcolo senza conoscere formule avanzate.",
+   "rif": [
+    [
+     "2026-10-13",
+     "u1n2"
+    ]
+   ]
+  },
+  {
+   "titolo": "Google Home migliora la voce di Gemini e la gestione dei comandi domestici",
+   "racconto": "L'aggiornamento dell'app Google Home rende la voce dell'assistente Gemini più naturale durante le interazioni quotidiane. Il sistema ora recepisce tempestivamente l'ordine di fermarsi, rispetta lo stop per riproduzioni o timer e applica correttamente le unità di misura impostate per la casa.",
+   "perche_conta": "Rende i controlli vocali della casa intelligente molto più affidabili e meno frustranti nell'uso di tutti i giorni.",
+   "rif": [
+    [
+     "2026-10-17",
+     2
+    ]
+   ]
+  }
+ ],
+ "da_provare": [
+  {
+   "cosa": "Llama for Windows (Windows, sul dispositivo)",
+   "a_cosa_serve": "Consente di scaricare ed eseguire modelli AI locali direttamente sul proprio computer Windows con un solo clic, senza configurazioni complesse.",
+   "rif": "2026-10-15#u1provare-5",
+   "giorno": "2026-10-15"
+  },
+  {
+   "cosa": "Xiryn (Gratis, sul dispositivo)",
+   "a_cosa_serve": "Un assistente AI personale open-source che opera localmente sul computer per garantire la massima riservatezza dei propri dati.",
+   "rif": "2026-10-13#u1provare-4",
+   "giorno": "2026-10-13"
+  },
+  {
+   "cosa": "PixLate (Browser)",
+   "a_cosa_serve": "Traduce documenti completi preservando intatta l'impaginazione grafica e la struttura visiva originale del testo.",
+   "rif": "2026-10-14#u1provare-4",
+   "giorno": "2026-10-14"
+  },
+  {
+   "cosa": "Grablo Spot (Gratis, Browser)",
+   "a_cosa_serve": "Analizza i video registrati consentendo di individuare e cercare persone o veicoli specifici in pochissimi secondi.",
+   "rif": "2026-10-17#provare-3",
+   "giorno": "2026-10-17"
+  },
+  {
+   "cosa": "RoleFit (Browser)",
+   "a_cosa_serve": "Adatta e personalizza in automatico curriculum vitae e lettere di presentazione in base all'annuncio di lavoro a cui si intende rispondere.",
+   "rif": "2026-10-14#u1provare-2",
+   "giorno": "2026-10-14"
+  }
+ ],
+ "modello": "gemini-3.8-flash",
+ "generato": "2026-10-18T05:43:34+00:00"
+}

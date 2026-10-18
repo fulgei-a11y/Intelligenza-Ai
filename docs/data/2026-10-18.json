@@ -1,0 +1,434 @@
+{
+ "giorno": "2026-10-18",
+ "generato": "2026-10-18T05:42:48+00:00",
+ "modello": "gemini-3.8-flash",
+ "testi_completi": 11,
+ "riassunto": {
+  "titolo_giorno": "ChatGPT lancia Slides per creare presentazioni dal testo",
+  "in_breve": "OpenAI introduce in ChatGPT la funzione Slides, pensata per generare presentazioni complete direttamente nella conversazione. Tra le nuove soluzioni per il lavoro fa il suo debutto anche TruLata, una piattaforma per creare siti web e impostare il marketing delle piccole attività con l'aiuto dell'AI.",
+  "citati": [
+   "ChatGPT",
+   "TruLata"
+  ],
+  "da_provare": [
+   {
+    "cosa": "TruLata",
+    "a_cosa_serve": "Una piattaforma di marketing per attività di servizi che include un costruttore guidato dall'AI per creare siti web senza costi iniziali.",
+    "per_chi": "Lavoro",
+    "ambito": "Marketing e siti web",
+    "come_iniziare": [],
+    "costo": "Non indicato",
+    "piattaforme": [],
+    "sul_dispositivo": false,
+    "come_sfruttarla": "Realizzare rapidamente il sito web promozionale per la propria attività commerciale o professionale.",
+    "italiano": "Non indicato",
+    "difficolta": "Facile",
+    "fonti": [
+     "a51"
+    ],
+    "affidabilita": "Da verificare",
+    "solo_titoli": true,
+    "prova": ""
+   },
+   {
+    "cosa": "Emochi",
+    "a_cosa_serve": "Un diario personale basato sulla voce che impiega l'AI per aiutare a comprendere le proprie emozioni unendo arte e scienza.",
+    "per_chi": "Tutti i giorni",
+    "ambito": "Benessere",
+    "come_iniziare": [],
+    "costo": "Non indicato",
+    "piattaforme": [],
+    "sul_dispositivo": false,
+    "come_sfruttarla": "Registrare riflessioni personali a voce per tenere traccia del proprio stato d'animo quotidiano.",
+    "italiano": "Non indicato",
+    "difficolta": "Facile",
+    "fonti": [
+     "a1"
+    ],
+    "affidabilita": "Appena lanciato",
+    "prova": "https://www.producthunt.com/products/emochi-2"
+   },
+   {
+    "cosa": "GBrain Tools",
+    "a_cosa_serve": "Un gestore di password progettato per consentire agli assistenti e agenti AI di gestire credenziali e accessi in modo sicuro.",
+    "per_chi": "Lavoro",
+    "ambito": "Sicurezza",
+    "come_iniziare": [],
+    "costo": "Non indicato",
+    "piattaforme": [],
+    "sul_dispositivo": false,
+    "come_sfruttarla": "Custodire in sicurezza chiavi di accesso e credenziali quando si usano agenti digitali per automatizzare compiti.",
+    "italiano": "Non indicato",
+    "difficolta": "Media",
+    "fonti": [
+     "a5"
+    ],
+    "affidabilita": "Appena lanciato",
+    "prova": "https://www.producthunt.com/products/gbrain"
+   }
+  ],
+  "osint": [],
+  "sezioni": [
+   {
+    "titolo": "Novità negli strumenti che già usi",
+    "notizie": [
+     {
+      "titolo": "Arriva ChatGPT Slides per generare presentazioni",
+      "strumento": "ChatGPT",
+      "riassunto": "OpenAI ha introdotto ChatGPT Slides, una nuova funzionalità per creare slide e presentazioni direttamente nell'interfaccia di chat. La funzione è stata resa disponibile per gli abbonamenti Pro, Business ed Enterprise.",
+      "come_provarla": "",
+      "disponibilita": "Disponibile ora",
+      "fonti": [
+       "a52"
+      ],
+      "affidabilita": "Da verificare",
+      "solo_titoli": true
+     }
+    ]
+   }
+  ],
+  "formato": 2
+ },
+ "articoli": {
+  "a51": {
+   "titolo": "TruLata Launches AI Marketing Platform for Service Businesses With a Free Website Builder",
+   "link": "https://news.google.com/rss/articles/CBMi1gFBVV95cUxQRnNkN0RoYi1qQVJCelk3ajV1VVlfNTMxaTd5NkR1NEl6U3IwVnc5TjVaVHF0SUlMMUtOdXYwQnQ3bHAwTTFraVRVc05pTDlIdWhaTkpWT0RJMEZoNUh4dHdOaUVGV0dnTVp5bk5wWUZjSnZiNVdrRks0c2RzeGZZcWRnODdoUTcxc1FvZzJSMGhRMUtuQzEtUVR1Q3YzbFF3MnBMdkZrVjk3S2hUUUV1THNKMjE0TEpQa2NUTzN5REZEcnJOd2FxX2RoNFJDUHY3RFJaOEdR?oc=5",
+   "data": "2026-10-17T17:56:15+00:00",
+   "testo": "",
+   "fonte": "Detroit Free Press",
+   "tipo": "minore",
+   "solo_titolo": true,
+   "categoria": "Laboratori",
+   "id": "a51"
+  },
+  "a5": {
+   "titolo": "GBrain Tools",
+   "link": "https://www.producthunt.com/products/gbrain",
+   "data": "2026-10-15T17:51:53-07:00",
+   "testo": "A password manager for AI",
+   "fonte": "Product Hunt (AI)",
+   "tipo": "vetrina",
+   "solo_titolo": false,
+   "categoria": "Strumenti",
+   "id": "a5"
+  },
+  "a1": {
+   "titolo": "Emochi",
+   "link": "https://www.producthunt.com/products/emochi-2",
+   "data": "2026-10-16T00:43:37-07:00",
+   "testo": "Voice journal to understand yourself through art and science",
+   "fonte": "Product Hunt (AI)",
+   "tipo": "vetrina",
+   "solo_titolo": false,
+   "categoria": "Strumenti",
+   "id": "a1"
+  },
+  "a52": {
+   "titolo": "ChatGPT Slides Launches for Pro, Business and Enterprise, How It Works",
+   "link": "https://news.google.com/rss/articles/CBMilgFBVV95cUxNZndDZ0M4SmlvckxPZ2xrenFIWTVGY1hPaEVVU3d1VXgyR0s2Y2lwOG43MGU3clBQTmJOcVpEQnBNMGpiNmV0YmpGd05IQzFpajlsS2RIVE9WTXpNMUJCYWtRbnhWbUJ3bFBhZlJXaG9jb2ktTFJKQ3ZMWDdYUDQ5UFp1LTJ2SlpBZDg3SkN4bTNHNE1HRkE?oc=5",
+   "data": "2026-10-17T17:10:56+00:00",
+   "testo": "",
+   "fonte": "Pasquale Pillitteri",
+   "tipo": "minore",
+   "solo_titolo": true,
+   "categoria": "Laboratori",
+   "id": "a52"
+  }
+ },
+ "fonti": [
+  {
+   "nome": "Product Hunt (AI)",
+   "ok": true,
+   "presi": 6
+  },
+  {
+   "nome": "Show HN (nuovi progetti)",
+   "ok": true,
+   "presi": 3
+  },
+  {
+   "nome": "Nuove app AI (internazionale)",
+   "ok": true,
+   "presi": 10
+  },
+  {
+   "nome": "Nuove app AI (Italia)",
+   "ok": true,
+   "presi": 8
+  },
+  {
+   "nome": "Novità AI da provare (Italia)",
+   "ok": true,
+   "presi": 4
+  },
+  {
+   "nome": "AI sul dispositivo (internazionale)",
+   "ok": true,
+   "presi": 8
+  },
+  {
+   "nome": "AI sul dispositivo (Italia)",
+   "ok": true,
+   "presi": 5
+  },
+  {
+   "nome": "OpenAI",
+   "ok": true,
+   "presi": 1
+  },
+  {
+   "nome": "Google (blog ufficiale)",
+   "ok": true,
+   "presi": 0
+  },
+  {
+   "nome": "Google Gemini (blog)",
+   "ok": true,
+   "presi": 0
+  },
+  {
+   "nome": "Nuove funzioni AI (Google News)",
+   "ok": true,
+   "presi": 12
+  },
+  {
+   "nome": "Anthropic / Claude",
+   "ok": true,
+   "presi": 6
+  },
+  {
+   "nome": "Microsoft Copilot",
+   "ok": true,
+   "presi": 5
+  },
+  {
+   "nome": "Altri assistenti AI (Perplexity, Mistral, Meta AI…)",
+   "ok": true,
+   "presi": 8
+  },
+  {
+   "nome": "The Verge",
+   "ok": true,
+   "presi": 2
+  },
+  {
+   "nome": "TechCrunch",
+   "ok": true,
+   "presi": 3
+  },
+  {
+   "nome": "Ars Technica",
+   "ok": true,
+   "presi": 2
+  },
+  {
+   "nome": "MIT Technology Review",
+   "ok": true,
+   "presi": 1
+  },
+  {
+   "nome": "The Decoder",
+   "ok": true,
+   "presi": 7
+  },
+  {
+   "nome": "TLDR AI (newsletter)",
+   "ok": true,
+   "presi": 0
+  },
+  {
+   "nome": "ANSA",
+   "ok": true,
+   "presi": 6
+  },
+  {
+   "nome": "Wired Italia",
+   "ok": true,
+   "presi": 0
+  },
+  {
+   "nome": "Il Sole 24 Ore Tecnologia",
+   "ok": true,
+   "presi": 0
+  },
+  {
+   "nome": "Punto Informatico",
+   "ok": true,
+   "presi": 1
+  },
+  {
+   "nome": "HDblog",
+   "ok": true,
+   "presi": 3
+  },
+  {
+   "nome": "Reddit",
+   "ok": true,
+   "presi": 8
+  },
+  {
+   "nome": "Reddit (AI locale)",
+   "ok": true,
+   "presi": 5
+  },
+  {
+   "nome": "Bellingcat (guide e strumenti)",
+   "ok": true,
+   "presi": 0
+  },
+  {
+   "nome": "GIJN (guide per giornalisti investigativi)",
+   "ok": false,
+   "errore": "HTTP Error 403: Forbidden",
+   "presi": 0
+  },
+  {
+   "nome": "OSINT – verifica e fact-checking (internazionale)",
+   "ok": true,
+   "presi": 0
+  },
+  {
+   "nome": "OSINT – nuovi strumenti (internazionale)",
+   "ok": true,
+   "presi": 3
+  },
+  {
+   "nome": "OSINT – strumenti (Italia)",
+   "ok": true,
+   "presi": 2
+  },
+  {
+   "nome": "Reddit (OSINT)",
+   "ok": true,
+   "presi": 0
+  },
+  {
+   "nome": "Hacker News (OSINT)",
+   "ok": true,
+   "presi": 0
+  }
+ ],
+ "visti": [
+  "emochi",
+  "step5preview",
+  "salience",
+  "gputerminalbycontextdev",
+  "gbraintools",
+  "parallax",
+  "llmspeedfeelhowfastalocalllmrunsbeforeyoubuythehardware",
+  "rstationasharedresearchlabforyouraiagents",
+  "gemini4argonplaysstarcraft",
+  "aitrackersironamedicalsecures40m",
+  "atosradioinspiredaiassistanttradestouchscreensforabuttonandknob",
+  "completeaiagentspublishes9866aiagenttemplatesforeverydaybusinesstasks",
+  "ukcompetitionregulatortargetsmicrosoftsbusinesssoftwaregrip",
+  "sellsmartlyomnichannelcrmwithaichatbots",
+  "chatgptvsclaudevsgeminiwhichaiisbest",
+  "the29yearoldaidirectoradmitstogettingdistractedwhilethinkingupmemes",
+  "blueskysattieaitoolnowbuildssmallgamespollsandappsyoucanshare",
+  "whenaicallsyoutrustmustbeearned",
+  "kalashnikovdecidedtostreamlinetoolmanagementatfiveplantsatonce",
+  "illagodeicignientranelleradellintelligenzaartificialeabitrittolamagiadelballetto",
+  "manfredilintelligenzaartificialealserviziodellepersonelapresentazionedellanuovae",
+  "lintelligenzaartificialespaventailconsumatoreperil72degliitalianiaumentalavulner",
+  "intelligenzaartificialeunanuovalevacreativaperlamodavietnamita",
+  "welfaredigitalelitaliaèprimaineuropamaibenefitrestanonelcassetto",
+  "cives20262027noveappuntamentipercapirelesfidedellintelligenzaartificiale",
+  "intelligenzaartificialemelonivacoltalopportunitàdiriaffermareilgenioitalianovide",
+  "lanisregionepugliaapsprotagonistaallaternidigitalweek",
+  "chatgptsugooglechromecomefunzionalanuovaestensionediopenai",
+  "corsiaigratisdideeplearningaiehuggingfacelaguida2026",
+  "costruireilfuturoinvecedisubirloconlaièancorapiùdifficilepodcast",
+  "googleuniversalcartilcarrelloaichetienedocchioiprezzi",
+  "5localaiappsthatfinallymakerunninganllmonmyphoneworthit",
+  "googleplaynowletsanyonebuildandrunprivateaigeneratedappsonandroid",
+  "gnomesnewlocalcloudaichatappgainsmorefeatures",
+  "nvidiartxsparkvsmacbookprowhichlaptopwinsforlocalai",
+  "benchmarkednvidiasrtxsparknotebookdeliversseriouslocalaicomputeataprice",
+  "bestlaptopsforlocalaiin2026labtestedleaderboard",
+  "nvidiabringslocalaicodingworkflowstortxsparkpcs",
+  "hpsomnibookultra16deliversfastlocalaiatasteepprice",
+  "juventuslaziostreaminggratisdovevederlaliveoggi",
+  "imigliorilaptopperlialocalenel2026classificabasatasuitestdilaboratorio",
+  "llamawindowscomefargirarelailocalesulpcsenzainternetesenzapermessi",
+  "macstudiom5maxodgxsparkconfrontoeprezziperlailocale",
+  "googleaggiornaandroidcontroletruffecongemini",
+  "howitaúisbuildinggenerativeaiforitsentirecustomerbase",
+  "googlereleasesgemini4argonitsnewfrontiermodelbenchmarkshowtotryitandpricing",
+  "googlelaunchesuniversalcarttotransformonlineshoppingexperience",
+  "openaiexpandsboardwithfintechbankingleadersaheadofpotentialipolauncheschatgptpro",
+  "ahiddenfeatureingooglefindcanmakesureyouneverloseyourkeysagain",
+  "metalaunchesmusewondercatchingopenaianthropichowtotryitbenchmarkresults",
+  "trulatalaunchesaimarketingplatformforservicebusinesseswithafreewebsitebuilder",
+  "chatgptslideslaunchesforprobusinessandenterprisehowitworks",
+  "openailaunchesfestivechatgptcampaignwithnewhindivoices",
+  "alphabetlaunchesgemini4argongloballyforenterpriseworkloads",
+  "gemini4argongoesglobaltokensjump16xto1m2026",
+  "metalaunchesopenaimodeltocompetewithglobalrivals",
+  "microsoftlauncheslegallyapprovedversionofcopilotwithover20ailegalcapabilities",
+  "pentagongivesanthropicultimatumonaitechnologysourcesabcnews",
+  "anthropicsaysitsworkforcehasbecomelessjuniorandisspendingmoretimeinmeetings",
+  "anthropicsaysclaudetracednistcurveseedsto1990stimestamps",
+  "anthropicsclaudeimprovesquantumoptimizationdesigns",
+  "pentagonescalatesanthropicdisputeoverclaudemilitarysafeguards",
+  "someaccentureemployeesspent1000amonthonanthropicsclaudeaicompanywillnowcentrally",
+  "newaiframeworkbridgesacriticalgapinmidrangeweatherforecasts",
+  "freeaichatbotcomparedchatgptvsgeminivsclaudetechinsiderorg",
+  "freemicrosoftaicoursesandcertificationsthe2026guide",
+  "170blogpoststolearnaboutgithubcopilot",
+  "palihapitiyabacksnadellaonclosedaimodelcosts",
+  "grok47vsclaudevsdeepseek13xpricegap2026httpstechinsiderorg",
+  "deepseekrollsoutv41flashupdatewithfasteroutputs",
+  "deepseekpushesoutupdatedaimodelitsaysisfasterleaner",
+  "howtocreateiphoneshortcutswithappleintelligenceandwhyyoushould",
+  "deepseekmovesupthestackv41flashupdateshipsalongsideitsownsearchandfetchapisforag",
+  "deepseekreleaseslightweightnewmodelwithpertaskcostsonetenthofusrivals",
+  "deepseekv41flash1017fasterleanermodelupdate",
+  "deepseekjustreleasedv41flash1017scores770ondeepsweopenssearchapi",
+  "metaremoveslanguagethatmayhaveallowedittoscrapenewssites",
+  "websitesareclosingtheirdoorstoaiagents",
+  "metaremoveslanguagethatraisedscrapingandaitrainingconcerns",
+  "replitmakesopenaiitsdefaultoveranthropicceosays",
+  "indiabecomesthelatestcountrytoreportrogueaiagentactivity",
+  "openaimodelshackedacryptowalletandbreachedmorewebsites",
+  "thegentlemanpervertproducingaicsamisanjprosecutorsaycops",
+  "roundtablesaconversationwiththecreatorofaidesignedviruses",
+  "anopenaimodelhackedagovernmentsitegrabbed24yearsofhospitaldataandkeptitquiet",
+  "anthropicsclaudecracksa25yearoldnsacryptographymysteryinunder30minutes",
+  "deepseekv41flash1017beatslargerrivalsinagentictaskswhileonceagainmassivelycuttin",
+  "aimodelshidemistakesintheirownworkreportsbutonesentenceinyourpromptcanhelp",
+  "mathematicianssayopenaidoesntunderstanditsownnavierstokesproof",
+  "chatgptbecomesafullchromebrowserassistantthatreadsandactsonyouropentabs",
+  "chinaplanstotightenexportcontrolsonopenweightmodelsand23keyaitechnologies",
+  "melonipossiamocostruireunaviaitalianaallintelligenzaartificiale",
+  "jennaortegatrasocialeiastiamoperdendosemprepiùlerelazioniumane",
+  "glioftalmologiuniversitaridituttaitaliaacongressoachieti",
+  "francescoprofumoopitiastacambiandolavoroeistruzione",
+  "ansagiovaniconfindustriaorasceltestrategichenoapiccolidividendielettorali",
+  "notiziarioansamed",
+  "appleaggiornalelineeguidaperleappdinudificazione",
+  "nvidiartxsparkallaprovafinalmenteanchewindowshailsuolaptopdefinitivovideo",
+  "applecambialeregoledellappstorestrettasuideepfakeai",
+  "googlecomeevitarelerispostedellianeirisultatidiricerca",
+  "mightbethebestcast",
+  "proceduralgenerationwithopusisinsanethisentiregameis20mb",
+  "notwhatiwantedbuthilarious",
+  "thisweeksclauderesetanyoneelsenoticingunusuallyhighusageallofasudden",
+  "chronotriggerreimaginedwithrealisticgraphics",
+  "thesituationaroundp",
+  "theygave120handwrittenpagesandturneditintoafontwithopus55",
+  "imadeabrowserfpswithclaudecodeevery3dmodelinitiscode",
+  "linuxcreatorsaysantiairulesareidioticabsolutegodtiertake",
+  "deepseekaideepseekv41flash1017huggingface",
+  "deepseekv41flash1017nowleadsopenweightmodels",
+  "mylocalaidiscoveredtheultimateoptimization",
+  "nvidiahasofficiallyconfirmedthatthe5090isnotdiscontinuedandwillcontinueshipping",
+  "day18osintintelligencehowpublicinformationcancrackacase",
+  "oilterminalandvkontaktedatacenterrussiareportsamassivedroneattack",
+  "itispossiblethatrussiaisalreadypreparingforwarwithnatonewtanksareappearingatstor",
+  "phishingaziendaleperchéidipendentiformaticliccanocomunque",
+  "sabotaggioastarlinktrabulgariaepoloniaifattileattribuzionieilrischioeuropeo"
+ ],
+ "audio": "audio/2026-10-18.mp3",
+ "durata": 69.6
+}
