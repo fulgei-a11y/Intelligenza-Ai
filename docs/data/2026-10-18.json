@@ -133,6 +133,39 @@
    "solo_titolo": true,
    "categoria": "Laboratori",
    "id": "a52"
+  },
+  "u1a1": {
+   "titolo": "Tomo for ChatGPT",
+   "link": "https://www.producthunt.com/products/tomo-for-chatgpt",
+   "data": "2026-10-17T03:14:13-07:00",
+   "testo": "Ask anything. Then play it, Duolingo-style.",
+   "fonte": "Product Hunt (AI)",
+   "tipo": "vetrina",
+   "solo_titolo": false,
+   "categoria": "Strumenti",
+   "id": "u1a1"
+  },
+  "u1a86": {
+   "titolo": "Two German courts now hold Google liable for what its AI overviews say",
+   "link": "https://the-decoder.com/two-german-courts-now-hold-google-liable-for-what-its-ai-overviews-say/",
+   "data": "2026-10-18T10:52:39+00:00",
+   "testo": "Google tried to overturn a landmark Munich ruling on AI search liability by appealing, then quietly settled. The strategy isn't working. The Aachen Regional Court just applied the exact same reasoning in a new case where Google's AI falsely attributed criminal offenses to a doctor that actually involved someone else. A consistent legal view is forming across German courts, and it treats Google's …",
+   "fonte": "The Decoder",
+   "tipo": "testata",
+   "solo_titolo": false,
+   "categoria": "Testate tech",
+   "id": "u1a86"
+  },
+  "u1a18": {
+   "titolo": "ChatGPT arriva su Apple CarPlay con l'ultimo aggiornamento",
+   "link": "https://news.google.com/rss/articles/CBMiekFVX3lxTE1BVHc5ZGRmQ3VrRGRHLUNyZFVTc3JTX29fcFpIcm9ocHhDNmVPbXdVbUZDQi1hR3B1bEZIODRnVlN3UnAtalJpeTVKeHhnVnlYRXpYMnpyR083ZFFTN1ZPamNaSm5ZOVdGaGx5M2pwcTZ6R2RVVHhuWkRB?oc=5",
+   "data": "2026-10-18T00:54:14+00:00",
+   "testo": "",
+   "fonte": "Motor1.com Italia",
+   "tipo": "minore",
+   "solo_titolo": true,
+   "categoria": "Strumenti",
+   "id": "u1a18"
   }
  },
  "fonti": [
@@ -427,8 +460,158 @@
   "oilterminalandvkontaktedatacenterrussiareportsamassivedroneattack",
   "itispossiblethatrussiaisalreadypreparingforwarwithnatonewtanksareappearingatstor",
   "phishingaziendaleperchéidipendentiformaticliccanocomunque",
-  "sabotaggioastarlinktrabulgariaepoloniaifattileattribuzionieilrischioeuropeo"
+  "sabotaggioastarlinktrabulgariaepoloniaifattileattribuzionieilrischioeuropeo",
+  "tomoforchatgpt",
+  "mylens",
+  "3amsuperintelligence",
+  "matthewkurianfdaclearsaitooltopredictbreastcancerrecurrenceriskbeforesurgery",
+  "aitoolhelpsstrandedprotestersfindtheirwayhomeintheindiancapital",
+  "atosscreenlessaiassistantbringsretrocharmwithintuitivedesignforseniors",
+  "dotsproactiveaitoolforcontinuousworkflow",
+  "amazonunveilsbeefrontieranalwaysonaiwearablethatlistensandsummarisesconversation",
+  "vibecodedsouthafricanwebsitehackedjustsixdaysafterlaunch",
+  "chatgptarrivasuapplecarplayconlultimoaggiornamento",
+  "processoalliaabariilverdettoarrivail4novembre",
+  "previsionimeteoalungoterminelintelligenzaartificialeapreunanuovafase",
+  "ilcasoorélienquandolintelligenzaartificialeriesceacreareuntestoletterario",
+  "rogxboxallyx20arrivainitaliaa2599euromasolonelbundle",
+  "gpt6trasformalerispostedellaiininterfacceinterattivenellachat",
+  "geminicosècomefunzionaecomeusarlogratis2026",
+  "dopoalcunimesidipausailavoratoriamericanisonorimastisbalorditidallintelligenzaar",
+  "rtxsparkignitesglobalcelebrationasnewwindowspcsarrive",
+  "nvidiartxsparkvsmacbookprom5proandm5maxwhichisbetterforlocalai",
+  "nvidialaunchesrtxsparkailaptopsinkoreastartingat58millionwon",
+  "explorethepotentialoflocalaiprocessingonyourlaptop",
+  "llmspeedletsuserstestlocalllmperformancebeforebuyinghardware",
+  "addioawhatsappsuquestidispositivismetteràdifunzionare",
+  "dovevederejuventuslazioinstreaminggratisseriea202627",
+  "ios18comeattivaresubitotuttelenuovefunzionisenzaaspettaregliaggiornamenti",
+  "windows1124h2terminail13ottobrecomeaggiornaresenzaperderedati",
+  "googlegeminiisnowavailablefortheiphone",
+  "mcpservertutorialbuildsecureitin12steps2026",
+  "analyzingtechnicaldocumentswithdeepreview",
+  "violooptheaiboxthatusesyourmouseandkeyboardlaunchesat399",
+  "zoomradarlaunchesrealtimeweatherradaronchatgptpluginstorepressservices",
+  "vinciairportslaunchesmodernisationandexpansionofterminal2atlyonsaintexupéryairpo",
+  "oneofthebestfeaturesofthegooglepixel11cannowbeusedonanyandroidphone",
+  "crossretailshoppingcartsgoogleaddsauniversalshoppingcartacrosssearch",
+  "howaiapikeysleakfrommobileappsandhowtostopit",
+  "accenturerestrictsclaudeaiusageasemployeespendingreportedlycrosses94800",
+  "anthropicwantsoutsideinputonclaudesvaluesbutwhogetsthefinalsay",
+  "anthropiccutjuniortechhiresfrom27to9asclaudetookonthecode",
+  "anthropicsclaudeaiuncoversoriginsofnsaprovidedcryptographickeysafter25years",
+  "trumpordersusgovernmenttocuttieswithanthropichegsethdeclaressupplychainriskabcne",
+  "claudecracks25yearnsacryptographymysteryinunder30minutes",
+  "anthropicreveals90ofclaudescodewaswrittenbyaistreamliningthereviewprocess",
+  "ukcmatargetsmicrosoftscopilotgrip20musers2026httpstechinsiderorg",
+  "businesstechnologynewsanewcopilotappincludeswordandexcel",
+  "windows11snewsearchexperienceraisesbigquestionswebreakdownwhatscomingandwhyitmat",
+  "microsoftstockforecastisspending190billiononaiinfrastructurein2026ismsftabuyat45",
+  "deepseekshipsafasterflashmodelanditsownsearchapi",
+  "deepseekrollsoutfasterleaneraimodelstepsupchallengetousrivals",
+  "deepseeksnewaimodeltalkslesssoacodingtaskcosts20cents",
+  "howtousegrokbottoblockspamcallsandtexts",
+  "deepseeklaunchesfasterlighterversionofitsaimodeltosharpenrivalrywithusfirms",
+  "anthropicgivesoutsideaiwatchdogemployeelikeaccess",
+  "anthropichasnearlystoppedhiringjuniorstaffbecauseaiagentsnowworksixtimesasmanyho",
+  "fourgemini4argonagentsbeatminecraftwithoutanyhumanhelp",
+  "twogermancourtsnowholdgoogleliableforwhatitsaioverviewssay",
+  "anthropicconsultslawfirmstosetfairnegotiationnormsbeforeaiagentsstartcuttingdeal",
+  "aiagentshavebadtasteinlongtermdecisionsandanewbenchmarkprovesit",
+  "aiagentschasinga465trainrefundinventedexcusesleakedmedicaldataandspammedanmpsoff",
+  "cordascoallarmiiapossibiletentativodeibigdiorientareleregole",
+  "wireditalia",
+  "microsoftostacolalaconcorrenzaconisuoisoftware",
+  "perplexityspacesandboxopensourceperagentiai",
+  "qualilavorilainonpuòsostituiresecondochatgpteclaude",
+  "oraletueideefinisconoonlineinmodosempliceconhostinger",
+  "musicoletportaglimp3suandroidautosenzapassaredaiservizistreaming",
+  "claudesolveda25yearoldnsacryptographymysteryin30minutesitsfirstreactionwastothro",
+  "literally",
+  "npcscantalkbacknowfromuniversalmodderonxintroducingnpctalkmakethenpcsofanygameta",
+  "gemini4argonmademefull700pagesbook",
+  "anthropicisontracktostophiringtechnicaljuniorsnextyear",
+  "usedclaudetofixoblivionremasteredperformance",
+  "doesanthropicobscureemployeenamesbecausetheybelievemassunrestiscomingsoonandempl",
+  "iaccidentallyfoundoneofmynewfavoriteusesforchatgpt",
+  "xolotlstratabaseddeepseekv41flash552bonasingle4090at27toksuncensored1017quantcom",
+  "deepseekv41flash1017fordwarfstards4",
+  "unslothdeepseekv41flash1017ggufhuggingface",
+  "testingqwen38flashnextwithdifferentcodingtools",
+  "fishaudiodrama3saysitneedsa48gbnvidiacardmy16gbradeondisagrees",
+  "defenceministerrajnathsinghtovisittajikistanforscomeetingonoctober1920regionaltr"
  ],
  "audio": "audio/2026-10-18.mp3",
- "durata": 69.6
+ "durata": 111.3,
+ "aggiornamenti": [
+  {
+   "generato": "2026-10-18T16:52:42+00:00",
+   "modello": "gemini-3.8-flash",
+   "testi_completi": 5,
+   "riassunto": {
+    "titolo_giorno": "ChatGPT sbarca su Apple CarPlay e Tomo trasforma le chat in quiz interattivi",
+    "in_breve": "Tra le novità di questo aggiornamento spicca Tomo for ChatGPT, che applica le dinamiche di gioco in stile Duolingo all'apprendimento con l'AI. Inoltre, l'applicazione ufficiale di ChatGPT si aggiorna introducendo il supporto diretto ad Apple CarPlay per chi viaggia in auto.",
+    "citati": [
+     "Tomo for ChatGPT",
+     "ChatGPT"
+    ],
+    "da_provare": [
+     {
+      "cosa": "Tomo for ChatGPT",
+      "a_cosa_serve": "Permette di porre qualsiasi domanda e trasforma le spiegazioni in brevi esercizi interattivi a quiz sul modello di Duolingo.",
+      "per_chi": "Studio",
+      "ambito": "Studio",
+      "come_iniziare": [],
+      "costo": "Non indicato",
+      "piattaforme": [],
+      "sul_dispositivo": false,
+      "come_sfruttarla": "Ripassare un argomento o imparare concetti nuovi mettendosi subito alla prova con domande a risposta rapida.",
+      "italiano": "Non indicato",
+      "difficolta": "Facile",
+      "fonti": [
+       "u1a1"
+      ],
+      "affidabilita": "Appena lanciato",
+      "prova": "https://www.producthunt.com/products/tomo-for-chatgpt"
+     }
+    ],
+    "osint": [],
+    "sezioni": [
+     {
+      "titolo": "Novità negli strumenti che già usi",
+      "notizie": [
+       {
+        "titolo": "Arriva il supporto per Apple CarPlay",
+        "strumento": "ChatGPT",
+        "riassunto": "L'ultimo aggiornamento dell'app di ChatGPT introduce l'integrazione con il sistema Apple CarPlay, consentendo di interagire con l'assistente vocale direttamente dallo schermo e dai comandi dell'automobile.",
+        "come_provarla": "",
+        "disponibilita": "Disponibile ora",
+        "fonti": [
+         "u1a18"
+        ],
+        "affidabilita": "Da verificare",
+        "solo_titoli": true
+       }
+      ]
+     },
+     {
+      "titolo": "In breve",
+      "breve": true,
+      "notizie": [
+       {
+        "titolo": "Google ritenuta responsabile in Germania per gli errori delle sue sintesi AI",
+        "riassunto": "I tribunali tedeschi hanno confermato che Google risponde legalmente dei contenuti generati dalle sue panoramiche AI quando attribuiscono falsamente fatti gravi a persone reali.",
+        "fonti": [
+         "u1a86"
+        ],
+        "affidabilita": "Una fonte",
+        "solo_titoli": false
+       }
+      ]
+     }
+    ],
+    "formato": 2
+   }
+  }
+ ]
 }
