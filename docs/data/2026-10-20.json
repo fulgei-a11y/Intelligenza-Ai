@@ -1,0 +1,527 @@
+{
+ "giorno": "2026-10-20",
+ "generato": "2026-10-20T05:47:52+00:00",
+ "modello": "gemini-3.8-flash",
+ "testi_completi": 35,
+ "riassunto": {
+  "titolo_giorno": "Gemini introduce la co-creazione di slide e video, mentre Kling AI passa alla versione 4.0",
+  "in_breve": "Gemini aggiunge una modalità di revisione guidata per impostare diapositive e video prima della generazione definitiva, oltre a funzioni per testare outfit combinando le proprie foto. Per la generazione video debutta Kling AI nella versione 4.0 con audio stereo e supporto a clip più lunghe.",
+  "citati": [
+   "Gemini",
+   "Kling AI"
+  ],
+  "da_provare": [
+   {
+    "cosa": "Tolan",
+    "a_cosa_serve": "Funge da assistente e compagno virtuale con un personaggio a fumetti per aiutare a gestire le cose da fare quotidiane, supportare gli obiettivi personali e offrire sostegno nella gestione emotiva.",
+    "per_chi": "Tutti i giorni",
+    "ambito": "Organizzazione",
+    "come_iniziare": [],
+    "costo": "A pagamento",
+    "piattaforme": [],
+    "sul_dispositivo": false,
+    "come_sfruttarla": "Pianificare le attività della giornata facendosi seguire passo dopo passo nel completare gli impegni personali.",
+    "italiano": "Non indicato",
+    "difficolta": "Facile",
+    "fonti": [
+     "a83"
+    ],
+    "affidabilita": "Una fonte",
+    "prova": ""
+   }
+  ],
+  "osint": [
+   {
+    "cosa": "Rilevatore di filigrana Meta",
+    "a_cosa_serve": "Rileva la filigrana digitale invisibile integrata nei contenuti creati con gli strumenti di Meta, permettendo di verificare in circa trenta secondi se una foto, un video o un audio sono generati dall'AI.",
+    "uso": "Verifica immagini",
+    "piattaforme": [],
+    "costo": "Gratis",
+    "difficolta": "Facile",
+    "come_sfruttarla": "Accertare se un'immagine virale o un filmato condiviso sui social media sia una creazione artificiale generata con i sistemi Meta.",
+    "fonti": [
+     "a110"
+    ],
+    "affidabilita": "Una fonte",
+    "come_iniziare": [],
+    "sul_dispositivo": false,
+    "prova": ""
+   }
+  ],
+  "sezioni": [
+   {
+    "titolo": "Novità negli strumenti che già usi",
+    "notizie": [
+     {
+      "titolo": "Controllo creativo e revisione passo-passo per slide e video in Notebook",
+      "strumento": "Gemini",
+      "riassunto": "Gemini Notebook introduce un flusso guidato per realizzare presentazioni (Slide Decks) e video riassuntivi (Video Overviews) a partire dalle proprie fonti. Con la nuova opzione di revisione è possibile controllare scalette e note di regia prima del rendering finale, modificando la struttura o chiedendo riassunti specifici.",
+      "come_provarla": "Avvia una chat in Gemini Notebook chiedendo di creare slide o un video dalle tue fonti e attiva la levetta Review per esaminare e correggere la traccia prima di produrre il file.",
+      "disponibilita": "In arrivo",
+      "fonti": [
+       "a38"
+      ],
+      "affidabilita": "Fonte ufficiale",
+      "solo_titoli": false
+     },
+     {
+      "titolo": "Prova virtuale di capi d'abbigliamento combinando foto personali e vestiti",
+      "strumento": "Gemini",
+      "riassunto": "Gemini permette di visualizzare in anteprima completi e abbinamenti di vestiti: caricando un proprio ritratto insieme agli screenshot dei capi da acquistare, l'AI compone un'unica immagine mostrando l'outfit indossato e consente di sostituire singoli elementi tramite semplici messaggi in chat.",
+      "come_provarla": "Carica in Gemini una tua foto insieme alle immagini dei capi d'abbigliamento e chiedi di mostrare come si combinano in un outfit completo.",
+      "disponibilita": "Disponibile ora",
+      "fonti": [
+       "a39"
+      ],
+      "affidabilita": "Fonte ufficiale",
+      "solo_titoli": false
+     },
+     {
+      "titolo": "Kling AI 4.0 introduce audio stereo, clip da 30 secondi e sincronizzazione labiale",
+      "strumento": "Kling AI",
+      "riassunto": "Il generatore video si aggiorna alla versione 4.0, estendendo la durata massima delle clip fino a 30 secondi e il testo dei comandi fino a 8.000 token. Supporta fino a dieci immagini chiave di riferimento, integra la creazione di audio stereo e include la sincronizzazione labiale multilingue.",
+      "come_provarla": "",
+      "disponibilita": "Disponibile ora",
+      "fonti": [
+       "a96"
+      ],
+      "affidabilita": "Una fonte",
+      "solo_titoli": false
+     }
+    ]
+   },
+   {
+    "titolo": "In breve",
+    "breve": true,
+    "notizie": [
+     {
+      "titolo": "Falsi annunci di Claude su Google e Bing tramite la tecnica Adception",
+      "riassunto": "Una campagna pubblicitaria malevola sfrutta link sponsorizzati sui motori di ricerca per reindirizzare a finti programmi di installazione di Claude per macOS contenenti comandi dannosi.",
+      "fonti": [
+       "a115"
+      ],
+      "affidabilita": "Una fonte",
+      "solo_titoli": false
+     },
+     {
+      "titolo": "Fuga di credenziali API sulla piattaforma per programmatori OpenCode",
+      "riassunto": "Una violazione di sicurezza su OpenCode Console ha esposto le chiavi di accesso di alcuni utenti, generando addebiti e consumi non autorizzati su account OpenAI, Anthropic e Google collegati.",
+      "fonti": [
+       "a82"
+      ],
+      "affidabilita": "Una fonte",
+      "solo_titoli": false
+     }
+    ]
+   }
+  ],
+  "formato": 2
+ },
+ "articoli": {
+  "a110": {
+   "titolo": "Come capire se un’immagine è stata creata dall’AI di Meta",
+   "link": "https://www.punto-informatico.it/come-capire-immagine-create-ai-meta/",
+   "data": "2026-10-19T15:30:01+00:00",
+   "testo": "L’epoca in cui le immagini generate dall’intelligenza artificiale si riconoscevano dalle sei dita sulla mano o dai volti con quell’aria vagamente inquietante sta tramontando rapidamente. I generatori di oggi producono foto, video e audio con un tale livello di realismo che capire se un’immagine è vera o meno è sempre più difficile. A volte l’istinto dice che qualcosa non quadra, ma l’istinto non è una prova. Meta ha realizzato un sistema per risolvere il problema, almeno per i contenuti generati dai suoi strumenti. Ogni volta che l’AI di Meta produce un’immagine, un video o un audio, incorpora nel file un sigillo invisibile, una filigrana digitale integrata nella struttura stessa del contenuto. Non un logo sovrapposto che si può tagliare, o un’informazione nei metadati che scompare al primo download. Un segnale che sopravvive a ridimensionamenti, ritagli, compressione e persino agli screenshot dello schermo. Lo strumento che rileva quel sigillo è gratuito, aperto a tutti e richiede circa trenta secondi. Ecco come usarlo. Quella foto è vera? Come verificare le immagini generate da Meta in 4 passaggi Quando l’AI di Meta genera un contenuto, attraverso il suo modello di generazione di immagini o qualsiasi altro strumento della piattaforma, incorpora automaticamente una filigrana digitale invisibile, che viene inserita direttamente nei dati del file, non aggiunta come strato separato. La caratteristica più importante di questo sigillo è la sua resistenza. I metadati tradizionali, ovvero le informazioni che accompagnano un file e dicono quando è stato creato, con quale dispositivo, in quale posizione, scompaiono ogni volta che il file viene scaricato, condiviso, modificato o catturato come immagine dello schermo. La filigrana di Meta invece, sopravvive a tutti questi passag…",
+   "fonte": "Punto Informatico",
+   "tipo": "testata",
+   "solo_titolo": false,
+   "categoria": "Italia",
+   "id": "a110",
+   "testo_completo": true
+  },
+  "a39": {
+   "titolo": "4 tips for styling outfits with Gemini",
+   "link": "https://blog.google/products-and-platforms/products/gemini/stylist-outfit-tips-gemini/",
+   "data": "2026-10-19T16:00:00+00:00",
+   "testo": "4 tips for styling outfits with Gemini Sydney Bordonaro styles top professional athletes, turning the pregame tunnel into a must-watch runway. But because her roster is scattered across the country, being in the same room as clients for a fitting rarely happens. That makes her biggest challenge selling the vision. A photo of a jacket tells a player nothing about how the outfit actually looks on them, and when they can't see the idea, it’s easy to say no. That’s why Sydney uses Gemini to bring her ideas to life before an outfit ever ships. Here’s how she builds looks for clients from hundreds of miles away: 1. Visualize the look. Sydney uploads pictures of the clothes she sources to visualize them on her client directly in Gemini. It keeps the player looking like herself while showing how the full outfit comes together on her. Try it yourself: Upload a photo of yourself alongside screenshots of items you want to buy. Gemini combines them into a single image so you can see how the full outfit looks before ordering. 2. Swap individual pieces. Styling rarely lands on the first try. Sydney simply talks to Gemini to tweak details like swapping boots for loafers or cropping a jacket without having to start over from scratch. Try it yourself: Instead of writing a new prompt, ask for single adjustments like \"keep this outfit, but change the jacket to dark denim.\" 3. Get a second opinion. Once the look comes together, Sydney sends the picture directly to her client. Seeing the complete fit builds confidence, often turning a hesitant \"maybe\" into a quick yes for bolder style choices. Try it yourself: Test outfit ideas for upcoming weddings, job interviews, or trips and share them with friends for a gut check before you commit. 4. Rescue an outfit on the go. Beyond building outfit…",
+   "fonte": "Google (blog ufficiale)",
+   "tipo": "ufficiale",
+   "solo_titolo": false,
+   "categoria": "Laboratori",
+   "id": "a39",
+   "testo_completo": true
+  },
+  "a96": {
+   "titolo": "Kling AI drops version 4.0 with stereo audio, multilingual lip sync, and a lighter Flash variant",
+   "link": "https://the-decoder.com/kling-ai-drops-version-4-0-with-stereo-audio-multilingual-lip-sync-and-a-lighter-flash-variant/",
+   "data": "2026-10-19T17:36:26+00:00",
+   "testo": "Kling AI has released version 4.0 of its video generator with support for clips up to 30 seconds, ten keyframe images as input, and prompt comprehension expanded to 8,000 tokens. In comparisons with Wan 3.0 and Seedance 2.5, Kling 4.0 holds its own but doesn't pull ahead, which could be an early sign that the breakneck pace of progress in AI video models is starting to level off. The article Klin…",
+   "fonte": "The Decoder",
+   "tipo": "testata",
+   "solo_titolo": false,
+   "categoria": "Testate tech",
+   "id": "a96"
+  },
+  "a83": {
+   "titolo": "Tolan snags $30M for its AI companion that helps users navigate life",
+   "link": "https://techcrunch.com/2026/10/19/tolan-snags-30m-for-its-ai-companion-that-helps-users-navigate-life/",
+   "data": "2026-10-19T19:00:12+00:00",
+   "testo": "Tolan, the AI companion designed to help people manage their daily lives, navigate relationships and emotions, and accomplish their goals, has just expanded its runway with another $30 million in capital. The startup’s investors in the latest round include Union Square Ventures, Khosla Ventures, and Homebrew, doubling the total amount it has raised to date and pushing its valuation beyond the previous $120 million, according to a new report by Upstarts Media. (The startup didn’t disclose its new valuation, but PitchBook estimates it at more than $268 million, with “medium confidence.”) Users engage with Tolan’s app through a cartoonish character that’s meant to offer support and help them get through their to-dos. Tolan generates revenue from its tiered memberships, which are required for full access to all features. The company told Upstarts Media its annual recurring revenue is now in the “double-digit millions.” The startup is one of the few AI companions that have found some traction, as it claims to have more than 250,000 active users who have had more than 70 million conversations over the past year. Around 70% of its users are women, and 40% are parents, Tolan’s team told the news outlet. (Anecdotally, the app is said to appeal in particular to neurodivergent people, who may benefit from additional support, whether that’s emotional support or help with organizing tasks.) Compared with other companions, Tolan seems to have found a balance between being helpful without being perceived as too weird. Compare that with the public shaming that Friend’s pendant-based AI companion faced; users dubbed Friend “very cringe,” The New York Times called it “hated,” and Wired said it “has no soul.” Meanwhile, another former top contender in the space, Character.AI, recently fi…",
+   "fonte": "TechCrunch",
+   "tipo": "testata",
+   "solo_titolo": false,
+   "categoria": "Testate tech",
+   "id": "a83",
+   "testo_completo": true
+  },
+  "a115": {
+   "titolo": "Adception: attacco ClickFix con Claude tramite Bing e Google",
+   "link": "https://www.punto-informatico.it/adception-attacco-clickfix-claude-bing-google/",
+   "data": "2026-10-19T10:51:50+00:00",
+   "testo": "Gli attacchi ClickFix sono sempre molto popolari, in quanto sfruttano unicamente le azioni degli ignari utenti. I ricercatori di Push Security hanno scoperto una nuova tecnica, denominata Adception, che sfrutta Bing e Google per arrivare al sito che ospita una versione fasulla dell’installer di Claude per macOS. Non è noto però quale malware viene installato. Tecnica per ingannare gli utenti e aggirare i controlli Solitamente gli attacchi ClickFix sfruttano i link sponsorizzati di Google che portano l’utente direttamente sul sito creato dai cybercriminali. In questi casi, l’azienda di Mountain View può rilevare l’URL pericoloso e bloccare l’accesso al sito. I ricercatori di Push Security hanno individuato una nuova tecnica che permette di aggirare i controlli. Cercando “claude mac” su Google viene mostrato un link sponsorizzato con dominio bing.com, quindi nessun riferimento a Claude o Anthropic. Quando l’utente clicca sul link inizia una sequenza di reindirizzamenti. Viene caricato il risultato di ricerca in Bing che, tramite JavaScript, porta il browser nella pagina “About us” di un sito compromesso (appartiene ad un rivenditore sudamericano). Il “viaggio” termina su una pagina simile a quella legittima di Claude, in cui è presente il presunto installer per macOS. Cliccando sul pulsante “Download for macOS” viene mostrata la classica finestra con le istruzioni da seguire per installare Claude. Il comando curl -fsSL https://claude.ai/install.sh | bash è quello legittimo, ma cliccando il pulsante Copia viene caricato un diverso comando negli appunti. Se l’ignara vittima incolla ed esegue il comando nel Terminale scaricherà un file dal server controllato dai cybercriminali che verrà eseguito in zsh, la shell di macOS. I ricercatori di Push Security non hanno scoperto il…",
+   "fonte": "Punto Informatico",
+   "tipo": "testata",
+   "solo_titolo": false,
+   "categoria": "Italia",
+   "id": "a115",
+   "testo_completo": true
+  },
+  "a38": {
+   "titolo": "How to shape your slides and videos with Gemini Notebook",
+   "link": "https://blog.google/innovation-and-ai/products/gemini-notebook/co-create-slides-videos/",
+   "data": "2026-10-19T17:00:00+00:00",
+   "testo": "How to shape your slides and videos with Gemini Notebook Based on your feedback, Gemini Notebook now offers more creative control from start to finish on two of our popular outputs: Slide Decks and Video Overviews. Instead of jumping from an initial prompt straight to a final output, Gemini Notebook can now walk you through the creation flow in a quick process based directly on your sources. Steer your content Start in the chat and ask Gemini Notebook to create slides or a video overview for you. Based on your sources, Notebook will suggest topics to be included in your artifact. Once you confirm, you will be able to steer the content further and guide visual style and format If you want to have even more creative control, you can use our new Review toggle. With this on, you can review the plan in the studio panel by clicking “Review outline notes” for slides and \"Review producer notes” for video, plus give additional feedback, like asking to include an executive summary at the beginning or swapping the order of a scene, before anything renders. Once everything looks right, select “Proceed” to produce a final artifact. Co-creation Slides walkthrough Co-creation Video Overview walkthrough Have Notebook take a first pass If you already know what you want to create, you can specify this in your prompt and the notebook will go straight to the review flow. If you prefer a quick output, you can still just go to the studio panel, click your artifact, skip the review toggle and have Notebook generate the artifacts, as usual. These co-creation capabilities are rolling out globally to all Gemini Notebook users over the upcoming week.",
+   "fonte": "Google (blog ufficiale)",
+   "tipo": "ufficiale",
+   "solo_titolo": false,
+   "categoria": "Laboratori",
+   "id": "a38",
+   "testo_completo": true
+  },
+  "a82": {
+   "titolo": "Hackers hit AI coding tool OpenCode, running up charges on users’ AI accounts",
+   "link": "https://techcrunch.com/2026/10/19/hackers-hit-ai-coding-tool-opencode-running-up-charges-on-users-ai-accounts/",
+   "data": "2026-10-19T19:28:34+00:00",
+   "testo": "OpenCode, an open source AI coding agent that has been gaining ground among developers as an alternative to Claude Code and Cursor, said Saturday that attackers broke into an older system overnight, affecting 1.4% of users of its online platform, OpenCode Console, where some users store the API keys, or digital passwords, they use to access AI services. As the OpenCode team struggled to keep pace with the attack, the scramble to respond highlighted a growing problem: Companies without vetted access to AI models with fewer safety restrictions have a hard time defending against large-scale, AI-driven cyberattacks. “We had a security breach last night related to a large-scale distillation attack that impacted 1.4% of OpenCode Console users,” the company wrote on X. “We have notified them all this morning via email.” Users who did not receive an email were not impacted, the company said. While the company didn’t specify how the distillation attack occurred, leaked API keys can help users in countries with restricted access to American models generate the high volume of outputs needed for that process. Some skeptics called the framing an overstretch, arguing that the incident was a straightforward breach whose use for distillation remains unproven. Overnight, developers began posting spending alerts and unauthorized charges on Reddit and X: “I saw my Open AI, Anthropic, and Google AI spend alerts all fire off before going to bed wondering what was going on,” a developer wrote. Other users reported charges in the hundreds of dollars on individual accounts; a few described totals above $1,000. Anthropic and Google both blocked the API keys they believed were exposed, while OpenAI said it worked with OpenCode to restore access and refund its API customers for credits used in t…",
+   "fonte": "TechCrunch",
+   "tipo": "testata",
+   "solo_titolo": false,
+   "categoria": "Testate tech",
+   "id": "a82",
+   "testo_completo": true
+  }
+ },
+ "fonti": [
+  {
+   "nome": "Product Hunt (AI)",
+   "ok": true,
+   "presi": 4
+  },
+  {
+   "nome": "Show HN (nuovi progetti)",
+   "ok": false,
+   "errore": "The read operation timed out",
+   "presi": 0
+  },
+  {
+   "nome": "Nuove app AI (internazionale)",
+   "ok": true,
+   "presi": 10
+  },
+  {
+   "nome": "Nuove app AI (Italia)",
+   "ok": true,
+   "presi": 8
+  },
+  {
+   "nome": "Novità AI da provare (Italia)",
+   "ok": true,
+   "presi": 1
+  },
+  {
+   "nome": "AI sul dispositivo (internazionale)",
+   "ok": true,
+   "presi": 8
+  },
+  {
+   "nome": "AI sul dispositivo (Italia)",
+   "ok": true,
+   "presi": 5
+  },
+  {
+   "nome": "OpenAI",
+   "ok": true,
+   "presi": 1
+  },
+  {
+   "nome": "Google (blog ufficiale)",
+   "ok": true,
+   "presi": 2
+  },
+  {
+   "nome": "Google Gemini (blog)",
+   "ok": true,
+   "presi": 0
+  },
+  {
+   "nome": "Nuove funzioni AI (Google News)",
+   "ok": true,
+   "presi": 12
+  },
+  {
+   "nome": "Anthropic / Claude",
+   "ok": true,
+   "presi": 6
+  },
+  {
+   "nome": "Microsoft Copilot",
+   "ok": true,
+   "presi": 5
+  },
+  {
+   "nome": "Altri assistenti AI (Perplexity, Mistral, Meta AI…)",
+   "ok": true,
+   "presi": 8
+  },
+  {
+   "nome": "The Verge",
+   "ok": true,
+   "presi": 6
+  },
+  {
+   "nome": "TechCrunch",
+   "ok": true,
+   "presi": 12
+  },
+  {
+   "nome": "Ars Technica",
+   "ok": true,
+   "presi": 3
+  },
+  {
+   "nome": "MIT Technology Review",
+   "ok": true,
+   "presi": 3
+  },
+  {
+   "nome": "The Decoder",
+   "ok": true,
+   "presi": 6
+  },
+  {
+   "nome": "TLDR AI (newsletter)",
+   "ok": true,
+   "presi": 1
+  },
+  {
+   "nome": "ANSA",
+   "ok": true,
+   "presi": 6
+  },
+  {
+   "nome": "Wired Italia",
+   "ok": true,
+   "presi": 0
+  },
+  {
+   "nome": "Il Sole 24 Ore Tecnologia",
+   "ok": true,
+   "presi": 1
+  },
+  {
+   "nome": "Punto Informatico",
+   "ok": true,
+   "presi": 7
+  },
+  {
+   "nome": "HDblog",
+   "ok": true,
+   "presi": 5
+  },
+  {
+   "nome": "Reddit",
+   "ok": true,
+   "presi": 8
+  },
+  {
+   "nome": "Reddit (AI locale)",
+   "ok": true,
+   "presi": 5
+  },
+  {
+   "nome": "Bellingcat (guide e strumenti)",
+   "ok": true,
+   "presi": 0
+  },
+  {
+   "nome": "GIJN (guide per giornalisti investigativi)",
+   "ok": false,
+   "errore": "HTTP Error 403: Forbidden",
+   "presi": 0
+  },
+  {
+   "nome": "OSINT – verifica e fact-checking (internazionale)",
+   "ok": true,
+   "presi": 5
+  },
+  {
+   "nome": "OSINT – nuovi strumenti (internazionale)",
+   "ok": true,
+   "presi": 2
+  },
+  {
+   "nome": "OSINT – strumenti (Italia)",
+   "ok": true,
+   "presi": 2
+  },
+  {
+   "nome": "Reddit (OSINT)",
+   "ok": true,
+   "presi": 2
+  },
+  {
+   "nome": "Hacker News (OSINT)",
+   "ok": true,
+   "presi": 0
+  }
+ ],
+ "visti": [
+  "own1",
+  "quello",
+  "beamwin",
+  "rusteeriobycontextdev",
+  "aclearerpicturenewaiassistanthelpspolicegetbetterevidencefromcitizenreports",
+  "replikasfounderbuilttheaiassistantshepitchedatdisrupt12yearsago",
+  "darwinailaunchesfinchthefirstaiassistantbuiltforpublicsectoraigovernance",
+  "metaunveilsmuseapersonalaiassistant",
+  "replikafounderlauncheswabitheaiassistantsheenvisioned12yearsago",
+  "aiplatformlaunchestoguidemartincountystudentsonpostgraduationplans",
+  "calixlaunchessubscriberagentincommandiqtosimplifytheconnectedhomereducesupportco",
+  "amexgbtlaunchesagenticaitooltoacceleratehotelsourcing",
+  "replikafounderannounceswabisharedaiassistantislive",
+  "calixaddsaiassistanttocommandiqappforhomenetwork管理",
+  "asanbenedettoarrivazauttelintelligenzaartificialealserviziodeicittadini",
+  "pontisicurilanuovafrontieraincampolintelligenzaartificialeilprogettopilotapartea",
+  "smartriciclaarrivaavareselappconintelligenzaartificialeperlaraccoltadifferenziat",
+  "lacinaacceleralosviluppodielettrodomesticiintegraticonlintelligenzaartificiale",
+  "intelligenzaartificialeintoscanaarrivano100milioniperleimpresebandialvianellepro",
+  "basilicataarrivapaidos15milioniperlapediatriaadomicilioconlintelligenzaartificia",
+  "welfaredigitalelitaliaèprimaineuropamaibenefitrestanonelcassetto",
+  "luniversitàdisalernolanciajobincampus2026ilcareerdaymettealcentrolalleanzatragio",
+  "googleuniversalcartcomefunzionaequandoarrivainitalia",
+  "amdgaia025bringsseveralimprovementsforlocalaiagentsonryzenai",
+  "surfacelaptopultrartxsparkreviewroundup2026httpstechinsiderorg",
+  "surfacelaptopultrasplitsreviews120baimodels2026",
+  "theasusproartp14isreadyfortomorrowslocalaierapocketlint",
+  "googleplaynowletsanyonebuildandrunprivateaigeneratedappsonandroid",
+  "nvidiartxsparkwindowsoptimizationturnstheosintoalocalaiplatform",
+  "amdryzenaihaloreviewlocalaipowerhousewith128gbofmemoryamdssoftwarestackairecipes",
+  "nvidiareleasesopenweightboltmodelforlocalaiagents",
+  "whatsappnonvuolefarviusciredallappepreparaunsuobrowserperapriretuttiilinksuiphon",
+  "perplexityportablecomputerportalailocalesullegpunvidiartxprivacyepotenzasenzaclo",
+  "quantaramserveperlfm2524ba2bilmodellolocalediliquidai",
+  "orapuoiattivarelamodalitàhalloweensuwhatsapp",
+  "whatsapparrivailbrowserintegrato",
+  "advancingcodinginlowresourceprogramminglanguages",
+  "howtoshapeyourslidesandvideoswithgemininotebook",
+  "4tipsforstylingoutfitswithgemini",
+  "claudeainowavailabletoemoryuniversitycommunity",
+  "googlereleasesgemini4argonitsnewfrontiermodelbenchmarkshowtotryitandpricing",
+  "zillowlaunchesclaudeconnectorforlistingstoursandfinancing",
+  "metlifemetlauncheschatgptpetinsurancepluginisthe7discountenough",
+  "zillowgroupinczlaunchesconnectorbringingzillowlistingsintoclaude",
+  "newsgeminisignalsfullsuezreturnbyq1asitlaunchesnewasiamedservice",
+  "zillowzlaunchesaiconnectorwithclaudeforenhancedhomes",
+  "huntingtonbanklaunchesaipowered1866studiowithgooglecloudgemini",
+  "googlerollsoutgeminipoweredscamprotectiontoandroidphones",
+  "metalaunchesmusewondercatchingopenaianthropichowtotryitbenchmarkresults",
+  "rankpagelauncheschatgptadsmanagementformalaysianbrands",
+  "zillowbringsspecializedhousingintelligencetoclaudewithapathtotoursagentsandfinan",
+  "structuredoutputsforanthropicclaudemodelsonamazonbedrock",
+  "nvidiabackednscaleanthropicintalksfornew45billionaiclouddealsourcesays",
+  "anthropicopenswomeninaihackathonapplicationsetihedtechnews",
+  "anthropicclaudeenterpriseaiagentsand965bnvaluation",
+  "anthropicsclaudeledcrisprlikediscoveryissparkingcontroversy",
+  "anthropicaisendsfakemurdertiptophiladelphiapolice",
+  "microsoftaipowersamatotransformmarketinganddelivers14minvalue",
+  "uhexpandsmicrosoft365accesswhilecuttingcosts",
+  "microsoftfixesclassicoutlookbugthathidcopilotbuttons",
+  "roommasterintroducesaiconnectorbringinglivehotelpmsdataintochatgptclaudemicrosof",
+  "windows11shybridintelligencefeatureswillbreathenewlifeintocopilotpcs",
+  "deepseekbarredfromgovernmentagencyitsystems",
+  "trumpadministrationordersbanondeepseekinfederalagencies",
+  "deepseekdeepsixedatallusfederalcivilianagencies",
+  "usmovestobarchinasdeepseekfromfederalagencysystems",
+  "usbansdeepseekaifromgovernmentuseastechtensionwithchinacontinues",
+  "elonmuskhasgrokbuyinghimlegosets",
+  "aimakingsoftwarecloningeasierrattlingtechindustry",
+  "usmovestobardeepseekfromfederalagenciesandcontracts",
+  "thefossilfuelcomebackishere",
+  "coreweavesdebtisbecomingthewholeaiindustrysproblem",
+  "jbpritzkerthinksaicouldhelpusliveto100orthreatenuslikenukes",
+  "ahackerbrokeintojohndeereandsharkninjawithanarmyofaiagents",
+  "democratsthinkcrackingdownonaicouldgivethemanedge",
+  "awomanwasarrestedinphillyforblockingadeliveryrobot",
+  "mamdanisaysfedshaveabdicatedonaiurgesnewyorkerstopushback",
+  "nscaleandanthropicarereportedlyintalksforyetanother45bcomputedeal",
+  "embeddedaievaluatorswontbeaneasysolutionhuggingfacespolicychiefsays",
+  "microsoftsaysaiagentsarelikeinsiderthreatsasfrontiermodelscantbetrusted",
+  "amazonistakingitsbiggestshotatnvidiayetwithnewtorchneurondevtool",
+  "hackershitaicodingtoolopencoderunningupchargesonusersaiaccounts",
+  "tolansnags30mforitsaicompanionthathelpsusersnavigatelife",
+  "tenstorrenthits62bvaluationtoscaleopenweightaichips",
+  "peopleareusingaitomaketheirsmarttvsdumbagain",
+  "nvidialaunchesnewopenmodelstorunagentsintheenterpriseandonpcs",
+  "laplaceintelligenceredteamsrobotsandselfdrivingcarsbeforetheyhittherealworld",
+  "anthropicsaysitscommitting5ofitssharestoapublicbenefitfund",
+  "accusedopenaispyhadfoldercalledsaudigovdocsfbisays",
+  "aigameclonesaremakingindiedevelopersafraidtoshowtheirwork",
+  "disneyfoundawaytobuycharacteraiwithoutbuyingitslawsuits",
+  "makingtheinternetbetterforaiagentsmightmakeitworseforeveryoneelse",
+  "wewerelookingatitwrongtheexplosiveclaimthatsupendedtheaiworld",
+  "airesearchersstrandedclaudeonavirtualdesertislanditstartedtoplay",
+  "minimaxm31flashshowschinasaipriceracehasnofloorinsight",
+  "klingaidropsversion40withstereoaudiomultilinguallipsyncandalighterflashvariant",
+  "twogermancourtsnowholdgoogleliableforwhatitsaioverviewssay",
+  "stripesaysaiagentpurchasesareaddingupbutitwontsharethenumbers",
+  "theneocloudshakeoutiscomingandnvidiahasthemosttolose",
+  "anthropicplansfundforworkersthreatenedbyaimuskcounterswithspacexsharesforchildre",
+  "deepseeksnewflashreplitdropsanthropicanthropicsworkforce",
+  "testgorillasurveyireclutatorisonopiùrapidiconlintelligenzaartificialemanonpiùsic",
+  "perugianextil22inprovinciaaperugiacinqueincontrigratuitisullia",
+  "bregalmilestonesostieneasolvipercrearesoftwareperiservizisulcampobasatosullintel",
+  "uniachefasquadraconlepersonenascelafondazionehumanaiteaming",
+  "bancaditaliaonlinedal20ottobreilnuovoportaledellestatistiche",
+  "wallstreetperlopiùpositivatrainatadaiproduttoridichip",
+  "gliagentiaisiprendonotroppelibertàlenuoveprotezionidimicrosoft",
+  "ilmacsisurriscaldaclaudecodetrovaunmalwarenascosto",
+  "comecapireseunimmagineèstatacreatadallaidimeta",
+  "acquisizionenetcocommissioneueconfermairregolaritàdikkr",
+  "arrivailfilmdinatalerealizzatoconlaimerrythechristmaswitch",
+  "problemiconchatgptdownil19ottobrecosasuccederisolto",
+  "bloccaunrobotperleconsegneperprotesacontrolautomazione",
+  "adceptionattaccoclickfixconclaudetramitebingegoogle",
+  "laisalveràlesmarttvdabloatwarepubblicitàetracciamento",
+  "supermario64laiprovaarisolvereilmisterodellaplaccadellafontana",
+  "laipuòavereunacoscienzatrescienziatispieganoperchéno",
+  "robotumanoideopenaialtmanprometteunademonel2027",
+  "fiat500hybridilcoloresisceglieinbasealvisoarrivalaconsulenzapersonalizzata",
+  "hesworriedabouthisreputation",
+  "geminiisstressing",
+  "animationmadewithai",
+  "imhappywithopus55stopeverythingwedontneedmore",
+  "claudecaughtacryptomineronmymacwhilstbuildingmeatemperaturemonitorapp",
+  "aidisobedience",
+  "biasofmanvswomanshowinguplateonadate",
+  "cancelyoursubscriptions",
+  "theusisorderingeverycivilianagencytoripoutdeepseekeventoolsbuiltonit",
+  "theguardianswarningtorejectcheapchineseaiisatransparentattempttoscaredevelopersb",
+  "ailabsreportbenchmarkscores64higherthanindependenttestersonaverage",
+  "candeepseekv41flash1017reallyrunon12gbvram64gbram",
+  "letsdelveintothetapestryofaisloponrlocalllama",
+  "zoomandbigfinancialfirmsaddproofofhumanbadgesfromsamaltmansworldtostopfraudandde",
+  "factcheckoldvideoofsanitationworkersprotestsharedasrecentfromcjpprotest",
+  "factwatchdebunksclaimofattackonpriestsatpalashbaritemple",
+  "imagesofatikutambuwalreceivingbanditkingpinintoadcaigenerated",
+  "samaltmanbackedworldlaunchesaieraidentitytoolforbankswhatitiswhatitdoes",
+  "tesseraintegratesautonomousosintcapabilitiesdesignedtoanticipatethreatsandactone",
+  "newrussiantanksappearnearnatoborders",
+  "phishingaziendaleperchéidipendentiformaticliccanocomunque",
+  "sabotaggioastarlinktrabulgariaepoloniaifattileattribuzionieilrischioeuropeo",
+  "tiktokcomments",
+  "howtolocatescotlandcourtrolls"
+ ],
+ "audio": "audio/2026-10-20.mp3",
+ "durata": 150.4
+}
