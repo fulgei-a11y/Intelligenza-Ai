@@ -248,6 +248,18 @@
    "categoria": "Testate tech",
    "id": "u1a99",
    "testo_completo": true
+  },
+  "u2a96": {
+   "titolo": "ChatGPT now lets you lock your chats",
+   "link": "https://techcrunch.com/2026/10/20/chatgpt-now-lets-you-lock-your-chats/",
+   "data": "2026-10-20T18:36:53+00:00",
+   "testo": "OpenAI announced on Tuesday that users can now lock ChatGPT conversations to keep sensitive chats private when others may have access to their screen or device. Users can secure their locked chats with a four-digit PIN, or use Face ID or Touch ID on supported devices. Unlike the app’s Temporary Chats, which provide a separate session that doesn’t appear in chat history, users can return to Locked Chats at any time. The company says the feature is designed for situations where users might be discussing something personal or planning a surprise and want to keep those conversations private when handing their device to friends or family to show them something in another chat. The addition of locked chats adds a new layer of privacy to ChatGPT, as the app is increasingly used for personal conversations. Of course, while locking a chat can limit access, it doesn’t address concerns about how sensitive information is stored or handled. OpenAI notes that locking a chat doesn’t create end-to-end encryption or a separate encrypted vault, change how long it retains the chat, remove information that ChatGPT remembered before a chat was locked, or change the “Improve the model for everyone” setting. Once users lock a chat, it moves to a dedicated “Locked Chats” section, where it’s kept separate from regular chat history, pinned conversations, and chat search results. With Memory enabled, Locked Chats has its own separate memory shared across conversations within the section. New messages sent after locking a chat can update that memory, but don’t update regular Memory. That means new information from locked chats won’t leak into regular chats. OpenAI says resetting a PIN permanently deletes all locked chats, files, and other content protected by the previous PIN. Additionally, the L…",
+   "fonte": "TechCrunch",
+   "tipo": "testata",
+   "solo_titolo": false,
+   "categoria": "Testate tech",
+   "id": "u2a96",
+   "testo_completo": true
   }
  },
  "fonti": [
@@ -682,10 +694,42 @@
   "thisvideodoesntshowavanfullofpoliceuniformsatjantarmantarindelhi",
   "albertasnubsseparatistsasmajorityvotestoremainpartofcanadadailysabah",
   "satelliteimageshowshowyandexslargestdatacenterinkalugalooksnow",
-  "showhnvoidaccessopensourcedarkwebosintfromquerytoagraph"
+  "showhnvoidaccessopensourcedarkwebosintfromquerytoagraph",
+  "googlehasjoinedamazoninattackingnvidiasstrongholdwithaiappdevelopers",
+  "laiacteidlgsnn160e1792026diadeguamentolenuovefrontieredellintelligenzaartificial",
+  "archieailaunchesbetaofarchieengine13alocalaimodelbuiltforrealestateagentsthehera",
+  "whatsappandroidinsviluppofiltrochiamatecontrascrizione",
+  "franchiseereconcilescashin94lesstimewithchatgptwork",
+  "openaiacquiresorchestrabio",
+  "googlelaunchesgeminiforgovernmentservicesinpreviewwithhumanapprovalgates",
+  "microsoftoutlinesahybridintelligencestrategyforwindowsai",
+  "onedrivecopilotupdateherolinks1msyncnewaitools",
+  "usgovernmentbanschineseaiappdeepseekfromfederalitsystems",
+  "mistralailaunchesvoxtral3afullvoiceagentstackthatlistensthinksandtalksinrealtime",
+  "usbansuseofchinasdeepseekaitoolsbygovernmentagencies",
+  "despitetheusbandeepseekopensourcesitsinferenceengine",
+  "metapausesmusesharingafterresearchersfindaichatsontheweb",
+  "chatgptnowletsyoulockyourchats",
+  "ericschmidtreportedlyownsabouthalfasmuchofanthropicasceodarioamodei",
+  "metasmusehits10musdownloadsin40daysamilestonereachedbyonly11otherapps",
+  "ukrainesdronerescueofwoundedsoldierputsmuchtoutedideaintopractice",
+  "metatriestoscapegoatstaffwhodownloadedtorrentstospareexecs",
+  "elevenlabsreleasestwonewspeechtospeechmodelsdesignedforrealtimeaiconversations",
+  "deepseekopensourcestheinferenceenginethatpowersitsfastestandcheapestaimodel",
+  "samaltmanreportedlypitchedthreeendgamesforaisafetyoneinvolvingasinglefirmmelting",
+  "occhichiusiorasuadobelightroommobilecipensalaiadaprirli",
+  "amazoninveste16miliardiingermaniaaberlinounlaboratoriodiroboticaeai",
+  "nvidiageforcertx6060laschedamainstreamarriveràsolonel2029",
+  "geminiisthefunniestmodel",
+  "attendedmyfirstclaudehackathonandlearnedthatbuildingagoodproductandwinningahacka",
+  "protectingyourselfagainstlegalthreatscarlosgaio",
+  "findingjoyinthepublicserviceofjournalism",
+  "whatwelearnedbuildingachatbotforlasillavacíasnewsroomarchive",
+  "ncrvoyixandnacsintegratetruageageverificationtechnologyintopointofsalesystems",
+  "molfarintelligenceandukbasedin2willjointlyanalyzeinformationthreatsforgovernment"
  ],
  "audio": "audio/2026-10-20.mp3",
- "durata": 239.5,
+ "durata": 278.5,
  "aggiornamenti": [
   {
    "generato": "2026-10-20T17:01:19+00:00",
@@ -751,6 +795,40 @@
         "riassunto": "Meta ha disattivato la funzione di condivisione delle conversazioni via link pubblico del suo assistente Muse dopo che ricercatori hanno scoperto che la struttura dei collegamenti permetteva di individuare e leggere note e dati privati degli utenti.",
         "fonti": [
          "u1a106"
+        ],
+        "affidabilita": "Una fonte",
+        "solo_titoli": false
+       }
+      ]
+     }
+    ],
+    "formato": 2
+   }
+  },
+  {
+   "generato": "2026-10-20T19:26:57+00:00",
+   "modello": "gemini-3.8-flash",
+   "testi_completi": 6,
+   "riassunto": {
+    "titolo_giorno": "ChatGPT introduce le chat protette da PIN e biometria",
+    "in_breve": "OpenAI ha rilasciato le chat bloccate su ChatGPT, una funzione che permette di nascondere le conversazioni più delicate dietro un codice numerico o il riconoscimento biometrico. La novità risponde al bisogno di privacy quando si condivide lo schermo o si presta il proprio dispositivo ad altre persone.",
+    "citati": [
+     "ChatGPT"
+    ],
+    "da_provare": [],
+    "osint": [],
+    "sezioni": [
+     {
+      "titolo": "Novità negli strumenti che già usi",
+      "notizie": [
+       {
+        "titolo": "Arrivano le chat protette con codice PIN e biometria",
+        "strumento": "ChatGPT",
+        "riassunto": "È ora possibile proteggere singole conversazioni riservate impostando un PIN a quattro cifre oppure utilizzando lo sblocco biometrico (Face ID o Touch ID sui dispositivi compatibili). Le chat bloccate vengono spostate in una sezione dedicata separata dalla cronologia ordinaria e dalle ricerche; inoltre hanno una memoria autonoma che non trasmette informazioni alle chat standard. OpenAI specifica che reimpostare il PIN cancella definitivamente tutti i contenuti protetti e che la funzione non introduce crittografia end-to-end.",
+        "come_provarla": "",
+        "disponibilita": "Disponibile ora",
+        "fonti": [
+         "u2a96"
         ],
         "affidabilita": "Una fonte",
         "solo_titoli": false
