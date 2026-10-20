@@ -168,9 +168,13 @@ def analizza_feed(contenuto: bytes):
             if l.get("rel", "alternate") == "alternate":
                 link = l.get("href", "")
                 break
+        grezzo = testo_di(en, "atom:content", "atom:summary")
+        # Product Hunt: '<a href="https://www.producthunt.com/r/p/123">Link</a>' porta al sito ufficiale
+        sito = re.search(r'href="([^"]+)"[^>]*>\s*Link\s*</a>', html.unescape(grezzo or ""))
         articoli.append({
             "titolo": pulisci_testo(testo_di(en, "atom:title"), 300),
             "link": link,
+            "sito": html.unescape(sito.group(1)) if sito else "",
             "data": leggi_data(testo_di(en, "atom:published", "atom:updated")),
             "testo": pulisci_testo(testo_di(en, "atom:summary", "atom:content")),
         })
@@ -197,6 +201,7 @@ TESTATE_AFFIDABILI = {
     "new scientist", "scientific american", "platformer", "semafor", "the information", "le monde",
     "euronews", "techrepublic", "infoworld", "computerworld", "mashable", "gizmodo", "time", "vox",
     "the hill", "search engine land", "the decoder", "404 media", "rest of world", "nikkei asia",
+    "global investigative journalism network", "gijn", "bellingcat", "first draft", "poynter", "nieman lab",
     # italiane
     "ansa", "ansa.it", "il sole 24 ore", "corriere della sera", "corriere.it", "la repubblica",
     "repubblica", "la stampa", "il post", "rainews", "rai news", "sky tg24", "tgcom24", "agi",
@@ -238,6 +243,7 @@ def raccogli(fonti, limite_tempo, editori_esclusi=()):
             if a["data"] and a["data"] < limite_fonte:
                 continue
             if f.get("tipo") == "vetrina":
+                a["sito"] = a.get("sito") or a["link"]      # Show HN: il link è già il sito del progetto
                 # Product Hunt: "slogan Discussion | Link"; Show HN: "Article URL: … Points: …"
                 a["testo"] = re.sub(r"\s*Discussion\s*\|\s*Link\s*$", "", a["testo"])
                 a["testo"] = re.sub(r"(Article URL|Comments URL|Points|# Comments):\s*\S*", " ", a["testo"]).strip()
@@ -425,7 +431,9 @@ REGOLE SUI FATTI (tassative)
    Scrivi sempre "AI" (mai "IA"), salvo nei nomi propri.
 
 COSA SCEGLIERE
-A) "strumenti_nuovi" — LA SEZIONE PIÙ IMPORTANTE (da 0 a 6, meglio 3 ottimi che 6 mediocri)
+A) "strumenti_nuovi" — LA SEZIONE PIÙ IMPORTANTE. Di solito DA 3 A 6: Product Hunt e Show HN portano ogni
+   giorno decine di prodotti nuovi, quindi cercali con cura tra le fonti "vetrina" e scegli i migliori.
+   Meno di 3 solo se davvero non ci sono candidati che rispettano i criteri qui sotto (mai abbassarli).
    App, siti, estensioni, servizi AI NUOVI o appena arrivati, usabili da un privato o da un piccolo
    professionista. Criteri, tutti obbligatori:
    - si usa senza programmare (niente API, SDK, librerie, framework, strumenti per sviluppatori,
@@ -703,6 +711,83 @@ def ordine_strumento(d):
     return 3                                         # solo Mac / iPhone / Linux
 
 
+SEGNI_PIATTAFORMA = [
+    ("Android", r"play\.google\.com/store/apps"),
+    ("iPhone", r"apps\.apple\.com/[^\"' ]*/app/|itunes\.apple\.com/[^\"' ]*/app/|download on the app store"),
+    ("Browser", r"chromewebstore\.google\.com|chrome\.google\.com/webstore|addons\.mozilla\.org|"
+                r"microsoftedge\.microsoft\.com/addons|add to chrome|chrome extension|browser extension"),
+    ("Browser", r"in your browser|no download|no install|web app|try (it )?(now|for free|free)|start (for )?free|"
+                r"get started (for )?free|sign up free|href=\"https?://(app|dashboard|studio|web|chat)\.[a-z0-9-]+\.[a-z]{2,}"),
+    ("Windows", r"download for windows|for windows|windows (app|version|download)|apps\.microsoft\.com|"
+                r"microsoft store|\.exe\b|\.msi\b"),
+    ("Mac", r"download for mac|for macos|macos app|mac app store|\.dmg\b|apple silicon"),
+    ("Linux", r"download for linux|\.appimage\b|\.deb\b|flathub"),
+]
+SITI_NON_UFFICIALI = ("producthunt.com", "news.ycombinator.com", "news.google.com", "reddit.com", "github.com/topics")
+
+
+def apri_sito(url, timeout=15):
+    """Apre il sito (seguendo i rimandi, es. producthunt.com/r/p/…) e restituisce (indirizzo finale, html)."""
+    req = urllib.request.Request(url, headers={"User-Agent": UA_BROWSER, "Accept": "text/html,application/xhtml+xml",
+                                               "Accept-Language": "it-IT,it;q=0.9,en;q=0.8"})
+    with urllib.request.urlopen(req, timeout=timeout) as r:
+        finale = r.geturl()
+        if "html" not in r.headers.get("Content-Type", ""):
+            return finale, ""
+        return finale, r.read(1_500_000).decode(r.headers.get_content_charset() or "utf-8", "replace")
+
+
+def piattaforme_dal_sito(url_finale, pagina):
+    """Le piattaforme che il sito dichiara davvero: link agli store, estensioni, download, web app."""
+    testo = (pagina or "").lower()
+    trovate = {nome for nome, rx in SEGNI_PIATTAFORMA if re.search(rx, testo)}
+    if re.match(r"https?://(app|dashboard|studio|web|chat)\.", url_finale or ""):
+        trovate.add("Browser")
+    if "github.com/" in (url_finale or "") and not trovate:
+        return []                           # un repository da solo non dice dove gira
+    return [p for p in PIATTAFORME if p in trovate]
+
+
+def completa_dai_siti(riassunto, per_id):
+    """Per gli strumenti scelti apre il sito ufficiale: ricava «Dove si usa» da dati veri e fa puntare «Provalo»
+    direttamente allo strumento invece che alla scheda di Product Hunt."""
+    from concurrent.futures import ThreadPoolExecutor
+    schede = [d for d in riassunto.get("da_provare", []) + (riassunto.get("osint") or [])]
+    lavori = []
+    for d in schede:
+        sito = next((per_id[i].get("sito") for i in d.get("fonti", []) if per_id.get(i, {}).get("sito")), "") \
+            or (d.get("prova") if d.get("prova") and not any(x in d["prova"] for x in SITI_NON_UFFICIALI) else "")
+        if sito:
+            lavori.append((d, sito))
+    if not lavori:
+        return riassunto
+
+    def leggi(lavoro):
+        d, sito = lavoro
+        try:
+            return d, apri_sito(sito)
+        except Exception as ex:
+            print(f"    (sito di {d.get('cosa')} non raggiungibile: {str(ex)[:60]})", file=sys.stderr)
+            return d, (None, None)
+
+    with ThreadPoolExecutor(6) as ex:
+        for d, (finale, pagina) in ex.map(leggi, lavori):
+            if not finale:
+                continue
+            if not any(x in finale for x in SITI_NON_UFFICIALI):
+                d["prova"] = finale         # «Provalo» porta allo strumento vero
+            trovate = piattaforme_dal_sito(finale, pagina)
+            if trovate:
+                d["piattaforme"] = [p for p in PIATTAFORME if p in set(trovate) | set(d.get("piattaforme") or [])]
+                d["piattaforme_verificate"] = True
+                print(f"  🔍 {d.get('cosa')}: {', '.join(d['piattaforme'])} (dal sito ufficiale)")
+    riassunto["da_provare"] = sorted(riassunto.get("da_provare", []), key=ordine_strumento)
+    # OSINT: se il sito dice che gira solo su Mac/iPhone/Linux, non fa per noi (serve browser o Windows)
+    riassunto["osint"] = [d for d in riassunto.get("osint") or []
+                          if not d.get("piattaforme_verificate") or {"Browser", "Windows"} & set(d["piattaforme"])]
+    return riassunto
+
+
 def utile(valore):
     """Vero se il campo dice qualcosa (non 'Non indicato' e simili)."""
     v = str(valore or "").strip().lower()
@@ -968,6 +1053,8 @@ article:target,li:target{outline:2px solid var(--accent)}
 .pf{font:600 12px system-ui,sans-serif;border-radius:6px;padding:3px 8px;background:var(--chip);color:var(--ink)}
 .pf.si{background:#dcfce7;color:#15803d}.pf.solo{background:#f3f4f6;color:#6b7280;border:1px dashed #9ca3af}
 .pf.locale{background:#e0e7ff;color:#3730a3}
+.pf.ignota{background:transparent;color:var(--muted);border:1px dashed var(--line);font-weight:500}
+.verificato{font:500 11px system-ui,sans-serif;color:var(--muted)}
 @media (prefers-color-scheme:dark){.pf.si{background:#14532d;color:#86efac}.pf.solo{background:transparent;color:#9c9a93}
 .pf.locale{background:#1e1b4b;color:#c7d2fe}}
 .osint{background:var(--chip);border-radius:16px;padding:4px 16px 12px;margin:28px -4px 0;border-left:4px solid #0f766e}
@@ -1273,6 +1360,10 @@ def scheda_strumento(d, per_id, giorno, ancora, tipo, nuovo_formato=True, etiche
                    f'{e(t)}</span>' for t in etichette_piattaforma(d))
     if d.get("sul_dispositivo"):
         dove += '<span class="pf locale">🔒 Funziona sul dispositivo</span>'
+    if dove and d.get("piattaforme_verificate"):
+        dove += '<span class="verificato" title="Ricavato dai link presenti sul sito ufficiale">✓ dal sito ufficiale</span>'
+    elif not dove and nuovo_formato and tipo in ("Strumento", "OSINT"):
+        dove = '<span class="pf ignota">da verificare sul sito</span>'
     dove = f'<div class="dove"><b>Dove si usa:</b> {dove}</div>' if dove else ""
     if d.get("come_sfruttarla"):
         come = f'<p class="why"><b>Come sfruttarla:</b> {e(d["come_sfruttarla"])}</p>' + come
@@ -2020,6 +2111,67 @@ def controlla_salute_fonti(stato_oggi, giorni=7):
         avvisa(f"Fonti senza articoli da {giorni} giorni (feed cambiato o filtro troppo stretto?): {', '.join(vuote)}.")
 
 
+# ---------------------------------------------------------------- notifica sul telefono (ntfy)
+
+def testo_notifica(dati, adesso=None, finestra_ore=3):
+    """(titolo, messaggio, ancora) dell'ultima edizione o aggiornamento di oggi; None se non c'è nulla di nuovo da dire."""
+    adesso = adesso or datetime.now(timezone.utc)
+    blocchi = [("mattino", dati.get("generato"), dati.get("riassunto"))]
+    blocchi += [("agg", u.get("generato"), u.get("riassunto")) for u in dati.get("aggiornamenti", [])]
+    tipo, generato, r = blocchi[-1]
+    try:
+        if adesso - datetime.fromisoformat(generato) > timedelta(hours=finestra_ore):
+            return None                    # non è il giro appena fatto
+    except (TypeError, ValueError):
+        return None
+    if not r or not (r.get("da_provare") or r.get("osint") or r.get("sezioni")):
+        return None                        # aggiornamento senza novità: niente notifica
+    righe = []
+    for d in r.get("da_provare", [])[:4]:
+        dove = ", ".join(t.replace("✓ ", "") for t in etichette_piattaforma(d))
+        righe.append(f"🧪 {d.get('cosa', '')}" + (f" ({dove})" if dove else "") + f" – {d.get('a_cosa_serve', '')[:80]}")
+    for d in (r.get("osint") or [])[:2]:
+        righe.append(f"🔎 OSINT: {d.get('cosa', '')} – {d.get('a_cosa_serve', '')[:70]}")
+    novita = [n for s in r.get("sezioni", []) if not s.get("breve") for n in s.get("notizie", [])]
+    for n in novita[:3]:
+        righe.append(f"✨ {n.get('titolo', '')}")
+    altri = len(r.get("da_provare", [])) - 4
+    if altri > 0:
+        righe.append(f"…e altri {altri} strumenti")
+    if tipo == "mattino":
+        titolo = "☀️ " + (r.get("titolo_giorno") or "Le novità AI di oggi")
+    else:
+        titolo = f"🆕 Aggiornamento delle {ora_di(generato)}"
+    return titolo[:120], "\n".join(righe) or (r.get("in_breve") or "")[:300], ("" if tipo == "mattino" else "aggiornamenti")
+
+
+def notifica():
+    """Manda la notifica a ntfy (app gratuita per Android/iPhone). Si attiva solo se esiste il segreto NTFY_TOPIC."""
+    topic = os.environ.get("NTFY_TOPIC", "").strip()
+    if not topic:
+        print("Notifica: NTFY_TOPIC non impostato, salto.")
+        return
+    dati = leggi_json(DATA / f"{datetime.now(TZ):%Y-%m-%d}.json")
+    contenuto = testo_notifica(dati) if dati else None
+    if not contenuto:
+        print("Notifica: nessuna novità da segnalare.")
+        return
+    titolo, messaggio, ancora = contenuto
+    sito = indirizzo_sito() or os.environ.get("SITO_URL", "")
+    corpo = {"topic": topic, "title": titolo, "message": messaggio, "tags": ["robot"], "priority": 3}
+    if sito:
+        corpo["click"] = sito + (f"#{ancora}" if ancora else "")
+        corpo["actions"] = [{"action": "view", "label": "Apri", "url": corpo["click"]}]
+    server = os.environ.get("NTFY_SERVER", "https://ntfy.sh").rstrip("/")
+    req = urllib.request.Request(server, data=json.dumps(corpo).encode("utf-8"), method="POST",
+                                 headers={"Content-Type": "application/json", "User-Agent": UA})
+    try:
+        with urllib.request.urlopen(req, timeout=20) as r:
+            print(f"Notifica inviata ({r.status}): {titolo}")
+    except Exception as ex:
+        print(f"Notifica non inviata: {ex}", file=sys.stderr)
+
+
 def avvisa(msg):
     print("⚠️  " + msg, file=sys.stderr)
     AVVISI.append(msg)
@@ -2044,6 +2196,9 @@ def main():
             pass
 
     chiave = os.environ.get("GEMINI_API_KEY", "").strip()
+    if "--notifica" in sys.argv:        # dopo la pubblicazione: avviso sul telefono
+        notifica()
+        return
     if "--pagine" in sys.argv:          # solo ricostruzione delle pagine (es. dopo aver creato l'audio)
         rigenera_tutto()
         return
@@ -2152,7 +2307,7 @@ def main():
             return
         try:
             riassunto, modello = chiedi_a_gemini(articoli, chiave, gia_pubblicate, aggiornamento=True)
-            riassunto = verifica(riassunto, per_id)
+            riassunto = completa_dai_siti(verifica(riassunto, per_id), per_id)
         except Exception as ex:   # l'edizione del mattino resta com'è
             avvisa(f"Aggiornamento non riuscito, resta l'edizione del mattino ({str(ex)[:900]}).")
             scrivi_avvisi()
@@ -2167,7 +2322,7 @@ def main():
         if chiave:
             try:
                 riassunto, modello = chiedi_a_gemini(articoli, chiave, gia_pubblicate)
-                riassunto = verifica(riassunto, per_id)
+                riassunto = completa_dai_siti(verifica(riassunto, per_id), per_id)
                 if not (riassunto["sezioni"] or riassunto.get("da_provare") or riassunto.get("osint")):
                     raise RuntimeError("riassunto vuoto")
             except Exception as ex:  # qualunque problema: si pubblica comunque la versione semplice

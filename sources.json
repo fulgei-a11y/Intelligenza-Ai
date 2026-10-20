@@ -224,10 +224,10 @@
       "ore": 168
     },
     {
-      "nome": "GIJN (guide per giornalisti investigativi)",
+      "nome": "GIJN (guide per giornalisti investigativi, via Google News)",
       "tipo": "testata",
       "categoria": "OSINT",
-      "url": "https://gijn.org/feed/",
+      "url": "https://news.google.com/rss/search?q=site:gijn.org+when:7d&hl=en-US&gl=US&ceid=US:en",
       "max": 5,
       "ore": 96,
       "escludi": "fellowship|apply now|conference|award|visiting professor|job|hiring|SECOND COURSE|webinar"
