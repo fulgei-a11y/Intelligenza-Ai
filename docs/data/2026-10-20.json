@@ -200,6 +200,54 @@
    "categoria": "Testate tech",
    "id": "a82",
    "testo_completo": true
+  },
+  "u1a88": {
+   "titolo": "Adobe Lightroom mobile can now open closed eyes in photos with a simple tap",
+   "link": "https://www.theverge.com/tech/1014246/adobe-lightroom-mobile-ai-quick-action-open-eyes-closed-blink-repair",
+   "data": "2026-10-20T09:06:44-04:00",
+   "testo": "Adobe announced yesterday that the mobile version of Lightroom, available for iOS, iPadOS, and Android, can now open closed eyes in photos using generative AI with just a single tap. When the app detects a person, or a group of people, have their eyes closed in a photo it will automatically present users with a new Open Eyes Quick Action that appears as an icon over the image providing easy access to the new feature. Adobe Lightroom mobile can now open closed eyes in photos with a simple tap When the mobile app detects closed eyes in a photo it will present users with a new Open Eyes Quick Action tool. Being able to easily save an otherwise great photo by opening a subject’s eyes has been a feature in Adobe’s Photoshop Elements for nearly a decade, but as DPReview points out, Elements sources the replacement from another photo of the subject with mixed results depending on variations between the two images. Open Eyes in Lightroom mobile instead relies on generative AI so the replacement eyes match the lighting and pose, and the app will use other images of the same person in your Lightroom library as reference so the open eyes will accurately match the color, size, and shape of their own. You can perform a similar fix in other Adobe apps like Photoshop using its own generative AI tools, but it’s not a one-tap fix, and it’s not free. Those using the free version of the Lightroom mobile app can try the Open Eyes feature twice before they’re given a prompt to subscribe to an Adobe Creative Cloud plan that includes more credits for its various AI-powered tools, according to DPReview.",
+   "fonte": "The Verge",
+   "tipo": "testata",
+   "solo_titolo": false,
+   "categoria": "Testate tech",
+   "id": "u1a88",
+   "testo_completo": true
+  },
+  "u1a53": {
+   "titolo": "New Gemini tools for small business owners",
+   "link": "https://blog.google/innovation-and-ai/products/gemini-app/new-tools-small-business-owners/",
+   "data": "2026-10-20T16:00:00+00:00",
+   "testo": "New Gemini tools for small business owners Tens of millions of small business owners are using Gemini today to brainstorm future products, manage customer feedback, and analyze business performance. Today, we’re announcing new tools designed to give these entrepreneurs their time back so they can focus on what started it all: their passion. A central hub for small businesses owners, all in Gemini We’re introducing a new business landing page designed to help small business owners streamline their daily tasks. From this central hub, they can build their brand, analyze finances, understand customer insights, and more. We’re also making it easy to connect Gemini to Google tools like Google Business Profile, Google Ads, and Google Workspace, as well as third-party connected apps like Adobe, Canva, Dropbox, Shopify, Wix, Zoho, and Xero. On-brand visuals Businesses can now define their brand style in Gemini by uploading their website, brand kit, fonts, or color palettes. When paired with the power of Nano Banana 2.1 (our latest image generation model), Gemini can now deliver end-to-end visual results for new product launches or ongoing marketing campaigns. Gemini retains this visual style, allowing owners to easily generate cohesive, on-brand assets without having to repeatedly upload their style guidelines. Real-time financial insights Gemini can turn messy spreadsheets, receipts, and purchase records into clear financial graphics and interactive models in seconds. Instead of decoding numbers on their own, small business owners can receive financial insights in a more natural way. Stories from small business owners around the world The business landing page, marketing and finance skills, and new connected apps are beginning to roll out in the coming days globally for all Ge…",
+   "fonte": "Google (blog ufficiale)",
+   "tipo": "ufficiale",
+   "solo_titolo": false,
+   "categoria": "Laboratori",
+   "id": "u1a53",
+   "testo_completo": true
+  },
+  "u1a106": {
+   "titolo": "Meta Muse exposes users' personal and business secrets when they share conversations",
+   "link": "https://arstechnica.com/security/2026/10/meta-muse-exposes-users-personal-and-business-secrets-when-they-share-conversations/",
+   "data": "2026-10-20T12:33:13+00:00",
+   "testo": "Muse, the new general-purpose AI agent from Meta, can expose sensitive information when users share conversations through web links, researchers reported Monday. In response to questions from Ars about the behavior, Meta said it’s suspending the sharing feature while the company reviews it and considers making changes. Like many online services, Muse has allowed users to share searches, conversations, images, and similar content with other people. Such share features usually involve clicking an option to create a unique URL that anyone can use to load a page hosting the content. To keep potentially sensitive information from being accessible to unintended people, the URLs typically contain a long sequence of text that can’t be easily guessed. A single query is all that’s required Muse, which Meta CEO Mark Zuckerberg said last month was “built from the ground up for privacy and security,” seems to take the same precautions. But a central design decision for constructing URLs has made the links easy to discover. As a result, researchers from security firm Claroc said they were able to enumerate 6,800 links Muse users created for sharing conversations with others. After opening a few hundred of them, the researchers found information that was clearly not intended to be publicly available, including: - a candidate’s notes preparing for a confidential executive-search call with a frontier AI lab, naming the lab’s internal contact and the meeting time - a national marketing company’s internal revenue review, marked for its CEO - a small-business owner’s loan application, with the amount requested - a to-do list that included a bank fraud alert, with a partial account number and a transaction amount and time - a real-estate investor’s internal performance report, with two pro…",
+   "fonte": "Ars Technica",
+   "tipo": "testata",
+   "solo_titolo": false,
+   "categoria": "Testate tech",
+   "id": "u1a106",
+   "testo_completo": true
+  },
+  "u1a99": {
+   "titolo": "Yelp can now call on your behalf to check wait times at a restaurant",
+   "link": "https://techcrunch.com/2026/10/20/yelp-can-now-call-on-your-behalf-to-check-wait-times-at-a-restaurant/",
+   "data": "2026-10-20T11:00:00+00:00",
+   "testo": "Over the last few weeks, personal assistants like Instinct, Fo, and Muse have enabled users to call businesses for customer support and appointment booking. Following this trend, Yelp is adding the ability for its app users to get a voice agent to call a restaurant to check wait times. The new feature, Check for Me, will show up on restaurant pages in the app, where users can enter their party size and phone number. The AI agent then calls on behalf of the user to check wait times and texts them the results to decide if they want to go to that particular restaurant. Last year, Yelp debuted its voice solution for restaurants and service providers. With this new feature, the discovery platform is fulfilling the consumer side of the equation, though there is a possibility that a user’s agent will talk to the restaurant’s agent, and agent-to-agent communication might break down the conversation. The company is also updating its Yelp AI assistant that helps users discover restaurants and services. With the new OpenTable integration, users can easily book a restaurant without leaving the app. Yelp is adding better personalization to its assistant by having it remember preferences that you might have mentioned in previous chats. Plus, you can access your chat history from the past 30 days in the app, with full history available soon. Users can ask the chatbot to set custom reminders, such as sending suggestions for weekend activities every Friday. The company is also letting users build their own lists, starting with two “Been Here” and “Want to Go” lists. You can filter your lists by location, category, and cuisine, reorder, add notes to items, and share them with others. Next month, the company will start showing weekly personalized recommendations based on your saved items…",
+   "fonte": "TechCrunch",
+   "tipo": "testata",
+   "solo_titolo": false,
+   "categoria": "Testate tech",
+   "id": "u1a99",
+   "testo_completo": true
   }
  },
  "fonti": [
@@ -520,8 +568,198 @@
   "phishingaziendaleperchéidipendentiformaticliccanocomunque",
   "sabotaggioastarlinktrabulgariaepoloniaifattileattribuzionieilrischioeuropeo",
   "tiktokcomments",
-  "howtolocatescotlandcourtrolls"
+  "howtolocatescotlandcourtrolls",
+  "exa30",
+  "kling40",
+  "praex",
+  "asimov1",
+  "stella",
+  "thenewbeings",
+  "lughxtudio",
+  "stage",
+  "intelgpudseries",
+  "call4me",
+  "sorcerer",
+  "harness²",
+  "runinfra",
+  "qwen34bwiththeaiwritingticstrainedout",
+  "homebaselaunchesaiassistanttotakeonschedulingandpayrollforsmallbusinessowners",
+  "churnzerolauncheskitanativeaiassistantthatknowscustomersandtheteamandbusinesstha",
+  "johndeerelaunchesaiassistanttosimplifyfarmdata",
+  "homebasesnewaiassistantfillsshiftsforsmallbusinessowners",
+  "newaitoolhelpssomebreastcancerpatientswithearlystagediseaseassessrecurrencerisk",
+  "webmanualslaunchescomplianceassistantforameliaaidocumentsplatform",
+  "freeaitooltoletpubliccheckquakedamagefromphotosresearchcenter",
+  "homebaselaunchesaiassistanttofillshiftsandeasehiringandpayroll",
+  "perplexityscomputercannowrunentirelyonyourmacevenoffline",
+  "googlelaunchesfreeaitoolforteachers",
+  "intelligenzaartificialeècorsaagliinvestimentieilcrealanciaagriai",
+  "arrivaanchenelgorizianosmartriciclalappperlaraccoltadifferenziataconlintelligenz",
+  "veneziaabbandonoindiscriminatodeirifiutiarrivalintelligenzaartificialepermiglior",
+  "ciaoevalintelligenzaartificialearrivasulpalcoscenicobarfìfriendscelebra25annidit",
+  "frodiinformaticheacataniaarrivateseolintelligenzaartificialeasupportodelleindagi",
+  "fornacarinnovalaradiologianuovarisonanzamagneticaconintelligenzaartificialeespaz",
+  "gpt6trasformalerispostedellaiininterfacceinterattivenellachat",
+  "gemini4argonarrivanellappgeminiilnuovomodellodigoogleperabbonatiaiproeultra",
+  "chatgptnonrispondepiùsolocontestocongpt6arrivanograficipulsantiestrumentidentrol",
+  "nvidiartxsparkbringslocalaiagentstowindowslaptops",
+  "hpexpandslocalaiportfoliowithnvidiapoweredsystems",
+  "archieailaunchesbetaofarchieengine13alocalaimodelbuiltforrealestateagents",
+  "readyserverlaunchesreadyserverllmapigivingeveryvpscustomerprivateaiinferenceatno",
+  "harkproreviewaprivateaiassistantfromthefounderoffigureai",
+  "dovevederenapolibodøglimtinstreaminggratisuefachampionsleague202627",
+  "askascientisthowcanaihelpdoctorsspendmoretimeoncollaborativecare",
+  "newgeminitoolsforsmallbusinessowners",
+  "googlepublicsectorlaunchesgeminiforgovernmentservices",
+  "earthcamlaunchesconstructionaiconnectorsdelivering",
+  "zillowshomesearchtoolsnowavailableinclaude",
+  "onlylisticleslaunchesbrandmentionserviceforvisibilityacrosschatgptgoogleaiovervi",
+  "theaiseoagencylaunchesaisearchoptimisationservicesforchatgptgoogleaioverviewsgem",
+  "googlelaunchesgeminiforgovernmentwithmicrosoft365salesforceandservicenowintegrat",
+  "googlesheetsoniphonefinallycatchesuptoandroidwiththisgeminiupgrade",
+  "alphabetlaunchesgeminiforgovernmentservicesinpreview",
+  "tradingviewlaunchesaicopilotanaiassistantthatworksdirectlyonyourcharts",
+  "howclaudedesignedproteinbindersagainstscorpionneurotoxins",
+  "anthropichistorycontroversiesclaudeai",
+  "structuredoutputsforanthropicclaudemodelsonamazonbedrockartificialintelligence",
+  "pentagongivesanthropicultimatumonaitechnologysourcesabcnews",
+  "citrinitherapeutics",
+  "exgoogleceoericschmidtsearlyanthropicbetcouldballoonto20binblockbusteripo",
+  "eliteextendseliteintelligencetoclaudeandmicrosoftcopilotbringingtrustedfinancial",
+  "globalhealthnonprofitpathelevatesitssecurityandprotectsprivatedatawithmicrosoftd",
+  "cascollaborateswithmicrosofttoenablefasterinnovationinpharmaceuticallifesciences",
+  "unlockthepowerofmicrosoft365copilotwithfreeliveandselfpacedtrainings",
+  "chinadefendsdeepseekafterusbanofitsaifromgovernmentsystems",
+  "governmentsregulatorsincreasescrutinyofchinasdeepseek",
+  "perplexitymakesiteasiertorunaiworkflowsentirelyonyourownmac",
+  "deepseekunveilsopensourcetooltohelpcutaioperatingcosts",
+  "usbanschineseaileaderdeepseekfromgovernmentuse",
+  "dhsbansdeepseekchineseaiappuseinfederalcivilianagencies",
+  "theusgovernmentisremovingdeepseekfromfederalcomputershereiswhatthatmeansforyou",
+  "spotifypulled50millionaislopandspamtracksfromitsrecommendations",
+  "adobelightroommobilecannowopenclosedeyesinphotoswithasimpletap",
+  "plantscanspeakusingelectricitysothisstartupbuiltanaimodeltodeciphertheirlanguage",
+  "figmacofounderdylanfieldthinksmcpisnotaperfectprotocol",
+  "usordersfederalagenciestoremovechinasdeepseekaifromtheirsystems",
+  "ekaisworth145bthankstoaphysicalaimodelthathasexpertsraving",
+  "otterairaises320millionfromgeneralcatalystsgrowthfundforitsmeetingtool",
+  "yelpcannowcallonyourbehalftocheckwaittimesatarestaurant",
+  "metamuseexposesuserspersonalandbusinesssecretswhentheyshareconversations",
+  "theneweconomicsofenterpriseai",
+  "aiadoptionbyindustryshowswhatothersectorscanlearn",
+  "avisittosamsungsmassivenewsemiconductorhub",
+  "openaisaysgpt6ismuchbetterwithlegacyprogramminglanguagessuchascobolandfortran",
+  "armycybercommandsechotribblewouldturnaiagentsintoselfspreadingcyberweapons",
+  "cloudflaresclairicpullsdatafromdocumentsfasterandcheaperthanllms",
+  "usbansdeepseektechnologyacrossfederalcivilianagencies",
+  "mercury3minimaxflash31exa3",
+  "borsalasiachiudeincalopesanotimoriperlintelligenzaartificiale",
+  "lintelligenzaartificialebanditadalpremioandersen",
+  "pratonevosopuntasullintelligenzaartificialepergestirelerisorse",
+  "chipagailprezzodellintelligenzaartificialeilpremiomajellaripartedaqui",
+  "sovranitàdigitaleedeuropamicrosoftvuoleoffrirepiùcontrollosucloudeia",
+  "hackerviola100siticonunesercitodiagentiaisenzafarenulla",
+  "perchénadelladicedinonfidarsideimodelliai",
+  "occhialiaidimetasenzafotocamera5usiinaspettati",
+  "bandideepseekintuttiisistemifederalinegliusa",
+  "chatbotaicambianopersonalitàsesiparlaunaltralingua",
+  "clauderimuoveleinserzionievelocizzalasmarttv",
+  "amdfsr41lupscalingaiarrivaanchesuxboxseriesxseallyx",
+  "anthropicenscaleinvistanuovoaccordoaida40miliardi",
+  "linterfacciadiwindows11haancoraproblemidicoerenzaemicrosoftlosa",
+  "droniintercettoriautonomilanuovadifesacineseusalai",
+  "spotifycontrolamusicaairimossioltre50milionidibranidaiconsigli",
+  "oldtclbeyondtvwassuperslowsoitriedthisopensourcedebloatwithclaudeanditworked",
+  "mypostaboutrogueaiagentsgot13mviewshereandthenredditjustdeleteditnoreasongiven",
+  "iamfailingtoseehowthisaiboomdoesnotleadtoaverybadendingfor99ofthepeoplepleasecon",
+  "norwegianunderseacablebuilderpitches2800miletransatlanticdatalinkbetweencanadaan",
+  "anthropicsinternalreport80ofclaudesessiontimeisagentswaitingonhumans",
+  "deepseekreleaseddeepinferopensourcehighperformancelargescaleinferenceframeworkfo",
+  "improveqwen3827blowquantsbyusingaprefillermodelthatstreamsfromssd",
+  "ornithaiornith15122bqwenfinetune",
+  "valsaifounddeepseekv41flash1017beatsgpt6solontheirmultistepoffensivecybersecurit",
+  "nccsdeviceverificationtoolexposesvulnerabilitiesinnigeriasmobileimports",
+  "thisvideodoesntshowavanfullofpoliceuniformsatjantarmantarindelhi",
+  "albertasnubsseparatistsasmajorityvotestoremainpartofcanadadailysabah",
+  "satelliteimageshowshowyandexslargestdatacenterinkalugalooksnow",
+  "showhnvoidaccessopensourcedarkwebosintfromquerytoagraph"
  ],
  "audio": "audio/2026-10-20.mp3",
- "durata": 150.4
+ "durata": 239.5,
+ "aggiornamenti": [
+  {
+   "generato": "2026-10-20T17:01:19+00:00",
+   "modello": "gemini-3.8-flash",
+   "testi_completi": 21,
+   "riassunto": {
+    "titolo_giorno": "Adobe Lightroom riapre gli occhi nelle foto e Gemini si attrezza per le piccole attività",
+    "in_breve": "Adobe Lightroom mobile introduce uno strumento basato su AI generativa per correggere gli occhi chiusi nei ritratti con un tocco. Nel frattempo, Gemini aggiunge una sezione dedicata alle piccole attività per creare grafiche coerenti con il proprio marchio e analizzare i conti aziendali.",
+    "citati": [
+     "Adobe Lightroom mobile",
+     "Gemini"
+    ],
+    "da_provare": [],
+    "osint": [],
+    "sezioni": [
+     {
+      "titolo": "Novità negli strumenti che già usi",
+      "notizie": [
+       {
+        "titolo": "Riapre gli occhi chiusi nelle foto con un singolo tocco",
+        "strumento": "Adobe Lightroom mobile",
+        "riassunto": "L'app per smartphone riconosce in automatico i soggetti con gli occhi chiusi nelle foto e mostra la funzione rapida 'Open Eyes'. Utilizzando l'AI generativa e prendendo a riferimento altre immagini della stessa persona salvate nella libreria, genera occhi aperti realistici e coerenti con posa e illuminazione.",
+        "come_provarla": "Sulle versioni dell'app per Android e iPhone, chi usa il piano gratuito può provare la funzione per due volte prima che venga richiesto l'abbonamento a pagamento.",
+        "disponibilita": "Disponibile ora",
+        "fonti": [
+         "u1a88"
+        ],
+        "affidabilita": "Una fonte",
+        "solo_titoli": false
+       },
+       {
+        "titolo": "Arrivano strumenti dedicati a grafica del brand e gestione finanziaria per piccole attività",
+        "strumento": "Gemini",
+        "riassunto": "Google introduce una pagina pensata per chi gestisce una piccola attività, con collegamenti a Google Business Profile, Google Ads, Canva, Dropbox e Shopify. È possibile impostare l'identità visiva del marchio caricando palette di colori e font per generare immagini coerenti per il marketing, oltre a trasformare ricevute e fogli di calcolo disordinati in grafici finanziari chiari.",
+        "come_provarla": "Le nuove funzioni e il pannello dedicato saranno distribuiti a livello globale nei prossimi giorni per chi usa Gemini.",
+        "disponibilita": "In arrivo",
+        "fonti": [
+         "u1a53"
+        ],
+        "affidabilita": "Fonte ufficiale",
+        "solo_titoli": false
+       },
+       {
+        "titolo": "L'assistente vocale telefona al ristorante per verificare l'attesa per un tavolo",
+        "strumento": "Yelp",
+        "riassunto": "La nuova funzione 'Check for Me' permette all'utente di indicare numero di coperti e recapito telefonico: un assistente vocale AI telefona direttamente al locale per domandare i tempi di attesa e invia un SMS con l'esito. L'assistente dell'app integra inoltre la prenotazione diretta tramite OpenTable e ricorda le preferenze espresse nelle conversazioni.",
+        "come_provarla": "L'opzione compare all'interno delle schede dei singoli ristoranti sull'app di Yelp.",
+        "disponibilita": "Disponibile ora",
+        "fonti": [
+         "u1a99"
+        ],
+        "affidabilita": "Una fonte",
+        "solo_titoli": false
+       }
+      ]
+     },
+     {
+      "titolo": "In breve",
+      "breve": true,
+      "notizie": [
+       {
+        "titolo": "Meta sospende la condivisione chat di Muse per una falla di riservatezza",
+        "riassunto": "Meta ha disattivato la funzione di condivisione delle conversazioni via link pubblico del suo assistente Muse dopo che ricercatori hanno scoperto che la struttura dei collegamenti permetteva di individuare e leggere note e dati privati degli utenti.",
+        "fonti": [
+         "u1a106"
+        ],
+        "affidabilita": "Una fonte",
+        "solo_titoli": false
+       }
+      ]
+     }
+    ],
+    "formato": 2
+   }
+  }
+ ]
 }
