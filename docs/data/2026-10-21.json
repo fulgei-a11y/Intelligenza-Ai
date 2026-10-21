@@ -350,6 +350,30 @@
    "solo_titolo": true,
    "categoria": "Laboratori",
    "id": "u1a111"
+  },
+  "u2a117": {
+   "titolo": "Conversational Gemini navigation comes to Apple CarPlay",
+   "link": "https://www.theverge.com/transportation/1015281/gemini-ai-apple-carplay-voice-google-maps",
+   "sito": "",
+   "data": "2026-10-21T11:00:00-04:00",
+   "testo": "After introducing its Gemini AI assistant to Android Auto last year, Google is now bringing it to Apple CarPlay users. The conversational Gemini in navigation is available today for US drivers, with \"rollout happening globally too,\" according to Google (we've asked for specific regional availability details). It's taken almost 12 months for Google to bring […]",
+   "fonte": "The Verge",
+   "tipo": "testata",
+   "solo_titolo": false,
+   "categoria": "Testate tech",
+   "id": "u2a117"
+  },
+  "u2a176": {
+   "titolo": "ChatGPT: come bloccare le chat con PIN, Face ID o Touch ID",
+   "link": "https://www.punto-informatico.it/chatgpt-come-bloccare-chat-pin-face-id-touch-id/",
+   "data": "2026-10-21T09:02:10+00:00",
+   "testo": "OpenAI ha appena annunciato le Locked Chats, le Chat Bloccate. In pratica, si può bloccare una conversazione proteggendola con un PIN di quattro cifre. Sui dispositivi compatibili si può usare anche Face ID o Touch ID. Non serve altro. Arrivano le chat di ChatGPT private La chat bloccata sparisce dalla cronologia normale e finisce in una sezione dedicata, chiamata appunto “Locked Chats”. Lì sta separata da tutto il resto, dalla lista delle conversazioni, da quelle fissate in alto e perfino dai risultati della ricerca. Chi sfoglia l’app in propria assenza, o accanto, non ne troverà traccia. ChatGPT aveva già le chat temporanee, ma sono un’altra cosa. Aprono una sessione a parte che non lascia segni nella cronologia. OpenAI fa un esempio. Si sta parlando di qualcosa di personale, oppure si sta organizzando una sorpresa. Poi si deve passare il telefono a un amico o a un parente per mostrargli qualcosa in un’altra chat, e non si vuole che il resto si veda. Ci sta. La memoria L’aspetto più interessante è la memoria. Chi ha attivato la funzione non ha di che temere, le Chat Bloccate ne ricevono una tutta loro, condivisa solo tra le conversazioni bloccate. I messaggi che si scrivono dopo aver messo il lucchetto aggiornano quella memoria separata e non toccano quella normale. Il lucchetto non protegge da tutto Qui OpenAI è stata onesta, e conviene leggere con attenzione. Bloccare una chat limita chi può aprirla dal tuo schermo. Non cambia però quello che succede ai dati dietro le quinte. In concreto, bloccare una conversazione: - Non crea una crittografia end-to-end né una cassaforte cifrata a parte; - Non cambia per quanto tempo OpenAI conserva la chat; - Non cancella ciò che ChatGPT aveva già memorizzato prima del blocco; - Non modifica l’impostazione “Improve the model for …",
+   "fonte": "Punto Informatico",
+   "tipo": "testata",
+   "solo_titolo": false,
+   "categoria": "Italia",
+   "id": "u2a176",
+   "testo_completo": true
   }
  },
  "fonti": [
@@ -757,10 +781,126 @@
   "exclusivebytedancealibabatencentplaceover35billionworthofnvidiachiporders",
   "newfromdeepseekdeepinfer",
   "ornithaiornith15122bqwenfinetune",
-  "improveqwen3827blowquantsbyusingaprefillermodelthatstreamsfromssd"
+  "improveqwen3827blowquantsbyusingaprefillermodelthatstreamsfromssd",
+  "wovenvideo",
+  "notionauto",
+  "mouse1",
+  "thebrains",
+  "privos",
+  "askdoozy",
+  "tend",
+  "intelliforchatgptclaude",
+  "scoutbyfini",
+  "koi",
+  "leabyleanaios",
+  "agentpets",
+  "triagebychodeberg",
+  "uploadaselfiefindoutyourbiologicalagenewfaceageaitoolavailableforanyonetouse",
+  "meeteneytheaiassistantthatlivesrightonyourmac",
+  "harborlablaunchesaiassistantforportdisbursementaccounts",
+  "targetsholidaypushstressesaffordabilityexclusivesandanaiassistant",
+  "buildotsupgradesdotaiassistanttoautomateconstructionprojectanalysisandreporting",
+  "coreweavelaunchesphysicalaitooltemplatesforroboticsandavteams",
+  "googlelaunchespersonalaiassistantforcarsgeminiwillbeabletosearchforinformationin",
+  "googleisbringingamorepersonalversionofitsgeminiaiassistanttoyourcar",
+  "hydawaydigitalsrealitycheklaunchesdetectconnectorsforleadingaiassistantsbringing",
+  "cosapuòfaregeminisuandroidautoecosamancainitalia",
+  "metàdegliitalianiperledecisionidiacquistochiedeconsiglioallintelligenzaartificia",
+  "manfredilintelligenzaartificialealserviziodellepersone",
+  "geminioraconosceletueabitudinielesfruttaquandoguidi",
+  "luniversitàdisalernolanciajobincampus2026ilcareerdaymettealcentrolalleanzatragio",
+  "intelligenzaartificialesovranalebasiperlautosufficienzadelvietnamnelletecnologie",
+  "voletenascondereleconversazionisuchatgptprestosaràpossibilegrazieaunanuovafunzio",
+  "androidautogeminidiventapiùintelligentelanuovafunzionepersonalintelligencedivide",
+  "lggram2026arrivainitaliaquattronotebookda1099euro",
+  "metabloccalechatdimuseechatgptintroducelechatbloccate",
+  "openaiaggiungepinperbloccarelechatdichatgpterafforzarelaprivacydelleconversazion",
+  "enablinglocalairesiliencewithciscocloudcontrolandnvidiadgxstation",
+  "nvidiasnewunderdogappmakesmanagingyourlocalaimodelseveneasier",
+  "nvidiaunleashesfulllocalaistackatgtcberlin",
+  "taniumbringsenterprisegrademanageabilitytonvidialocalaiinfrastructure",
+  "perplexitycomputermodelloeagenteaiinteramentesulmacmacon36gbdimemoriaopiù",
+  "collageconunsolotoccoconneocollagelappgratuitachefunzionainlocale",
+  "appstorenuoveregoleperleappcosacambiasuivecchiiphoneeipad",
+  "nvidiaacceleradlss45elialocalenovitàperigiochirtxedgxspark",
+  "reallyhopingtoavoidthisrightnow",
+  "php2shellinselfhostedapps",
+  "whyisntxmppmorepopularthanmatrixifitssimplerinarchitecture",
+  "didlinuxserveriogethackednormalhomepageisntshowingup",
+  "mistrallaunchesvoxtral3voiceagentsdkenablingrealtimeinteractioninmorethan50langu",
+  "obsidiansystemsbringsgovernedselfhostedaidevelopmenttoaiexpoafrica2026withcoder",
+  "openaimodelsarecomingtogooglecloud",
+  "patchtheplanetglobalresponsecoordinationasagentsuncovercriticalvulnerabilities",
+  "chatgptadsexpandsto26newcountriesasover100000advertisershaveusedtheplatform",
+  "usingthousandsofaiagentstouncovernewleadsinbiologicaldata",
+  "howwebuiltchatgptsnoveladstackforusertrustandrelevance",
+  "googlelaunchesgeminiaiplatformforgovernmentservices",
+  "chatgptadsrollsoutin26morecountries",
+  "openairollsoutpinprotectedlockedchatsforchatgpt",
+  "googlerollsoutnewgeminitoolstohelpsmallbusinessesmanagemarketingfinancesbusiness",
+  "testliolaunchesaicopilotforsoftwaretestingteams",
+  "geminilaunchesgrokpoweredaifeedviaspacexpartnership",
+  "chatgptuserscanlocktheirchatsasopenairollsoutnewprivacyfeature",
+  "openailauncheslockedchatsinchatgptforprivateconversationsallyouneedtoknow",
+  "anthropicaddsharvardastrophysicistchrisstubbstothetrustthatcontrolsitsboard",
+  "anthropics807billionlossputsitsipoambitionsunderscrutiny",
+  "anthropicposts80bnlossinfirsthalfof2026wsj",
+  "citriniresearchletanthropicsclaudedesignscorpionantivenom211proteinstested17bind",
+  "simformachievesselecttierinanthropicsclaudepartnernetworkservicestrackthecourier",
+  "microsoftempowersmorethan330000volkswagengroupemployeeswithcopilot",
+  "volkswagengroupdeploysmicrosoftcopilottoover330000employees",
+  "microsoftisremoving8copilotshortcutsfromfileexplorerhereswhatstays",
+  "microsoftscalesbackcopilotintegrationinwindows11removeseightfileexploreractions",
+  "microsoftpreviewsonedrivesynccliforitadmins",
+  "perplexitycomputernowrunsfullylocallysecurelyandprivatelyonmac",
+  "deepseekopensourcesdeepinferitsproductioninferenceengine",
+  "deepseekharnessdesktopappinstallersupdatesandwhatitwrites",
+  "conversationalgemininavigationcomestoapplecarplay",
+  "openaisaysanaiagentliedaboutdisablingitssafetymonitoringsystem",
+  "aipromisesproductivitybutformanagersitsmostlyaheadachefornow",
+  "the15billionadpoweredaistartupyourdoctormayalreadybeusing",
+  "inceptionsmercury3diffusionmodelclaimstobeatgpt6lunaandclaudehaiku55atafractiono",
+  "mistralandnvidiawanttospeedupindustrialdesignwithphysicsai",
+  "nvidiasdsxpodcouldcutaidatacentersetupfromsixmonthstoaslittleas14days",
+  "chinaproteststheusdeepseekbanwhileblockingchatgptclaudeandgeminiathome",
+  "openaicantyetexplainwhyitscodingagentsswitchoffmisalignmentmonitoring",
+  "claudesciencetacklesdeadlyscorpionstingsbydesigningproteinbindersfromscratch",
+  "openaiacquiresorchestrabiotobuildaiagentsthatspeedupdrugdevelopment",
+  "deepseekdeepinferpytorchontpusrampsagentframework",
+  "aportofinolachirurgiadelfuturotraintelligenzaartificialeerobot",
+  "replypresentareplyimmersiveexperienceunospaziodoveintelligenzaartificialeetecnol",
+  "lacinapreparacontrollisullexportdellaicosacambiaperleimprese",
+  "dahomeviewamusetuttalatecnologiausachenonstaarrivandoineuropa",
+  "phprilasciapatchperlevulnerabilitàscopertedagpt56sol",
+  "donaldtrumpdicecheunassegnopuòfaramareidatacenter",
+  "spotifytoglie50milionidibraniaidalleraccomandazioni",
+  "7plugindichatgptperiltempoliberodaprovaresubito",
+  "clauderaggiungerechatgptrestaunimpresacosadicelostudio",
+  "geminisuandroidautoconpersonalintelligencequandoarriva",
+  "recensionionlineeaiilpareredegliutentièancoraimportante",
+  "googlechromeprotezionecontroletruffecongemini",
+  "agentidiopenaihannodisattivatoilsistemadimonitoraggio",
+  "chatgptcomebloccarelechatconpinfaceidotouchid",
+  "nvidiaintroduceadvancedshaderdeliveryeccocosacambia",
+  "iusedclaudetofixmysamsungtv",
+  "iaskedchatgpttorecreateanimagefrommydaughtersnightmare",
+  "newyorkcitywantstofinecompaniesthattrapyouinaichatbotdoomloops",
+  "ithinkchatgpthasjustnerfeditself",
+  "mychatgptfakedasorethroatandsaiditwasbecauseshehadbeentalkingtoomuch",
+  "eagle4releasedfasterthandflash2dspark",
+  "xhtokensparkx264bhuggingface",
+  "pardonmyignorancebutwhatdoyoudowithanllm",
+  "kraftonraon1minipreviewhuggingface",
+  "howgillianbrockellinvestigatesiceremovalflightsfromus",
+  "imageallegedlyshowsparisburningamidongoingunrestisitreal",
+  "fakeimagesharedasoneofrealbbcarticleonindiasgenzprotests",
+  "identityisnolongeracheckitsinfrastructure",
+  "atransparentbattlefieldhowosintistransformingthewarinukraine",
+  "dronesattacktelecommunicationscentreinoccupiedluhansk",
+  "russiansu30smfighterjetfallsfromskyandcrashesnearcemeteryinkaliningrad"
  ],
  "audio": "audio/2026-10-21.mp3",
- "durata": 139.3,
+ "durata": 181.8,
  "aggiornamenti": [
   {
    "generato": "2026-10-21T06:34:01+00:00",
@@ -833,6 +973,63 @@
       "esito": "nessun sito da aprire"
      }
     ]
+   }
+  },
+  {
+   "generato": "2026-10-21T17:02:09+00:00",
+   "modello": "gemini-3.5-flash-lite",
+   "testi_completi": 16,
+   "riassunto": {
+    "titolo_giorno": "Arrivano le chat bloccate in ChatGPT con PIN o impronta digitale",
+    "in_breve": "OpenAI ha introdotto le Chat Bloccate per proteggere conversazioni sensibili tramite PIN, Face ID o Touch ID su ChatGPT. Questa novità permette di separare la cronologia privata, ideale per chi desidera maggiore riservatezza quando mostra lo schermo del telefono ad altre persone.",
+    "citati": [
+     "ChatGPT"
+    ],
+    "da_provare": [],
+    "osint": [],
+    "gemme": [],
+    "sezioni": [
+     {
+      "titolo": "Novità negli strumenti che già usi",
+      "notizie": [
+       {
+        "titolo": "Arrivano le chat protette con PIN e biometria",
+        "strumento": "ChatGPT",
+        "riassunto": "Ora è possibile proteggere singole conversazioni su ChatGPT con un PIN di quattro cifre o tramite riconoscimento biometrico come Face ID e Touch ID. La chat protetta viene spostata in una sezione dedicata e isolata dalla cronologia principale e dai risultati di ricerca, offrendo una memoria separata per evitare che occhi indiscreti vedano i contenuti personali.",
+        "come_provarla": "Aggiorna l'applicazione di ChatGPT all'ultima versione disponibile sul tuo dispositivo.",
+        "disponibilita": "Disponibile ora",
+        "fonti": [
+         "u2a176"
+        ],
+        "temi": [
+         "Assistenti e chatbot",
+         "Ricerca e informazioni"
+        ],
+        "affidabilita": "Una fonte",
+        "solo_titoli": false
+       },
+       {
+        "titolo": "Gemini porta la navigazione conversazionale su Apple CarPlay",
+        "strumento": "Gemini",
+        "riassunto": "Google ha esteso l'assistente Gemini ad Apple CarPlay, consentendo agli utenti di interagire vocalmente in modo naturale durante la guida per la navigazione e la ricerca di informazioni.",
+        "come_provarla": "Collega il telefono all'impianto dell'auto compatibile con Apple CarPlay.",
+        "disponibilita": "Disponibile ora",
+        "fonti": [
+         "u2a117"
+        ],
+        "temi": [
+         "Assistenti e chatbot",
+         "Voce e audio",
+         "Ricerca e informazioni"
+        ],
+        "affidabilita": "Una fonte",
+        "solo_titoli": false
+       }
+      ]
+     }
+    ],
+    "formato": 2,
+    "controllo_siti": []
    }
   }
  ]
