@@ -80,6 +80,7 @@ jobs:
         continue-on-error: true
         env:
           NTFY_TOPIC: ${{ secrets.NTFY_TOPIC }}
+          SENTINELLE: ${{ secrets.SENTINELLE }}
         run: |
           [ -n "$NTFY_TOPIC" ] || { echo "Segreto NTFY_TOPIC non impostato: nessuna notifica."; exit 0; }
           sleep 75   # il tempo che GitHub Pages pubblichi la pagina nuova

@@ -32,6 +32,7 @@ import sys
 import time
 import urllib.error
 import urllib.parse
+import unicodedata
 import urllib.request
 import xml.etree.ElementTree as ET
 from datetime import datetime, timedelta, timezone
@@ -390,6 +391,35 @@ def arricchisci(articoli):
 
 # ---------------------------------------------------------------- Gemini
 
+# 🧭 Radar: elenco FISSO dei temi (così si possono contare nel tempo). Le parole chiave servono a riconoscerli anche
+# senza Gemini e nelle edizioni vecchie. L'ordine conta solo per la visualizzazione.
+TEMI = {
+    "Agenti AI": r"\bagent[ie]?\b|\bagents?\b|agentic|compie azioni|automatizz",
+    "AI sul dispositivo": r"offline|on-device|in locale|\blocal(e|i)?\b|sul (tuo )?(telefono|dispositivo|pc|computer)|lm studio|gpt4all|ollama|senza internet",
+    "Assistenti e chatbot": r"chatgpt|gemini|claude|copilot|perplexity|meta ai|grok|mistral|le chat|deepseek|chatbot|assistente",
+    "Scrittura e documenti": r"scriv|document|\bpdf\b|riassun|appunt|\bword\b|email|testi\b",
+    "Foto e immagini": r"\bfoto|immagin|image|photo|disegn|grafica|logo",
+    "Video": r"\bvideo|filmat|clip|youtube",
+    "Voce e audio": r"\bvoce|vocal|audio|trascri|podcast|musica|speech|dettatura",
+    "Ricerca e informazioni": r"ricerca|search|motore di ricerca|risposte con fonti",
+    "Lavoro e produttività": r"lavoro|ufficio|riunion|calendar|agenda|progett|team|cliente|fattur|excel|fogli",
+    "Programmare senza codice": r"no-code|senza (scrivere )?codice|vibe cod|crea (un'?)?app|siti web|website builder|automazion",
+    "Privacy e sicurezza": r"privacy|sicurezz|truff|phishing|deepfake|falla|password|garante|protezion|filigran",
+    "Regole e leggi": r"\bai act\b|legge|regol|normativ|garante|tribunal|decreto",
+    "OSINT e verifica": r"osint|verific|fact.?check|geolocalizz|metadat|indagin|fonti aperte",
+    "Open source e self-hosting": r"open.?source|self.?host|sul tuo server|docker|github|gratuito e libero",
+}
+TEMI_RX = {t: re.compile(rx, re.IGNORECASE) for t, rx in TEMI.items()}
+
+
+def temi_di(*testi, proposti=()):
+    """I temi di una scheda: quelli proposti da Gemini (se validi) + quelli riconosciuti dalle parole chiave."""
+    validi = [t for t in (proposti or []) if t in TEMI]
+    testo = " ".join(str(x or "") for x in testi)
+    validi += [t for t, rx in TEMI_RX.items() if rx.search(testo)]
+    return list(dict.fromkeys(validi))[:3]
+
+
 ISTRUZIONI = """Sei il redattore di "AI News Digest", una guida quotidiana in ITALIANO agli STRUMENTI di
 intelligenza artificiale. Il lettore è una persona italiana NON programmatrice che vuole una cosa sola:
 scoprire AI nuove e cose utili da usare nel lavoro (ufficio, professione, piccola attività, studio) e nella
@@ -425,7 +455,7 @@ REGOLE SUI FATTI (tassative)
    che oggi ci sia uno sviluppo nuovo e concreto (es. arriva in Italia, diventa gratis): in quel caso
    racconta SOLO la novità.
 6. "titolo_giorno" e "presentazione" possono nominare SOLO strumenti o novità che hai messo in una delle liste
-   (strumenti_nuovi, osint, novita_strumenti, in_breve). Mai citare qualcosa che non ha la sua scheda.
+   (strumenti_nuovi, gemme, osint, novita_strumenti, in_breve). Mai citare qualcosa che non ha la sua scheda.
    Elenca in "citati" i nomi che hai usato.
 7. Scrivi chiaro, frasi brevi, niente gergo; spiega ogni termine tecnico in poche parole.
    Scrivi sempre "AI" (mai "IA"), salvo nei nomi propri.
@@ -480,6 +510,19 @@ D) "osint" — "Strumenti OSINT" (da 0 a 4): strumenti NUOVI o aggiornati per in
    "costo" (Gratis / Gratis con limiti / A pagamento / Non indicato), "piattaforme", "come_sfruttarla"
    (un esempio di indagine lecita, es. "Verificare se una foto virale è davvero di oggi"). Se uno strumento
    si usa solo da riga di comando, scrivi "difficolta": "Per esperti". Se oggi non c'è nulla, lista vuota.
+E) "gemme" — "Gemme" (da 0 a 3): strumenti NON necessariamente AI che stanno ACCANTO all'AI e moltiplicano
+   ciò che il lettore fa: open source, gratuiti o con versione gratuita, rispettosi della privacy, spesso
+   installabili su un proprio server ("self-hosting"). Esempi del genere giusto: ntfy (notifiche sul telefono
+   senza account), n8n (automazioni), Obsidian (appunti), Immich (foto in casa), LM Studio (AI sul PC).
+   Cercale soprattutto tra le fonti della sezione "Gemme" (Show HN, r/selfhosted, r/opensource).
+   Criteri: utilità concreta per un privato o un piccolo professionista; niente librerie per programmatori,
+   niente strumenti solo per aziende, niente giochi o curiosità. Se richiede un server proprio o Docker,
+   "self_hosted": true e "difficolta": "Media" o "Per esperti".
+   Per ognuna: "perche_gemma" (1 frase: cosa la rende speciale, es. "Gratis, open source, nessun account") e
+   "con_ai" (1 frase: come combinarla con l'AI, es. "Ricevi sul telefono i risultati dei tuoi script AI";
+   stringa vuota se non c'è un legame sensato). Se oggi non c'è nulla di valido, lista vuota.
+TEMI — ad OGNI elemento di ogni lista aggiungi "temi": da 1 a 2 voci scelte SOLO da questo elenco:
+   {TEMI}.
 C) "in_breve" — DA 0 A 3, spesso 0. Solo notizie che cambiano qualcosa per chi USA l'AI in Italia:
    - una legge o regola che cambia cosa si può usare (es. AI Act, Garante privacy);
    - un rischio concreto per gli utenti (truffe con l'AI, falle di sicurezza in app diffuse, deepfake);
@@ -510,6 +553,11 @@ Rispondi SOLO con JSON valido:
      "come_provarla": "1 frase, solo se le fonti lo dicono, altrimenti stringa vuota",
      "disponibilita": "Disponibile ora / In arrivo / Non in Italia / Non indicato", "fonti": ["a5"]}
   ],
+  "gemme": [
+    {"cosa": "ntfy", "a_cosa_serve": "1-2 frasi", "perche_gemma": "1 frase", "con_ai": "1 frase o stringa vuota",
+     "piattaforme": ["Browser", "Android"], "self_hosted": false, "costo": "Gratis", "difficolta": "Facile",
+     "temi": ["Open source e self-hosting"], "fonti": ["a8"]}
+  ],
   "osint": [
     {"cosa": "nome", "a_cosa_serve": "1-2 frasi", "uso": "Verifica immagini", "piattaforme": ["Browser"],
      "costo": "Gratis", "difficolta": "Facile / Media / Per esperti", "come_sfruttarla": "1 frase", "fonti": ["a7"]}
@@ -518,7 +566,8 @@ Rispondi SOLO con JSON valido:
     {"titolo": "...", "frase": "1 frase", "fonti": ["a9"]}
   ]
 }
-Ogni elemento deve avere almeno un id valido in "fonti"."""
+Ogni elemento deve avere almeno un id valido in "fonti" e un campo "temi"."""
+ISTRUZIONI = ISTRUZIONI.replace("{TEMI}", ", ".join(f'"{t}"' for t in TEMI))
 
 
 AVVISO_AGGIORNAMENTO = """QUESTO È UN AGGIORNAMENTO DELLA GIORNATA: il lettore ha già letto l'edizione del mattino.
@@ -556,9 +605,10 @@ def normalizza_risposta(r):
         return r                                   # formato vecchio: lo lasciamo com'è
     novita = [{"titolo": n.get("titolo", ""), "strumento": n.get("strumento", ""),
                "riassunto": n.get("cosa_cambia", ""), "come_provarla": n.get("come_provarla", ""),
-               "disponibilita": n.get("disponibilita", ""), "fonti": n.get("fonti", [])}
+               "disponibilita": n.get("disponibilita", ""), "fonti": n.get("fonti", []), "temi": n.get("temi", [])}
               for n in r.get("novita_strumenti", []) or []]
-    brevi = [{"titolo": n.get("titolo", ""), "riassunto": n.get("frase", ""), "fonti": n.get("fonti", [])}
+    brevi = [{"titolo": n.get("titolo", ""), "riassunto": n.get("frase", ""), "fonti": n.get("fonti", []),
+              "temi": n.get("temi", [])}
              for n in (r.get("in_breve") if isinstance(r.get("in_breve"), list) else []) or []]
     sezioni = []
     if novita:
@@ -569,6 +619,7 @@ def normalizza_risposta(r):
             "in_breve": r.get("presentazione") or (r.get("in_breve") if isinstance(r.get("in_breve"), str) else ""),
             "citati": r.get("citati", []) or [],
             "da_provare": r.get("strumenti_nuovi", []) or [], "osint": r.get("osint", []) or [],
+            "gemme": r.get("gemme", []) or [],
             "sezioni": sezioni, "formato": 2}
 
 
@@ -752,7 +803,7 @@ def completa_dai_siti(riassunto, per_id):
     """Per gli strumenti scelti apre il sito ufficiale: ricava «Dove si usa» da dati veri e fa puntare «Provalo»
     direttamente allo strumento invece che alla scheda di Product Hunt."""
     from concurrent.futures import ThreadPoolExecutor
-    schede = [d for d in riassunto.get("da_provare", []) + (riassunto.get("osint") or [])]
+    schede = [d for d in riassunto.get("da_provare", []) + (riassunto.get("osint") or []) + (riassunto.get("gemme") or [])]
     lavori = []
     for d in schede:
         sito = next((per_id[i].get("sito") for i in d.get("fonti", []) if per_id.get(i, {}).get("sito")), "") \
@@ -802,7 +853,8 @@ ACCUSE = re.compile(
 
 def verifica(riassunto, per_id):
     """Scarta tutto ciò che non cita articoli realmente letti e applica le regole di affidabilità."""
-    proposti = [d.get("cosa", "") for d in riassunto.get("da_provare", []) + (riassunto.get("osint") or [])]
+    proposti = [d.get("cosa", "") for d in riassunto.get("da_provare", []) + (riassunto.get("osint") or [])
+                + (riassunto.get("gemme") or [])]
     proposti += [n.get("titolo", "") for s in riassunto.get("sezioni", []) for n in s.get("notizie", [])]
     riassunto = _verifica(riassunto, per_id)
     return controlla_presentazione(riassunto, proposti)
@@ -821,7 +873,7 @@ def controlla_presentazione(riassunto, proposti=()):
     scartato o che non c'è (es. «OSIRIS AI LIVE» citato senza scheda), vengono riscritti a partire dalle schede."""
     if riassunto.get("formato") != 2:
         return riassunto
-    tools = riassunto.get("da_provare", []) + riassunto.get("osint", [])
+    tools = riassunto.get("da_provare", []) + riassunto.get("gemme", []) + riassunto.get("osint", [])
     notizie = [n for s in riassunto.get("sezioni", []) for n in s.get("notizie", [])]
     tenuti = [d.get("cosa", "") for d in tools] + [n.get("titolo", "") for n in notizie] + \
              [n.get("strumento", "") for n in notizie]
@@ -904,6 +956,26 @@ def _verifica(riassunto, per_id):
         osint.append(d)
     osint.sort(key=lambda d: 0 if "Browser" in d["piattaforme"] else 1 if d["piattaforme"] else 2)
     riassunto["osint"] = osint[:4]
+
+    # 💎 Gemme: stessi controlli degli strumenti, al massimo 3
+    gemme = []
+    for d in riassunto.get("gemme", []) or []:
+        d = verifica_strumento(d, per_id)
+        if not d:
+            continue
+        d["self_hosted"] = bool(d.get("self_hosted"))
+        for campo in ("perche_gemma", "con_ai"):
+            d[campo] = str(d.get(campo) or "").strip()
+        gemme.append(d)
+    riassunto["gemme"] = sorted(gemme, key=ordine_strumento)[:3]
+
+    # 🧭 Temi su ogni scheda (per il Radar e per «Per te»)
+    for d in riassunto.get("da_provare", []) + riassunto["osint"] + riassunto["gemme"]:
+        d["temi"] = temi_di(d.get("cosa"), d.get("a_cosa_serve"), d.get("ambito"), d.get("uso"),
+                            proposti=d.get("temi"))
+    for s_ in riassunto.get("sezioni", []):
+        for n in s_.get("notizie", []):
+            n["temi"] = temi_di(n.get("titolo"), n.get("riassunto"), n.get("strumento"), proposti=n.get("temi"))
     return riassunto
 
 
@@ -1085,6 +1157,28 @@ article:target,li:target{outline:2px solid var(--accent)}
 .arrivo.nonletto{border-left-color:var(--accent);box-shadow:0 0 0 2px var(--accent) inset}
 .daleggere{display:flex;align-items:center;gap:10px;margin:0 44px 6px 0;font:700 12px system-ui,sans-serif;color:var(--accent)}
 .daleggere button{padding:3px 10px;font-size:12px}
+.radar-asse{display:flex;justify-content:space-between;font:11px system-ui,sans-serif;color:var(--muted);margin:14px 0 4px 40%}
+.tema{border-bottom:1px solid var(--line);padding:2px 0}
+.tema summary{display:grid;grid-template-columns:38% 1fr;grid-template-rows:auto auto;column-gap:10px;align-items:end;cursor:pointer;list-style:none;padding:8px 0}
+.tema summary::-webkit-details-marker{display:none}
+.tema .nome{font:600 15px system-ui,sans-serif;grid-row:span 2;align-self:center}
+.tema .barre{display:flex;align-items:flex-end;gap:3px;height:42px}
+.tema .barre i{flex:1;background:var(--line);border-radius:3px 3px 0 0;min-width:6px}
+.tema .barre i.ultima{background:var(--accent)}
+.tema .trend,.tema .num{font:12px system-ui,sans-serif;color:var(--muted)}
+.tema .trend{grid-column:2}.trend.tsu{color:#15803d;font-weight:700}.trend.tgiu{color:#b91c1c}.trend.tnuovo{color:#7c3aed;font-weight:700}
+.tema .num{grid-column:2;justify-self:end;margin-top:-17px}
+.tema ul{margin:0 0 10px;padding-left:18px;font-size:15px}.tema li small{color:var(--muted);font:12px system-ui,sans-serif}
+.perte{box-shadow:0 0 0 2px #eab308 inset}.rel.perte-b{color:#854d0e;background:#fef9c3}
+@media (prefers-color-scheme:dark){.rel.perte-b{color:#fde68a;background:#422006}}
+.gusti{font-weight:600}
+.legenda{margin:6px 0 14px}.legenda dt{margin-top:12px;font-weight:600}.legenda dd{margin:3px 0 0;color:var(--muted);font-size:15px}
+.guida{scroll-margin-top:60px}.guida h3{font-size:15px;margin:16px 0 0;text-transform:uppercase;letter-spacing:.04em;color:var(--muted)}
+.ricetta .ingredienti{padding-left:18px;margin:4px 0}.ricetta .ingredienti li{margin:6px 0;font-size:15px}
+.ricetta .ingredienti a{color:var(--ink)}.ricetta .ingredienti .pf{margin-left:4px}
+.provata{font:600 13px system-ui,sans-serif;border:1px solid var(--line);background:var(--card);color:var(--ink);
+  border-radius:999px;padding:7px 14px;cursor:pointer;margin-top:10px}
+.ricetta.fatta{opacity:.8}.ricetta.fatta .provata{background:#dcfce7;color:#15803d;border-color:#86efac}
 .cassetta-indice{display:flex;flex-wrap:wrap;gap:6px;margin:14px 0}
 .cassetta-indice a{font:600 13px system-ui,sans-serif;color:var(--ink);background:var(--card);border:1px solid var(--line);border-radius:999px;padding:6px 12px;text-decoration:none}
 .osint .sub a{color:inherit}
@@ -1101,6 +1195,10 @@ article:target,li:target{outline:2px solid var(--accent)}
 .when a{color:inherit}.agg.vuota{border-style:dashed;border-width:1px}
 .agg h2{margin-top:22px}.agg .quando,.try .quando{font:12px system-ui,sans-serif;color:var(--muted);margin:0 0 4px}
 .brevi small{font:12px system-ui,sans-serif;color:var(--muted)}
+.gemme{background:var(--chip);border-radius:16px;padding:4px 16px 12px;margin:28px -4px 0;border-left:4px solid #7c3aed}
+.gemme h2{color:#7c3aed;border-bottom:none;margin:18px 0 0;font-size:16px}.gemme .try{border-left-color:#7c3aed}
+.tag.server{color:#7c3aed;border-color:#7c3aed}
+@media (prefers-color-scheme:dark){.gemme h2,.tag.server{color:#c4b5fd;border-color:#c4b5fd}.gemme,.gemme .try{border-left-color:#c4b5fd}}
 .agg{border:2px solid var(--accent);border-radius:16px;padding:6px 14px 10px;margin:22px -4px 0}
 .agg .tryzone{margin:12px -10px 0}
 .agg-top{font:700 15px system-ui,sans-serif;color:var(--accent);margin:10px 0 2px}
@@ -1220,22 +1318,26 @@ def menu(prefisso, attivo=""):
     """Barra di navigazione comune a tutte le pagine (separata dai pulsanti di azione)."""
     voci = [("oggi", f"{prefisso}index.html", "📰 Oggi"),
             ("preferiti", f"{prefisso}preferiti.html", '⭐ Preferiti <span id="nPref"></span>'),
-            ("osint", f"{prefisso}cassetta-osint.html", '🧰 OSINT <span id="nOsint" class="bollino" hidden></span>')]
+            ("osint", f"{prefisso}cassetta-osint.html", '🧰 OSINT <span id="nOsint" class="bollino" hidden></span>'),
+            ("radar", f"{prefisso}radar.html", "🧭 Radar"),
+            ("ricette", f"{prefisso}ricette.html", "🍳 Ricette")]
     if ULTIMA_SETTIMANA:
         voci.append(("settimana", f"{prefisso}settimana/{ULTIMA_SETTIMANA[0]}.html", "📅 Settimana"))
     voci.append(("archivio", "#archivio", "🗂️ Archivio"))
+    voci.append(("guida", f"{prefisso}guida.html", "ℹ️ Guida"))
     return ('<nav class="menu" aria-label="Sezioni del sito">'
             + "".join(f'<a href="{h}"{" aria-current=page" if k == attivo else ""}>{t}</a>' for k, h, t in voci)
             + "</nav>")
 
 
-def stella(fid, titolo, testo, giorno, ancora, link="", tipo="", pagina=""):
+def stella(fid, titolo, testo, giorno, ancora, link="", tipo="", pagina="", temi=""):
     """Pulsante ☆ per salvare la scheda nei Preferiti (salvati nel browser di chi legge).
     `pagina` serve alle schede fuori dalle edizioni (es. "cassetta-osint.html#t3")."""
     return (f'<button type="button" class="stella" aria-pressed="false" title="Aggiungi ai preferiti" '
             f'aria-label="Aggiungi ai preferiti" data-id="{e(fid)}" data-titolo="{e(titolo)}" '
             f'data-testo="{e((testo or "")[:300])}" data-giorno="{e(giorno)}" data-ancora="{e(ancora)}" '
-            f'data-link="{e(link)}" data-tipo="{e(tipo)}" data-pagina="{e(pagina)}" onclick="stella(this)">☆</button>')
+            f'data-link="{e(link)}" data-tipo="{e(tipo)}" data-pagina="{e(pagina)}" data-temi="{e(temi)}" '
+            'onclick="stella(this)">☆</button>')
 
 
 def badge(aff, solo_titoli=False):
@@ -1250,7 +1352,7 @@ def badge(aff, solo_titoli=False):
 
 def testo_della_giornata(r):
     pezzi = [r.get("titolo_giorno", ""), r.get("in_breve", "")]
-    for d in r.get("da_provare", []) + r.get("osint", []):
+    for d in r.get("da_provare", []) + r.get("osint", []) + r.get("gemme", []):
         pezzi += [d.get("cosa", ""), d.get("a_cosa_serve", "")]
     for s in r.get("sezioni", []):
         for n in s.get("notizie", []):
@@ -1367,9 +1469,16 @@ def scheda_strumento(d, per_id, giorno, ancora, tipo, nuovo_formato=True, etiche
     dove = f'<div class="dove"><b>Dove si usa:</b> {dove}</div>' if dove else ""
     if d.get("come_sfruttarla"):
         come = f'<p class="why"><b>Come sfruttarla:</b> {e(d["come_sfruttarla"])}</p>' + come
+    if tipo == "Gemma":
+        extra_g = (f'<p class="why"><b>Perché è una gemma:</b> {e(d["perche_gemma"])}</p>' if d.get("perche_gemma") else "")
+        extra_g += (f'<p class="why"><b>Con l\'AI:</b> {e(d["con_ai"])}</p>' if d.get("con_ai") else "")
+        come = extra_g + come
+        if d.get("self_hosted"):
+            tag += '<span class="tag server">🏠 Sul tuo server</span>'
+    temi = ",".join(d.get("temi") or temi_di(d.get("cosa"), d.get("a_cosa_serve"), d.get("ambito"), d.get("uso")))
     pref = stella(f"{giorno}#{ancora}", d.get("cosa", ""), d.get("a_cosa_serve", ""), giorno,
-                  ancora, d.get("prova", ""), tipo)
-    return (f'<article class="try" id="{ancora}">{pref}<div class="tags">{tag}</div>'
+                  ancora, d.get("prova", ""), tipo, temi=temi)
+    return (f'<article class="try" id="{ancora}" data-temi="{e(temi)}">{pref}<div class="tags">{tag}</div>'
             f'<h3>{e(d.get("cosa"))}</h3>{dove}<p>{e(d.get("a_cosa_serve"))}</p>'
             f"{come}{prova}{chips(d['fonti'], per_id)}</article>")
 
@@ -1385,10 +1494,11 @@ def scheda_notizia(n, per_id, giorno, ancora, breve=False, ora=""):
         perche += f'<p class="why"><b>Come provarla:</b> {e(n["come_provarla"])}</p>'
     extra = "".join(f'<span class="tag">{e(t)}</span>'
                     for t in (n.get("strumento"), n.get("disponibilita")) if utile(t))
+    temi = ",".join(n.get("temi") or temi_di(n.get("titolo"), n.get("riassunto"), n.get("strumento")))
     pref = stella(f"{giorno}#{ancora}", n.get("titolo", ""), n.get("riassunto", ""), giorno,
-                  ancora, "", n.get("strumento") or "Novità")
+                  ancora, "", n.get("strumento") or "Novità", temi=temi)
     quando = f'<p class="quando">🕐 ore {e(ora)}</p>' if ora else ""
-    return (f'<article id="{ancora}">{pref}{quando}<div class="tags">{badge(n.get("affidabilita", ""), n.get("solo_titoli"))}'
+    return (f'<article id="{ancora}" data-temi="{e(temi)}">{pref}{quando}<div class="tags">{badge(n.get("affidabilita", ""), n.get("solo_titoli"))}'
             f"{extra}</div><h3>{e(n['titolo'])}</h3><p>{e(n.get('riassunto'))}</p>"
             f"{perche}{chips(n['fonti'], per_id)}</article>")
 
@@ -1397,7 +1507,7 @@ def blocco_aggiornamenti(aggiornamenti, per_id, giorno, prefisso, ora_mattino):
     """Un solo riquadro con TUTTI gli aggiornamenti della giornata, divisi per tipo, ogni scheda con la sua ora."""
     if not aggiornamenti:
         return []
-    strumenti, osint, novita, brevi = [], [], [], []
+    strumenti, gemme, osint, novita, brevi = [], [], [], [], []
     for i in range(len(aggiornamenti), 0, -1):           # dal più recente
         u = aggiornamenti[i - 1]
         ru, ora = u.get("riassunto") or {}, ora_di(u.get("generato"))
@@ -1406,6 +1516,9 @@ def blocco_aggiornamenti(aggiornamenti, per_id, giorno, prefisso, ora_mattino):
             return h.replace('<div class="tags">', f'<p class="quando">🕐 ore {e(ora)}</p><div class="tags">', 1)
         for j, d in enumerate(ru.get("da_provare", []), 1):
             strumenti.append(con_ora(scheda_strumento(d, per_id, giorno, f"u{i}p{j}", "Strumento", True)))
+        for j, d in enumerate(ru.get("gemme", []) or [], 1):
+            gemme.append(con_ora(scheda_strumento(d, per_id, giorno, f"u{i}g{j}", "Gemma", True,
+                                                  etichette=[d.get("costo"), d.get("difficolta")])))
         for j, d in enumerate(ru.get("osint", []) or [], 1):
             osint.append(con_ora(scheda_strumento(d, per_id, giorno, f"u{i}o{j}", "OSINT", True, etichette=[
                 d.get("uso"), d.get("costo") or "Costo non indicato", d.get("difficolta")])))
@@ -1420,12 +1533,14 @@ def blocco_aggiornamenti(aggiornamenti, per_id, giorno, prefisso, ora_mattino):
     ultima = ora_di(aggiornamenti[-1].get("generato"))
     sotto = (f"Solo ciò che è uscito dopo l'edizione del mattino{f' ({e(ora_mattino)})' if ora_mattino else ''}. "
              f"Ultimo controllo alle {e(ultima)}.")
-    if not (strumenti or osint or novita or brevi):
+    if not (strumenti or gemme or osint or novita or brevi):
         return [f'<section class="agg vuota" id="aggiornamenti"><p class="agg-top">🆕 Aggiornamenti di oggi</p>'
                 f'<p class="sub">{sotto} Nessuna novità rispetto a stamattina.</p></section>']
     parti = [f'<section class="agg" id="aggiornamenti"><p class="agg-top">🆕 Aggiornamenti di oggi</p><p class="sub">{sotto}</p>']
     if strumenti:
         parti += ['<h2>🧪 Strumenti nuovi</h2>'] + strumenti
+    if gemme:
+        parti += ['<h2>💎 Gemme</h2>'] + gemme
     if osint:
         parti += ['<h2>🔎 Strumenti OSINT</h2>'] + osint
     if novita:
@@ -1450,6 +1565,13 @@ def contenuto(r, per_id, giorno, pre="", prefisso=""):
         parti.append(f'<section class="tryzone"><h2>{nome_zona}</h2><p class="sub">{sotto}</p>')
         for j, d in enumerate(r["da_provare"], 1):
             parti.append(scheda_strumento(d, per_id, giorno, f"{pre}p{j}", "Strumento", nuovo_formato))
+        parti.append("</section>")
+    if r.get("gemme"):
+        parti.append('<section class="gemme"><h2>💎 Gemme</h2><p class="sub">Strumenti accanto all\'AI: open source, '
+                     'gratuiti, rispettosi della privacy, spesso da installare sul tuo server.</p>')
+        for j, d in enumerate(r["gemme"], 1):
+            parti.append(scheda_strumento(d, per_id, giorno, f"{pre}g{j}", "Gemma", True,
+                                          etichette=[d.get("costo"), d.get("difficolta")]))
         parti.append("</section>")
     if r.get("osint"):
         parti.append('<section class="osint"><h2>🔎 Strumenti OSINT</h2><p class="sub">Strumenti per indagini su '
@@ -1555,6 +1677,9 @@ def pagina_settimana(w, archivio):
              '<button type="button" onclick="window.print()">📄 Salva PDF</button></div>',
              ]
     nuovo = w.get("formato") == 2
+    if w.get("tendenze"):
+        parti.append(f'<section class="metodo"><h2>🧭 Cosa sta cambiando</h2><p>{e(w["tendenze"])}</p>'
+                     f'<p class="meta"><a href="{prefisso}radar.html">Apri il Radar →</a></p></section>')
     blocco_prove = []
     if w.get("da_provare"):
         titolo_prove = ("🧪 I migliori strumenti nuovi della settimana" if nuovo
@@ -1596,7 +1721,8 @@ PAGINA_PREFERITI_JS = """
 let filtro='tutti';
 function disegna(){
   const tutti=leggiPref(),box=document.getElementById('lista');box.innerHTML='';
-  const gruppo=p=>p.tipo==='Strumento'?'Strumenti':p.tipo==='OSINT'?'OSINT':'Novità';
+  const gruppo=p=>p.tipo==='Strumento'?'Strumenti':p.tipo==='OSINT'?'OSINT':p.tipo==='Gemma'?'Gemme':
+    p.tipo==='Ricetta'?'Ricette':'Novità';
   const tipi=['tutti',...new Set(tutti.map(gruppo))];
   const f=document.getElementById('filtri');f.innerHTML='';
   if(tutti.length>1&&tipi.length>2){for(const t of tipi){const b=document.createElement('button');b.type='button';
@@ -1633,7 +1759,7 @@ def pagina_preferiti(archivio):
     url_pagina = indirizzo_sito() + "preferiti.html"
     parti = [menu("", "preferiti"), '<p class="top">AI News Digest</p>', "<h1>⭐ I miei preferiti</h1>",
              '<p class="lead">Gli strumenti e le novità che hai segnato con la stellina, per ritrovarli quando ti servono.</p>',
-             '<p class="meta" id="conta"></p>',
+             '<p class="meta" id="conta"></p>', '<p class="meta gusti" id="gusti"></p>',
              '<div class="share"><button type="button" onclick="copiaPreferiti(this)">💬 Copia elenco per WhatsApp</button></div>',
              '<div class="filtri" id="filtri"></div><section class="pref" id="lista"></section>',
              '<p class="meta">I preferiti restano salvati in questo browser, su questo dispositivo. '
@@ -1690,6 +1816,374 @@ def riga_strumento(t, prefisso=""):
     return (f'<article class="riga" id="{ancora}">{pref}'
             f'<h3><a href="{e(t["url"])}" target="_blank" rel="noopener">{e(t["nome"])} ↗</a></h3>'
             f'<p>{e(t.get("descrizione"))}</p>{nota}<div class="dove">{dove}{info}</div></article>')
+
+
+# ---------------------------------------------------------------- 🍳 Ricette
+
+RICETTE = DOCS / "ricette.json"
+AMBITI_RICETTA = ["Lavoro", "OSINT e verifica", "Tutti i giorni", "Lavoro"]
+
+ISTRUZIONI_RICETTA = """Sei il redattore di "AI News Digest", una guida in ITALIANO agli strumenti AI per una persona NON
+programmatrice che usa un telefono ANDROID e un PC WINDOWS e vuole sfruttare l'AI nel lavoro e nel personale.
+Ricevi un CATALOGO di strumenti verificati (nome esatto, a cosa serve, piattaforme, costo).
+Componi UNA "ricetta": un flusso di lavoro concreto che COMBINA da 2 a 4 strumenti del catalogo per risolvere un
+compito reale e frequente (es. verbali delle riunioni, verificare una foto virale, preparare una presentazione,
+organizzare documenti, rispondere ai clienti, studiare un argomento).
+Regole tassative:
+- usa SOLO strumenti del catalogo, con il NOME ESATTO; non inventarne altri e non attribuire funzioni che il
+  catalogo non dice;
+- ogni strumento deve funzionare nel Browser, su Windows o su Android (o avere piattaforma non indicata);
+- i passi devono essere concreti e possibili con quegli strumenti (da 3 a 6 passi, frasi brevi);
+- niente usi illeciti o invasivi della privacy di altre persone;
+- non ripetere una ricetta già fatta (ricevi l'elenco dei titoli).
+Scrivi sempre "AI", mai "IA".
+Rispondi SOLO con JSON valido:
+{"titolo": "titolo concreto (es. Verbali delle riunioni senza mandare niente online)",
+ "obiettivo": "1 frase: che problema risolve",
+ "ambito": "Lavoro / Tutti i giorni / OSINT e verifica",
+ "ingredienti": [{"nome": "nome esatto dal catalogo", "ruolo": "cosa fa in questa ricetta"}],
+ "passi": ["passo 1", "passo 2", "passo 3"],
+ "tempo": "es. 20 minuti la prima volta",
+ "livello": "Facile / Media / Per esperti",
+ "perche_conviene": "1 frase",
+ "tutto_in_locale": false}"""
+
+
+def catalogo_ingredienti(edizioni, cassetta, giorni=60):
+    """Gli strumenti che le ricette possono usare: quelli delle edizioni recenti + quelli della cassetta OSINT."""
+    soglia = (datetime.now(TZ) - timedelta(days=giorni)).strftime("%Y-%m-%d")
+    cat = {}
+    for x in sorted(edizioni, key=lambda x: x["giorno"], reverse=True):
+        if x["giorno"] < soglia:
+            continue
+        for pre, r in riassunti_del_giorno(x):
+            for chiave, lettera in (("da_provare", "p"), ("gemme", "g"), ("osint", "o")):
+                for j, d in enumerate(r.get(chiave, []) or [], 1):
+                    nome = d.get("cosa", "")
+                    if _norm(nome) and _norm(nome) not in cat:
+                        cat[_norm(nome)] = {"nome": nome, "descrizione": d.get("a_cosa_serve", ""),
+                                            "piattaforme": piattaforme_di(d), "costo": d.get("costo", ""),
+                                            "url": d.get("prova") or f"giorni/{x['giorno']}.html#{pre}{lettera}{j}",
+                                            "locale": bool(d.get("sul_dispositivo"))}
+    for c in (cassetta or {}).get("categorie", []):
+        for t in c.get("strumenti", []):
+            if _norm(t["nome"]) not in cat:
+                cat[_norm(t["nome"])] = {"nome": t["nome"], "descrizione": t.get("descrizione", ""),
+                                         "piattaforme": piattaforme_di(t), "costo": t.get("costo", ""),
+                                         "url": t.get("url", ""), "locale": False}
+    return cat
+
+
+def verifica_ricetta(r, cat, titoli_fatti=()):
+    """Tiene la ricetta solo se ogni ingrediente esiste davvero nel catalogo e si usa su Browser/Windows/Android."""
+    if not isinstance(r, dict) or not r.get("titolo") or _norm(r["titolo"]) in {_norm(t) for t in titoli_fatti}:
+        return None
+    ingredienti = []
+    for ing in r.get("ingredienti", []) or []:
+        nome = _norm(ing.get("nome"))
+        voce = cat.get(nome) or next((v for k, v in cat.items() if nome and (nome in k or k in nome) and len(k) > 3), None)
+        if not voce:
+            print(f"  ⊘ ricetta scartata: ingrediente inesistente «{ing.get('nome')}»")
+            return None
+        if voce["piattaforme"] and not set(voce["piattaforme"]) & set(USABILI):
+            print(f"  ⊘ ricetta scartata: «{voce['nome']}» non si usa su Browser/Windows/Android")
+            return None
+        ingredienti.append({**voce, "ruolo": str(ing.get("ruolo") or "").strip()})
+    passi = [str(p).strip() for p in r.get("passi", []) or [] if str(p).strip()]
+    if not 2 <= len(ingredienti) <= 4 or not 3 <= len(passi) <= 7:
+        print("  ⊘ ricetta scartata: numero di ingredienti o di passi fuori misura")
+        return None
+    costi = {i.get("costo") for i in ingredienti}
+    costo = "A pagamento" if "A pagamento" in costi else "Gratis con limiti" if any(
+        c and c != "Gratis" for c in costi) else "Gratis"
+    return {"titolo": r["titolo"].strip(), "obiettivo": str(r.get("obiettivo") or "").strip(),
+            "ambito": str(r.get("ambito") or "").strip(), "ingredienti": ingredienti, "passi": passi[:6],
+            "tempo": str(r.get("tempo") or "").strip(), "livello": str(r.get("livello") or "").strip(),
+            "costo": costo, "perche_conviene": str(r.get("perche_conviene") or "").strip(),
+            "tutto_in_locale": bool(r.get("tutto_in_locale")) and all(i["locale"] or "Windows" in i["piattaforme"]
+                                                                      for i in ingredienti)}
+
+
+def costruisci_ricetta(chiave):
+    """Aggiunge una ricetta al ricettario (docs/ricette.json). Restituisce la ricetta o None."""
+    ricette = leggi_json(RICETTE) if RICETTE.exists() else []
+    ricette = ricette or []
+    edizioni = [x for x in (leggi_json(p) for p in giorni_salvati()) if x]
+    cassetta = leggi_json(ROOT / "cassetta_osint.json") if (ROOT / "cassetta_osint.json").exists() else {}
+    cat = catalogo_ingredienti(edizioni, cassetta)
+    if len(cat) < 4:
+        print("Ricetta: troppo pochi strumenti nel catalogo, salto.")
+        return None
+    ambito = AMBITI_RICETTA[len(ricette) % len(AMBITI_RICETTA)]
+    catalogo = "\n".join(f"- {v['nome']} | {v['descrizione'][:140]} | piattaforme: {', '.join(v['piattaforme']) or 'non indicate'}"
+                         f" | {v['costo'] or 'costo non indicato'}{' | funziona in locale' if v['locale'] else ''}"
+                         for v in list(cat.values())[:180])
+    testo = (f"AMBITO DA PREFERIRE QUESTA VOLTA: {ambito}\n"
+             f"RICETTE GIÀ FATTE (non ripeterle): {'; '.join(r['titolo'] for r in ricette) or 'nessuna'}\n\n"
+             f"CATALOGO:\n{catalogo}")
+    for tentativo in range(2):
+        try:
+            r, modello = chiama_gemini(ISTRUZIONI_RICETTA, testo, chiave)
+        except Exception as ex:
+            avvisa(f"Ricetta della settimana non creata: {str(ex)[:300]}")
+            return None
+        buona = verifica_ricetta(r, cat, [x["titolo"] for x in ricette])
+        if buona:
+            buona.update({"id": f"r{len(ricette) + 1}", "giorno": datetime.now(TZ).strftime("%Y-%m-%d"),
+                          "generato": datetime.now(timezone.utc).isoformat(timespec="seconds"), "modello": modello})
+            ricette.append(buona)
+            RICETTE.write_text(json.dumps(ricette, ensure_ascii=False, indent=1), encoding="utf-8")
+            print(f"  🍳 nuova ricetta: {buona['titolo']}")
+            return buona
+        testo += "\n\nLA PROPOSTA PRECEDENTE NON ERA VALIDA: usa SOLO nomi esatti del catalogo."
+    return None
+
+
+def pagina_ricette(ricette, archivio):
+    url_pagina = indirizzo_sito() + "ricette.html"
+    parti = [menu("", "ricette"), '<p class="top">AI News Digest · Ricettario</p>', "<h1>🍳 Ricette</h1>",
+             '<p class="lead">Ogni settimana una ricetta: due, tre o quattro strumenti già segnalati dal sito, '
+             'combinati per risolvere un compito concreto. Gli ingredienti sono verificati: esistono, hanno il '
+             'loro link e si usano nel browser, su Windows o su Android.</p>',
+             '<p class="meta" id="provate"></p>']
+    if not ricette:
+        parti.append('<p class="vuoto">La prima ricetta arriva con la prossima edizione del mattino.</p>')
+    for r in reversed(ricette):
+        ingr = "".join(
+            f'<li><a href="{e(i["url"])}"{" target=_blank rel=noopener" if i["url"].startswith("http") else ""}>'
+            f'<b>{e(i["nome"])}</b></a> — {e(i.get("ruolo") or i.get("descrizione", ""))} '
+            + "".join(f'<span class="pf{" si" if t.startswith("✓") else " solo" if t.startswith("Solo") else ""}">{e(t)}</span>'
+                      for t in etichette_piattaforma(i)) + "</li>" for i in r["ingredienti"])
+        tag = "".join(f'<span class="tag">{e(t)}</span>' for t in (r.get("ambito"), r.get("tempo"), r.get("livello"),
+                                                                    r.get("costo")) if t)
+        if r.get("tutto_in_locale"):
+            tag += '<span class="pf locale">🔒 Tutto in locale</span>'
+        pref = stella(f"ricetta#{r['id']}", r["titolo"], r.get("obiettivo", ""), "", r["id"], "", "Ricetta",
+                      f"ricette.html#{r['id']}")
+        parti.append(f'<article class="try ricetta" id="{e(r["id"])}" data-rid="{e(r["id"])}">{pref}'
+                     f'<p class="quando">Ricetta del {e(data_breve(r["giorno"]))} {e(r["giorno"][:4])}</p>'
+                     f'<div class="tags">{tag}</div><h3>{e(r["titolo"])}</h3><p>{e(r.get("obiettivo"))}</p>'
+                     f'<p class="why"><b>Ingredienti</b></p><ul class="ingredienti">{ingr}</ul>'
+                     f'<p class="why"><b>Passi</b></p><ol>' + "".join(f"<li>{e(x)}</li>" for x in r["passi"]) + "</ol>"
+                     + (f'<p class="why"><b>Perché conviene:</b> {e(r["perche_conviene"])}</p>' if r.get("perche_conviene") else "")
+                     + '<button type="button" class="provata" onclick="provata(this)">✓ L’ho provata</button></article>')
+    parti.append(archivio_html(archivio, ""))
+    dati_js = json.dumps({"titolo": "Ricette AI", "testo": "", "url": url_pagina},
+                         ensure_ascii=False).replace("</", "<\\/")
+    return (testa("AI News Digest — Ricette: flussi di lavoro con l'AI",
+                  "Strumenti AI combinati per risolvere compiti concreti, una ricetta a settimana.", url_pagina, "")
+            + f"<body><main>{''.join(parti)}</main>" + piede("", dati_js))
+
+
+# ---------------------------------------------------------------- 🧭 Radar dei temi
+
+def schede_del_giorno(x):
+    """Tutte le schede di una giornata (mattino + aggiornamenti) con ancora, tipo, titolo e temi."""
+    for pre, r in riassunti_del_giorno(x):
+        for chiave, lettera, tipo in (("da_provare", "p", "Strumento"), ("gemme", "g", "Gemma"), ("osint", "o", "OSINT")):
+            for j, d in enumerate(r.get(chiave, []) or [], 1):
+                temi = d.get("temi") or temi_di(d.get("cosa"), d.get("a_cosa_serve"), d.get("ambito"), d.get("uso"))
+                yield {"ancora": f"{pre}{lettera}{j}", "tipo": tipo, "titolo": d.get("cosa", ""), "temi": temi}
+        k = 0
+        for s_ in r.get("sezioni", []):
+            for n in s_.get("notizie", []):
+                k += 1
+                temi = n.get("temi") or temi_di(n.get("titolo"), n.get("riassunto"), n.get("strumento"))
+                ancora = f"{pre}n{k}" if pre else f"n{k}"
+                yield {"ancora": ancora, "tipo": "Novità", "titolo": n.get("titolo", ""), "temi": temi}
+
+
+def conta_temi(edizioni, settimane=8, oggi=None):
+    """{tema: [conteggio per ciascuna delle ultime N settimane, dalla più vecchia]} + esempi recenti per tema."""
+    oggi = oggi or datetime.now(TZ).date()
+    lunedi = oggi - timedelta(days=oggi.weekday())
+    inizi = [lunedi - timedelta(weeks=settimane - 1 - i) for i in range(settimane)]
+    conteggi = {t: [0] * settimane for t in TEMI}
+    esempi = {t: [] for t in TEMI}
+    for x in sorted(edizioni, key=lambda x: x["giorno"], reverse=True):
+        g = datetime.strptime(x["giorno"], "%Y-%m-%d").date()
+        i = (g - inizi[0]).days // 7
+        if not 0 <= i < settimane:
+            continue
+        for sch in schede_del_giorno(x):
+            for t in sch["temi"]:
+                if t in conteggi:
+                    conteggi[t][i] += 1
+                    if len(esempi[t]) < 6:
+                        esempi[t].append((x["giorno"], sch))
+    return inizi, conteggi, esempi
+
+
+def tendenza(serie):
+    """Confronta le ultime 2 settimane con le 2 precedenti: (freccia, testo)."""
+    recenti, prima = sum(serie[-2:]), sum(serie[-4:-2])
+    if recenti and not sum(serie[:-2]):
+        return "🆕", "appena comparso"
+    if recenti >= prima + 2 and recenti >= prima * 1.3:
+        return "↑", "in crescita"
+    if prima >= recenti + 2 and recenti <= prima * 0.7:
+        return "↓", "in calo"
+    return "→", "stabile"
+
+
+def testo_radar_per_gemini(edizioni):
+    """Riassunto numerico per Gemini (la Settimana dell'AI scrive «Cosa sta cambiando» da questi numeri)."""
+    inizi, conteggi, _ = conta_temi(edizioni)
+    righe = []
+    for t, serie in sorted(conteggi.items(), key=lambda kv: -sum(kv[1][-2:])):
+        if sum(serie):
+            righe.append(f"- {t}: ultime 4 settimane {serie[-4:]} (dalla più vecchia), {tendenza(serie)[1]}")
+    return "\n".join(righe)
+
+
+def pagina_radar(edizioni, archivio, settimana=None):
+    inizi, conteggi, esempi = conta_temi(edizioni)
+    url_pagina = indirizzo_sito() + "radar.html"
+    attivi = sorted((t for t in TEMI if sum(conteggi[t])),
+                    key=lambda t: (-sum(conteggi[t][-2:]), -sum(conteggi[t])))
+    massimo = max([max(v) for v in conteggi.values()] + [1])
+    giorni_dati = len({x["giorno"] for x in edizioni})
+    parti = [menu("", "radar"), '<p class="top">AI News Digest · Radar</p>', "<h1>🧭 Dove sta andando l'AI</h1>",
+             '<p class="lead">Ogni scheda del sito ha uno o due temi. Il radar li conta settimana per settimana: '
+             'si vede cosa cresce, cosa si spegne e cosa è appena comparso.</p>',
+             f'<p class="meta">Ultime 8 settimane · {giorni_dati} giorni di edizioni nell\'archivio. '
+             'Il radar diventa più preciso con il passare delle settimane.</p>']
+    if settimana and settimana.get("tendenze"):
+        parti.append(f'<section class="metodo"><h2>Cosa sta cambiando</h2><p>{e(settimana["tendenze"])}</p>'
+                     f'<p class="meta">Dalla Settimana dell\'AI del {e(data_breve(settimana["giorno"]))}.</p></section>')
+    etichette = "".join(f"<span>{e(data_breve(i.strftime('%Y-%m-%d')))}</span>" for i in inizi[::2])
+    parti.append(f'<div class="radar-asse">{etichette}</div><section class="radar">')
+    for t in attivi:
+        serie = conteggi[t]
+        freccia, parola = tendenza(serie)
+        barre = "".join(f'<i style="height:{max(4, round(v / massimo * 40))}px" title="{v}"'
+                        f'{" class=ultima" if n == len(serie) - 1 else ""}></i>' for n, v in enumerate(serie))
+        voci = "".join(f'<li><a href="giorni/{g}.html#{e(sc["ancora"])}">{e(sc["titolo"])}</a> '
+                       f'<small>{e(data_breve(g))}</small></li>' for g, sc in esempi[t])
+        parti.append(f'<details class="tema"><summary><span class="nome">{e(t)}</span>'
+                     f'<span class="barre">{barre}</span>'
+                     f'<span class="trend t{ {"↑": "su", "↓": "giu", "🆕": "nuovo"}.get(freccia, "") }">{freccia} {e(parola)}</span>'
+                     f'<span class="num">{sum(serie[-4:])} in 4 sett.</span></summary><ul>{voci}</ul></details>')
+    if not attivi:
+        parti.append('<p class="vuoto">Ancora pochi dati: il radar si riempie con le prossime edizioni.</p>')
+    parti.append("</section>")
+    parti.append('<p class="meta">Come si legge: ogni barra è una settimana (l\'ultima, colorata, è quella in corso). '
+                 '«In crescita» e «in calo» confrontano le ultime due settimane con le due precedenti. '
+                 'Tocca un tema per vedere le schede più recenti.</p>')
+    parti.append(archivio_html(archivio, ""))
+    dati_js = json.dumps({"titolo": "Radar dell'AI", "testo": "", "url": url_pagina},
+                         ensure_ascii=False).replace("</", "<\\/")
+    return (testa("AI News Digest — Radar: dove sta andando l'AI",
+                  "I temi dell'AI che crescono e calano, settimana per settimana.", url_pagina, "")
+            + f"<body><main>{''.join(parti)}</main>" + piede("", dati_js))
+
+
+def pagina_guida(archivio):
+    """ℹ️ Guida: la legenda di tutto il sito (sezioni, etichette, pagine, orari, notifiche, privacy)."""
+    url_pagina = indirizzo_sito() + "guida.html"
+    ore = [datetime.now(TZ).replace(hour=int(o[:2]), minute=int(o[3:]), second=0).replace(tzinfo=timezone.utc)
+           .astimezone(TZ).strftime("%H:%M") for o in ORARI_UTC]
+
+    def voci(righe):
+        return '<dl class="legenda">' + "".join(f"<dt>{t}</dt><dd>{d}</dd>" for t, d in righe) + "</dl>"
+
+    def cap(ident, titolo, corpo):
+        return f'<section class="guida" id="{ident}"><h2>{titolo}</h2>{corpo}</section>'
+
+    rel = {"Fonte ufficiale": "ok", "Confermata": "ok", "Da verificare": "warn", "Studio non revisionato": "warn",
+           "Solo titoli": "soft"}
+    parti = [menu("", "guida"), '<p class="top">AI News Digest · Guida</p>', "<h1>ℹ️ Guida al sito</h1>",
+             '<p class="lead">Che cosa trovi, che cosa vogliono dire le etichette e come far lavorare il sito per te. '
+             'Tutto quello che segni (preferiti, letti, ricette provate) resta solo su questo dispositivo.</p>',
+             '<nav class="griglia">' + "".join(
+                 f'<a href="#{a}"><span>{i}</span>{t}</a>' for a, i, t in (
+                     ("orari", "⏰", "Quando arriva"), ("sezioni", "📰", "Le sezioni del giorno"),
+                     ("etichette", "🏷️", "Le etichette"), ("pagine", "🗺️", "Le pagine"),
+                     ("notifiche", "📲", "Notifiche e sentinelle"), ("privacy", "🔐", "Privacy e regole"))) + "</nav>"]
+    parti.append(cap("orari", "⏰ Quando arriva", voci([
+        ("☀️ Edizione del mattino", f"Verso le {ore[0]}: tutte le novità dalla sera prima."),
+        ("🆕 Aggiornamento", f"Verso le {ore[1]}: solo ciò che è uscito dopo il mattino, in un unico riquadro "
+                            "«Aggiornamenti di oggi» in cima, con l'ora su ogni scheda."),
+        ("📅 Domenica", "Arriva anche «La settimana dell'AI» (il meglio dei 7 giorni) e una nuova 🍳 ricetta."),
+        ("⏳ Ritardi", "GitHub a volte parte con qualche minuto (raramente mezz'ora) di ritardo: in cima alla pagina "
+                      "c'è sempre l'ora dell'ultimo aggiornamento e del prossimo."),
+    ])))
+    parti.append(cap("sezioni", "📰 Le sezioni del giorno", voci([
+        ("🧪 Strumenti nuovi", "App e servizi AI appena usciti, usabili senza programmare: a cosa servono, come "
+                              "sfruttarli, costo, lingua e il pulsante <b>Provalo</b> che porta al sito dello strumento."),
+        ("💎 Gemme", "Strumenti da affiancare all'AI: open source, gratuiti, rispettosi della privacy, spesso da "
+                    "installare sul proprio computer o server. Ogni gemma dice <i>perché è una gemma</i> e "
+                    "<i>come si usa con l'AI</i>."),
+        ("🔎 Strumenti OSINT", "Strumenti nuovi per indagini su fonti aperte (verifica di foto e video, "
+                              "geolocalizzazione, aziende, siti, persone e account pubblici), solo se usabili nel "
+                              "browser o su Windows, con il costo sempre indicato."),
+        ("✨ Novità negli strumenti che già usi", "Nuove funzioni di ChatGPT, Gemini, Claude, Copilot e simili."),
+        ("⚡ In breve", "Al massimo tre notizie importanti, una riga ciascuna."),
+        ("📖 Parole da sapere", "I termini tecnici del giorno spiegati in una frase."),
+        ("🔊 Ascolta", "L'edizione letta ad alta voce (voce Paola, creata offline); gli audio restano 60 giorni."),
+    ])))
+    righe_rel = [(f'<span class="rel {rel.get(t, "")}">{e(t)}</span>', e(d)) for t, d in ETICHETTE]
+    parti.append(cap("etichette", "🏷️ Le etichette", "<h3>Affidabilità</h3>" + voci(righe_rel) + "<h3>Strumenti</h3>" + voci([
+        ('<span class="pf si">✓ Browser</span> <span class="pf si">✓ Android</span> <span class="pf si">✓ Windows</span>',
+         "In verde le piattaforme che si provano subito con un telefono Android e un PC Windows."),
+        ('<span class="pf">iPhone</span> <span class="pf">Mac</span>', "In grigio le altre piattaforme disponibili."),
+        ('<span class="pf solo">Solo Mac</span>', "Non si usa né nel browser né su Android o Windows: resta in fondo."),
+        ("✓ dal sito ufficiale", "Le piattaforme sono state controllate aprendo il sito dello strumento (link a "
+                                "Google Play, App Store, estensioni, download per Windows/Mac)."),
+        ("da verificare sul sito", "Il sito non si è lasciato leggere: le piattaforme vengono dalle fonti, controllale."),
+        ('<span class="pf locale">🔒 Funziona sul dispositivo</span>', "AI locale: lavora offline, i tuoi dati non escono."),
+        ("🏠 Sul tuo server", "Si può installare su un computer o un server di casa (self-hosting)."),
+        ('<span class="tag">Gratis</span> <span class="tag">Gratis con limiti</span> <span class="tag">A pagamento</span>',
+         "Il costo; nella cassetta OSINT è anche colorato: verde, giallo, rosso."),
+        ("🎯 Per te", "Compare quando hai almeno 3 preferiti: le schede sui temi che segni più spesso salgono in "
+                     "cima e ricevono questo bollino. Nella pagina Preferiti vedi quali sono i tuoi temi."),
+        ("☆ / ★ Stellina", "Salva la scheda nei Preferiti."),
+        ("● Da leggere", "Strumento OSINT nuovo che non hai ancora segnato come letto."),
+    ])))
+    parti.append(cap("pagine", "🗺️ Le pagine (menu in alto)", voci([
+        ("📰 Oggi", "L'edizione del giorno con gli aggiornamenti della sera."),
+        ("⭐ Preferiti", "Tutto ciò che hai segnato con la stellina, diviso in Strumenti, OSINT, Gemme, Ricette e "
+                        "Novità, con i tuoi temi preferiti."),
+        ("🧰 OSINT", "La cassetta degli attrezzi: come impostare un'indagine, la griglia «Che cosa devi verificare?», "
+                    "gli strumenti collaudati e i 🆕 Nuovi arrivi che crescono da soli. Il numero sul menu sono gli "
+                    "arrivi non ancora letti; «Segna tutti come letti» li azzera."),
+        ("🧭 Radar", "Ogni scheda ha uno o due temi (" + e(", ".join(TEMI)) + "). Il radar li conta settimana per "
+                    "settimana e mostra cosa cresce ↗, cosa cala ↘ e cosa è appena comparso. La domenica Gemini "
+                    "ne trae le tendenze («Cosa sta cambiando»)."),
+        ("🍳 Ricette", "Una volta a settimana: 2-4 strumenti già segnalati, combinati per un compito concreto, con "
+                      "passi, tempo, costo e livello. Gli ingredienti sono controllati dal programma (esistono, "
+                      "hanno il link, si usano su Browser/Windows/Android). Il tasto «✓ L'ho provata» tiene il conto."),
+        ("📅 Settimana", "Il riepilogo della domenica: i migliori strumenti e le novità più utili dei 7 giorni."),
+        ("🗂️ Archivio", "In fondo a ogni pagina, con la ricerca su tutte le edizioni."),
+    ])))
+    parti.append(cap("notifiche", "📲 Notifiche e 🔔 sentinelle", voci([
+        ("Notifica", "Con l'app gratuita <b>ntfy</b> (Android/iPhone) arriva sul telefono un riassunto di ogni "
+                     "edizione e di ogni aggiornamento con novità; toccandola si apre la pagina. Ci si iscrive a un "
+                     "argomento dal nome segreto, salvato nel segreto <code>NTFY_TOPIC</code> del repository."),
+        ("🔔 Sentinelle", "Parole da sorvegliare (un nome di strumento, un'azienda, un argomento). Quando una "
+                         "compare in una scheda nuova, arriva una notifica a parte, con priorità alta. Si scrivono "
+                         "nel segreto <code>SENTINELLE</code>, separate da virgole, per esempio "
+                         "<code>Bellingcat, Ollama, trascrizione, Home Assistant</code>. Maiuscole e accenti non contano."),
+        ("Come impostarle", "Repository su GitHub → Settings → Secrets and variables → Actions → "
+                           "New repository secret → nome <code>SENTINELLE</code>, valore le parole. Valgono dal "
+                           "giro successivo."),
+    ])))
+    parti.append(cap("privacy", "🔐 Privacy e regole", voci([
+        ("Sul tuo dispositivo", "Preferiti, letti, temi e ricette provate stanno solo nel browser che usi: niente "
+                               "account, niente tracciamento. Cambiando telefono o browser ripartono da zero."),
+        ("Solo ciò che ha una scheda", "Titolo e presentazione del giorno possono citare solo cose che hanno una "
+                                      "scheda: se l'AI ne nomina altre, il programma li riscrive."),
+        ("Regole fisse", "Le etichette di affidabilità le assegna il codice, non l'AI; le accuse che arrivano solo da "
+                         "siti minori vengono scartate."),
+        ("OSINT", "Esclusi per regola, anche nel codice: spyware e controllo di nascosto, dati rubati e password "
+                  "trafugate, riconoscimento facciale per identificare persone, localizzazione in tempo reale, "
+                  "intrusione. Su persone e account pubblici vale il GDPR: solo scopi leciti e proporzionati."),
+    ])))
+    parti.append(archivio_html(archivio, ""))
+    dati_js = json.dumps({"titolo": "Guida", "testo": "", "url": url_pagina}, ensure_ascii=False).replace("</", "<\\/")
+    return (testa("AI News Digest — Guida al sito", "Sezioni, etichette, pagine, notifiche e privacy di AI News Digest.",
+                  url_pagina, "")
+            + f"<body><main>{''.join(parti)}</main>" + piede("", dati_js))
 
 
 def pagina_cassetta(cassetta, archivio, edizioni=()):
@@ -1770,7 +2264,7 @@ def testo_whatsapp(data_it, r, url, aggiornamenti=()):
     for u in reversed(list(aggiornamenti)):
         ru = u.get("riassunto") or {}
         voci = [f"• *{d.get('cosa', '')}*: {d.get('a_cosa_serve', '')}"
-                for d in ru.get("da_provare", []) + ru.get("osint", [])]
+                for d in ru.get("da_provare", []) + ru.get("gemme", []) + ru.get("osint", [])]
         voci += [f"• {n.get('titolo', '')}" for x in ru.get("sezioni", []) for n in x.get("notizie", [])]
         if voci:
             righe += [f"🆕 *Aggiornamento delle {ora_di(u.get('generato'))}*"] + voci + [""]
@@ -1783,6 +2277,11 @@ def testo_whatsapp(data_it, r, url, aggiornamenti=()):
             info += ["sul dispositivo"] if d.get("sul_dispositivo") else []
             extra = f" ({', '.join(info)})" if info else ""
             righe.append(f"• *{d.get('cosa', '')}*{extra}: {d.get('a_cosa_serve', '')}")
+        righe.append("")
+    if r.get("gemme"):
+        righe.append("💎 *Gemme*")
+        for d in r["gemme"]:
+            righe.append(f"• *{d.get('cosa', '')}*: {d.get('a_cosa_serve', '')}")
         righe.append("")
     if r.get("osint"):
         righe.append("🔎 *Strumenti OSINT*")
@@ -1878,7 +2377,7 @@ function aggiornaStelle(){
 function stella(b){
   let l=leggiPref();const d=b.dataset;
   if(l.some(p=>p.id===d.id)){l=l.filter(p=>p.id!==d.id);if(scriviPref(l))alertino('Tolto dai preferiti');}
-  else{l.unshift({id:d.id,titolo:d.titolo,testo:d.testo,giorno:d.giorno,ancora:d.ancora,link:d.link,tipo:d.tipo,pagina:d.pagina||'',
+  else{l.unshift({id:d.id,titolo:d.titolo,testo:d.testo,giorno:d.giorno,ancora:d.ancora,link:d.link,tipo:d.tipo,pagina:d.pagina||'',temi:d.temi||'',
     salvato:new Date().toISOString().slice(0,10)});if(scriviPref(l))alertino('⭐ Aggiunto ai preferiti');}
   aggiornaStelle();
 }
@@ -1927,6 +2426,46 @@ function aggiornaLetti(){
 }
 function mostraBollino(n){const b=document.getElementById('nOsint');if(b){b.hidden=!n;b.textContent=n;}}
 document.addEventListener('DOMContentLoaded',aggiornaLetti);
+// 🎯 Per te: i gusti si ricavano dalle stelline (temi e tipi delle schede salvate), solo su questo dispositivo.
+function gusti(){
+  const g={},prefs=leggiPref();let conTemi=0;
+  for(const p of prefs){if(!p.temi)continue;conTemi++;
+    for(const t of p.temi.split(',').filter(Boolean))g[t]=(g[t]||0)+1;}
+  return conTemi>=3?g:null;
+}
+function perTe(){
+  const g=gusti();if(!g||document.getElementById('lista'))return;
+  const parenti=new Set();
+  document.querySelectorAll('article[data-temi]').forEach(a=>{
+    if(a.dataset.perte)return;
+    const pt=(a.dataset.temi||'').split(',').filter(Boolean).reduce((s,t)=>s+(g[t]||0),0);
+    if(pt>=2){a.dataset.perte=pt;a.classList.add('perte');
+      const tg=a.querySelector('.tags');if(tg){const b=document.createElement('span');b.className='rel perte-b';
+        b.textContent='🎯 Per te';b.title='Simile alle schede che hai salvato con la stellina';tg.prepend(b);}
+      parenti.add(a.parentElement);}
+  });
+  parenti.forEach(par=>{
+    [...par.children].filter(x=>x.tagName==='ARTICLE'&&x.dataset.perte)
+      .sort((a,b)=>a.dataset.perte-b.dataset.perte)          // dal meno al più affine: l'ultimo inserito va in cima
+      .forEach(x=>{const primo=par.querySelector(':scope > article');if(primo!==x)par.insertBefore(x,primo);});
+  });
+}
+function temiPreferiti(){
+  const el=document.getElementById('gusti'),g=gusti();if(!el)return;
+  if(!g){el.textContent='Salva almeno 3 schede con la stellina e il sito imparerà cosa ti interessa (🎯 Per te).';return;}
+  el.textContent='🎯 I tuoi temi: '+Object.entries(g).sort((a,b)=>b[1]-a[1]).slice(0,5).map(x=>x[0]).join(' · ');
+}
+document.addEventListener('DOMContentLoaded',()=>{perTe();temiPreferiti();});
+const CHIAVE_PROVATE='ai-news-ricette-provate';
+function leggiProvate(){try{return new Set(JSON.parse(localStorage.getItem(CHIAVE_PROVATE)||'[]'));}catch(e){return new Set();}}
+function provata(b){const id=b.closest('article').dataset.rid,st=leggiProvate();
+  if(st.has(id))st.delete(id);else st.add(id);
+  try{localStorage.setItem(CHIAVE_PROVATE,JSON.stringify([...st]));}catch(e){}aggiornaProvate();}
+function aggiornaProvate(){const st=leggiProvate(),tutte=document.querySelectorAll('article.ricetta');if(!tutte.length)return;
+  let n=0;tutte.forEach(a=>{const on=st.has(a.dataset.rid);if(on)n++;a.classList.toggle('fatta',on);
+    const b=a.querySelector('.provata');if(b)b.textContent=on?'✓ Provata — tocca per annullare':'✓ L’ho provata';});
+  const el=document.getElementById('provate');if(el)el.textContent='Ne hai provate '+n+' su '+tutte.length+'.';}
+document.addEventListener('DOMContentLoaded',aggiornaProvate);
 addEventListener('pageshow',aggiornaStelle);
 if('serviceWorker' in navigator){addEventListener('load',()=>navigator.serviceWorker.register(PREFISSO+'sw.js').catch(()=>{}));}
 """
@@ -1978,6 +2517,8 @@ def rigenera_tutto():
                 voci.append([f"{pre}p{j}", "🧪 " + d.get("cosa", ""), (d.get("a_cosa_serve") or "")[:220]])
             for j, d in enumerate(r.get("osint", []), 1):
                 voci.append([f"{pre}o{j}", "🔎 " + d.get("cosa", ""), (d.get("a_cosa_serve") or "")[:220]])
+            for j, d in enumerate(r.get("gemme", []), 1):
+                voci.append([f"{pre}g{j}", "💎 " + d.get("cosa", ""), (d.get("a_cosa_serve") or "")[:220]])
         indice.append({"g": x["giorno"], "t": x["riassunto"].get("titolo_giorno", ""), "n": voci})
     (DOCS / "indice.json").write_text(json.dumps(indice, ensure_ascii=False, separators=(",", ":")),
                                       encoding="utf-8")
@@ -1999,6 +2540,11 @@ def rigenera_tutto():
         (GIORNI / f"{x['giorno']}.html").write_text(pagina(x, archivio, "../"), encoding="utf-8")
     (DOCS / "index.html").write_text(pagina(ultima, archivio, "", banner), encoding="utf-8")
     (DOCS / "preferiti.html").write_text(pagina_preferiti(archivio), encoding="utf-8")
+    (DOCS / "guida.html").write_text(pagina_guida(archivio), encoding="utf-8")
+    (DOCS / "ricette.html").write_text(pagina_ricette((leggi_json(RICETTE) if RICETTE.exists() else None) or [],
+                                                      archivio), encoding="utf-8")
+    (DOCS / "radar.html").write_text(pagina_radar(edizioni, archivio, settimane[-1] if settimane else None),
+                                     encoding="utf-8")
     cassetta = leggi_json(ROOT / "cassetta_osint.json") if (ROOT / "cassetta_osint.json").exists() else None
     if cassetta:
         (DOCS / "cassetta-osint.html").write_text(pagina_cassetta(cassetta, archivio, edizioni), encoding="utf-8")
@@ -2019,12 +2565,16 @@ o notizie (codice [AAAA-MM-GG#n]).
    Puoi includere 1 strumento OSINT (codice [AAAA-MM-GG#osint-n]) se è davvero notevole.
 2. Scegli fino a 5 novità più utili negli strumenti già diffusi (ChatGPT, Gemini, Claude, Copilot...).
    Se una novità è stata raccontata in più giorni, uniscila in una sola voce citando tutti i codici.
+3. "tendenze": 2-3 frasi su COSA STA CAMBIANDO, basate SOLO sui numeri della sezione RADAR che ricevi
+   (temi in crescita, in calo, appena comparsi), con un esempio preso dalle notizie della settimana.
+   Niente previsioni inventate. Se i numeri sono troppo pochi per dire qualcosa, stringa vuota.
 Usa SOLO le informazioni presenti nel testo ricevuto, senza aggiungere nulla di tuo. Mai voci "Da verificare".
 Scrivi sempre "AI", mai "IA".
 
 Rispondi SOLO con JSON valido:
 {"titolo": "titolo breve della settimana",
  "in_breve": "2-3 frasi: le cose più utili scoperte questa settimana",
+ "tendenze": "2-3 frasi su cosa sta cambiando, dai numeri del RADAR",
  "da_provare": [{"cosa": "...", "a_cosa_serve": "1-2 frasi", "rif": "2026-10-06#provare-1"}],
  "notizie": [{"titolo": "...", "racconto": "2-3 frasi", "perche_conta": "1 frase concreta",
               "rif": ["2026-10-05#3", "2026-10-07#1"]}]}"""
@@ -2049,6 +2599,11 @@ def costruisci_settimana(chiave, fine):
                     validi.add(cod)
                     righe.append(f"[{cod}] ({n.get('affidabilita', '')}) {n.get('titolo', '')} — "
                                  f"{n.get('riassunto', '')}")
+            for j, d in enumerate(r.get("gemme", []), 1):
+                cod = f"{x['giorno']}#{pre}gemma-{j}"
+                prove[cod] = x["giorno"]
+                righe.append(f"[{cod}] GEMMA: {d.get('cosa', '')} ({d.get('costo') or 'costo non indicato'}) — "
+                             f"{d.get('a_cosa_serve', '')} {d.get('perche_gemma', '')}")
             for j, d in enumerate(r.get("osint", []), 1):
                 cod = f"{x['giorno']}#{pre}osint-{j}"
                 prove[cod] = x["giorno"]
@@ -2062,7 +2617,11 @@ def costruisci_settimana(chiave, fine):
                 info += ["sul dispositivo"] if d.get("sul_dispositivo") else []
                 costo = f" ({', '.join(info)})" if info else ""
                 righe.append(f"[{cod}] STRUMENTO: {d.get('cosa', '')}{costo} — {d.get('a_cosa_serve', '')}")
-    w, modello = chiama_gemini(ISTRUZIONI_SETTIMANA, "NOTIZIE DELLA SETTIMANA:\n" + "\n".join(righe), chiave)
+    tutte = [x for x in (leggi_json(p) for p in giorni_salvati()) if x]
+    radar = testo_radar_per_gemini(tutte)
+    w, modello = chiama_gemini(ISTRUZIONI_SETTIMANA, "NOTIZIE DELLA SETTIMANA:\n" + "\n".join(righe)
+                               + ("\n\nRADAR (segnalazioni per tema, ultime 4 settimane):\n" + radar if radar else ""),
+                               chiave)
     notizie = []
     for n in w.get("notizie", []):
         rif = [c for c in dict.fromkeys(n.get("rif", [])) if c in validi]
@@ -2079,6 +2638,7 @@ def costruisci_settimana(chiave, fine):
         raise RuntimeError("riassunto settimanale troppo povero")
     out = {"giorno": fine, "formato": 2, "titolo": w.get("titolo", "La settimana dell'AI"), "in_breve": w.get("in_breve", ""),
            "notizie": notizie[:5], "da_provare": da_provare, "modello": modello,
+           "tendenze": str(w.get("tendenze") or "").strip(),
            "generato": datetime.now(timezone.utc).isoformat(timespec="seconds")}
     SETTIMANE.mkdir(parents=True, exist_ok=True)
     (SETTIMANE / f"{fine}.json").write_text(json.dumps(out, ensure_ascii=False, indent=1), encoding="utf-8")
@@ -2124,12 +2684,14 @@ def testo_notifica(dati, adesso=None, finestra_ore=3):
             return None                    # non è il giro appena fatto
     except (TypeError, ValueError):
         return None
-    if not r or not (r.get("da_provare") or r.get("osint") or r.get("sezioni")):
+    if not r or not (r.get("da_provare") or r.get("osint") or r.get("gemme") or r.get("sezioni")):
         return None                        # aggiornamento senza novità: niente notifica
     righe = []
     for d in r.get("da_provare", [])[:4]:
         dove = ", ".join(t.replace("✓ ", "") for t in etichette_piattaforma(d))
         righe.append(f"🧪 {d.get('cosa', '')}" + (f" ({dove})" if dove else "") + f" – {d.get('a_cosa_serve', '')[:80]}")
+    for d in (r.get("gemme") or [])[:2]:
+        righe.append(f"💎 {d.get('cosa', '')} – {d.get('a_cosa_serve', '')[:70]}")
     for d in (r.get("osint") or [])[:2]:
         righe.append(f"🔎 OSINT: {d.get('cosa', '')} – {d.get('a_cosa_serve', '')[:70]}")
     novita = [n for s in r.get("sezioni", []) if not s.get("breve") for n in s.get("notizie", [])]
@@ -2138,6 +2700,13 @@ def testo_notifica(dati, adesso=None, finestra_ore=3):
     altri = len(r.get("da_provare", [])) - 4
     if altri > 0:
         righe.append(f"…e altri {altri} strumenti")
+    ricette = (leggi_json(RICETTE) if RICETTE.exists() else None) or []
+    if ricette and tipo == "mattino":
+        try:
+            if adesso - datetime.fromisoformat(ricette[-1]["generato"]) <= timedelta(hours=finestra_ore):
+                righe.append(f"🍳 Nuova ricetta: {ricette[-1]['titolo']}")
+        except (KeyError, TypeError, ValueError):
+            pass
     if tipo == "mattino":
         titolo = "☀️ " + (r.get("titolo_giorno") or "Le novità AI di oggi")
     else:
@@ -2145,23 +2714,54 @@ def testo_notifica(dati, adesso=None, finestra_ore=3):
     return titolo[:120], "\n".join(righe) or (r.get("in_breve") or "")[:300], ("" if tipo == "mattino" else "aggiornamenti")
 
 
-def notifica():
-    """Manda la notifica a ntfy (app gratuita per Android/iPhone). Si attiva solo se esiste il segreto NTFY_TOPIC."""
-    topic = os.environ.get("NTFY_TOPIC", "").strip()
-    if not topic:
-        print("Notifica: NTFY_TOPIC non impostato, salto.")
-        return
-    dati = leggi_json(DATA / f"{datetime.now(TZ):%Y-%m-%d}.json")
-    contenuto = testo_notifica(dati) if dati else None
-    if not contenuto:
-        print("Notifica: nessuna novità da segnalare.")
-        return
-    titolo, messaggio, ancora = contenuto
-    sito = indirizzo_sito() or os.environ.get("SITO_URL", "")
-    corpo = {"topic": topic, "title": titolo, "message": messaggio, "tags": ["robot"], "priority": 3}
-    if sito:
-        corpo["click"] = sito + (f"#{ancora}" if ancora else "")
-        corpo["actions"] = [{"action": "view", "label": "Apri", "url": corpo["click"]}]
+def _senza_accenti(t):
+    return "".join(c for c in unicodedata.normalize("NFD", str(t or "").lower()) if unicodedata.category(c) != "Mn")
+
+
+def parole_sentinella(valore=None):
+    """Le parole da sorvegliare: segreto SENTINELLE, separate da virgole (es. «Bellingcat, Ollama, trascrizione»)."""
+    valore = os.environ.get("SENTINELLE", "") if valore is None else valore
+    return [p.strip() for p in re.split(r"[,;\n]", valore) if len(p.strip()) >= 2]
+
+
+def sentinelle_scattate(dati, parole, adesso=None, finestra_ore=3):
+    """[(parola, nome scheda, ancora)] per le schede dell'ultimo giro che contengono una parola sorvegliata."""
+    if not dati or not parole:
+        return []
+    adesso = adesso or datetime.now(timezone.utc)
+    blocchi = [("", dati.get("generato"), dati.get("riassunto"))]
+    blocchi += [(f"u{i}", u.get("generato"), u.get("riassunto")) for i, u in enumerate(dati.get("aggiornamenti", []), 1)]
+    pre, generato, r = blocchi[-1]
+    try:
+        if not r or adesso - datetime.fromisoformat(generato) > timedelta(hours=finestra_ore):
+            return []
+    except (TypeError, ValueError):
+        return []
+    schede = []
+    for chiave, lettera in (("da_provare", "p"), ("gemme", "g"), ("osint", "o")):
+        for j, d in enumerate(r.get(chiave, []) or [], 1):
+            schede.append((d.get("cosa", ""), " ".join(str(d.get(k, "")) for k in
+                           ("cosa", "a_cosa_serve", "come_sfruttarla", "perche_gemma", "con_ai")), f"{pre}{lettera}{j}"))
+    k = 0
+    for sz in r.get("sezioni", []) or []:
+        for n in sz.get("notizie", []) or []:
+            k += 1
+            schede.append((n.get("titolo", ""), f"{n.get('titolo', '')} {n.get('riassunto', '')}", f"{pre}n{k}"))
+    trovate, viste = [], set()
+    for parola in parole:
+        rx = re.compile(r"(?<!\w)" + re.escape(_senza_accenti(parola)) + r"(?!\w)")
+        for nome, testo, ancora in schede:
+            if rx.search(_senza_accenti(testo)) and nome not in viste:
+                viste.add(nome)
+                trovate.append((parola, nome, ancora))
+    return trovate
+
+
+def _invia_ntfy(topic, titolo, messaggio, click="", priorita=3, tag="robot"):
+    corpo = {"topic": topic, "title": titolo[:120], "message": messaggio[:3500], "tags": [tag], "priority": priorita}
+    if click:
+        corpo["click"] = click
+        corpo["actions"] = [{"action": "view", "label": "Apri", "url": click}]
     server = os.environ.get("NTFY_SERVER", "https://ntfy.sh").rstrip("/")
     req = urllib.request.Request(server, data=json.dumps(corpo).encode("utf-8"), method="POST",
                                  headers={"Content-Type": "application/json", "User-Agent": UA})
@@ -2170,6 +2770,28 @@ def notifica():
             print(f"Notifica inviata ({r.status}): {titolo}")
     except Exception as ex:
         print(f"Notifica non inviata: {ex}", file=sys.stderr)
+
+
+def notifica():
+    """Manda la notifica a ntfy (app gratuita per Android/iPhone). Si attiva solo se esiste il segreto NTFY_TOPIC.
+    Se nel segreto SENTINELLE ci sono parole da sorvegliare e una compare, parte anche un avviso a priorità alta."""
+    topic = os.environ.get("NTFY_TOPIC", "").strip()
+    if not topic:
+        print("Notifica: NTFY_TOPIC non impostato, salto.")
+        return
+    dati = leggi_json(DATA / f"{datetime.now(TZ):%Y-%m-%d}.json")
+    sito = indirizzo_sito() or os.environ.get("SITO_URL", "")
+    contenuto = testo_notifica(dati) if dati else None
+    if not contenuto:
+        print("Notifica: nessuna novità da segnalare.")
+    else:
+        titolo, messaggio, ancora = contenuto
+        _invia_ntfy(topic, titolo, messaggio, (sito + (f"#{ancora}" if ancora else "")) if sito else "")
+    scattate = sentinelle_scattate(dati, parole_sentinella())
+    if scattate:
+        righe = [f"«{p}» → {nome}" for p, nome, _ in scattate[:8]]
+        _invia_ntfy(topic, "🔔 Sentinella: " + ", ".join(dict.fromkeys(p for p, _, _ in scattate))[:80],
+                    "\n".join(righe), (sito + "#" + scattate[0][2]) if sito else "", priorita=4, tag="bell")
 
 
 def avvisa(msg):
@@ -2196,6 +2818,10 @@ def main():
             pass
 
     chiave = os.environ.get("GEMINI_API_KEY", "").strip()
+    if "--ricetta" in sys.argv:         # forza una nuova ricetta
+        costruisci_ricetta(chiave)
+        rigenera_tutto()
+        return
     if "--notifica" in sys.argv:        # dopo la pubblicazione: avviso sul telefono
         notifica()
         return
@@ -2250,7 +2876,8 @@ def main():
             vecchi_link.add(a.get("link"))
             vecchi_titoli.add(chiave_t(a.get("titolo")))
         for pre, r_ in riassunti_del_giorno(x):
-            gia_pubblicate += [d.get("cosa", "") for d in r_.get("da_provare", []) + r_.get("osint", [])]
+            gia_pubblicate += [d.get("cosa", "") for d in r_.get("da_provare", []) + r_.get("osint", [])
+                               + r_.get("gemme", [])]
             gia_pubblicate += [n.get("titolo", "") for s in r_.get("sezioni", []) for n in s.get("notizie", [])]
     if aggiornamento:
         vecchi_titoli |= set(mattino.get("visti", []))
@@ -2293,7 +2920,8 @@ def main():
 
     def da_salvare(riassunto):
         usati = {i for s in riassunto["sezioni"] for n in s["notizie"] for i in n["fonti"]}
-        usati |= {i for d in riassunto.get("da_provare", []) + riassunto.get("osint", []) for i in d["fonti"]}
+        usati |= {i for d in riassunto.get("da_provare", []) + riassunto.get("osint", []) + riassunto.get("gemme", [])
+                  for i in d["fonti"]}
         return {i: {k: (v.isoformat() if isinstance(v, datetime) else v) for k, v in per_id[i].items()}
                 for i in usati}
 
@@ -2312,7 +2940,8 @@ def main():
             avvisa(f"Aggiornamento non riuscito, resta l'edizione del mattino ({str(ex)[:900]}).")
             scrivi_avvisi()
             return
-        vuoto = not (riassunto["sezioni"] or riassunto.get("da_provare") or riassunto.get("osint"))
+        vuoto = not (riassunto["sezioni"] or riassunto.get("da_provare") or riassunto.get("osint")
+                     or riassunto.get("gemme"))
         salva_aggiornamento(None if vuoto else riassunto, modello, completi, {} if vuoto else da_salvare(riassunto))
         print("Aggiornamento: " + ("nessuna novità rilevante." if vuoto else
               f"{len(riassunto.get('da_provare', []))} strumenti, "
@@ -2323,7 +2952,8 @@ def main():
             try:
                 riassunto, modello = chiedi_a_gemini(articoli, chiave, gia_pubblicate)
                 riassunto = completa_dai_siti(verifica(riassunto, per_id), per_id)
-                if not (riassunto["sezioni"] or riassunto.get("da_provare") or riassunto.get("osint")):
+                if not (riassunto["sezioni"] or riassunto.get("da_provare") or riassunto.get("osint")
+                        or riassunto.get("gemme")):
                     raise RuntimeError("riassunto vuoto")
             except Exception as ex:  # qualunque problema: si pubblica comunque la versione semplice
                 avvisa(f"Gemini non disponibile ({str(ex)[:900]}): pubblicata la versione senza riassunto.")
@@ -2335,6 +2965,12 @@ def main():
                 "modello": modello, "testi_completi": completi, "riassunto": riassunto,
                 "articoli": da_salvare(riassunto), "fonti": stato, "visti": visti_oggi}
         file_oggi.write_text(json.dumps(dati, ensure_ascii=False, indent=1), encoding="utf-8")
+
+    fatte = (leggi_json(RICETTE) if RICETTE.exists() else None) or []
+    gia_oggi = bool(fatte) and fatte[-1].get("giorno") == giorno
+    if chiave and not aggiornamento and (os.environ.get("RICETTA") == "1"
+                                         or (not gia_oggi and (oggi.weekday() == 6 or not fatte))):
+        costruisci_ricetta(chiave)
 
     forza = os.environ.get("SETTIMANA") == "1"
     if (oggi.weekday() == 6 and not (SETTIMANE / f"{giorno}.json").exists()) or forza:

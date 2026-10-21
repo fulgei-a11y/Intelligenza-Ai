@@ -67,6 +67,38 @@
       "max": 5
     },
     {
+      "nome": "Show HN – progetti utili (gemme)",
+      "tipo": "vetrina",
+      "categoria": "Gemme",
+      "url": "https://hnrss.org/show?points=80",
+      "max": 10,
+      "ore": 48,
+      "escludi": "\\b(library|framework|SDK|compiler|kernel|database engine|CLI for devs?|Rust crate|npm package|game|puzzle)\\b"
+    },
+    {
+      "nome": "Reddit r/selfhosted",
+      "tipo": "community",
+      "categoria": "Gemme",
+      "url": "https://www.reddit.com/r/selfhosted/top/.rss?t=day&limit=25",
+      "max": 6
+    },
+    {
+      "nome": "Reddit r/opensource",
+      "tipo": "community",
+      "categoria": "Gemme",
+      "url": "https://www.reddit.com/r/opensource/top/.rss?t=week&limit=25",
+      "max": 5,
+      "ore": 168
+    },
+    {
+      "nome": "Alternative open source (Google News)",
+      "tipo": "aggregatore",
+      "categoria": "Gemme",
+      "url": "https://news.google.com/rss/search?q=(%22open+source+alternative%22+OR+%22self-hosted%22+OR+%22privacy-friendly+alternative%22)+(app+OR+tool+OR+released+OR+launches)+when:3d&hl=en-US&gl=US&ceid=US:en",
+      "max": 6,
+      "escludi": "stock|shares|earnings|funding|raises|valuation|IPO|acquires|lawsuit"
+    },
+    {
       "nome": "OpenAI",
       "tipo": "ufficiale",
       "categoria": "Laboratori",
