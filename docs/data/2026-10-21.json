@@ -328,6 +328,28 @@
    "solo_titolo": false,
    "categoria": "Gemme",
    "id": "a66"
+  },
+  "u1a55": {
+   "titolo": "WhatsApp Android, in sviluppo filtro chiamate con trascrizione",
+   "link": "https://news.google.com/rss/articles/CBMijgFBVV95cUxQdjZyTjY3RmhzSWhjUktaNS0ta0RnYlpielhWYTF4WkdOOFc2RHo4QkwtX0QzSHBUbGtHR0VwM3c3TTJHb2pFdktuZ29ZeWpxN3lEWUZQeWhYaVhNZ3hjUzduYXM1Z0dFWEpjQ1Rqdlh1SHJwaFpVZk43NGxPTnFqckJyVDhyZzFUbnVOYVJn?oc=5",
+   "data": "2026-10-20T09:34:24+00:00",
+   "testo": "",
+   "fonte": "CeoTech",
+   "tipo": "minore",
+   "solo_titolo": true,
+   "categoria": "Strumenti",
+   "id": "u1a55"
+  },
+  "u1a111": {
+   "titolo": "Perplexity Computer now runs fully locally on Mac",
+   "link": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxNaGVwa0I2RlNoM3o2SlVZX1A5RmlXUTN0ODJ6dUlwcEdaVGhSdzlxZWhBaGJBXzZwNnhDSnpuRXhhMXZ0TFU4d1ZhWExZeloxRWtJRm42UDE0dXJZOGNMaGdXS2tTU29zS21XRW1lcVBwbXJsU0lIbGtfMjcwdGlMQmpId2xTdEQ2?oc=5",
+   "data": "2026-10-21T06:14:45+00:00",
+   "testo": "",
+   "fonte": "TestingCatalog AI News",
+   "tipo": "minore",
+   "solo_titolo": true,
+   "categoria": "Laboratori",
+   "id": "u1a111"
   }
  },
  "fonti": [
@@ -720,8 +742,98 @@
   "tiktokcomments",
   "cansomeoneguidemeonthelimitationsofosintandthetools",
   "howtolocatescotlandcourtrolls",
-  "showhnvoidaccessopensourcedarkwebosintfromquerytoagraph"
+  "showhnvoidaccessopensourcedarkwebosintfromquerytoagraph",
+  "climaeintelligenzaartificialeparolaaigiovaniinunanuovapuntataspecialedinewsdalpi",
+  "chatgptnascondeleconversazioniprivatearrivailbloccoconpin",
+  "archieailaunchesbetaofarchieengine13alocalaimodelbuiltforrealestateagentsthehera",
+  "whatsappandroidinsviluppofiltrochiamatecontrascrizione",
+  "googlerollsoutgeminipersonalintelligenceonandroidautowithcarswithgooglebuiltinne",
+  "openairollsoutlockedchatsinchatgptletsusersprotectconversationswithpinandfaceid",
+  "googlelaunchesdedicatedgeminibusinesssuiteforsmbmarketingfinanceandplatforminteg",
+  "q2movestoazurefor27fasterlifecycle50costreductionnewaicapabilities",
+  "perplexitycomputernowrunsfullylocallyonmac",
+  "googleportapersonalintelligencedigeminisuandroidauto",
+  "deepseekreleaseddeepinferopensourcehighperformancelargescaleinferenceframeworkfo",
+  "exclusivebytedancealibabatencentplaceover35billionworthofnvidiachiporders",
+  "newfromdeepseekdeepinfer",
+  "ornithaiornith15122bqwenfinetune",
+  "improveqwen3827blowquantsbyusingaprefillermodelthatstreamsfromssd"
  ],
  "audio": "audio/2026-10-21.mp3",
- "durata": 110.2
+ "durata": 139.3,
+ "aggiornamenti": [
+  {
+   "generato": "2026-10-21T06:34:01+00:00",
+   "modello": "gemini-3.6-flash",
+   "testi_completi": 0,
+   "riassunto": {
+    "titolo_giorno": "Perplexity Computer arriva in locale su Mac e WhatsApp prova la trascrizione delle chiamate",
+    "in_breve": "L'elaborazione dell'intelligenza artificiale direttamente sul dispositivo continua a crescere con l'arrivo di Perplexity Computer per Mac, pensato per consultazioni private senza inviare dati online. Sulle app di uso quotidiano come WhatsApp, intanto, si lavora a strumenti per filtrare e trascrivere le telefonate.",
+    "citati": [
+     "Perplexity Computer",
+     "WhatsApp"
+    ],
+    "da_provare": [
+     {
+      "cosa": "Perplexity Computer",
+      "a_cosa_serve": "Versione dell'assistente Perplexity progettata per eseguire le ricerche e l'elaborazione dei dati interamente sul computer, senza inviare informazioni a server esterni.",
+      "per_chi": "Lavoro e tutti i giorni",
+      "ambito": "Ricerca e informazioni",
+      "come_iniziare": [],
+      "costo": "Non indicato",
+      "piattaforme": [
+       "Mac"
+      ],
+      "sul_dispositivo": true,
+      "come_sfruttarla": "Analizzare documenti e fare ricerche direttamente sul proprio computer mantenendo la massima riservatezza.",
+      "italiano": "Non indicato",
+      "difficolta": "Facile",
+      "temi": [
+       "AI sul dispositivo",
+       "Ricerca e informazioni",
+       "Assistenti e chatbot"
+      ],
+      "fonti": [
+       "u1a111"
+      ],
+      "affidabilita": "Da verificare",
+      "solo_titoli": true,
+      "prova": ""
+     }
+    ],
+    "osint": [],
+    "gemme": [],
+    "sezioni": [
+     {
+      "titolo": "Novità negli strumenti che già usi",
+      "notizie": [
+       {
+        "titolo": "Filtro chiamate con trascrizione automatica in sviluppo su Android",
+        "strumento": "WhatsApp",
+        "riassunto": "WhatsApp sta sviluppando per gli smartphone Android una funzionalità di filtro delle chiamate in entrata in grado di convertire l'audio delle telefonate in testo in tempo reale.",
+        "come_provarla": "",
+        "disponibilita": "In arrivo",
+        "fonti": [
+         "u1a55"
+        ],
+        "temi": [
+         "Voce e audio",
+         "Assistenti e chatbot"
+        ],
+        "affidabilita": "Da verificare",
+        "solo_titoli": true
+       }
+      ]
+     }
+    ],
+    "formato": 2,
+    "controllo_siti": [
+     {
+      "cosa": "Perplexity Computer",
+      "esito": "nessun sito da aprire"
+     }
+    ]
+   }
+  }
+ ]
 }
