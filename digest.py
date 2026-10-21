@@ -810,6 +810,16 @@ def completa_dai_siti(riassunto, per_id):
             or (d.get("prova") if d.get("prova") and not any(x in d["prova"] for x in SITI_NON_UFFICIALI) else "")
         if sito:
             lavori.append((d, sito))
+    # una gemma che è già scheda tra gli strumenti o gli OSINT non si ripete
+    altri = {_norm(d.get("cosa")) for d in riassunto.get("da_provare", []) + (riassunto.get("osint") or [])}
+    if riassunto.get("gemme"):
+        riassunto["gemme"] = [d for d in riassunto["gemme"] if _norm(d.get("cosa")) not in altri]
+        lavori = [(d, s) for d, s in lavori if d in riassunto["da_provare"] + (riassunto.get("osint") or [])
+                  + riassunto["gemme"]]
+    diagnosi = riassunto.setdefault("controllo_siti", [])
+    for d in schede:
+        if not any(d is x for x, _ in lavori):
+            diagnosi.append({"cosa": d.get("cosa"), "esito": "nessun sito da aprire"})
     if not lavori:
         return riassunto
 
@@ -819,12 +829,15 @@ def completa_dai_siti(riassunto, per_id):
             return d, apri_sito(sito)
         except Exception as ex:
             print(f"    (sito di {d.get('cosa')} non raggiungibile: {str(ex)[:60]})", file=sys.stderr)
+            diagnosi.append({"cosa": d.get("cosa"), "sito": sito, "esito": f"errore: {str(ex)[:120]}"})
             return d, (None, None)
 
     with ThreadPoolExecutor(6) as ex:
         for d, (finale, pagina) in ex.map(leggi, lavori):
             if not finale:
                 continue
+            diagnosi.append({"cosa": d.get("cosa"), "sito": finale[:200], "pagina": len(pagina or ""),
+                             "trovate": piattaforme_dal_sito(finale, pagina)})
             if not any(x in finale for x in SITI_NON_UFFICIALI):
                 d["prova"] = finale         # «Provalo» porta allo strumento vero
             trovate = piattaforme_dal_sito(finale, pagina)
