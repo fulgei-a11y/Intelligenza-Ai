@@ -1,0 +1,727 @@
+{
+ "giorno": "2026-10-21",
+ "generato": "2026-10-21T05:53:28+00:00",
+ "modello": "gemini-3.5-flash-lite",
+ "testi_completi": 37,
+ "riassunto": {
+  "titolo_giorno": "Arriva Penmentor: Claude corregge e spiega i compiti di matematica scritti a mano",
+  "in_breve": "La creatività degli strumenti basati su AI fa un passo avanti con soluzioni pensate per la vita di tutti i giorni, come Penmentor che trasforma il PC in un tutor scolastico personale. Nel frattempo, Google porta l'intelligenza artificiale conversazionale e personalizzata direttamente a bordo delle auto con Android Auto.",
+  "citati": [
+   "Penmentor",
+   "Gemini"
+  ],
+  "da_provare": [
+   {
+    "cosa": "Penmentor",
+    "a_cosa_serve": "Permette a Claude di correggere esercizi di matematica scritti a mano su tablet, evidenziando gli errori e offrendo indizi e animazioni esplicative anziché le soluzioni pronte.",
+    "per_chi": "Studio",
+    "ambito": "Ricerca",
+    "come_iniziare": [
+     "Usa un tablet con penna e l'app xournal++ per scrivere i passaggi matematici",
+     "Premi un tasto per condividere la pagina con il comando basato su Claude"
+    ],
+    "costo": "Non indicato",
+    "piattaforme": [
+     "Browser",
+     "Windows",
+     "Mac",
+     "Linux"
+    ],
+    "sul_dispositivo": false,
+    "come_sfruttarla": "Correggere i passaggi di esercizi di matematica o calcolo ricevendo suggerimenti mirati senza copiare la risposta.",
+    "italiano": "Non indicato",
+    "difficolta": "Media",
+    "fonti": [
+     "a16"
+    ],
+    "temi": [
+     "Scrittura e documenti",
+     "Ricerca e informazioni",
+     "Assistenti e chatbot"
+    ],
+    "affidabilita": "Appena lanciato",
+    "prova": "https://github.com/AbdullahAlhariri/penmentor"
+   },
+   {
+    "cosa": "call4me",
+    "a_cosa_serve": "Fornisce al proprio agente AI un numero di telefono dedicato per effettuare e ricevere chiamate vocali in autonomia.",
+    "per_chi": "Lavoro e tutti i giorni",
+    "ambito": "Casa",
+    "come_iniziare": [
+     "Collega il tuo agente AI alla piattaforma call4me",
+     "Imposta le regole e le richieste per le chiamate"
+    ],
+    "costo": "Non indicato",
+    "piattaforme": [
+     "Browser"
+    ],
+    "sul_dispositivo": false,
+    "come_sfruttarla": "Delegare a un assistente vocale le telefonate di routine per prenotazioni o richieste di informazioni.",
+    "italiano": "Non indicato",
+    "difficolta": "Facile",
+    "fonti": [
+     "a3"
+    ],
+    "temi": [
+     "Agenti AI",
+     "Voce e audio"
+    ],
+    "affidabilita": "Appena lanciato",
+    "prova": "https://www.producthunt.com/products/call4me"
+   },
+   {
+    "cosa": "Kling 4.0",
+    "a_cosa_serve": "Genera video con l'intelligenza artificiale in modo rapido ed economico, con supporto per clip fino a 30 secondi e audio stereo.",
+    "per_chi": "Lavoro e tutti i giorni",
+    "ambito": "Video",
+    "come_iniziare": [
+     "Accedi alla piattaforma via web",
+     "Inserisci la descrizione testuale o i parametri per creare il video"
+    ],
+    "costo": "Non indicato",
+    "piattaforme": [
+     "Browser"
+    ],
+    "sul_dispositivo": false,
+    "come_sfruttarla": "Creare brevi filmati o contenuti video promozionali partendo da semplici descrizioni testuali.",
+    "italiano": "Non indicato",
+    "difficolta": "Facile",
+    "fonti": [
+     "a2"
+    ],
+    "temi": [
+     "Video",
+     "Foto e immagini",
+     "Voce e audio"
+    ],
+    "affidabilita": "Appena lanciato",
+    "prova": "https://www.producthunt.com/products/kling-4-0-4"
+   },
+   {
+    "cosa": "Stella",
+    "a_cosa_serve": "Un assistente di intelligenza artificiale orientato al benessere emotivo che funge da amico virtuale per riflettere e confrontarsi.",
+    "per_chi": "Tutti i giorni",
+    "ambito": "Salute",
+    "come_iniziare": [
+     "Scarica o avvia l'applicazione",
+     "Inizia a conversare scrivendo i tuoi pensieri"
+    ],
+    "costo": "Non indicato",
+    "piattaforme": [
+     "Browser"
+    ],
+    "sul_dispositivo": false,
+    "come_sfruttarla": "Parlare dei propri pensieri quotidiani per trovare un supporto di ascolto virtuale.",
+    "italiano": "Non indicato",
+    "difficolta": "Facile",
+    "fonti": [
+     "a8"
+    ],
+    "temi": [
+     "Assistenti e chatbot"
+    ],
+    "affidabilita": "Appena lanciato",
+    "prova": "https://www.producthunt.com/products/stella-5"
+   }
+  ],
+  "osint": [
+   {
+    "cosa": "VoidAccess",
+    "a_cosa_serve": "Esegue ricerche investigative nel dark web organizzando i dati raccolti in grafici relazionali.",
+    "uso": "Analisi e domini",
+    "piattaforme": [
+     "Browser",
+     "Windows",
+     "Linux"
+    ],
+    "costo": "Gratis",
+    "difficolta": "Media",
+    "come_sfruttarla": "Mappare e collegare informazioni provenienti da fonti web nascoste durante un'indagine.",
+    "fonti": [
+     "a56"
+    ],
+    "temi": [
+     "OSINT e verifica",
+     "Open source e self-hosting"
+    ],
+    "affidabilita": "Appena lanciato",
+    "come_iniziare": [],
+    "sul_dispositivo": false,
+    "prova": "https://github.com/KatrielMoses/voidaccess"
+   }
+  ],
+  "gemme": [
+   {
+    "cosa": "VoidAccess",
+    "a_cosa_serve": "Uno strumento open source per l'analisi e la ricerca su fonti aperte nel dark web, che trasforma le query in grafici di dati leggibili.",
+    "perche_gemma": "Unisce l'esigenza di ricerca avanzata alla trasparenza di un motore open source.",
+    "con_ai": "",
+    "piattaforme": [
+     "Browser",
+     "Windows",
+     "Linux"
+    ],
+    "self_hosted": true,
+    "costo": "Gratis",
+    "difficolta": "Media",
+    "temi": [
+     "Open source e self-hosting",
+     "OSINT e verifica",
+     "Ricerca e informazioni"
+    ],
+    "fonti": [
+     "a56"
+    ],
+    "affidabilita": "Appena lanciato",
+    "come_iniziare": [],
+    "sul_dispositivo": false,
+    "come_sfruttarla": "",
+    "prova": "https://github.com/KatrielMoses/voidaccess"
+   },
+   {
+    "cosa": "OpenPoly.dev",
+    "a_cosa_serve": "Un programma CAD parametrico basato su browser, completamente gratuito e utilizzabile offline senza registrazione.",
+    "perche_gemma": "Permette di progettare in 3D direttamente sul browser senza barriere di licenza o privacy.",
+    "con_ai": "Consente di collegare i propri agenti AI per assistere nella progettazione parametrica.",
+    "piattaforme": [
+     "Browser"
+    ],
+    "self_hosted": false,
+    "costo": "Gratis",
+    "difficolta": "Facile",
+    "temi": [
+     "Open source e self-hosting",
+     "AI sul dispositivo"
+    ],
+    "fonti": [
+     "a66"
+    ],
+    "affidabilita": "Da verificare",
+    "come_iniziare": [],
+    "sul_dispositivo": false,
+    "come_sfruttarla": "",
+    "prova": ""
+   }
+  ],
+  "sezioni": [
+   {
+    "titolo": "Novità negli strumenti che già usi",
+    "notizie": [
+     {
+      "titolo": "Gemini porta la Personal Intelligence su Android Auto",
+      "strumento": "Gemini",
+      "riassunto": "L'assistente vocale di Google in auto si collega ai dati personali presenti nelle app (Gmail, Calendar, Maps, Foto) per rispondere in modo mirato e naturale. Si può chiedere ad esempio lo stato del volo o indicazioni per un appuntamento senza digitare l'indirizzo.",
+      "come_provarla": "Aggiorna l'app Android Auto sul telefono e verifica l'attivazione della funzione Personal Intelligence.",
+      "disponibilita": "Disponibile ora",
+      "fonti": [
+       "a78",
+       "a114"
+      ],
+      "temi": [
+       "Assistenti e chatbot",
+       "Ricerca e informazioni",
+       "Scrittura e documenti"
+      ],
+      "affidabilita": "Fonte ufficiale",
+      "solo_titoli": false
+     }
+    ]
+   }
+  ],
+  "formato": 2
+ },
+ "articoli": {
+  "a114": {
+   "titolo": "Google’s more personalized Gemini AI is heading to your car",
+   "link": "https://www.theverge.com/tech/1014999/google-gemini-ai-cars-android-auto",
+   "sito": "",
+   "data": "2026-10-20T18:11:34-04:00",
+   "testo": "Google is bringing Personal Intelligence to Gemini AI in your car. With this update, Gemini in Android Auto and cars with Google built-in can tap into your information across Google apps, including Gmail, Calendar, Maps, Photos, YouTube, and Search. Google’s more personalized Gemini AI is heading to your car Gemini AI can now draw from Gmail, Calendar, Maps, Photos, and other apps while you drive. As an example, Google says you can ask Gemini about your flight status if you’re driving to the airport. The AI assistant can pull your flight details from a confirmation message in Gmail and then use that information to look up the status. You can also ask Gemini to “take me to my doctor’s appointment” instead of pulling up directions manually, or ask it to “find the car wash from the photo I took last week and navigate there.” Google brought its Gemini assistant to Android Auto last year before rolling it out to cars with Google built-in in April. Several carmakers—including Ford, GM, Honda, Nissan, Volvo, and Polestar—have shipped newer cars with Google built-in, which adds support for native Android apps. Google says it will connect your apps to Gemini only if you enable its Personal Intelligence setting. It will also share personalized responses only if you have your phone connected to your car. “If you don’t use Personal Intelligence, everything in the car still works: You can use navigation, listen to music, make calls, and ask questions, but the answers won’t be tailored to you,” Google says. Personal Intelligence is rolling out to Android Auto today, with support coming to cars with Google built-in in the coming months.",
+   "fonte": "The Verge",
+   "tipo": "testata",
+   "solo_titolo": false,
+   "categoria": "Testate tech",
+   "id": "a114",
+   "testo_completo": true
+  },
+  "a3": {
+   "titolo": "call4me",
+   "link": "https://www.producthunt.com/products/call4me",
+   "sito": "https://www.producthunt.com/r/p/1285764?app_id=339",
+   "data": "2026-10-19T11:24:29-07:00",
+   "testo": "Give your AI agent a phone that calls and answers",
+   "fonte": "Product Hunt (AI)",
+   "tipo": "vetrina",
+   "solo_titolo": false,
+   "categoria": "Strumenti",
+   "id": "a3"
+  },
+  "a78": {
+   "titolo": "Get hands-free personalized help on the road with Gemini",
+   "link": "https://blog.google/products-and-platforms/platforms/android/android-auto-cars-with-google-built-in-gemini-personal-intelligence/",
+   "data": "2026-10-20T20:00:00+00:00",
+   "testo": "Get hands-free personalized help on the road with Gemini Gemini — your helpful AI assistant — is now available globally on Android Auto and cars with Google built-in. With Gemini, you can speak naturally to get more done or brainstorm ideas while driving. An assistant is even more helpful when it knows the world and knows you. That’s why we’re rolling out Personal Intelligence with Gemini starting today, 1 to give you uniquely tailored answers and make Gemini even more valuable on the road. With your permission, Personal Intelligence securely connects information from the Google apps you already use — Workspace (including Gmail and Google Calendar), Google Photos, Google Maps, YouTube, and Search. Just ask — Gemini gets it Personal Intelligence has two core strengths: retrieving specific details from, say, an email, photo or a place you saved in Google Maps to answer your question and reasoning across complex sources. That’s especially helpful when your hands are on the wheel. Personal Intelligence does the heavy lifting so you can speak naturally, without having to explain context or dig for information. Here are a few examples. - Make complex requests: On your way to the airport, ask, “What's my flight gate? And is my flight on time?” You don’t have to hunt for the confirmation email, then do a separate search for delays. Gemini gives you both answers in one go. - Get personalized picks every time: Looking for dinner in an unfamiliar town? Say, “Find me an indoor restaurant along my route that matches my usual vibe.” If you're vegetarian, you'll get a shortlist of places that fit your needs. - Speak naturally: Heading to an appointment? Say, “Take me to my doctor’s appointment.” You don’t have to remember the street address or look it up before you drive. - Retrieve …",
+   "fonte": "Google (blog ufficiale)",
+   "tipo": "ufficiale",
+   "solo_titolo": false,
+   "categoria": "Laboratori",
+   "id": "a78",
+   "testo_completo": true
+  },
+  "a16": {
+   "titolo": "Penmentor – Claude marks up your handwritten math like a teacher",
+   "link": "https://github.com/AbdullahAlhariri/penmentor",
+   "data": "2026-10-20T15:10:54+00:00",
+   "testo": "A maths mentor at the tip of your pen. Press a key while you work by hand: Claude, Gemini or GPT marks your work on the screen like a teacher with coloured pens, gives you hints instead of answers, and shows the idea as a 3Blue1Brown-style animation. Handwriting in xournal++ → one key → the slip is marked on the page → box the integral → an interactive manim animation. (video; for a repeatable recording the pen is scripted and the model's answer is a fixed example.) I study calculus with a pen tablet in xournal++. I kept screenshotting my work into Claude and reading long answers back, when what I wanted was a teacher looking over my shoulder: circle the mistake, tick what's right, nudge me toward the next step, and show me why. penmentor is that, one key away, on my own Claude subscription. - Hints, not answers. A ladder from a nudge to naming the technique to a faint ghost of the next line: you do the thinking, which is what makes it stick. - Feedback on your own work. The first real mistake circled where you made it, correct lines ticked, later lines that inherit the mistake underlined. The marks stay while you keep writing; Esc clears them. - Practice that makes you recall. Questions on your key steps (answer by typing or by writing), find-the-error drills, \"which technique fits?\". - See it. Box what you want to understand and get an interactive animation made with 3Blue1Brown's own manim: drag the bounds, retype a value, watch Riemann sums close in. - Whole page aware. A small xournal++ plugin shares the page you are on, not just what fits on screen. penmentor runs on the AI command-line agent you already use, on that subscription. Pick the model in Settings; its prefix says which agent answers: Settings lists the agents you have installed. How each one is run and…",
+   "sito": "https://github.com/AbdullahAlhariri/penmentor",
+   "fonte": "Show HN (nuovi progetti)",
+   "tipo": "vetrina",
+   "solo_titolo": false,
+   "categoria": "Strumenti",
+   "id": "a16",
+   "testo_completo": true
+  },
+  "a2": {
+   "titolo": "Kling 4.0",
+   "link": "https://www.producthunt.com/products/kling-4-0-4",
+   "sito": "https://www.producthunt.com/r/p/1285729?app_id=339",
+   "data": "2026-10-19T10:51:17-07:00",
+   "testo": "Fast and affordable AI video for high-frequency creators",
+   "fonte": "Product Hunt (AI)",
+   "tipo": "vetrina",
+   "solo_titolo": false,
+   "categoria": "Strumenti",
+   "id": "a2"
+  },
+  "a56": {
+   "titolo": "VoidAccess – open-source dark web OSINT, from query to a graph",
+   "link": "https://github.com/KatrielMoses/voidaccess",
+   "data": "2026-10-20T14:49:33+00:00",
+   "testo": "Hi HN! Im Katriel, and im a Security Researcher/Enthusiast and in the wave of AI, i wanted to build that next gen of security tooling that surpasses the current tools, and even the paid industries with an open source engine. I built MailAccess as well, which is going to be the best damn email osint tool out there, in another year. But just before building MailAccess i built VoidAccess, because i …",
+   "sito": "https://github.com/KatrielMoses/voidaccess",
+   "fonte": "Show HN – progetti utili (gemme)",
+   "tipo": "vetrina",
+   "solo_titolo": false,
+   "categoria": "Gemme",
+   "id": "a56"
+  },
+  "a8": {
+   "titolo": "Stella",
+   "link": "https://www.producthunt.com/products/stella-5",
+   "sito": "https://www.producthunt.com/r/p/1284915?app_id=339",
+   "data": "2026-10-18T20:42:11-07:00",
+   "testo": "Your emotional wellness AI. A friend to figure it out with.",
+   "fonte": "Product Hunt (AI)",
+   "tipo": "vetrina",
+   "solo_titolo": false,
+   "categoria": "Strumenti",
+   "id": "a8"
+  },
+  "a66": {
+   "titolo": "OpenPoly.Dev is a completely free & open source browser-based CAD tool (no signup and locally runnable so you can use it without internet)",
+   "link": "https://www.reddit.com/r/opensource/comments/1xa6n5d/openpolydev_is_a_completely_free_open_source/",
+   "sito": "",
+   "data": "2026-10-19T19:34:29+00:00",
+   "testo": "Over the last few months, I built OpenPoly.dev , a parametric CAD tool that takes the best of all the CAD incumbents: it's completely free and open source (GPL-3.0) with no signup, no weird licensing or privacy issues, and no bloat. It's my daily driver CAD (along with a small set of dedicated users) for 3D printing and more because it properly innovates on UX, lets you bring your own agent for m…",
+   "fonte": "Reddit r/opensource",
+   "tipo": "community",
+   "solo_titolo": false,
+   "categoria": "Gemme",
+   "id": "a66"
+  }
+ },
+ "fonti": [
+  {
+   "nome": "Product Hunt (AI)",
+   "ok": true,
+   "presi": 15
+  },
+  {
+   "nome": "Show HN (nuovi progetti)",
+   "ok": true,
+   "presi": 2
+  },
+  {
+   "nome": "Nuove app AI (internazionale)",
+   "ok": true,
+   "presi": 10
+  },
+  {
+   "nome": "Nuove app AI (Italia)",
+   "ok": true,
+   "presi": 8
+  },
+  {
+   "nome": "Novità AI da provare (Italia)",
+   "ok": true,
+   "presi": 7
+  },
+  {
+   "nome": "AI sul dispositivo (internazionale)",
+   "ok": true,
+   "presi": 7
+  },
+  {
+   "nome": "AI sul dispositivo (Italia)",
+   "ok": true,
+   "presi": 5
+  },
+  {
+   "nome": "Show HN – progetti utili (gemme)",
+   "ok": true,
+   "presi": 3
+  },
+  {
+   "nome": "Reddit r/selfhosted",
+   "ok": true,
+   "presi": 6
+  },
+  {
+   "nome": "Reddit r/opensource",
+   "ok": true,
+   "presi": 5
+  },
+  {
+   "nome": "Alternative open source (Google News)",
+   "ok": true,
+   "presi": 6
+  },
+  {
+   "nome": "OpenAI",
+   "ok": true,
+   "presi": 2
+  },
+  {
+   "nome": "Google (blog ufficiale)",
+   "ok": true,
+   "presi": 4
+  },
+  {
+   "nome": "Google Gemini (blog)",
+   "ok": true,
+   "presi": 1
+  },
+  {
+   "nome": "Nuove funzioni AI (Google News)",
+   "ok": true,
+   "presi": 12
+  },
+  {
+   "nome": "Anthropic / Claude",
+   "ok": true,
+   "presi": 6
+  },
+  {
+   "nome": "Microsoft Copilot",
+   "ok": true,
+   "presi": 5
+  },
+  {
+   "nome": "Altri assistenti AI (Perplexity, Mistral, Meta AI…)",
+   "ok": true,
+   "presi": 8
+  },
+  {
+   "nome": "The Verge",
+   "ok": true,
+   "presi": 7
+  },
+  {
+   "nome": "TechCrunch",
+   "ok": true,
+   "presi": 12
+  },
+  {
+   "nome": "Ars Technica",
+   "ok": true,
+   "presi": 6
+  },
+  {
+   "nome": "MIT Technology Review",
+   "ok": true,
+   "presi": 5
+  },
+  {
+   "nome": "The Decoder",
+   "ok": true,
+   "presi": 8
+  },
+  {
+   "nome": "TLDR AI (newsletter)",
+   "ok": true,
+   "presi": 1
+  },
+  {
+   "nome": "ANSA",
+   "ok": true,
+   "presi": 6
+  },
+  {
+   "nome": "Wired Italia",
+   "ok": true,
+   "presi": 0
+  },
+  {
+   "nome": "Il Sole 24 Ore Tecnologia",
+   "ok": true,
+   "presi": 2
+  },
+  {
+   "nome": "Punto Informatico",
+   "ok": true,
+   "presi": 6
+  },
+  {
+   "nome": "HDblog",
+   "ok": true,
+   "presi": 7
+  },
+  {
+   "nome": "Reddit",
+   "ok": true,
+   "presi": 8
+  },
+  {
+   "nome": "Reddit (AI locale)",
+   "ok": false,
+   "errore": "HTTP Error 429: Too Many Requests",
+   "presi": 0
+  },
+  {
+   "nome": "Bellingcat (guide e strumenti)",
+   "ok": true,
+   "presi": 0
+  },
+  {
+   "nome": "GIJN (guide per giornalisti investigativi, via Google News)",
+   "ok": true,
+   "presi": 3
+  },
+  {
+   "nome": "OSINT – verifica e fact-checking (internazionale)",
+   "ok": true,
+   "presi": 4
+  },
+  {
+   "nome": "OSINT – nuovi strumenti (internazionale)",
+   "ok": true,
+   "presi": 4
+  },
+  {
+   "nome": "OSINT – strumenti (Italia)",
+   "ok": true,
+   "presi": 2
+  },
+  {
+   "nome": "Reddit (OSINT)",
+   "ok": true,
+   "presi": 3
+  },
+  {
+   "nome": "Hacker News (OSINT)",
+   "ok": true,
+   "presi": 1
+  }
+ ],
+ "visti": [
+  "harness²",
+  "kling40",
+  "call4me",
+  "runinfra",
+  "praex",
+  "asimov1",
+  "thenewbeings",
+  "stella",
+  "stage",
+  "exa30",
+  "lughxtudio",
+  "sorcerer",
+  "intelgpudseries",
+  "beamwin",
+  "quello",
+  "penmentorclaudemarksupyourhandwrittenmathlikeateacher",
+  "qwen34bwiththeaiwritingticstrainedout",
+  "googlehasjoinedamazoninattackingnvidiasstrongholdwithaiappdevelopers",
+  "homebaselaunchesaiassistanttotakeonschedulingandpayrollforsmallbusinessowners",
+  "californialaunchesaitooltomatchjobseekerswithstatejobs",
+  "johndeerelaunchesaiassistanttosimplifyfarmdata",
+  "churnzerolauncheskitanativeaiassistantthatknowscustomersandtheteamandbusinesstha",
+  "homebasesnewaiassistantfillsshiftsforsmallbusinessowners",
+  "webmanualslaunchescomplianceassistantforameliaaidocumentsplatform",
+  "homebaselaunchesaiassistanttofillshiftsandmanagehourlyteamadmin",
+  "youcannowuploadaselfietoamassgeneralbrighamaitoolanditllestimateyourbiologicalag",
+  "freeaitooltoletpubliccheckquakedamagefromphotosresearchcenter",
+  "intelligenzaartificialeècorsaagliinvestimentieilcrealanciaagriai",
+  "arrivaanchenelgorizianosmartriciclalappperlaraccoltadifferenziataconlintelligenz",
+  "laiacteidlgsnn160e1792026diadeguamentolenuovefrontieredellintelligenzaartificial",
+  "fornacarinnovalaradiologianuovarisonanzamagneticaconintelligenzaartificialeespaz",
+  "veneziaabbandonoindiscriminatodeirifiutiarrivalintelligenzaartificialepermiglior",
+  "welfaredigitalelitaliaèprimaineuropamaibenefitrestanonelcassetto",
+  "ciaoevalintelligenzaartificialearrivasulpalcoscenicobarfìfriendscelebra25annidit",
+  "iltenentegeneraledotrieuphongparladellimitedel20perlintelligenzaartificialedeico",
+  "geminiilcopilotaconandroidautochesatuttoditemainitalianonarriva",
+  "ilpluginchatgpttriplicaleiscrizioniastackoverflowforagents",
+  "gemini4argonarrivanellappgeminiilnuovomodellodigoogleperabbonatiaiproeultra",
+  "openailanciachatgptslidescreapresentazionidachatefile",
+  "chatgptintroducelechatbloccatepiùprivacyconpinefaceid",
+  "chatgptnonrispondepiùsolocontestocongpt6arrivanograficipulsantiestrumentidentrol",
+  "dsn7nuovosuvpremiumfrancesedisponibileinitalia",
+  "bestdesktopsforlocalaiin2026labtestedleaderboard",
+  "nvidiartxsparkbringslocalaiagentstowindowslaptops",
+  "hpexpandslocalaiportfoliowithnvidiapoweredsystems",
+  "archieailaunchesbetaofarchieengine13alocalaimodelbuiltforrealestateagents",
+  "readyserverlaunchesreadyserverllmapigivingeveryvpscustomerprivateaiinferenceatno",
+  "amdgaia025bringsseveralimprovementsforlocalaiagentsonryzenai",
+  "theasusproartp14isreadyfortomorrowslocalaierapocketlint",
+  "perplexityportablecomputerportalailocalesullegpunvidiartxprivacyepotenzasenzaclo",
+  "testluceradarcoospotr70",
+  "xboxgamepasssusteamdecksenzawindowsxodusnexuspermettediinstallareigiochidirettam",
+  "quantaramserveperlfm2524ba2bilmodellolocalediliquidai",
+  "honorx80promaxdisponibilescopriprezzienovità",
+  "simcitybutwithpermits",
+  "voidaccessopensourcedarkwebosintfromquerytoagraph",
+  "deathplanswitchaselfhosteddeadmansswitchforsolodevs",
+  "psaimmichv333paperlessngxv333todayisagoodday",
+  "leakedsslcertificatesnohttpsconnectioncanbetrusted",
+  "phpwarnsitplanstorelease2emergencypatchesimminentlyunconfirmedreportclaimsphp2sh",
+  "selfhostingbeersnl",
+  "omnivoreafullyselfhostedandopensourcereaditlaterapp",
+  "top10aiagentsforsmalllocalllmsin2026testedonqwen354b",
+  "soareweallokaywithaireverseengineeredappscallingthemselvesopensource",
+  "kdethedocumentarythestoryoffreesoftwareunderdogs",
+  "openpolydevisacompletelyfreeopensourcebrowserbasedcadtoolnosignupandlocallyrunna",
+  "cuicuitopensourcemealplannerforpeoplewhodontplan",
+  "projectswithstrictmaintainers",
+  "selfhostedaicodingassistant12steps60min2026",
+  "scaledcognitionlaunchesvoicepremiumqualityvoicebuiltforenterprisecxatultralowlat",
+  "microsoftsaicodingagenttestingtoolhasbeenopensourced",
+  "7bestmoneroexchangesin2026swapxmrtobtcusdtzecandsolwithoutanaccount",
+  "plex2shellvulnerabilitypatchplexservernow2026httpstechinsiderorg",
+  "perplexityhasanopensourcealternativenowandimhooked",
+  "franchiseereconcilescashin94lesstimewithchatgptwork",
+  "openaiacquiresorchestrabio",
+  "southeastasiasdigitaleconomytohit368billion",
+  "gethandsfreepersonalizedhelpontheroadwithgemini",
+  "askascientisthowcanaihelpdoctorsspendmoretimeoncollaborativecare",
+  "newgeminitoolsforsmallbusinessowners",
+  "4tipsforstylingoutfitswithgemini",
+  "googlelaunchesgeminiforgovernmentservicesasnewagenticsolution",
+  "googlereleasesgemini4argonitsnewfrontiermodelbenchmarkshowtotryitandpricing",
+  "googlepublicsectorlaunchesgeminiforgovernmentservices",
+  "googlelaunchesgeminiforgovernmentserviceswithhhsamongearlyusers",
+  "zillowshomesearchtoolsnowavailableinclaude",
+  "eventcinemaslaunchesapponchatgpt",
+  "earthcamlaunchesconstructionaiconnectorsdelivering",
+  "chatgptcannowcreateandeditslideswithyourteam",
+  "googlelaunchesgeminiforgovernmentservicesinpreviewwithhumanapprovalgates",
+  "yourandroidautoexperienceisgettingapersonaltouchfromgemini",
+  "onlylisticleslaunchesbrandmentionserviceforvisibilityacrosschatgptgoogleaiovervi",
+  "googlelaunchesgeminiforgovernmentwithmicrosoft365salesforceandservicenowintegrat",
+  "howclaudedesignedproteinbindersagainstscorpionneurotoxins",
+  "hhstomakesolesourceawardtoanthropicaheadofbroaderaicompetition",
+  "firsttakeanthropicsclaudeconvergencemakesshadowaihardertocontain",
+  "claudeopus55vsgpt6astraanthropicsnewaimodelexplained",
+  "whyanthropichasamajorchinaproblemaheadofitsblockbusteripo",
+  "insideanthropiceveryemployeenowmanagesagents",
+  "eliteextendseliteintelligencetoclaudeandmicrosoftcopilotbringingtrustedfinancial",
+  "globalhealthnonprofitpathelevatesitssecurityandprotectsprivatedatawithmicrosoftd",
+  "roommasterintroducesaiconnectorbringinglivehotelpmsdataintochatgptclaudemicrosof",
+  "cascollaborateswithmicrosofttoenablefasterinnovationinpharmaceuticallifesciences",
+  "microsoftoutlinesahybridintelligencestrategyforwindowsai",
+  "spacexsiunifiesxandgrokunderonemonthlysubscription",
+  "usgovernmentbanschineseaiappdeepseekfromfederalitsystems",
+  "chinadefendsdeepseekafterusbanofitsaifromgovernmentsystems",
+  "mistralailaunchesvoxtral3afullvoiceagentstackthatlistensthinksandtalksinrealtime",
+  "usbansuseofchinasdeepseekaitoolsbygovernmentagencies",
+  "perplexitycomputercannowrunfullylocallyonmac",
+  "governmentsregulatorsincreasescrutinyofchinasdeepseek",
+  "deepseekunveilsopensourcetooltohelpcutaioperatingcosts",
+  "judgedismissessamaltmanssisterssexualabuselawsuit",
+  "googlesmorepersonalizedgeminiaiisheadingtoyourcar",
+  "metapausesmusesharingafterresearchersfindaichatsontheweb",
+  "spotifypulled50millionaislopandspamtracksfromitsrecommendations",
+  "adobelightroommobilecannowopenclosedeyesinphotoswithasimpletap",
+  "thefossilfuelcomebackishere",
+  "coreweavesdebtisbecomingthewholeaiindustrysproblem",
+  "anthropicpitchesaisafetybillthatmayblockamodelif50peoplecouldbekilled",
+  "huggingfaceceowarnsthatnetflixsopenaihackdocumentaryisntaccurate",
+  "anthropicscloudpartnershipsaregettingmessy",
+  "spacexsaibusinessisbeatingexpectations",
+  "openaiacquiresstartuporchestrabiotobeefupitsbiotechbusiness",
+  "chatgptnowletsyoulockyourchats",
+  "ericschmidtreportedlyownsabouthalfasmuchofanthropicasceodarioamodei",
+  "metasmusehits10musdownloadsin40daysamilestonereachedbyonly11otherapps",
+  "exnvidiaturnedvcamulyavishwanathphysicalaiisinitslegoera",
+  "plantscanspeakusingelectricitysothisstartupbuiltanaimodeltodeciphertheirlanguage",
+  "figmacofounderdylanfieldthinksmcpisnotaperfectprotocol",
+  "usordersfederalagenciestoremovechinasdeepseekaifromtheirsystems",
+  "metadropsthewordtrainfromitscommercialtosafteraibacklash",
+  "geminispersonalintelligenceiscomingtocars",
+  "ukrainesdronerescueofwoundedsoldierputsmuchtoutedideaintopractice",
+  "metatriestoscapegoatstaffwhodownloadedtorrentstospareexecs",
+  "metamuseexposesuserspersonalandbusinesssecretswhentheyshareconversations",
+  "accusedopenaispyhadfoldercalledsaudigovdocsfbisays",
+  "theneweconomicsofenterpriseai",
+  "aiadoptionbyindustryshowswhatothersectorscanlearn",
+  "avisittosamsungsmassivenewsemiconductorhub",
+  "makingtheinternetbetterforaiagentsmightmakeitworseforeveryoneelse",
+  "wewerelookingatitwrongtheexplosiveclaimthatsupendedtheaiworld",
+  "elevenlabsreleasestwonewspeechtospeechmodelsdesignedforrealtimeaiconversations",
+  "deepseekopensourcestheinferenceenginethatpowersitsfastestandcheapestaimodel",
+  "samaltmanreportedlypitchedthreeendgamesforaisafetyoneinvolvingasinglefirmmelting",
+  "openaisaysgpt6ismuchbetterwithlegacyprogramminglanguagessuchascobolandfortran",
+  "armycybercommandsechotribblewouldturnaiagentsintoselfspreadingcyberweapons",
+  "cloudflaresclairicpullsdatafromdocumentsfasterandcheaperthanllms",
+  "usbansdeepseektechnologyacrossfederalcivilianagencies",
+  "minimaxm31flashshowschinasaipriceracehasnofloorinsight",
+  "mercury3minimaxflash31exa3",
+  "borsalasiachiudeincalopesanotimoriperlintelligenzaartificiale",
+  "lintelligenzaartificialebanditadalpremioandersen",
+  "pratonevosopuntasullintelligenzaartificialepergestirelerisorse",
+  "chipagailprezzodellintelligenzaartificialeilpremiomajellaripartedaqui",
+  "testgorillasurveyireclutatorisonopiùrapidiconlintelligenzaartificialemanonpiùsic",
+  "bregalmilestonesostieneasolvipercrearesoftwareperiservizisulcampobasatosullintel",
+  "gliagentiaisiprendonotroppelibertàlenuoveprotezionidimicrosoft",
+  "sovranitàdigitaleedeuropamicrosoftvuoleoffrirepiùcontrollosucloudeia",
+  "hackerviola100siticonunesercitodiagentiaisenzafarenulla",
+  "perchénadelladicedinonfidarsideimodelliai",
+  "occhialiaidimetasenzafotocamera5usiinaspettati",
+  "bandideepseekintuttiisistemifederalinegliusa",
+  "chatbotaicambianopersonalitàsesiparlaunaltralingua",
+  "clauderimuoveleinserzionievelocizzalasmarttv",
+  "spacexvolaconlairicaviincrescitadel161",
+  "occhichiusiorasuadobelightroommobilecipensalaiadaprirli",
+  "amazoninveste16miliardiingermaniaaberlinounlaboratoriodiroboticaeai",
+  "nvidiageforcertx6060laschedamainstreamarriveràsolonel2029",
+  "amdfsr41lupscalingaiarrivaanchesuxboxseriesxseallyx",
+  "anthropicenscaleinvistanuovoaccordoaida40miliardi",
+  "linterfacciadiwindows11haancoraproblemidicoerenzaemicrosoftlosa",
+  "geminiisthefunniestmodel",
+  "youthoughtthatanthropicwastheonlyfrontierprofitableaicompanythinkagain",
+  "iamalmostcertaintheitsnot___its___aiwritingstylecamefromchinese",
+  "attendedmyfirstclaudehackathonandlearnedthatbuildingagoodproductandwinningahacka",
+  "opus55refusedtodraftwriteanexampleofaparagraphinmythesis",
+  "thatwasthebest4862spentonfablethankyouanthropic",
+  "basedalert",
+  "iswitchedtoclaude",
+  "protectingyourselfagainstlegalthreatscarlosgaio",
+  "findingjoyinthepublicserviceofjournalism",
+  "whatwelearnedbuildingachatbotforlasillavacíasnewsroomarchive",
+  "ncrvoyixandnacsintegratetruageageverificationtechnologyintopointofsalesystems",
+  "nccsdeviceverificationtoolexposesvulnerabilitiesinnigeriasmobileimports",
+  "thisvideodoesntshowavanfullofpoliceuniformsatjantarmantarindelhi",
+  "factcheckfakephotoshowsnetanyahuinfrontofwhiteboardplaninvolvingspaingeneratedwi",
+  "aidoxingtoolshowonlinesurveillancetechnologyhaschanged",
+  "molfarintelligenceandukbasedin2willjointlyanalyzeinformationthreatsforgovernment",
+  "albertasnubsseparatistsasmajorityvotestoremainpartofcanadadailysabah",
+  "satelliteimageshowshowyandexslargestdatacenterinkalugalooksnow",
+  "phishingaziendaleperchéidipendentiformaticliccanocomunque",
+  "sabotaggioastarlinktrabulgariaepoloniaifattileattribuzionieilrischioeuropeo",
+  "tiktokcomments",
+  "cansomeoneguidemeonthelimitationsofosintandthetools",
+  "howtolocatescotlandcourtrolls",
+  "showhnvoidaccessopensourcedarkwebosintfromquerytoagraph"
+ ],
+ "audio": "audio/2026-10-21.mp3",
+ "durata": 110.2
+}

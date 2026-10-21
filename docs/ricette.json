@@ -1,0 +1,60 @@
+[
+ {
+  "titolo": "Preparare una candidatura aziendale e superare il colloquio di lavoro",
+  "obiettivo": "Trovare informazioni chiave su un'azienda, adattare il CV all'annuncio e allenarsi con un colloquio simulato basato sull'AI.",
+  "ambito": "Lavoro",
+  "ingredienti": [
+   {
+    "nome": "Perplexity",
+    "descrizione": "Motore di ricerca con AI che risponde citando le fonti: utile per orientarsi velocemente su un argomento.",
+    "piattaforme": [
+     "Browser",
+     "Android",
+     "Windows"
+    ],
+    "costo": "Gratis con limiti",
+    "url": "https://www.perplexity.ai/",
+    "locale": false,
+    "ruolo": "Ricercare storia, valori e novità recenti sull'azienda a cui ti candidi."
+   },
+   {
+    "nome": "RoleFit",
+    "descrizione": "Personalizza automaticamente il tuo curriculum e la lettera di presentazione per ogni offerta di lavoro, partendo da zero o da modelli esistenti.",
+    "piattaforme": [
+     "Browser"
+    ],
+    "costo": "Non indicato",
+    "url": "https://www.producthunt.com/products/rolefit",
+    "locale": false,
+    "ruolo": "Adattare automaticamente il tuo CV e la lettera di presentazione all'offerta di lavoro."
+   },
+   {
+    "nome": "Toby",
+    "descrizione": "Offre simulazioni realistiche di colloqui di lavoro con un responsabile delle assunzioni AI, per prepararsi al meglio.",
+    "piattaforme": [
+     "Browser"
+    ],
+    "costo": "Non indicato",
+    "url": "https://www.producthunt.com/products/toby-5",
+    "locale": false,
+    "ruolo": "Simulare il colloquio di selezione con risposte e domande personalizzate."
+   }
+  ],
+  "passi": [
+   "Apri Perplexity sul PC o smartphone e cerca il profilo dell'azienda e i progetti recenti per raccogliere spunti utili.",
+   "Accedi a RoleFit dal browser del PC e inserisci il tuo CV attuale insieme al testo dell'annuncio di lavoro.",
+   "Scarica il CV e la lettera di presentazione rielaborati da RoleFit in base ai requisiti dell'annuncio.",
+   "Apri Toby nel browser e avvia la simulazione del colloquio indicando la posizione lavorativa per cui ti candidi.",
+   "Rispondi alle domande del reclutatore AI per testare la tua preparazione e perfezionare le risposte."
+  ],
+  "tempo": "25 minuti la prima volta",
+  "livello": "Facile",
+  "costo": "Gratis con limiti",
+  "perche_conviene": "Ti permette di inviare candidature mirate in pochi minuti e di arrivare al colloquio reale sicuro e ben preparato.",
+  "tutto_in_locale": false,
+  "id": "r1",
+  "giorno": "2026-10-21",
+  "generato": "2026-10-21T06:00:11+00:00",
+  "modello": "gemini-3.6-flash"
+ }
+]

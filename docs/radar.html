@@ -1,0 +1,320 @@
+<!doctype html><html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>AI News Digest — Radar: dove sta andando l&#x27;AI</title><meta name="description" content="I temi dell&#x27;AI che crescono e calano, settimana per settimana."><meta name="theme-color" content="#c2410c"><link rel="manifest" href="manifest.webmanifest"><link rel="icon" type="image/png" href="icona-192.png"><link rel="apple-touch-icon" href="apple-touch-icon.png"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="AI News"><meta property="og:type" content="article"><meta property="og:site_name" content="AI News Digest"><meta property="og:title" content="AI News Digest — Radar: dove sta andando l&#x27;AI"><meta property="og:description" content="I temi dell&#x27;AI che crescono e calano, settimana per settimana."><meta property="og:image" content="https://fulgei-a11y.github.io/Intelligenza-Ai/anteprima.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:locale" content="it_IT"><meta name="twitter:card" content="summary_large_image"><meta property="og:url" content="https://fulgei-a11y.github.io/Intelligenza-Ai/radar.html"><style>
+:root{--bg:#f7f5f0;--card:#fff;--ink:#1d1d1f;--muted:#6b6b70;--line:#e4e0d8;--accent:#c2410c;--chip:#f1ede4}
+@media (prefers-color-scheme:dark){:root{--bg:#141413;--card:#1e1e1c;--ink:#ecebe6;--muted:#9c9a93;--line:#2e2d2a;--accent:#fb923c;--chip:#2a2926}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.6 Georgia,'Iowan Old Style',serif}
+main{max-width:720px;margin:0 auto;padding:28px 16px 60px}
+.top{font:600 13px/1.4 system-ui,sans-serif;letter-spacing:.08em;text-transform:uppercase;color:var(--accent)}
+h1{font-size:30px;line-height:1.2;margin:6px 0 12px}h2{font:700 14px/1.3 system-ui,sans-serif;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin:40px 0 12px;padding-bottom:8px;border-bottom:1px solid var(--line)}
+.lead{font-size:19px;color:var(--ink)}.meta{font:13px system-ui,sans-serif;color:var(--muted)}
+article{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px 18px;margin:12px 0}
+article h3{margin:0 0 6px;font-size:19px;line-height:1.3}article p{margin:6px 0}
+.why{font-size:15px;color:var(--muted)}.why b{color:var(--accent);font-weight:600}
+.src{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
+.src a{font:12px system-ui,sans-serif;background:var(--chip);color:var(--ink);text-decoration:none;padding:4px 9px;border-radius:999px;max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.src a:hover{color:var(--accent)}
+.tryzone{background:var(--chip);border-radius:16px;padding:4px 16px 12px;margin:28px -4px 0}
+.tryzone h2{color:var(--accent);border-bottom:none;margin:18px 0 0;font-size:16px}
+.sub{font:14px system-ui,sans-serif;color:var(--muted);margin:4px 0 8px}
+.try{border-left:3px solid var(--accent)}.try ol{margin:4px 0 0;padding-left:22px}.try li{margin:3px 0}
+.tags{display:flex;gap:6px;flex-wrap:wrap;align-items:center;margin-bottom:6px}.tags .rel{margin-bottom:0}
+.tag{font:600 11px system-ui,sans-serif;letter-spacing:.03em;text-transform:uppercase;color:var(--accent);border:1px solid var(--accent);border-radius:999px;padding:2px 8px}
+.rel{display:inline-block;font:600 11px system-ui,sans-serif;letter-spacing:.03em;text-transform:uppercase;color:var(--muted);background:var(--chip);border-radius:999px;padding:2px 8px;margin-bottom:6px}
+.rel.ok{color:#15803d;background:#dcfce7}.rel.warn{color:#b45309;background:#fef3c7}
+@media (prefers-color-scheme:dark){.rel.ok{color:#86efac;background:#14532d}.rel.warn{color:#fcd34d;background:#451a03}}
+.legenda{font:13px system-ui,sans-serif;color:var(--muted)}
+.arch a{color:var(--ink)}.arch li{margin:4px 0}
+details{margin-top:40px;font:14px system-ui,sans-serif;color:var(--muted)}
+.ko{color:#dc2626}
+.share{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 4px}
+.share button{font:600 14px system-ui,sans-serif;color:var(--ink);background:var(--card);border:1px solid var(--line);border-radius:999px;padding:9px 14px;cursor:pointer}
+.share button:active{transform:scale(.97)}
+.toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%);background:var(--ink);color:var(--bg);font:14px system-ui,sans-serif;padding:10px 16px;border-radius:999px}
+@media print{
+  :root{--bg:#fff;--card:#fff;--ink:#111;--muted:#555;--line:#ccc;--accent:#b4410c;--chip:#f3f3f3}
+  body{font-size:12pt}main{max-width:none;padding:0}
+  .share,.arch,details,.toast{display:none!important}
+  h2:has(+ .arch){display:none}
+  article,.tryzone{break-inside:avoid;box-shadow:none}
+  .src a{border:1px solid #ccc}
+  .src a::after{content:" (" attr(href) ")";font-size:8pt;color:#666;white-space:normal;word-break:break-all}
+  .src a{white-space:normal;overflow:visible}
+  @page{margin:14mm}
+}
+
+.when{font:13px system-ui,sans-serif;color:var(--muted);margin:-4px 0 10px}
+.rel.soft{color:var(--muted);background:transparent;border:1px dashed var(--line)}
+.listen{display:flex;align-items:center;gap:10px;flex-wrap:wrap;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:10px 14px;margin:14px 0 4px}
+.listen span{font:600 14px system-ui,sans-serif}.listen audio{width:100%;height:40px}
+.week{display:block;text-decoration:none;color:var(--ink);background:var(--card);border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:12px;padding:12px 16px;margin:18px 0 0}
+.week small{display:block;font:600 12px system-ui,sans-serif;letter-spacing:.06em;text-transform:uppercase;color:var(--accent)}
+.week b{font-size:17px}
+.glossario dl{margin:0}.glossario dt{font-weight:700;margin-top:10px}.glossario dd{margin:2px 0 0;color:var(--muted);font-size:15px}
+.cerca{width:100%;font:16px system-ui,sans-serif;padding:11px 14px;border:1px solid var(--line);border-radius:12px;background:var(--card);color:var(--ink);margin:4px 0 10px}
+.risultati{list-style:none;padding:0;margin:0 0 14px}.risultati li{padding:8px 0;border-bottom:1px solid var(--line)}
+.risultati a{color:var(--ink);text-decoration:none}.risultati small{display:block;font:12px system-ui,sans-serif;color:var(--muted)}
+.arch{padding-left:0;list-style:none}.arch small{font:12px system-ui,sans-serif;color:var(--muted);margin-right:6px}
+.etichette dt{display:inline-block;margin-top:8px}.etichette dd{margin:2px 0 0}
+article:target,li:target{outline:2px solid var(--accent)}
+.prova{display:inline-block;margin:8px 8px 0 0;font:700 14px system-ui,sans-serif;color:#fff;background:var(--accent);text-decoration:none;padding:8px 16px;border-radius:999px}
+.prova:active{transform:scale(.97)}
+@media (prefers-color-scheme:dark){.prova{color:#1d1d1f}}
+.brevi{list-style:none;padding:0;margin:0}.brevi li{padding:10px 0;border-bottom:1px solid var(--line);font-size:16px}
+.brevi .src{display:inline-flex;margin:4px 0 0}
+.dove{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin:2px 0 8px;font:13px system-ui,sans-serif;color:var(--muted)}
+.dove b{font-weight:600;margin-right:2px}
+.pf{font:600 12px system-ui,sans-serif;border-radius:6px;padding:3px 8px;background:var(--chip);color:var(--ink)}
+.pf.si{background:#dcfce7;color:#15803d}.pf.solo{background:#f3f4f6;color:#6b7280;border:1px dashed #9ca3af}
+.pf.locale{background:#e0e7ff;color:#3730a3}
+.pf.ignota{background:transparent;color:var(--muted);border:1px dashed var(--line);font-weight:500}
+.verificato{font:500 11px system-ui,sans-serif;color:var(--muted)}
+@media (prefers-color-scheme:dark){.pf.si{background:#14532d;color:#86efac}.pf.solo{background:transparent;color:#9c9a93}
+.pf.locale{background:#1e1b4b;color:#c7d2fe}}
+.osint{background:var(--chip);border-radius:16px;padding:4px 16px 12px;margin:28px -4px 0;border-left:4px solid #0f766e}
+.osint h2{color:#0f766e;border-bottom:none;margin:18px 0 0;font-size:16px}.osint .try{border-left-color:#0f766e}
+@media (prefers-color-scheme:dark){.osint h2{color:#5eead4}.osint{border-left-color:#5eead4}.osint .try{border-left-color:#5eead4}}
+.metodo{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:4px 18px 10px;margin:18px 0}
+.metodo h2{border:0;margin:14px 0 6px;color:var(--ink)}.metodo ol{margin:0;padding-left:20px;font-size:15px}.metodo li{margin:6px 0}
+.griglia{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:8px}
+.griglia a{display:flex;flex-direction:column;gap:2px;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:10px 12px;
+  color:var(--ink);text-decoration:none;font:600 14px/1.3 system-ui,sans-serif}
+.griglia a span{font-size:20px}.griglia small{font-weight:400;color:var(--muted);font-size:12px}
+.griglia a.nuovi{border-color:var(--accent)}
+.cat{margin-top:8px}.consiglio{font:14px system-ui,sans-serif;color:var(--muted);margin:0 0 6px}
+.riga{position:relative;padding:12px 52px 12px 0;border-bottom:1px solid var(--line);background:none;border-radius:0;margin:0;border-left:0;border-right:0;border-top:0}
+.riga h3{font-size:17px;margin:0 0 2px}.riga h3 a{color:var(--ink);text-decoration:none}
+.riga p{margin:2px 0;font-size:15px}.riga .dove{margin:6px 0 0}.riga .stella{top:10px;right:0}
+.riga .nota{font:13px system-ui,sans-serif;color:#b45309}
+.costo{font:600 12px system-ui,sans-serif;border-radius:6px;padding:3px 8px}
+.costo.gratis{background:#dcfce7;color:#15803d}.costo.limiti{background:#fef3c7;color:#92400e}.costo.pagamento{background:#fee2e2;color:#991b1b}
+@media (prefers-color-scheme:dark){.costo.gratis{background:#14532d;color:#86efac}.costo.limiti{background:#451a03;color:#fcd34d}.costo.pagamento{background:#450a0a;color:#fca5a5}}
+[hidden]{display:none!important}
+.bollino{display:inline-block;min-width:18px;padding:1px 5px;margin-left:2px;border-radius:999px;background:var(--accent);
+  color:#fff;font:700 11px/16px system-ui,sans-serif;text-align:center;vertical-align:1px}
+.letti-bar{display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap;margin:6px 0 10px;
+  font:600 14px system-ui,sans-serif}
+.letti-bar button,.daleggere button{font:600 13px system-ui,sans-serif;border:1px solid var(--line);background:var(--card);
+  color:var(--ink);border-radius:999px;padding:6px 12px;cursor:pointer}
+.arrivo.nonletto{border-left-color:var(--accent);box-shadow:0 0 0 2px var(--accent) inset}
+.daleggere{display:flex;align-items:center;gap:10px;margin:0 44px 6px 0;font:700 12px system-ui,sans-serif;color:var(--accent)}
+.daleggere button{padding:3px 10px;font-size:12px}
+.radar-asse{display:flex;justify-content:space-between;font:11px system-ui,sans-serif;color:var(--muted);margin:14px 0 4px 40%}
+.tema{border-bottom:1px solid var(--line);padding:2px 0}
+.tema summary{display:grid;grid-template-columns:38% 1fr;grid-template-rows:auto auto;column-gap:10px;align-items:end;cursor:pointer;list-style:none;padding:8px 0}
+.tema summary::-webkit-details-marker{display:none}
+.tema .nome{font:600 15px system-ui,sans-serif;grid-row:span 2;align-self:center}
+.tema .barre{display:flex;align-items:flex-end;gap:3px;height:42px}
+.tema .barre i{flex:1;background:var(--line);border-radius:3px 3px 0 0;min-width:6px}
+.tema .barre i.ultima{background:var(--accent)}
+.tema .trend,.tema .num{font:12px system-ui,sans-serif;color:var(--muted)}
+.tema .trend{grid-column:2}.trend.tsu{color:#15803d;font-weight:700}.trend.tgiu{color:#b91c1c}.trend.tnuovo{color:#7c3aed;font-weight:700}
+.tema .num{grid-column:2;justify-self:end;margin-top:-17px}
+.tema ul{margin:0 0 10px;padding-left:18px;font-size:15px}.tema li small{color:var(--muted);font:12px system-ui,sans-serif}
+.perte{box-shadow:0 0 0 2px #eab308 inset}.rel.perte-b{color:#854d0e;background:#fef9c3}
+@media (prefers-color-scheme:dark){.rel.perte-b{color:#fde68a;background:#422006}}
+.gusti{font-weight:600}
+.legenda{margin:6px 0 14px}.legenda dt{margin-top:12px;font-weight:600}.legenda dd{margin:3px 0 0;color:var(--muted);font-size:15px}
+.guida{scroll-margin-top:60px}.guida h3{font-size:15px;margin:16px 0 0;text-transform:uppercase;letter-spacing:.04em;color:var(--muted)}
+.ricetta .ingredienti{padding-left:18px;margin:4px 0}.ricetta .ingredienti li{margin:6px 0;font-size:15px}
+.ricetta .ingredienti a{color:var(--ink)}.ricetta .ingredienti .pf{margin-left:4px}
+.provata{font:600 13px system-ui,sans-serif;border:1px solid var(--line);background:var(--card);color:var(--ink);
+  border-radius:999px;padding:7px 14px;cursor:pointer;margin-top:10px}
+.ricetta.fatta{opacity:.8}.ricetta.fatta .provata{background:#dcfce7;color:#15803d;border-color:#86efac}
+.cassetta-indice{display:flex;flex-wrap:wrap;gap:6px;margin:14px 0}
+.cassetta-indice a{font:600 13px system-ui,sans-serif;color:var(--ink);background:var(--card);border:1px solid var(--line);border-radius:999px;padding:6px 12px;text-decoration:none}
+.osint .sub a{color:inherit}
+.osint.nuovi{border-left-color:var(--accent)}.osint.nuovi h2{color:var(--accent)}
+.osint .quando a{color:inherit}.osint details.altri{margin-top:10px;font:14px system-ui,sans-serif;color:var(--muted)}
+.osint.mia h3 a{color:var(--ink);text-decoration:none}.osint.mia{border-left-color:#eab308}.osint.mia h2{color:#a16207}
+@media (prefers-color-scheme:dark){.osint.mia h2{color:#facc15}}
+.osint .quando{font:12px system-ui,sans-serif;color:var(--muted);margin:0 0 4px}.osint .vuoto{font:14px system-ui,sans-serif;color:var(--muted)}
+.menu{display:flex;gap:4px;overflow-x:auto;margin:-12px -16px 18px;padding:10px 16px;border-bottom:1px solid var(--line);
+  position:sticky;top:0;background:var(--bg);z-index:5;scrollbar-width:none}
+.menu::-webkit-scrollbar{display:none}
+.menu a{flex:none;font:600 14px system-ui,sans-serif;color:var(--muted);text-decoration:none;padding:7px 11px;border-radius:999px}
+.menu a[aria-current]{color:var(--ink);background:var(--chip)}
+.when a{color:inherit}.agg.vuota{border-style:dashed;border-width:1px}
+.agg h2{margin-top:22px}.agg .quando,.try .quando{font:12px system-ui,sans-serif;color:var(--muted);margin:0 0 4px}
+.brevi small{font:12px system-ui,sans-serif;color:var(--muted)}
+.gemme{background:var(--chip);border-radius:16px;padding:4px 16px 12px;margin:28px -4px 0;border-left:4px solid #7c3aed}
+.gemme h2{color:#7c3aed;border-bottom:none;margin:18px 0 0;font-size:16px}.gemme .try{border-left-color:#7c3aed}
+.tag.server{color:#7c3aed;border-color:#7c3aed}
+@media (prefers-color-scheme:dark){.gemme h2,.tag.server{color:#c4b5fd;border-color:#c4b5fd}.gemme,.gemme .try{border-left-color:#c4b5fd}}
+.agg{border:2px solid var(--accent);border-radius:16px;padding:6px 14px 10px;margin:22px -4px 0}
+.agg .tryzone{margin:12px -10px 0}
+.agg-top{font:700 15px system-ui,sans-serif;color:var(--accent);margin:10px 0 2px}
+.agg-top.mattino{margin-top:30px;padding-top:12px;border-top:1px solid var(--line)}
+article{position:relative}article .tags{padding-right:40px}
+.stella{position:absolute;top:10px;right:10px;width:38px;height:38px;border-radius:50%;border:1px solid var(--line);background:var(--card);color:var(--muted);font-size:20px;line-height:1;cursor:pointer}
+.stella[aria-pressed="true"]{color:#eab308;border-color:#eab308;background:#fef9c3}
+@media (prefers-color-scheme:dark){.stella[aria-pressed="true"]{background:#422006}}
+.vaipref{font:600 14px system-ui,sans-serif;color:var(--ink);background:var(--card);border:1px solid var(--line);border-radius:999px;padding:9px 14px;text-decoration:none}
+.pref article h3 a{color:var(--ink)}.pref .vuoto{font:15px system-ui,sans-serif;color:var(--muted)}
+.pref .quando{font:12px system-ui,sans-serif;color:var(--muted);margin:0 0 4px}
+.togli{font:600 13px system-ui,sans-serif;color:var(--muted);background:none;border:1px solid var(--line);border-radius:999px;padding:5px 12px;cursor:pointer;margin-top:8px}
+.filtri{display:flex;gap:6px;flex-wrap:wrap;margin:8px 0}.filtri button{font:600 13px system-ui,sans-serif;border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:999px;padding:6px 12px;cursor:pointer}
+.filtri button[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:#fff}
+@media print{.osint{break-inside:auto}}
+@media print{.menu{display:none!important}}
+@media print{.listen,.week,.cerca,.risultati,.glossario,.prova,.stella,.vaipref,.togli,.filtri{display:none!important}}
+</style></head><body><main><nav class="menu" aria-label="Sezioni del sito"><a href="index.html">📰 Oggi</a><a href="preferiti.html">⭐ Preferiti <span id="nPref"></span></a><a href="cassetta-osint.html">🧰 OSINT <span id="nOsint" class="bollino" hidden></span></a><a href="radar.html" aria-current=page>🧭 Radar</a><a href="ricette.html">🍳 Ricette</a><a href="settimana/2026-10-18.html">📅 Settimana</a><a href="#archivio">🗂️ Archivio</a><a href="guida.html">ℹ️ Guida</a></nav><p class="top">AI News Digest · Radar</p><h1>🧭 Dove sta andando l'AI</h1><p class="lead">Ogni scheda del sito ha uno o due temi. Il radar li conta settimana per settimana: si vede cosa cresce, cosa si spegne e cosa è appena comparso.</p><p class="meta">Ultime 8 settimane · 13 giorni di edizioni nell'archivio. Il radar diventa più preciso con il passare delle settimane.</p><div class="radar-asse"><span>31 ago</span><span>14 set</span><span>28 set</span><span>12 ott</span></div><section class="radar"><details class="tema"><summary><span class="nome">Assistenti e chatbot</span><span class="barre"><i style="height:4px" title="0"></i><i style="height:4px" title="0"></i><i style="height:4px" title="0"></i><i style="height:4px" title="0"></i><i style="height:4px" title="0"></i><i style="height:8px" title="8"></i><i style="height:40px" title="39"></i><i style="height:12px" title="12" class=ultima></i></span><span class="trend tsu">↑ in crescita</span><span class="num">59 in 4 sett.</span></summary><ul><li><a href="giorni/2026-10-21.html#p1">Penmentor</a> <small>21 ott</small></li><li><a href="giorni/2026-10-21.html#p4">Stella</a> <small>21 ott</small></li><li><a href="giorni/2026-10-21.html#n1">Gemini porta la Personal Intelligence su Android Auto</a> <small>21 ott</small></li><li><a href="giorni/2026-10-20.html#p1">Tolan</a> <small>20 ott</small></li><li><a href="giorni/2026-10-20.html#n1">Controllo creativo e revisione passo-passo per slide e video in Notebook</a> <small>20 ott</small></li><li><a href="giorni/2026-10-20.html#n2">Prova virtuale di capi d&#x27;abbigliamento combinando foto personali e vestiti</a> <small>20 ott</small></li></ul></details><details class="tema"><summary><span class="nome">Lavoro e produttività</span><span class="barre"><i style="height:4px" title="0"></i><i style="height:4px" title="0"></i><i style="height:4px" title="0"></i><i style="height:4px" title="0"></i><i style="height:4px" title="0"></i><i style="height:4px" title="4"></i><i style="height:22px" title="21"></i><i style="height:4px" title="1" class=ultima></i></span><span class="trend tsu">↑ in crescita</span><span class="num">26 in 4 sett.</span></summary><ul><li><a href="giorni/2026-10-20.html#u1n2">Arrivano strumenti dedicati a grafica del brand e gestione finanziaria per piccole attività</a> <small>20 ott</small></li><li><a href="giorni/2026-10-18.html#p3">GBrain Tools</a> <small>18 ott</small></li><li><a href="giorni/2026-10-16.html#p1">NVIDIA Nemotron 3.5 Bolt</a> <small>16 ott</small></li><li><a href="giorni/2026-10-15.html#n1">Disponibile per sviluppatori e abbonati Google AI Ultra</a> <small>15 ott</small></li><li><a href="giorni/2026-10-15.html#n6">Dipendente OpenAI arrestato per spionaggio</a> <small>15 ott</small></li><li><a href="giorni/2026-10-15.html#u1p3">siliXon</a> <small>15 ott</small></li></ul></details><details class="tema"><summary><span class="nome">Scrittura e documenti</span><span class="barre"><i style="height:4px" title="0"></i><i style="height:4px" title="0"></i><i style="height:4px" title="0"></i><i style="height:4px" title="0"></i><i style="height:4px" title="0"></i><i style="height:7px" title="7"></i><i style="height:17px" title="17"></i><i style="height:4px" title="3" class=ultima></i></span><span class="trend tsu">↑ in crescita</span><span class="num">27 in 4 sett.</span></summary><ul><li><a href="giorni/2026-10-21.html#p1">Penmentor</a> <small>21 ott</small></li><li><a href="giorni/2026-10-21.html#n1">Gemini porta la Personal Intelligence su Android Auto</a> <small>21 ott</small></li><li><a href="giorni/2026-10-20.html#n1">Controllo creativo e revisione passo-passo per slide e video in Notebook</a> <small>20 ott</small></li><li><a href="giorni/2026-10-17.html#p2">Dottr</a> <small>17 ott</small></li><li><a href="giorni/2026-10-17.html#n1">Nuove funzioni per lo studio guidato e quiz personalizzati</a> <small>17 ott</small></li><li><a href="giorni/2026-10-16.html#p2">Amazon Bee (dispositivi indossabili)</a> <small>16 ott</small></li></ul></details><details class="tema"><summary><span class="nome">Agenti AI</span><span class="barre"><i style="height:4px" title="0"></i><i style="height:4px" title="0"></i><i style="height:4px" title="0"></i><i style="height:4px" title="0"></i><i style="height:4px" title="0"></i><i style="height:5px" title="5"></i><i style="height:17px" title="17"></i><i style="height:4px" title="2" class=ultima></i></span><span class="trend tsu">↑ in crescita</span><span class="num">24 in 4 sett.</span></summary><ul><li><a href="giorni/2026-10-21.html#p2">call4me</a> <small>21 ott</small></li><li><a href="giorni/2026-10-19.html#u1p1">Beam.win</a> <small>19 ott</small></li><li><a href="giorni/2026-10-18.html#p3">GBrain Tools</a> <small>18 ott</small></li><li><a href="giorni/2026-10-17.html#u1n2">I grandi portali web bloccano gli agenti AI autonomi</a> <small>17 ott</small></li><li><a href="giorni/2026-10-16.html#p1">NVIDIA Nemotron 3.5 Bolt</a> <small>16 ott</small></li><li><a href="giorni/2026-10-16.html#p5">Meta Muse Spark Open</a> <small>16 ott</small></li></ul></details><details class="tema"><summary><span class="nome">Voce e audio</span><span class="barre"><i style="height:4px" title="0"></i><i style="height:4px" title="0"></i><i style="height:4px" title="0"></i><i style="height:4px" title="0"></i><i style="height:4px" title="0"></i><i style="height:4px" title="2"></i><i style="height:14px" title="14"></i><i style="height:5px" title="5" class=ultima></i></span><span class="trend tsu">↑ in crescita</span><span class="num">21 in 4 sett.</span></summary><ul><li><a href="giorni/2026-10-21.html#p2">call4me</a> <small>21 ott</small></li><li><a href="giorni/2026-10-21.html#p3">Kling 4.0</a> <small>21 ott</small></li><li><a href="giorni/2026-10-20.html#o1">Rilevatore di filigrana Meta</a> <small>20 ott</small></li><li><a href="giorni/2026-10-20.html#n3">Kling AI 4.0 introduce audio stereo, clip da 30 secondi e sincronizzazione labiale</a> <small>20 ott</small></li><li><a href="giorni/2026-10-20.html#u1n3">L&#x27;assistente vocale telefona al ristorante per verificare l&#x27;attesa per un tavolo</a> <small>20 ott</small></li><li><a href="giorni/2026-10-18.html#p2">Emochi</a> <small>18 ott</small></li></ul></details><details class="tema"><summary><span class="nome">Foto e immagini</span><span class="barre"><i style="height:4px" title="0"></i><i style="height:4px" title="0"></i><i style="height:4px" title="0"></i><i style="height:4px" title="0"></i><i style="height:4px" title="0"></i><i style="height:5px" title="5"></i><i style="height:12px" title="12"></i><i style="height:6px" title="6" class=ultima></i></span><span class="trend tsu">↑ in crescita</span><span class="num">23 in 4 sett.</span></summary><ul><li><a href="giorni/2026-10-21.html#p3">Kling 4.0</a> <small>21 ott</small></li><li><a href="giorni/2026-10-20.html#o1">Rilevatore di filigrana Meta</a> <small>20 ott</small></li><li><a href="giorni/2026-10-20.html#n2">Prova virtuale di capi d&#x27;abbigliamento combinando foto personali e vestiti</a> <small>20 ott</small></li><li><a href="giorni/2026-10-20.html#n3">Kling AI 4.0 introduce audio stereo, clip da 30 secondi e sincronizzazione labiale</a> <small>20 ott</small></li><li><a href="giorni/2026-10-20.html#u1n1">Riapre gli occhi chiusi nelle foto con un singolo tocco</a> <small>20 ott</small></li><li><a href="giorni/2026-10-20.html#u1n2">Arrivano strumenti dedicati a grafica del brand e gestione finanziaria per piccole attività</a> <small>20 ott</small></li></ul></details><details class="tema"><summary><span class="nome">AI sul dispositivo</span><span class="barre"><i style="height:4px" title="0"></i><i style="height:4px" title="0"></i><i style="height:4px" title="0"></i><i style="height:4px" title="0"></i><i style="height:4px" title="0"></i><i style="height:7px" title="7"></i><i style="height:12px" title="12"></i><i style="height:4px" title="3" class=ultima></i></span><span class="trend tsu">↑ in crescita</span><span class="num">22 in 4 sett.</span></summary><ul><li><a href="giorni/2026-10-21.html#g2">OpenPoly.dev</a> <small>21 ott</small></li><li><a href="giorni/2026-10-20.html#u1n3">L&#x27;assistente vocale telefona al ristorante per verificare l&#x27;attesa per un tavolo</a> <small>20 ott</small></li><li><a href="giorni/2026-10-19.html#u1p2">InsurStaq AI</a> <small>19 ott</small></li><li><a href="giorni/2026-10-17.html#u1p1">Llmspeed</a> <small>17 ott</small></li><li><a href="giorni/2026-10-16.html#p1">NVIDIA Nemotron 3.5 Bolt</a> <small>16 ott</small></li><li><a href="giorni/2026-10-16.html#n3">Windows ottimizzato per i laptop NVIDIA RTX Spark con AI locale</a> <small>16 ott</small></li></ul></details><details class="tema"><summary><span class="nome">Ricerca e informazioni</span><span class="barre"><i style="height:4px" title="0"></i><i style="height:4px" title="0"></i><i style="height:4px" title="0"></i><i style="height:4px" title="0"></i><i style="height:4px" title="0"></i><i style="height:4px" title="0"></i><i style="height:9px" title="9"></i><i style="height:6px" title="6" class=ultima></i></span><span class="trend tnuovo">🆕 appena comparso</span><span class="num">15 in 4 sett.</span></summary><ul><li><a href="giorni/2026-10-21.html#p1">Penmentor</a> <small>21 ott</small></li><li><a href="giorni/2026-10-21.html#g1">VoidAccess</a> <small>21 ott</small></li><li><a href="giorni/2026-10-21.html#n1">Gemini porta la Personal Intelligence su Android Auto</a> <small>21 ott</small></li><li><a href="giorni/2026-10-20.html#n4">Falsi annunci di Claude su Google e Bing tramite la tecnica Adception</a> <small>20 ott</small></li><li><a href="giorni/2026-10-20.html#u1n4">Meta sospende la condivisione chat di Muse per una falla di riservatezza</a> <small>20 ott</small></li><li><a href="giorni/2026-10-19.html#u1p2">InsurStaq AI</a> <small>19 ott</small></li></ul></details><details class="tema"><summary><span class="nome">Privacy e sicurezza</span><span class="barre"><i style="height:4px" title="0"></i><i style="height:4px" title="0"></i><i style="height:4px" title="0"></i><i style="height:4px" title="0"></i><i style="height:4px" title="0"></i><i style="height:4px" title="0"></i><i style="height:11px" title="11"></i><i style="height:4px" title="4" class=ultima></i></span><span class="trend tnuovo">🆕 appena comparso</span><span class="num">15 in 4 sett.</span></summary><ul><li><a href="giorni/2026-10-20.html#n5">Fuga di credenziali API sulla piattaforma per programmatori OpenCode</a> <small>20 ott</small></li><li><a href="giorni/2026-10-20.html#u1n4">Meta sospende la condivisione chat di Muse per una falla di riservatezza</a> <small>20 ott</small></li><li><a href="giorni/2026-10-19.html#u1p2">InsurStaq AI</a> <small>19 ott</small></li><li><a href="giorni/2026-10-19.html#u1n1">Nuova protezione antitruffa e contro lo spam su Google Messages</a> <small>19 ott</small></li><li><a href="giorni/2026-10-18.html#p3">GBrain Tools</a> <small>18 ott</small></li><li><a href="giorni/2026-10-17.html#u1n1">Apple vieta su App Store le app per deepfake di nudità</a> <small>17 ott</small></li></ul></details><details class="tema"><summary><span class="nome">Video</span><span class="barre"><i style="height:4px" title="0"></i><i style="height:4px" title="0"></i><i style="height:4px" title="0"></i><i style="height:4px" title="0"></i><i style="height:4px" title="0"></i><i style="height:5px" title="5"></i><i style="height:9px" title="9"></i><i style="height:4px" title="4" class=ultima></i></span><span class="trend tsu">↑ in crescita</span><span class="num">18 in 4 sett.</span></summary><ul><li><a href="giorni/2026-10-21.html#p3">Kling 4.0</a> <small>21 ott</small></li><li><a href="giorni/2026-10-20.html#o1">Rilevatore di filigrana Meta</a> <small>20 ott</small></li><li><a href="giorni/2026-10-20.html#n1">Controllo creativo e revisione passo-passo per slide e video in Notebook</a> <small>20 ott</small></li><li><a href="giorni/2026-10-20.html#n3">Kling AI 4.0 introduce audio stereo, clip da 30 secondi e sincronizzazione labiale</a> <small>20 ott</small></li><li><a href="giorni/2026-10-17.html#p3">Grablo Spot</a> <small>17 ott</small></li><li><a href="giorni/2026-10-17.html#n1">Nuove funzioni per lo studio guidato e quiz personalizzati</a> <small>17 ott</small></li></ul></details><details class="tema"><summary><span class="nome">Regole e leggi</span><span class="barre"><i style="height:4px" title="0"></i><i style="height:4px" title="0"></i><i style="height:4px" title="0"></i><i style="height:4px" title="0"></i><i style="height:4px" title="0"></i><i style="height:4px" title="2"></i><i style="height:7px" title="7"></i><i style="height:4px" title="0" class=ultima></i></span><span class="trend tsu">↑ in crescita</span><span class="num">9 in 4 sett.</span></summary><ul><li><a href="giorni/2026-10-18.html#u1n2">Google ritenuta responsabile in Germania per gli errori delle sue sintesi AI</a> <small>18 ott</small></li><li><a href="giorni/2026-10-17.html#n4">Proposta di legge in Italia sull&#x27;assistenza clienti</a> <small>17 ott</small></li><li><a href="giorni/2026-10-17.html#u1n1">Apple vieta su App Store le app per deepfake di nudità</a> <small>17 ott</small></li><li><a href="giorni/2026-10-15.html#u1n8">L&#x27;UE indaga su Anthropic e OpenAI per l&#x27;AI Act</a> <small>15 ott</small></li><li><a href="giorni/2026-10-14.html#u1n2">Google Play permette di creare app AI private per Android senza pubblicarle</a> <small>14 ott</small></li><li><a href="giorni/2026-10-13.html#p1">Blueprints AI</a> <small>13 ott</small></li></ul></details><details class="tema"><summary><span class="nome">OSINT e verifica</span><span class="barre"><i style="height:4px" title="0"></i><i style="height:4px" title="0"></i><i style="height:4px" title="0"></i><i style="height:4px" title="0"></i><i style="height:4px" title="0"></i><i style="height:4px" title="2"></i><i style="height:5px" title="5"></i><i style="height:4px" title="2" class=ultima></i></span><span class="trend tsu">↑ in crescita</span><span class="num">9 in 4 sett.</span></summary><ul><li><a href="giorni/2026-10-21.html#g1">VoidAccess</a> <small>21 ott</small></li><li><a href="giorni/2026-10-21.html#o1">VoidAccess</a> <small>21 ott</small></li><li><a href="giorni/2026-10-17.html#u1p1">Llmspeed</a> <small>17 ott</small></li><li><a href="giorni/2026-10-16.html#o1">Raven AI</a> <small>16 ott</small></li><li><a href="giorni/2026-10-16.html#n6">La FTC indaga su OpenAI e Anthropic per danni ai consumatori</a> <small>16 ott</small></li><li><a href="giorni/2026-10-13.html#u1o1">Raven</a> <small>13 ott</small></li></ul></details><details class="tema"><summary><span class="nome">Open source e self-hosting</span><span class="barre"><i style="height:4px" title="0"></i><i style="height:4px" title="0"></i><i style="height:4px" title="0"></i><i style="height:4px" title="0"></i><i style="height:4px" title="0"></i><i style="height:4px" title="2"></i><i style="height:4px" title="0"></i><i style="height:4px" title="3" class=ultima></i></span><span class="trend t">→ stabile</span><span class="num">5 in 4 sett.</span></summary><ul><li><a href="giorni/2026-10-21.html#g1">VoidAccess</a> <small>21 ott</small></li><li><a href="giorni/2026-10-21.html#g2">OpenPoly.dev</a> <small>21 ott</small></li><li><a href="giorni/2026-10-21.html#o1">VoidAccess</a> <small>21 ott</small></li><li><a href="giorni/2026-10-11.html#u3p1">OpenPilot</a> <small>11 ott</small></li><li><a href="giorni/2026-10-09.html#n5">OpenAI rilascia oltre 700 paper matematici su GitHub</a> <small>9 ott</small></li></ul></details><details class="tema"><summary><span class="nome">Programmare senza codice</span><span class="barre"><i style="height:4px" title="0"></i><i style="height:4px" title="0"></i><i style="height:4px" title="0"></i><i style="height:4px" title="0"></i><i style="height:4px" title="0"></i><i style="height:4px" title="0"></i><i style="height:4px" title="3"></i><i style="height:4px" title="0" class=ultima></i></span><span class="trend tnuovo">🆕 appena comparso</span><span class="num">3 in 4 sett.</span></summary><ul><li><a href="giorni/2026-10-18.html#p1">TruLata</a> <small>18 ott</small></li><li><a href="giorni/2026-10-16.html#n5">Con il &quot;vibe coding&quot; puoi creare app private per Android</a> <small>16 ott</small></li><li><a href="giorni/2026-10-16.html#n6">La FTC indaga su OpenAI e Anthropic per danni ai consumatori</a> <small>16 ott</small></li></ul></details></section><p class="meta">Come si legge: ogni barra è una settimana (l'ultima, colorata, è quella in corso). «In crescita» e «in calo» confrontano le ultime due settimane con le due precedenti. Tocca un tema per vedere le schede più recenti.</p><h2 id="archivio">Archivio</h2><input class="cerca" type="search" placeholder="🔎 Cerca nelle edizioni passate…" aria-label="Cerca nell'archivio" oninput="cerca(this.value)" onfocus="caricaIndice()"><ul class="risultati" id="risultati" aria-live="polite"></ul><ul class="arch" id="arch"><li><a href="giorni/2026-10-21.html"><small>21 ott</small>Arriva Penmentor: Claude corregge e spiega i compiti di matematica scritti a mano</a></li><li><a href="giorni/2026-10-20.html"><small>20 ott</small>Gemini introduce la co-creazione di slide e video, mentre Kling AI passa alla versione 4.0</a></li><li><a href="giorni/2026-10-19.html"><small>19 ott</small>Google Gemini arriva ufficialmente su iPhone con un&#x27;app dedicata</a></li><li><a href="giorni/2026-10-18.html"><small>18 ott</small>ChatGPT lancia Slides per creare presentazioni dal testo</a></li><li><a href="giorni/2026-10-17.html"><small>17 ott</small>Attie AI permette di creare mini-app con un semplice testo e Gemini Notebook si aggiorna</a></li><li><a href="giorni/2026-10-16.html"><small>16 ott</small>ChatGPT legge le tue schede Chrome, Google ti protegge dalle truffe su Android e arrivano nuovi assistenti AI sul dispositivo</a></li><li><a href="giorni/2026-10-15.html"><small>15 ott</small>AI per la salute personale e novità da Gemini e YouTube Music</a></li><li><a href="giorni/2026-10-14.html"><small>14 ott</small>Pulse Local gestisce le spese sul computer senza cloud e Facebook permette di guidare l&#x27;algoritmo</a></li><li><a href="giorni/2026-10-13.html"><small>13 ott</small>Progetti architettonici con l&#x27;AI e app salute sul dispositivo</a></li><li><a href="giorni/2026-10-12.html"><small>12 ott</small>ChatGPT introduce i grafici interattivi e Claude si aggiorna per l&#x27;ufficio</a></li><li><a href="giorni/2026-10-11.html"><small>11 ott</small>Strumenti AI privati per Mac e smartphone: riordinare file e usare l&#x27;AI offline</a></li><li><a href="giorni/2026-10-10.html"><small>10 ott</small>Ritocco fotografico a parole e assistenti AI integrati nei messaggi</a></li><li><a href="giorni/2026-10-09.html"><small>9 ott</small>Agenti AI al centro: Google lancia, Anthropic detta regole, l&#x27;Italia si adegua</a></li></ul></main><script>const DIGEST={"titolo": "Radar dell'AI", "testo": "", "url": "https://fulgei-a11y.github.io/Intelligenza-Ai/radar.html"};const PREFISSO="";
+function condividi(){
+  const d={title:DIGEST.titolo,text:DIGEST.titolo,url:DIGEST.url||location.href};
+  if(navigator.share){navigator.share(d).catch(()=>{});}
+  else{copia(d.url,null,'Link copiato');}
+}
+function copiaWhatsApp(b){copia(DIGEST.testo,b,'✓ Copiato! Incollalo in WhatsApp');}
+function copia(t,b,msg){
+  const fatto=()=>{if(b){const o=b.textContent;b.textContent=msg;setTimeout(()=>b.textContent=o,2500);}else{alertino(msg);}};
+  if(navigator.clipboard&&window.isSecureContext){navigator.clipboard.writeText(t).then(fatto).catch(()=>vecchio(t,fatto));}
+  else{vecchio(t,fatto);}
+}
+function vecchio(t,fatto){const a=document.createElement('textarea');a.value=t;a.style.position='fixed';a.style.opacity='0';
+  document.body.appendChild(a);a.select();try{document.execCommand('copy');fatto();}catch(e){}a.remove();}
+function alertino(m){const d=document.createElement('div');d.className='toast';d.textContent=m;document.body.appendChild(d);setTimeout(()=>d.remove(),2500);}
+let INDICE=null,attesa=null;
+function caricaIndice(){
+  if(INDICE||attesa)return attesa;
+  attesa=fetch(PREFISSO+'indice.json',{cache:'no-cache'}).then(r=>r.json()).then(j=>{INDICE=j;return j;}).catch(()=>{INDICE=[];});
+  return attesa;
+}
+function norm(s){return (s||'').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'');}
+function cerca(q){
+  const ul=document.getElementById('risultati'),arch=document.getElementById('arch');
+  q=norm(q.trim());
+  if(q.length<2){ul.innerHTML='';arch.style.display='';return;}
+  caricaIndice().then(()=>{
+    const parole=q.split(/\s+/),out=[];
+    for(const g of INDICE||[]){for(const n of g.n){
+      const t=norm(n[1]+' '+n[2]);
+      if(parole.every(p=>t.includes(p)))out.push([g.g,n]);
+    }}
+    arch.style.display='none';
+    ul.innerHTML=out.length?'':'<li>Nessun risultato.</li>';
+    for(const [g,n] of out.slice(0,40)){
+      const li=document.createElement('li'),a=document.createElement('a');
+      a.href=PREFISSO+'giorni/'+g+'.html'+(n[0]?'#'+(typeof n[0]==='number'?'n'+n[0]:n[0]):'');
+      const s=document.createElement('small');s.textContent=g.split('-').reverse().join('/');
+      a.append(s,document.createTextNode(n[1]));li.append(a);ul.append(li);
+    }
+  });
+}
+const CHIAVE_PREF='ai-news-preferiti';
+function leggiPref(){try{return JSON.parse(localStorage.getItem(CHIAVE_PREF)||'[]')||[];}catch(e){return [];}}
+function scriviPref(l){try{localStorage.setItem(CHIAVE_PREF,JSON.stringify(l));return true;}catch(e){alertino('Il browser non permette di salvare i preferiti');return false;}}
+function schedaPref(p,pre){return (pre||'')+(p.pagina||('giorni/'+p.giorno+'.html#'+p.ancora));}
+function quandoPref(p){return (p.tipo||'')+' · '+(p.giorno?p.giorno.split('-').reverse().join('/'):'Cassetta OSINT');}
+function disegnaMieiOsint(){
+  const box=document.getElementById('mieiOsint');if(!box)return;
+  const l=leggiPref().filter(p=>p.tipo==='OSINT');box.innerHTML='';
+  const sez=document.getElementById('mia');if(sez)sez.hidden=!l.length;
+  if(!l.length)return;
+  for(const p of l){
+    const a=document.createElement('article'),h=document.createElement('h3'),t=document.createElement('a'),x=document.createElement('p'),q=document.createElement('p');
+    a.className='try';q.className='quando';q.textContent=quandoPref(p);
+    t.href=schedaPref(p,PREFISSO);t.textContent=p.titolo;h.append(t);x.textContent=p.testo||'';a.append(q,h,x);
+    if(p.link){const pr=document.createElement('a');pr.className='prova';pr.href=p.link;pr.target='_blank';pr.rel='noopener';pr.textContent='Apri ↗';a.append(pr);}
+    box.append(a);
+  }
+}
+function aggiornaStelle(){
+  const ids=new Set(leggiPref().map(p=>p.id));
+  document.querySelectorAll('.stella').forEach(b=>{const on=ids.has(b.dataset.id);b.setAttribute('aria-pressed',on);
+    b.textContent=on?'★':'☆';b.title=on?'Togli dai preferiti':'Aggiungi ai preferiti';b.setAttribute('aria-label',b.title);});
+  const n=document.getElementById('nPref');if(n)n.textContent=ids.size?'('+ids.size+')':'';
+  disegnaMieiOsint();
+}
+function stella(b){
+  let l=leggiPref();const d=b.dataset;
+  if(l.some(p=>p.id===d.id)){l=l.filter(p=>p.id!==d.id);if(scriviPref(l))alertino('Tolto dai preferiti');}
+  else{l.unshift({id:d.id,titolo:d.titolo,testo:d.testo,giorno:d.giorno,ancora:d.ancora,link:d.link,tipo:d.tipo,pagina:d.pagina||'',temi:d.temi||'',
+    salvato:new Date().toISOString().slice(0,10)});if(scriviPref(l))alertino('⭐ Aggiunto ai preferiti');}
+  aggiornaStelle();
+}
+document.addEventListener('DOMContentLoaded',aggiornaStelle);
+function prossimo(){
+  const el=document.getElementById('prossimo');if(!el||!DIGEST.orari||!DIGEST.orari.length)return;
+  const ora=new Date();let p=null;
+  for(let g=0;g<3;g++)for(const o of DIGEST.orari){const [h,m]=o.split(':').map(Number);
+    const d=new Date(Date.UTC(ora.getUTCFullYear(),ora.getUTCMonth(),ora.getUTCDate()+g,h,m));if(d>ora&&(!p||d<p))p=d;}
+  if(!p)return;
+  const roma={timeZone:'Europe/Rome'},giorno=x=>x.toLocaleDateString('it-IT',roma);
+  const domani=new Date(ora.getTime()+864e5);
+  const quale=giorno(p)===giorno(ora)?'oggi':giorno(p)===giorno(domani)?'domani':giorno(p);
+  el.textContent='prossimo aggiornamento '+quale+' verso le '+p.toLocaleTimeString('it-IT',{...roma,hour:'2-digit',minute:'2-digit'});
+}
+document.addEventListener('DOMContentLoaded',prossimo);
+const CHIAVE_LETTI='ai-news-osint-letti';
+function leggiLetti(){try{return new Set(JSON.parse(localStorage.getItem(CHIAVE_LETTI)||'[]'));}catch(e){return new Set();}}
+function scriviLetti(st){try{localStorage.setItem(CHIAVE_LETTI,JSON.stringify([...st]));}catch(e){}}
+function segnaLetto(id){const st=leggiLetti();st.add(id);scriviLetti(st);aggiornaLetti();}
+function segnaTuttiLetti(){const st=leggiLetti();document.querySelectorAll('.arrivo').forEach(a=>st.add(a.dataset.lid));
+  scriviLetti(st);aggiornaLetti();alertino('✓ Tutti segnati come letti');}
+function aggiornaLetti(){
+  const letti=leggiLetti(),box=document.getElementById('arriviNuovi'),vecchi=document.getElementById('arriviLetti');
+  if(box&&vecchi){
+    let nuovi=0,giaLetti=0;
+    document.querySelectorAll('.arrivo').forEach(a=>{
+      const letto=letti.has(a.dataset.lid);a.classList.toggle('nonletto',!letto);
+      let b=a.querySelector('.daleggere');
+      if(!letto&&!b){b=document.createElement('div');b.className='daleggere';
+        b.innerHTML='<span>● Da leggere</span><button type="button">✓ Letto</button>';
+        b.querySelector('button').onclick=()=>segnaLetto(a.dataset.lid);a.prepend(b);
+        a.querySelectorAll('a').forEach(l=>l.addEventListener('click',()=>segnaLetto(a.dataset.lid)));}
+      if(letto&&b)b.remove();
+      if(letto){vecchi.append(a);giaLetti++;}else{box.append(a);nuovi++;}
+    });
+    vecchi.hidden=!giaLetti;vecchi.querySelector('summary').textContent='Già letti ('+giaLetti+')';
+    const t=document.getElementById('nonLetti'),bt=document.getElementById('tuttiLetti');
+    if(t)t.textContent=nuovi?(nuovi===1?'1 da leggere':nuovi+' da leggere'):'Nessuna novità da leggere ✓';
+    if(bt)bt.hidden=!nuovi;
+    const tile=document.querySelector('.griglia a.nuovi small');if(tile)tile.textContent=nuovi?nuovi+' da leggere':'tutto letto';
+    mostraBollino(nuovi);return;
+  }
+  fetch(PREFISSO+'osint-arrivi.json',{cache:'no-cache'}).then(r=>r.ok?r.json():[]).then(ids=>{
+    mostraBollino(ids.filter(id=>!letti.has(id)).length);}).catch(()=>{});
+}
+function mostraBollino(n){const b=document.getElementById('nOsint');if(b){b.hidden=!n;b.textContent=n;}}
+document.addEventListener('DOMContentLoaded',aggiornaLetti);
+// 🎯 Per te: i gusti si ricavano dalle stelline (temi e tipi delle schede salvate), solo su questo dispositivo.
+function gusti(){
+  const g={},prefs=leggiPref();let conTemi=0;
+  for(const p of prefs){if(!p.temi)continue;conTemi++;
+    for(const t of p.temi.split(',').filter(Boolean))g[t]=(g[t]||0)+1;}
+  return conTemi>=3?g:null;
+}
+function perTe(){
+  const g=gusti();if(!g||document.getElementById('lista'))return;
+  const parenti=new Set();
+  document.querySelectorAll('article[data-temi]').forEach(a=>{
+    if(a.dataset.perte)return;
+    const pt=(a.dataset.temi||'').split(',').filter(Boolean).reduce((s,t)=>s+(g[t]||0),0);
+    if(pt>=2){a.dataset.perte=pt;a.classList.add('perte');
+      const tg=a.querySelector('.tags');if(tg){const b=document.createElement('span');b.className='rel perte-b';
+        b.textContent='🎯 Per te';b.title='Simile alle schede che hai salvato con la stellina';tg.prepend(b);}
+      parenti.add(a.parentElement);}
+  });
+  parenti.forEach(par=>{
+    [...par.children].filter(x=>x.tagName==='ARTICLE'&&x.dataset.perte)
+      .sort((a,b)=>a.dataset.perte-b.dataset.perte)          // dal meno al più affine: l'ultimo inserito va in cima
+      .forEach(x=>{const primo=par.querySelector(':scope > article');if(primo!==x)par.insertBefore(x,primo);});
+  });
+}
+function temiPreferiti(){
+  const el=document.getElementById('gusti'),g=gusti();if(!el)return;
+  if(!g){el.textContent='Salva almeno 3 schede con la stellina e il sito imparerà cosa ti interessa (🎯 Per te).';return;}
+  el.textContent='🎯 I tuoi temi: '+Object.entries(g).sort((a,b)=>b[1]-a[1]).slice(0,5).map(x=>x[0]).join(' · ');
+}
+document.addEventListener('DOMContentLoaded',()=>{perTe();temiPreferiti();});
+const CHIAVE_PROVATE='ai-news-ricette-provate';
+function leggiProvate(){try{return new Set(JSON.parse(localStorage.getItem(CHIAVE_PROVATE)||'[]'));}catch(e){return new Set();}}
+function provata(b){const id=b.closest('article').dataset.rid,st=leggiProvate();
+  if(st.has(id))st.delete(id);else st.add(id);
+  try{localStorage.setItem(CHIAVE_PROVATE,JSON.stringify([...st]));}catch(e){}aggiornaProvate();}
+function aggiornaProvate(){const st=leggiProvate(),tutte=document.querySelectorAll('article.ricetta');if(!tutte.length)return;
+  let n=0;tutte.forEach(a=>{const on=st.has(a.dataset.rid);if(on)n++;a.classList.toggle('fatta',on);
+    const b=a.querySelector('.provata');if(b)b.textContent=on?'✓ Provata — tocca per annullare':'✓ L’ho provata';});
+  const el=document.getElementById('provate');if(el)el.textContent='Ne hai provate '+n+' su '+tutte.length+'.';}
+document.addEventListener('DOMContentLoaded',aggiornaProvate);
+addEventListener('pageshow',aggiornaStelle);
+if('serviceWorker' in navigator){addEventListener('load',()=>navigator.serviceWorker.register(PREFISSO+'sw.js').catch(()=>{}));}
+</script></body></html>
