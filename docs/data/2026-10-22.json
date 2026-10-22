@@ -1,0 +1,762 @@
+{
+ "giorno": "2026-10-22",
+ "generato": "2026-10-22T05:47:02+00:00",
+ "modello": "gemini-3.5-flash-lite",
+ "testi_completi": 33,
+ "riassunto": {
+  "titolo_giorno": "Novità di oggi: PrivOS, Intelli for ChatGPT & Claude e altri 3",
+  "in_breve": "PrivOS: Piattaforma self-hosted che integra chat, documenti, gestione attività in stile Kanban e agenti AI operativi. Intelli for ChatGPT & Claude: Permette di gestire chat di WhatsApp, Instagram e del web direttamente all'interno di ChatGPT o Claude.",
+  "citati": [
+   "Claude Duet"
+  ],
+  "da_provare": [
+   {
+    "cosa": "PrivOS",
+    "a_cosa_serve": "Piattaforma self-hosted che integra chat, documenti, gestione attività in stile Kanban e agenti AI operativi.",
+    "per_chi": "Lavoro e tutti i giorni",
+    "ambito": "Organizzazione",
+    "come_iniziare": [],
+    "costo": "Non indicato",
+    "piattaforme": [
+     "Browser"
+    ],
+    "sul_dispositivo": true,
+    "come_sfruttarla": "Gestire dati e flussi di lavoro aziendali mantenendo il controllo completo sui propri server.",
+    "italiano": "Non indicato",
+    "difficolta": "Media",
+    "fonti": [
+     "a2"
+    ],
+    "temi": [
+     "Open source e self-hosting",
+     "Lavoro e produttività",
+     "Agenti AI"
+    ],
+    "affidabilita": "Appena lanciato",
+    "prova": "https://www.producthunt.com/products/privos"
+   },
+   {
+    "cosa": "Intelli for ChatGPT & Claude",
+    "a_cosa_serve": "Permette di gestire chat di WhatsApp, Instagram e del web direttamente all'interno di ChatGPT o Claude.",
+    "per_chi": "Lavoro",
+    "ambito": "Assistenti e chatbot",
+    "come_iniziare": [],
+    "costo": "Non indicato",
+    "piattaforme": [
+     "Browser"
+    ],
+    "sul_dispositivo": false,
+    "come_sfruttarla": "Rispondere ai messaggi dei clienti su più canali social senza cambiare continuamente applicazione.",
+    "italiano": "Non indicato",
+    "difficolta": "Facile",
+    "fonti": [
+     "a5"
+    ],
+    "temi": [
+     "Assistenti e chatbot",
+     "Lavoro e produttività"
+    ],
+    "affidabilita": "Appena lanciato",
+    "prova": "https://www.producthunt.com/products/intelli"
+   },
+   {
+    "cosa": "Woven Video",
+    "a_cosa_serve": "Consente di modificare qualsiasi video tramite chat su una vera timeline per Mac.",
+    "per_chi": "Lavoro e tutti i giorni",
+    "ambito": "Video",
+    "come_iniziare": [],
+    "costo": "Non indicato",
+    "piattaforme": [
+     "Mac"
+    ],
+    "sul_dispositivo": false,
+    "come_sfruttarla": "Modificare video descrivendo le modifiche a parole anziché agire manualmente sui tagli.",
+    "italiano": "Non indicato",
+    "difficolta": "Facile",
+    "fonti": [
+     "a11"
+    ],
+    "temi": [
+     "Video"
+    ],
+    "affidabilita": "Appena lanciato",
+    "prova": "https://www.producthunt.com/products/woven-video"
+   }
+  ],
+  "osint": [],
+  "gemme": [
+   {
+    "cosa": "Permit Pending",
+    "a_cosa_serve": "Un gioco di simulazione cittadina gratuito che si esegue direttamente nel browser, dove vesti i panni di un sindaco eletto.",
+    "per_che_gemma": "Gira interamente nel browser e funziona anche offline dopo la prima visita, salvando i dati sul computer.",
+    "con_ai": "",
+    "piattaforme": [
+     "Browser"
+    ],
+    "self_hosted": false,
+    "costo": "Gratis",
+    "difficolta": "Facile",
+    "temi": [
+     "Open source e self-hosting"
+    ],
+    "fonti": [
+     "a57"
+    ],
+    "affidabilita": "Appena lanciato",
+    "come_iniziare": [],
+    "sul_dispositivo": false,
+    "come_sfruttarla": "",
+    "prova": "https://permit.petercai.com/",
+    "perche_gemma": "",
+    "piattaforme_verificate": true
+   },
+   {
+    "cosa": "Cuicuit",
+    "a_cosa_serve": "Un pianificatore di pasti open source che importa ricette da qualsiasi sito web o social network senza richiedere abbonamenti.",
+    "per_che_gemma": "Unisce ricette da diverse fonti in modo rapido e pulito, senza paywall o funzioni bloccate.",
+    "con_ai": "",
+    "piattaforme": [
+     "Browser"
+    ],
+    "self_hosted": true,
+    "costo": "Gratis",
+    "difficolta": "Facile",
+    "temi": [
+     "Open source e self-hosting"
+    ],
+    "fonti": [
+     "a68"
+    ],
+    "affidabilita": "Da verificare",
+    "come_iniziare": [],
+    "sul_dispositivo": false,
+    "come_sfruttarla": "",
+    "prova": "",
+    "perche_gemma": ""
+   }
+  ],
+  "sezioni": [
+   {
+    "titolo": "Novità negli strumenti che già usi",
+    "notizie": [
+     {
+      "titolo": "Arriva la protezione delle chat con PIN e biometria",
+      "strumento": "ChatGPT",
+      "riassunto": "OpenAI introduce la possibilità di bloccare l'accesso alle conversazioni private tramite codice PIN o riconoscimento biometrico, aumentando la sicurezza sul telefono.",
+      "come_provarla": "",
+      "disponibilita": "Disponibile ora",
+      "fonti": [
+       "a41",
+       "a42"
+      ],
+      "temi": [
+       "AI sul dispositivo",
+       "Assistenti e chatbot",
+       "Privacy e sicurezza"
+      ],
+      "affidabilita": "Da verificare",
+      "solo_titoli": true
+     },
+     {
+      "titolo": "Gemini porta la Personal Intelligence su Android Auto",
+      "strumento": "Gemini",
+      "riassunto": "L'assistente di Google in auto può ora attingere ai dati personali da Gmail, Agenda, Foto e Maps per offrire risposte contestuali e indicazioni di guida personalizzate.",
+      "come_provarla": "Verifica l'aggiornamento dell'applicazione Google e di Android Auto sul tuo smartphone.",
+      "disponibilita": "Disponibile ora",
+      "fonti": [
+       "a141",
+       "a167"
+      ],
+      "temi": [
+       "Assistenti e chatbot",
+       "Foto e immagini",
+       "Lavoro e produttività"
+      ],
+      "affidabilita": "Confermata",
+      "solo_titoli": false
+     }
+    ]
+   },
+   {
+    "titolo": "In breve",
+    "breve": true,
+    "notizie": [
+     {
+      "titolo": "Vulnerabilità critica in PHP scoperta con l'ausilio dell'AI",
+      "riassunto": "Una grave vulnerabilità nel linguaggio PHP è stata individuata tramite modelli di intelligenza artificiale, spingendo gli sviluppatori a rilasciare patch urgenti per milioni di siti web.",
+      "fonti": [
+       "a129",
+       "a162"
+      ],
+      "temi": [
+       "Programmare senza codice"
+      ],
+      "affidabilita": "Confermata",
+      "solo_titoli": false
+     }
+    ]
+   }
+  ],
+  "formato": 2,
+  "controllo_siti": [
+   {
+    "cosa": "Cuicuit",
+    "esito": "nessun sito da aprire"
+   },
+   {
+    "cosa": "Intelli for ChatGPT & Claude",
+    "sito": "https://www.producthunt.com/r/p/1286282?app_id=339",
+    "esito": "errore: HTTP Error 403: Forbidden"
+   },
+   {
+    "cosa": "Woven Video",
+    "sito": "https://www.producthunt.com/r/p/1286436?app_id=339",
+    "esito": "errore: HTTP Error 403: Forbidden"
+   },
+   {
+    "cosa": "PrivOS",
+    "sito": "https://www.producthunt.com/r/p/1286524?app_id=339",
+    "esito": "errore: HTTP Error 403: Forbidden"
+   },
+   {
+    "cosa": "Permit Pending",
+    "sito": "https://permit.petercai.com/",
+    "pagina": 13929,
+    "trovate": [
+     "Browser"
+    ]
+   }
+  ]
+ },
+ "articoli": {
+  "a162": {
+   "titolo": "PHP rilascia patch per le vulnerabilità scoperte da GPT-5.6 Sol",
+   "link": "https://www.punto-informatico.it/php-rilascia-patch-vulnerabilita-scoperte-gpt-5-6-sol/",
+   "data": "2026-10-21T16:16:21+00:00",
+   "testo": "Il PHP Group ha rilasciato le patch per le due gravi vulnerabilità, denominate PHP2Shell, che permettono l’esecuzione di codice remoto senza autenticazione. Gli utenti devono quindi installare immediatamente le ultime versioni del popolare linguaggio di programmazione. OpenAI ha svelato che le vulnerabilità sono state trovate con l’aiuto del modello GPT-5.6 Sol. PHP2Shell interessa il 70% dei siti mondiali Le due vulnerabilità, identificate con CVE-2026-109618 e CVE-2026-109619, sono state scoperte all’inizio di agosto dai ricercatori di Calif. I cybercriminali potrebbero eseguire codice arbitrario sui server senza autenticazione. Le conseguenze sarebbero disastrose, in quanto PHP viene utilizzato da oltre il 70% dei siti mondiali, inclusi quelli basati su noti CMS (WordPress, Drupal, Joomla). Per l’analisi del problema di sicurezza e la successiva risoluzione c’è stata una stretta collaborazione tra diverse aziende e organizzazioni, tra cui PHP Foundation, Calif, OpenAI, Wiz e Cloudflare. Calif e PHP Foundation partecipano all’iniziativa Patch the Planet di OpenAI. L’azienda californiana spiega che Calif ha scoperto le vulnerabilità con l’aiuto del modello GPT-5.6 Sol. PHP Foundation sottolinea che le patch dovevano essere rilasciate il 22 ottobre, ma Chainguard non ha rispettato l’embargo, quindi la distribuzione è stata anticipata ad oggi. Le due vulnerabilità sono presenti a partire da PHP 5.4, ma le versioni precedenti alla 8.1 non ricevono più aggiornamenti. Le patch sono stati incluse in PHP 8.5.12, 8.4.27, 8.3.36 e 8.2.35. Gli utenti e gli amministratori IT devono pertanto installare con urgenza le ultime versioni. Essendo un software libero, i più esperti possono eventualmente modificare il codice delle vecchie versioni. Considerata la gravità delle vulnerabil…",
+   "fonte": "Punto Informatico",
+   "tipo": "testata",
+   "solo_titolo": false,
+   "categoria": "Italia",
+   "id": "a162",
+   "testo_completo": true
+  },
+  "a42": {
+   "titolo": "ChatGPT protegge le conversazioni private con PIN e biometria",
+   "link": "https://news.google.com/rss/articles/CBMiTkFVX3lxTE95SW1Oc1l4TktmOWQzZXBZTkk3djdzUFd1dzE5aDF5WlpJa2JyektQV21kZWJfeWZUOUh4QjBiZFltT1FSTUVzTl9fUk90dw?oc=5",
+   "data": "2026-10-21T18:27:24+00:00",
+   "testo": "",
+   "fonte": "ZEUS News",
+   "tipo": "minore",
+   "solo_titolo": true,
+   "categoria": "Strumenti",
+   "id": "a42"
+  },
+  "a141": {
+   "titolo": "Gemini's Personal Intelligence is coming to cars",
+   "link": "https://arstechnica.com/google/2026/10/geminis-personal-intelligence-is-coming-to-cars/",
+   "data": "2026-10-20T20:00:33+00:00",
+   "testo": "Google kicked off 2026 with the addition of Personal Intelligence to Gemini, allowing its AI to pull in more of your data to formulate answers. It started as a paid feature but eventually came to all Gemini users. However, this feature wasn’t available in the car until now. Google is rolling out Personal Intelligence to Android Auto and Google Built-in, and it is still, thankfully, an optional feature. As Google points out, a generative AI’s outputs are better “when it knows the world and knows you,” which is correct in an uncomfortable sort of way. The more context you can provide to a model, the better the output will be at the end of the token shuffle. Since Google has so much of your data already, it sees Personal Intelligence as a differentiator versus other AI systems. You don’t have to provide the AI context because it already has it from apps like Gmail and Calendar. Personal Intelligence is beginning its rollout in Android Auto today, and it will come to vehicles with Google built-in in the next few months. As an aside, “Google built-in” is questionable branding, but it refers to cars that run Google software in the infotainment system rather than projecting an interface from your phone. Very few vehicles have Google built-in, but Google often releases new car features on them first. This time, it’s the other way around. Google says Personal Intelligence is a natural fit for the car, allowing you to focus on the road instead of providing detailed instructions to your digital assistant. For example, you can say “take me to my doctor’s appointment,” and Gemini can get that data from your connected calendar. It can also leverage visual analysis to find locations in your photos to begin navigation.",
+   "fonte": "Ars Technica",
+   "tipo": "testata",
+   "solo_titolo": false,
+   "categoria": "Testate tech",
+   "id": "a141",
+   "testo_completo": true
+  },
+  "a5": {
+   "titolo": "Intelli for ChatGPT & Claude",
+   "link": "https://www.producthunt.com/products/intelli",
+   "sito": "https://www.producthunt.com/r/p/1286282?app_id=339",
+   "data": "2026-10-20T00:04:54-07:00",
+   "testo": "Run WhatsApp, Instagram & web chat from ChatGPT or Claude",
+   "fonte": "Product Hunt (AI)",
+   "tipo": "vetrina",
+   "solo_titolo": false,
+   "categoria": "Strumenti",
+   "id": "a5"
+  },
+  "a57": {
+   "titolo": "SimCity, but with Permits",
+   "link": "https://permit.petercai.com/",
+   "data": "2026-10-20T18:29:09+00:00",
+   "testo": "A free city-building game in your browser. You are the mayor. You know what the city needs. Now get it past the zoning board, the neighbors, the appeals court and the next election. You are the mayor. You know exactly what this city needs. Now get it past the zoning board, the neighbors, the appeals court and the next election. Permit Pending is a city simulation in the spirit of the classics, with one difference: you are not a god. You are an elected mayor. Every apartment block, bus lane and factory goes through hearings, reviews, objections, lawsuits and appeals. The economy underneath is real. The neighbors are not always rational. Win the argument, or win the election. Ideally both. A typical case from your inbox. The economic answer was obvious. The political path was not. New housing lowers rents and angers homeowners. New industry brings jobs and smog. Better transit attracts development, and development attracts opponents. Fix one problem and you create a new group of voters who are angry about it. Your inbox fills with applications, controversies and recurring characters. Negotiate concessions at public hearings, win votes on a seven-seat council, and spend your political clout wisely. Some cases last longer than your term. Residents have ages, incomes and homes. Businesses hire, grow and leave. Land values, rents, jobs, taxes and services all connect. The city keeps changing while you are stuck in committee. Heatmaps, graphs and plain explanations show why voters are angry and which decision did it. No. The game runs in your browser. Saves stay on your computer, and after the first visit the game also works offline. A desktop or laptop with a current browser (Chrome, Edge, Firefox or Safari). A mouse helps. Not exactly. It's a sandbox. Your goal is the city …",
+   "sito": "https://permit.petercai.com/",
+   "fonte": "Show HN – progetti utili (gemme)",
+   "tipo": "vetrina",
+   "solo_titolo": false,
+   "categoria": "Gemme",
+   "id": "a57",
+   "testo_completo": true
+  },
+  "a167": {
+   "titolo": "Gemini su Android Auto con Personal Intelligence: quando arriva",
+   "link": "https://www.punto-informatico.it/gemini-android-auto-personal-intelligence-quando-arriva/",
+   "data": "2026-10-21T13:18:36+00:00",
+   "testo": "Google lancia Personal Intelligence su Android Auto. Gemini attinge a Gmail, Agenda, Foto, Maps e YouTube per rispondere in modo personalizzato. The post Gemini su Android Auto con Personal Intelligence: quando arriva appeared first on Punto Informatico .",
+   "fonte": "Punto Informatico",
+   "tipo": "testata",
+   "solo_titolo": false,
+   "categoria": "Italia",
+   "id": "a167"
+  },
+  "a41": {
+   "titolo": "OpenAI aggiunge PIN per bloccare le chat di ChatGPT e rafforzare la privacy delle conversazioni",
+   "link": "https://news.google.com/rss/articles/CBMi0wFBVV95cUxPRG5UR2lBYU9RQjMxQThYRjlDbEl5WUxqbWNiZ09BbV8zb2NKdDUtelFrZ2JGZTJUYTdSUjNoUGR1QXJHaWl0NEQxOVd6QjB4Z3pTYjBOaDZKMlZkRktUSU1yMlhJN0MwZFdtWDZhRVY5M2lyT2RBcWp6N0o1bzNzczNzRy15MjNBRFNGejVTcEhRZkk4OHBLRDNMdklzNGhjRW5sM05tZUozLXVHY2R4cmNSeXN5Snk1Zk4zaGo0VDJxak5teVlOemhnOEk5LTNQeF840gHTAUFVX3lxTE9EblRHaUFhT1FCMzFBOFhGOUNsSXlZTGptY2JnT0FtXzNvY0p0NS16UWtnYkZlMlRhN1JSM2hQZHVBckdpaXQ0RDE5V3pCMHhnelNiME5oNkoyVmRGS1RJTXIyWEk3QzBkV21YNmFFVjkzaXJPZEFxano3SjVvM3NzM3NHLXkyM0FEU0Z6NVNwSFFmSTg4cEtEM0x2SXM0aGNFbmwzTm1lSjMtdUdjZHhyY1J5c3lKeTVmTjNoajRUMnFqTm15WU56aGc4STktM1B4Xzg?oc=5",
+   "data": "2026-10-21T11:24:51+00:00",
+   "testo": "",
+   "fonte": "Demócrata",
+   "tipo": "minore",
+   "solo_titolo": true,
+   "categoria": "Strumenti",
+   "id": "a41"
+  },
+  "a11": {
+   "titolo": "Woven Video",
+   "link": "https://www.producthunt.com/products/woven-video",
+   "sito": "https://www.producthunt.com/r/p/1286436?app_id=339",
+   "data": "2026-10-20T02:27:15-07:00",
+   "testo": "Edit any video by chat, on a real Mac timeline",
+   "fonte": "Product Hunt (AI)",
+   "tipo": "vetrina",
+   "solo_titolo": false,
+   "categoria": "Strumenti",
+   "id": "a11"
+  },
+  "a2": {
+   "titolo": "PrivOS",
+   "link": "https://www.producthunt.com/products/privos",
+   "sito": "https://www.producthunt.com/r/p/1286524?app_id=339",
+   "data": "2026-10-20T03:54:16-07:00",
+   "testo": "Chat, Docs, Kanban Tasks and Al agents that act, self-hosted",
+   "fonte": "Product Hunt (AI)",
+   "tipo": "vetrina",
+   "solo_titolo": false,
+   "categoria": "Strumenti",
+   "id": "a2"
+  },
+  "a68": {
+   "titolo": "Cuicuit 🐥: open source meal planner for people who don't plan",
+   "link": "https://www.reddit.com/r/opensource/comments/1x90i8b/cuicuit_open_source_meal_planner_for_people_who/",
+   "sito": "",
+   "data": "2026-10-18T11:04:51+00:00",
+   "testo": "Hi! I've tried all recipe apps but they all need too many clicks and attention. They want you to choose a date in a calendar, add ingredients to a list separately, get duplicate ingredients everywhere... or find a nice app but pay a subscription just to manage groceries. So I tried to make the most convenient and modern app possible: Import recipes from anywhere (Instagram/YouTube/TikTok, website…",
+   "fonte": "Reddit r/opensource",
+   "tipo": "community",
+   "solo_titolo": false,
+   "categoria": "Gemme",
+   "id": "a68"
+  },
+  "a129": {
+   "titolo": "PHP Armageddon: OpenAI, Google’s Wiz find ancient holes, panicking the internet",
+   "link": "https://techcrunch.com/2026/10/21/php-armageddon-openai-googles-wiz-find-ancient-holes-panicking-the-internet/",
+   "data": "2026-10-21T17:59:12+00:00",
+   "testo": "The U.S. National Security Agency’s sent out an alarming warning on Wednesday that two critical holes had been found in PHP, with patches already issued by the PHP Foundation. PHP is a server-side programming language so widely used for web applications that it powers roughly 70% of the websites on the internet; by some accounts, that’s more than 33 million sites. It is also used by popular content management systems like WordPress. The NSA warned that these holes are so severe that if a website can’t be patched immediately, it should be pulled off the web until it can be. The holes allow attackers to infiltrate the server’s file system or a database that may be used by the web app. Interestingly, these holes have been tucked away in all versions of PHP since version 5, which was released in 2004. Websites not running relatively current versions of PHP will have some updating work to do, as PHP 8.1 and older versions are no longer supported. The recommendation is to update the web server to the current version of PHP, which is 8.5.12. So how did two such ubiquitous, decades-old flaws that affect nearly every website on the internet suddenly come to light? AI, naturally, particularly via OpenAI and Google’s Wiz. Security testing company Calif was engaged in OpenAI’s “Patch the Planet” initiative to find flaws in open source software. Using GPT‑5.6 Sol, it found one of the flaws, OpenAI disclosed in a blog post. Separately, the Wiz team also used AI, namely its Wiz Atlas security AI agent, Gemini 4 Argon, and GPT-5.6 Sol to find multiple vulnerabilities in PHP. Both OpenAI and Wiz followed responsible security research practices and worked with PHP on patches before publicly disclosing the flaws. Then they all worked together to flesh out what they found, and test the pa…",
+   "fonte": "TechCrunch",
+   "tipo": "testata",
+   "solo_titolo": false,
+   "categoria": "Testate tech",
+   "id": "a129",
+   "testo_completo": true
+  }
+ },
+ "fonti": [
+  {
+   "nome": "Product Hunt (AI)",
+   "ok": true,
+   "presi": 15
+  },
+  {
+   "nome": "Show HN (nuovi progetti)",
+   "ok": true,
+   "presi": 2
+  },
+  {
+   "nome": "Nuove app AI (internazionale)",
+   "ok": true,
+   "presi": 10
+  },
+  {
+   "nome": "Nuove app AI (Italia)",
+   "ok": true,
+   "presi": 8
+  },
+  {
+   "nome": "Novità AI da provare (Italia)",
+   "ok": true,
+   "presi": 8
+  },
+  {
+   "nome": "AI sul dispositivo (internazionale)",
+   "ok": true,
+   "presi": 8
+  },
+  {
+   "nome": "AI sul dispositivo (Italia)",
+   "ok": true,
+   "presi": 5
+  },
+  {
+   "nome": "Show HN – progetti utili (gemme)",
+   "ok": true,
+   "presi": 2
+  },
+  {
+   "nome": "Reddit r/selfhosted",
+   "ok": true,
+   "presi": 6
+  },
+  {
+   "nome": "Reddit r/opensource",
+   "ok": true,
+   "presi": 5
+  },
+  {
+   "nome": "Alternative open source (Google News)",
+   "ok": true,
+   "presi": 6
+  },
+  {
+   "nome": "OpenAI",
+   "ok": true,
+   "presi": 6
+  },
+  {
+   "nome": "Google (blog ufficiale)",
+   "ok": true,
+   "presi": 2
+  },
+  {
+   "nome": "Google Gemini (blog)",
+   "ok": true,
+   "presi": 1
+  },
+  {
+   "nome": "Nuove funzioni AI (Google News)",
+   "ok": true,
+   "presi": 12
+  },
+  {
+   "nome": "Anthropic / Claude",
+   "ok": true,
+   "presi": 6
+  },
+  {
+   "nome": "Microsoft Copilot",
+   "ok": true,
+   "presi": 5
+  },
+  {
+   "nome": "Altri assistenti AI (Perplexity, Mistral, Meta AI…)",
+   "ok": true,
+   "presi": 8
+  },
+  {
+   "nome": "The Verge",
+   "ok": true,
+   "presi": 8
+  },
+  {
+   "nome": "TechCrunch",
+   "ok": true,
+   "presi": 12
+  },
+  {
+   "nome": "Ars Technica",
+   "ok": true,
+   "presi": 6
+  },
+  {
+   "nome": "MIT Technology Review",
+   "ok": true,
+   "presi": 0
+  },
+  {
+   "nome": "The Decoder",
+   "ok": true,
+   "presi": 10
+  },
+  {
+   "nome": "TLDR AI (newsletter)",
+   "ok": true,
+   "presi": 1
+  },
+  {
+   "nome": "ANSA",
+   "ok": true,
+   "presi": 6
+  },
+  {
+   "nome": "Wired Italia",
+   "ok": true,
+   "presi": 0
+  },
+  {
+   "nome": "Il Sole 24 Ore Tecnologia",
+   "ok": true,
+   "presi": 2
+  },
+  {
+   "nome": "Punto Informatico",
+   "ok": true,
+   "presi": 9
+  },
+  {
+   "nome": "HDblog",
+   "ok": true,
+   "presi": 3
+  },
+  {
+   "nome": "Reddit",
+   "ok": true,
+   "presi": 8
+  },
+  {
+   "nome": "Reddit (AI locale)",
+   "ok": true,
+   "presi": 5
+  },
+  {
+   "nome": "Bellingcat (guide e strumenti)",
+   "ok": true,
+   "presi": 0
+  },
+  {
+   "nome": "GIJN (guide per giornalisti investigativi, via Google News)",
+   "ok": true,
+   "presi": 3
+  },
+  {
+   "nome": "OSINT – verifica e fact-checking (internazionale)",
+   "ok": true,
+   "presi": 5
+  },
+  {
+   "nome": "OSINT – nuovi strumenti (internazionale)",
+   "ok": true,
+   "presi": 5
+  },
+  {
+   "nome": "OSINT – strumenti (Italia)",
+   "ok": true,
+   "presi": 2
+  },
+  {
+   "nome": "Reddit (OSINT)",
+   "ok": true,
+   "presi": 2
+  },
+  {
+   "nome": "Hacker News (OSINT)",
+   "ok": true,
+   "presi": 1
+  }
+ ],
+ "visti": [
+  "koi",
+  "privos",
+  "thebrains",
+  "askdoozy",
+  "intelliforchatgptclaude",
+  "tend",
+  "mouse1",
+  "searchtok",
+  "notionauto",
+  "agentpets",
+  "wovenvideo",
+  "leabyleanaios",
+  "triagebychodeberg",
+  "harness²",
+  "kling40",
+  "omnaraopensourcealternativetoclaudemanagedagents",
+  "penmentorclaudemarksupyourhandwrittenmathlikeateacher",
+  "aitrackerbababanks40m",
+  "onstarrebornasgmsownaiassistantlaunchinginthecadillaclyriq",
+  "uploadaselfiefindoutyourbiologicalagenewfaceageaitoolavailableforanyonetouse",
+  "harborlablaunchesaiassistantforportdisbursementaccounts",
+  "anthropicunveilsclaudeduetaiagentapp",
+  "meeteneytheaiassistantthatlivesrightonyourmac",
+  "targetsholidaypushstressesaffordabilityexclusivesandanaiassistant",
+  "gmsonstarissetforamajorupdatewithboostedmapsanaiassistantandrealtimevehicleinfo",
+  "californialaunchesaitooltomatchjobseekerswithstatejobs",
+  "buildotsupgradesdotaiassistanttoautomateconstructionprojectanalysisandreporting",
+  "cosapuòfaregeminisuandroidautoecosamancainitalia",
+  "qnmediailsaltonelfuturodellinformazioneconqidlintelligenzaartificialealserviziod",
+  "metàdegliitalianiperledecisionidiacquistochiedeconsiglioallintelligenzaartificia",
+  "geminioraconosceletueabitudinielesfruttaquandoguidi",
+  "amazonlancianelregnounitolappringperlasorveglianzadelvicinatononostantegliinterr",
+  "welfaredigitalelitaliaèprimaineuropamaibenefitrestanonelcassetto",
+  "manfredilintelligenzaartificialealserviziodellepersone",
+  "johnternusraccontalanuovaappledesigniphoneduoeintelligenzaartificiale",
+  "androidautogeminidiventapiùintelligentelanuovafunzionepersonalintelligencedivide",
+  "voletenascondereleconversazionisuchatgptprestosaràpossibilegrazieaunanuovafunzio",
+  "metabloccalechatdimuseechatgptintroducelechatbloccate",
+  "lggram2026arrivainitaliaquattronotebookda1099euro",
+  "ilpluginchatgpttriplicaleiscrizioniastackoverflowforagents",
+  "openaiaggiungepinperbloccarelechatdichatgpterafforzarelaprivacydelleconversazion",
+  "chatgptproteggeleconversazioniprivateconpinebiometria",
+  "chatgptriportainvitaigiochiarcadeilretrogamingdigitaleincontraquellovero",
+  "enablinglocalairesiliencewithciscocloudcontrolandnvidiadgxstation",
+  "nvidiasnewunderdogappmakesmanagingyourlocalaimodelseveneasier",
+  "ondeviceaiagentsperplexitylaunchesfullylocalcomputerformac",
+  "meirolauncheslocalaicdpforsovereignaiinference",
+  "bestdesktopsforlocalaiin2026labtestedleaderboard",
+  "nvidiaunleashesfulllocalaistackatgtcberlin",
+  "taniumbringsenterprisegrademanageabilitytonvidialocalaiinfrastructure",
+  "nvidiashowslocalaisystemsforpcsdevelopersandenterpriseteams",
+  "nvidiaacceleradlss45elailocalenovitàperigiochirtxedgxspark",
+  "perplexitycomputermodelloeagenteaiinteramentesulmacmacon36gbdimemoriaopiù",
+  "collageconunsolotoccoconneocollagelappgratuitachefunzionainlocale",
+  "testluceradarcoospotr70",
+  "nvidiarilancialailocalertxsparkdgxsparkenuovimodelliperagentisemprepiùpotenti",
+  "simcitybutwithpermits",
+  "voidaccessopensourcedarkwebosintfromquerytoagraph",
+  "headsupifyouselfhostlitellmthe11070dockerimageandthelatestmainlatestmainstableta",
+  "php2shellinselfhostedapps",
+  "didlinuxserveriogethackednormalhomepageisntshowingup",
+  "whyisntxmppmorepopularthanmatrixifitssimplerinarchitecture",
+  "lovingbeszel",
+  "whattodoaboutrecentvulnerabilities",
+  "soareweallokaywithaireverseengineeredappscallingthemselvesopensource",
+  "kdethedocumentarythestoryoffreesoftwareunderdogs",
+  "openpolydevisacompletelyfreeopensourcebrowserbasedcadtoolnosignupandlocallyrunna",
+  "cuicuitopensourcemealplannerforpeoplewhodontplan",
+  "projectswithstrictmaintainers",
+  "whyyourfavoriteselfhostedappskeepgettingworseandwhattouseinsteadhowtogeek",
+  "selfhostedaicodingassistant12steps60min2026",
+  "mistrallaunchesvoxtral3voiceagentsdkenablingrealtimeinteractioninmorethan50langu",
+  "scaledcognitionlaunchesvoicepremiumqualityvoicebuiltforenterprisecxatultralowlat",
+  "bestmoneroxmrexchangeswithoutkycin2026",
+  "obsidiansystemsbringsgovernedselfhostedaidevelopmenttoaiexpoafrica2026withcoder",
+  "broadaccessthroughconsistentstandards",
+  "openaimodelsarecomingtogooglecloud",
+  "patchtheplanetglobalresponsecoordinationasagentsuncovercriticalvulnerabilities",
+  "chatgptadsexpandsto26newcountriesasover100000advertisershaveusedtheplatform",
+  "usingthousandsofaiagentstouncovernewleadsinbiologicaldata",
+  "howwebuiltchatgptsnoveladstackforusertrustandrelevance",
+  "southeastasiasdigitaleconomytohit368billion",
+  "gethandsfreepersonalizedhelpontheroadwithgemini",
+  "newgeminitoolsforsmallbusinessowners",
+  "anthropiclaunchesclaudeduetitsanswertometaandopenaispersonalagents",
+  "anthropiclaunchesclaudeduetaiagenttorivalmetasmuseopenaisdots",
+  "anthropiclaunchesclaudeduetaproactiveaiagent",
+  "anthropiclaunchesclaudeduetaiagenttotakeonmetaandopenai",
+  "bulbthingslaunchesaicopilotcustomizationskilltoautomateoperationsforeveryphysica",
+  "anthropiclaunchesclaudeduetcompetingwithopenaiandmeta",
+  "anthropiclaunchesclaudeduetanaiagentthatkeepsworkingonitsownandchecksinwithyou",
+  "googlelaunchesgeminiaiplatformforgovernmentservices",
+  "chatgptadsrollsoutin26morecountries",
+  "googlelaunchesgemini4argontoboostcodingandscientificresearch",
+  "walmartlaunchesaishoppingtoolsforchatgptgeminiandotheragents",
+  "anthropiclaunchesclaudeduettomanageworkplacetasksacrossapps",
+  "anthropicannouncespreviewofclaudeduetapersonalaiagenttotakeonmusedots",
+  "anthropicjoinstheaiagentracewithclaudeduet",
+  "claudeduetisanthropicsproactiveaiagentanswertomuseandopenaisdotsvideo",
+  "anthropictakesonmusewithclaudeduetitsnewaiagent",
+  "hhsplanssolesourceanthropicclaudecontractaheadofenterpriseaibpa",
+  "musiclabelsclashwithclaudeovercopyrightedlyrics",
+  "microsoftempowersmorethan330000volkswagengroupemployeeswithcopilot",
+  "150yearsofcaschemistrydatacomestomicrosoftcopilot",
+  "shouldlegaltechvendorsfearmicrosoftscopilotforlegal",
+  "casandmicrosoftbringtrustedscientificintelligencetocopilottoacceleratedrugdiscov",
+  "microsoftisremoving8copilotshortcutsfromfileexplorerhereswhatstays",
+  "chinadefendsdeepseekafterusbanofitsaifromgovernmentsystems",
+  "metaaicomestoquestheadsetsintheukaustraliajapanandthreemorecountries",
+  "perplexitycomputernowrunsfullylocallysecurelyandprivatelyonmac",
+  "metasaiappmusehits10millionusdownloadsin40days",
+  "perplexityannouncedlocalcomputermodeforapplesiliconmacs",
+  "deepseekopensourcesdeepinferitsproductioninferenceengine",
+  "metasaiappmusehits10muserswithhigheng",
+  "deepseekharnessdesktopappinstaladoresactualizacionesyquéescribe",
+  "datacenterscoulderasedecadesofairqualitygains",
+  "metatocreateanewclassofsharestofundaipush",
+  "walmartisinvitingaiagentstoshopforyou",
+  "conversationalgemininavigationcomestoapplecarplay",
+  "openaisaysanaiagentliedaboutdisablingitssafetymonitoringsystem",
+  "judgedismissessamaltmanssisterssexualabuselawsuit",
+  "googlesmorepersonalizedgeminiaiisheadingtoyourcar",
+  "metapausesmusesharingafterresearchersfindaichatsontheweb",
+  "blackstonesjaskhairasaysfearsoveraibuildoutdebtareoverblown",
+  "techcrunchfoundersummit2026everythingyouneedtoknow",
+  "metasaysmusehasover10muserswithshoppingatopactivity",
+  "recursivelaunchesflintalaptopcodingmodelitsayswaslargelybuiltbyai",
+  "whileamazonblocksaiagentswalmartrollsoutthewelcomemat",
+  "phparmageddonopenaigoogleswizfindancientholespanickingtheinternet",
+  "blacksmithhitsunicornvaluationaftersequoialeadsseriesc",
+  "aipromisesproductivitybutformanagersitsmostlyaheadachefornow",
+  "anthropicpitchesaisafetybillthatmayblockamodelif50peoplecouldbekilled",
+  "huggingfaceceowarnsthatnetflixsopenaihackdocumentaryisntaccurate",
+  "anthropicscloudpartnershipsaregettingmessy",
+  "spacexsaibusinessisbeatingexpectations",
+  "thenewhumancraftedapplemusicbrandmattersinanaiworld",
+  "openaislatestaimodelsarecomingtogooglecloudandantigravity",
+  "judgerejectstrumpswildclaimepacandismissdatacenterpollutionlawsuits",
+  "the15billionadpoweredaistartupyourdoctormayalreadybeusing",
+  "metadropsthewordtrainfromitscommercialtosafteraibacklash",
+  "geminispersonalintelligenceiscomingtocars",
+  "openaisgpt56solandgooglesgemini4argonfoundcriticalphpflawaffectingmillionsofwebs",
+  "googlecloudnowoffersopenaimodelsalongsidegeminiandclaudebecomingtheonlymajorprov",
+  "deepmindfounderhassabisshortensagitimelinefromfivetotwotothreeyears",
+  "inceptionsmercury3diffusionmodelclaimstobeatgpt6lunaandclaudehaiku55atafractiono",
+  "mistralandnvidiawanttospeedupindustrialdesignwithphysicsai",
+  "nvidiasdsxpodcouldcutaidatacentersetupfromsixmonthstoaslittleas14days",
+  "chinaproteststheusdeepseekbanwhileblockingchatgptclaudeandgeminiathome",
+  "openaicantyetexplainwhyitscodingagentsswitchoffmisalignmentmonitoring",
+  "claudesciencetacklesdeadlyscorpionstingsbydesigningproteinbindersfromscratch",
+  "openaiacquiresorchestrabiotobuildaiagentsthatspeedupdrugdevelopment",
+  "deepseekdeepinferpytorchontpusrampsagentframework",
+  "aportofinolachirurgiadelfuturotraintelligenzaartificialeerobot",
+  "replypresentareplyimmersiveexperienceunospaziodoveintelligenzaartificialeetecnol",
+  "commissioneanagrafe200banchedatidelfiscopiùtutelecontrolia2",
+  "wallstreetapreinpositivotrascinatadaltechsullondadispacex",
+  "laprovinciadibolzanopuntaamigliorareservizieprocessigrazieallia",
+  "iagenovaavvicinarepmidelterritorioallepotenzialitàdeldigitale",
+  "lacinapreparacontrollisullexportdellaicosacambiaperleimprese",
+  "dahomeviewamusetuttalatecnologiausachenonstaarrivandoineuropa",
+  "scoprimoltimodiperleggereconikindleinoffertasuamazon",
+  "phprilasciapatchperlevulnerabilitàscopertedagpt56sol",
+  "donaldtrumpdicecheunassegnopuòfaramareidatacenter",
+  "spotifytoglie50milionidibraniaidalleraccomandazioni",
+  "7plugindichatgptperiltempoliberodaprovaresubito",
+  "clauderaggiungerechatgptrestaunimpresacosadicelostudio",
+  "geminisuandroidautoconpersonalintelligencequandoarriva",
+  "recensionionlineeaiilpareredegliutentièancoraimportante",
+  "googlechromeprotezionecontroletruffecongemini",
+  "openaiduenuovicasidiagentisfuggitialcontrolloumanocontantodibugia",
+  "anthropichadavveroperso80miliardididollariinseimesi",
+  "nvidiaintroduceadvancedshaderdeliveryeccocosacambia",
+  "iusedclaudetofixmysamsungtv",
+  "whatitfeelsliketouseclaude",
+  "thisisaniqtest",
+  "claudeduetanthropicjustcasuallydroppedthepersonalassistantcallingitaproactiveage",
+  "itsover",
+  "validcrashout",
+  "ireplacedmysamsungtvshomescreenwithclaudecode",
+  "manarrestedaftertellingaichatbotaboutplansformassshootinga29yearoldmanhasbeenrem",
+  "pubgscreatorsjusttrainedaqwencompetitorfromscratch",
+  "chinatightscontrolonopenaiexports",
+  "whydopeoplekeepreferringto128gbram",
+  "triedrunning748bdeepseekv41flashona2kpc",
+  "alertlitellm11070wascompromisedtoday",
+  "howgillianbrockellinvestigatesiceremovalflightsfromus",
+  "protectingyourselfagainstlegalthreatscarlosgaio",
+  "findingjoyinthepublicserviceofjournalism",
+  "imageallegedlyshowsparisburningamidongoingunrestisitreal",
+  "ncrvoyixandnacsintegratetruageageverificationtechnologyintopointofsalesystems",
+  "fakeimagesharedasoneofrealbbcarticleonindiasgenzprotests",
+  "identityisnolongeracheckitsinfrastructure",
+  "factcheckviralvisualsdonotshowbangladeshimanwomanexecutedinsaudiarabia",
+  "atransparentbattlefieldhowosintistransformingthewarinukraine",
+  "foreigninterferenceinaiagelessonsfromspainandfrancedailysabah",
+  "dronesattacktelecommunicationscentreinoccupiedluhansk",
+  "russiansu30smfighterjetfallsfromskyandcrashesnearcemeteryinkaliningrad",
+  "ukrainehitsrussianheavyrocketlaunchernearblackseacoast",
+  "phishingaziendaleperchéidipendentiformaticliccanocomunque",
+  "sabotaggioastarlinktrabulgariaepoloniaifattileattribuzionieilrischioeuropeo",
+  "tiktokcomments",
+  "howtolocatescotlandcourtrolls",
+  "showhnvoidaccessopensourcedarkwebosintfromquerytoagraph"
+ ],
+ "audio": "audio/2026-10-22.mp3",
+ "durata": 107.5
+}
