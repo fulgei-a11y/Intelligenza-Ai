@@ -358,6 +358,66 @@
    "categoria": "Testate tech",
    "id": "a129",
    "testo_completo": true
+  },
+  "u1a114": {
+   "titolo": "1Password lets AI agents use your passwords without seeing them",
+   "link": "https://www.theverge.com/ai-artificial-intelligence/1016399/1password-ai-agent-password-sign-in",
+   "sito": "",
+   "data": "2026-10-22T09:00:00-04:00",
+   "testo": "1Password is introducing a new feature that allows AI agents to sign into your accounts without actually seeing or handling your passwords. The aptly named 1Password for Agents doesn’t give bots free reign to access all of your connected accounts — you’ll still need to grant approval for sign-in requests — but should make it less cumbersome to use Agents for tasks that require them to log into various services. 1Password lets AI agents use your passwords without seeing them Just grant the agent access approval and it’ll sign into your accounts to complete tasks. ”Agents are starting to do real work on our behalf. The old model where you hand over a credential and hope for the best doesn’t work,” 1Password chief product officer Aashish Tripathi said in a press statement. “An agent should be able to do the job it’s been asked to do without getting permanent access to everything behind the account, and 1Password provides the trust layer that makes this possible across personal agent experiences.” With this new system, an AI agent uses a unique digital key to verify its identity to 1Password when it reaches a sign-in form. The app then sends you a notification about which account credentials it needs, and why. If you choose to approve the request, 1Password will fill in the required login information instead of handing it to the agent. Approvals are granted on your own device to ensure you’re behind the permissions, making this a similar process to two-factor authentication. After the agent is signed in, it’ll continue with its task, without ever having actually seen your password. This 1Password access system is designed to work with a variety of popular AI agents, including Meta Muse, ChatGPT Work and Dots, Claude Duet, Grok Bot, and Town. 1Password says more partners ar…",
+   "fonte": "The Verge",
+   "tipo": "testata",
+   "solo_titolo": false,
+   "categoria": "Testate tech",
+   "id": "u1a114",
+   "testo_completo": true
+  },
+  "u1a162": {
+   "titolo": "Claude Duet: un altro agente AI che accede ai dati personali",
+   "link": "https://www.punto-informatico.it/claude-duet-altro-agente-ai-accede-dati-personali/",
+   "data": "2026-10-22T08:30:28+00:00",
+   "testo": "Anthropic ha annunciato Claude Duet, un agente proattivo che aiuta l’utente nelle varie attività quotidiane, in particolare quelle lavorative. L’azienda californiana afferma che sono state implementate tutte le protezioni per evitare la divulgazione dei dati sensibili e l’accesso alle informazioni personali senza autorizzazione. Anche Meta aveva fatto la stessa promessa con Muse, ma non è stata mantenuta. Dobbiamo fidarci degli agenti che prendono iniziative? Claude Duet, disponibile tramite app per Android e iOS solo agli abbonati Pro e Max negli Stati Uniti (è ancora una versione preliminare), sfrutta il modello Claude Opus 5.5 e accede a memoria, skill e app collegate all’account Claude. Cambia però la modalità di interazione. Il chatbot attende l’input dell’utente, mentre Duet è proattivo, quindi avvia la conservazione sulla base delle informazioni raccolte dalla memoria e dalle app collegate. Come Muse, Duet opera all’interno di una macchina virtuale sui server di Anthropic. Funziona in background e invia una notifica al termine delle attività o quando è richiesta l’approvazione dell’utente, ad esempio prima di inviare un messaggio, effettuare un login, firmare un documento, cancellare qualcosa o completare un pagamento. Non può eseguire alcune operazioni, come la compravendita di titoli o il trasferimento di denaro tra conti, nemmeno se autorizzato. Anthropic garantisce sicurezza e privacy con le stesse protezioni implementate per Claude Code e Claude in Chrome. Duet può effettuare l’accesso a siti e servizi online, ma non vede credenziali o token. L’agente non esegue azioni che non sono state autorizzate. Ci sono anche protezioni contro gli attacchi di prompt injection, quindi non dovrebbe eseguire istruzioni nascoste in email, pagine web o documenti. L’azienda …",
+   "fonte": "Punto Informatico",
+   "tipo": "testata",
+   "solo_titolo": false,
+   "categoria": "Italia",
+   "id": "u1a162",
+   "testo_completo": true
+  },
+  "u1a57": {
+   "titolo": "Bird-recognizing frame for your homelab (BirdNET-Go + Docker, on e-ink or any screen)",
+   "link": "https://www.reddit.com/r/selfhosted/comments/1xckrv1/birdrecognizing_frame_for_your_homelab_birdnetgo/",
+   "sito": "",
+   "data": "2026-10-22T14:53:57+00:00",
+   "testo": "Hi, I'd like to share a project I've been working on the last few months. It was well received over at r/raspberry_pi , and since it now runs in a container and on pretty much anything, I thought it might fit here too. It sits on top of BirdNET-Go , a popular self-hosted bird and animal analyzer that listens on a mic and identifies the species it hears. Fugleramme draws the birds it has heard rec…",
+   "fonte": "Reddit r/selfhosted",
+   "tipo": "community",
+   "solo_titolo": false,
+   "categoria": "Gemme",
+   "id": "u1a57"
+  },
+  "u1a5": {
+   "titolo": "Claude Duet",
+   "link": "https://www.producthunt.com/products/claude",
+   "sito": "https://www.producthunt.com/r/p/1288350?app_id=339",
+   "data": "2026-10-21T12:40:23-07:00",
+   "testo": "Proactive agent that understands what needs your attention",
+   "fonte": "Product Hunt (AI)",
+   "tipo": "vetrina",
+   "solo_titolo": false,
+   "categoria": "Strumenti",
+   "id": "u1a5"
+  },
+  "u1a55": {
+   "titolo": "1Password for Agents: l'AI accede agli account senza password",
+   "link": "https://news.google.com/rss/articles/CBMikAFBVV95cUxNNUwxOF9MRDh0aEtYMV90U2k2bDBScTdUUVREeTNLTldERHFSXzlnZDVkOW5oRnNZWXRvUG5YNXVVWDdTMV9aT3RCRVFJX25pU2hiRW41UXNVRkpXYXo5S1h4SjA2YXg5VFljbUYwMm9PdzdfbVdjbmNkOWVsWVR6SU55VGlIWFVpREdGRldVTVc?oc=5",
+   "data": "2026-10-22T15:25:13+00:00",
+   "testo": "",
+   "fonte": "Punto Informatico",
+   "tipo": "testata",
+   "solo_titolo": true,
+   "categoria": "Strumenti",
+   "id": "u1a55"
   }
  },
  "fonti": [
@@ -755,8 +815,228 @@
   "sabotaggioastarlinktrabulgariaepoloniaifattileattribuzionieilrischioeuropeo",
   "tiktokcomments",
   "howtolocatescotlandcourtrolls",
-  "showhnvoidaccessopensourcedarkwebosintfromquerytoagraph"
+  "showhnvoidaccessopensourcedarkwebosintfromquerytoagraph",
+  "kugelear",
+  "mistralvoxtral3",
+  "sponkly",
+  "deepcell",
+  "claudeduet",
+  "notif",
+  "bits",
+  "voxelo30",
+  "tetrizenggintelligenceconnectors",
+  "agenticcleanslop",
+  "mercury3",
+  "radaric",
+  "webmanualsupgradescompliancelibrarieswithaiassistantandfaaassessmenttools",
+  "impactfactorylaunchesaimarketingpluginforchatgptandotherleadingaiassistants",
+  "slacklaunchesaitoolforfrontlineemployees",
+  "harborlablaunchesaiassistanttocutportcostreviewtime",
+  "harborlablaunchesaiassistantforportcostchecks",
+  "mastercardlaunchesaiassistanttosimplifycardbenefits",
+  "anthropiclaunchesclaudeduetasmartaiagentthatworksinthebackground",
+  "claudeduetèlagenteaichemonitoraleappelavoraalpostotuo",
+  "porschetechnologiesdalleautodilussoalladifesa",
+  "condizionatoriascuolainsiciliastanziati20milioniperlinstallazionenelleauleilvial",
+  "dalcanavesearrivalintelligenzaartificialecheaiutalepersoneaparlarenelleaziendepr",
+  "fornacarinnovalaradiologianuovarisonanzamagneticaconintelligenzaartificialeespaz",
+  "claudeduetsfidageminiintelligenceliadianthropicvuolegestireillavoroalpostovostro",
+  "lintelligenzaartificialenelsettorebancariodaunacorsatecnologicaaunasfidaperlafid",
+  "comeusaregeminipercapiresecertisitiomessaggisonodelletruffe",
+  "lintelligenzaartificialeprovaivestitialpostotuocomeusaregeminiperfareacquistisen",
+  "ildirittoallariparazionearrivainitaliacosacambiaperlagaranzia",
+  "googlemapssucarplayintegragemininegliusaparteilrolloutperiphonecompatibili",
+  "sunmitechnologylauncheswindowsposlinewithondeviceai",
+  "lattepandalauncheslattepandasigma2theembeddableaisingleboardserver",
+  "taniumteamswithnvidiatomanagelocalaiendpoints",
+  "sunmilauncheswindowscommercialproductfamilyexpandingcomputingchoicesforintellige",
+  "perplexitycomputerorafunzionasulmacsenzacloudeccocome",
+  "perplexitycomputeroragiraofflinesulmacmodelloeagenterestanosuldispositivo",
+  "perplexityportablecomputerportalailocalesullegpunvidiartxprivacyepotenzasenzaclo",
+  "truffadelfintocarabiniereanzianenelmirinoapastenaepicoduedenunciati",
+  "1passwordforagentslaiaccedeagliaccountsenzapassword",
+  "birdrecognizingframeforyourhomelabbirdnetgodockeroneinkoranyscreen",
+  "pangolin125redirectsmtlsandmachineroles",
+  "buildinga10gbebudgetnasontopofa34elitedeskg3igotfromebay",
+  "howiditchedcursorssubscriptionforanopensourcealternativethatactuallyworksoffline",
+  "algosouplaunchesalgofin10afinancedecisionmodel",
+  "whatfdemeansatopenai",
+  "anthropiclaunchesclaudeduettorivalchatgptdotsandmetamuse",
+  "uberrollsoutchatgptworktoall30000employees",
+  "uberrollsoutchatgptworktomorethan30000employees",
+  "uberuberrollsoutchatgptworkto30000employeesamidstoc",
+  "anthropiclaunchesclaudeduetproactiveaiagent",
+  "anthropiclaunchesclaudedueta6000connectorproactiveagentonopus55",
+  "claudelaunchespersonalaiagentssupportforsubscriptionquotasharinganddirectmemoryi",
+  "googleannouncesnewgeminiaiproductivitytoolsforbusinessowners",
+  "anthropiclaunchesclaudeduetaproactiveagentapptakingonmetasmuseandopenaisdots",
+  "claudeduetappisanthropicsbetonagents",
+  "meetclaudeduetthelatestaiagentintendedtolightenyourworkload",
+  "anthropicsclaudeduetagentjoinsmusedotsinpersonalairace",
+  "anthropicsclaudemythostrademarkapplicationdeniedbyuspto",
+  "grupomadisaconnectsitsbusinesswithmicrosoftdynamics365andmicrosoftcopilotstudioa",
+  "nflweek7predictionsbymicrosoftcopilotaiforeverygame",
+  "microsoftcopilotaipredictshyperliquidtosoartonewhighsinq4",
+  "microsoftannouncesmajorupgradetoonedrive",
+  "grokdeepfakecasereopenedafterbureaureporting",
+  "spacexlaunchespartnernetworktoexpandgroksenterprisereach",
+  "whytheuswantsdeepseekoffgovernmentsystemswhydeletingtheappisonlythestart",
+  "spacexsilaunchesspacexsuperintelligencepartnernetworkforcompaniesbuildingwithgro",
+  "hsbansdeepseekfromfederalsystemsbutexpertswarnenforcementcouldprovedifficult",
+  "whatisgrokaiwhoownsitwhatitdoesandwhatitcosts2026",
+  "anthropictakesongrokbotmetasmuseandopenaisdotswithitsalwaysonagentclaudeduet",
+  "metasaiappmusecrosses10millionusdownloadswithin40days",
+  "wildwoodsdirectorsaysaiisantitheticaltoeverythingthatweareatthisstudio",
+  "openaianthropicandnvidiahadrecordlobbyingquarters",
+  "phpthethreelittleletterswreakinghavocacrosstheweb",
+  "billgatessaystopreparefor20yearsoftumultuousaidisruption",
+  "1passwordletsaiagentsuseyourpasswordswithoutseeingthem",
+  "aiagentsarereadytoshopsomeretailersarewary",
+  "claudedidnotinventscorpionantivenom",
+  "eilikomakersaysitshiringanindependentsecurityfirmaftervergereportonitsinsecurero",
+  "chinesehackersspiedonthousandsofcompaniesafterbreachingitgiantconnectwise",
+  "uberputsall30000employeesonchatgptwork",
+  "spotifyscurrentaibetisaboutbeingthemusicservicethatagentschoose",
+  "nirvaraises33mforapendantthatonlylistenstoyou",
+  "deepseekreportedlyraises15bdaysafterusrestrictions",
+  "metawantstopayforitsbroadaibuildoutwithanewlycreatedclassofstock",
+  "hackersgotafourdayheadstartonepicphp2shellvulnerability",
+  "makingthecaseforcontextawareai",
+  "aishiddenstoragebillwhatinferenceleavesbehind",
+  "only13percentofcompaniesseerealreturnsfromaigartnersurveyfinds",
+  "recursiveshowsfirstresultofitsaidrivenresearchprocesswithflint",
+  "anaiagentinskynetmodehijacksunprotectedlanguagemodelstolaunchselfsustainingcyber",
+  "openaiagentsanalyzemousebraindatain32minutesajobthatwouldtakehumansmonths",
+  "claudeduetanthropicapichangesrecursiveslocalmodel",
+  "ilmuseoegiziosperimentalintelligenzaartificialepervelocizzarelacatalogazione",
+  "lairidisegnaichipelarchitetturadeidatacenter",
+  "applepuntasuunaiinvisibileeprivatamasiriairitardaineuropa",
+  "spesatroppocara5consiglidichatgptperrisparmiaredavvero",
+  "musemetaguadagneràconaiocchialismarteshopping",
+  "claudeduetunaltroagenteaicheaccedeaidatipersonali",
+  "comeportarellmemodelliaiinlocaledalsingolosviluppatoreallazienda",
+  "agiachieved",
+  "claudeislikeaseniornow",
+  "damn",
+  "igottiredofcheckingwhetherclaudecodeneedsmesoigaveitaphysicalstatuslight",
+  "callingallnvidiateslap100users",
+  "opensourcellmappreciationpost",
+  "2bitcopyinvramexactresidualinsystemramastheverifierspeculativedecodingformodelst",
+  "canllmssuperchargegeolocationsourtestsshowbigimprovementsbuthumansremainkey",
+  "reportingtoolstips",
+  "whatwelearnedbuildingachatbotforlasillavacíasnewsroomarchive",
+  "acaliforniageologistspottedastrangeobjectstickingoutofacreekgooglereverseimagese",
+  "oldaivisualsfalselysharedtoshowpalestinianflagbeinghoistedineurope",
+  "aroutinewildlifesurveyincaliforniahasledtoanextraordinarydi",
+  "ukrainianosintanalystrussiasyandexdatacenterinsasovoburnedoutinsidethoughitsroof",
+  "numberofairdefensepositionsaroundrussiasalabugadroneproductionhubrisesto33radiof",
+  "ukrainiandronesstrikehiddenrussiangradlaunchervehiclesandcommunicationsequipment",
+  "osintcontrolapropagandaestremistacomesmascherarefakenewsemanipolazionionline",
+  "isagaiaidcompletelyuselessinbig2026"
  ],
  "audio": "audio/2026-10-22.mp3",
- "durata": 107.5
+ "durata": 144.6,
+ "aggiornamenti": [
+  {
+   "generato": "2026-10-22T17:21:42+00:00",
+   "modello": "gemini-3.5-flash-lite",
+   "testi_completi": 20,
+   "riassunto": {
+    "titolo_giorno": "Arriva Claude Duet, l'agente AI proattivo per gestire le attività",
+    "in_breve": "Anthropic ha lanciato Claude Duet, un nuovo agente AI proattivo che lavora in background per gestire app e attività al posto dell'utente. Nel frattempo, 1Password ha introdotto una protezione specifica per permettere ai bot di accedere agli account in sicurezza senza vedere le password.",
+    "citati": [
+     "Claude Duet",
+     "1Password for Agents"
+    ],
+    "da_provare": [
+     {
+      "cosa": "Claude Duet",
+      "a_cosa_serve": "Un agente AI proattivo che monitora le app e lavora in background per completare attività quotidiane e lavorative al posto dell'utente.",
+      "per_chi": "Lavoro e tutti i giorni",
+      "ambito": "Organizzazione",
+      "come_iniziare": [],
+      "costo": "A pagamento",
+      "piattaforme": [
+       "Android",
+       "iPhone"
+      ],
+      "sul_dispositivo": false,
+      "come_sfruttarla": "Delegare la gestione di attività ripetitive e il monitoraggio delle applicazioni.",
+      "italiano": "Non indicato",
+      "difficolta": "Facile",
+      "fonti": [
+       "u1a5",
+       "u1a162"
+      ],
+      "affidabilita": "Una fonte",
+      "prova": "https://www.producthunt.com/products/claude",
+      "temi": [
+       "Agenti AI",
+       "Assistenti e chatbot"
+      ]
+     }
+    ],
+    "osint": [],
+    "gemme": [
+     {
+      "cosa": "BirdNET-Go",
+      "a_cosa_serve": "Un sistema open source per ascoltare tramite microfono e identificare le specie di uccelli e animali nell'ambiente circostante.",
+      "perche_gemma": "Gratis, open source e ideale per l'ascolto ambientale locale.",
+      "con_ai": "Non indicato",
+      "piattaforme": [],
+      "self_hosted": true,
+      "costo": "Gratis",
+      "difficolta": "Media",
+      "temi": [
+       "Open source e self-hosting"
+      ],
+      "fonti": [
+       "u1a57"
+      ],
+      "affidabilita": "Da verificare",
+      "come_iniziare": [],
+      "sul_dispositivo": false,
+      "come_sfruttarla": "",
+      "prova": ""
+     }
+    ],
+    "sezioni": [
+     {
+      "titolo": "Novità negli strumenti che già usi",
+      "notizie": [
+       {
+        "titolo": "1Password for Agents per autorizzare i bot in sicurezza",
+        "strumento": "1Password",
+        "riassunto": "Permette agli assistenti AI di effettuare l'accesso ai siti e servizi online necessari per completare un compito, ricevendo una notifica di approvazione sul proprio dispositivo senza che l'agente veda mai la password.",
+        "come_provarla": "Aggiornare l'applicazione e abilitare la gestione degli accessi per gli agenti AI.",
+        "disponibilita": "Disponibile ora",
+        "fonti": [
+         "u1a55",
+         "u1a114"
+        ],
+        "temi": [
+         "Agenti AI",
+         "Privacy e sicurezza"
+        ],
+        "affidabilita": "Confermata",
+        "solo_titoli": false
+       }
+      ]
+     }
+    ],
+    "formato": 2,
+    "controllo_siti": [
+     {
+      "cosa": "BirdNET-Go",
+      "esito": "nessun sito da aprire"
+     },
+     {
+      "cosa": "Claude Duet",
+      "sito": "https://www.producthunt.com/r/p/1288350?app_id=339",
+      "esito": "errore: HTTP Error 403: Forbidden"
+     }
+    ]
+   }
+  }
+ ]
 }
