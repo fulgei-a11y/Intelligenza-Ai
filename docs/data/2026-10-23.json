@@ -294,6 +294,66 @@
    "solo_titolo": false,
    "categoria": "Strumenti",
    "id": "a5"
+  },
+  "u1a57": {
+   "titolo": "OnKey – I'm a bad singer, so I built an app to show where I'm off-key",
+   "link": "https://github.com/dsmurrell/onkey",
+   "data": "2026-10-22T14:04:44+00:00",
+   "testo": "Hi all I was pretty terrible at singing, now I’d say I’m bad but not terrible. This is because I’ve been using a singing app (won’t name it here) that scores me on my pitch and timing throughout the song so that I can improve. Lately however, the app I’ve been using has flooded their song list with songs that aren’t originals. I didn’t like this at all as for me, it’s easier to try to improve whe…",
+   "sito": "https://github.com/dsmurrell/onkey",
+   "fonte": "Show HN – progetti utili (gemme)",
+   "tipo": "vetrina",
+   "solo_titolo": false,
+   "categoria": "Gemme",
+   "id": "u1a57"
+  },
+  "u1a159": {
+   "titolo": "Agenti AI accedono ai conti correnti, banche in allarme",
+   "link": "https://www.punto-informatico.it/agenti-ai-accedono-conti-correnti-banche-allarme/",
+   "data": "2026-10-23T10:32:23+00:00",
+   "testo": "Gli agenti AI possono eseguire numerosi compiti in autonomia. Diverse banche statunitensi hanno rilevato accessi non autorizzati ai conti correnti. In alcuni casi avviene con il permesso dell’utente, ma queste azioni sono vietate dai termini dei servizi. Gli istituti di credito hanno quindi iniziato a bloccare gli agenti AI per evitare gravi conseguenze e contenziosi. Nessun rimborso se l’agente AI spende i soldi Gli agenti AI, come Muse di Meta, possono effettuare login a servizi e siti con il permesso degli utenti. Le principali banche statunitensi, tra cui Morgan Stanley, Bank of America, JPMorgan, Wells Fargo e Chase, hanno rilevato un aumento degli accessi da parte di questi assistenti digitali, evidenziato i rischi connessi. La maggioranza degli accessi ai conti bancari avviene dopo l’autorizzazione degli utenti. Ciò rappresenta tuttavia una violazione contrattuale, in quanto l’operazione deve essere effettuata unicamente da un umano. In alcuni casi, le banche hanno rilevato azioni diverse da quelle permesse, come l’invio di comunicazioni ai call center. Se un agente AI esegue una transazione non autorizzata, ad esempio un pagamento o lo spostamento di denaro, il cliente della banca non potrà rivendicare il diritto al rimborso. Dovrebbe teoricamente dimostrare che l’azione è stata eseguita dall’agente AI senza un permesso esplicito. Ciò comporta quasi certamente l’avvio di un contenzioso legale. Considerando che gli agenti AI possono nascondere le tracce manipolando il traffico di rete, molte banche hanno iniziato ad implementare misure di sicurezza più avanzate. In alcuni casi viene completamente bloccato l’accesso agli agenti AI, mentre in altri è consentito solo l’accesso “read-only”, quindi non è possibile effettuare nessuna operazione in uscita. Come dimostr…",
+   "fonte": "Punto Informatico",
+   "tipo": "testata",
+   "solo_titolo": false,
+   "categoria": "Italia",
+   "id": "u1a159",
+   "testo_completo": true
+  },
+  "u1a4": {
+   "titolo": "Gerty",
+   "link": "https://www.producthunt.com/products/gerty",
+   "sito": "https://www.producthunt.com/r/p/1289207?app_id=339",
+   "data": "2026-10-22T07:14:10-07:00",
+   "testo": "Private ChatGPT alternative that sets itself up on your Mac",
+   "fonte": "Product Hunt (AI)",
+   "tipo": "vetrina",
+   "solo_titolo": false,
+   "categoria": "Strumenti",
+   "id": "u1a4"
+  },
+  "u1a160": {
+   "titolo": "Etsy: i venditori devono dichiarare le immagini generate con l’AI",
+   "link": "https://www.punto-informatico.it/etsy-venditori-devono-dichiarare-immagini-generate-ai/",
+   "data": "2026-10-23T09:32:44+00:00",
+   "testo": "Il prodotto in foto è perfetto. Fin troppo. Ha una precisione quasi irreale, una luce impeccabile e una resa dei materiali che sembra uscita da uno studio digitale. Poi arriva il pacco e la realtà è un’altra: ciò che si riceve somiglia appena a quello che si era acquistato. Etsy ha deciso di intervenire e ha cambiato le regole per i venditori. Etsy contro le inserzioni fasulle: come funziona l’avviso sulle immagini generate dall’AI e quando si rischia il rimborso Il momento chiave è il caricamento delle immagini. Se Etsy sospetta che una foto sia stata generata da un’intelligenza artificiale, compare una finestra in cui il venditore deve segnalare se l’immagine è stata fatta con l’AI oppure no. Etsy ha mostrato il meccanismo in un video. E quando un cliente è deluso, sono cavoli amari… Se un acquirente, infatti, segnala che quello che gli è arrivato è materialmente diverso da quanto descritto nell’inserzione, il venditore può essere chiamato a rimborsarlo. Una bella immagine generata che promette più di quanto il prodotto mantenga diventa quindi una scommessa con la posta in gioco molto concreta. Ricette, schemi e istruzioni: vade retro, AI… Etsy è piena di quelli che chiama “guide funzionali“, come cartamodelli, ricette, istruzioni passo passo. Per questi prodotti la piattaforma è chiara. Le informazioni devono essere opera del venditore e non generate dall’AI. Non basta dichiararlo. Chi vende una guida deve anche mostrare un risultato reale ottenuto seguendola. Il motivo si capisce senza fare alcuno sforzo. Una ricetta inventata da un modello può avere un aspetto impeccabile e dare un dolce che non lievita mai. Niente bot, ma l’arte AI resta Un’altra porta chiusa: le inserzioni create da bot non sono più ammesse. Vendere arte generata con l’intelligenza artificiale è…",
+   "fonte": "Punto Informatico",
+   "tipo": "testata",
+   "solo_titolo": false,
+   "categoria": "Italia",
+   "id": "u1a160",
+   "testo_completo": true
+  },
+  "u1a157": {
+   "titolo": "Microsoft elimina la funzione AI di Outlook che ordinava la posta",
+   "link": "https://www.punto-informatico.it/microsoft-elimina-funzione-ai-outlook-ordinava-posta/",
+   "data": "2026-10-23T14:22:34+00:00",
+   "testo": "Copilot Prioritize, la funzione di Outlook che assegnava una priorità alle email, sta per essere ritirata. Bastava attivarla, darle qualche istruzione su cosa considerare importante e si metteva all’opera. Outlook dice addio a Copilot Prioritize Le email che richiedevano un’azione salivano di grado, le altre restavano indietro. Era possibile anche insegnare regole nuove, e filtrare la casella per vedere solo i messaggi che Copilot riteneva urgenti. I messaggi che non considerava affatto erano la posta finita in cartelle diverse dalla Posta in arrivo; i messaggi che il mittente aveva già segnato come poco importanti; le risposte automatiche di assenza dall’ufficio; gli inviti alle riunioni; le email che si mandano a se stessi, quelle con scritto “ricordati di…”; i messaggi con pochissimo testo; le notifiche di mancato recapito; la quarantena; e i messaggi cifrati, dal contenuto illeggibile anche per l’assistente. Il pensionamento comincia dopo il 26 ottobre, quindi già dall’inizio della settimana prossima, mentre il ritiro completo è atteso entro metà novembre 2026, su tutti i client di Outlook. Chi amministra i sistemi aziendali può consultare il Message Center, dove l’avviso è registrato con il codice MC1519861. L’attivazione, va detto, era sempre stata facoltativa. Quindi chi non l’aveva mai abilitata non ne sentirà la mancanza, e chi la usava dovrà tornare a decidere da sé cosa merita un’occhiata. “Pulizie di primavera”, ma in autunno Microsoft chiama la mossa un “cleanup”. La spiegazione ufficiale è che così potrà concentrare energie e investimenti su altre esperienze Copilot su Outlook, ritenute di maggior valore. Il vero perché non c’è, e viene da fare due ipotesi. La prima è che l’interesse fosse tiepido e che pochi lo usassero. La seconda è che l’assistente sba…",
+   "fonte": "Punto Informatico",
+   "tipo": "testata",
+   "solo_titolo": false,
+   "categoria": "Italia",
+   "id": "u1a157",
+   "testo_completo": true
   }
  },
  "fonti": [
@@ -678,8 +738,247 @@
   "tiktokcomments",
   "isagaiaidcompletelyuselessinbig2026",
   "howtolocatescotlandcourtrolls",
-  "showhnvoidaccessopensourcedarkwebosintfromquerytoagraph"
+  "showhnvoidaccessopensourcedarkwebosintfromquerytoagraph",
+  "shogunai",
+  "agenthunt",
+  "peras",
+  "gerty",
+  "monish",
+  "termiprotocol",
+  "polylaneforcloudflare",
+  "bloblings",
+  "wehadaiwriteawikifrom45kenronemailseveryfactcited",
+  "anthropiclaunchesclaudeduetaiassistantforapps",
+  "soundthinkinglaunchesaitoolforgunshotdetectioncustomersbyinvestingcom",
+  "qashierrollsoutaitoolqashiergminsingaporeaheadofseaexpansion",
+  "microsoftdevelopsaitoolthatcandiagnosesequentiallylikeadoctor",
+  "microsoftaitooloutperformsdoctorsincomplexdiagnostictestsstudyfinds",
+  "amazonunveilsbeefrontieranalwaysonaiwearablethatlistensandsummarisesconversation",
+  "realpluslaunchesaiconnectoropeningnewwaysforrealestateprofessionalstoaccesslisti",
+  "duenuovistrumentipercoelumlintelligenzaartificialeincontralesperienza",
+  "cislromagnalianondecideilpropriousolodecidonoleorganizzazioni",
+  "controlroomaperteaicittadinicomecambialasmartcityagenova",
+  "creareappsenzaprogrammaremicrosoftlanciacopilotcode",
+  "tadoaggiornalappintelligenzaartificialeperlefinestreindicemuffaeliveactivities",
+  "comeusareclaudeperredigerelaprimabozzadelreportdisostenibilitàpartendodaidatiint",
+  "claudecodeinstallazionein12passi60min2026techinsiderorg",
+  "agentiialasciatisolisuunisolavirtualehannoiniziatoagiocare",
+  "hassabisanticipalagiarrivaentrodueotreanni",
+  "jfroglauncheslocalaisecurityfordeveloperlaptops",
+  "oodaaiabpubloodalaunchesdesktopappenablinglocalaiandpaidcomputesharing",
+  "nvidiaspingelailocaleagentiprivatisuipcnuovimodelliedgxsparkfinoaottosistemi",
+  "recensitogarminzumoxt3ilnavigatorepermotopiùevolutoeorainduemisurevideo",
+  "ilpassaportoarrivasugooglewalletancheinitaliacosacambiarispettoaitwalleteadapple",
+  "onkeyimabadsingersoibuiltanapptoshowwhereimoffkey",
+  "lockingdownfamilyfacingselfhostedserviceshowareyouhandlingthecurrentexploitpace",
+  "linuxinfrastructuresecopsalert",
+  "whatshouldiaddtomywiki",
+  "newprojectmegathreadweekof22oct2026",
+  "projectswithstrictmaintainers",
+  "youcanbuildadedicatedmusicserverusingyourolddeviceshereshow",
+  "iarchivemyfavoriteyoutubechannelstomynaswithpinchflatngxanditsbetterthantheorigi",
+  "tiredofrebuildingpatchedapksthesemorphecommunityprojectshandlethemforyou",
+  "solcislaunchesopencompliancelayerforaiagentsonnvidiaopenshell",
+  "rapidlyscalingonlinestoragetoserveover1billionchatgptuserspartii",
+  "openaiandpolandsnaskpartnertoadvanceaisafetyandsecurity",
+  "hijiffylaunchesemailcopilotaithatdraftshotelemailreplies",
+  "anthropiclaunchesclaudeduetabackgroundaiagentforclaudeproandmaxsubscribersintheu",
+  "anthropicrollsoutclaudeduetbutenterprisesarentready",
+  "anthropiclaunchesclaudeduetresearchpreviewforproandmaxusers",
+  "uberrollsoutchatgptworktomorethan30000employeesweeksafterannouncing3300jobcuts",
+  "krakenlauncheschatgptappwithreadonlyaccountaccess",
+  "anthropicdebutsclaudeduetpersonalaiagenthereswhattoknow",
+  "analignmentassessmentoftheukaisicybertestingincident",
+  "engineeringcompanyartizentgainsselectpartnerstatusinanthropicsclaudepartnernetwo",
+  "anthropicsclaudenowwritescodeandprovesitsafeautomatically",
+  "meetclaudeduetthelatestaiagentintendedtolightenyourworkload",
+  "e4ereliefprovidesemergencygrantsfasterwithdynamics365andmicrosoftpowerplatform",
+  "industrycopilotdeliversprebuiltlegalskillsconnectorstothirdpartydatasources",
+  "volkswagengroupdeploysmicrosoftcopilottomorethan330000employees",
+  "ukdetectiveinvestigatedforallegedlyusingmicrosoftcopilottomakedecisionsincrimina",
+  "metamuseaiagentwhatitdoeswhatitcostsandwhatitgetswrong",
+  "mistralupdatesspeechmodelsaddsmultilingualvoiceapplicationtools",
+  "metaaiglassesnowonsaleinmalaysiawhichraybanoroakleymodelshouldyoubuy",
+  "chinasdeepseekminimaxreceiveapprovaltotakeaimodelsglobal",
+  "xailaunchesgrokpartnernetworkaftermorethan130companiesjoinearlyaccess",
+  "grokbotcannowcontrolyourlightscalendarandmessages",
+  "deepseekformsproductdivisioncuitianyiatthehelminferenceframeworkdeepinferopensou",
+  "metadelaysnewbusinesstermsafterpublisherpushbackonaiscraping",
+  "retrogamingisbeingoverrunwithai",
+  "openaiceosamaltmansaysadvancedaiwillinevitablyescapeitssandboxandonlyalignmentca",
+  "canvalaunchescraftitsfirstinhouseimagemodel",
+  "openailowersvaluationtargetraisesupto30billion",
+  "openainears125t1passwordforagentsgemini35propostmortem",
+  "intelligenzaartificialeperlaricercaoncologicapremioallistitutotumori",
+  "tronchettiilcalendariopirelliconintelligenzaartificialesarebbetristissimo",
+  "sichiudesabatoorizzontidigitaliilforumdedicatoallintelligenzaartificiale",
+  "anghilericonfindustrialaioggièlasfidadecisivailpaesenoncresceda25anni",
+  "lavorettoextra7plugindichatgptconipromptperiniziareora",
+  "perplexitycomputeresecuzionesumaccon36gbdiram",
+  "microsofteliminalafunzioneaidioutlookcheordinavalaposta",
+  "openaivulnerabilitànelsistemadimonitoraggioai",
+  "agentiaiaccedonoaiconticorrentibancheinallarme",
+  "etsyivenditoridevonodichiarareleimmaginigenerateconlai",
+  "lanasaportalaisullalunaunrovertesteràimodellilinguistici",
+  "socialvietatiaiminoridi15annilagreciaapprovalaleggecosacambiaequando",
+  "thisisstartingtogetscary",
+  "didtheynerfopus55doesntlooklikeitlivenerfday29update",
+  "swedensgovernmentisblockingchatgptandclaudeonstaffcomputersfrommonday",
+  "navigatetheeconomicsofai",
+  "geminiwantstoknowwhichanswerismorehelpful_ツ_",
+  "chooseyourprojectswellthegravytrainwillend",
+  "3ofcriticalsoftwaresecuritybugsinallofrecordedhistoryhavebeenfoundinthelastmonth",
+  "modelsdisappearingfromhuggingface",
+  "deepseekandminimaxclearchinasaiexportrulesforoverseasopensourcereleases",
+  "nvidiaopenshellsafeprivateruntimeforautonomousaiagents",
+  "will2432gbgpusagesurprisinglywellforlocalllmsclosingthegaptocloudmodelsorwill96g",
+  "vibecodingyourowninferenceengineiseasytheysaid",
+  "howrussiacensorsforeigntvmidtermbattleforuscongressvenezuelascollapsedhousingtow",
+  "whydelhipoliceprotestphotosexposethelimitsofaiimagedetection",
+  "europoltraccia51potenzialivittimedellatrattaconlosint",
+  "amacomerlunicatappainsardegnadilinuxdaylunionesardait",
+  "tiktokandinstagram"
  ],
  "audio": "audio/2026-10-23.mp3",
- "durata": 87.7
+ "durata": 160.5,
+ "aggiornamenti": [
+  {
+   "generato": "2026-10-23T17:03:04+00:00",
+   "modello": "gemini-3.8-flash",
+   "testi_completi": 11,
+   "riassunto": {
+    "titolo_giorno": "Arriva Gerty per Mac e Microsoft manda in pensione Copilot Prioritize in Outlook",
+    "in_breve": "Tra le novità di questo aggiornamento spicca Gerty, un'alternativa a ChatGPT che si installa ed elabora in locale su Mac. Nel frattempo, Microsoft ritira la funzione Copilot Prioritize da Outlook ed Etsy introduce nuove regole restrittive per le immagini e i contenuti creati con l'AI.",
+    "citati": [
+     "Gerty",
+     "Copilot",
+     "Etsy"
+    ],
+    "da_provare": [
+     {
+      "cosa": "Gerty",
+      "a_cosa_serve": "Un'alternativa privata a ChatGPT che si configura ed esegue direttamente sul proprio Mac per elaborare richieste in locale.",
+      "per_chi": "Lavoro e tutti i giorni",
+      "ambito": "Assistenti AI",
+      "come_iniziare": [],
+      "costo": "Non indicato",
+      "piattaforme": [
+       "Mac"
+      ],
+      "sul_dispositivo": true,
+      "come_sfruttarla": "Usare un assistente conversazionale sul proprio computer Mac senza condividere dati personali o documenti sensibili nel cloud.",
+      "italiano": "Non indicato",
+      "difficolta": "Facile",
+      "temi": [
+       "AI sul dispositivo",
+       "Assistenti e chatbot"
+      ],
+      "fonti": [
+       "u1a4"
+      ],
+      "affidabilita": "Appena lanciato",
+      "prova": "https://www.producthunt.com/products/gerty"
+     }
+    ],
+    "osint": [],
+    "gemme": [
+     {
+      "cosa": "OnKey",
+      "a_cosa_serve": "Un'applicazione per chi desidera migliorare nel canto che analizza la voce ed evidenzia in tempo reale gli errori di intonazione e di tempo.",
+      "perche_gemma": "Fornisce un riscontro oggettivo e immediato sulle note stonate durante l'esercizio vocale.",
+      "con_ai": "",
+      "piattaforme": [
+       "Mac"
+      ],
+      "self_hosted": false,
+      "costo": "Non indicato",
+      "difficolta": "Facile",
+      "temi": [
+       "Voce e audio"
+      ],
+      "fonti": [
+       "u1a57"
+      ],
+      "affidabilita": "Appena lanciato",
+      "come_iniziare": [],
+      "sul_dispositivo": false,
+      "come_sfruttarla": "",
+      "prova": "https://github.com/dsmurrell/onkey",
+      "piattaforme_verificate": true
+     }
+    ],
+    "sezioni": [
+     {
+      "titolo": "Novità negli strumenti che già usi",
+      "notizie": [
+       {
+        "titolo": "Microsoft rimuove Copilot Prioritize da Outlook",
+        "strumento": "Copilot",
+        "riassunto": "Microsoft ha avviato la dismissione di Copilot Prioritize, la funzione di Outlook che assegnava un punteggio di urgenza ai messaggi in arrivo e organizzava automaticamente la posta. La rimozione comincia a fine ottobre e si completerà entro metà novembre 2026 su tutti i client, lasciando agli utenti la gestione manuale dei messaggi prioritari.",
+        "come_provarla": "",
+        "disponibilita": "Disponibile ora",
+        "fonti": [
+         "u1a157"
+        ],
+        "temi": [
+         "Lavoro e produttività",
+         "Assistenti e chatbot"
+        ],
+        "affidabilita": "Una fonte",
+        "solo_titoli": false
+       }
+      ]
+     },
+     {
+      "titolo": "In breve",
+      "breve": true,
+      "notizie": [
+       {
+        "titolo": "Etsy obbliga a dichiarare le immagini AI e vieta guide sintetiche",
+        "riassunto": "La piattaforma impone ai venditori di etichettare le foto generate con l'AI (con obbligo di rimborso all'acquirente se l'oggetto ricevuto è difforme) e vieta ricette o istruzioni create dall'AI senza una prova reale di efficacia.",
+        "fonti": [
+         "u1a160"
+        ],
+        "temi": [
+         "Regole e leggi",
+         "Foto e immagini"
+        ],
+        "affidabilita": "Una fonte",
+        "solo_titoli": false
+       },
+       {
+        "titolo": "Banche in allerta per l'accesso di agenti AI ai conti correnti",
+        "riassunto": "I principali istituti bancari statunitensi hanno iniziato a bloccare gli agenti AI autonomi, segnalando che il loro utilizzo viola i contratti di servizio e non garantisce rimborsi per operazioni finanziarie non autorizzate.",
+        "fonti": [
+         "u1a159"
+        ],
+        "temi": [
+         "Privacy e sicurezza",
+         "Agenti AI"
+        ],
+        "affidabilita": "Una fonte",
+        "solo_titoli": false
+       }
+      ]
+     }
+    ],
+    "formato": 2,
+    "controllo_siti": [
+     {
+      "cosa": "Gerty",
+      "sito": "https://www.producthunt.com/r/p/1289207?app_id=339",
+      "esito": "errore: HTTP Error 403: Forbidden"
+     },
+     {
+      "cosa": "OnKey",
+      "sito": "https://github.com/dsmurrell/onkey",
+      "pagina": 307610,
+      "trovate": [
+       "Mac"
+      ]
+     }
+    ]
+   }
+  }
+ ]
 }
