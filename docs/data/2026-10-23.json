@@ -1,0 +1,685 @@
+{
+ "giorno": "2026-10-23",
+ "generato": "2026-10-23T05:48:08+00:00",
+ "modello": "gemini-3.6-flash",
+ "testi_completi": 27,
+ "riassunto": {
+  "titolo_giorno": "Canva Craft reinventa la creazione grafica con l'AI e la traduzione vocale diventa istantanea con Sponkly",
+  "in_breve": "La giornata di oggi mostra come l'intelligenza artificiale stia diventando sempre più pratica nella creatività e nella comunicazione quotidiana. Con Canva Craft la generazione di immagini e locandine include finalmente testi nitidi ed elementi facilmente modificabili, mentre strumenti come Sponkly permettono di abbattere le barriere linguistiche durante chiamate e video.",
+  "citati": [
+   "Canva Craft",
+   "Sponkly"
+  ],
+  "da_provare": [
+   {
+    "cosa": "Canva Craft",
+    "a_cosa_serve": "Nuovo modello di generazione visiva integrato in Canva che pianifica la struttura della grafica prima di generarla. Permette di creare poster, locandine e contenuti social con testi nitidi e sovrapposizioni di elementi modificabili.",
+    "per_chi": "Lavoro e tutti i giorni",
+    "ambito": "Foto e immagini",
+    "come_iniziare": [
+     "Accedi a Canva dal tuo browser web",
+     "Seleziona la scheda Dream Lab per utilizzare il nuovo modello"
+    ],
+    "costo": "Gratis con limiti",
+    "piattaforme": [
+     "Browser"
+    ],
+    "sul_dispositivo": false,
+    "come_sfruttarla": "Creare velocemente volantini promozionali o immagini per i social con scritte leggibili da modificare successivamente.",
+    "italiano": "Non indicato",
+    "difficolta": "Facile",
+    "temi": [
+     "Foto e immagini",
+     "Lavoro e produttività",
+     "Scrittura e documenti"
+    ],
+    "fonti": [
+     "a108",
+     "a122",
+     "a159"
+    ],
+    "affidabilita": "Confermata",
+    "prova": ""
+   },
+   {
+    "cosa": "Sponkly",
+    "a_cosa_serve": "Servizio di traduzione vocale dal vivo per conversazioni, chiamate, riunioni di lavoro online e video su YouTube.",
+    "per_chi": "Lavoro e tutti i giorni",
+    "ambito": "Voce e audio",
+    "come_iniziare": [],
+    "costo": "Non indicato",
+    "piattaforme": [
+     "Browser"
+    ],
+    "sul_dispositivo": false,
+    "come_sfruttarla": "Seguire riunioni online o guardare video in lingua straniera ottenendo una traduzione vocale immediata.",
+    "italiano": "Non indicato",
+    "difficolta": "Facile",
+    "temi": [
+     "Voce e audio",
+     "Lavoro e produttività",
+     "Video"
+    ],
+    "fonti": [
+     "a1"
+    ],
+    "affidabilita": "Appena lanciato",
+    "prova": "https://www.producthunt.com/products/sponkly"
+   },
+   {
+    "cosa": "Radaric",
+    "a_cosa_serve": "Lettore di notizie e feed basato sull'AI che apprende i gusti personali dell'utente per selezionare e mostrare solo i contenuti online più interessanti.",
+    "per_chi": "Tutti i giorni",
+    "ambito": "Ricerca e informazioni",
+    "come_iniziare": [],
+    "costo": "Non indicato",
+    "piattaforme": [
+     "Browser"
+    ],
+    "sul_dispositivo": false,
+    "come_sfruttarla": "Leggere gli aggiornamenti sui propri interessi eliminando gli articoli irrilevanti o ripetitivi.",
+    "italiano": "Non indicato",
+    "difficolta": "Facile",
+    "temi": [
+     "Ricerca e informazioni"
+    ],
+    "fonti": [
+     "a5"
+    ],
+    "affidabilita": "Appena lanciato",
+    "prova": "https://www.producthunt.com/products/radaric"
+   },
+   {
+    "cosa": "Bits",
+    "a_cosa_serve": "Agente personale open source ideato per portare a termine compiti ed eseguire attività al posto dell'utente.",
+    "per_chi": "Lavoro e tutti i giorni",
+    "ambito": "Organizzazione",
+    "come_iniziare": [],
+    "costo": "Gratis",
+    "piattaforme": [
+     "Browser"
+    ],
+    "sul_dispositivo": false,
+    "come_sfruttarla": "Automatizzare piccole mansioni digitali quotidiane per ridurre la quantità di lavoro manuale.",
+    "italiano": "Non indicato",
+    "difficolta": "Facile",
+    "temi": [
+     "Agenti AI",
+     "Lavoro e produttività",
+     "Open source e self-hosting"
+    ],
+    "fonti": [
+     "a6"
+    ],
+    "affidabilita": "Appena lanciato",
+    "prova": "https://www.producthunt.com/products/bits-4"
+   },
+   {
+    "cosa": "Tend",
+    "a_cosa_serve": "Assistente AI personale pensato per affiancare piccoli imprenditori e liberi professionisti nella gestione quotidiana del lavoro.",
+    "per_chi": "Lavoro",
+    "ambito": "Organizzazione",
+    "come_iniziare": [],
+    "costo": "Non indicato",
+    "piattaforme": [
+     "Browser"
+    ],
+    "sul_dispositivo": false,
+    "come_sfruttarla": "Semplificare l'organizzazione e la gestione delle comunicazioni per la propria piccola attività.",
+    "italiano": "Non indicato",
+    "difficolta": "Facile",
+    "temi": [
+     "Lavoro e produttività",
+     "Assistenti e chatbot"
+    ],
+    "fonti": [
+     "a10"
+    ],
+    "affidabilita": "Appena lanciato",
+    "prova": "https://www.producthunt.com/products/tend-5"
+   }
+  ],
+  "osint": [],
+  "gemme": [
+   {
+    "cosa": "Pangolin",
+    "a_cosa_serve": "Piattaforma open source per gestire l'accesso remoto sicuro alle proprie applicazioni, server domestici e servizi senza esporre i dati pubblicamente.",
+    "perche_gemma": "È open source, rispetta la privacy e permette di proteggere le connessioni di casa o studio.",
+    "con_ai": "Consente di accedere da qualsiasi luogo e in sicurezza ai propri strumenti AI o modelli installati sul server di casa.",
+    "piattaforme": [
+     "Browser"
+    ],
+    "self_hosted": true,
+    "costo": "Gratis",
+    "difficolta": "Media",
+    "temi": [
+     "Open source e self-hosting",
+     "Privacy e sicurezza"
+    ],
+    "fonti": [
+     "a59"
+    ],
+    "affidabilita": "Da verificare",
+    "come_iniziare": [],
+    "sul_dispositivo": false,
+    "come_sfruttarla": "",
+    "prova": ""
+   }
+  ],
+  "sezioni": [],
+  "formato": 2,
+  "controllo_siti": [
+   {
+    "cosa": "Canva Craft",
+    "esito": "nessun sito da aprire"
+   },
+   {
+    "cosa": "Pangolin",
+    "esito": "nessun sito da aprire"
+   },
+   {
+    "cosa": "Sponkly",
+    "sito": "https://www.producthunt.com/r/p/1288519?app_id=339",
+    "esito": "errore: HTTP Error 403: Forbidden"
+   },
+   {
+    "cosa": "Tend",
+    "sito": "https://www.producthunt.com/r/p/1286998?app_id=339",
+    "esito": "errore: HTTP Error 403: Forbidden"
+   },
+   {
+    "cosa": "Radaric",
+    "sito": "https://www.producthunt.com/r/p/1288419?app_id=339",
+    "esito": "errore: HTTP Error 403: Forbidden"
+   },
+   {
+    "cosa": "Bits",
+    "sito": "https://www.producthunt.com/r/p/1288430?app_id=339",
+    "esito": "errore: HTTP Error 403: Forbidden"
+   }
+  ]
+ },
+ "articoli": {
+  "a6": {
+   "titolo": "Bits",
+   "link": "https://www.producthunt.com/products/bits-4",
+   "sito": "https://www.producthunt.com/r/p/1288430?app_id=339",
+   "data": "2026-10-21T13:59:15-07:00",
+   "testo": "An open-source personal agent that gets you things done",
+   "fonte": "Product Hunt (AI)",
+   "tipo": "vetrina",
+   "solo_titolo": false,
+   "categoria": "Strumenti",
+   "id": "a6"
+  },
+  "a108": {
+   "titolo": "Canva’s first AI image model plans designs before generating them",
+   "link": "https://www.theverge.com/ai-artificial-intelligence/1017151/canva-craft-in-house-ai-model",
+   "sito": "",
+   "data": "2026-10-22T17:51:25-04:00",
+   "testo": "Canva is diving even deeper into AI with the launch of an image generation model that competes directly with those from OpenAI, Microsoft, and Google. The model, called Canva Craft, uses a two-stage architecture that allows it to plan a design before generating an image, allowing for \"greater precision, consistency and control,\" according to an […]",
+   "fonte": "The Verge",
+   "tipo": "testata",
+   "solo_titolo": false,
+   "categoria": "Testate tech",
+   "id": "a108"
+  },
+  "a122": {
+   "titolo": "Canva releases its first image generation model",
+   "link": "https://techcrunch.com/2026/10/22/canva-releases-its-first-image-generation-model/",
+   "data": "2026-10-22T19:00:00+00:00",
+   "testo": "Design platform Canva released its first image generation model, called Canva Craft, developed by its research team to compete with same-category models from Google, OpenAI, ByteDance, and Meta. The company said its model works in two stages. In the first stage, it interprets users’ prompts and creates a plan with details like spatial relationships of elements, relative scale, visual hierarchy, and information for text generation. In the second stage, its model generates an image of up to 2K resolution in a possible 30 different aspect ratios for various platforms. Canva said that this approach allows it to create images with accurate details of objects and legible text. Plus, users would be able to make precise edits without changing other parts of the image. The company noted that rather than using photographs, it used designs to train this model using human-designed templates from Canva’s library, including posters, social posts, presentations, infographics, menus, and typography-rich layouts. That means images generated with Canva Craft could be converted into layered designs using Canva Magic, the company’s image-to-design transformer. Last year, the platform released its own model that understands designs and layers. Canva Craft is available on the company’s platform to all users, who can access the model from the Dream Lab tab. The model will also be available through the Canva API. Plus, the company plans to support image generation in third-party chatbots like ChatGPT and Gemini through Canva’s MCP. Canva has used a bunch of image models for generation in its platform, so it’s likely that the new models will help save API costs for the company. It said that besides costs, the new model also allows the platform to have better quality and speed control. In 2024,…",
+   "fonte": "TechCrunch",
+   "tipo": "testata",
+   "solo_titolo": false,
+   "categoria": "Testate tech",
+   "id": "a122",
+   "testo_completo": true
+  },
+  "a59": {
+   "titolo": "Pangolin 1.25: Redirects, mTLS, and Machine Roles",
+   "link": "https://www.reddit.com/r/selfhosted/comments/1xckgit/pangolin_125_redirects_mtls_and_machine_roles/",
+   "sito": "",
+   "data": "2026-10-22T14:41:49+00:00",
+   "testo": "Hello everyone! Pangolin 1.25 is here with two highly requested features from this community: HTTP redirects and mutual TLS (mTLS) for public resources. It also includes roles for machine clients and more! Pangolin is an open-source, identity-aware remote access platform that simply and securely connects and authenticates your users to applications, infrastructure, and AI workloads. GitHub: https…",
+   "fonte": "Reddit r/selfhosted",
+   "tipo": "community",
+   "solo_titolo": false,
+   "categoria": "Gemme",
+   "id": "a59"
+  },
+  "a159": {
+   "titolo": "Canva Craft è ufficiale: la nuova AI genera immagini modificabili",
+   "link": "https://www.hdblog.it/tecnologia/articoli/n674651/canva-craft-ai-generazione-immagini/",
+   "data": "2026-10-23T07:35:00+02:00",
+   "testo": "Canva lancia Craft, un'AI che genera immagini fino a 2K con testi leggibili e modifiche precise.",
+   "fonte": "HDblog",
+   "tipo": "testata",
+   "solo_titolo": false,
+   "categoria": "Italia",
+   "id": "a159"
+  },
+  "a1": {
+   "titolo": "Sponkly",
+   "link": "https://www.producthunt.com/products/sponkly",
+   "sito": "https://www.producthunt.com/r/p/1288519?app_id=339",
+   "data": "2026-10-21T16:31:26-07:00",
+   "testo": "Live voice translation for chats, calls, meetings & YouTube",
+   "fonte": "Product Hunt (AI)",
+   "tipo": "vetrina",
+   "solo_titolo": false,
+   "categoria": "Strumenti",
+   "id": "a1"
+  },
+  "a10": {
+   "titolo": "Tend",
+   "link": "https://www.producthunt.com/products/tend-5",
+   "sito": "https://www.producthunt.com/r/p/1286998?app_id=339",
+   "data": "2026-10-20T11:30:09-07:00",
+   "testo": "Personal AI for businesses and entrepreneurs.",
+   "fonte": "Product Hunt (AI)",
+   "tipo": "vetrina",
+   "solo_titolo": false,
+   "categoria": "Strumenti",
+   "id": "a10"
+  },
+  "a5": {
+   "titolo": "Radaric",
+   "link": "https://www.producthunt.com/products/radaric",
+   "sito": "https://www.producthunt.com/r/p/1288419?app_id=339",
+   "data": "2026-10-21T13:48:58-07:00",
+   "testo": "AI feed reader that learns your editorial taste",
+   "fonte": "Product Hunt (AI)",
+   "tipo": "vetrina",
+   "solo_titolo": false,
+   "categoria": "Strumenti",
+   "id": "a5"
+  }
+ },
+ "fonti": [
+  {
+   "nome": "Product Hunt (AI)",
+   "ok": true,
+   "presi": 15
+  },
+  {
+   "nome": "Show HN (nuovi progetti)",
+   "ok": true,
+   "presi": 2
+  },
+  {
+   "nome": "Nuove app AI (internazionale)",
+   "ok": true,
+   "presi": 10
+  },
+  {
+   "nome": "Nuove app AI (Italia)",
+   "ok": true,
+   "presi": 8
+  },
+  {
+   "nome": "Novità AI da provare (Italia)",
+   "ok": true,
+   "presi": 8
+  },
+  {
+   "nome": "AI sul dispositivo (internazionale)",
+   "ok": true,
+   "presi": 8
+  },
+  {
+   "nome": "AI sul dispositivo (Italia)",
+   "ok": true,
+   "presi": 5
+  },
+  {
+   "nome": "Show HN – progetti utili (gemme)",
+   "ok": true,
+   "presi": 1
+  },
+  {
+   "nome": "Reddit r/selfhosted",
+   "ok": true,
+   "presi": 6
+  },
+  {
+   "nome": "Reddit r/opensource",
+   "ok": true,
+   "presi": 5
+  },
+  {
+   "nome": "Alternative open source (Google News)",
+   "ok": true,
+   "presi": 5
+  },
+  {
+   "nome": "OpenAI",
+   "ok": true,
+   "presi": 3
+  },
+  {
+   "nome": "Google (blog ufficiale)",
+   "ok": true,
+   "presi": 0
+  },
+  {
+   "nome": "Google Gemini (blog)",
+   "ok": true,
+   "presi": 0
+  },
+  {
+   "nome": "Nuove funzioni AI (Google News)",
+   "ok": true,
+   "presi": 12
+  },
+  {
+   "nome": "Anthropic / Claude",
+   "ok": true,
+   "presi": 6
+  },
+  {
+   "nome": "Microsoft Copilot",
+   "ok": true,
+   "presi": 5
+  },
+  {
+   "nome": "Altri assistenti AI (Perplexity, Mistral, Meta AI…)",
+   "ok": true,
+   "presi": 8
+  },
+  {
+   "nome": "The Verge",
+   "ok": true,
+   "presi": 10
+  },
+  {
+   "nome": "TechCrunch",
+   "ok": true,
+   "presi": 12
+  },
+  {
+   "nome": "Ars Technica",
+   "ok": true,
+   "presi": 4
+  },
+  {
+   "nome": "MIT Technology Review",
+   "ok": true,
+   "presi": 4
+  },
+  {
+   "nome": "The Decoder",
+   "ok": true,
+   "presi": 8
+  },
+  {
+   "nome": "TLDR AI (newsletter)",
+   "ok": true,
+   "presi": 1
+  },
+  {
+   "nome": "ANSA",
+   "ok": true,
+   "presi": 6
+  },
+  {
+   "nome": "Wired Italia",
+   "ok": true,
+   "presi": 0
+  },
+  {
+   "nome": "Il Sole 24 Ore Tecnologia",
+   "ok": true,
+   "presi": 1
+  },
+  {
+   "nome": "Punto Informatico",
+   "ok": true,
+   "presi": 5
+  },
+  {
+   "nome": "HDblog",
+   "ok": true,
+   "presi": 2
+  },
+  {
+   "nome": "Reddit",
+   "ok": true,
+   "presi": 8
+  },
+  {
+   "nome": "Reddit (AI locale)",
+   "ok": false,
+   "errore": "HTTP Error 429: Too Many Requests",
+   "presi": 0
+  },
+  {
+   "nome": "Bellingcat (guide e strumenti)",
+   "ok": true,
+   "presi": 1
+  },
+  {
+   "nome": "GIJN (guide per giornalisti investigativi, via Google News)",
+   "ok": true,
+   "presi": 5
+  },
+  {
+   "nome": "OSINT – verifica e fact-checking (internazionale)",
+   "ok": true,
+   "presi": 5
+  },
+  {
+   "nome": "OSINT – nuovi strumenti (internazionale)",
+   "ok": true,
+   "presi": 4
+  },
+  {
+   "nome": "OSINT – strumenti (Italia)",
+   "ok": true,
+   "presi": 2
+  },
+  {
+   "nome": "Reddit (OSINT)",
+   "ok": true,
+   "presi": 3
+  },
+  {
+   "nome": "Hacker News (OSINT)",
+   "ok": true,
+   "presi": 1
+  }
+ ],
+ "visti": [
+  "sponkly",
+  "notif",
+  "claudeduet",
+  "kugelear",
+  "radaric",
+  "bits",
+  "tetrizenggintelligenceconnectors",
+  "mercury3",
+  "agenticcleanslop",
+  "tend",
+  "koi",
+  "notionauto",
+  "mouse1",
+  "agentpets",
+  "triagebychodeberg",
+  "uimicrointeractionspromptsforai",
+  "omnaraopensourcealternativetoclaudemanagedagents",
+  "doublenickellaunchesaitooltospeeduptruckdriveremploymentverifications",
+  "webmanualsupgradescompliancelibrarieswithaiassistantandfaaassessmenttools",
+  "aussieaitoolbetterthangoogle",
+  "impactfactorylaunchesaimarketingpluginforchatgptandotherleadingaiassistants",
+  "slacklaunchesaitoolforfrontlineemployees",
+  "harborlablaunchesaiassistanttocutportcostreviewtime",
+  "anthropicunveilsclaudeduetaiagentapp",
+  "harborlablaunchesaiassistantforportcostchecks",
+  "mastercardlaunchesaiassistanttosimplifycardbenefits",
+  "anthropiclaunchesclaudeduetasmartaiagentthatworksinthebackground",
+  "festivalnazionalediffusodedicatoallalfabetizzazionedigitaleconvegnosullintellige",
+  "claudeduetèlagenteaichemonitoraleappelavoraalpostotuo",
+  "ecografieetacanchedidomenicanuovimacchinariepiùmedici",
+  "welfaredigitalelitaliaèprimaineuropamaibenefitrestanonelcassetto",
+  "porschetechnologiesdalleautodilussoalladifesa",
+  "condizionatoriascuolainsiciliastanziati20milioniperlinstallazionenelleauleilvial",
+  "milazzoguidalasvoltadigitaledi11comuniarrivalassistentevirtualeconlintelligenzaa",
+  "dalcanavesearrivalintelligenzaartificialecheaiutalepersoneaparlarenelleaziendepr",
+  "comeusaregeminipercapiresecertisitiomessaggisonodelletruffe",
+  "lintelligenzaartificialeprovaivestitialpostotuocomeusaregeminiperfareacquistisen",
+  "ildirittoallariparazionearrivainitaliacosacambiaperlagaranzia",
+  "googlemapssucarplayintegragemininegliusaparteilrolloutperiphonecompatibili",
+  "geminiilcopilotaconandroidautochesatuttoditemainitalianonarriva",
+  "anthropiclanciaclaudeduetlagentechetiscriveperprimo",
+  "chatgptproteggeleconversazioniprivateconpinebiometria",
+  "chatgptoraconsentediproteggerelechatconunpinmanonsonocrittografate",
+  "itriedrunningailocallyonmylaptopanditwasshockinglyeasy3easystepstofreeprivateaia",
+  "sunmitechnologylauncheswindowsposlinewithondeviceai",
+  "taniumbringsenterprisegrademanageabilitytonvidialocalaiinfrastructure",
+  "meirolauncheslocalaicdpforsovereignaiinference",
+  "lattepandalauncheslattepandasigma2theembeddableaisingleboardserver",
+  "taniumteamswithnvidiatomanagelocalaiendpoints",
+  "innovorbstechnologieslaunchesaidatacenterinfrastructurepracticeforgpuclustersand",
+  "sunmilauncheswindowscommercialproductfamilyexpandingcomputingchoicesforintellige",
+  "perplexitycomputeroragiraofflinesulmacmodelloeagenterestanosuldispositivo",
+  "perplexitycomputerorafunzionasulmacsenzacloudeccocome",
+  "perplexityportablecomputerportalailocalesullegpunvidiartxprivacyepotenzasenzaclo",
+  "truffadelfintocarabiniereanzianenelmirinoapastenaepicoduedenunciati",
+  "cosèflintlailocaleperlaprogrammazionechesiècostruitadasolaoquasi",
+  "uberblokaninteractivemuseumofzfsinternals",
+  "birdrecognizingframeforyourhomelabbirdnetgodockeroneinkoranyscreen",
+  "pangolin125redirectsmtlsandmachineroles",
+  "anyoneelsemovingtheirservicesexposedtointernetin",
+  "buildinga10gbebudgetnasontopofa34elitedeskg3igotfromebay",
+  "noobneedingadviceinternet",
+  "dockercontainerphp2shellauditscript",
+  "soareweallokaywithaireverseengineeredappscallingthemselvesopensource",
+  "sentryjustgaveamilliondollarstoopensourcemaintainers",
+  "kdethedocumentarythestoryoffreesoftwareunderdogs",
+  "cuicuitopensourcemealplannerforpeoplewhodontplan",
+  "openpolydevisacompletelyfreeopensourcebrowserbasedcadtoolnosignupandlocallyrunna",
+  "iselfhostedjellyfinandusedtailscaletoaccessmymedialibraryfromanywhere",
+  "derivreleasesselfhostedaiplatformundermitlicense",
+  "howiditchedcursorssubscriptionforanopensourcealternativethatactuallyworksoffline",
+  "algosouplaunchesalgofin10afinancedecisionmodel",
+  "splunkandsolarwindspatchmultiplesecurityflawscyberhendryadriancom",
+  "buildmoreresponsiveappswiththedecisionsapi",
+  "whatfdemeansatopenai",
+  "broadaccessthroughconsistentstandards",
+  "googlelaunchesmorepersonalizedgeminiaiascompetitionoverincartechnologyintensifie",
+  "googlecloudlaunchesanthropicmanagedclaudeoption",
+  "googlegeminiisnowavailablefortheiphone",
+  "uberrollsoutchatgptworktoall30000employees",
+  "uberrollsoutchatgptworktomorethan30000employees",
+  "uberrollsoutchatgptworktoall30000employeesworldwideafter1000workerpilothow9outle",
+  "anthropiclaunchesclaudeduettoautomatecrossapptasks",
+  "anthropiclaunchesclaudeduetaiagenttocompetewithmetaopenaiinconsumermarket",
+  "digitadlauncheschatgptadsservicesunlockingnewadvertisingopportunitiesforcanadian",
+  "anthropiclaunchesclaudeduettorivalchatgptdotsandmetamuse",
+  "uberrollsoutopenaischatgptworktoall30000globalemployees",
+  "anthropiclaunchesclaudeduetproactiveaiagent",
+  "llmsaremakingformalsoftwareverificationfeasibleatamuchlargerscale",
+  "claudeduetappisanthropicsbetonagents",
+  "anthropicsnewaiagentclaudeduetcanworkwhileusersareaway",
+  "anthropicintroducesclaudeduetanewagenticaiappforprofessionals",
+  "expandingclaudeavailabilityanddeploymentchoiceongooglecloud",
+  "anthropicsclaudeduetjoinstheraceforalwaysonagents",
+  "grupomadisaconnectsitsbusinesswithmicrosoftdynamics365andmicrosoftcopilotstudioa",
+  "volkswagenexpandswithmicrosoftcopilotassalaryfreezefor660000workersreportedlyloo",
+  "microsofthasbegunrollingoutcopilotcodeforbuildingappswithnaturallanguage",
+  "volkswagenworkersmaygetmicrosoftaiinsteadofaraise",
+  "microsoftisretiringanoutlookfeaturethatallowscopilottoassignaprioritytoemails",
+  "grokbotnowconnectstoyourphoneappswhattoknow",
+  "grokdeepfakecasereopenedafterbureaureporting",
+  "whytheuswantsdeepseekoffgovernmentsystemswhydeletingtheappisonlythestart",
+  "spacexlaunchespartnernetworktoexpandgroksenterprisereach",
+  "spacexsilaunches130firmgrokpartnernetworktopushagenticcodingintoenterprises",
+  "spacexsilaunchesspacexsuperintelligencepartnernetworkforcompaniesbuildingwithgro",
+  "anthropictakesongrokbotmetasmuseandopenaisdotswithitsalwaysonagentclaudeduet",
+  "whatisgrokaiwhoownsitwhatitdoesandwhatitcosts2026",
+  "canvasfirstaiimagemodelplansdesignsbeforegeneratingthem",
+  "metasaicouldstillscrapenewssiteslegalexpertssay",
+  "metaturnsmusesharingbackon",
+  "sureletssmooshspacexandteslatogetherwhocares",
+  "discordnowformatsmarkdownpreviewsright",
+  "inmetasversionofthefutureillhavemymusecallyourmuse",
+  "microsoftsaysitsaitoolisbetterthandoctorsatdiagnosingconditions",
+  "someonehackedtheswitch2byusinganoldgameandai",
+  "wildwoodsdirectorsaysaiisantitheticaltoeverythingthatweareatthisstudio",
+  "openaianthropicandnvidiahadrecordlobbyingquarters",
+  "uberrivalindriveeyes2027robotaxitestsincentralasiawithponyaiandnvidia",
+  "leftalonewithnothingtodoaiagentsstartedplaying",
+  "openaiworkingonnew30braiseat125tvaluationaheadofipo",
+  "1passwordlaunchesawayforaiagentstologinonyourbehalfwithoutseeingyourpassword",
+  "canvareleasesitsfirstimagegenerationmodel",
+  "openaimakesitsjevcompetitorwidelyavailableasdecisionmodelcompetitionheatsup",
+  "microsoftsmustafasuleymansaysitsaioutperformsdoctorsonhardcasesashechasesmedical",
+  "chinesehackersspiedonthousandsofcompaniesafterbreachingitgiantconnectwise",
+  "uberputsall30000employeesonchatgptwork",
+  "spotifyscurrentaibetisaboutbeingthemusicservicethatagentschoose",
+  "nirvaraises33mforapendantthatonlylistenstoyou",
+  "deepseekreportedlyraises15bdaysafterusrestrictions",
+  "hackersgotafourdayheadstartonepicphp2shellvulnerability",
+  "thenewhumancraftedapplemusicbrandmattersinanaiworld",
+  "openaislatestaimodelsarecomingtogooglecloudandantigravity",
+  "judgerejectstrumpswildclaimepacandismissdatacenterpollutionlawsuits",
+  "designinganaiservingharnessbuilttolast",
+  "thefoundationsofscalableai",
+  "makingthecaseforcontextawareai",
+  "aishiddenstoragebillwhatinferenceleavesbehind",
+  "majorusbanksarelockingoutaiagentsthatloginwithcustomercredentials",
+  "googlesagentcomputeenginegiveseverygeminiagentitsownhardwareisolatedmicrovirtual",
+  "only13percentofcompaniesseerealreturnsfromaigartnersurveyfinds",
+  "recursiveshowsfirstresultofitsaidrivenresearchprocesswithflint",
+  "anaiagentinskynetmodehijacksunprotectedlanguagemodelstolaunchselfsustainingcyber",
+  "openaiagentsanalyzemousebraindatain32minutesajobthatwouldtakehumansmonths",
+  "openaisgpt56solandgooglesgemini4argonfoundcriticalphpflawaffectingmillionsofwebs",
+  "googlecloudnowoffersopenaimodelsalongsidegeminiandclaudebecomingtheonlymajorprov",
+  "claudeduetanthropicapichangesrecursiveslocalmodel",
+  "bagnascoimpedirechelintelligenzaartificialesostituiscaluomo",
+  "ilmuseoegiziosperimentalintelligenzaartificialepervelocizzarelacatalogazione",
+  "ospedalismart17italianinellaclassificanewsweeke5traiprimi100",
+  "wallstreetinrossoappesantitadasettoretech",
+  "benifeipdlueguidilagovernanceglobaleenonlasciilfuturoallebigtech",
+  "inprovinciaincontroripensarelacittàperorizzontidigitali",
+  "lairidisegnaichipelarchitetturadeidatacenter",
+  "finoa650dibuoniamazonconilcontoonlineacanonegratuitodicréditagricole",
+  "applepuntasuunaiinvisibileeprivatamasiriairitardaineuropa",
+  "spesatroppocara5consiglidichatgptperrisparmiaredavvero",
+  "1passwordforagentslaiaccedeagliaccountsenzapassword",
+  "musemetaguadagneràconaiocchialismarteshopping",
+  "canvacraftèufficialelanuovaaigeneraimmaginimodificabili",
+  "samsungpermetteoradiacquistareonlinelariparazionedeglielettrodomesticifuorigaran",
+  "apreviewofagi",
+  "agiachieved",
+  "claudeislikeaseniornow",
+  "igottiredofcheckingwhetherclaudecodeneedsmesoigaveitaphysicalstatuslight",
+  "makingyourowngameisgettingeasiermymobiledrivinggameafter3dayswithgpt6astraandno3",
+  "youthinkthatsairyourebreathing",
+  "cybersecuritypeoplearelosingtheirmindstodaysomearecallingitblackoctoberandexpect",
+  "iusedclaudecodetobuildapizzeriaitsownorderingappsoregularsstoppayingdoordash30fi",
+  "canllmssuperchargegeolocationsourtestsshowbigimprovementsbuthumansremainkey",
+  "howgillianbrockellinvestigatesiceremovalflightsfromus",
+  "protectingyourselfagainstlegalthreatscarlosgaio",
+  "reportingtoolstips",
+  "findingjoyinthepublicserviceofjournalism",
+  "whatwelearnedbuildingachatbotforlasillavacíasnewsroomarchive",
+  "acaliforniageologistspottedastrangeobjectstickingoutofacreekgooglereverseimagese",
+  "oldaivisualsfalselysharedtoshowpalestinianflagbeinghoistedineurope",
+  "aroutinewildlifesurveyincaliforniahasledtoanextraordinarydi",
+  "doesthisvideoshowprotesterssellingluxuryproductslootedduringriotsonthestreetsinf",
+  "verifiedaigeneratedvideofalselyshowsakshaykumarwithsonaaravkumar",
+  "ukrainianosintanalystrussiasyandexdatacenterinsasovoburnedoutinsidethoughitsroof",
+  "numberofairdefensepositionsaroundrussiasalabugadroneproductionhubrisesto33radiof",
+  "foreigninterferenceinaiagelessonsfromspainandfrancedailysabah",
+  "ukrainiandronesstrikehiddenrussiangradlaunchervehiclesandcommunicationsequipment",
+  "sabotaggioastarlinktrabulgariaepoloniaifattileattribuzionieilrischioeuropeo",
+  "osintcontrolapropagandaestremistacomesmascherarefakenewsemanipolazionionline",
+  "tiktokcomments",
+  "isagaiaidcompletelyuselessinbig2026",
+  "howtolocatescotlandcourtrolls",
+  "showhnvoidaccessopensourcedarkwebosintfromquerytoagraph"
+ ],
+ "audio": "audio/2026-10-23.mp3",
+ "durata": 87.7
+}
