@@ -235,6 +235,52 @@
    "solo_titolo": false,
    "categoria": "Strumenti",
    "id": "a1"
+  },
+  "u1a2": {
+   "titolo": "Basedash Scheduled CSV Exports",
+   "link": "https://www.producthunt.com/products/basedash",
+   "sito": "https://www.producthunt.com/r/p/1290612?app_id=339",
+   "data": "2026-10-23T10:51:50-07:00",
+   "testo": "Ask once. Get a fresh CSV in Slack or email every week.",
+   "fonte": "Product Hunt (AI)",
+   "tipo": "vetrina",
+   "solo_titolo": false,
+   "categoria": "Strumenti",
+   "id": "u1a2"
+  },
+  "u1a27": {
+   "titolo": "Roma lancia Julia 3.0: la prima intelligenza artificiale che stacca i certificati in trenta secondi",
+   "link": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxNRWItYXlPNE5BYW0xeUdabjB5ZkcxcDR3Q3ppTDE3eWpPRXFSNG4wUDNyOHpXZ19VaExsN3A5eU5WT3hUOU1tcllMc1JiQ3hRWlZkX2p1MU9ZVEk1cXJRbFR6T0c3ZlFVRmpIcDYxbkhHWWpGNVU0TXhmUnotTjFGc3hvUGlkRlJYVXZmWUc2M3doUWVfSGlncGVnV0VFU3RWekNGSTJ4eEVZRXJGVC1CdEtra3o3bEFwNW9zTkdTa3I?oc=5",
+   "data": "2026-10-24T12:41:31+00:00",
+   "testo": "",
+   "fonte": "Abitare A Roma",
+   "tipo": "minore",
+   "solo_titolo": true,
+   "categoria": "Strumenti",
+   "id": "u1a27"
+  },
+  "u1a1": {
+   "titolo": "sideOS.ai",
+   "link": "https://www.producthunt.com/products/sideos-ai",
+   "sito": "https://www.producthunt.com/r/p/1290354?app_id=339",
+   "data": "2026-10-23T06:28:40-07:00",
+   "testo": "Local AI for dictation, meetings, background tasks and more",
+   "fonte": "Product Hunt (AI)",
+   "tipo": "vetrina",
+   "solo_titolo": false,
+   "categoria": "Strumenti",
+   "id": "u1a1"
+  },
+  "u1a26": {
+   "titolo": "Roma lancia Julia 3.0, l'assistente virtuale AI di Roma ora rilascia anche certificati",
+   "link": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxNQlVac3cxSHgxWW9iemZnY0M1dTBSSklmWDVDQkwweVcxR0paUTBBYllfX1VaaTlUalotM2JIWVB4U1lIV085QmpSVGM3eWw4MUNHMV9iZzNWbjZPQTlxTWNpUlRTUFp2bUVVR0NLT19TTlRJOGFpMXVNem1ZRW9JalhXQU5fV1RQ?oc=5",
+   "data": "2026-10-24T11:46:03+00:00",
+   "testo": "",
+   "fonte": "RomaToday",
+   "tipo": "minore",
+   "solo_titolo": true,
+   "categoria": "Strumenti",
+   "id": "u1a26"
   }
  },
  "fonti": [
@@ -620,8 +666,163 @@
   "tiktokcomments",
   "tiktokandinstagram",
   "isagaiaidcompletelyuselessinbig2026",
-  "howtolocatescotlandcourtrolls"
+  "howtolocatescotlandcourtrolls",
+  "sideosai",
+  "basedashscheduledcsvexports",
+  "1passwordforagents",
+  "exclusivebytedancedeepensaiappintegrationskylarkmergesintojimeng",
+  "10bestaiappsforipadin2026rankedwithprices",
+  "soundthinkinglaunchesaitoolforgunshotdetectioncustomersbyinvestingcom",
+  "isthissymptomnormalaitoolforpatientquestionsrollsoutinnewbrunswick",
+  "romalanciajulia30lassistentevirtualeaidiromaorarilasciaanchecertificati",
+  "romalanciajulia30laprimaintelligenzaartificialechestaccaicertificatiintrentaseco",
+  "claudeduetcomefunzionalagenteaidianthropic",
+  "comenascondereunachatdichatgptsenzacancellarla",
+  "buildinglocalaiagentsavoidscloudchatbotsubscriptionsenhancesprivacy",
+  "rtx5090vsrx7900xtxforlocalai32gbwins2026",
+  "bestlocalllm2026deepseekwins3waytesthttpstechinsiderorg",
+  "inuovimodellidiopenaiverrannoaddestratisenzainternetsitemechesianotroppoinaffida",
+  "pebbleannunciaipluginnelpiùgrandeaggiornamentodellsdk",
+  "napoliromastreaminggratisdovevederlaliveoggi",
+  "shouldihaveabunchofdockercontainersandadockermanagerorabunchoflxcswiththeirowndo",
+  "notprotonmaintainerconfrontsinfluencerbackedforkbridgeplayovermacoswinesustainab",
+  "selfhostedgamevault",
+  "moonshotailaunchesnewflagshipkimk31promodelwith3tparameters",
+  "moonshotailauncheskimik31proclosinginonclaudeopus55incodingperformance",
+  "seatgeekclaimsfirstblendedprimaryandresaleticketingpresenceinchatgpt",
+  "coinbasenowletsaiagentstradeinyourcryptoaccountwhatcouldgowrong",
+  "googlebringsgeminipersonalintelligencetoandroidautoandcarswithgooglebuiltin",
+  "howtocreatelaunchvideosyouneedsbeatsnotcuts",
+  "canvalaunchescraftitsfirstimagegenerationmodeltrainedonhumandesignedtemplates",
+  "googlelaunchesdisplayvideo360apiv5inpublicbeta",
+  "anthropicsclaudemythos5aiagenttriedtoinjectmaliciouscodeandtrickrealdevelopers",
+  "anthropictargetsmuseanddotswithnewaiagentclaudeduet",
+  "fromclientzerotovaluefrontierfirmtransformationwitheyandmicrosoft",
+  "dhsordersremovalofchineseaifromfederalcivilianagenciesitsystems",
+  "applereportedlybringingmoreaifeaturestomailonmacs",
+  "usbansdeepseekinfederalagencies12billionroundreported",
+  "deepseekaihowtotrydeepseekr1rightnow",
+  "openaisisolatedaiagentsfoundwaystotalktoeachotherthroughcpucache",
+  "fancyharnessesmakecodingagentsmoreexpensivebutnotbetterstudyfinds",
+  "satuttooquasimanoncapiscenullalibroindagasuilimitidellia",
+  "itwalletfase2alvialasperimentazioneconilregolamentoagid",
+  "comènatadavverolintelligenzaartificialestoriadellaidababbageachatgpt",
+  "openaibloccainternetduranteladdestramentodelleaiavanzate",
+  "googlegeminilinterfacciacambiaancoraeccolenovità",
+  "nintendolavoraaunaswitch2litefiltranoindizisulchippercontenereicosti",
+  "iusedchatgptforinterviewandgotcaught",
+  "anthropicsnewguideoct22arguesmostagentsshouldhavefewersubagentsonemainloopskills",
+  "whatarewedoingnowopenaitheguardrailsaregettingmoreandmoreridiculous",
+  "howarepeoplemakingthoseinsanegraphicmotionsvideothatikeepseeingoninstagramusingc",
+  "qwen38wewillnotbeswayedduringsabotagesafetytrialsqwenrecognizedthemanipulationsa",
+  "thertx5090isntgoneitsinchineselabswheretechniciansripoffitsdieand32gbvramforaise"
  ],
  "audio": "audio/2026-10-24.mp3",
- "durata": 101.7
+ "durata": 140.3,
+ "aggiornamenti": [
+  {
+   "generato": "2026-10-24T13:08:14+00:00",
+   "modello": "gemini-3.8-flash",
+   "testi_completi": 1,
+   "riassunto": {
+    "titolo_giorno": "sideOS.ai per la produttività locale e Julia 3.0 per i certificati rapidi",
+    "in_breve": "Tra le novità spicca sideOS.ai, che punta sull'elaborazione locale per gestire dettatura e riunioni direttamente sul computer tutelando la privacy. Sul fronte dei servizi per i cittadini, Roma introduce Julia 3.0 per richiedere e ottenere certificati amministrativi via chat in trenta secondi.",
+    "citati": [
+     "sideOS.ai",
+     "Julia 3.0"
+    ],
+    "da_provare": [
+     {
+      "cosa": "sideOS.ai",
+      "a_cosa_serve": "Un'AI che opera sul computer locale per gestire dettatura vocale, trascrizione o supporto durante le riunioni e attività in background senza passare dal cloud.",
+      "per_chi": "Lavoro",
+      "ambito": "Lavoro e organizzazione",
+      "come_iniziare": [],
+      "costo": "Non indicato",
+      "piattaforme": [],
+      "sul_dispositivo": true,
+      "come_sfruttarla": "Dettare testi e gestire appunti di riunione mantenendo i dati sensibili sul proprio dispositivo.",
+      "italiano": "Non indicato",
+      "difficolta": "Facile",
+      "temi": [
+       "AI sul dispositivo",
+       "Lavoro e produttività",
+       "Voce e audio"
+      ],
+      "fonti": [
+       "u1a1"
+      ],
+      "affidabilita": "Appena lanciato",
+      "prova": "https://www.producthunt.com/products/sideos-ai"
+     },
+     {
+      "cosa": "Julia 3.0",
+      "a_cosa_serve": "L'assistente virtuale del Comune di Roma, aggiornato con una nuova versione capace di emettere certificati amministrativi in circa trenta secondi tramite interfaccia conversazionale.",
+      "per_chi": "Tutti i giorni",
+      "ambito": "Burocrazia e servizi",
+      "come_iniziare": [],
+      "costo": "Non indicato",
+      "piattaforme": [],
+      "sul_dispositivo": false,
+      "come_sfruttarla": "Scaricare rapidamente certificati anagrafici e documenti comunali senza code agli sportelli.",
+      "italiano": "Non indicato",
+      "difficolta": "Facile",
+      "temi": [
+       "Assistenti e chatbot"
+      ],
+      "fonti": [
+       "u1a26",
+       "u1a27"
+      ],
+      "affidabilita": "Da verificare",
+      "solo_titoli": true,
+      "prova": ""
+     },
+     {
+      "cosa": "Basedash Scheduled CSV Exports",
+      "a_cosa_serve": "Uno strumento basato su AI che permette di chiedere una sola volta l'estrazione dei dati desiderati per ricevere ogni settimana un file CSV aggiornato via email o su Slack.",
+      "per_chi": "Lavoro",
+      "ambito": "Dati e organizzazione",
+      "come_iniziare": [],
+      "costo": "Non indicato",
+      "piattaforme": [],
+      "sul_dispositivo": false,
+      "come_sfruttarla": "Automatizzare la reportistica periodica di lavoro senza dover esportare manualmente i fogli di calcolo ogni settimana.",
+      "italiano": "Non indicato",
+      "difficolta": "Facile",
+      "temi": [
+       "Lavoro e produttività",
+       "Agenti AI",
+       "Scrittura e documenti"
+      ],
+      "fonti": [
+       "u1a2"
+      ],
+      "affidabilita": "Appena lanciato",
+      "prova": "https://www.producthunt.com/products/basedash"
+     }
+    ],
+    "osint": [],
+    "gemme": [],
+    "sezioni": [],
+    "formato": 2,
+    "controllo_siti": [
+     {
+      "cosa": "Julia 3.0",
+      "esito": "nessun sito da aprire"
+     },
+     {
+      "cosa": "sideOS.ai",
+      "sito": "https://www.producthunt.com/r/p/1290354?app_id=339",
+      "esito": "errore: HTTP Error 403: Forbidden"
+     },
+     {
+      "cosa": "Basedash Scheduled CSV Exports",
+      "sito": "https://www.producthunt.com/r/p/1290612?app_id=339",
+      "esito": "errore: HTTP Error 403: Forbidden"
+     }
+    ]
+   }
+  }
+ ]
 }
