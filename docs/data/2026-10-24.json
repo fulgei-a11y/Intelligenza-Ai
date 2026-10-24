@@ -1,0 +1,627 @@
+{
+ "giorno": "2026-10-24",
+ "generato": "2026-10-24T05:47:14+00:00",
+ "modello": "gemini-3.6-flash",
+ "testi_completi": 26,
+ "riassunto": {
+  "titolo_giorno": "ShogunAI porta l'intelligenza personale su PC e Google aggiorna le regole della privacy",
+  "in_breve": "Oggi spicca ShogunAI, un'applicazione creata per eseguire un assistente AI autonomo direttamente sul computer di casa o d'ufficio. Nel frattempo, Google chiarisce che l'integrazione di Gmail e Foto con Google Gemini per la personalizzazione delle risposte potrà influire sugli annunci pubblicitari.",
+  "citati": [
+   "ShogunAI",
+   "Google Gemini"
+  ],
+  "da_provare": [
+   {
+    "cosa": "ShogunAI",
+    "a_cosa_serve": "Un'applicazione per computer che permette di disporre di un assistente AI autonomo ed eseguire attività avanzate direttamente sul proprio PC.",
+    "per_chi": "Lavoro e tutti i giorni",
+    "ambito": "Lavoro e produttività",
+    "come_iniziare": [],
+    "costo": "Non indicato",
+    "piattaforme": [
+     "Windows",
+     "Mac"
+    ],
+    "sul_dispositivo": true,
+    "come_sfruttarla": "Gestire ed eseguire compiti automatizzati sul computer mantenendo il controllo dell'elaborazione locale.",
+    "italiano": "Non indicato",
+    "difficolta": "Facile",
+    "temi": [
+     "AI sul dispositivo",
+     "Lavoro e produttività",
+     "Assistenti e chatbot"
+    ],
+    "fonti": [
+     "a6"
+    ],
+    "affidabilita": "Appena lanciato",
+    "prova": "https://www.producthunt.com/products/shogunai"
+   },
+   {
+    "cosa": "Monish",
+    "a_cosa_serve": "Un'applicazione per iPhone che mostra lo stato e gli aggiornamenti in tempo reale dei propri agenti AI direttamente sulla schermata di blocco.",
+    "per_chi": "Tutti i giorni",
+    "ambito": "Organizzazione",
+    "come_iniziare": [],
+    "costo": "Non indicato",
+    "piattaforme": [
+     "iPhone"
+    ],
+    "sul_dispositivo": false,
+    "come_sfruttarla": "Controllare l'avanzamento dei compiti delegati all'AI senza dover sbloccare il telefono o aprire l'applicazione.",
+    "italiano": "Non indicato",
+    "difficolta": "Facile",
+    "temi": [
+     "Agenti AI",
+     "Lavoro e produttività"
+    ],
+    "fonti": [
+     "a1"
+    ],
+    "affidabilita": "Appena lanciato",
+    "prova": "https://www.producthunt.com/products/monish"
+   }
+  ],
+  "osint": [],
+  "gemme": [
+   {
+    "cosa": "OmniTools",
+    "a_cosa_serve": "Una suite web open source e installabile sul proprio server che raccoglie decine di utility pratiche per convertire e modificare immagini, elaborare file PDF, gestire tracce audio e formattare dati.",
+    "perche_gemma": "È completamente gratuita, open source e permette di elaborare i propri file in locale o sul proprio server senza pubblicità o limiti.",
+    "con_ai": "Consente di convertire, pulire e ridimensionare documenti o file multimediali prima di inviarli agli strumenti AI.",
+    "piattaforme": [
+     "Browser"
+    ],
+    "self_hosted": true,
+    "costo": "Gratis",
+    "difficolta": "Media",
+    "temi": [
+     "Open source e self-hosting",
+     "Lavoro e produttività",
+     "Scrittura e documenti"
+    ],
+    "fonti": [
+     "a60"
+    ],
+    "affidabilita": "Da verificare",
+    "come_iniziare": [],
+    "sul_dispositivo": false,
+    "come_sfruttarla": "",
+    "prova": ""
+   }
+  ],
+  "sezioni": [
+   {
+    "titolo": "Novità negli strumenti che già usi",
+    "notizie": [
+     {
+      "titolo": "Integrazione dei dati personali con gli annunci pubblicitari",
+      "strumento": "Google Gemini",
+      "riassunto": "Google ha aggiornato le norme sulla privacy chiarendo che se l'utente attiva facoltativamente le funzioni di personalizzazione per consentire a Gemini o alla ricerca AI di accedere ai dati di Gmail, Google Foto o Drive, tali informazioni potranno essere utilizzate anche per personalizzare le inserzioni pubblicitarie mostrate durante le ricerche.",
+      "come_provarla": "L'accesso ai dati personali si attiva o disattiva facoltativamente nelle impostazioni delle estensioni e della personalizzazione di Gemini.",
+      "disponibilita": "Disponibile ora",
+      "fonti": [
+       "a114",
+       "a131"
+      ],
+      "temi": [
+       "Privacy e sicurezza",
+       "Assistenti e chatbot",
+       "Foto e immagini"
+      ],
+      "affidabilita": "Confermata",
+      "solo_titoli": false
+     }
+    ]
+   },
+   {
+    "titolo": "In breve",
+    "breve": true,
+    "notizie": [
+     {
+      "titolo": "OpenAI blocca l'accesso a Internet in tempo reale durante l'addestramento dei modelli",
+      "riassunto": "Per evitare che i modelli AI eseguano azioni impreviste o interagiscano con sistemi esterni non autorizzati, OpenAI ha stabilito che la fase di addestramento avverrà unicamente all'interno di ambienti di test isolati senza connessione Internet dal vivo.",
+      "fonti": [
+       "a111",
+       "a121"
+      ],
+      "temi": [],
+      "affidabilita": "Confermata",
+      "solo_titoli": false
+     }
+    ]
+   }
+  ],
+  "formato": 2,
+  "controllo_siti": [
+   {
+    "cosa": "OmniTools",
+    "esito": "nessun sito da aprire"
+   },
+   {
+    "cosa": "ShogunAI",
+    "sito": "https://www.producthunt.com/r/p/1289925?app_id=339",
+    "esito": "errore: HTTP Error 403: Forbidden"
+   },
+   {
+    "cosa": "Monish",
+    "sito": "https://www.producthunt.com/r/p/1289239?app_id=339",
+    "esito": "errore: HTTP Error 403: Forbidden"
+   }
+  ]
+ },
+ "articoli": {
+  "a114": {
+   "titolo": "Now Google says it might use your Gmail and Google Photos data to target ads",
+   "link": "https://www.theverge.com/tech/1017600/google-personal-intelligence-privacy-policy-ads-update",
+   "sito": "",
+   "data": "2026-10-23T12:52:55-04:00",
+   "testo": "Google has updated its privacy policy in a way that could mean you’ll start seeing targeted ads based on your personal data if you’re using personalized AI features. The update, spotted by Android Authority, adds an exception to its promise about not using your Drive, Gmail, or Google Photos for personalized ads. While the previous version simply said it wouldn’t do that, as of October 16th, Google has added the line, “unless you choose to make data from these services available to other Google services that support personalized ads.” Now Google says it might use your Gmail and Google Photos data to target ads According to the new terms, sharing your data for better AI recommendations also means opening it up for more personalized ads. That means anyone who has connected their Drive, Gmail, or Google Photos to AI Mode and other Search tools via Google’s Personal Intelligence feature — allowing those tools to provide better responses or recommendations by knowing more about you — may now see ads targeted on the basis of that content. Advertisers don’t get access to your Drive, Gmail, and Photos information or personally identifying details such as your name or email address, and Google won’t show you ads based on sensitive categories like race, sexual orientation, religion, or health. This is what the policy says: “You may choose to allow certain Google services, including services like Search or Gemini Apps, to access data from other Google services you use, such as Google Photos and Workspace apps like Gmail and Drive, in order to provide you with a more personalized experience, subject to the policies and settings of the accessing service. For example, Search may process some of the data that you allow Search to access to personalize content, including ads.” “Dependi…",
+   "fonte": "The Verge",
+   "tipo": "testata",
+   "solo_titolo": false,
+   "categoria": "Testate tech",
+   "id": "a114",
+   "testo_completo": true
+  },
+  "a121": {
+   "titolo": "OpenAI says it will no longer train its AI models on the live internet, citing “significant risks”",
+   "link": "https://techcrunch.com/2026/10/23/openai-says-it-will-no-longer-train-its-ai-models-on-the-live-internet-citing-significant-risks/",
+   "data": "2026-10-23T23:05:49+00:00",
+   "testo": "On Friday, OpenAI said that it will train its models using cached copies and simulated versions of the internet instead of the live web because the models are too unpredictable to be trusted with live internet access. The frontier lab announced its new policy two weeks after its rival, Anthropic, began limiting its newest and, in theory, most capable models from accessing the live internet. Researchers adopted these policies after months of incidents in which models pursuing training tasks broke into external systems in search of answers, collaborated on obscure message boards, and developed exotic hacking strategies. “Based on the current state of alignment research, monitoring systems, and the security of internet infrastructure, we believe the responsible approach is to conduct frontier model training with no internet access,” the company said in a blog post. OpenAI said that as recently as September 20, one of its frontier models exploited a misconfiguration to access the internet. That led the company to pause training work for the rest of the month so it could develop and test new approaches to securing its models. The decision to train these models in sandboxes cut off from the internet is notable because employees at frontier labs have insisted that doing so would be nearly infeasible. Keeping AI data centers separate from the internet “would need research teams to essentially be embedded inside of data centers in Iowa or wherever else around the world,” former OpenAI researcher Steven Adler told Fortune this month. “It’s a lot of overhead, and it isn’t clear to me that the safety benefits of it are large enough to merit just how large a tax it would be for a company to do it unilaterally.” “In nearly every post I make on X, without fail, I get between five and…",
+   "fonte": "TechCrunch",
+   "tipo": "testata",
+   "solo_titolo": false,
+   "categoria": "Testate tech",
+   "id": "a121",
+   "testo_completo": true
+  },
+  "a60": {
+   "titolo": "OmniTools v0.7.0 — 25 new tools for your self-hosted toolbox",
+   "link": "https://www.reddit.com/r/selfhosted/comments/1xdmg4o/omnitools_v070_25_new_tools_for_your_selfhosted/",
+   "sito": "",
+   "data": "2026-10-23T18:45:17+00:00",
+   "testo": "Hey r/selfhosted ! 👋 I've just released a new version of OmniTools , an open-source collection of self-hostable web utilities. This release adds 25 new tools across 9 categories GitHub: https://github.com/iib0011/omni-tools 🖼️ Images: Convert to JPG/WebP, split images, add watermarks 📄 PDF: Convert files to PDF, extract images, fill PDF forms 🎵 Audio: Convert audio between supported formats 📊 JSO…",
+   "fonte": "Reddit r/selfhosted",
+   "tipo": "community",
+   "solo_titolo": false,
+   "categoria": "Gemme",
+   "id": "a60"
+  },
+  "a111": {
+   "titolo": "OpenAI now trains its frontier AI models with no internet access",
+   "link": "https://www.theverge.com/ai-artificial-intelligence/1018021/openai-training-top-ai-models-no-internet",
+   "sito": "",
+   "data": "2026-10-23T17:11:07-04:00",
+   "testo": "OpenAI is now training its most advanced AI models without internet access following a string of rogue hacking incidents. In a blog post on Friday, OpenAI says it built an offline testing environment where AI models can interact with indexed and cached web content \"without risk of affecting external systems.\" OpenAI paused training its frontier […]",
+   "fonte": "The Verge",
+   "tipo": "testata",
+   "solo_titolo": false,
+   "categoria": "Testate tech",
+   "id": "a111"
+  },
+  "a6": {
+   "titolo": "ShogunAI",
+   "link": "https://www.producthunt.com/products/shogunai",
+   "sito": "https://www.producthunt.com/r/p/1289925?app_id=339",
+   "data": "2026-10-22T23:32:57-07:00",
+   "testo": "Your personal AGI on your pc",
+   "fonte": "Product Hunt (AI)",
+   "tipo": "vetrina",
+   "solo_titolo": false,
+   "categoria": "Strumenti",
+   "id": "a6"
+  },
+  "a131": {
+   "titolo": "Updated Google privacy policy says your Gmail might be used for advertising",
+   "link": "https://arstechnica.com/gadgets/2026/10/updated-google-privacy-policy-says-your-gmail-might-be-used-for-advertising/",
+   "data": "2026-10-23T20:19:55+00:00",
+   "testo": "Using Google’s products and services has always been fundamentally precarious—doing so gives the world’s largest advertising company a lot of juicy personal data. Google has long said it won’t use the sensitive data from products like Gmail, Drive, and Photos for ad personalization, but a change to the company’s privacy policy appears to dismantle that firewall. On October 16, Google issued an update to its privacy policy, spotted by Android Authority. The ad personalization section used to include a clear limit on data from certain apps. “We don’t show you personalized ads based on your content from Drive, Gmail, or Photos,” the document said. Now, Google has updated it with the following language. This equivocation opens the door to using data from apps like Gmail and Photos in ads when it’s shared with other Google services, and it just so happens Google has a mechanism for doing that, with Personal Intelligence. The company released Personal Intelligence in early 2026, allowing users to hand data from multiple apps to Google AI products. The idea is that the added context from your existing data will lead to better AI answers, but it’s also proving to be a privacy minefield. Personal Intelligence connects your data to the Gemini app but also to features like AI Mode search. While the Gemini app does not currently have ads, you may see sponsored content in AI search tools. Google’s changes to the privacy policy appear to acknowledge that data shared with AI search via Personal Intelligence could, therefore, contribute to ad personalization. According to Google, this clarification still doesn’t mean ads are “based directly” on your personal data. Here’s the company’s full statement: “Connecting your apps is entirely opt-in. Ads will continue to be relevant to things …",
+   "fonte": "Ars Technica",
+   "tipo": "testata",
+   "solo_titolo": false,
+   "categoria": "Testate tech",
+   "id": "a131",
+   "testo_completo": true
+  },
+  "a1": {
+   "titolo": "Monish",
+   "link": "https://www.producthunt.com/products/monish",
+   "sito": "https://www.producthunt.com/r/p/1289239?app_id=339",
+   "data": "2026-10-22T07:38:26-07:00",
+   "testo": "Your AI agents, live on your iPhone lock screen",
+   "fonte": "Product Hunt (AI)",
+   "tipo": "vetrina",
+   "solo_titolo": false,
+   "categoria": "Strumenti",
+   "id": "a1"
+  }
+ },
+ "fonti": [
+  {
+   "nome": "Product Hunt (AI)",
+   "ok": true,
+   "presi": 13
+  },
+  {
+   "nome": "Show HN (nuovi progetti)",
+   "ok": true,
+   "presi": 3
+  },
+  {
+   "nome": "Nuove app AI (internazionale)",
+   "ok": true,
+   "presi": 10
+  },
+  {
+   "nome": "Nuove app AI (Italia)",
+   "ok": true,
+   "presi": 8
+  },
+  {
+   "nome": "Novità AI da provare (Italia)",
+   "ok": true,
+   "presi": 8
+  },
+  {
+   "nome": "AI sul dispositivo (internazionale)",
+   "ok": true,
+   "presi": 8
+  },
+  {
+   "nome": "AI sul dispositivo (Italia)",
+   "ok": true,
+   "presi": 5
+  },
+  {
+   "nome": "Show HN – progetti utili (gemme)",
+   "ok": true,
+   "presi": 2
+  },
+  {
+   "nome": "Reddit r/selfhosted",
+   "ok": true,
+   "presi": 6
+  },
+  {
+   "nome": "Reddit r/opensource",
+   "ok": true,
+   "presi": 5
+  },
+  {
+   "nome": "Alternative open source (Google News)",
+   "ok": true,
+   "presi": 6
+  },
+  {
+   "nome": "OpenAI",
+   "ok": true,
+   "presi": 4
+  },
+  {
+   "nome": "Google (blog ufficiale)",
+   "ok": true,
+   "presi": 1
+  },
+  {
+   "nome": "Google Gemini (blog)",
+   "ok": true,
+   "presi": 0
+  },
+  {
+   "nome": "Nuove funzioni AI (Google News)",
+   "ok": true,
+   "presi": 12
+  },
+  {
+   "nome": "Anthropic / Claude",
+   "ok": true,
+   "presi": 6
+  },
+  {
+   "nome": "Microsoft Copilot",
+   "ok": true,
+   "presi": 5
+  },
+  {
+   "nome": "Altri assistenti AI (Perplexity, Mistral, Meta AI…)",
+   "ok": true,
+   "presi": 8
+  },
+  {
+   "nome": "The Verge",
+   "ok": true,
+   "presi": 10
+  },
+  {
+   "nome": "TechCrunch",
+   "ok": true,
+   "presi": 10
+  },
+  {
+   "nome": "Ars Technica",
+   "ok": true,
+   "presi": 2
+  },
+  {
+   "nome": "MIT Technology Review",
+   "ok": true,
+   "presi": 2
+  },
+  {
+   "nome": "The Decoder",
+   "ok": true,
+   "presi": 8
+  },
+  {
+   "nome": "TLDR AI (newsletter)",
+   "ok": true,
+   "presi": 1
+  },
+  {
+   "nome": "ANSA",
+   "ok": true,
+   "presi": 6
+  },
+  {
+   "nome": "Wired Italia",
+   "ok": true,
+   "presi": 0
+  },
+  {
+   "nome": "Il Sole 24 Ore Tecnologia",
+   "ok": true,
+   "presi": 0
+  },
+  {
+   "nome": "Punto Informatico",
+   "ok": true,
+   "presi": 6
+  },
+  {
+   "nome": "HDblog",
+   "ok": true,
+   "presi": 2
+  },
+  {
+   "nome": "Reddit",
+   "ok": true,
+   "presi": 8
+  },
+  {
+   "nome": "Reddit (AI locale)",
+   "ok": true,
+   "presi": 5
+  },
+  {
+   "nome": "Bellingcat (guide e strumenti)",
+   "ok": true,
+   "presi": 1
+  },
+  {
+   "nome": "GIJN (guide per giornalisti investigativi, via Google News)",
+   "ok": true,
+   "presi": 5
+  },
+  {
+   "nome": "OSINT – verifica e fact-checking (internazionale)",
+   "ok": true,
+   "presi": 4
+  },
+  {
+   "nome": "OSINT – nuovi strumenti (internazionale)",
+   "ok": true,
+   "presi": 2
+  },
+  {
+   "nome": "OSINT – strumenti (Italia)",
+   "ok": true,
+   "presi": 4
+  },
+  {
+   "nome": "Reddit (OSINT)",
+   "ok": true,
+   "presi": 4
+  },
+  {
+   "nome": "Hacker News (OSINT)",
+   "ok": false,
+   "errore": "HTTP Error 502: Bad Gateway",
+   "presi": 0
+  }
+ ],
+ "visti": [
+  "monish",
+  "peras",
+  "termiprotocol",
+  "gerty",
+  "bloblings",
+  "shogunai",
+  "agenthunt",
+  "bits",
+  "agenticcleanslop",
+  "sponkly",
+  "claudeduet",
+  "radaric",
+  "tetrizenggintelligenceconnectors",
+  "corgiahelpfulagentterminalmultiplexer",
+  "wehadaiwriteawikifrom45kenronemailseveryfactcited",
+  "uimicrointeractionspromptsforai",
+  "calaunchesnewaitooltohelppeoplefindstatejobs",
+  "johnshopkinsalerts3000patientsafterdatasenttoaitool",
+  "10bestaiappsforiphonein2026testedranked",
+  "anthropicjoinsmetaandopenaispersonalaiassistantracewithclaudeduet",
+  "aitoolforpatientquestionsrollsoutinnewbrunswick",
+  "newaitoolmapsmicrornabindingsitesoncircularrnas",
+  "metaintroducesaiassistanttohelpindianapolissmallbusinessownerssavetimewishtv",
+  "fordrivalgmwilllaunchitsownincaraiassistantfor2027",
+  "aitoolmaysupportdermatologistsinassessingskinlesionsforcancerrisk",
+  "gapstreamlineshiringwithaitoolrecruitsholidayworkers",
+  "trevisoarrivabiancalintelligenzaartificialecheprenotagliesamiallulss2",
+  "duenuovistrumentipercoelumlintelligenzaartificialeincontralesperienza",
+  "googlelancialintelligenzaartificialeperidentificareimessaggidiphishinggliutentia",
+  "welfaredigitalelitaliaèprimaineuropamaibenefitrestanonelcassetto",
+  "illavorodaremotocomestrumentodiinclusionesocialeincadorearrivatracceilprogettope",
+  "amazonlanciakindlenuoviaudiolibrinarratidallintelligenzaartificiale",
+  "chatgptarrivasuapplecarplayconlultimoaggiornamento",
+  "festivalnazionalediffusodedicatoallalfabetizzazionedigitaleconvegnosullintellige",
+  "comeusareclaudeperredigerelaprimabozzadelreportdisostenibilitàpartendodaidatiint",
+  "qualificaileadinarrivoconunagenteclaudeeatokadalcrmalpunteggioincinquepassaggi",
+  "agentiialasciatisolisuunisolavirtualehannoiniziatoagiocare",
+  "claudecodeinstallazionein12passi60min2026techinsiderorg",
+  "hassabisanticipalagiarrivaentrodueotreanni",
+  "php2shell2bugcriticiinphppatch85122026techinsiderorg",
+  "askplayconfrontoapplimitiedisponibilitàinitalia",
+  "personalintelligencearrivasuandroidautocosacambia",
+  "windows11rtxsparkandlocalaiitsnotmeitswindows",
+  "meirolauncheslocalaicdpforsovereignaiinference",
+  "jfroglauncheslocalaisecurityfordeveloperlaptops",
+  "taniumextendsendpointmanagementtonvidiaaikit",
+  "amdryzenaihalo192gbruns300bmodels2026httpstechinsiderorg",
+  "flintairecursivelaunchesacodingmodelyourunlocally",
+  "nvidiagtcberlin2026bigupgradestodgxsparkstationandrtxspark",
+  "googlemessageslaunchesenhancedprotectionusinggeminiaionandroid",
+  "nvidiaspingelailocaleagentiprivatisuipcnuovimodelliedgxsparkfinoaottosistemi",
+  "perplexityportablecomputerportalailocalesullegpunvidiartxprivacyepotenzasenzaclo",
+  "recensitogarminzumoxt3ilnavigatorepermotopiùevolutoeorainduemisurevideo",
+  "ilpassaportoarrivasugooglewalletancheinitaliacosacambiarispettoaitwalleteadapple",
+  "iphoneduoeleapppocoottimizzatelafotografiadiunasituazionechesirisolveràinpochime",
+  "makingasmarttvdumbandthensmart",
+  "onkeyimabadsingersoibuiltanapptoshowwhereimoffkey",
+  "lockingdownfamilyfacingselfhostedserviceshowareyouhandlingthecurrentexploitpace",
+  "linuxinfrastructuresecopsalert",
+  "omnitoolsv07025newtoolsforyourselfhostedtoolbox",
+  "noteven2yearsago",
+  "pushingpciex1tothelimitlvgaleconcurrentlyserving27b9band2bllmsonahardwareabomina",
+  "anotherdayanotherdynacatrelease302",
+  "sentryjustgaveamilliondollarstoopensourcemaintainers",
+  "kdethedocumentarythestoryoffreesoftwareunderdogs",
+  "cuicuitopensourcemealplannerforpeoplewhodontplan",
+  "openpolydevisacompletelyfreeopensourcebrowserbasedcadtoolnosignupandlocallyrunna",
+  "projectswithstrictmaintainers",
+  "minioalternatives5picks0015gbr22026httpstechinsiderorg",
+  "ireplacedcloudflaretunnelwithaselfhostedalternativeicontrol",
+  "youcanbuildadedicatedmusicserverusingyourolddeviceshereshow",
+  "thislauncherwasmadeforyourdualscreenandroidhandheld",
+  "hackershijackexposedaimodelstolaunchcyberattacksatvictimsexpense",
+  "iarchivemyfavoriteyoutubechannelstomynaswithpinchflatngxanditsbetterthantheorigi",
+  "rapidlyscalingonlinestoragetoserveover1billionchatgptuserspartii",
+  "securingourfrontiermodeltrainingenvironment",
+  "openaiandpolandsnaskpartnertoadvanceaisafetyandsecurity",
+  "buildmoreresponsiveappswiththedecisionsapi",
+  "seewhat5buildersaremakingwithgemini4argon",
+  "gemininotebooknowavailableasconnectedappfordeeperintegration",
+  "zillowbringsspecializedhousingintelligencetoclaude",
+  "hijiffylaunchesemailcopilotaithatdraftshotelemailreplies",
+  "geminiforandroidrollsoutsidepanelandsettingsredesign",
+  "anthropiclaunchesclaudeduetabackgroundaiagentforclaudeproandmaxsubscribersintheu",
+  "dextlaunchesaiconnectorforaccountants",
+  "googlelaunchesgeminiforgovernmentservicestoautomatepublicsectorworkflows",
+  "uberrollsoutchatgptworktomorethan30000employeesweeksafterannouncing3300jobcuts",
+  "anthropiclaunchesclaudeduetresearchpreviewforproandmaxusers",
+  "anthropiclaunchesclaudeduetaiassistantforapps",
+  "googlerollsoutnewaipoweredsecurityfeaturestochrometocurbonlinefraud",
+  "claudeduetanthropicsripostetometamuseopenaidotsandinstinct",
+  "anthropicdebutsclaudeduetpersonalaiagenthereswhattoknow",
+  "analignmentassessmentoftheukaisicybertestingincident",
+  "chineseaimodelkimik31proisclosinginonanthropicsclaudeopus55",
+  "schwabtrumpetedanthropicsclaudeforall16000ofitsriasbuta20seatenterpriseminimumsu",
+  "willanthropicpulloffanovemberipotimeisrunningouttofilekeypaperwork",
+  "hhssolesourceawardtoanthropiccontinuestoraisequestions",
+  "aithatunderstandsyourbusinessdataverseandworkiqatppcc2026",
+  "azuredevopscomestomicrosoftcopilotwithpluginforworkitemspullrequests",
+  "microsoftbringsitscustomizablefileexplorercontextmenutowindows11betainsiders",
+  "industrycopilotdeliversprebuiltlegalskillsconnectorstothirdpartydatasources",
+  "ukdetectiveinvestigatedforallegedlyusingmicrosoftcopilottomakedecisionsincrimina",
+  "ineededadashcamwhileoutrunningmetaglassesturnedouttobetheanswer",
+  "usorderscivilianagenciestoremovedeepseekandappsusingitsmodels",
+  "chatgptvsclaudevsgemini12aimodelsranked2026techinsiderorg",
+  "mistrallaunchestimestralanaithatforecastsnumberswithoutagpu",
+  "mistralupdatesspeechmodelsaddsmultilingualvoiceapplicationtools",
+  "howmuchdoesaicostin2026thecompletepricingcomparison",
+  "metaaiglassesnowonsaleinmalaysiawhichraybanoroakleymodelshouldyoubuy",
+  "chinasdeepseekminimaxreceiveapprovaltotakeaimodelsglobal",
+  "openainowtrainsitsfrontieraimodelswithnointernetaccess",
+  "jackdorseysblockmadeanaimodelthattalkstoyoulikeanawkwardnewfriend",
+  "theiphoneduoshouldhavebeenanipad",
+  "nowgooglesaysitmightuseyourgmailandgooglephotosdatatotargetads",
+  "metadelaysnewbusinesstermsafterpublisherpushbackonaiscraping",
+  "retrogamingisbeingoverrunwithai",
+  "canvasfirstaiimagemodelplansdesignsbeforegeneratingthem",
+  "metasaicouldstillscrapenewssiteslegalexpertssay",
+  "metaturnsmusesharingbackon",
+  "sureletssmooshspacexandteslatogetherwhocares",
+  "openaisaysitwillnolongertrainitsaimodelsontheliveinternetcitingsignificantrisks",
+  "hottesttoyforchristmasnvidiaceoplayswithadorablemicroduckrobots20000sell",
+  "fromtoasttobessemerwhofounderswillhearfromattechcrunchfoundersummit2026",
+  "uberrivalindriveeyes2027robotaxitestsincentralasiawithponyaiandnvidia",
+  "leftalonewithnothingtodoaiagentsstartedplaying",
+  "openaiworkingonnew30braiseat125tvaluationaheadofipo",
+  "1passwordlaunchesawayforaiagentstologinonyourbehalfwithoutseeingyourpassword",
+  "canvareleasesitsfirstimagegenerationmodel",
+  "openaimakesitsjevcompetitorwidelyavailableasdecisionmodelcompetitionheatsup",
+  "microsoftsmustafasuleymansaysitsaioutperformsdoctorsonhardcasesashechasesmedical",
+  "updatedgoogleprivacypolicysaysyourgmailmightbeusedforadvertising",
+  "intelgetswaiverafterworriesfuzzyusbanonforeignmaderobotsmayhitfabs",
+  "designinganaiservingharnessbuilttolast",
+  "thefoundationsofscalableai",
+  "threeweekonsiteauditatopenairevealsmajorgapsinaisafetymonitoring",
+  "anthropicsaysitsunreleasedmodelisbothmorecapableandbetteralignedthanmythos51",
+  "openaiceosamaltmansaysadvancedaiwillinevitablyescapeitssandboxandonlyalignmentca",
+  "canvalaunchescraftitsfirstinhouseimagemodel",
+  "anthropicsclaudenowwritescodeandprovesitsafeautomatically",
+  "openailowersvaluationtargetraisesupto30billion",
+  "majorusbanksarelockingoutaiagentsthatloginwithcustomercredentials",
+  "googlesagentcomputeenginegiveseverygeminiagentitsownhardwareisolatedmicrovirtual",
+  "openainears125t1passwordforagentsgemini35propostmortem",
+  "sichiudesabatoorizzontidigitaliilforumdedicatoallintelligenzaartificiale",
+  "intelligenzaartificialeperlaricercaoncologicapremioallistitutotumori",
+  "tronchettiilcalendariopirelliconintelligenzaartificialesarebbetristissimo",
+  "bagnascoimpedirechelintelligenzaartificialesostituiscaluomo",
+  "anghilericonfindustrialaioggièlasfidadecisivailpaesenoncresceda25anni",
+  "titolidistatooatdecennaleal505spreaditaliagermaniaaimassimidaaprile2025",
+  "lavorettoextra7plugindichatgptconipromptperiniziareora",
+  "perplexitycomputeresecuzionesumaccon36gbdiram",
+  "microsofteliminalafunzioneaidioutlookcheordinavalaposta",
+  "openaivulnerabilitànelsistemadimonitoraggioai",
+  "agentiaiaccedonoaiconticorrentibancheinallarme",
+  "etsyivenditoridevonodichiarareleimmaginigenerateconlai",
+  "lanasaportalaisullalunaunrovertesteràimodellilinguistici",
+  "socialvietatiaiminoridi15annilagreciaapprovalaleggecosacambiaequando",
+  "claudefable51canhidesecretmessagesinbenignimages",
+  "swedensgovernmentisblockingchatgptandclaudeonstaffcomputersfrommonday",
+  "3ofcriticalsoftwaresecuritybugsinallofrecordedhistoryhavebeenfoundinthelastmonth",
+  "nocodingorgamedevbackground6weekswithopus55godotfromdrawingstoaplayablegame",
+  "anthropicappearstosneakinalegalloopholeinclaudecodetotrainonfeedbackevenwithtrai",
+  "ibmceosaysbusinessesarechoosingopenweightmodelsoverexpensivefrontierai",
+  "whatswrongwithargonsusagelimit",
+  "lmaooargonisfunny",
+  "modelsdisappearingfromhuggingface",
+  "vibecodingyourowninferenceengineiseasytheysaid",
+  "hereswherethelastrtx5090cardsaregoingmassiveaiconversionfactoryexposedinchinafou",
+  "nvidianvidianemotron35bolte4b4gbhuggingface",
+  "smallpostaboutwhataretheunlocksforrtxconsumergpuswhichonesareaffectedinwhichtask",
+  "canllmssuperchargegeolocationsourtestsshowbigimprovementsbuthumansremainkey",
+  "howgillianbrockellinvestigatesiceremovalflightsfromus",
+  "protectingyourselfagainstlegalthreatscarlosgaio",
+  "डपलरनग",
+  "howrussiacensorsforeigntvmidtermbattleforuscongressvenezuelascollapsedhousingtow",
+  "whatwelearnedbuildingachatbotforlasillavacíasnewsroomarchive",
+  "factcheckkpkyettoforcefullysummonnusronwahidforgraftcase",
+  "doesthisvideoshowprotestershawkingluxuryproductslootedduringfranceriots",
+  "whydelhipoliceprotestphotosexposethelimitsofaiimagedetection",
+  "factcheckviralphotoofegyptiancouplefalselylinkedtobangladeshinationalsexecutedin",
+  "imagesshowheavydamageatrussianelectronicsplant",
+  "strengtheningnewsroomsinsolomonislands",
+  "europoltraccia51potenzialivittimedellatrattaconlosint",
+  "amacomerlunicatappainsardegnadilinuxdaylunionesardait",
+  "sabotaggioastarlinktrabulgariaepoloniaifattileattribuzionieilrischioeuropeo",
+  "osintcontrolapropagandaestremistacomesmascherarefakenewsemanipolazionionline",
+  "tiktokcomments",
+  "tiktokandinstagram",
+  "isagaiaidcompletelyuselessinbig2026",
+  "howtolocatescotlandcourtrolls"
+ ],
+ "audio": "audio/2026-10-24.mp3",
+ "durata": 101.7
+}
